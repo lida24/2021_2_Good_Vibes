@@ -1,5 +1,7 @@
 'use strict';
 
+const siteName = 'goodvibes-ozon2.netlify.app'
+
 const express = require('express');
 const body = require('body-parser');
 const cookie = require('cookie-parser');
@@ -43,7 +45,7 @@ const users = {
 
 const ids = {};
 
-app.post('/signup', function (req, res) {
+app.post(`${siteName}/signup`, function (req, res) {
     const password = req.body.password;
     const username = req.body.username;
     const email = req.body.email;
@@ -68,7 +70,7 @@ app.post('/signup', function (req, res) {
     res.status(201).json({id});
 });
 
-app.post('/login', function (req, res) {
+app.post(`${siteName}/login`, function (req, res) {
     const password = req.body.password;
     const username = req.body.username;
     if (!password || !username) {
@@ -85,7 +87,7 @@ app.post('/login', function (req, res) {
     res.status(200).json({id});
 });
 
-app.get('/me', function (req, res) {
+app.get(`${siteName}/me`, function (req, res) {
     const id = req.cookies['user authorization cookie'];
     const username = ids[id];
     if (!username || !users[username]) {
@@ -95,7 +97,7 @@ app.get('/me', function (req, res) {
     res.json(users[username]);
 });
 
-app.post('/logout', function (req, res) {
+app.post(`${siteName}/logout`, function (req, res) {
     const id = req.cookies['user authorization cookie'];
     const username = ids[id];
     if (!username || !users[username]) {
