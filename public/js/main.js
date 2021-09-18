@@ -187,8 +187,9 @@ function signUpContainerGenerate(parent) {
 
         e.preventDefault();
 
-        const email = usernameInput.value.trim();
+        const username = usernameInput.value.trim();
         const password = passwordInput.value.trim();
+        const email = emailInput.value.trim();
 
         // console.log(email);
         // console.log(password);
@@ -196,7 +197,7 @@ function signUpContainerGenerate(parent) {
         ajax(
           'POST',
           '/signup',
-            {email, password},
+            {username, password, email},
             (status) => {
               if (status === 201) {
                   homePage();
@@ -257,7 +258,7 @@ function signInContainerGenerate(parent) {
 
         e.preventDefault();
 
-        const email = usernameInput1.value.trim();
+        const username = usernameInput1.value.trim();
         const password = passwordInput1.value.trim();
 
         // console.log(username);
@@ -266,7 +267,7 @@ function signInContainerGenerate(parent) {
         ajax(
           'POST',
           '/login',
-            {email, password},
+            {username, password},
             (status) => {
               if (status === 200) {
                   homePage();
@@ -314,7 +315,7 @@ function homePage() {
                     e.preventDefault();
 
                     ajax(
-                        'GET',
+                        'POST',
                         '/logout',
                         null,
                         (status, responseText) => {
