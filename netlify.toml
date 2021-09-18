@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/"
+  to = "https://goodvibes-ozon2.netlify.app/"
+  status = 200 
