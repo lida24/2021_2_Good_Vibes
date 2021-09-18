@@ -2,7 +2,12 @@ console.log('lol kek')
 
 const root = document.getElementById('root');
 
+const user = {};
+
 // =======================================
+
+
+// ----------------------------------------
 function ajax(method, url, body = null, callback) {
     const xhr = new XMLHttpRequest();
     xhr.open(method, url, true);
@@ -22,15 +27,10 @@ function ajax(method, url, body = null, callback) {
 
     xhr.send();
 }
-
-// const toggle = () => {
-//   container.classList.toggle('sign-in');
-//   container.classList.toggle('sign-up');
-// };
+// ----------------------------------------
 
 
 // ----------------------------------------
-
 function CreateObject(parent, type) {
     const obj = document.createElement(type)
 
@@ -95,8 +95,6 @@ function CreateForm(parent, id, ...classesName) {
     return form   
 }
 
-
-
 function CreateA(parent, id, href = '#') {
     const a = CreateObject(parent, 'a');
 
@@ -120,10 +118,11 @@ function CreateI(parent, id, ...classesName) {
 
     return i;
 }
+// ----------------------------------------
 
+// ----------------------------------------
 function GenerateSocialList(parent, authorizationType) {
     socialWrapper = CreateDiv(parent, null, 'form-wrapper');
-
     socialList = CreateDiv(socialWrapper, null, authorizationType, 'social-list', 'align-center');
 
     CreateI(
@@ -149,25 +148,23 @@ function GenerateSocialList(parent, authorizationType) {
         null,
         'bx',
         'bxl-instagram-alt');
-
 }
+// ----------------------------------------
 
 
-
-
-function signUpContainerGenerate(parent) {
+// ----------------------------------------
+function signUpBlockGenerate(parent) {
     sigupFormContainer = CreateDiv(parent, null, 
-        'col', 'align-center', 'flex-col', 'sign-up');  // signup form container
+        'col', 'align-center', 'flex-col', 'sign-up');
 
     formWrapper = CreateDiv(sigupFormContainer, null, 'form-wrapper', 'align-center');
-
     signupForm = CreateForm(formWrapper, null, 'form sign-up');
 
     CreateObject(signupForm, 'h3').innerText = 'signup';
 
-    usernameInput = CreateInput(signupForm, 'text',     'Username',         null,           'box');
-    emailInput = CreateInput(signupForm, 'email',    'Email',            null,           'box');
-    passwordInput = CreateInput(signupForm, 'password', 'Password',         null,           'box');
+    usernameSignUpInput = CreateInput(signupForm, 'text',     'Username',         null,           'box');
+    emailSignUpInput = CreateInput(signupForm, 'email',    'Email',            null,           'box');
+    passwordSignUpInput = CreateInput(signupForm, 'password', 'Password',         null,           'box');
     CreateInput(signupForm, 'password', 'Confirm password', null,           'box'); 
     CreateInput(signupForm, 'submit',   null,               'signup now',   'btn'); 
 
@@ -178,62 +175,45 @@ function signUpContainerGenerate(parent) {
 
     GenerateSocialList(sigupFormContainer, 'sign-up');
 
-
-
-
-
     sigupFormContainer.addEventListener('submit', (e) => {
-        console.log('kek sign-up');
-
         e.preventDefault();
 
-        const username = usernameInput.value.trim();
-        const password = passwordInput.value.trim();
-        const email = emailInput.value.trim();
+        const username = usernameSignUpInput.value.trim();
+        const password = passwordSignUpInput.value.trim();
+        const email = emailSignUpInput.value.trim();
 
-        // console.log(email);
-        // console.log(password);
-
-        ajax(
+        ajax(  // обработать ошибки регистрации
           'POST',
           '/signup',
             {username, password, email},
             (status) => {
               if (status === 201) {
-                  homePage();
+                  siteGenerate();
                   return;
               }
 
               alert('НЕ получилось не фартануло');
             }
         );
-
     });
-
-
 }
+// ----------------------------------------
 
 
-
-
-
-
-function signInContainerGenerate(parent) {
+// ----------------------------------------
+function signInBlockGenerate(parent) {
 
     signinFormContainer = CreateDiv(parent, null, 'col', 'align-center',
         'flex-col', 'sign-in');
 
-    // signinFormContainer.action = '/signin';
-
     formWrapper = CreateDiv(signinFormContainer, null, 'form-wrapper', 'align-center');
-
     signinForm = CreateForm(formWrapper, null, 'form', 'sign-in');
 
     CreateObject(signinForm, 'h3').innerText = 'login';
 
-    usernameInput1 = CreateInput(signinForm, 'text',     'Username',         null,           'box');
-    passwordInput1 = CreateInput(signinForm, 'password', 'Password',         null,           'box');
-    submitBtn = CreateInput(signinForm, 'submit',   null,               'sign in',   'btn'); 
+    usernameSignInInput = CreateInput(signinForm, 'text',     'Username',         null,           'box');
+    passwordSignInInput = CreateInput(signinForm, 'password', 'Password',         null,           'box');
+    CreateInput(signinForm, 'submit',   null,               'sign in',   'btn'); 
 
     rememberMeP = CreateObject(signinForm, 'p')
     CreateInput(rememberMeP, 'checkbox', 'remember', null);
@@ -249,8 +229,6 @@ function signInContainerGenerate(parent) {
     dontHaveAccountP.innerText = 'don\'t have account?';
     signUpBtn = CreateA(dontHaveAccountP, 'sign-up', '#').textContent = 'signup now';
 
-    // signUpBtn.addEventListener('click', toggle);
-
     GenerateSocialList(signinFormContainer, 'sign-in');
 
     signinFormContainer.addEventListener('submit', (e) => {
@@ -258,31 +236,68 @@ function signInContainerGenerate(parent) {
 
         e.preventDefault();
 
-        const username = usernameInput1.value.trim();
-        const password = passwordInput1.value.trim();
+        const username = usernameSignInInput.value.trim();
+        const password = passwordSignInInput.value.trim();
 
-        // console.log(username);
-        // console.log(password);
-
-        ajax(
+        ajax(  // обработать ошибки авторизации
           'POST',
           '/login',
             {username, password},
             (status) => {
               if (status === 200) {
-                  homePage();
+                  siteGenerate();
                   return;
               }
-
               alert('НЕ получилось не фартануло');
             }
         );
-
     });
 }
+// ----------------------------------------
 
 
-function homePage() {
+
+// ----------------------------------------
+function homePage({username, password, email}) {  // надо сделать красивую страницу профиля
+    root.innerHTML = '';
+
+    const span = document.createElement('span');
+    span.textContent = 
+    `Авторизованный пользователь: ${username}\n
+     Электронная почта пользователя: ${email}\n
+     Пароль пользователя (а-та-та показывать пароли)): ${password}\n`;
+
+    root.appendChild(span);
+
+    const back = document.createElement('a');
+    back.href = '/';
+    back.textContent = 'Выйти из аккаунта';
+
+    root.appendChild(back);
+
+    back.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        ajax(
+            'POST',
+            '/logout',
+            null,
+            (status, responseText) => {
+                if (status != 200) {
+                    alert('logout error');
+                    return;
+                }
+
+                enterPage(); 
+            }
+        );
+    });
+}
+// ----------------------------------------
+
+
+// ----------------------------------------
+function siteGenerate() {
     root.innerHTML = '';
 
     ajax(
@@ -297,86 +312,20 @@ function homePage() {
             }
 
             if (isAuthorized) {
-                const {age, score, images} = JSON.parse(responseText);
-
-                const span = document.createElement('span');
-                span.textContent = `мне ${age} и я крутой на ${score} очков`;
-
-                root.appendChild(span);
-
-                const back = document.createElement('a');
-                back.href = '/';
-                back.textContent = 'back';
-                back.dataset.section = 'menu';
-
-                root.appendChild(back);
-
-                back.addEventListener('click', (e) => {
-                    e.preventDefault();
-
-                    ajax(
-                        'POST',
-                        '/logout',
-                        null,
-                        (status, responseText) => {
-                            if (status != 200) {
-                                alert('logout error');
-                                return;
-                            }
-
-                            EnterPage();
-                        }
-                    );
-                });
-
-
-                console.log('authorized');
-
+                const user = JSON.parse(responseText);
+                homePage(user)
                 return;
             }
 
-            alert('not authorized');
-            EnterPage();
+            enterPage(); // добавить обработку того, что пользователь не авторизован
         }
     );
-
-    // root.textContent = 'homePage';
-
 }
+// ----------------------------------------
 
-
-// =======================================
-
-function EnterPage() {
-
-    // root.innerHTML = '';
-
-    // root.textContent = 'enterPage';
-
-// -------------------------------
-
-    root.innerHTML = '';
-
-    // row = CreateDiv(root, null, 'row');  // row starts
-
-    const container = CreateDiv(root, 'container', 'container');
-
-    const row = CreateDiv(container, null, 'row');
-
-
-    signUpContainerGenerate(row);
-
-
-
-// -----------------
-    signInContainerGenerate(row);
-
-
-
-    contentSectionRow = CreateDiv(container, null, null, 'row', 'row-content');
-
-// -----------------
-    signInContent = CreateDiv(contentSectionRow, null, null, 'col', 'align-center', 'flex-col');
+// ----------------------------------------
+function signInContentGenerate (parent) {
+    signInContent = CreateDiv(parent, null, null, 'col', 'align-center', 'flex-col');
 
     textSignIn = CreateDiv(signInContent, null, null, 'text', 'sign-in');
 
@@ -388,10 +337,12 @@ function EnterPage() {
     img = CreateObject(imgSignIn, 'img');
     img.setAttribute('src', './images/2.png');
     img.setAttribute('alt', '');
+}
+// ----------------------------------------
 
-
-// -----------------
-    signUpContent = CreateDiv(contentSectionRow, null, null, 'col', 'align-center', 'flex-col');
+// ----------------------------------------
+function signUpContentGenerate (parent) {
+    signUpContent = CreateDiv(parent, null, null, 'col', 'align-center', 'flex-col');
 
     textSignUp = CreateDiv(signUpContent, null, null, 'text', 'sign-up');
 
@@ -402,49 +353,47 @@ function EnterPage() {
     imgSignIn = CreateDiv(signUpContent, null, null, 'img', 'sign-up');
     img = CreateObject(imgSignIn, 'img');
     img.setAttribute('src', './images/1.png');
-    img.setAttribute('alt', '');
-
-
-
-
-const signIn = document.getElementById('sign-in');
-const signUp = document.getElementById('sign-up');
-
-setTimeout(() => {
-  container.classList.add('sign-in');
-}, 200);
-
-const toggle = () => {
-  container.classList.toggle('sign-in');
-  container.classList.toggle('sign-up');
-};
-
-signIn.addEventListener('click', toggle);
-signUp.addEventListener('click', toggle);
-
-
-
+    img.setAttribute('alt', '');    
 }
+// ----------------------------------------
 
-// EnterPage();
+// ----------------------------------------
+function scripts() {
+    const signIn = document.getElementById('sign-in');
+    const signUp = document.getElementById('sign-up');
 
-homePage();
+    setTimeout(() => {
+      container.classList.add('sign-in');
+    }, 200);
+
+    const toggle = () => {
+      container.classList.toggle('sign-in');
+      container.classList.toggle('sign-up');
+    };
+
+    signIn.addEventListener('click', toggle);
+    signUp.addEventListener('click', toggle);    
+}
+// ----------------------------------------
+
+// ----------------------------------------
+function enterPage() {
+    root.innerHTML = '';
+
+    const container = CreateDiv(root, 'container', 'container');
+    const row = CreateDiv(container, null, 'row');
+
+    signUpBlockGenerate(row);
+    signInBlockGenerate(row);
+
+    contentSectionRow = CreateDiv(container, null, null, 'row', 'row-content');
+
+    signInContentGenerate(contentSectionRow);
+    signUpContentGenerate(contentSectionRow);
+
+    scripts();
+}
+// ----------------------------------------
 
 
-// ==============================================
-
-// const container = document.getElementById('container');
-// const signIn = document.getElementById('sign-in');
-// const signUp = document.getElementById('sign-up');
-
-// setTimeout(() => {
-//   container.classList.add('sign-in');
-// }, 200);
-
-// const toggle = () => {
-//   container.classList.toggle('sign-in');
-//   container.classList.toggle('sign-up');
-// };
-
-// signIn.addEventListener('click', toggle);
-// signUp.addEventListener('click', toggle);
+siteGenerate();
