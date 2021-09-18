@@ -165,10 +165,13 @@ function signUpBlockGenerate(parent) {
     usernameSignUpInput = CreateInput(signupForm, 'text',     'Username',         null,           'box');
     emailSignUpInput = CreateInput(signupForm, 'email',    'Email',            null,           'box');
     passwordSignUpInput = CreateInput(signupForm, 'password', 'Password',         null,           'box');
-    CreateInput(signupForm, 'password', 'Confirm password', null,           'box'); 
+    confirmPasswordSignUpInput = CreateInput(signupForm, 'password', 'Confirm password', null,           'box'); 
+    signUpAlert = CreateObject(signupForm, 'p');
+    signUpAlert.style.visibility = 'hidden';
+
     CreateInput(signupForm, 'submit',   null,               'signup now',   'btn'); 
 
-    alreadyHaveAccountP = CreateObject(signupForm, 'p')
+    alreadyHaveAccountP = CreateObject(signupForm, 'p');
     alreadyHaveAccountP.innerText = 'Already have account?';
 
     CreateA(alreadyHaveAccountP, 'sign-in', '#').textContent = 'sign in';
@@ -176,23 +179,64 @@ function signUpBlockGenerate(parent) {
     GenerateSocialList(sigupFormContainer, 'sign-up');
 
     sigupFormContainer.addEventListener('submit', (e) => {
+        signUpAlert.style.visibility = 'hidden';
+
         e.preventDefault();
 
         const username = usernameSignUpInput.value.trim();
-        const password = passwordSignUpInput.value.trim();
         const email = emailSignUpInput.value.trim();
 
-        ajax(  // обработать ошибки регистрации
+        const password = passwordSignUpInput.value.trim();
+        const confirmPassword = confirmPasswordSignUpInput.value.trim();
+
+        if (
+            !password || !confirmPassword ||
+            !username || !email
+        ) {
+            signUpAlert.innerText = 'Fill all fields';
+            signUpAlert.style.visibility = 'visible';
+            return;             
+        }
+
+        if (!email.match(/@/)) {
+            signUpAlert.innerText = 'Wrong format of email';
+            signUpAlert.style.visibility = 'visible';
+            return;        
+        }
+
+        if (!password.match(/^\S{4,}$/)) {
+            signUpAlert.innerText = 'Wrong password format';
+            signUpAlert.style.visibility = 'visible';
+            return;
+        }
+
+        if (password != confirmPassword) {
+            signUpAlert.innerText = 'Password are not confirmed';
+            signUpAlert.style.visibility = 'visible';
+            return;
+        }
+
+
+
+        ajax(
           'POST',
           '/signup',
             {username, password, email},
-            (status) => {
+            (status, responseText) => {
               if (status === 201) {
                   siteGenerate();
                   return;
               }
 
-              alert('НЕ получилось не фартануло');
+              JSON.parse(responseText, (key, value) => {
+                if (key !== '') {
+                    signUpAlert.innerText = value;
+                    signUpAlert.style.visibility = 'visible';
+                    return;                    
+                }
+
+              });
+
             }
         );
     });
@@ -213,6 +257,11 @@ function signInBlockGenerate(parent) {
 
     usernameSignInInput = CreateInput(signinForm, 'text',     'Username',         null,           'box');
     passwordSignInInput = CreateInput(signinForm, 'password', 'Password',         null,           'box');
+    
+    signInAlert = CreateObject(signinForm, 'p');
+    signInAlert.innerText = 'alert';
+    signInAlert.style.visibility = 'hidden';
+
     CreateInput(signinForm, 'submit',   null,               'sign in',   'btn'); 
 
     rememberMeP = CreateObject(signinForm, 'p')
@@ -221,9 +270,9 @@ function signInBlockGenerate(parent) {
     rememberMeLabel.setAttribute('for', 'remember');
     rememberMeLabel.textContent = 'Remember me';
 
-    forgetPasswordP = CreateObject(signinForm, 'p');
-    forgetPasswordP.innerText = 'forget password?';
-    CreateA(forgetPasswordP, null, '#').textContent = 'click here';
+    // forgetPasswordP = CreateObject(signinForm, 'p');
+    // forgetPasswordP.innerText = 'forget password?';
+    // CreateA(forgetPasswordP, null, '#').textContent = 'click here';
 
     dontHaveAccountP = CreateObject(signinForm, 'p');
     dontHaveAccountP.innerText = 'don\'t have account?';
@@ -232,23 +281,43 @@ function signInBlockGenerate(parent) {
     GenerateSocialList(signinFormContainer, 'sign-in');
 
     signinFormContainer.addEventListener('submit', (e) => {
-        console.log('kek sign-in');
+        signUpAlert.style.visibility = 'hidden';
 
         e.preventDefault();
 
         const username = usernameSignInInput.value.trim();
         const password = passwordSignInInput.value.trim();
 
-        ajax(  // обработать ошибки авторизации
+        if (!username || !password) {
+            signInAlert.innerText = 'Fill all fields';
+            signInAlert.style.visibility = 'visible';
+            return;
+        }
+
+        if (!password.match(/^\S{4,}$/)) {
+            signInAlert.innerText = 'Wrong password format';
+            signInAlert.style.visibility = 'visible';
+            return;
+        }
+
+
+        ajax(
           'POST',
           '/login',
             {username, password},
-            (status) => {
-              if (status === 200) {
-                  siteGenerate();
-                  return;
-              }
-              alert('НЕ получилось не фартануло');
+            (status, responseText) => {
+                if (status === 200) {
+                    siteGenerate();
+                    return;
+                }
+
+                JSON.parse(responseText, (key, value) => {
+                    if (key !== '') {
+                        signInAlert.innerText = value;
+                        signInAlert.style.visibility = 'visible';
+                        return;                    
+                    }
+                });
             }
         );
     });
@@ -258,20 +327,20 @@ function signInBlockGenerate(parent) {
 
 
 // ----------------------------------------
-function homePage({username, password, email}) {  // надо сделать красивую страницу профиля
+function homePage({username, password, email}) {
     root.innerHTML = '';
 
     const span = document.createElement('span');
     span.textContent = 
-    `Авторизованный пользователь: ${username}\n
-     Электронная почта пользователя: ${email}\n
-     Пароль пользователя (а-та-та показывать пароли)): ${password}\n`;
+    `Authorized user: ${username}\n
+     User's email: ${email}\n
+     User's password: ${password}\n`;
 
     root.appendChild(span);
 
     const back = document.createElement('a');
     back.href = '/';
-    back.textContent = 'Выйти из аккаунта';
+    back.textContent = 'Log out';
 
     root.appendChild(back);
 
@@ -283,12 +352,19 @@ function homePage({username, password, email}) {  // надо сделать к�
             '/logout',
             null,
             (status, responseText) => {
-                if (status != 200) {
-                    alert('logout error');
+                if (status == 200) {
+                    siteGenerate();
                     return;
                 }
 
-                enterPage(); 
+
+                JSON.parse(responseText, (key, value) => {
+                    if (key !== '') {
+                        alert(value);
+                        return;                    
+                    }
+                });
+
             }
         );
     });
@@ -317,7 +393,7 @@ function siteGenerate() {
                 return;
             }
 
-            enterPage(); // добавить обработку того, что пользователь не авторизован
+            enterPage();
         }
     );
 }

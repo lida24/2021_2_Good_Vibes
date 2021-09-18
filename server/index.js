@@ -53,10 +53,10 @@ app.post('/signup', function (req, res) {
         !password.match(/^\S{4,}$/) ||
         !email.match(/@/)
     ) {
-        return res.status(400).json({error: 'Не валидные данные пользователя'});
+        return res.status(400).json({error: 'Not valid user data'});
     }
     if (users[username]) {
-        return res.status(400).json({error: 'Пользователь уже существует'});
+        return res.status(400).json({error: 'User already exist'});
     }
 
     const id = uuidv4();
@@ -72,10 +72,10 @@ app.post('/login', function (req, res) {
     const password = req.body.password;
     const username = req.body.username;
     if (!password || !username) {
-        return res.status(400).json({error: 'Не указан логин или пароль'});
+        return res.status(400).json({error: 'Fill all fields'});
     }
     if (!users[username] || users[username].password !== password) {
-        return res.status(400).json({error: 'Не верный логин и/или пароль'});
+        return res.status(400).json({error: 'Wrong username or password'});
     }
 
     const id = uuidv4();
@@ -89,17 +89,17 @@ app.get('/me', function (req, res) {
     const id = req.cookies['user authorization cookie'];
     const username = ids[id];
     if (!username || !users[username]) {
-        return res.status(400).json({error: 'Пользователь не авторизован'});
+        return res.status(400).json({error: 'User are not authorize'});
     }
 
-    res.json(users[username]);
+    res.status(200).json(users[username]);
 });
 
 app.post('/logout', function (req, res) {
     const id = req.cookies['user authorization cookie'];
     const username = ids[id];
     if (!username || !users[username]) {
-        return res.status(400).json({error: 'Нет авторизованного пользователя'});
+        return res.status(400).json({error: 'There is no authorized users'});
     }
 
     ids[id] = undefined;
@@ -111,4 +111,4 @@ app.post('/logout', function (req, res) {
 const port = process.env.PORT || 3000;
 app.listen(port, function () {
     console.log(`Server listening port ${port}`);
-}); 
+});
