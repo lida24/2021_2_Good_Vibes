@@ -1,4 +1,9 @@
+[build]
+  command = "node server"
+  publish = "/public"
+  base = "/"
+
 [[redirects]]
   from = "/*"
-  to = "https://goodvibes-ozon2.netlify.app/*"
+  to = "/index.html"
   status = 200 
