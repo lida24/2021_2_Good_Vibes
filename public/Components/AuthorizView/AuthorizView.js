@@ -4,43 +4,49 @@ import SignUpBlock from '../SignUpBlock/SignUpBlock.js';
 import SignInBlock from '../SignInBlock/SignInBlock.js';
 
 export default class AuthorizView {
-    render() {
-        root.innerHTML = '';
+  #parent;
 
-        const container = CreateDiv({
-            parent: root,
-            id: 'container',
-            classesNames: [
-                'container',
-            ]
-        });
-        const row = CreateDiv({
-            parent: container,
-            classesNames: [
-                'row',
-            ],
-        });
+  constructor(parent) {
+    this.#parent = parent;
+  }
 
-        const signUpBlock = new SignUpBlock(row);
-        signUpBlock.generate();
+  render() {
+    root.innerHTML = '';
 
-        const signInBlock = new SignInBlock(row);
-        signInBlock.generate();
+    const container = CreateDiv({
+      parent: this.#parent,
+      id: 'container',
+      classesNames: [
+        'container',
+      ],
+    });
+    const row = CreateDiv({
+      parent: container,
+      classesNames: [
+        'row',
+      ],
+    });
 
-        const contentSectionRow = CreateDiv({
-            parent: container,
-            classesNames: [
-                'row',
-                'row-content',
-            ],
-        });
+    const signUpBlock = new SignUpBlock(row);
+    signUpBlock.generate();
 
-        const signInContent = new SignInContent(contentSectionRow);
-        signInContent.generate();
+    const signInBlock = new SignInBlock(row);
+    signInBlock.generate();
 
-        const signUpContent = new SignUpContent(contentSectionRow);
-        signUpContent.generate();
+    const contentSectionRow = CreateDiv({
+      parent: container,
+      classesNames: [
+        'row',
+        'row-content',
+      ],
+    });
 
-        authorizViewAction(container);
-    }
+    const signInContent = new SignInContent(contentSectionRow);
+    signInContent.generate();
+
+    const signUpContent = new SignUpContent(contentSectionRow);
+    signUpContent.generate();
+
+    authorizViewAction(container);
+  }
 }

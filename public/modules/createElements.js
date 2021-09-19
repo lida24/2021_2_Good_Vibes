@@ -1,131 +1,127 @@
-(function () {
+(function createElement() {
+  // ------------------------------
+  function ParseClasses(classesNames) {
+    let classString = classesNames[0];
 
-    // ------------------------------
-    function ParseClasses(classesNames) {
-        let classString = classesNames[0];
-
-        for (let i = 1; i < classesNames.length; i += 1) {
-            classString = `${classString} ${classesNames[i]}`;
-        }
-
-        return classString;
+    for (let i = 1; i < classesNames.length; i += 1) {
+      classString = `${classString} ${classesNames[i]}`;
     }
-    window.ParseClasses = ParseClasses;
 
-    // ------------------------------
-    function CreateObject({ parent = '', type = 'div' }) {
-        const obj = document.createElement(type);
+    return classString;
+  }
+  window.ParseClasses = ParseClasses;
 
-        if (parent !== undefined) {
-            parent.appendChild(obj);
-        }
+  // ------------------------------
+  function CreateObject({ parent = '', type = 'div' }) {
+    const obj = document.createElement(type);
 
-        return obj;
+    if (parent !== undefined) {
+      parent.appendChild(obj);
     }
-    window.CreateObject = CreateObject;
 
-    // ------------------------------
-    function CreateInput({ parent = '', type = 'text', placeholder, value, classesNames }) {
-        const input = CreateObject({
-            parent: parent, 
-            type: 'input',
-        });
+    return obj;
+  }
+  window.CreateObject = CreateObject;
 
-        input.type = type;
+  // ------------------------------
+  function CreateInput({
+    parent = '', type = 'text', placeholder, value, classesNames,
+  }) {
+    const input = CreateObject({
+      parent,
+      type: 'input',
+    });
 
-        if (placeholder !== undefined) {
-            input.placeholder = placeholder;
-        }
+    input.type = type;
 
-        if (value !== undefined) {
-            input.value = value;
-        }
-
-        if (classesNames !== undefined) {
-            input.className = ParseClasses(classesNames);
-        }
-
-        return input;
+    if (placeholder !== undefined) {
+      input.placeholder = placeholder;
     }
-    window.CreateInput = CreateInput;
 
-
-    // ------------------------------
-    function CreateDiv({ parent = '', id, classesNames }) {
-        const div = CreateObject({
-            parent: parent, 
-            type: 'div',
-        });
-
-        if (id !== undefined) {
-            div.id = id;
-        }
-
-        if (classesNames !== undefined) {
-            div.className = ParseClasses(classesNames);
-        }
-        
-        return div;
+    if (value !== undefined) {
+      input.value = value;
     }
-    window.CreateDiv = CreateDiv;
 
-
-    // ------------------------------
-    function CreateForm({ parent = '', id, classesNames }) {
-        const form = CreateObject({
-            parent: parent, 
-            type: 'form',
-        });
-
-        if (id !== undefined) {
-            form.id = id;
-        }
-
-        if (classesNames !== undefined) {
-            form.className = ParseClasses(classesNames);
-        }
-
-        return form;
+    if (classesNames !== undefined) {
+      input.className = ParseClasses(classesNames);
     }
-    window.CreateForm = CreateForm;
 
-    // ------------------------------
-    function CreateA({ parent = '', id, href = '#' }) {
-        const a = CreateObject({
-            parent: parent, 
-            type: 'a',
-        });
+    return input;
+  }
+  window.CreateInput = CreateInput;
 
-        if (id !== undefined) {
-            a.id = id;
-        }
+  // ------------------------------
+  function CreateDiv({ parent = '', id, classesNames }) {
+    const div = CreateObject({
+      parent,
+      type: 'div',
+    });
 
-        a.href = href;
-
-        return a;
+    if (id !== undefined) {
+      div.id = id;
     }
-    window.CreateA = CreateA;
 
-
-    // ------------------------------
-    function CreateI({ parent = '', id, classesNames }) {
-        const i = CreateObject({
-            parent: parent, 
-            type: 'i',
-        });
-
-        if (id !== undefined) {
-            i.id = id;
-        }
-
-        if (classesNames !== undefined) {
-            i.className = ParseClasses(classesNames);
-        }
-
-        return i;
+    if (classesNames !== undefined) {
+      div.className = ParseClasses(classesNames);
     }
-    window.CreateI = CreateI;
 
+    return div;
+  }
+  window.CreateDiv = CreateDiv;
 
+  // ------------------------------
+  function CreateForm({ parent = '', id, classesNames }) {
+    const form = CreateObject({
+      parent,
+      type: 'form',
+    });
+
+    if (id !== undefined) {
+      form.id = id;
+    }
+
+    if (classesNames !== undefined) {
+      form.className = ParseClasses(classesNames);
+    }
+
+    return form;
+  }
+  window.CreateForm = CreateForm;
+
+  // ------------------------------
+  function CreateA({ parent = '', id, href = '#' }) {
+    const a = CreateObject({
+      parent,
+      type: 'a',
+    });
+
+    if (id !== undefined) {
+      a.id = id;
+    }
+
+    a.href = href;
+
+    return a;
+  }
+  window.CreateA = CreateA;
+
+  // ------------------------------
+  function CreateI({ parent = '', id, classesNames }) {
+    const i = CreateObject({
+      parent,
+      type: 'i',
+    });
+
+    if (id !== undefined) {
+      i.id = id;
+    }
+
+    if (classesNames !== undefined) {
+      i.className = ParseClasses(classesNames);
+    }
+
+    return i;
+  }
+  window.CreateI = CreateI;
 }()
 );
