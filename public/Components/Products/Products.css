@@ -1,0 +1,106 @@
+.heading {
+    padding-top: 7rem;
+    width: 95%;
+    border-bottom: 0.2rem solid rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+  }
+  
+  .heading span {
+    font-size: 2rem;
+    padding: 1rem 6rem;
+    color: #fff;
+    background: var(--twitter-color);
+    border-top-right-radius: 3rem;
+    display: inline-block;
+  }
+
+.products {
+  min-height: 100vh;
+}
+
+.products .product-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.products .product-container .product-card {
+  height: 50rem;
+  width: 30rem;
+  flex: 1 1 30rem;
+  overflow: hidden;
+  position: relative;
+  margin: 2rem 2rem;
+  box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+}
+
+.products .product-container .product-card .image {
+  height: 75%;
+  width: 100%;
+}
+
+.products .product-container .product-card .image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.products .product-container .product-card .content {
+  height: 25%;
+  width: 100%;
+  text-align: center;
+}
+
+.products .product-container .product-card .content h3 {
+  font-size: 3rem;
+  color: var(--blue);
+}
+
+.products .product-container .product-card .content .stars i {
+  color: gold;
+}
+
+.products .product-container .product-card .content .price {
+  font-size: 2rem;
+  color: red;
+}
+
+.products .product-container .product-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 75%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+}
+
+.products .product-container .product-card:hover .overlay {
+  transform: scale(1);
+}
+
+.products .product-container .product-card .overlay a {
+  font-size: 2rem;
+  padding: 1.5rem 2rem;
+  background: #fff;
+  color: #666;
+  margin: 1rem;
+  transform: translateY(-25rem);
+  transition-delay: calc(0.1s * var(--i));
+}
+
+.products .product-container .product-card:hover .overlay a {
+  transform: translateY(0rem);
+}
+
+.products .product-container .product-card .overlay a:hover {
+  color: var(--blue);
+}
