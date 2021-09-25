@@ -1,8 +1,3 @@
-[build]
-  command = "node server"
-  publish = "/public"
-  base = "/"
-
 [[redirects]]
   from = "/*"
   to = "/index.html"
