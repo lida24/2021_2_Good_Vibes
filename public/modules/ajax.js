@@ -46,7 +46,7 @@
 
 // ------------------
 
-      xhr.setRequestHeader('Content-Type:', 'text/plain');
+      xhr.setRequestHeader('Content-type:', 'text/plain');
       xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
       xhr.setRequestHeader('Origin', 'https://ozonback.herokuapp.com/');
 
