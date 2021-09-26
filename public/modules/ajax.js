@@ -35,14 +35,22 @@
 
 
 // ------------------
-      xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://ozonback.herokuapp.com/');
-      // xhr.setRequestHeader('Access-Control-Allow-Headers', 'origin, x-requested-with, content-type');
-      xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
-      // xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
-      // xhr.setRequestHeader('Accept', 'text/html');
 
+      // xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://ozonback.herokuapp.com/');
+      // // xhr.setRequestHeader('Access-Control-Allow-Headers', 'origin, x-requested-with, content-type');
+      // xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET');
+      // // xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+      // // xhr.setRequestHeader('Accept', 'text/html');
 
       // xhr.withCredentials = true;
+
+// ------------------
+
+      xhr.setRequestHeader('Content-Type:', 'text/plain');
+      xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
+      xhr.setRequestHeader('Origin', 'https://ozonback.herokuapp.com/');
+
+
 
       xhr.addEventListener('readystatechange', () => {
         if (xhr.readyState !== XMLHttpRequest.DONE) return;
