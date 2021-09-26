@@ -25,7 +25,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
           // try {
             // const user = JSON.parse(responseText);
 
-            root.innerHTML = `${responseText}`;
+            // root.innerHTML = `${responseText}`;
 
             const homeView = new HomeView(root);
             homeView.user = user;
@@ -77,7 +77,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
       body,
       callback: (status, responseText) => {
         if (status === AJAX_STATUS.OK) {
-          // homeViewRequest();
+          homeViewRequest();
 
           // const homeView = new HomeView(root);
           // homeView.user = responseText;
