@@ -29,7 +29,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
 
             const homeView = new HomeView(root);
             // homeView.user = user;
-            homeView.render();
+            homeView.render(); 
           // } catch (e) {
           //   alert(responseText);
           //   const authorizView = new AuthorizView(root);
