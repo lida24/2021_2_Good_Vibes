@@ -72,6 +72,30 @@
     //   })
     // }
 
+    promisifyPost(args = {}) {
+      return new Promise((resolve, reject) => {
+        this.#ajax({
+          ...args,
+          method: AJAX_METHODS.POST,
+          callback: (status, responseText) => {
+            if (status < 300) {
+              resolve({
+                status,
+                responseText,
+              });
+              return;
+            }
+
+            reject({
+              status,
+              responseText,
+            })
+          }
+        });
+      });
+    };
+    
+
   }
 
   

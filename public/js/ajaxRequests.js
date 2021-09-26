@@ -62,68 +62,93 @@ import HomeView from '../Components/HomeView/HomeView.js';
 
   // ------------------------------
   function logOutRequest() {
-    // Ajax.ajaxGet({
-    //   url: 'https://ozonback.herokuapp.com/logout',
+    Ajax.promisifyGet({ url: 'https://ozonback.herokuapp.com/logout', })
+      .then(({ status, responseText }) => {
+        homeViewRequest();
+      })
+      .catch(({ status, responseText }) => {
+        alert(responseText);
+      })
+  }
+  window.logOutRequest = logOutRequest;
+
+  // // ------------------------------
+  // function logInRequest({ body, alertObject }) {
+  //   Ajax.ajaxPost({
+  //     url: 'https://ozonback.herokuapp.com/login',
+  //     body,
+  //     callback: (status, responseText) => {
+
+  //       console.log(status);
+  //       console.log(responseText);
+
+  //       if (status === AJAX_STATUS.BAD_REQUEST) {
+  //         alertObject.innerText = 'Wrong username or password';
+  //         alertObject.style.visibility = 'visible';
+  //         return;
+  //       }
+
+  //       if (status === AJAX_STATUS.OK) {
+  //         homeViewRequest();
+  //         return;
+  //       }
+
+  //       // JSON.parse(responseText, (key, value) => {
+  //       //   if (key !== '') {
+  //           // alertObject.innerText = value;
+  //           // alertObject.style.visibility = 'visible';
+  //       //   }
+  //       // });
+
+  //     },
+  //   });
+  // }
+  // window.logInRequest = logInRequest;
+
+
+  // ------------------------------
+  function logInRequest({ body, alertObject }) {
+
+    Ajax.promisifyPost({ url: 'https://ozonback.herokuapp.com/login', })
+      .then(({ status, responseText }) => {
+        homeViewRequest();
+        return;
+      })
+      .catch(({ status, responseText }) => {
+        alertObject.innerText = 'Wrong username or password';
+        alertObject.style.visibility = 'visible';
+      })
+
+
+
+    // Ajax.ajaxPost({
+    //   url: 'https://ozonback.herokuapp.com/login',
+    //   body,
     //   callback: (status, responseText) => {
+
+    //     console.log(status);
+    //     console.log(responseText);
+
+    //     if (status === AJAX_STATUS.BAD_REQUEST) {
+    //       alertObject.innerText = 'Wrong username or password';
+    //       alertObject.style.visibility = 'visible';
+    //       return;
+    //     }
+
     //     if (status === AJAX_STATUS.OK) {
     //       homeViewRequest();
     //       return;
     //     }
 
-    //     JSON.parse(responseText, (key, value) => {
-    //       if (key !== '') {
-    //         alert(value);
-    //       }
-    //     });
+    //     // JSON.parse(responseText, (key, value) => {
+    //     //   if (key !== '') {
+    //     // alertObject.innerText = value;
+    //     // alertObject.style.visibility = 'visible';
+    //     //   }
+    //     // });
+
     //   },
     // });
-
-    Ajax.promisifyGet({ url: 'https://ozonback.herokuapp.com/logout', })
-      .then(({ status, responseText }) => {
-        // const homeView = new HomeView(root);
-        // homeView.render();
-        homeViewRequest();
-      })
-      .catch(({ status, responseText }) => {
-        // const authorizView = new AuthorizView(root);
-        // authorizView.render();
-        alert(responseText);
-      })
-
-
-  }
-  window.logOutRequest = logOutRequest;
-
-  // ------------------------------
-  function logInRequest({ body, alertObject }) {
-    Ajax.ajaxPost({
-      url: 'https://ozonback.herokuapp.com/login',
-      body,
-      callback: (status, responseText) => {
-
-        console.log(status);
-        console.log(responseText);
-
-        if (status === AJAX_STATUS.BAD_REQUEST) {
-          alertObject.innerText = 'Wrong username or password';
-          alertObject.style.visibility = 'visible';
-          return;
-        }
-
-        if (status === AJAX_STATUS.OK) {
-          homeViewRequest();
-          return;
-        }
-
-        // JSON.parse(responseText, (key, value) => {
-        //   if (key !== '') {
-            // alertObject.innerText = value;
-            // alertObject.style.visibility = 'visible';
-        //   }
-        // });
-
-      },
-    });
   }
   window.logInRequest = logInRequest;
 
