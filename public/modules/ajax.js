@@ -16,6 +16,16 @@
     #ajax({ method = AJAX_METHODS.GET, url = '/', body = null, callback = () => {} }) {
       const xhr = new XMLHttpRequest();
       xhr.open(method, url, true);
+
+      // xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
+      // xhr.setRequestHeader('Access-Control-Allow-Origin', 'domain');
+      // xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+
+
+      xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://ozonback.herokuapp.com');
+      xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
+      
+      
       xhr.withCredentials = true;
 
       xhr.addEventListener('readystatechange', () => {
