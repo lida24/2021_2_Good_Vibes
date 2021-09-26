@@ -45,8 +45,8 @@ import HomeView from '../Components/HomeView/HomeView.js';
     });
   }
 
-  const authorizView = new AuthorizView(root);
-  authorizView.render();
+  // const authorizView = new AuthorizView(root);
+  // authorizView.render();
 
   window.homeViewRequest = homeViewRequest;
 
