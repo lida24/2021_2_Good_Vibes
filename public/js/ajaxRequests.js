@@ -27,7 +27,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
             homeView.user = user;
             homeView.render();
           } catch (e) {
-            alert(responseText); // обработать ошибки
+            // alert(responseText); // обработать ошибки
             const authorizView = new AuthorizView(root);
             authorizView.render();
             return;
