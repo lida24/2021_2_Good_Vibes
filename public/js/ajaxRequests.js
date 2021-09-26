@@ -77,11 +77,11 @@ import HomeView from '../Components/HomeView/HomeView.js';
       body,
       callback: (status, responseText) => {
         if (status === AJAX_STATUS.OK) {
-          // homeViewRequest();
+          homeViewRequest();
 
-          const homeView = new HomeView(root);
-          homeView.user = responseText;
-          homeView.render();
+          // const homeView = new HomeView(root);
+          // homeView.user = responseText;
+          // homeView.render();
 
           return;
         }
