@@ -39,178 +39,178 @@ import HomeView from '../Components/HomeView/HomeView.js';
   }
   window.homeViewRequest = homeViewRequest;
 
-  // // ------------------------------
-  // function logOutRequest() {
-  //   Ajax.ajaxGet({
-  //     url: 'https://ozonback.herokuapp.com/logout',
-  //     callback: (status, responseText) => {
-  //       if (status === AJAX_STATUS.OK) {
-  //         homeViewRequest();
-  //         return;
-  //       }
-
-  //       JSON.parse(responseText, (key, value) => {
-  //         if (key !== '') {
-  //           alert(value);
-  //         }
-  //       });
-  //     },
-  //   });
-  // }
-  // window.logOutRequest = logOutRequest;
-
-
   // ------------------------------
   function logOutRequest() {
-    Ajax.promisifyGet({ url: 'https://ozonback.herokuapp.com/logout', })
-      .then(({ status, responseText }) => {
-        homeViewRequest();
-      })
-      .catch(({ status, responseText }) => {
-        alert(responseText);
-      })
+    Ajax.ajaxGet({
+      url: 'https://ozonback.herokuapp.com/logout',
+      callback: (status, responseText) => {
+        if (status === AJAX_STATUS.OK) {
+          homeViewRequest();
+          return;
+        }
+
+        JSON.parse(responseText, (key, value) => {
+          if (key !== '') {
+            alert(value);
+          }
+        });
+      },
+    });
   }
   window.logOutRequest = logOutRequest;
 
+
   // // ------------------------------
-  // function logInRequest({ body, alertObject }) {
-  //   Ajax.ajaxPost({
-  //     url: 'https://ozonback.herokuapp.com/login',
-  //     body,
-  //     callback: (status, responseText) => {
-
-  //       console.log(status);
-  //       console.log(responseText);
-
-  //       if (status === AJAX_STATUS.BAD_REQUEST) {
-  //         alertObject.innerText = 'Wrong username or password';
-  //         alertObject.style.visibility = 'visible';
-  //         return;
-  //       }
-
-  //       if (status === AJAX_STATUS.OK) {
-  //         homeViewRequest();
-  //         return;
-  //       }
-
-  //       // JSON.parse(responseText, (key, value) => {
-  //       //   if (key !== '') {
-  //           // alertObject.innerText = value;
-  //           // alertObject.style.visibility = 'visible';
-  //       //   }
-  //       // });
-
-  //     },
-  //   });
+  // function logOutRequest() {
+  //   Ajax.promisifyGet({ url: 'https://ozonback.herokuapp.com/logout', })
+  //     .then(({ status, responseText }) => {
+  //       homeViewRequest();
+  //     })
+  //     .catch(({ status, responseText }) => {
+  //       alert(responseText);
+  //     })
   // }
-  // window.logInRequest = logInRequest;
-
+  // window.logOutRequest = logOutRequest;
 
   // ------------------------------
   function logInRequest({ body, alertObject }) {
+    Ajax.ajaxPost({
+      url: 'https://ozonback.herokuapp.com/login',
+      body,
+      callback: (status, responseText) => {
 
-    Ajax.promisifyPost({ url: 'https://ozonback.herokuapp.com/login', })
-      .then(({ status, responseText }) => {
-        homeViewRequest();
-        return;
-      })
-      .catch(({ status, responseText }) => {
-        alertObject.innerText = 'Wrong username or password';
-        alertObject.style.visibility = 'visible';
-      })
+        console.log(status);
+        console.log(responseText);
 
+        if (status === AJAX_STATUS.BAD_REQUEST) {
+          alertObject.innerText = 'Wrong username or password';
+          alertObject.style.visibility = 'visible';
+          return;
+        }
 
+        if (status === AJAX_STATUS.OK) {
+          homeViewRequest();
+          return;
+        }
 
-    // Ajax.ajaxPost({
-    //   url: 'https://ozonback.herokuapp.com/login',
-    //   body,
-    //   callback: (status, responseText) => {
+        // JSON.parse(responseText, (key, value) => {
+        //   if (key !== '') {
+            // alertObject.innerText = value;
+            // alertObject.style.visibility = 'visible';
+        //   }
+        // });
 
-    //     console.log(status);
-    //     console.log(responseText);
-
-    //     if (status === AJAX_STATUS.BAD_REQUEST) {
-    //       alertObject.innerText = 'Wrong username or password';
-    //       alertObject.style.visibility = 'visible';
-    //       return;
-    //     }
-
-    //     if (status === AJAX_STATUS.OK) {
-    //       homeViewRequest();
-    //       return;
-    //     }
-
-    //     // JSON.parse(responseText, (key, value) => {
-    //     //   if (key !== '') {
-    //     // alertObject.innerText = value;
-    //     // alertObject.style.visibility = 'visible';
-    //     //   }
-    //     // });
-
-    //   },
-    // });
+      },
+    });
   }
   window.logInRequest = logInRequest;
 
-  // // ------------------------------
-  // function signUpRequest({ body, alertObject }) {
-  //   Ajax.ajaxPost({
-  //     url: 'https://ozonback.herokuapp.com/signup',
-  //     body,
-  //     callback: (status, responseText) => {
-  //       if (status === AJAX_STATUS.CREATED) {
-  //         homeViewRequest();
-  //         return;
-  //       }
 
-  //       JSON.parse(responseText, (key, value) => {
-  //         if (key !== '') {
-  //           alertObject.innerText = value;
-  //           alertObject.style.visibility = 'visible';
-  //         }
-  //       });
-  //     },
-  //   });
+  // // ------------------------------
+  // function logInRequest({ body, alertObject }) {
+
+  //   Ajax.promisifyPost({ url: 'https://ozonback.herokuapp.com/login', })
+  //     .then(({ status, responseText }) => {
+  //       homeViewRequest();
+  //       return;
+  //     })
+  //     .catch(({ status, responseText }) => {
+  //       alertObject.innerText = 'Wrong username or password';
+  //       alertObject.style.visibility = 'visible';
+  //     })
+
+
+
+  //   // Ajax.ajaxPost({
+  //   //   url: 'https://ozonback.herokuapp.com/login',
+  //   //   body,
+  //   //   callback: (status, responseText) => {
+
+  //   //     console.log(status);
+  //   //     console.log(responseText);
+
+  //   //     if (status === AJAX_STATUS.BAD_REQUEST) {
+  //   //       alertObject.innerText = 'Wrong username or password';
+  //   //       alertObject.style.visibility = 'visible';
+  //   //       return;
+  //   //     }
+
+  //   //     if (status === AJAX_STATUS.OK) {
+  //   //       homeViewRequest();
+  //   //       return;
+  //   //     }
+
+  //   //     // JSON.parse(responseText, (key, value) => {
+  //   //     //   if (key !== '') {
+  //   //     // alertObject.innerText = value;
+  //   //     // alertObject.style.visibility = 'visible';
+  //   //     //   }
+  //   //     // });
+
+  //   //   },
+  //   // });
   // }
-  // window.signUpRequest = signUpRequest;
+  // window.logInRequest = logInRequest;
 
   // ------------------------------
   function signUpRequest({ body, alertObject }) {
+    Ajax.ajaxPost({
+      url: 'https://ozonback.herokuapp.com/signup',
+      body,
+      callback: (status, responseText) => {
+        if (status === AJAX_STATUS.CREATED) {
+          homeViewRequest();
+          return;
+        }
 
-    Ajax.promisifyPost({ url: 'https://ozonback.herokuapp.com/signup', })
-      .then(({ status, responseText }) => {
-        homeViewRequest();
-        return;
-      })
-      .catch(({ status, responseText }) => {
-        alertObject.innerText = 'Wrong data for account creating';
-        alertObject.style.visibility = 'visible';
-      })
+        JSON.parse(responseText, (key, value) => {
+          if (key !== '') {
+            alertObject.innerText = value;
+            alertObject.style.visibility = 'visible';
+          }
+        });
+      },
+    });
+  }
+  window.signUpRequest = signUpRequest;
+
+  // // ------------------------------
+  // function signUpRequest({ body, alertObject }) {
+
+  //   Ajax.promisifyPost({ url: 'https://ozonback.herokuapp.com/signup', })
+  //     .then(({ status, responseText }) => {
+  //       homeViewRequest();
+  //       return;
+  //     })
+  //     .catch(({ status, responseText }) => {
+  //       alertObject.innerText = 'Wrong data for account creating';
+  //       alertObject.style.visibility = 'visible';
+  //     })
 
 
-    // Ajax.ajaxPost({
-    //   url: 'https://ozonback.herokuapp.com/signup',
-    //   body,
-    //   callback: (status, responseText) => {
-    //     if (status === AJAX_STATUS.CREATED) {
-    //       homeViewRequest();
-    //       return;
-    //     }
+  //   // Ajax.ajaxPost({
+  //   //   url: 'https://ozonback.herokuapp.com/signup',
+  //   //   body,
+  //   //   callback: (status, responseText) => {
+  //   //     if (status === AJAX_STATUS.CREATED) {
+  //   //       homeViewRequest();
+  //   //       return;
+  //   //     }
 
-    //     JSON.parse(responseText, (key, value) => {
-    //       if (key !== '') {
-    //         alertObject.innerText = value;
-    //         alertObject.style.visibility = 'visible';
-    //       }
-    //     });
-    //   },
-    // });
+  //   //     JSON.parse(responseText, (key, value) => {
+  //   //       if (key !== '') {
+  //   //         alertObject.innerText = value;
+  //   //         alertObject.style.visibility = 'visible';
+  //   //       }
+  //   //     });
+  //   //   },
+  //   // });
 
 
    
 
-  }
-  window.signUpRequest = signUpRequest;
+  // }
+  // window.signUpRequest = signUpRequest;
 
 
 }()
