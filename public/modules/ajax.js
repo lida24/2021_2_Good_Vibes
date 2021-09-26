@@ -31,7 +31,7 @@
       
       // // xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
       
-      // xhr.withCredentials = true;
+      xhr.withCredentials = true;
 
 
 // ------------------
