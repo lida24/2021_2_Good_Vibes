@@ -12,7 +12,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
     root.innerHTML = '';
 
     Ajax.ajaxGet({
-      url: '/me',
+      url: 'https://ozonback.herokuapp.com/me',
       callback: (status, responseText) => {
         let isAuthorized = false;
 
@@ -45,7 +45,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
   // ------------------------------
   function logOutRequest() {
     Ajax.ajaxPost({
-      url: '/logout',
+      url: 'https://ozonback.herokuapp.com/logout',
       callback: (status, responseText) => {
         if (status === AJAX_STATUS.OK) {
           homeViewRequest();
@@ -65,7 +65,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
   // ------------------------------
   function logInRequest({ body, alertObject }) {
     Ajax.ajaxPost({
-      url: '/login',
+      url: 'https://ozonback.herokuapp.com/login',
       body,
       callback: (status, responseText) => {
         if (status === AJAX_STATUS.OK) {
@@ -87,7 +87,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
   // ------------------------------
   function signUpRequest({ body, alertObject }) {
     Ajax.ajaxPost({
-      url: '/signup',
+      url: 'https://ozonback.herokuapp.com/signup',
       body,
       callback: (status, responseText) => {
         if (status === AJAX_STATUS.CREATED) {
