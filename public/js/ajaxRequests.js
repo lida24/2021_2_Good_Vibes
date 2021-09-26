@@ -11,39 +11,43 @@ import HomeView from '../Components/HomeView/HomeView.js';
   function homeViewRequest() {
     root.innerHTML = '';
 
-    Ajax.ajaxGet({
-      url: 'https://ozonback.herokuapp.com/me',
-      callback: (status, responseText) => {
-        let isAuthorized = false;
+    // Ajax.ajaxGet({
+    //   url: 'https://ozonback.herokuapp.com/me',
+    //   callback: (status, responseText) => {
+    //     let isAuthorized = false;
 
-        if (status === AJAX_STATUS.OK) {
-          isAuthorized = true;
-        }
+    //     if (status === AJAX_STATUS.OK) {
+    //       isAuthorized = true;
+    //     }
 
-        if (isAuthorized) {
-          // console.log(isAuthorized);
-          try {
-            // const user = JSON.parse(responseText);
+    //     if (isAuthorized) {
+    //       // console.log(isAuthorized);
+    //       try {
+    //         // const user = JSON.parse(responseText);
 
-            // root.innerHTML = `${responseText}`;
+    //         // root.innerHTML = `${responseText}`;
 
-            // const homeView = new HomeView(root);
-            // homeView.user = user;
-            // homeView.render();
-          } catch (e) {
-            // alert(responseText);
-            // const authorizView = new AuthorizView(root);
-            // authorizView.render();
-            // return;
-          }
-          return;
-        }
+    //         // const homeView = new HomeView(root);
+    //         // homeView.user = user;
+    //         // homeView.render();
+    //       } catch (e) {
+    //         // alert(responseText);
+    //         // const authorizView = new AuthorizView(root);
+    //         // authorizView.render();
+    //         // return;
+    //       }
+    //       return;
+    //     }
 
-        const authorizView = new AuthorizView(root);
-        authorizView.render();
-      },
-    });
+    //     const authorizView = new AuthorizView(root);
+    //     authorizView.render();
+    //   },
+    // });
   }
+
+  const authorizView = new AuthorizView(root);
+  authorizView.render();
+
   window.homeViewRequest = homeViewRequest;
 
   // ------------------------------

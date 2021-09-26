@@ -2,8 +2,8 @@ import AuthorizView from "../Components/AuthorizView/AuthorizView";
 
 const root = document.getElementById('root');
 
-// homeViewRequest();
+homeViewRequest();
 // authorizViewRequest();
 
-const authorizView = new AuthorizView(root);
-authorizView.render();
+// const authorizView = new AuthorizView(root);
+// authorizView.render();
