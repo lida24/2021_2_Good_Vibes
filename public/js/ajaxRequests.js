@@ -22,7 +22,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
 
         if (isAuthorized) {
           // console.log(isAuthorized);
-          try {
+          // try {
             // const user = JSON.parse(responseText);
 
             root.innerHTML = `${responseText}`;
@@ -30,12 +30,12 @@ import HomeView from '../Components/HomeView/HomeView.js';
             const homeView = new HomeView(root);
             homeView.user = user;
             homeView.render();
-          } catch (e) {
-            alert(responseText);
-            const authorizView = new AuthorizView(root);
-            authorizView.render();
-            return;
-          }
+          // } catch (e) {
+          //   alert(responseText);
+          //   const authorizView = new AuthorizView(root);
+          //   authorizView.render();
+          //   return;
+          // }
           return;
         }
 
