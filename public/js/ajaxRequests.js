@@ -186,7 +186,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
         alertObject.innerText = 'Wrong data for account creating';
         alertObject.style.visibility = 'visible';
       })
-
+ 
 
     // Ajax.ajaxPost({
     //   url: 'https://ozonback.herokuapp.com/signup',
