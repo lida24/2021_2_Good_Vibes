@@ -66,28 +66,28 @@
       xhr.send();
     }
 
-    promisifyGet(args = {}) {
-      return new Promise((resolve, reject) => { 
-        this.#ajax({
-          ...args,
-          method: AJAX_METHODS.GET,
-          callback: (status, response) => {
-            if (status < 300) {
-              resolve({
-                status,
-                responseText,
-              });
-              return;
-            }
+    // promisifyGet(args = {}) {
+    //   return new Promise((resolve, reject) => { 
+    //     this.#ajax({
+    //       ...args,
+    //       method: AJAX_METHODS.GET,
+    //       callback: (status, response) => {
+    //         if (status < 300) {
+    //           resolve({
+    //             status,
+    //             responseText,
+    //           });
+    //           return;
+    //         }
 
-            reject({
-              status,
-              responseText,
-            })
-          }
-        });
-      });
-    };
+    //         reject({
+    //           status,
+    //           responseText,
+    //         })
+    //       }
+    //     });
+    //   });
+    // };
 
     getUsingFetch(args = {}) {
       let statusCode;
