@@ -35,58 +35,61 @@ import HomeView from '../Components/HomeView/HomeView.js';
     //   })
 
 
-    // Ajax.ajaxGet({
-    //   url: 'https://ozonback.herokuapp.com/profile',
-    //   callback: (status, responseText) => {
-    //     let isAuthorized = false;
-
-    //     if (status === AJAX_STATUS.OK) {
-    //       isAuthorized = true;
-    //     }
-
-    //     if (isAuthorized) {
-    //       // try {
-    //         // const user = JSON.parse(responseText);
-
-    //         console.log(responseText);
-    //         const homeView = new HomeView(root);
-    //         // homeView.user = user;
-    //         homeView.render();
-    //       // } catch (e) {
-    //       //   // alert(responseText); // обработать ошибки
-    //       //   const authorizView = new AuthorizView(root);
-    //       //   authorizView.render();
-    //       //   return;
-    //       // }
-    //       return;
-    //     }
-
-    //     const authorizView = new AuthorizView(root);
-    //     authorizView.render();
-    //   },
-    // });
-
 
   }
   window.homeViewRequest = homeViewRequest;
 
+  // // ------------------------------
+  // function logOutRequest() {
+  //   Ajax.ajaxGet({
+  //     url: 'https://ozonback.herokuapp.com/logout',
+  //     callback: (status, responseText) => {
+  //       if (status === AJAX_STATUS.OK) {
+  //         homeViewRequest();
+  //         return;
+  //       }
+
+  //       JSON.parse(responseText, (key, value) => {
+  //         if (key !== '') {
+  //           alert(value);
+  //         }
+  //       });
+  //     },
+  //   });
+  // }
+  // window.logOutRequest = logOutRequest;
+
+
   // ------------------------------
   function logOutRequest() {
-    Ajax.ajaxGet({
-      url: 'https://ozonback.herokuapp.com/logout',
-      callback: (status, responseText) => {
-        if (status === AJAX_STATUS.OK) {
-          homeViewRequest();
-          return;
-        }
+    // Ajax.ajaxGet({
+    //   url: 'https://ozonback.herokuapp.com/logout',
+    //   callback: (status, responseText) => {
+    //     if (status === AJAX_STATUS.OK) {
+    //       homeViewRequest();
+    //       return;
+    //     }
 
-        JSON.parse(responseText, (key, value) => {
-          if (key !== '') {
-            alert(value);
-          }
-        });
-      },
-    });
+    //     JSON.parse(responseText, (key, value) => {
+    //       if (key !== '') {
+    //         alert(value);
+    //       }
+    //     });
+    //   },
+    // });
+
+    Ajax.promisifyGet({ url: 'https://ozonback.herokuapp.com/logout', })
+      .then(({ status, responseText }) => {
+        const homeView = new HomeView(root);
+        homeView.render();
+      })
+      .catch(({ status, responseText }) => {
+        // const authorizView = new AuthorizView(root);
+        // authorizView.render();
+        alert(responseText);
+      })
+
+
   }
   window.logOutRequest = logOutRequest;
 
