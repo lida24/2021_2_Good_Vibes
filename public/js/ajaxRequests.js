@@ -109,7 +109,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
   // ------------------------------
   function logInRequest({ body, alertObject }) {
 
-    Ajax.promisifyPost({ url: 'https://ozonback.herokuapp.com/login', })
+    Ajax.promisifyPost({ url: 'https://ozonback.herokuapp.com/login', body})
       .then(({ status, responseText }) => {
         homeViewRequest();
         return;
@@ -121,34 +121,34 @@ import HomeView from '../Components/HomeView/HomeView.js';
 
 
 
-  //   // Ajax.ajaxPost({
-  //   //   url: 'https://ozonback.herokuapp.com/login',
-  //   //   body,
-  //   //   callback: (status, responseText) => {
+    // Ajax.ajaxPost({
+    //   url: 'https://ozonback.herokuapp.com/login',
+    //   body,
+    //   callback: (status, responseText) => {
 
-  //   //     console.log(status);
-  //   //     console.log(responseText);
+    //     console.log(status);
+    //     console.log(responseText);
 
-  //   //     if (status === AJAX_STATUS.BAD_REQUEST) {
-  //   //       alertObject.innerText = 'Wrong username or password';
-  //   //       alertObject.style.visibility = 'visible';
-  //   //       return;
-  //   //     }
+    //     if (status === AJAX_STATUS.BAD_REQUEST) {
+    //       alertObject.innerText = 'Wrong username or password';
+    //       alertObject.style.visibility = 'visible';
+    //       return;
+    //     }
 
-  //   //     if (status === AJAX_STATUS.OK) {
-  //   //       homeViewRequest();
-  //   //       return;
-  //   //     }
+    //     if (status === AJAX_STATUS.OK) {
+    //       homeViewRequest();
+    //       return;
+    //     }
 
-  //   //     // JSON.parse(responseText, (key, value) => {
-  //   //     //   if (key !== '') {
-  //   //     // alertObject.innerText = value;
-  //   //     // alertObject.style.visibility = 'visible';
-  //   //     //   }
-  //   //     // });
+    //     // JSON.parse(responseText, (key, value) => {
+    //     //   if (key !== '') {
+    //     // alertObject.innerText = value;
+    //     // alertObject.style.visibility = 'visible';
+    //     //   }
+    //     // });
 
-  //   //   },
-  //   // });
+    //   },
+    // });
   }
   window.logInRequest = logInRequest;
 
