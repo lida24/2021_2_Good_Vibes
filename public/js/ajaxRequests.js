@@ -207,7 +207,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
     // });
 
 
-
+   
 
   }
   window.signUpRequest = signUpRequest;
