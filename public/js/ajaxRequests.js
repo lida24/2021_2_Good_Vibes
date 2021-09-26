@@ -152,26 +152,66 @@ import HomeView from '../Components/HomeView/HomeView.js';
   }
   window.logInRequest = logInRequest;
 
+  // // ------------------------------
+  // function signUpRequest({ body, alertObject }) {
+  //   Ajax.ajaxPost({
+  //     url: 'https://ozonback.herokuapp.com/signup',
+  //     body,
+  //     callback: (status, responseText) => {
+  //       if (status === AJAX_STATUS.CREATED) {
+  //         homeViewRequest();
+  //         return;
+  //       }
+
+  //       JSON.parse(responseText, (key, value) => {
+  //         if (key !== '') {
+  //           alertObject.innerText = value;
+  //           alertObject.style.visibility = 'visible';
+  //         }
+  //       });
+  //     },
+  //   });
+  // }
+  // window.signUpRequest = signUpRequest;
+
   // ------------------------------
   function signUpRequest({ body, alertObject }) {
-    Ajax.ajaxPost({
-      url: 'https://ozonback.herokuapp.com/signup',
-      body,
-      callback: (status, responseText) => {
-        if (status === AJAX_STATUS.CREATED) {
-          homeViewRequest();
-          return;
-        }
 
-        JSON.parse(responseText, (key, value) => {
-          if (key !== '') {
-            alertObject.innerText = value;
-            alertObject.style.visibility = 'visible';
-          }
-        });
-      },
-    });
+    Ajax.promisifyPost({ url: 'https://ozonback.herokuapp.com/signup', })
+      .then(({ status, responseText }) => {
+        homeViewRequest();
+        return;
+      })
+      .catch(({ status, responseText }) => {
+        alertObject.innerText = 'Wrong data for account creating';
+        alertObject.style.visibility = 'visible';
+      })
+
+
+    // Ajax.ajaxPost({
+    //   url: 'https://ozonback.herokuapp.com/signup',
+    //   body,
+    //   callback: (status, responseText) => {
+    //     if (status === AJAX_STATUS.CREATED) {
+    //       homeViewRequest();
+    //       return;
+    //     }
+
+    //     JSON.parse(responseText, (key, value) => {
+    //       if (key !== '') {
+    //         alertObject.innerText = value;
+    //         alertObject.style.visibility = 'visible';
+    //       }
+    //     });
+    //   },
+    // });
+
+
+
+
   }
   window.signUpRequest = signUpRequest;
+
+
 }()
 );
