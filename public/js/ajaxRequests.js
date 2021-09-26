@@ -73,7 +73,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
       callback: (status, responseText) => {
 
         if (status === AJAX_STATUS.BAD_REQUEST) {
-          alertObject.innerText = value;
+          alertObject.innerText = 'Wrong username or password';
           alertObject.style.visibility = 'visible';
         }
 
