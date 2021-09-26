@@ -22,9 +22,9 @@ import HomeView from '../Components/HomeView/HomeView.js';
 
         if (isAuthorized) {
           // try {
-            const user = JSON.parse(responseText);
+            // const user = JSON.parse(responseText);
             const homeView = new HomeView(root);
-            homeView.user = user;
+            // homeView.user = user;
             homeView.render();
           // } catch (e) {
           //   // alert(responseText); // обработать ошибки
