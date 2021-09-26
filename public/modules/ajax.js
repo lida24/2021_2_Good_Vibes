@@ -89,6 +89,22 @@
       });
     };
 
+    getUsingFetch(args = {}) {
+      let statusCode;
+
+      return fetch(args.url, {
+        method: AJAX_METHODS.GET
+      }).then((response) => {
+        statusCode = response.status;
+        return response.json();
+      }).then((parsedBody) => {
+        return {
+          status: statusCode,
+          parsedBody
+        };
+      })
+    }
+
   }
 
   
