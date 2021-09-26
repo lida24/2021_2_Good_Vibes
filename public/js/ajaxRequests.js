@@ -12,36 +12,51 @@ import HomeView from '../Components/HomeView/HomeView.js';
   function homeViewRequest() {
     root.innerHTML = '';
 
-    Ajax.ajaxGet({
-      url: 'https://ozonback.herokuapp.com/profile',
-      callback: (status, responseText) => {
-        let isAuthorized = false;
-
-        if (status === AJAX_STATUS.OK) {
-          isAuthorized = true;
-        }
-
-        if (isAuthorized) {
-          // try {
-            // const user = JSON.parse(responseText);
-
-            console.log(responseText);
-            const homeView = new HomeView(root);
-            // homeView.user = user;
-            homeView.render();
-          // } catch (e) {
-          //   // alert(responseText); // обработать ошибки
-          //   const authorizView = new AuthorizView(root);
-          //   authorizView.render();
-          //   return;
-          // }
-          return;
-        }
-
+    Ajax.promisifyGet({url: 'https://ozonback.herokuapp.com/profile',})
+      .then( ({status, responseText}) => {
+        const homeView = new HomeView(root);
+        homeView.render();
+      })
+      .catch( ({status, responseText}) => {
         const authorizView = new AuthorizView(root);
         authorizView.render();
-      },
-    });
+      })
+
+
+
+
+    // Ajax.ajaxGet({
+    //   url: 'https://ozonback.herokuapp.com/profile',
+    //   callback: (status, responseText) => {
+    //     let isAuthorized = false;
+
+    //     if (status === AJAX_STATUS.OK) {
+    //       isAuthorized = true;
+    //     }
+
+    //     if (isAuthorized) {
+    //       // try {
+    //         // const user = JSON.parse(responseText);
+
+    //         console.log(responseText);
+    //         const homeView = new HomeView(root);
+    //         // homeView.user = user;
+    //         homeView.render();
+    //       // } catch (e) {
+    //       //   // alert(responseText); // обработать ошибки
+    //       //   const authorizView = new AuthorizView(root);
+    //       //   authorizView.render();
+    //       //   return;
+    //       // }
+    //       return;
+    //     }
+
+    //     const authorizView = new AuthorizView(root);
+    //     authorizView.render();
+    //   },
+    // });
+
+
   }
   window.homeViewRequest = homeViewRequest;
 
