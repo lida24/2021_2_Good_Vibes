@@ -5,7 +5,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
   const AJAX_STATUS = {
     OK: 200,
     CREATED: 201,
-  };
+  };   
 
   // ------------------------------
   function homeViewRequest() {
