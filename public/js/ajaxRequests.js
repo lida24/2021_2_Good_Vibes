@@ -44,7 +44,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
 
   // ------------------------------
   function logOutRequest() {
-    Ajax.ajaxPost({
+    Ajax.ajaxGet({
       url: 'https://ozonback.herokuapp.com/logout',
       callback: (status, responseText) => {
         if (status === AJAX_STATUS.OK) {
