@@ -71,7 +71,7 @@
         this.#ajax({
           ...args,
           method: AJAX_METHODS.GET,
-          callback: (status, response) => {
+          callback: (status, responseText) => {
             if (status < 300) {
               resolve({
                 status,
