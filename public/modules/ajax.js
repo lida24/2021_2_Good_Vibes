@@ -21,8 +21,13 @@
       // xhr.setRequestHeader('Access-Control-Allow-Origin', 'domain');
       // xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
 
+      xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
 
-      xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://ozonback.herokuapp.com');
+      // xhr.setRequestHeader('Access-Control-Allow-Origin', 'domain');
+
+
+      xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://ozonback.herokuapp.com/');
+      
       xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
       
       
