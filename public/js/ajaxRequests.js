@@ -72,6 +72,9 @@ import HomeView from '../Components/HomeView/HomeView.js';
       body,
       callback: (status, responseText) => {
 
+        console.log(status);
+        console.log(responseText);
+
         if (status === AJAX_STATUS.BAD_REQUEST) {
           alertObject.innerText = 'Wrong username or password';
           alertObject.style.visibility = 'visible';
@@ -90,7 +93,6 @@ import HomeView from '../Components/HomeView/HomeView.js';
         //   }
         // });
 
-        console.log(responseText);
       },
     });
   }
