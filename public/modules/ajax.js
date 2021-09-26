@@ -66,44 +66,44 @@
       xhr.send();
     }
 
-    // promisifyGet(args = {}) {
-    //   return new Promise((resolve, reject) => { 
-    //     this.#ajax({
-    //       ...args,
-    //       method: AJAX_METHODS.GET,
-    //       callback: (status, response) => {
-    //         if (status < 300) {
-    //           resolve({
-    //             status,
-    //             responseText,
-    //           });
-    //           return;
-    //         }
+    promisifyGet(args = {}) {
+      return new Promise((resolve, reject) => { 
+        this.#ajax({
+          ...args,
+          method: AJAX_METHODS.GET,
+          callback: (status, response) => {
+            if (status < 300) {
+              resolve({
+                status,
+                responseText,
+              });
+              return;
+            }
 
-    //         reject({
-    //           status,
-    //           responseText,
-    //         })
-    //       }
-    //     });
-    //   });
-    // };
+            reject({
+              status,
+              responseText,
+            })
+          }
+        });
+      });
+    };
 
-    getUsingFetch(args = {}) {
-      let statusCode;
+    // getUsingFetch(args = {}) {
+    //   let statusCode;
 
-      return fetch(args.url, {
-        method: AJAX_METHODS.GET
-      }).then((response) => {
-        statusCode = response.status;
-        return response.json();
-      }).then((parsedBody) => {
-        return {
-          status: statusCode,
-          parsedBody
-        };
-      })
-    }
+    //   return fetch(args.url, {
+    //     method: AJAX_METHODS.GET
+    //   }).then((response) => {
+    //     statusCode = response.status;
+    //     return response.json();
+    //   }).then((parsedBody) => {
+    //     return {
+    //       status: statusCode,
+    //       parsedBody
+    //     };
+    //   })
+    // }
 
   }
 

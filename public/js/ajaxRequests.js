@@ -12,27 +12,27 @@ import HomeView from '../Components/HomeView/HomeView.js';
   function homeViewRequest() {
     root.innerHTML = '';
 
-    // Ajax.promisifyGet({url: 'https://ozonback.herokuapp.com/profile',})
-    //   .then( ({status, responseText}) => {
-    //     const homeView = new HomeView(root);
-    //     homeView.render();
-    //   })
-    //   .catch( ({status, responseText}) => {
-    //     const authorizView = new AuthorizView(root);
-    //     authorizView.render();
-    //   })
-
-
-    Ajax.getUsingFetch({ url: 'https://ozonback.herokuapp.com/profile', })
-      .then(({ status, parsedBody }) => {
+    Ajax.promisifyGet({url: 'https://ozonback.herokuapp.com/profile',})
+      .then( ({status, responseText}) => {
         const homeView = new HomeView(root);
-        homeView.user = parsedBody;
         homeView.render();
       })
-      .catch(({ status, parsedBody }) => {
+      .catch( ({status, responseText}) => {
         const authorizView = new AuthorizView(root);
         authorizView.render();
       })
+
+
+    // Ajax.getUsingFetch({ url: 'https://ozonback.herokuapp.com/profile', })
+    //   .then(({ status, parsedBody }) => {
+    //     const homeView = new HomeView(root);
+    //     homeView.user = parsedBody;
+    //     homeView.render();
+    //   })
+    //   .catch(({ status, parsedBody }) => {
+    //     const authorizView = new AuthorizView(root);
+    //     authorizView.render();
+    //   })
 
 
     // Ajax.ajaxGet({
