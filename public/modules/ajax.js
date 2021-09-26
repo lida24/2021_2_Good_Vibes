@@ -39,6 +39,8 @@
       xhr.setRequestHeader('Access-Control-Allow-Headers', 'origin, x-requested-with, content-type');
       xhr.setRequestHeader('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
       xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+      xhr.setRequestHeader('Accept', 'text/html');
+
 
       xhr.withCredentials = true;
 
