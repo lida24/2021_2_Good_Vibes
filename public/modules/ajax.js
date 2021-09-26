@@ -51,8 +51,8 @@
       });
 
       if (body) {
-        // xhr.setRequestHeader('Content-type', 'application/json; charser=utf8');
-        xhr.setRequestHeader('Content-type', 'text/html; charser=utf8');
+        xhr.setRequestHeader('Content-type', 'application/json; charser=utf8');
+      //  xhr.setRequestHeader('Content-type', 'text/html; charser=utf8');
 
         xhr.send(JSON.stringify(body));
         return;
