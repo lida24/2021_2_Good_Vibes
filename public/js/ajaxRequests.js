@@ -28,7 +28,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
             // root.innerHTML = `${responseText}`;
 
             const homeView = new HomeView(root);
-            homeView.user = user;
+            // homeView.user = user;
             homeView.render();
           // } catch (e) {
           //   alert(responseText);
