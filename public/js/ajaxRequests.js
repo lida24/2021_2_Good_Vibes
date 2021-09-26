@@ -80,8 +80,9 @@ import HomeView from '../Components/HomeView/HomeView.js';
 
     Ajax.promisifyGet({ url: 'https://ozonback.herokuapp.com/logout', })
       .then(({ status, responseText }) => {
-        const homeView = new HomeView(root);
-        homeView.render();
+        // const homeView = new HomeView(root);
+        // homeView.render();
+        homeViewRequest();
       })
       .catch(({ status, responseText }) => {
         // const authorizView = new AuthorizView(root);
