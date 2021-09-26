@@ -21,17 +21,17 @@ import HomeView from '../Components/HomeView/HomeView.js';
         }
 
         if (isAuthorized) {
-          try {
+          // try {
             const user = JSON.parse(responseText);
             const homeView = new HomeView(root);
             homeView.user = user;
             homeView.render();
-          } catch (e) {
-            // alert(responseText); // обработать ошибки
-            const authorizView = new AuthorizView(root);
-            authorizView.render();
-            return;
-          }
+          // } catch (e) {
+          //   // alert(responseText); // обработать ошибки
+          //   const authorizView = new AuthorizView(root);
+          //   authorizView.render();
+          //   return;
+          // }
           return;
         }
 
