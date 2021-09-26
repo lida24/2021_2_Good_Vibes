@@ -8,6 +8,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
     OK: 200,
     CREATED: 201,
     BAD_REQUEST: 400,
+    PAGE_NOT_FOUND: 404,
   };   
 
   // ------------------------------
@@ -25,7 +26,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
       })
 
 
-    // Ajax.getUsingFetch({ url: 'https://ozonback.herokuapp.com/profile', })
+    // Ajax.getUsingFetch({ url: `${backendAddress}/profile`, })
     //   .then(({ status, parsedBody }) => {
     //     const homeView = new HomeView(root);
     //     homeView.user = parsedBody;
@@ -43,7 +44,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
 
   // ------------------------------
   function logOutRequest() {
-    Ajax.promisifyGet({ url: 'https://ozonback.herokuapp.com/logout', })
+    Ajax.promisifyGet({ url: `${backendAddress}/logout`, })
       .then(({ status, responseText }) => {
         homeViewRequest();
       })
@@ -56,7 +57,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
   // ------------------------------
   function logInRequest({ body, alertObject }) {
 
-    Ajax.promisifyPost({ url: 'https://ozonback.herokuapp.com/login', body})
+    Ajax.promisifyPost({ url: `${backendAddress}/login`, body})
       .then(({ status, responseText }) => {
         homeViewRequest();
         return;
@@ -71,7 +72,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
   // ------------------------------
   function signUpRequest({ body, alertObject }) {
 
-    Ajax.promisifyPost({ url: 'https://ozonback.herokuapp.com/signup', body})
+    Ajax.promisifyPost({ url: `${backendAddress}/signup`, body})
       .then(({ status, responseText }) => {
         homeViewRequest();
         return;
