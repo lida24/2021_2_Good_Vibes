@@ -23,6 +23,8 @@ import HomeView from '../Components/HomeView/HomeView.js';
         if (isAuthorized) {
           // try {
             // const user = JSON.parse(responseText);
+
+            console.log(responseText);
             const homeView = new HomeView(root);
             // homeView.user = user;
             homeView.render();
@@ -73,12 +75,14 @@ import HomeView from '../Components/HomeView/HomeView.js';
           return;
         }
 
-        JSON.parse(responseText, (key, value) => {
-          if (key !== '') {
-            alertObject.innerText = value;
-            alertObject.style.visibility = 'visible';
-          }
-        });
+        // JSON.parse(responseText, (key, value) => {
+        //   if (key !== '') {
+        //     alertObject.innerText = value;
+        //     alertObject.style.visibility = 'visible';
+        //   }
+        // });
+
+        console.log(responseText);
       },
     });
   }
