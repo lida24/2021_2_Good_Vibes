@@ -5,6 +5,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
   const AJAX_STATUS = {
     OK: 200,
     CREATED: 201,
+    BAD_REQUEST: 404,
   };   
 
   // ------------------------------
@@ -70,6 +71,12 @@ import HomeView from '../Components/HomeView/HomeView.js';
       url: 'https://ozonback.herokuapp.com/login',
       body,
       callback: (status, responseText) => {
+
+        if (status === AJAX_STATUS.BAD_REQUEST) {
+          alertObject.innerText = value;
+          alertObject.style.visibility = 'visible';
+        }
+
         if (status === AJAX_STATUS.OK) {
           homeViewRequest();
           return;
@@ -77,8 +84,8 @@ import HomeView from '../Components/HomeView/HomeView.js';
 
         // JSON.parse(responseText, (key, value) => {
         //   if (key !== '') {
-        //     alertObject.innerText = value;
-        //     alertObject.style.visibility = 'visible';
+            // alertObject.innerText = value;
+            // alertObject.style.visibility = 'visible';
         //   }
         // });
 
