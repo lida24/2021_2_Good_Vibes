@@ -21,17 +21,26 @@
       // xhr.setRequestHeader('Access-Control-Allow-Origin', 'domain');
       // xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
 
-      xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
+      // xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
 
-      // xhr.setRequestHeader('Access-Control-Allow-Origin', 'domain');
+      // // xhr.setRequestHeader('Access-Control-Allow-Origin', 'domain');
+
+      // // xhr.setRequestHeader('Accept', 'text/plain');
+      // xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://ozonback.herokuapp.com/');
+      // xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+      
+      // // xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
+      
+      // xhr.withCredentials = true;
 
 
+// ------------------
       xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://ozonback.herokuapp.com/');
-      
-      xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
-      
-      
-      xhr.withCredentials = true;
+      xhr.setRequestHeader('Access-Control-Allow-Headers', 'origin, x-requested-with, content-type');
+      xhr.setRequestHeader('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+      // xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+
+      // xhr.withCredentials = true;
 
       xhr.addEventListener('readystatechange', () => {
         if (xhr.readyState !== XMLHttpRequest.DONE) return;
@@ -40,7 +49,9 @@
       });
 
       if (body) {
-        xhr.setRequestHeader('Content-type', 'application/json; charser=utf8');
+        // xhr.setRequestHeader('Content-type', 'application/json; charser=utf8');
+        xhr.setRequestHeader('Content-type', 'text/html; charser=utf8');
+
         xhr.send(JSON.stringify(body));
         return;
       }

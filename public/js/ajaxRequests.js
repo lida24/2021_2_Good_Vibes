@@ -21,16 +21,20 @@ import HomeView from '../Components/HomeView/HomeView.js';
         }
 
         if (isAuthorized) {
+          // console.log(isAuthorized);
           try {
             // const user = JSON.parse(responseText);
-            const homeView = new HomeView(root);
-            homeView.user = user;
-            homeView.render();
+
+            // root.innerHTML = `${responseText}`;
+
+            // const homeView = new HomeView(root);
+            // homeView.user = user;
+            // homeView.render();
           } catch (e) {
             // alert(responseText);
-            const authorizView = new AuthorizView(root);
-            authorizView.render();
-            return;
+            // const authorizView = new AuthorizView(root);
+            // authorizView.render();
+            // return;
           }
           return;
         }
@@ -69,16 +73,24 @@ import HomeView from '../Components/HomeView/HomeView.js';
       body,
       callback: (status, responseText) => {
         if (status === AJAX_STATUS.OK) {
-          homeViewRequest();
+          // homeViewRequest();
+
+          // const homeView = new HomeView(root);
+          // homeView.user = responseText;
+          // homeView.render();
+
           return;
         }
 
-        JSON.parse(responseText, (key, value) => {
-          if (key !== '') {
-            alertObject.innerText = value;
-            alertObject.style.visibility = 'visible';
-          }
-        });
+        // JSON.parse(responseText, (key, value) => {
+        //   if (key !== '') {
+        //     // alertObject.innerText = value;
+        //     alertObject.innerText = value;
+        //     alertObject.style.visibility = 'visible';
+        //   }
+        // });
+
+        alert(responseText);
       },
     });
   }

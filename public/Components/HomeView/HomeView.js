@@ -40,7 +40,7 @@ export default class HomeView {
             logOutRequest();
         });
 
-        homepageRender();
+        // homepageRender();
 
         this.#parent.appendChild(homeView);
     }
