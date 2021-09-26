@@ -42,7 +42,7 @@
       // xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
       // xhr.setRequestHeader('Accept', 'text/html');
 
-      xhr.withCredentials = true;
+      // xhr.withCredentials = true;
 
 // ------------------
 
