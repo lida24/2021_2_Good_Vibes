@@ -27,7 +27,7 @@ import HomeView from '../Components/HomeView/HomeView.js';
             homeView.user = user;
             homeView.render();
           } catch (e) {
-            alert('JSON parse error'); // обработать ошибки
+            alert(e); // обработать ошибки
             const authorizView = new AuthorizView(root);
             authorizView.render();
             return;
