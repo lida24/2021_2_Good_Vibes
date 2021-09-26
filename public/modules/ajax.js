@@ -38,9 +38,9 @@
       xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://ozonback.herokuapp.com/');
       xhr.setRequestHeader('Access-Control-Allow-Headers', 'origin, x-requested-with, content-type');
       xhr.setRequestHeader('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-      // xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+      xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
 
-      // xhr.withCredentials = true;
+      xhr.withCredentials = true;
 
       xhr.addEventListener('readystatechange', () => {
         if (xhr.readyState !== XMLHttpRequest.DONE) return;
