@@ -273,7 +273,7 @@ import SigninModel from "../models/SigninModel.js";
         alert(responseText);
       })
   }
-  window.logOutRequest = logOutRequest;
+  window.homePageRequest = homePageRequest;
 
 }()
 );
