@@ -25,9 +25,11 @@ export default class Request {
 
                 this.logOut();
 
-                const root = document.getElementById("main-container");
-                const homeModel = new HomeModel(root);
-                homeModel.render();
+                // const root = document.getElementById("main-container");
+                // const homeModel = new HomeModel(root);
+                // homeModel.render();
+
+                Request.homePage();
 
                 // homePageRequest();
             })
@@ -65,10 +67,12 @@ export default class Request {
     Ajax.promisifyPost({ url: `${backendAddress}/login`, body })
         .then(({ status, responseText }) => {
 
-            const root = document.getElementById("main-container");
-            const homeModel = new HomeModel(root);
-            homeModel.render();
-            // homePageRequest();
+            // const root = document.getElementById("main-container");
+            // const homeModel = new HomeModel(root);
+            // homeModel.render();
+
+            Request.homePage();
+
 
             return;
         })
@@ -85,10 +89,11 @@ export default class Request {
     Ajax.promisifyPost({ url: `${backendAddress}/signup`, body })
         .then(({ status, responseText }) => {
 
-            const root = document.getElementById("main-container");
-            const homeModel = new HomeModel(root);
-            homeModel.render();
-            // homePageRequest();
+            // const root = document.getElementById("main-container");
+            // const homeModel = new HomeModel(root);
+            // homeModel.render();
+            
+            Request.homePage();
 
 
             console.log('success');
@@ -103,10 +108,12 @@ export default class Request {
 static logOut() {
     Ajax.promisifyGet({ url: `${backendAddress}/logout`, })
         .then(({ status, responseText }) => {
-            const root = document.getElementById("main-container");
-            const homeModel = new HomeModel(root);
-            homeModel.render();
-            // homePageRequest();
+            // const root = document.getElementById("main-container");
+            // const homeModel = new HomeModel(root);
+            // homeModel.render();
+
+            Request.homePage();
+
         })
         .catch(({ status, responseText }) => {
             alert(responseText);

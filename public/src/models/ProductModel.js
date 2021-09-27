@@ -60,8 +60,10 @@ export default class ProductModel {
     backBtn.addEventListener('click', (e) => {
       e.preventDefault();
 
-      const homeModel = new HomeModel(this.#parent);
-      homeModel.render();
+      // const homeModel = new HomeModel(this.#parent);
+      // homeModel.render();
+
+      Request.homePage();
 
     });
 
