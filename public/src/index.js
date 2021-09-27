@@ -16,6 +16,6 @@ const root = document.getElementById('main-container');
 const homeModel = new HomeModel(root);
 homeModel.render();
 
-// homeViewRequest();
+homeViewRequest();
 
 

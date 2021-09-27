@@ -137,4 +137,14 @@
 // );
 
 
-console.log('bruh');
+
+
+(function ajaxRequests() {
+
+  function homeViewRequest() {
+    console.log('bruh');
+  }
+  window.homeViewRequest = homeViewRequest;
+
+}()
+);
