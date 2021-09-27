@@ -1,5 +1,5 @@
-import Hood from './models/Hood.js';
-import Request from './js/requests.js';
+import Hood from './models/Hood';
+import Request from './js/requests';
 
 const hoodContainer = document.getElementsByClassName("grid-container")[0];
 const hood = new Hood(hoodContainer);
