@@ -76,15 +76,15 @@ export default class SigninModel {
         return;
       }
 
-      // signUpRequest({
-      //   body: userData,
-      //   alertObject: alert,
-      // });
-
-      Request.logIn({
+      signUpRequest({
         body: userData,
         alertObject: alert,
       });
+
+      // Request.logIn({
+      //   body: userData,
+      //   alertObject: alert,
+      // });
 
     });
 
