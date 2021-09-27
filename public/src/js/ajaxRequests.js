@@ -141,14 +141,14 @@ const backendAddress = 'https://ozonback.herokuapp.com';
 
 (function ajaxRequests() {
 
-  function coockieCheckRequest() {
+  function coockieCheckRequest(user) {
     Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
       .then(({ status, responseText }) => {
         // const homeView = new HomeView(root);
         // homeView.render();
         console.log(responseText);
-        const user = responseText;
-        window.user = user;
+        user = responseText;
+        // window.user = user;
         return responseText;
 
       })

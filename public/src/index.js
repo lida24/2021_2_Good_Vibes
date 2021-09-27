@@ -16,7 +16,8 @@ const root = document.getElementById('main-container');
 const homeModel = new HomeModel(root);
 homeModel.render();
 
-// const user;
+let user;
+coockieCheckRequest(user);
 
 
 console.log(user);
