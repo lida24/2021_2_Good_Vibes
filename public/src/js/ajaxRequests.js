@@ -4,7 +4,7 @@ import HomeModel from "../models/HomeModel.js";
 import SigninModel from "../models/SigninModel.js";
 import Ajax from "./ajax.js";
 
-export default class {
+export default class Request {
 
 
     static cookieCheckRequest() {
