@@ -147,6 +147,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
         // const homeView = new HomeView(root);
         // homeView.render();
         console.log(responseText);
+        user = responseText;
         return responseText;
 
       })
