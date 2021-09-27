@@ -175,5 +175,21 @@ const backendAddress = 'https://ozonback.herokuapp.com';
   }
   window.logInRequest = logInRequest;
 
+  // ------------------------------
+  function signUpRequest({ body, alertObject }) {
+
+    Ajax.promisifyPost({ url: `${backendAddress}/signup`, body })
+      .then(({ status, responseText }) => {
+        // homeViewRequest();
+        console.log('success');
+        return;
+      })
+      .catch(({ status, responseText }) => {
+        alertObject.innerText = 'Пользователь уже существует';
+        alertObject.style.visibility = 'visible';
+      })
+  }
+  window.signUpRequest = signUpRequest;
+
 }()
 );
