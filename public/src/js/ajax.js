@@ -89,13 +89,6 @@ const AJAX_METHODS = {
 };
 
 export default class Ajax {
-  // ajaxGet(args) {
-  //   return this.#ajax({ method: AJAX_METHODS.GET, ...args });
-  // }
-
-  // ajaxPost(args) {
-  //   return this.#ajax({ method: AJAX_METHODS.POST, ...args });
-  // }
 
   #ajax({ method = AJAX_METHODS.GET, url = '/', body = null, callback = () => { } }) {
     const xhr = new XMLHttpRequest();
