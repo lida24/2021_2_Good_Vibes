@@ -34,10 +34,14 @@ export default class Hood {
     profileLink.addEventListener('click', (e) => {
       e.preventDefault();
 
-      
 
-      const signinModel = new SigninModel(root);
-      signinModel.render();
+
+      // const signinModel = new SigninModel(root);
+      // signinModel.render();
+
+
+      profileRequest();
+      
     })
 
   }
