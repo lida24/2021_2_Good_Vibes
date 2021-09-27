@@ -1,8 +1,4 @@
-// import { parseRequestUrl } from '../utils.js';
-// import { getProduct } from '../api.js';
 import Rating from '../components/Rating.js';
-// import Catalog from '../catalog.js';
-import HomeModel from './HomeModel.js';
 import Request from '../js/requests.js';
 
 export default class ProductModel {
@@ -60,9 +56,6 @@ export default class ProductModel {
     const backBtn = document.getElementsByClassName('back-to-result')[0];
     backBtn.addEventListener('click', (e) => {
       e.preventDefault();
-
-      // const homeModel = new HomeModel(this.#parent);
-      // homeModel.render();
 
       Request.homePage();
 

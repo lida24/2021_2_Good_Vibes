@@ -1,5 +1,3 @@
-// import HomeModel from "./HomeModel.js";
-// import SigninModel from "./SigninModel.js";
 import Request from "../js/requests.js";
 
 export default class Hood {
@@ -20,8 +18,6 @@ export default class Hood {
       <main id="main-container"></main>
       <footer>@2021 GoodVibes</footer>
       `;
-
-    const root = document.getElementById("main-container");
 
     const homeLink = this.#parent.getElementsByClassName("logo")[0];
     homeLink.addEventListener('click', (e) => {
