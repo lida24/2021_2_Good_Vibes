@@ -25,6 +25,8 @@ homeModel.render();
 
 // let user = await f;
 
+let result;
+
 async function f() {
 
     let promise = new Promise((resolve, reject) => {
@@ -33,10 +35,11 @@ async function f() {
 
     let result = await promise; 
 
-    console.log(result);
 }
 
 f();
+
+console.log(result);
 
 // console.log(user);
 
