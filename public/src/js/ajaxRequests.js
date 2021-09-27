@@ -205,5 +205,25 @@ import HomeModel from "../models/HomeModel.js";
   }
   window.signUpRequest = signUpRequest;
 
+
+  // ------------------------------
+  function profileRequest() {
+    Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
+      .then(({ status, responseText }) => {
+
+        const root = document.getElementById("main-container");
+        root.innerHTML = ``;
+
+      })
+      .catch(({ status, responseText }) => {
+
+        const root = document.getElementById("main-container");
+        const homeModel = new HomeModel(root);
+        homeModel.render();
+
+      })
+  }
+  window.profileRequest = profileRequest;
+
 }()
 );

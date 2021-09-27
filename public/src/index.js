@@ -40,12 +40,12 @@ homeModel.render();
 // f();
 
 // let response;
-(async () => {
-    let response = await cookieCheckRequest();
-    // let user = await response.json();
-    // let user = await console.log(response);
-    console.log(response);
-})();
+// (async () => {
+//     let response = await cookieCheckRequest();
+//     // let user = await response.json();
+//     // let user = await console.log(response);
+//     console.log(response);
+// })();
 
 
 
