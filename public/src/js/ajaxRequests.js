@@ -141,6 +141,8 @@ const backendAddress = 'https://ozonback.herokuapp.com';
 
 import HomeModel from "../models/HomeModel.js";
 
+const root = document.getElementById("main-container");
+
 (function ajaxRequests() {
 
   function coockieCheckRequest(user) {
