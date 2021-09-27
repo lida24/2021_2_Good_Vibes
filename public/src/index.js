@@ -28,12 +28,12 @@ homeModel.render();
 async function f() {
 
     let promise = new Promise((resolve, reject) => {
-        resolve(coockieCheckRequest)
+        resolve(coockieCheckRequest())
     });
 
     let result = await promise; 
 
-    alert(result);
+    console.log(result);
 }
 
 f();
