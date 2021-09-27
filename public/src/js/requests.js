@@ -2,6 +2,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
 
 import SigninModel from "../models/SigninModel.js";
 import HomeModel from "../models/HomeModel.js";
+import ProductModel from "../models/ProductModel.js";
 // import Ajax from "./ajax.js";
 
 export default class Request {
@@ -146,6 +147,11 @@ static logOut() {
                 // const homeModel = new HomeModel(root);
                 // homeModel.Catalog = responseText;
                 // homeModel.render();
+
+                const root = document.getElementById("main-container");
+                const productModel = new ProductModel(root);
+                productModel.product = responseText;
+                productModel.render();
             })
             .catch(({ status, responseText }) => {
                 alert(responseText);
