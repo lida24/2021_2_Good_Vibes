@@ -58,16 +58,16 @@
 //   window.homeViewRequest = homeViewRequest;
 
 //   // // ------------------------------
-//   // function logOutRequest() {
-//   //   Ajax.promisifyGet({ url: `${backendAddress}/logout`, })
-//   //     .then(({ status, responseText }) => {
-//   //       homeViewRequest();
-//   //     })
-//   //     .catch(({ status, responseText }) => {
-//   //       alert(responseText);
-//   //     })
-//   // }
-//   // window.logOutRequest = logOutRequest;
+  // function logOutRequest() {
+  //   Ajax.promisifyGet({ url: `${backendAddress}/logout`, })
+  //     .then(({ status, responseText }) => {
+  //       homeViewRequest();
+  //     })
+  //     .catch(({ status, responseText }) => {
+  //       alert(responseText);
+  //     })
+  // }
+  // window.logOutRequest = logOutRequest;
 
 //   // // ------------------------------
 //   // function logInRequest({ body, alertObject }) {
@@ -219,6 +219,17 @@ import HomeModel from "../models/HomeModel.js";
         </h1>
         `;
 
+        const logoutLink = root.getElementsByClassName("logout-link")[0];
+        logoutLink.addEventListener('click', (e) => {
+          e.preventDefault();
+
+          logOutRequest();
+
+          const root = document.getElementById("main-container");
+          const homeModel = new HomeModel(root);
+          homeModel.render();
+        })
+
       })
       .catch(({ status, responseText }) => {
 
@@ -229,6 +240,19 @@ import HomeModel from "../models/HomeModel.js";
       })
   }
   window.profileRequest = profileRequest;
+
+
+// ------------------------------
+  function logOutRequest() {
+    Ajax.promisifyGet({ url: `${backendAddress}/logout`, })
+      .then(({ status, responseText }) => {
+        homeViewRequest();
+      })
+      .catch(({ status, responseText }) => {
+        alert(responseText);
+      })
+  }
+  window.logOutRequest = logOutRequest;
 
 }()
 );
