@@ -247,7 +247,9 @@ import SigninModel from "../models/SigninModel.js";
   function logOutRequest() {
     Ajax.promisifyGet({ url: `${backendAddress}/logout`, })
       .then(({ status, responseText }) => {
-        homeViewRequest();
+        const root = document.getElementById("main-container");
+        const homeModel = new HomeModel(root);
+        homeModel.render();
       })
       .catch(({ status, responseText }) => {
         alert(responseText);
