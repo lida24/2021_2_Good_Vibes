@@ -4,17 +4,17 @@ import Request from '../js/requests.js';
 
 export default class RegisterModel {
 
-  #parent;
+    #parent;
 
-  constructor(parent) {
-    this.#parent = parent;
-  }
+    constructor(parent) {
+        this.#parent = parent;
+    }
 
-  after_render() { }
+    after_render() { }
 
-  render ()  {
+    render() {
 
-    this.#parent.innerHTML = `
+        this.#parent.innerHTML = `
     <div class="form-container">
       <form id="register-form">
         <ul class="form-items">
@@ -54,49 +54,49 @@ export default class RegisterModel {
     </div>
     `;
 
-    const alert = document.getElementById('alert-label');
-    alert.style.visibility = 'hidden';
+        const alert = document.getElementById('alert-label');
+        alert.style.visibility = 'hidden';
 
-    const signin = document.getElementById('signin-href');
-    signin.addEventListener('click', (e) => {
-      e.preventDefault();
+        const signin = document.getElementById('signin-href');
+        signin.addEventListener('click', (e) => {
+            e.preventDefault();
 
-      const signinModel = new SigninModel(this.#parent);
-      signinModel.render();
-     });
+            const signinModel = new SigninModel(this.#parent);
+            signinModel.render();
+        });
 
 
-    this.#parent.addEventListener('submit', (e) => {
-      alert.style.visibility = 'hidden';
+        this.#parent.addEventListener('submit', (e) => {
+            alert.style.visibility = 'hidden';
 
-      e.preventDefault();
+            e.preventDefault();
 
-      const usernameSignUpInput = document.getElementsByName('login')[0];
-      const emailSignUpInput = document.getElementsByName('email')[0];
-      const passwordSignUpInput = document.getElementsByName('password')[0];
-      const confirmPasswordSignUpInput = document.getElementsByName('repassword')[0];
+            const usernameSignUpInput = document.getElementsByName('login')[0];
+            const emailSignUpInput = document.getElementsByName('email')[0];
+            const passwordSignUpInput = document.getElementsByName('password')[0];
+            const confirmPasswordSignUpInput = document.getElementsByName('repassword')[0];
 
-      const userData = {
-        username: usernameSignUpInput.value.trim(),
-        email: emailSignUpInput.value.trim(),
-        password: passwordSignUpInput.value.trim(),
-        confirmPassword: confirmPasswordSignUpInput.value.trim(),
-      }
+            const userData = {
+                username: usernameSignUpInput.value.trim(),
+                email: emailSignUpInput.value.trim(),
+                password: passwordSignUpInput.value.trim(),
+                confirmPassword: confirmPasswordSignUpInput.value.trim(),
+            }
 
-      const validationResult = Validate.signUp(userData);
+            const validationResult = Validate.signUp(userData);
 
-      if (validationResult !== undefined) {
-        alert.innerText = validationResult;
-        alert.style.visibility = 'visible';
-        return;
-      }
-      
-      Request.signUp({
-        body: userData,
-        alertObject: alert,
-      });
+            if (validationResult !== undefined) {
+                alert.innerText = validationResult;
+                alert.style.visibility = 'visible';
+                return;
+            }
 
-    });
+            Request.signUp({
+                body: userData,
+                alertObject: alert,
+            });
+
+        });
 
     }
 

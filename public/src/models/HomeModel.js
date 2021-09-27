@@ -1,36 +1,28 @@
 import Rating from "../components/Rating.js"
-// import Catalog from "../catalog.js"
-// import ProductModel from "./ProductModel.js";
 import Request from "../js/requests.js";
-
 
 export default class HomeModel {
 
-    #parent;
-    #catalog;
+  #parent;
+  #catalog;
 
-    constructor(parent) {
-        this.#parent = parent;
-    }
+  constructor(parent) {
+    this.#parent = parent;
+  }
 
-    set Catalog(catalog) {
-      this.#catalog = catalog;
-    }
+  set Catalog(catalog) {
+    this.#catalog = catalog;
+  }
 
-    render() {
+  render() {
+    const products = JSON.parse(this.#catalog);
 
-        
+    console.log(products);
 
-        // const products = Catalog.products;
-
-      const products = JSON.parse(this.#catalog);
-
-        console.log(products);
-
-        this.#parent.innerHTML = `
+    this.#parent.innerHTML = `
         <div class="product-container">
         ${products.map(
-            (products) => `
+      (products) => `
             <div class="product-card">
             <a href="#" name="${products.id}">
               <div class="image">
@@ -41,38 +33,31 @@ export default class HomeModel {
               <h3><a href="#" name="${products.id}">${products.name}</a></h3>
               <div class="rating">
               ${Rating.render({
-                value: products.rating,
-            })}
+        value: products.rating,
+      })}
               </div>
               <div class="price">$${products.price}/-</div>
             </div>
           </div>
           `
-        )
-            }
+    )
+      }
         
         `;
 
-        products.map(
-            (products) => {
-            document.getElementsByName(products.id).forEach((link) => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
+    products.map(
+      (products) => {
+        document.getElementsByName(products.id).forEach((link) => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
 
-                    // const productModel = new ProductModel(this.#parent);
-                    // productModel.product = products;
-                    // productModel.render();
+            Request.product(products.id);
 
-                  Request.product(products.id);
+          });
+        });
+      }
+    )
 
-                  });
-                });
-            }
-        )
-
-       
-
-
-    }
+  }
 
 }

@@ -3,7 +3,6 @@ const backendAddress = 'https://ozonback.herokuapp.com';
 import SigninModel from "../models/SigninModel.js";
 import HomeModel from "../models/HomeModel.js";
 import ProductModel from "../models/ProductModel.js";
-// import Ajax from "./ajax.js";
 
 export default class Request {
 

@@ -1,10 +1,10 @@
 export default class Validate {
 
   static signUp({
-      username,
-      email,
-      password,
-      confirmPassword,
+    username,
+    email,
+    password,
+    confirmPassword,
   }) {
     if (
       !password || !confirmPassword
@@ -28,9 +28,6 @@ export default class Validate {
     return undefined;
   }
 
-  // window.signUpValidate = signUpValidate;
-
-  // ------------------------------
   static signIn({
     username,
     password,
