@@ -207,28 +207,28 @@ import HomeModel from "../models/HomeModel.js";
 
 
   // ------------------------------
-  function profileRequest() {
-    Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
-      .then(({ status, responseText }) => {
+  // function profileRequest() {
+  //   Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
+  //     .then(({ status, responseText }) => {
 
-        const root = document.getElementById("main-container");
-        root.innerHTML = `
-        <h1>
-          Вы авторизованы!
-          <a href="#" class="logout-link">Выйти из профиля</a>
-        </h1>
-        `;
+  //       const root = document.getElementById("main-container");
+  //       root.innerHTML = `
+  //       <h1>
+  //         Вы авторизованы!
+  //         <a href="#" class="logout-link">Выйти из профиля</a>
+  //       </h1>
+  //       `;
 
-      })
-      .catch(({ status, responseText }) => {
+  //     })
+  //     .catch(({ status, responseText }) => {
 
-        const root = document.getElementById("main-container");
-        const homeModel = new HomeModel(root);
-        homeModel.render();
+  //       const root = document.getElementById("main-container");
+  //       const homeModel = new HomeModel(root);
+  //       homeModel.render();
 
-      })
-  }
-  window.profileRequest = profileRequest;
+  //     })
+  // }
+  // window.profileRequest = profileRequest;
 
 }()
 );
