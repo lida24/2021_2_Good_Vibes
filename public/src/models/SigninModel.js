@@ -76,7 +76,7 @@ export default class SigninModel {
         return;
       }
 
-      signUpRequest({
+      logInRequest({
         body: userData,
         alertObject: alert,
       });
