@@ -1,6 +1,8 @@
 // import AuthorizView from '../Components/AuthorizView/AuthorizView.js'
 // import HomeView from '../Components/HomeView/HomeView.js';
 
+import HomeModel from "../models/HomeModel";
+
 const backendAddress = 'https://ozonback.herokuapp.com';
 // const backendAddress = 'http://localhost:3000';
 
@@ -39,9 +41,23 @@ const backendAddress = 'https://ozonback.herokuapp.com';
   //   //   })
 
 
+  // ------------------------------
+  function homeViewRequest() {
+    root.innerHTML = '';
 
-  // }
-  // window.homeViewRequest = homeViewRequest;
+    Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
+      .then(({ status, responseText }) => {
+        // const homeView = new HomeView(root);
+        // homeView.render();
+        console.log('success');
+
+      })
+      .catch(({ status, responseText }) => {
+        // const authorizView = new AuthorizView(root);
+        // authorizView.render();
+        console.log('fail');
+      })
+
 
   // // ------------------------------
   // function logOutRequest() {
