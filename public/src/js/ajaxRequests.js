@@ -250,7 +250,7 @@ import HomeModel from "../models/HomeModel.js";
         </ul>
       </form>
     </div>
-    `
+    
         `;
 
       })
