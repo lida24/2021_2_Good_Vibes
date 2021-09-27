@@ -139,7 +139,7 @@
 
 const backendAddress = 'https://ozonback.herokuapp.com';
 
-// import HomeModel from "../models/HomeModel";
+import HomeModel from "../models/HomeModel.js";
 
 (function ajaxRequests() {
 
@@ -171,11 +171,11 @@ const backendAddress = 'https://ozonback.herokuapp.com';
       .then(({ status, responseText }) => {
         // homeViewRequest();
 
-        // const homeModel = new HomeModel(root);
-        // homeModel.render();
+        const homeModel = new HomeModel(root);
+        homeModel.render();
 
-        console.log('success');
-        return;
+        // console.log('success');
+        return ;
       })
       .catch(({ status, responseText }) => {
         alertObject.innerText = 'Неверное имя пользователя или пароль';
