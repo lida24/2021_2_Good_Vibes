@@ -173,6 +173,8 @@ const root = document.getElementById("main-container");
       .then(({ status, responseText }) => {
         // homeViewRequest();
 
+        console.log(root);
+
         const homeModel = new HomeModel(root);
         homeModel.render();
 
