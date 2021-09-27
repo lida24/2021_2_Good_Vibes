@@ -168,7 +168,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
         return;
       })
       .catch(({ status, responseText }) => {
-        alertObject.innerText = 'Wrong username or password';
+        alertObject.innerText = 'Неверное имя пользователя или пароль';
         alertObject.style.visibility = 'visible';
         console.log('error');
       })
