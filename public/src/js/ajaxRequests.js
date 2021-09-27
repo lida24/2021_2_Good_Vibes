@@ -118,21 +118,21 @@
 //   // window.signUpRequest = signUpRequest;
 
 
-//   // ------------------------------
-//   function signUpRequest({ body, alertObject }) {
+  // // ------------------------------
+  // function signUpRequest({ body, alertObject }) {
 
-//     Ajax.promisifyPost({ url: `${backendAddress}/signup`, body})
-//       .then(({ status, responseText }) => {
-//         // homeViewRequest();
-//         console.log('success');
-//         return;
-//       })
-//       .catch(({ status, responseText }) => {
-//         alertObject.innerText = 'Wrong data for account creating';
-//         alertObject.style.visibility = 'visible';
-//       })
-//   }
-//   window.signUpRequest = signUpRequest;
+  //   Ajax.promisifyPost({ url: `${backendAddress}/signup`, body})
+  //     .then(({ status, responseText }) => {
+  //       // homeViewRequest();
+  //       console.log('success');
+  //       return;
+  //     })
+  //     .catch(({ status, responseText }) => {
+  //       alertObject.innerText = 'Wrong data for account creating';
+  //       alertObject.style.visibility = 'visible';
+  //     })
+  // }
+  // window.signUpRequest = signUpRequest;
 // }()
 // );
 
@@ -163,7 +163,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
 
     Ajax.promisifyPost({ url: `${backendAddress}/login`, body })
       .then(({ status, responseText }) => {
-        // homeViewRequest();
+        homeViewRequest();
         console.log('success');
         return;
       })
