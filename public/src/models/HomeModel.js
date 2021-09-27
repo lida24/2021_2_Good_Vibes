@@ -77,8 +77,7 @@ export default class HomeModel {
         this.#parent.innerHTML = `
         <div class="product-container">
         ${products.map(
-            (products) => {
-            `
+            (products) => `
             <div class="product-card">
             <a href="#" name="${products.id}">
               <div class="image">
@@ -89,44 +88,32 @@ export default class HomeModel {
               <h3><a href="#" name="${products.id}">${products.name}</a></h3>
               <div class="rating">
               ${Rating.render({
-              value: products.rating,
+                value: products.rating,
             })}
               </div>
               <div class="price">$${products.price}/-</div>
             </div>
           </div>
-          `;
-            const link = document.getElementsByName(products.id).forEach((item) => {
-              item.addEventListener('click', (e) => {
-                e.preventDefault();
-
-                const productModel = new ProductModel(this.#parent);
-                productModel.product = products;
-                productModel.render();
-
-              });
-            });
-
-            }
+          `
         )
             }
         
         `;
 
-        // products.map(
-        //     (products) => {
-        //         const link = document.getElementsByName(products.id).forEach( (item) => {
-        //           item.addEventListener('click', (e) => {
-        //             e.preventDefault();
+        products.map(
+            (products) => {
+                const link = document.getElementsByName(products.id).forEach( (item) => {
+                  item.addEventListener('click', (e) => {
+                    e.preventDefault();
 
-        //             const productModel = new ProductModel(this.#parent);
-        //             productModel.product = products;
-        //             productModel.render();
+                    const productModel = new ProductModel(this.#parent);
+                    productModel.product = products;
+                    productModel.render();
 
-        //           });
-        //         });
-        //     }
-        // )
+                  });
+                });
+            }
+        )
 
        
 
