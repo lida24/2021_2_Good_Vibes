@@ -263,7 +263,7 @@ import SigninModel from "../models/SigninModel.js";
     Ajax.promisifyGet({ url: `${backendAddress}/homepage`, })
       .then(({ status, responseText }) => {
 
-        console.log(responseText);
+        // console.log(responseText);
 
         const root = document.getElementById("main-container");
         const homeModel = new HomeModel(root);
