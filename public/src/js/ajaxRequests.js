@@ -85,22 +85,22 @@
 //   // window.logInRequest = logInRequest;
 
 
-//   // ------------------------------
-//   function logInRequest({ body, alertObject }) {
+  // // ------------------------------
+  // function logInRequest({ body, alertObject }) {
 
-//     Ajax.promisifyPost({ url: `${backendAddress}/login`, body })
-//       .then(({ status, responseText }) => {
-//         // homeViewRequest();
-//         console.log('success');
-//         return;
-//       })
-//       .catch(({ status, responseText }) => {
-//         alertObject.innerText = 'Wrong username or password';
-//         alertObject.style.visibility = 'visible';
-//         // console.log('error');
-//       })
-//   }
-//   window.logInRequest = logInRequest;
+  //   Ajax.promisifyPost({ url: `${backendAddress}/login`, body })
+  //     .then(({ status, responseText }) => {
+  //       // homeViewRequest();
+  //       console.log('success');
+  //       return;
+  //     })
+  //     .catch(({ status, responseText }) => {
+  //       alertObject.innerText = 'Wrong username or password';
+  //       alertObject.style.visibility = 'visible';
+  //       // console.log('error');
+  //     })
+  // }
+  // window.logInRequest = logInRequest;
 
 //   // // ------------------------------
 //   // function signUpRequest({ body, alertObject }) {
@@ -156,6 +156,24 @@ const backendAddress = 'https://ozonback.herokuapp.com';
       })
   }
   window.homeViewRequest = homeViewRequest;
+
+
+  // ------------------------------
+  function logInRequest({ body, alertObject }) {
+
+    Ajax.promisifyPost({ url: `${backendAddress}/login`, body })
+      .then(({ status, responseText }) => {
+        // homeViewRequest();
+        console.log('success');
+        return;
+      })
+      .catch(({ status, responseText }) => {
+        alertObject.innerText = 'Wrong username or password';
+        alertObject.style.visibility = 'visible';
+        console.log('error');
+      })
+  }
+  window.logInRequest = logInRequest;
 
 }()
 );
