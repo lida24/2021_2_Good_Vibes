@@ -22,7 +22,8 @@ export default class Request {
             logoutLink.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                logOutRequest();
+                // logOutRequest();
+                this.logOut();
 
                 const root = document.getElementById("main-container");
                 const homeModel = new HomeModel(root);
