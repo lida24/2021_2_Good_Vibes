@@ -1,6 +1,6 @@
 // import axios from 'axios';
 // const axios = require('../../../node_modules/axios').default;
-import { apiUrl } from "./config.js"
+// import { apiUrl } from "./config.js"
 
 export const getProduct = async (id) => {
   try {
