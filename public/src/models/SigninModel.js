@@ -1,5 +1,6 @@
 import RegisterModel from "./RegisterModel.js";
 import Validate from "../js/inputDataValidation.js";
+import Request from "../js/requests.js";
 
 export default class SigninModel {
 
@@ -75,7 +76,12 @@ export default class SigninModel {
         return;
       }
 
-      signUpRequest({
+      // signUpRequest({
+      //   body: userData,
+      //   alertObject: alert,
+      // });
+
+      Request.signUp({
         body: userData,
         alertObject: alert,
       });
