@@ -141,6 +141,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
 
 import HomeModel from "../models/HomeModel.js";
 import SigninModel from "../models/SigninModel.js";
+import Ajax from "./ajax.js";
 
 (function ajaxRequests() {
 

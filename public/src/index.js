@@ -1,11 +1,11 @@
-import HomeModel from './models/HomeModel.js';
+// import HomeModel from './models/HomeModel.js';
 import Hood from './models/Hood.js';
 
 const hoodContainer = document.getElementsByClassName("grid-container")[0];
 const hood = new Hood(hoodContainer);
 hood.render();
 
-const root = document.getElementById('main-container');
+// const root = document.getElementById('main-container');
 
 // const homeModel = new HomeModel(root);
 // homeModel.render();
