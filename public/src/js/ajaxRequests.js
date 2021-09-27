@@ -213,10 +213,7 @@ import HomeModel from "../models/HomeModel.js";
 
         const root = document.getElementById("main-container");
         root.innerHTML = `
-        <h1>
-          Вы авторизованы!
-          <a href="#" class="logout-link">Выйти из профиля</a>
-        </h1>
+          <h1>Создать аккаунт</h1>
         `;
 
       })
