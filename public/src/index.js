@@ -39,9 +39,9 @@ homeModel.render();
 
 // f();
 
-let response;
+// let response;
 (async () => {
-    response = await cookieCheckRequest();
+    let response = await cookieCheckRequest();
     // let user = await response.json();
     // let user = await console.log(response);
     console.log(response);
