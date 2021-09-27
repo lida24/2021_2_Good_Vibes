@@ -7,10 +7,10 @@ hood.render();
 
 const root = document.getElementById('main-container');
 
-const homeModel = new HomeModel(root);
-homeModel.render();
+// const homeModel = new HomeModel(root);
+// homeModel.render();
 
-// homePageRequest();
+homePageRequest();
 
 
 // let user;
