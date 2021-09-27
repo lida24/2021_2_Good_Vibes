@@ -1,4 +1,3 @@
-import cookieParser from 'cookie-parser';
 import HomeModel from './models/HomeModel.js';
 // import ProductModel from './models/ProductModel.js';
 // import { parseRequestUrl } from './utils.js';
