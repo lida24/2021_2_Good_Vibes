@@ -57,6 +57,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
         // authorizView.render();
         console.log('fail');
       })
+  }
 
 
   // // ------------------------------
