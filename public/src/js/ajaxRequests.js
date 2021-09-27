@@ -17,8 +17,8 @@
 
 //   //   Ajax.promisifyGet({ url: `${backendAddress}/profile`,})
 //   //     .then( ({status, responseText}) => {
-//   //       const homeView = new HomeView(root);
-//   //       homeView.render();
+        // const homeView = new HomeView(root);
+        // homeView.render();
 //   //     })
 //   //     .catch( ({status, responseText}) => {
 //   //       const authorizView = new AuthorizView(root);
@@ -139,6 +139,8 @@
 
 const backendAddress = 'https://ozonback.herokuapp.com';
 
+import HomeModel from "../models/HomeModel";
+
 (function ajaxRequests() {
 
   function coockieCheckRequest(user) {
@@ -167,7 +169,11 @@ const backendAddress = 'https://ozonback.herokuapp.com';
 
     Ajax.promisifyPost({ url: `${backendAddress}/login`, body })
       .then(({ status, responseText }) => {
-        homeViewRequest();
+        // homeViewRequest();
+
+        const homeModel = new HomeModel(root);
+        homeModel.render();
+
         console.log('success');
         return;
       })
