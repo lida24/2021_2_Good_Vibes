@@ -143,13 +143,13 @@ import HomeModel from "../models/HomeModel.js";
 
 (function ajaxRequests() {
 
-  function coockieCheckRequest(user) {
+  function coockieCheckRequest() {
     Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
       .then(({ status, responseText }) => {
         // const homeView = new HomeView(root);
         // homeView.render();
         console.log(responseText);
-        user = responseText;
+        // user = responseText;
         // window.user = user;
         return responseText;
 

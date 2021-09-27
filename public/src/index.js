@@ -16,9 +16,27 @@ const root = document.getElementById('main-container');
 const homeModel = new HomeModel(root);
 homeModel.render();
 
-let user;
-coockieCheckRequest(user);
+// let user;
+// coockieCheckRequest(user);
 
+// async function f(user) {
+//     return coockieCheckRequest(user);
+// }
+
+// let user = await f;
+
+async function f() {
+
+    let promise = new Promise((resolve, reject) => {
+        resolve(coockieCheckRequest)
+    });
+
+    let result = await promise; 
+
+    alert(result);
+}
+
+f();
 
 console.log(user);
 
