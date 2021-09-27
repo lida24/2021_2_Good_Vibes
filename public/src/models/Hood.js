@@ -26,8 +26,9 @@ export default class Hood {
     homeLink.addEventListener('click', (e) => {
       e.preventDefault();
 
-      const homeModel = new HomeModel(root);
-      homeModel.render();
+      // const homeModel = new HomeModel(root);
+      // homeModel.render();
+      homePageRequest();
     })
 
     const profileLink = this.#parent.getElementsByClassName("profile-href")[0];
@@ -41,7 +42,7 @@ export default class Hood {
 
 
       profileRequest();
-      
+
 
     })
 
