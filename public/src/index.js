@@ -1,6 +1,6 @@
 import HomeModel from './models/HomeModel.js';
 import Hood from './models/Hood.js';
-import Request from './js/ajaxRequests.js';
+// import Request from './js/ajaxRequests.js';
 
 const hoodContainer = document.getElementsByClassName("grid-container")[0];
 const hood = new Hood(hoodContainer);
