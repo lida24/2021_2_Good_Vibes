@@ -62,7 +62,7 @@ export default class HomeModel {
                     // productModel.product = products;
                     // productModel.render();
 
-                    Request.product();
+                  Request.product(products.id);
 
                   });
                 });
