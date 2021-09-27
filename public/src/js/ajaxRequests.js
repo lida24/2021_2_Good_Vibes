@@ -171,9 +171,10 @@ import SigninModel from "../models/SigninModel.js";
     Ajax.promisifyPost({ url: `${backendAddress}/login`, body })
       .then(({ status, responseText }) => {
 
-        const root = document.getElementById("main-container");
-        const homeModel = new HomeModel(root);
-        homeModel.render();
+        // const root = document.getElementById("main-container");
+        // const homeModel = new HomeModel(root);
+        // homeModel.render();
+        homePageRequest();
 
         return ;
       })
@@ -191,9 +192,10 @@ import SigninModel from "../models/SigninModel.js";
     Ajax.promisifyPost({ url: `${backendAddress}/signup`, body })
       .then(({ status, responseText }) => {
         
-        const root = document.getElementById("main-container");
-        const homeModel = new HomeModel(root);
-        homeModel.render();
+        // const root = document.getElementById("main-container");
+        // const homeModel = new HomeModel(root);
+        // homeModel.render();
+        homePageRequest();
 
 
         console.log('success');
@@ -226,9 +228,11 @@ import SigninModel from "../models/SigninModel.js";
 
           logOutRequest();
 
-          const root = document.getElementById("main-container");
-          const homeModel = new HomeModel(root);
-          homeModel.render();
+          // const root = document.getElementById("main-container");
+          // const homeModel = new HomeModel(root);
+          // homeModel.render();
+
+          homePageRequest();
         })
 
       })
@@ -247,9 +251,10 @@ import SigninModel from "../models/SigninModel.js";
   function logOutRequest() {
     Ajax.promisifyGet({ url: `${backendAddress}/logout`, })
       .then(({ status, responseText }) => {
-        const root = document.getElementById("main-container");
-        const homeModel = new HomeModel(root);
-        homeModel.render();
+        // const root = document.getElementById("main-container");
+        // const homeModel = new HomeModel(root);
+        // homeModel.render();
+        homePageRequest();
       })
       .catch(({ status, responseText }) => {
         alert(responseText);

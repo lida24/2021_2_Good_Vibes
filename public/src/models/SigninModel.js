@@ -1,7 +1,6 @@
 import RegisterModel from "./RegisterModel.js";
 import Validate from "../js/inputDataValidation.js";
 
-
 export default class SigninModel {
 
   #parent;
