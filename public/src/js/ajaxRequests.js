@@ -42,19 +42,19 @@
 //   function homeViewRequest() {
 //     root.innerHTML = '';
 
-//     Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
-//       .then(({ status, responseText }) => {
-//         // const homeView = new HomeView(root);
-//         // homeView.render();
-//         console.log('success');
+  //   Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
+  //     .then(({ status, responseText }) => {
+  //       // const homeView = new HomeView(root);
+  //       // homeView.render();
+  //       console.log('success');
 
-//       })
-//       .catch(({ status, responseText }) => {
-//         // const authorizView = new AuthorizView(root);
-//         // authorizView.render();
-//         console.log('fail');
-//       })
-//   }
+  //     })
+  //     .catch(({ status, responseText }) => {
+  //       // const authorizView = new AuthorizView(root);
+  //       // authorizView.render();
+  //       console.log('fail');
+  //     })
+  // }
 //   window.homeViewRequest = homeViewRequest;
 
 //   // // ------------------------------
@@ -142,7 +142,19 @@
 (function ajaxRequests() {
 
   function homeViewRequest() {
-    console.log('bruh');
+    Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
+      .then(({ status, responseText }) => {
+        // const homeView = new HomeView(root);
+        // homeView.render();
+        console.log('success');
+
+      })
+      .catch(({ status, responseText }) => {
+        // const authorizView = new AuthorizView(root);
+        // authorizView.render();
+        console.log('fail');
+      })
+  }
   }
   window.homeViewRequest = homeViewRequest;
 
