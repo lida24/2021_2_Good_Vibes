@@ -1,18 +1,9 @@
-// (function () {
 const AJAX_METHODS = {
     POST: 'POST',
     GET: 'GET',
 };
 
 export default class Ajax {
-    // ajaxGet(args) {
-    //     return this.#ajax({ method: AJAX_METHODS.GET, ...args });
-    // }
-
-    // ajaxPost(args) {
-    //     return this.#ajax({ method: AJAX_METHODS.POST, ...args });
-    // }
-
     static #ajax({ method = AJAX_METHODS.GET, url = '/', body = null, callback = () => { } }) {
         const xhr = new XMLHttpRequest();
         xhr.open(method, url, true);
@@ -79,6 +70,3 @@ export default class Ajax {
         });
     }
 }
-  // window.Ajax = new Ajax();
-// }()
-// );

@@ -42,7 +42,6 @@ export default class HomeModel {
           `
         )
             }
-        
         `;
 
         products.map(
@@ -57,7 +56,6 @@ export default class HomeModel {
                 });
             }
         )
-
     }
 
 }

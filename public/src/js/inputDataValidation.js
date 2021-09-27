@@ -1,5 +1,4 @@
 export default class Validate {
-
     static signUp({
         username,
         email,

@@ -32,8 +32,6 @@ export default class Hood {
             e.preventDefault();
 
             Request.profile();
-
         })
-
     }
 }
