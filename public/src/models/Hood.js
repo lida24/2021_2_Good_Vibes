@@ -45,7 +45,7 @@ export default class Hood {
 
       // profileRequest();
 
-      Request.profileRequest();
+      Request.profile();
 
 
     })

@@ -1,9 +1,12 @@
 const backendAddress = 'https://ozonback.herokuapp.com';
 
+import SigninModel from "../models/SigninModel";
+import HomeModel from "../models/HomeModel";
+
 export default class Request {
 
   // ------------------------------
-  static profileRequest() {
+  static profile() {
     Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
         .then(({ status, responseText }) => {
 
