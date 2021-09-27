@@ -150,7 +150,7 @@ static logOut() {
 
                 const root = document.getElementById("main-container");
                 const productModel = new ProductModel(root);
-                productModel.product = responseText;
+                productModel.product = JSON.parse(responseText);
                 productModel.render();
             })
             .catch(({ status, responseText }) => {
