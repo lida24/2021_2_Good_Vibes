@@ -58,9 +58,11 @@ export default class HomeModel {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
 
-                    const productModel = new ProductModel(this.#parent);
-                    productModel.product = products;
-                    productModel.render();
+                    // const productModel = new ProductModel(this.#parent);
+                    // productModel.product = products;
+                    // productModel.render();
+
+                    Request.product();
 
                   });
                 });

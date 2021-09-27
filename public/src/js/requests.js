@@ -136,4 +136,20 @@ static logOut() {
         })
 }
 
+    static product(id) {
+        Ajax.promisifyGet({ url: `${backendAddress}/product?id=${id}`, })
+            .then(({ status, responseText }) => {
+
+                console.log(responseText);
+
+                // const root = document.getElementById("main-container");
+                // const homeModel = new HomeModel(root);
+                // homeModel.Catalog = responseText;
+                // homeModel.render();
+            })
+            .catch(({ status, responseText }) => {
+                alert(responseText);
+            })
+    }
+
 }
