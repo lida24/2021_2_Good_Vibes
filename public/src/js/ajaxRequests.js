@@ -155,7 +155,6 @@
         console.log('fail');
       })
   }
-  }
   window.homeViewRequest = homeViewRequest;
 
 }()
