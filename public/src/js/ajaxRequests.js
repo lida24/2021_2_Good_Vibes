@@ -235,7 +235,7 @@ import SigninModel from "../models/SigninModel.js";
       .catch(({ status, responseText }) => {
 
         const root = document.getElementById("main-container");
-        const signinModel = new SigninModel(this.#parent);
+        const signinModel = new SigninModel(root);
         signinModel.render();
 
       })
