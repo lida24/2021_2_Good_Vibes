@@ -54,16 +54,22 @@ import ProductModel from "./ProductModel.js";
 export default class HomeModel {
 
     #parent;
+    #catalog;
 
     constructor(parent) {
         this.#parent = parent;
+    }
+
+    set Catalog(catalog) {
+      this.#catalog = catalog;
     }
 
     render() {
 
         
 
-        const products = Catalog.products;
+        // const products = Catalog.products;
+        const products = this.#catalog;
 
         this.#parent.innerHTML = `
         <div class="product-container">
