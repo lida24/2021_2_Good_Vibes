@@ -25,7 +25,7 @@ homeModel.render();
 
 // let user = await f;
 
-let result = cookieCheckRequest();
+// let result = cookieCheckRequest();
 
 // async function f() {
 
@@ -44,10 +44,11 @@ let response;
     response = await cookieCheckRequest();
     // let user = await response.json();
     // let user = await console.log(response);
+    console.log(response);
 })();
 
 
-console.log(response);
+
 
 // console.log(user);
 
