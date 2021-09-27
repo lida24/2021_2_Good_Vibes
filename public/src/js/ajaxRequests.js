@@ -171,8 +171,8 @@ const backendAddress = 'https://ozonback.herokuapp.com';
       .then(({ status, responseText }) => {
         // homeViewRequest();
 
-        const homeModel = new HomeModel(root);
-        homeModel.render();
+        // const homeModel = new HomeModel(root);
+        // homeModel.render();
 
         console.log('success');
         return;
