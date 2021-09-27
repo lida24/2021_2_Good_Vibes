@@ -1,5 +1,6 @@
 import HomeModel from "./HomeModel.js";
 import SigninModel from "./SigninModel.js";
+import "../js/ajaxRequests.js";
 
 export default class Hood {
   #parent;
