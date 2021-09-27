@@ -102,7 +102,7 @@ export default class HomeModel {
 
         products.map(
             (products) => {
-                const link = document.getElementsByName(products.id).forEach( (item) => {
+                const link = document.getElementsByName(products.id).map( (item) => {
                   item.addEventListener('click', (e) => {
                     e.preventDefault();
 
