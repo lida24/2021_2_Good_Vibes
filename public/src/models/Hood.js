@@ -43,9 +43,9 @@ export default class Hood {
       // signinModel.render();
 
 
-      // profileRequest();
+      profileRequest();
 
-      Request.profileRequest();
+      // Request.profileRequest();
 
 
     })
