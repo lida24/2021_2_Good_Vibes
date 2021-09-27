@@ -61,10 +61,8 @@ export default class RegisterModel {
     signin.addEventListener('click', (e) => {
       e.preventDefault();
 
-      // const signinModel = new SigninModel(this.#parent);
-      // signinModel.render();
-
-      homePageRequest();
+      const signinModel = new SigninModel(this.#parent);
+      signinModel.render();
      });
 
 

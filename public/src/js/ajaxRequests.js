@@ -171,10 +171,9 @@ import SigninModel from "../models/SigninModel.js";
     Ajax.promisifyPost({ url: `${backendAddress}/login`, body })
       .then(({ status, responseText }) => {
 
-        // const root = document.getElementById("main-container");
-        // const homeModel = new HomeModel(root);
-        // homeModel.render();
-        homePageRequest();
+        const root = document.getElementById("main-container");
+        const homeModel = new HomeModel(root);
+        homeModel.render();
 
         return ;
       })
@@ -192,10 +191,9 @@ import SigninModel from "../models/SigninModel.js";
     Ajax.promisifyPost({ url: `${backendAddress}/signup`, body })
       .then(({ status, responseText }) => {
         
-        // const root = document.getElementById("main-container");
-        // const homeModel = new HomeModel(root);
-        // homeModel.render();
-        homePageRequest();
+        const root = document.getElementById("main-container");
+        const homeModel = new HomeModel(root);
+        homeModel.render();
 
 
         console.log('success');
@@ -228,10 +226,9 @@ import SigninModel from "../models/SigninModel.js";
 
           logOutRequest();
 
-          // const root = document.getElementById("main-container");
-          // const homeModel = new HomeModel(root);
-          // homeModel.render();
-          homePageRequest();
+          const root = document.getElementById("main-container");
+          const homeModel = new HomeModel(root);
+          homeModel.render();
         })
 
       })
@@ -250,10 +247,9 @@ import SigninModel from "../models/SigninModel.js";
   function logOutRequest() {
     Ajax.promisifyGet({ url: `${backendAddress}/logout`, })
       .then(({ status, responseText }) => {
-        // const root = document.getElementById("main-container");
-        // const homeModel = new HomeModel(root);
-        // homeModel.render();
-        homePageRequest();
+        const root = document.getElementById("main-container");
+        const homeModel = new HomeModel(root);
+        homeModel.render();
       })
       .catch(({ status, responseText }) => {
         alert(responseText);
@@ -267,13 +263,11 @@ import SigninModel from "../models/SigninModel.js";
     Ajax.promisifyGet({ url: `${backendAddress}/homepage`, })
       .then(({ status, responseText }) => {
 
-        // console.log(responseText);
+        console.log(responseText);
 
         const root = document.getElementById("main-container");
         const homeModel = new HomeModel(root);
         homeModel.render();
-
-
       })
       .catch(({ status, responseText }) => {
         alert(responseText);
