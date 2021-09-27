@@ -17,5 +17,6 @@ const homeModel = new HomeModel(root);
 homeModel.render();
 
 const user = coockieCheckRequest();
+console.log(user);
 
 
