@@ -68,11 +68,11 @@ export default class Validate {
     }
 
     if (!password.match(/^\S{4,}$/)) {
-      return 'Wrong password format';
+      return 'Неверный формат пароля';
     }
 
     if (password !== confirmPassword) {
-      return 'Password are not confirmed';
+      return 'Пароли не одинаковые';
     }
 
     return undefined;
@@ -86,11 +86,11 @@ export default class Validate {
     password,
   }) {
     if (!username || !password) {
-      return 'Fill all fields';
+      return 'Заполните все поля';
     }
 
     if (!password.match(/^\S{4,}$/)) {
-      return 'Wrong password format';
+      return 'Неверный формат пароля';
     }
 
     return undefined;
