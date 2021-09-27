@@ -172,10 +172,10 @@ import Ajax from "./ajax.js";
     Ajax.promisifyPost({ url: `${backendAddress}/login`, body })
       .then(({ status, responseText }) => {
 
-        // const root = document.getElementById("main-container");
-        // const homeModel = new HomeModel(root);
-        // homeModel.render();
-        homePageRequest();
+        const root = document.getElementById("main-container");
+        const homeModel = new HomeModel(root);
+        homeModel.render();
+        // homePageRequest();
 
         return ;
       })
@@ -193,10 +193,10 @@ import Ajax from "./ajax.js";
     Ajax.promisifyPost({ url: `${backendAddress}/signup`, body })
       .then(({ status, responseText }) => {
         
-        // const root = document.getElementById("main-container");
-        // const homeModel = new HomeModel(root);
-        // homeModel.render();
-        homePageRequest();
+        const root = document.getElementById("main-container");
+        const homeModel = new HomeModel(root);
+        homeModel.render();
+        // homePageRequest();
 
 
         console.log('success');
@@ -229,11 +229,11 @@ import Ajax from "./ajax.js";
 
           logOutRequest();
 
-          // const root = document.getElementById("main-container");
-          // const homeModel = new HomeModel(root);
-          // homeModel.render();
+          const root = document.getElementById("main-container");
+          const homeModel = new HomeModel(root);
+          homeModel.render();
 
-          homePageRequest();
+          // homePageRequest();
         })
 
       })
@@ -252,10 +252,10 @@ import Ajax from "./ajax.js";
   function logOutRequest() {
     Ajax.promisifyGet({ url: `${backendAddress}/logout`, })
       .then(({ status, responseText }) => {
-        // const root = document.getElementById("main-container");
-        // const homeModel = new HomeModel(root);
-        // homeModel.render();
-        homePageRequest();
+        const root = document.getElementById("main-container");
+        const homeModel = new HomeModel(root);
+        homeModel.render();
+        // homePageRequest();
       })
       .catch(({ status, responseText }) => {
         alert(responseText);

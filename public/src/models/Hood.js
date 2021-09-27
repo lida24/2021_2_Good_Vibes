@@ -1,5 +1,5 @@
-// import HomeModel from "./HomeModel.js";
-// import SigninModel from "./SigninModel.js";
+import HomeModel from "./HomeModel.js";
+import SigninModel from "./SigninModel.js";
 
 export default class Hood {
   #parent;
@@ -20,15 +20,15 @@ export default class Hood {
       <footer>@2021 GoodVibes</footer>
       `;
 
-    // const root = document.getElementById("main-container");
+    const root = document.getElementById("main-container");
 
     const homeLink = this.#parent.getElementsByClassName("logo")[0];
     homeLink.addEventListener('click', (e) => {
       e.preventDefault();
 
-      // const homeModel = new HomeModel(root);
-      // homeModel.render();
-      homePageRequest();
+      const homeModel = new HomeModel(root);
+      homeModel.render();
+      // homePageRequest();
 
     })
 
