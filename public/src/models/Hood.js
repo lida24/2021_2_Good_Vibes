@@ -1,6 +1,6 @@
 import HomeModel from "./HomeModel.js";
 import SigninModel from "./SigninModel.js";
-// import Request from "../js/requests.js";
+import Request from "../js/requests.js";
 
 export default class Hood {
   #parent;
@@ -43,9 +43,9 @@ export default class Hood {
       // signinModel.render();
 
 
-      profileRequest();
+      // profileRequest();
 
-      // Request.profileRequest();
+      Request.profileRequest();
 
 
     })
