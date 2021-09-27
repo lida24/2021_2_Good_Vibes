@@ -1,6 +1,3 @@
-// import AuthorizView from '../Components/AuthorizView/AuthorizView.js'
-// import HomeView from '../Components/HomeView/HomeView.js';
-
 import HomeModel from "../models/HomeModel";
 
 const backendAddress = 'https://ozonback.herokuapp.com';
