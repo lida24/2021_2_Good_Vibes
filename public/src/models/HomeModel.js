@@ -61,7 +61,7 @@ export default class HomeModel {
 
     render() {
 
-        homePageRequest();
+        
 
         const products = Catalog.products;
 

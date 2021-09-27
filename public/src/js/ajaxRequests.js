@@ -265,9 +265,11 @@ import SigninModel from "../models/SigninModel.js";
 
         console.log(responseText);
 
-        // const root = document.getElementById("main-container");
-        // const homeModel = new HomeModel(root);
-        // homeModel.render();
+        const root = document.getElementById("main-container");
+        const homeModel = new HomeModel(root);
+        homeModel.render();
+
+
       })
       .catch(({ status, responseText }) => {
         alert(responseText);
