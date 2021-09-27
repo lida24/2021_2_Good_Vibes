@@ -91,7 +91,12 @@ export default class RegisterModel {
         return;
       }
 
-      signUpRequest({
+      // signUpRequest({
+      //   body: userData,
+      //   alertObject: alert,
+      // });
+
+      Request.signUp({
         body: userData,
         alertObject: alert,
       });

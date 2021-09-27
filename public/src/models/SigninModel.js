@@ -81,7 +81,7 @@ export default class SigninModel {
       //   alertObject: alert,
       // });
 
-      Request.signUp({
+      Request.logIn({
         body: userData,
         alertObject: alert,
       });
