@@ -9,7 +9,7 @@ export default class Request {
   // ------------------------------
   static profile() {
     Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
-        .then(({ status, responseText }) => { 
+        .then(({ status, responseText }) => {
 
             const root = document.getElementById("main-container");
             root.innerHTML = `
