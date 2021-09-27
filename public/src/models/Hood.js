@@ -27,9 +27,10 @@ export default class Hood {
     homeLink.addEventListener('click', (e) => {
       e.preventDefault();
 
-      const homeModel = new HomeModel(root);
-      homeModel.render();
-      // homePageRequest();
+      // const homeModel = new HomeModel(root);
+      // homeModel.render();
+
+        Request.homePage();
 
     })
 
