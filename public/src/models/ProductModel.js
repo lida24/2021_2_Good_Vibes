@@ -4,51 +4,6 @@ import Rating from '../components/Rating.js';
 // import Catalog from '../catalog.js';
 import HomeModel from './HomeModel.js';
 
-// const ProductModel = {
-//   render: async () => {
-//     const request = parseRequestUrl();
-//     const product = await getProduct(request.id);
-//     if (product.error) {
-//       return `<div>${product.error}</div>`;
-//     }
-//     return `
-//         <div class="content">
-//       <div class="back-to-result">
-//         <a href="/">Вернуться в каталог</a>
-//       </div>
-//       <div class="details">
-//         <div class="details-image">
-//           <img src="${product.image}" alt="${product.name}" />
-//         </div>
-//         <div class="details-info">
-//           <ul>
-//             <li>
-//               <h1>${product.name}</h1>
-//             </li>
-//             <li>
-//             ${Rating.render({
-//       value: product.rating,
-//     })}
-//             </li>
-//             <li>
-//               Цена: <strong>$${product.price}</strong>
-//             </li>
-//             <li>
-//               Описание:
-//               <div>
-//                 ${product.description}
-//               </div>
-//             </li>
-//           </ul>
-//         </div>
-//       </div>
-//     </div>`;
-//   },
-// };
-// export default ProductModel;
-
-
-
 export default class ProductModel {
 
   #parent;
