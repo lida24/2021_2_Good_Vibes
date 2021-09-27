@@ -17,10 +17,12 @@ const backendAddress = 'https://ozonback.herokuapp.com';
 
     Ajax.promisifyGet({ url: `${backendAddress}/profile`,})
       .then( ({status, responseText}) => {
+        console.log(responseText);
         const homeView = new HomeView(root);
         homeView.render();
       })
       .catch( ({status, responseText}) => {
+        console.log(responseText);
         const authorizView = new AuthorizView(root);
         authorizView.render();
       })
@@ -46,9 +48,11 @@ const backendAddress = 'https://ozonback.herokuapp.com';
   function logOutRequest() {
     Ajax.promisifyGet({ url: `${backendAddress}/logout`, })
       .then(({ status, responseText }) => {
+        console.log(responseText);
         homeViewRequest();
       })
       .catch(({ status, responseText }) => {
+        console.log(responseText);
         alert(responseText);
       })
   }
@@ -59,10 +63,12 @@ const backendAddress = 'https://ozonback.herokuapp.com';
 
     Ajax.promisifyPost({ url: `${backendAddress}/login`, body})
       .then(({ status, responseText }) => {
+        console.log(responseText);
         homeViewRequest();
         return;
       })
       .catch(({ status, responseText }) => {
+        console.log(responseText);
         alertObject.innerText = 'Wrong username or password';
         alertObject.style.visibility = 'visible';
       })
@@ -74,10 +80,12 @@ const backendAddress = 'https://ozonback.herokuapp.com';
 
     Ajax.promisifyPost({ url: `${backendAddress}/signup`, body})
       .then(({ status, responseText }) => {
+        console.log(responseText);
         homeViewRequest();
         return;
       })
       .catch(({ status, responseText }) => {
+        console.log(responseText);
         alertObject.innerText = 'Wrong data for account creating';
         alertObject.style.visibility = 'visible';
       })
