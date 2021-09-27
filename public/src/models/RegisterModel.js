@@ -1,6 +1,7 @@
 import SigninModel from './SigninModel.js';
 // import { register } from '../api.js';
 import Validate from "../js/inputDataValidation.js";
+import Request from '../js/requests.js';
 
 export default class RegisterModel {
 
@@ -91,15 +92,15 @@ export default class RegisterModel {
         return;
       }
 
-      signUpRequest({
-        body: userData,
-        alertObject: alert,
-      });
-
-      // Request.signUp({
+      // signUpRequest({
       //   body: userData,
       //   alertObject: alert,
       // });
+
+      Request.signUp({
+        body: userData,
+        alertObject: alert,
+      });
 
     });
 
