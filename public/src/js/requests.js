@@ -3,10 +3,10 @@ const backendAddress = 'https://ozonback.herokuapp.com';
 import SigninModel from "../models/SigninModel.js";
 import HomeModel from "../models/HomeModel.js";
 import ProductModel from "../models/ProductModel.js";
+import Ajax from "./ajax.js";
 
 export default class Request {
 
-    // ------------------------------
     static profile() {
         Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
             .then(() => {
@@ -33,24 +33,6 @@ export default class Request {
                 signinModel.render();
             })
     }
-
-    // static cookieCheck() {
-    //     Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
-    //         .then(({ status, responseText }) => {
-    //             // const homeView = new HomeView(root);
-    //             // homeView.render();
-    //             console.log(responseText);
-    //             // user = responseText;
-    //             // window.user = user;
-    //             return responseText;
-
-    //         })
-    //         .catch(({ status, responseText }) => {
-    //             // const authorizView = new AuthorizView(root);
-    //             // authorizView.render();
-    //             console.log('fail');
-    //         })
-    // }
 
     static logIn({ body, alertObject }) {
         Ajax.promisifyPost({ url: `${backendAddress}/login`, body })
