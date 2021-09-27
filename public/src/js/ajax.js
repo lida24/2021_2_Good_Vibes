@@ -83,11 +83,6 @@
 // }()
 // );
 
-const AJAX_METHODS = {
-  POST: 'POST',
-  GET: 'GET',
-};
-
 export default class Ajax {
   // ajaxGet(args) {
   //   return this.#ajax({ method: AJAX_METHODS.GET, ...args });
@@ -97,7 +92,13 @@ export default class Ajax {
   //   return this.#ajax({ method: AJAX_METHODS.POST, ...args });
   // }
 
-  #ajax({ method = AJAX_METHODS.GET, url = '/', body = null, callback = () => { } }) {
+  // AJAX_METHODS = {
+  //   POST: 'POST',
+  //   GET: 'GET',
+  // };
+
+
+  #ajax({ method = 'GET', url = '/', body = null, callback = () => { } }) {
     const xhr = new XMLHttpRequest();
     xhr.open(method, url, true);
     xhr.withCredentials = true;
@@ -121,7 +122,7 @@ export default class Ajax {
     return new Promise((resolve, reject) => {
       this.#ajax({
         ...args,
-        method: AJAX_METHODS.GET,
+        method: 'GET',
         callback: (status, responseText) => {
           if (status < 300) {
             resolve({
@@ -144,7 +145,7 @@ export default class Ajax {
     return new Promise((resolve, reject) => {
       this.#ajax({
         ...args,
-        method: AJAX_METHODS.POST,
+        method: 'POST',
         callback: (status, responseText) => {
           if (status < 300) {
             resolve({
