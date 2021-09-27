@@ -60,11 +60,11 @@ export default class Validate {
       !password || !confirmPassword
       || !username || !email
     ) {
-      return 'Fill all fields';
+      return 'Заполните все поля';
     }
 
     if (!email.match(/@/)) {
-      return 'Wrong format of email';
+      return 'Неверный формат электронной почты';
     }
 
     if (!password.match(/^\S{4,}$/)) {

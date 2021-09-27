@@ -7,7 +7,6 @@ import HomeModel from './models/HomeModel.js';
 // import Catalog from './catalog.js';
 import Hood from './models/Hood.js';
 
-
 const hoodContainer = document.getElementsByClassName("grid-container")[0];
 const hood = new Hood(hoodContainer);
 hood.render();
