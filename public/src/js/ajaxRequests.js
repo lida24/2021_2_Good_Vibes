@@ -213,7 +213,44 @@ import HomeModel from "../models/HomeModel.js";
 
         const root = document.getElementById("main-container");
         root.innerHTML = `
-          <h1>Создать аккаунт</h1>
+          <div class="form-container">
+      <form id="register-form">
+        <ul class="form-items">
+          <li>
+            <h1>Создать аккаунт</h1>
+          </li>
+          <li>
+            <label for="login">Имя пользователя</label>
+            <input type="login" name="login" id="login" />
+          </li>
+          <li>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+          </li>
+          <li>
+            <label for="password">Пароль</label>
+            <input type="password" name="password" id="password" />
+          </li>
+          <li>
+            <label for="repassword">Подтвердить пароль</label>
+            <input type="password" name="repassword" id="repassword" />
+          </li>
+          <li>
+            <label id="alert-label">error</label>
+          </li>
+          <li>
+            <button type="submit" class="primary">Зарегистрироваться</button>
+          </li>
+          <li>
+            <div>
+              Уже есть аккаунт?
+              <a href="#" id="signin-href">Войти</a>
+            </div>
+          </li>
+        </ul>
+      </form>
+    </div>
+    `
         `;
 
       })
