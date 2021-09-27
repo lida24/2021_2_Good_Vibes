@@ -257,5 +257,23 @@ import SigninModel from "../models/SigninModel.js";
   }
   window.logOutRequest = logOutRequest;
 
+
+  // ------------------------------
+  function homePageRequest() {
+    Ajax.promisifyGet({ url: `${backendAddress}/homepage`, })
+      .then(({ status, responseText }) => {
+
+        console.log(responseText);
+
+        // const root = document.getElementById("main-container");
+        // const homeModel = new HomeModel(root);
+        // homeModel.render();
+      })
+      .catch(({ status, responseText }) => {
+        alert(responseText);
+      })
+  }
+  window.logOutRequest = logOutRequest;
+
 }()
 );
