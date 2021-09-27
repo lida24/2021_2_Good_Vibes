@@ -1,7 +1,7 @@
-import { parseRequestUrl } from '../utils.js';
-import { getProduct } from '../api.js';
+// import { parseRequestUrl } from '../utils.js';
+// import { getProduct } from '../api.js';
 import Rating from '../components/Rating.js';
-import Catalog from '../catalog.js';
+// import Catalog from '../catalog.js';
 import HomeModel from './HomeModel.js';
 
 // const ProductModel = {

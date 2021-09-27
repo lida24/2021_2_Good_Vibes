@@ -9,7 +9,7 @@ export default class SigninModel {
     this.#parent = parent;
   }
 
-  after_render() { };
+  after_render() { }
   render() {
     this.#parent.innerHTML = `
       <div class="form-container">
@@ -83,4 +83,4 @@ export default class SigninModel {
     });
 
   }
-};
+}

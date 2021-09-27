@@ -1,5 +1,5 @@
 import Rating from "../components/Rating.js"
-import Catalog from "../catalog.js"
+// import Catalog from "../catalog.js"
 import ProductModel from "./ProductModel.js";
 
 
@@ -54,8 +54,8 @@ export default class HomeModel {
 
         products.map(
             (products) => {
-                const link = document.getElementsByName(products.id).forEach( (item) => {
-                  item.addEventListener('click', (e) => {
+            document.getElementsByName(products.id).forEach((link) => {
+                link.addEventListener('click', (e) => {
                     e.preventDefault();
 
                     const productModel = new ProductModel(this.#parent);

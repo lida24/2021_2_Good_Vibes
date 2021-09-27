@@ -1,5 +1,5 @@
 import SigninModel from './SigninModel.js';
-import { register } from '../api.js';
+// import { register } from '../api.js';
 import Validate from "../js/inputDataValidation.js";
 
 export default class RegisterModel {
@@ -10,7 +10,7 @@ export default class RegisterModel {
     this.#parent = parent;
   }
 
-  after_render() { };
+  after_render() { }
 
   render ()  {
 
@@ -98,9 +98,9 @@ export default class RegisterModel {
 
     });
 
-    };
+    }
 
 
 
 
-};
+}
