@@ -148,6 +148,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
         // homeView.render();
         console.log(responseText);
         const user = responseText;
+        window.user = user;
         return responseText;
 
       })
@@ -158,7 +159,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
       })
   }
   window.coockieCheckRequest = coockieCheckRequest;
-  window.user = user;
+  
 
 
   // ------------------------------
