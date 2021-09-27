@@ -68,9 +68,9 @@ export default class HomeModel {
 
         
 
-        // const products = Catalog.products;
+        const products = Catalog.products;
 
-        const products = this.#catalog;
+        // const products = this.#catalog;
 
         console.log(products);
 
