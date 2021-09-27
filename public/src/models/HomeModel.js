@@ -1,6 +1,7 @@
 import Rating from "../components/Rating.js"
 import Catalog from "../catalog.js"
 import ProductModel from "./ProductModel.js";
+import Request from "../js/requests.js";
 
 
 export default class HomeModel {
