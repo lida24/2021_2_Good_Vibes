@@ -93,7 +93,7 @@ export default class RegisterModel {
 
       signUpRequest({
         body: userData,
-        alertObject: signUpAlertObject,
+        alertObject: alert,
       });
 
     });

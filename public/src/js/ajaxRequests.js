@@ -169,14 +169,11 @@ import HomeModel from "../models/HomeModel.js";
 
     Ajax.promisifyPost({ url: `${backendAddress}/login`, body })
       .then(({ status, responseText }) => {
-        // homeViewRequest();
-        const root = document.getElementById("main-container");
-        console.log(root);
 
+        const root = document.getElementById("main-container");
         const homeModel = new HomeModel(root);
         homeModel.render();
 
-        // console.log('success');
         return ;
       })
       .catch(({ status, responseText }) => {
@@ -192,7 +189,12 @@ import HomeModel from "../models/HomeModel.js";
 
     Ajax.promisifyPost({ url: `${backendAddress}/signup`, body })
       .then(({ status, responseText }) => {
-        // homeViewRequest();
+        
+        const root = document.getElementById("main-container");
+        const homeModel = new HomeModel(root);
+        homeModel.render();
+
+
         console.log('success');
         return;
       })
