@@ -143,7 +143,7 @@ import HomeModel from "../models/HomeModel.js";
 
 (function ajaxRequests() {
 
-  function coockieCheckRequest() {
+  function cookieCheckRequest() {
     Ajax.promisifyGet({ url: `${backendAddress}/profile`, })
       .then(({ status, responseText }) => {
         // const homeView = new HomeView(root);
@@ -160,7 +160,7 @@ import HomeModel from "../models/HomeModel.js";
         console.log('fail');
       })
   }
-  window.coockieCheckRequest = coockieCheckRequest;
+  window.cookieCheckRequest = cookieCheckRequest;
   
 
 
