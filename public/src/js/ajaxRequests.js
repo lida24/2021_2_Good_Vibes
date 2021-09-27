@@ -140,6 +140,7 @@
 const backendAddress = 'https://ozonback.herokuapp.com';
 
 import HomeModel from "../models/HomeModel.js";
+import SigninModel from "../models/SigninModel.js";
 
 (function ajaxRequests() {
 
@@ -234,8 +235,8 @@ import HomeModel from "../models/HomeModel.js";
       .catch(({ status, responseText }) => {
 
         const root = document.getElementById("main-container");
-        const homeModel = new HomeModel(root);
-        homeModel.render();
+        const signinModel = new SigninModel(this.#parent);
+        signinModel.render();
 
       })
   }
