@@ -39,8 +39,14 @@ let result = cookieCheckRequest();
 
 // f();
 
+(async () => {
+    let response = await cookieCheckRequest();
+    // let user = await response.json();
+    // let user = await console.log(response);
+})();
 
-console.log(result);
+
+console.log(response);
 
 // console.log(user);
 
