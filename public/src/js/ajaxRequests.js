@@ -273,7 +273,7 @@ import Ajax from "./ajax.js";
 
         const root = document.getElementById("main-container");
         const homeModel = new HomeModel(root);
-        homeModel.Catalog = responseText;
+        // homeModel.Catalog = responseText;
         homeModel.render();
       })
       .catch(({ status, responseText }) => {
