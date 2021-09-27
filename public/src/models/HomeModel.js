@@ -1,5 +1,5 @@
 import Rating from "../components/Rating.js"
-// import Catalog from "../catalog.js"
+import Catalog from "../catalog.js"
 import ProductModel from "./ProductModel.js";
 
 
@@ -20,9 +20,9 @@ export default class HomeModel {
 
         
 
-        // const products = Catalog.products;
+        const products = Catalog.products;
 
-      const products = JSON.parse(this.#catalog);
+      // const products = JSON.parse(this.#catalog);
 
         console.log(products);
 
