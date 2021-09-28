@@ -21,6 +21,8 @@ export default class Request {
    * @public
    * @static
    */
+  static #check = false;
+
   static profile() {
     Ajax.promisifyGet({ url: `${backendAddress}/profile` })
       .then(() => {
@@ -38,12 +40,20 @@ export default class Request {
 
           this.logOut();
           Request.homePage();
+
+          this.#check = false;
         });
       })
       .catch(() => {
+        if (this.#check === true) {
+          return;
+        }
+
         const root = document.getElementById('main-container');
         const signinModel = new SigninModel(root);
         signinModel.render();
+
+        this.#check = true;
       });
   }
 
