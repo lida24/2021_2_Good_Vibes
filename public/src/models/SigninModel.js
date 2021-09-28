@@ -30,6 +30,40 @@ export default class SigninModel {
   * @public
   */
   render() {
+
+    const alert = document.getElementById('alert-label');
+    alert.style.visibility = 'hidden';
+
+    const listener = function (e) {
+
+      alert.style.visibility = 'hidden';
+
+      e.preventDefault();
+
+      const usernameSignInInput = document.getElementsByName('login')[0];
+      const passwordSignInInput = document.getElementsByName('password')[0];
+
+      const userData = {
+        username: usernameSignInInput.value.trim(),
+        password: passwordSignInInput.value.trim(),
+      };
+
+      const validationResult = Validate.signIn(userData);
+
+      if (validationResult !== undefined) {
+        alert.innerText = validationResult;
+        alert.style.visibility = 'visible';
+        return;
+      }
+
+      Request.logIn({
+        body: userData,
+        alertObject: alert,
+      });
+    };
+
+    this.#parent.removeEventListener('submit', listener);
+
     this.#parent.innerHTML = `
       <div class="form-container">
         <form id="signin-form">
@@ -62,38 +96,7 @@ export default class SigninModel {
       </div>
       `;
 
-    const alert = document.getElementById('alert-label');
-    alert.style.visibility = 'hidden';
 
-    const listener = function (e) {
-
-      alert.style.visibility = 'hidden';
-      
-      e.preventDefault();
-
-      const usernameSignInInput = document.getElementsByName('login')[0];
-      const passwordSignInInput = document.getElementsByName('password')[0];
-
-      const userData = {
-        username: usernameSignInInput.value.trim(),
-        password: passwordSignInInput.value.trim(),
-      };
-
-      const validationResult = Validate.signIn(userData);
-
-      if (validationResult !== undefined) {
-        alert.innerText = validationResult;
-        alert.style.visibility = 'visible';
-        return;
-      }
-
-      Request.logIn({
-        body: userData,
-        alertObject: alert,
-      });
-    };
-
-    this.#parent.removeEventListener('submit', listener);
     this.#parent.addEventListener('submit', listener);
 
     const register = document.getElementById('register-href');
