@@ -45,8 +45,6 @@ export default class Request {
         const root = document.getElementById('main-container');
         const signinModel = new SigninModel(root);
         signinModel.render();
-
-        this.#check = true;
       });
   }
 
