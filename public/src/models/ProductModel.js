@@ -87,7 +87,34 @@ export default class ProductModel {
       </div>
     </script>`;
 
-    var source   = $("#entry-template").html();
+    var source = $(`<div class="content">
+        <div class="back-to-result">
+          <a href="/">Вернуться в каталог</a>
+        </div>
+        <div class="details">
+          <div class="details-image">
+            <img src="{{image}}" alt="{{name}}" />
+          </div>
+          <div class="details-info">
+            <ul>
+              <li>
+                <h1>{{name}}</h1>
+              </li>
+              <li>
+              </li>
+              <li>
+                Цена: <strong>{{price}}</strong>
+              </li>
+              <li>
+                Описание:
+                <div>
+                  Здесь будет прекрасное описание товара
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>`).html();
     var template = Handlebars.compile(source);
 
     /*
