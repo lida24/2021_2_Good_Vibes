@@ -68,6 +68,8 @@ export default class SigninModel {
     const register = document.getElementById('register-href');
     register.addEventListener('click', (e) => {
       e.preventDefault();
+
+      this.#parent.innerHTML = ``;
       const registerModel = new RegisterModel(this.#parent);
       registerModel.render();
     });

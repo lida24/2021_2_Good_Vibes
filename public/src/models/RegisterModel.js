@@ -77,6 +77,7 @@ export default class RegisterModel {
     signin.addEventListener('click', (e) => {
       e.preventDefault();
 
+      this.#parent.innerHTML = ``;
       const signinModel = new SigninModel(this.#parent);
       signinModel.render();
     });

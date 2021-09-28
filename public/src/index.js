@@ -5,9 +5,9 @@ const hoodContainer = document.getElementsByClassName('grid-container')[0];
 const hood = new Hood(hoodContainer);
 hood.render();
 
-// Request.homePage();
+Request.homePage();
 
-import RegisterModel from './models/RegisterModel.js';
-const root = document.getElementById('main-container')
-const registerModel = new RegisterModel(root);
-registerModel.render();
+// import RegisterModel from './models/RegisterModel.js';
+// const root = document.getElementById('main-container')
+// const registerModel = new RegisterModel(root);
+// registerModel.render();
