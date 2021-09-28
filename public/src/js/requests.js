@@ -93,8 +93,11 @@ export default class Request {
       .then(() => {
         Request.homePage();
       })
-      .catch(() => {
+      .catch(({ responseText }) => {
         alertObject.innerText = 'Пользователь уже существует';
+        if (responseText === 'validation error') {
+          alertObject.innerHTML = 'Ошибка валидации данных';
+        }
         alertObject.style.visibility = 'visible';
       });
   }
