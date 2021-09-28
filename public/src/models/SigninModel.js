@@ -93,6 +93,7 @@ export default class SigninModel {
       });
     };
 
+    this.#parent.removeEventListener('submit', listener);
     this.#parent.addEventListener('submit', listener);
 
     const register = document.getElementById('register-href');
