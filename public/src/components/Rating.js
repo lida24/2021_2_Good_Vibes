@@ -1,5 +1,16 @@
-/* eslint-disable no-nested-ternary */
+/** @module Rating */
+
+/**
+ * Класс для отображения рейтинга товара
+ * @class
+ * @exports
+ */
 const Rating = {
+  /**
+   * Создание HTML-кода со звездочками для оценки товара
+   * @param {{value: number}} props - рейтинг товара
+   * @returns HTML-код со звездочками для отображения рейтинга
+   */
   render: (props) => {
     if (!props.value) {
       return '<div></div>';
