@@ -6,8 +6,3 @@ const hood = new Hood(hoodContainer);
 hood.render();
 
 Request.homePage();
-
-// import RegisterModel from './models/RegisterModel.js';
-// const root = document.getElementById('main-container')
-// const registerModel = new RegisterModel(root);
-// registerModel.render();

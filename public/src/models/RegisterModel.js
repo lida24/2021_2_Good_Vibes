@@ -70,49 +70,6 @@ export default class RegisterModel {
     </div>
     `;
 
-    // const alert = document.getElementById('alert-label');
-    // alert.style.visibility = 'hidden';
-
-    // const signin = document.getElementById('signin-href');
-    // signin.addEventListener('click', (e) => {
-    //   e.preventDefault();
-
-    //   this.#parent.innerHTML = ``;
-    //   const signinModel = new SigninModel(this.#parent);
-    //   signinModel.render();
-    // });
-
-    // this.#parent.addEventListener('submit', (e) => {
-    //   alert.style.visibility = 'hidden';
-
-    //   e.preventDefault();
-
-    //   const usernameSignUpInput = document.getElementsByName('login')[0];
-    //   const emailSignUpInput = document.getElementsByName('email')[0];
-    //   const passwordSignUpInput = document.getElementsByName('password')[0];
-    //   const confirmPasswordSignUpInput = document.getElementsByName('repassword')[0];
-
-    //   const userData = {
-    //     username: usernameSignUpInput.value.trim(),
-    //     email: emailSignUpInput.value.trim(),
-    //     password: passwordSignUpInput.value.trim(),
-    //     confirmPassword: confirmPasswordSignUpInput.value.trim(),
-    //   };
-
-    //   const validationResult = Validate.signUp(userData);
-
-    //   if (validationResult !== undefined) {
-    //     alert.innerText = validationResult;
-    //     alert.style.visibility = 'visible';
-    //     return;
-    //   }
-
-    //   Request.signUp({
-    //     body: userData,
-    //     alertObject: alert,
-    //   });
-    // });
-
     const alert = document.getElementById('alert-label');
     alert.style.visibility = 'hidden';
 
@@ -151,10 +108,6 @@ export default class RegisterModel {
     this.#parent.removeEventListener('submit', listener);
     this.#parent.addEventListener('submit', listener);
 
-
-    // const alert = document.getElementById('alert-label');
-    // alert.style.visibility = 'hidden';
-
     const signin = document.getElementById('signin-href');
     signin.addEventListener('click', (e) => {
       this.#parent.removeEventListener('submit', listener);
@@ -165,36 +118,5 @@ export default class RegisterModel {
       const signinModel = new SigninModel(this.#parent);
       signinModel.render();
     });
-
-    // this.#parent.addEventListener('submit', (e) => {
-    //   alert.style.visibility = 'hidden';
-
-    //   e.preventDefault();
-
-    //   const usernameSignUpInput = document.getElementsByName('login')[0];
-    //   const emailSignUpInput = document.getElementsByName('email')[0];
-    //   const passwordSignUpInput = document.getElementsByName('password')[0];
-    //   const confirmPasswordSignUpInput = document.getElementsByName('repassword')[0];
-
-    //   const userData = {
-    //     username: usernameSignUpInput.value.trim(),
-    //     email: emailSignUpInput.value.trim(),
-    //     password: passwordSignUpInput.value.trim(),
-    //     confirmPassword: confirmPasswordSignUpInput.value.trim(),
-    //   };
-
-    //   const validationResult = Validate.signUp(userData);
-
-    //   if (validationResult !== undefined) {
-    //     alert.innerText = validationResult;
-    //     alert.style.visibility = 'visible';
-    //     return;
-    //   }
-
-    //   Request.signUp({
-    //     body: userData,
-    //     alertObject: alert,
-    //   });
-    // });
   }
 }
