@@ -62,9 +62,11 @@ export default class SigninModel {
       </div>
       `;
 
+    const alert = document.getElementById('alert-label');
+    alert.style.visibility = 'hidden';
+
     const listener = function (e) {
-      
-      const alert = document.getElementById('alert-label');
+
       alert.style.visibility = 'hidden';
       
       e.preventDefault();
