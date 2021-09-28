@@ -1,61 +1,56 @@
-import Rating from "../components/Rating.js"
-import Request from "../js/requests.js";
+import Rating from '../components/Rating.js';
+import Request from '../js/requests.js';
 
 export default class HomeModel {
+  #parent;
 
-    #parent;
-    #catalog;
+  #catalog;
 
-    constructor(parent) {
-        this.#parent = parent;
-    }
+  constructor(parent) {
+    this.#parent = parent;
+  }
 
-    set Catalog(catalog) {
-        this.#catalog = catalog;
-    }
+  set Catalog(catalog) {
+    this.#catalog = catalog;
+  }
 
-    render() {
-        const products = JSON.parse(this.#catalog);
+  render() {
+    const products = JSON.parse(this.#catalog);
 
-        console.log(products);
-
-        this.#parent.innerHTML = `
+    this.#parent.innerHTML = `
         <div class="product-container">
         ${products.map(
-            (products) => `
+    (product) => `
             <div class="product-card">
-            <a href="#" name="${products.id}">
+            <a href="#" name="${product.id}">
               <div class="image">
-                <img src="${products.image}" alt="${products.name}" />
+                <img src="${product.image}" alt="${product.name}" />
               </div>
             </a>
             <div class="content">
-              <h3><a href="#" name="${products.id}">${products.name}</a></h3>
+              <h3><a href="#" name="${product.id}">${product.name}</a></h3>
               <div class="rating">
               ${Rating.render({
-                value: products.rating,
-            })}
+    value: product.rating,
+  })}
               </div>
-              <div class="price">$${products.price}/-</div>
+              <div class="price">$${product.price}/-</div>
             </div>
           </div>
-          `
-        )
-            }
+          `,
+  )}
         `;
 
-        products.map(
-            (products) => {
-                document.getElementsByName(products.id).forEach((link) => {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
+    products.map(
+      (product) => {
+        document.getElementsByName(product.id).forEach((link) => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
 
-                        Request.product(products.id);
-
-                    });
-                });
-            }
-        )
-    }
-
+            Request.product(product.id);
+          });
+        });
+      },
+    );
+  }
 }

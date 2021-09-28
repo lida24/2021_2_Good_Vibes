@@ -2,22 +2,22 @@ import Rating from '../components/Rating.js';
 import Request from '../js/requests.js';
 
 export default class ProductModel {
+  #parent;
 
-    #parent;
-    #product;
+  #product;
 
-    constructor(parent) {
-        this.#parent = parent;
-    }
+  constructor(parent) {
+    this.#parent = parent;
+  }
 
-    set product(product) {
-        this.#product = product
-    }
+  set product(product) {
+    this.#product = product;
+  }
 
-    render() {
-        const product = this.#product;
+  render() {
+    const product = this.#product;
 
-        this.#parent.innerHTML = `
+    this.#parent.innerHTML = `
         <div class="content">
       <div class="back-to-result">
         <a href="/">Вернуться в каталог</a>
@@ -33,8 +33,8 @@ export default class ProductModel {
             </li>
             <li>
             ${Rating.render({
-            value: product.rating,
-        })}
+    value: product.rating,
+  })}
             </li>
             <li>
               Цена: <strong>$${product.price}</strong>
@@ -50,14 +50,11 @@ export default class ProductModel {
       </div>
     </div>`;
 
-        const backBtn = document.getElementsByClassName('back-to-result')[0];
-        backBtn.addEventListener('click', (e) => {
-            e.preventDefault();
+    const backBtn = document.getElementsByClassName('back-to-result')[0];
+    backBtn.addEventListener('click', (e) => {
+      e.preventDefault();
 
-            Request.homePage();
-
-        });
-
-    }
-
+      Request.homePage();
+    });
+  }
 }

@@ -1,18 +1,17 @@
-import RegisterModel from "./RegisterModel.js";
-import Validate from "../js/inputDataValidation.js";
-import Request from "../js/requests.js";
+import RegisterModel from './RegisterModel.js';
+import Validate from '../js/inputDataValidation.js';
+import Request from '../js/requests.js';
 
 export default class SigninModel {
+  #parent;
 
-    #parent;
+  constructor(parent) {
+    this.#parent = parent;
+  }
 
-    constructor(parent) {
-        this.#parent = parent;
-    }
-
-    after_render() { }
-    render() {
-        this.#parent.innerHTML = `
+  // after_render() { }
+  render() {
+    this.#parent.innerHTML = `
       <div class="form-container">
         <form id="signin-form">
           <ul class="form-items">
@@ -44,44 +43,41 @@ export default class SigninModel {
       </div>
       `;
 
-        const alert = document.getElementById('alert-label');
-        alert.style.visibility = 'hidden';
+    const alert = document.getElementById('alert-label');
+    alert.style.visibility = 'hidden';
 
-        const register = document.getElementById('register-href');
-        register.addEventListener('click', (e) => {
-            e.preventDefault();
-            const registerModel = new RegisterModel(this.#parent);
-            registerModel.render();
-        });
+    const register = document.getElementById('register-href');
+    register.addEventListener('click', (e) => {
+      e.preventDefault();
+      const registerModel = new RegisterModel(this.#parent);
+      registerModel.render();
+    });
 
+    this.#parent.addEventListener('submit', (e) => {
+      alert.style.visibility = 'hidden';
 
-        this.#parent.addEventListener('submit', (e) => {
-            alert.style.visibility = 'hidden';
+      e.preventDefault();
 
-            e.preventDefault();
+      const usernameSignInInput = document.getElementsByName('login')[0];
+      const passwordSignInInput = document.getElementsByName('password')[0];
 
-            const usernameSignInInput = document.getElementsByName('login')[0];
-            const passwordSignInInput = document.getElementsByName('password')[0];
+      const userData = {
+        username: usernameSignInInput.value.trim(),
+        password: passwordSignInInput.value.trim(),
+      };
 
-            const userData = {
-                username: usernameSignInInput.value.trim(),
-                password: passwordSignInInput.value.trim(),
-            }
+      const validationResult = Validate.signIn(userData);
 
-            const validationResult = Validate.signIn(userData);
+      if (validationResult !== undefined) {
+        alert.innerText = validationResult;
+        alert.style.visibility = 'visible';
+        return;
+      }
 
-            if (validationResult !== undefined) {
-                alert.innerText = validationResult;
-                alert.style.visibility = 'visible';
-                return;
-            }
-
-            Request.logIn({
-                body: userData,
-                alertObject: alert,
-            });
-
-        });
-
-    }
+      Request.logIn({
+        body: userData,
+        alertObject: alert,
+      });
+    });
+  }
 }
