@@ -1,15 +1,34 @@
+/** @module RegisterModel */
+
 import SigninModel from './SigninModel.js';
 import Validate from '../js/inputDataValidation.js';
 import Request from '../js/requests.js';
 
+/**
+ * Класс для создания модели регистрации
+ * @exports
+ */
 export default class RegisterModel {
+  /**
+   * Элемент, в котором отрисовывается контент
+   * @type {Element}
+   * @private
+   */
   #parent;
 
+  /**
+   * Создание модели для регистрации
+   * @class RegisterModel
+   * @param {Element} parent - элемент, в котором будет отрисовываться контент
+   */
   constructor(parent) {
     this.#parent = parent;
   }
 
-  // after_render() { }
+  /**
+  * Отрисовка модели регистрации
+  * @public
+  */
   render() {
     this.#parent.innerHTML = `
     <div class="form-container">

@@ -1,9 +1,33 @@
+/** @module Ajax */
+
+/**
+ * Объект с Ajax-запросами
+ */
 const AJAX_METHODS = {
   POST: 'POST',
   GET: 'GET',
 };
 
+/**
+ * Класс для создания Ajax-запросов
+ * @exports
+ */
 export default class Ajax {
+  /**
+   * Ajax коллбэк
+   * @callback AjaxCallback
+   * @param {{status: number,
+   * responseText: string}}
+   */
+  /**
+   * Обертка для создания Ajax-запросов
+   * @private
+   * @static
+   * @param {{AJAX_METHOD: string,
+   * url: string,
+   * body: JSON,
+   * callback: AjaxCallback}} inputObj - объект с данными для Ajax-запроса
+   */
   static #ajax({
     method = AJAX_METHODS.GET, url = '/', body = null, callback = () => { },
   }) {
@@ -26,6 +50,13 @@ export default class Ajax {
     xhr.send();
   }
 
+  /**
+   * GET-запрос с использованием промисов
+   * @static
+   * @public
+   * @param {... args} args - параметры для Ajax-запроса
+   * @returns промис о выполнении или невыполнении запроса
+   */
   static promisifyGet(args = {}) {
     return new Promise((resolve, reject) => {
       this.#ajax({
@@ -49,6 +80,13 @@ export default class Ajax {
     });
   }
 
+  /**
+   * POST-запрос с использованием промисов
+   * @static
+   * @public
+   * @param {... args} args - параметры для Ajax-запроса
+   * @returns промис о выполнении или невыполнении запроса
+   */
   static promisifyPost(args = {}) {
     return new Promise((resolve, reject) => {
       this.#ajax({

@@ -1,12 +1,31 @@
+/** @module Hood */
 import Request from '../js/requests.js';
 
+/**
+ * Класс для отрисовки шаблона страницы
+ * @exports
+ */
 export default class Hood {
+  /**
+   * Элемент, в котором отрисовывается контент
+   * @type {Element}
+   * @private
+   */
   #parent;
 
+  /**
+   * Создание модели шаблона страницы
+   * @class Hood
+   * @param {Element} parent - элемент, в котором будет отрисовываться контент
+   */
   constructor(parent) {
     this.#parent = parent;
   }
 
+  /**
+  * Отрисовка модели шаблона страницы
+  * @public
+  */
   render() {
     this.#parent.innerHTML = `
       <header>

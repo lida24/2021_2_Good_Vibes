@@ -1,19 +1,56 @@
-import Rating from '../components/Rating.js';
-import Request from '../js/requests.js';
+/** @module HomeModel */
 
+import Rating from "../components/Rating.js"
+import Request from "../js/requests.js";
+
+/**
+ * Класс для создания модели домашней страницы
+ * @exports
+ */
 export default class HomeModel {
+  /**
+   * @typedef {{id: number,
+   * image: string,
+   * name: string,
+   * price: number,
+   * rating: number}} product
+   */
+  /**
+   * Элемент, в котором отрисовывается контент
+   * @type {Element}
+   * @private
+   */
   #parent;
 
+  /**
+   * Массив с данными о продуктах
+   * @type {product[]}
+   * @private
+   */
   #catalog;
 
+  /**
+   * Создание модели домашней страницы
+   * @class HomeModel
+   * @param {Element} parent - элемент, в котором будет отрисовываться контент
+   */
   constructor(parent) {
     this.#parent = parent;
   }
 
+  /**
+   * Передача в класс HomeModel массива с данными о продуктах
+   * @param {product[]} catalog
+   * @public
+   */
   set Catalog(catalog) {
     this.#catalog = catalog;
   }
 
+  /**
+  * Отрисовка модели домашней страницы
+  * @public
+  */
   render() {
     const products = JSON.parse(this.#catalog);
 

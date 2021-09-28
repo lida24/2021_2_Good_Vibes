@@ -1,19 +1,56 @@
+/** @module ProductModel */
+
 import Rating from '../components/Rating.js';
 import Request from '../js/requests.js';
 
+/**
+ * Класс для создания модели продукта
+ * @exports
+ */
 export default class ProductModel {
+  /**
+   * @typedef {{id: number,
+   * image: string,
+   * name: string, price:
+   * number,
+   * rating: number}} product
+   */
+  /**
+   * Элемент, в котором отрисовывается контент
+   * @type {Element}
+   * @private
+   */
   #parent;
 
+  /**
+   * Данные о продукте
+   * @type {product}
+   * @private
+   */
   #product;
 
+  /**
+   * Создание модели для продукта
+   * @class ProductModel
+   * @param {Element} parent - элемент, в котором будет отрисовываться контент
+   */
   constructor(parent) {
     this.#parent = parent;
   }
 
+  /**
+   * Передача в класс ProductModel объекта с данными о продукте
+   * @param {product} product
+   * @public
+   */
   set product(product) {
     this.#product = product;
   }
 
+  /**
+  * Отрисовка модели страницы продукта
+  * @public
+  */
   render() {
     const product = this.#product;
 
