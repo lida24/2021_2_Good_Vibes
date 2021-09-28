@@ -2,6 +2,7 @@
 
 import Rating from '../components/Rating.js';
 import Request from '../js/requests.js';
+import Handelbars from '../js/handelbars.js';
 
 /**
  * Класс для создания модели продукта
@@ -87,7 +88,7 @@ export default class ProductModel {
       </div>
 `;
 
-    import Handelbars from '../js/handelbars.js';
+
 
     var source = $(
       <div class="content">
