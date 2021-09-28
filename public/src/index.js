@@ -5,4 +5,7 @@ const hoodContainer = document.getElementsByClassName('grid-container')[0];
 const hood = new Hood(hoodContainer);
 hood.render();
 
-Request.homePage();
+// Request.homePage();
+
+const registerModel = new RegisterModel(this.#parent);
+registerModel.render();
