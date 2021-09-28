@@ -95,9 +95,11 @@ export default class Request {
       })
       .catch(({ responseText }) => {
         alertObject.innerText = 'Пользователь уже существует';
-        if (responseText === 'validation error') {
-          alertObject.innerHTML = 'Ошибка валидации данных';
-        }
+        const responseObject = JSON.parse(responseText);
+        console.log(responseObject);
+        // if (responseObject. === 'validation error') {
+        //   alertObject.innerHTML = 'Ошибка валидации данных';
+        // }
         alertObject.style.visibility = 'visible';
       });
   }
