@@ -29,7 +29,7 @@ export default class SigninModel {
   * Отрисовка модели авторизации
   * @public
   */
-  static render() {
+  render() {
     this.#parent.innerHTML = `
       <div class="form-container">
         <form id="signin-form">
