@@ -29,7 +29,7 @@ export default class SigninModel {
   * Отрисовка модели авторизации
   * @public
   */
-  render() {
+  static render() {
     this.#parent.innerHTML = `
       <div class="form-container">
         <form id="signin-form">
@@ -66,7 +66,6 @@ export default class SigninModel {
     alert.style.visibility = 'hidden';
 
     const listener = function (e) {
-
       alert.style.visibility = 'hidden';
       
       e.preventDefault();
