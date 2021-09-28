@@ -93,30 +93,6 @@ export default class SigninModel {
 
     this.#parent.addEventListener('submit', listener);
 
-    // this.#parent.addEventListener('submit', (e) => {
-    //   // alert.style.visibility = 'hidden';
-
-    //   e.preventDefault();
-
-    //   const usernameSignInInput = document.getElementsByName('login')[0];
-    //   const passwordSignInInput = document.getElementsByName('password')[0];
-
-    //   const userData = {
-    //     username: usernameSignInInput.value.trim(),
-    //     password: passwordSignInInput.value.trim(),
-    //   };
-
-    //   const validationResult = Validate.signIn(userData);
-
-    //   if (validationResult !== undefined) {
-    //     alert.innerText = validationResult;
-    //     alert.style.visibility = 'visible';
-    //     return;
-    //   }
-
-      // const alert = document.getElementById('alert-label');
-      // alert.style.visibility = 'hidden';
-
     const register = document.getElementById('register-href');
     register.addEventListener('click', (e) => {
       this.#parent.removeEventListener('submit', listener);
