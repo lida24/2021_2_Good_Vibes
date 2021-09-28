@@ -36,7 +36,6 @@ API Documentation
      
      
    Results Returned Successfully:
-   Sample:  
     ```
    {
     "username" : "newUser",
