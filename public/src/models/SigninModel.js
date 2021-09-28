@@ -32,7 +32,9 @@ export default class SigninModel {
   render() {
 
     const alert = document.getElementById('alert-label');
-    alert.style.visibility = 'hidden';
+    if (alert !== null) {
+      alert.style.visibility = 'hidden';
+    }
 
     const listener = function (e) {
 
