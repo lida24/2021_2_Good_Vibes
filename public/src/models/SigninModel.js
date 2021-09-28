@@ -65,16 +65,9 @@ export default class SigninModel {
     const alert = document.getElementById('alert-label');
     alert.style.visibility = 'hidden';
 
-    const register = document.getElementById('register-href');
-    register.addEventListener('click', (e) => {
-      e.preventDefault();
-      const registerModel = new RegisterModel(this.#parent);
-      registerModel.render();
-    });
-
-    this.#parent.addEventListener('submit', (e) => {
+    const listener = function (e) {
       alert.style.visibility = 'hidden';
-
+      
       e.preventDefault();
 
       const usernameSignInInput = document.getElementsByName('login')[0];
@@ -97,6 +90,20 @@ export default class SigninModel {
         body: userData,
         alertObject: alert,
       });
+    };
+
+    this.#parent.removeEventListener('submit', listener);
+    this.#parent.addEventListener('submit', listener);
+
+    const register = document.getElementById('register-href');
+    register.addEventListener('click', (e) => {
+      this.#parent.removeEventListener('submit', listener);
+    
+      e.preventDefault();
+
+      const registerModel = new RegisterModel(this.#parent);
+      registerModel.render();
     });
+
   }
 }

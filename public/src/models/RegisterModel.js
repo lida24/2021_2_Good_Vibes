@@ -73,15 +73,7 @@ export default class RegisterModel {
     const alert = document.getElementById('alert-label');
     alert.style.visibility = 'hidden';
 
-    const signin = document.getElementById('signin-href');
-    signin.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      const signinModel = new SigninModel(this.#parent);
-      signinModel.render();
-    });
-
-    this.#parent.addEventListener('submit', (e) => {
+    const listener = function(e) {
       alert.style.visibility = 'hidden';
 
       e.preventDefault();
@@ -110,6 +102,21 @@ export default class RegisterModel {
         body: userData,
         alertObject: alert,
       });
+
+    }
+
+    this.#parent.removeEventListener('submit', listener);
+    this.#parent.addEventListener('submit', listener);
+
+    const signin = document.getElementById('signin-href');
+    signin.addEventListener('click', (e) => {
+      this.#parent.removeEventListener('submit', listener);
+      
+      e.preventDefault();
+
+      this.#parent.innerHTML = ``;
+      const signinModel = new SigninModel(this.#parent);
+      signinModel.render();
     });
   }
 }

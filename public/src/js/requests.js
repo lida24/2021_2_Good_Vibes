@@ -38,6 +38,7 @@ export default class Request {
 
           this.logOut();
           Request.homePage();
+
         });
       })
       .catch(() => {
@@ -95,7 +96,9 @@ export default class Request {
       })
       .catch(({ responseText }) => {
         alertObject.innerText = 'Пользователь уже существует';
-        if (responseText === 'validation error') {
+        const responseObject = JSON.parse(responseText);
+        console.log(responseObject);
+        if (responseObject['error description'] === 'validation error') {
           alertObject.innerHTML = 'Ошибка валидации данных';
         }
         alertObject.style.visibility = 'visible';
