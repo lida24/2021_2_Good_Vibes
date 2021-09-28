@@ -148,6 +148,7 @@ export default class RegisterModel {
 
     }
 
+    this.#parent.removeEventListener('submit', listener);
     this.#parent.addEventListener('submit', listener);
 
 
