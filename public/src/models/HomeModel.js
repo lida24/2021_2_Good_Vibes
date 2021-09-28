@@ -54,10 +54,33 @@ export default class HomeModel {
   render() {
     const products = JSON.parse(this.#catalog);
 
+/*     
+    <script id="entry-template" type="text/x-handlebars-template">
+      <div class="product-container">
+
+        <div class="product-card">
+          <a href="#" name="{{id}}">
+            <div class="image">
+              <img src="${product.image}" alt="{{name}}" />
+            </div>
+          </a>
+          <div class="content">
+            <h3><a href="#" name="{{id}}">{{name}}</a></h3>
+            <div class="rating">
+              ${Rating.render({
+                value: product.rating,
+              })}
+            </div>
+          </div>
+          <div class="price">{{price}}/-</div>
+        </div>
+      </div>
+    </script> */
+
     this.#parent.innerHTML = `
-        <div class="product-container">
-        ${products.map(
-    (product) => `
+            <div class="product-container">
+            ${products.map(
+      (product) => `
             <div class="product-card">
             <a href="#" name="${product.id}">
               <div class="image">
@@ -68,15 +91,15 @@ export default class HomeModel {
               <h3><a href="#" name="${product.id}">${product.name}</a></h3>
               <div class="rating">
               ${Rating.render({
-    value: product.rating,
-  })}
+        value: product.rating,
+      })}
               </div>
               <div class="price">$${product.price}/-</div>
             </div>
           </div>
           `,
-  )}
-        `;
+    )}
+            `;
 
     products.map(
       (product) => {
