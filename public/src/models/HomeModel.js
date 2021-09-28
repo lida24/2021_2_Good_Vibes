@@ -1,61 +1,93 @@
+/** @module HomeModel */
+
 import Rating from "../components/Rating.js"
 import Request from "../js/requests.js";
 
+/**
+ * Класс для создания модели домашней страницы
+ * @exports
+ */
 export default class HomeModel {
+  /**
+   * @typedef {{id: number,
+   * image: string,
+   * name: string,
+   * price: number,
+   * rating: number}} product
+   */
+  /**
+   * Элемент, в котором отрисовывается контент
+   * @type {Element}
+   * @private
+   */
+  #parent;
 
-    #parent;
-    #catalog;
+  /**
+   * Массив с данными о продуктах
+   * @type {product[]}
+   * @private
+   */
+  #catalog;
 
-    constructor(parent) {
-        this.#parent = parent;
-    }
+  /**
+   * Создание модели домашней страницы
+   * @class HomeModel
+   * @param {Element} parent - элемент, в котором будет отрисовываться контент
+   */
+  constructor(parent) {
+    this.#parent = parent;
+  }
 
-    set Catalog(catalog) {
-        this.#catalog = catalog;
-    }
+  /**
+   * Передача в класс HomeModel массива с данными о продуктах
+   * @param {product[]} catalog
+   * @public
+   */
+  set Catalog(catalog) {
+    this.#catalog = catalog;
+  }
 
-    render() {
-        const products = JSON.parse(this.#catalog);
+  /**
+  * Отрисовка модели домашней страницы
+  * @public
+  */
+  render() {
+    const products = JSON.parse(this.#catalog);
 
-        console.log(products);
-
-        this.#parent.innerHTML = `
+    this.#parent.innerHTML = `
         <div class="product-container">
         ${products.map(
-            (products) => `
+    (product) => `
             <div class="product-card">
-            <a href="#" name="${products.id}">
+            <a href="#" name="${product.id}">
               <div class="image">
-                <img src="${products.image}" alt="${products.name}" />
+                <img src="${product.image}" alt="${product.name}" />
               </div>
             </a>
             <div class="content">
-              <h3><a href="#" name="${products.id}">${products.name}</a></h3>
+              <h3><a href="#" name="${product.id}">${product.name}</a></h3>
               <div class="rating">
               ${Rating.render({
-                value: products.rating,
-            })}
+    value: product.rating,
+  })}
               </div>
-              <div class="price">$${products.price}/-</div>
+              <div class="price">$${product.price}/-</div>
             </div>
           </div>
-          `
-        )
-            }
+          `,
+  )}
         `;
 
-        products.map(
-            (products) => {
-                document.getElementsByName(products.id).forEach((link) => {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
+    products.map(
+      (product) => {
+        document.getElementsByName(product.id).forEach((link) => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
 
-                        Request.product(products.id);
-
-                    });
-                });
-            }
-        )
-    }
-
+            Request.product(product.id);
+          });
+        });
+      },
+    );
+  }
 }

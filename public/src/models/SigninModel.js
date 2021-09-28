@@ -1,18 +1,36 @@
-import RegisterModel from "./RegisterModel.js";
-import Validate from "../js/inputDataValidation.js";
-import Request from "../js/requests.js";
+/** @module SigninModel */
 
+import RegisterModel from './RegisterModel.js';
+import Validate from '../js/inputDataValidation.js';
+import Request from '../js/requests.js';
+
+/**
+ * Класс для создания модели авторизации
+ * @exports
+ */
 export default class SigninModel {
+  /**
+   * Элемент, в котором отрисовывыется контент
+   * @type {Element}
+   * @private
+   */
+  #parent;
 
-    #parent;
+  /**
+   * Создание модели для авторизации
+   * @class SigninModel
+   * @param {Element} parent - элемент, в котором будет отрисовываться контент
+   */
+  constructor(parent) {
+    this.#parent = parent;
+  }
 
-    constructor(parent) {
-        this.#parent = parent;
-    }
-
-    after_render() { }
-    render() {
-        this.#parent.innerHTML = `
+  /**
+  * Отрисовка модели авторизации
+  * @public
+  */
+  render() {
+    this.#parent.innerHTML = `
       <div class="form-container">
         <form id="signin-form">
           <ul class="form-items">
@@ -44,44 +62,41 @@ export default class SigninModel {
       </div>
       `;
 
-        const alert = document.getElementById('alert-label');
-        alert.style.visibility = 'hidden';
+    const alert = document.getElementById('alert-label');
+    alert.style.visibility = 'hidden';
 
-        const register = document.getElementById('register-href');
-        register.addEventListener('click', (e) => {
-            e.preventDefault();
-            const registerModel = new RegisterModel(this.#parent);
-            registerModel.render();
-        });
+    const register = document.getElementById('register-href');
+    register.addEventListener('click', (e) => {
+      e.preventDefault();
+      const registerModel = new RegisterModel(this.#parent);
+      registerModel.render();
+    });
 
+    this.#parent.addEventListener('submit', (e) => {
+      alert.style.visibility = 'hidden';
 
-        this.#parent.addEventListener('submit', (e) => {
-            alert.style.visibility = 'hidden';
+      e.preventDefault();
 
-            e.preventDefault();
+      const usernameSignInInput = document.getElementsByName('login')[0];
+      const passwordSignInInput = document.getElementsByName('password')[0];
 
-            const usernameSignInInput = document.getElementsByName('login')[0];
-            const passwordSignInInput = document.getElementsByName('password')[0];
+      const userData = {
+        username: usernameSignInInput.value.trim(),
+        password: passwordSignInInput.value.trim(),
+      };
 
-            const userData = {
-                username: usernameSignInInput.value.trim(),
-                password: passwordSignInInput.value.trim(),
-            }
+      const validationResult = Validate.signIn(userData);
 
-            const validationResult = Validate.signIn(userData);
+      if (validationResult !== undefined) {
+        alert.innerText = validationResult;
+        alert.style.visibility = 'visible';
+        return;
+      }
 
-            if (validationResult !== undefined) {
-                alert.innerText = validationResult;
-                alert.style.visibility = 'visible';
-                return;
-            }
-
-            Request.logIn({
-                body: userData,
-                alertObject: alert,
-            });
-
-        });
-
-    }
+      Request.logIn({
+        body: userData,
+        alertObject: alert,
+      });
+    });
+  }
 }

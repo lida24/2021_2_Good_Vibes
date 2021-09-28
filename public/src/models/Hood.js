@@ -1,14 +1,33 @@
-import Request from "../js/requests.js";
+/** @module Hood */
+import Request from '../js/requests.js';
 
+/**
+ * Класс для отрисовки шаблона страницы
+ * @exports
+ */
 export default class Hood {
-    #parent;
+  /**
+   * Элемент, в котором отрисовывается контент
+   * @type {Element}
+   * @private
+   */
+  #parent;
 
-    constructor(parent) {
-        this.#parent = parent;
-    }
+  /**
+   * Создание модели шаблона страницы
+   * @class Hood
+   * @param {Element} parent - элемент, в котором будет отрисовываться контент
+   */
+  constructor(parent) {
+    this.#parent = parent;
+  }
 
-    render() {
-        this.#parent.innerHTML = `
+  /**
+  * Отрисовка модели шаблона страницы
+  * @public
+  */
+  render() {
+    this.#parent.innerHTML = `
       <header>
         <a href="#" class="logo"><span>O</span>zon2.0</a>
         <div class="icons">
@@ -19,19 +38,18 @@ export default class Hood {
       <footer>@2021 GoodVibes</footer>
       `;
 
-        const homeLink = this.#parent.getElementsByClassName("logo")[0];
-        homeLink.addEventListener('click', (e) => {
-            e.preventDefault();
+    const homeLink = this.#parent.getElementsByClassName('logo')[0];
+    homeLink.addEventListener('click', (e) => {
+      e.preventDefault();
 
-            Request.homePage();
+      Request.homePage();
+    });
 
-        })
+    const profileLink = this.#parent.getElementsByClassName('profile-href')[0];
+    profileLink.addEventListener('click', (e) => {
+      e.preventDefault();
 
-        const profileLink = this.#parent.getElementsByClassName("profile-href")[0];
-        profileLink.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            Request.profile();
-        })
-    }
+      Request.profile();
+    });
+  }
 }
