@@ -56,24 +56,24 @@ export default class ProductModel {
 
 
     this.#parent.innerHTML = `
-    <script id="entry-template" type="text/x-handlebars-template">
+
       <div class="content">
         <div class="back-to-result">
           <a href="/">Вернуться в каталог</a>
         </div>
         <div class="details">
           <div class="details-image">
-            <img src="{{image}}" alt="{{name}}" />
+            <img src="{{product.image}}" alt="{{product.name}}" />
           </div>
           <div class="details-info">
             <ul>
               <li>
-                <h1>{{name}}</h1>
+                <h1>{{product.name}}</h1>
               </li>
               <li>
               </li>
               <li>
-                Цена: <strong>{{price}}</strong>
+                Цена: <strong>{{product.price}}</strong>
               </li>
               <li>
                 Описание:
@@ -85,25 +85,28 @@ export default class ProductModel {
           </div>
         </div>
       </div>
-    </script>`;
+`;
 
-    var source = $(`<div class="content">
+    import Handelbars from '../js/handelbars.js';
+
+    var source = $(
+      <div class="content">
         <div class="back-to-result">
           <a href="/">Вернуться в каталог</a>
         </div>
         <div class="details">
           <div class="details-image">
-            <img src="{{image}}" alt="{{name}}" />
+            <img src="{{product.image}}" alt="{{product.name}}" />
           </div>
           <div class="details-info">
             <ul>
               <li>
-                <h1>{{name}}</h1>
+                <h1>{{ product.name }}</h1>
               </li>
               <li>
               </li>
               <li>
-                Цена: <strong>{{price}}</strong>
+                Цена: <strong>{{ product.price }}</strong>
               </li>
               <li>
                 Описание:
@@ -114,7 +117,7 @@ export default class ProductModel {
             </ul>
           </div>
         </div>
-      </div>`).html();
+      </div>).html();
     var template = Handlebars.compile(source);
 
     /*
