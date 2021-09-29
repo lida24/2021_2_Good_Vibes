@@ -90,7 +90,7 @@ export default class ProductModel {
     </script>
 `;
 
-
+    console.log('kek1');
     console.log($("#entry-template"));
     console.log('kek');
     this.#parent.innerHTML = $("#entry-template");
