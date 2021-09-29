@@ -2,7 +2,7 @@
 
 import Rating from '../components/Rating.js';
 import Request from '../js/requests.js';
-import { Handlebars } from '../js/handelbars.js';
+import Handlebars from '../js/handelbars.js';
 
 
 /**
