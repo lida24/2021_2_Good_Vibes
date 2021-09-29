@@ -91,8 +91,8 @@ export default class ProductModel {
 `;
 
 
-    
-    var source = $("#entry-template").html();
+    this.#parent.innerHTML = $("#entry-template");
+    // var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
 
     console.log(template)
