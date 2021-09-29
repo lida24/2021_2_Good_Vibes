@@ -37,7 +37,8 @@ export default class Request {
           e.preventDefault();
 
           this.logOut();
-          this.homePage();
+          Request.homePage();
+
         });
       })
       .catch(() => {
@@ -64,7 +65,7 @@ export default class Request {
   static logIn({ body, alertObject }) {
     Ajax.promisifyPost({ url: `${backendAddress}/login`, body })
       .then(() => {
-        this.homePage();
+        Request.homePage();
       })
       .catch(() => {
         alertObject.innerText = 'Неверное имя пользователя или пароль';
@@ -91,7 +92,7 @@ export default class Request {
   static signUp({ body, alertObject }) {
     Ajax.promisifyPost({ url: `${backendAddress}/signup`, body })
       .then(() => {
-        this.homePage();
+        Request.homePage();
       })
       .catch(({ responseText }) => {
         alertObject.innerText = 'Пользователь уже существует';

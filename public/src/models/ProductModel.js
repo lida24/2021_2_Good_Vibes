@@ -2,8 +2,6 @@
 
 import Rating from '../components/Rating.js';
 import Request from '../js/requests.js';
-// import Handlebars from '../js/handelbars.js';
-
 
 /**
  * Класс для создания модели продукта
@@ -56,87 +54,38 @@ export default class ProductModel {
   render() {
     const product = this.#product;
 
-
     this.#parent.innerHTML = `
-    <script id="entry-template" type="text/x-handlebars-template">
-      <div class="content">
-        <div class="back-to-result">
-          <a href="/">Вернуться в каталог</a>
+        <div class="content">
+      <div class="back-to-result">
+        <a href="/">Вернуться в каталог</a>
+      </div>
+      <div class="details">
+        <div class="details-image">
+          <img src="${product.image}" alt="${product.name}" />
         </div>
-        <div class="details">
-          <div class="details-image">
-            <img src="{{product.image}}" alt="{{product.name}}" />
-          </div>
-          <div class="details-info">
-            <ul>
-              <li>
-                <h1>{{product.name}}</h1>
-              </li>
-              <li>
-              </li>
-              <li>
-                Цена: <strong>{{product.price}}</strong>
-              </li>
-              <li>
-                Описание:
-                <div>
-                  Здесь будет прекрасное описание товара
-                </div>
-              </li>
-            </ul>
-          </div>
+        <div class="details-info">
+          <ul>
+            <li>
+              <h1>${product.name}</h1>
+            </li>
+            <li>
+            ${Rating.render({
+    value: product.rating,
+  })}
+            </li>
+            <li>
+              Цена: <strong>$${product.price}</strong>
+            </li>
+            <li>
+              Описание:
+              <div>
+                ${product.description}
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-    </script>
-`;
-
-    // console.log('kek1');
-
-    // console.log($("#entry-template"));
-    // console.log('kek');
-    // this.#parent.innerHTML = $("#entry-template");
-
-    // var source = $("#entry-template").html();
-    var template = Handlebars.compile(this.#parent.innerHTML);
-
-    console.log(template);
-
-    this.#parent.innerHTML = template;
-
-    /*
-    
-        this.#parent.innerHTML = `
-            <div class="content">
-          <div class="back-to-result">
-            <a href="/">Вернуться в каталог</a>
-          </div>
-          <div class="details">
-            <div class="details-image">
-              <img src="${product.image}" alt="${product.name}" />
-            </div>
-            <div class="details-info">
-              <ul>
-                <li>
-                  <h1>${product.name}</h1>
-                </li>
-                <li>
-                ${Rating.render({
-          value: product.rating,
-        })}
-                </li>
-                <li>
-                  Цена: <strong>$${product.price}</strong>
-                </li>
-                <li>
-                  Описание:
-                  <div>
-                    Здесь будет прекрасное описание товара
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>`;*/
+    </div>`;
 
     const backBtn = document.getElementsByClassName('back-to-result')[0];
     backBtn.addEventListener('click', (e) => {
