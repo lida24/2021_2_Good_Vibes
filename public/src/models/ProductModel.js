@@ -97,7 +97,7 @@ export default class ProductModel {
     // this.#parent.innerHTML = $("#entry-template");
 
     // var source = $("#entry-template").html();
-    var template = Handlebars.compile(this.#parent.innerHTM);
+    var template = Handlebars.compile(this.#parent.innerHTML);
 
     console.log(template)
 
