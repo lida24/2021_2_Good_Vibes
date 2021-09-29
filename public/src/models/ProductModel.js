@@ -2,7 +2,6 @@
 
 import Rating from '../components/Rating.js';
 import Request from '../js/requests.js';
-import Handelbars from '../js/handelbars.js';
 
 
 /**
