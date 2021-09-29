@@ -79,7 +79,7 @@ export default class ProductModel {
             <li>
               Описание:
               <div>
-                ${product.description}
+                Здесь будет прекрасное описание товара
               </div>
             </li>
           </ul>
