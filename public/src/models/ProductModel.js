@@ -2,7 +2,6 @@
 
 import Rating from '../components/Rating.js';
 import Request from '../js/requests.js';
-import ProductModelTemplate from './ProductModel.hbs'
 
 /**
  * Класс для создания модели продукта
@@ -56,7 +55,7 @@ export default class ProductModel {
     const product = this.#product;
 
 
-    this.#parent.innerHTML = ProductModelTemplate();
+    this.#parent.innerHTML = ``;
 
 
     
