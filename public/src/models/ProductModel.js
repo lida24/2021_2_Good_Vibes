@@ -90,12 +90,14 @@ export default class ProductModel {
     </script>
 `;
 
-    console.log('kek1');
-    console.log($("#entry-template"));
-    console.log('kek');
-    this.#parent.innerHTML = $("#entry-template");
+    // console.log('kek1');
+
+    // console.log($("#entry-template"));
+    // console.log('kek');
+    // this.#parent.innerHTML = $("#entry-template");
+
     // var source = $("#entry-template").html();
-    var template = Handlebars.compile(source);
+    var template = Handlebars.compile(this.#parent.innerHTM);
 
     console.log(template)
 
