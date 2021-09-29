@@ -92,7 +92,9 @@ export default class ProductModel {
 
     
     var source = $("#entry-template").html();
-    //var template = Handlebars.compile(source);
+    var template = Handlebars.compile(source);
+
+    console.log(template)
 
     /*
     
