@@ -4,7 +4,9 @@ module.exports = {
         "es2021": true
     },
     "extends": [
-        "eslint:recommended"
+        "eslint:recommended",
+        "airbnb",
+        "airbnb/legacy"
     ],
     "parserOptions": {
         "ecmaVersion": 12,
