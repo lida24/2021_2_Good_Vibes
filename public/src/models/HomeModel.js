@@ -59,7 +59,7 @@ export default class HomeModel {
         ${products.map(
     (product) => `
             <div class="product-card">
-            <a href="#" name="${product.id}">
+            <a href="${product.id}" name="${product.id}">
               <div class="image">
                 <img src="${product.image}" alt="${product.name}" />
               </div>
