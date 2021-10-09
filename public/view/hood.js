@@ -1,11 +1,11 @@
-import Base from './Base.js';
-import HoodContext from '../context/HoodContext.js';
+import View from './view.js';
+import HoodContext from '../context/hood.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
-import bus from '../scripts/EventBus.js';
+import bus from '../scripts/eventBus.js';
 
-const HoodUrl = './templates/Hood.handlebars';
+const HoodUrl = './templates/hood.handlebars';
 
-export default class Hood extends Base {
+export default class Hood extends View {
   #context = HoodContext;
 
   #url = HoodUrl;
