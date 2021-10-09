@@ -1,6 +1,9 @@
 /* eslint-disable import/extensions */
-import ViewDispatcher from './view/viewDispatcher.js';
+import eventBus from './controller/eventBus.js';
+import { init } from './model/viewDispatcherModel.js';
+import viewDispatcherListeners from './view/viewDispatcherListeners.js';
 
 const root = document.getElementsByClassName('grid-container')[0];
-const viewDispatcher = new ViewDispatcher(root);
-viewDispatcher.startPage();
+eventBus.on('init', init);
+eventBus.emit('init', root);
+eventBus.add(viewDispatcherListeners);

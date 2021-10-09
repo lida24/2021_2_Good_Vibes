@@ -6,11 +6,14 @@ const hoodListeners = [
   {
     event: 'logo-click',
     callback: model.logoClick
+    // callback: () => {
+    //   eventBus.emit('show-Hood');
+    // }
   },
   {
     event: 'profile-click',
     callback: () => {
-      eventBus.emit('hood-hide');
+      eventBus.emit('hide-Hood');
     }
   }
 ];

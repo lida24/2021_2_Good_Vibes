@@ -1,5 +1,9 @@
+/* eslint-disable import/extensions */
+
 export default class View {
   element;
+
+  #className = this.constructor.name;
 
   get() {
     return this.element;
@@ -8,7 +12,7 @@ export default class View {
   constructor(element) {
     this.element = element;
 
-    this.element.dataset.view = this.constructor.name;
+    this.element.dataset.view = this.#className;
     this.element.hidden = true;
   }
 
@@ -28,5 +32,9 @@ export default class View {
 
   show() {
     this.element.style.visibility = 'visible';
+  }
+
+  delete() {
+    this.element.innerHTML = '';
   }
 }
