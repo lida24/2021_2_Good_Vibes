@@ -1,10 +1,14 @@
 /* eslint-disable import/extensions */
-import authoriz from '../model/model.js';
+import * as model from '../model/model.js';
 
 const hoodListeners = [
   {
     event: 'logo-click',
-    callback: authoriz
+    callback: model.logoClick
+  },
+  {
+    event: 'profile-click',
+    callback: model.profileClick
   }
 ];
 

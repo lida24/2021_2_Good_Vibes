@@ -1,4 +1,7 @@
-const authoriz = (data) => {
+export const logoClick = (data) => {
   console.log(data);
 };
-export default authoriz;
+
+export const profileClick = (data) => {
+  console.log(data);
+};
