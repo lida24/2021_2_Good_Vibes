@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import classesName from '../view/classesName.js';
+import classesNames from '../view/classesNames.js';
 import Hood from '../view/hood.js';
 import state from '../view/state.js';
 
@@ -8,7 +8,7 @@ export const show = {};
 
 let view = {};
 
-classesName.forEach((className) => {
+classesNames.forEach((className) => {
   hide[className] = () => {
     view[className].element.hide();
     view[className].state = state.hidden;

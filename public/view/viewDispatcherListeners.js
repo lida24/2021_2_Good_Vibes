@@ -1,12 +1,12 @@
 /* eslint-disable import/extensions */
 import * as model from '../model/viewDispatcherModel.js';
-import classesName from './classesName.js';
+import classesNames from './classesNames.js';
 
 const viewDispatcherListeners = [
 
 ];
 
-classesName.forEach((className) => {
+classesNames.forEach((className) => {
   viewDispatcherListeners.push({
     event: `hide-${className}`,
     callback: model.hide[className]
