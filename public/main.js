@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import Hood from './view/hood.js';
 
 const root = document.getElementsByClassName('grid-container')[0];
