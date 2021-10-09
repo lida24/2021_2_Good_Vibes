@@ -1,32 +1,32 @@
 export default class View {
-  #element;
+  element;
 
   get() {
-    return this.#element;
+    return this.element;
   }
 
   constructor(element) {
-    this.#element = element;
+    this.element = element;
 
-    this.#element.dataset.view = this.constructor.name;
-    this.#element.hidden = true;
+    this.element.dataset.view = this.constructor.name;
+    this.element.hidden = true;
   }
 
   isActive() {
-    if (this.#element.style.visibility === 'visible') {
+    if (this.element.style.visibility === 'visible') {
       return true;
     }
-    if (this.#element.style.visibility === 'hidden') {
+    if (this.element.style.visibility === 'hidden') {
       return false;
     }
     return undefined;
   }
 
   hide() {
-    this.#element.style.visibility = 'hidden';
+    this.element.style.visibility = 'hidden';
   }
 
   show() {
-    this.#element.style.visibility = 'visible';
+    this.element.style.visibility = 'visible';
   }
 }

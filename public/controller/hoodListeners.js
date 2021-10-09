@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import * as model from '../model/model.js';
+import eventBus from './eventBus.js';
 
 const hoodListeners = [
   {
@@ -8,7 +9,9 @@ const hoodListeners = [
   },
   {
     event: 'profile-click',
-    callback: model.profileClick
+    callback: () => {
+      eventBus.emit('hood-hide');
+    }
   }
 ];
 

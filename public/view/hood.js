@@ -13,13 +13,13 @@ export default class Hood extends View {
 
   #url = HoodUrl;
 
-  #element;
+  element;
 
   #generateEvents = hoodEvents;
 
   constructor(element) {
     super(element);
-    this.#element = this.get();
+    this.element = element;
   }
 
   async #renderHTML() {
@@ -27,7 +27,7 @@ export default class Hood extends View {
       url: this.#url,
       context: this.#context
     });
-    this.#element.innerHTML = html;
+    this.element.innerHTML = html;
   }
 
   setContext(context) {
@@ -39,9 +39,14 @@ export default class Hood extends View {
     this.#renderHTML()
       .then(() => {
         bus.add(hoodListeners);
-        this.#generateEvents(this.#element);
+        this.#generateEvents(this.element);
       })
       .then(() => this.show())
       .catch((error) => alert(error));
+  }
+
+  delete() {
+    bus.delete(hoodListeners);
+    this.element.innerHTML = '';
   }
 }

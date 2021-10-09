@@ -1,13 +1,6 @@
 /* eslint-disable import/extensions */
-import Hood from './view/hood.js';
+import ViewDispatcher from './view/viewDispatcher.js';
 
 const root = document.getElementsByClassName('grid-container')[0];
-const hoodView = new Hood(root);
-
-const wf = new Promise((resolve) => {
-  resolve();
-});
-
-wf
-  .then(() => hoodView.render())
-  .then(() => { });
+const viewDispatcher = new ViewDispatcher(root);
+viewDispatcher.startPage();

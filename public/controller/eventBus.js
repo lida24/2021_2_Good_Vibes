@@ -39,7 +39,7 @@ class EventBus {
         });
         return;
       }
-      this.on(event, callback);
+      this.off(event, callback);
     });
   }
 }
