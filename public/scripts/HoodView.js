@@ -1,7 +1,7 @@
 import BaseView from './BaseView.js';
 import HoodContext from '../HoodContext.js';
 import generateContentHTML from '../loadTemplates.js';
-import Observe from './observe.js';
+import bus from './EventBus.js';
 
 const HoodViewUrl = './templates/hood.handlebars';
 
@@ -10,22 +10,19 @@ export default class HoodView extends BaseView {
 
   #url = HoodViewUrl;
 
-  #observe;
+  #element;
 
   constructor(element) {
     super(element);
-    this.#observe = new Observe();
+    this.#element = this.get();
   }
 
-  renderHTML() {
-    generateContentHTML({
+  async renderHTML() {
+    const html = await generateContentHTML({
       url: this.#url,
       context: this.#context
-    })
-      .then((html) => {
-        this.get().innerHTML = html;
-      })
-      .catch((error) => alert(error));
+    });
+    this.#element.innerHTML = html;
   }
 
   setContext(context) {
@@ -34,11 +31,25 @@ export default class HoodView extends BaseView {
   }
 
   render() {
-    this.renderHTML();
-    this.show();
+    this.renderHTML()
 
-    const a = this.get();
+      .then(() => {
+        const logoBtn = this.#element.getElementsByClassName('logo')[0];
 
-    console.log(a);
+        const callback = (data) => console.log(data);
+        bus.on('logo-click', callback);
+
+        logoBtn.addEventListener('click', (event) => {
+          event.preventDefault();
+
+          // console.log('click');
+          // this.#observe.emit('click', 'hello');
+          bus.emit('logo-click', 'logo-click hello');
+        })
+      })
+
+
+      .then(() => this.show())
+      .catch((error) => alert(error));
   }
 }

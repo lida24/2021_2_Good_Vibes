@@ -15,6 +15,8 @@ const wf = new Promise((resolve) => {
 
 wf
   .then(() => hoodView.render())
+  .then(() => { })
+
 
 
 // import Observe from './scripts/observe.js';
