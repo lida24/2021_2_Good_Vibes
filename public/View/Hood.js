@@ -1,14 +1,14 @@
-import BaseView from './BaseView.js';
-import HoodContext from '../HoodContext.js';
-import generateContentHTML from '../loadTemplates.js';
-import bus from './EventBus.js';
+import Base from './Base.js';
+import HoodContext from '../context/HoodContext.js';
+import generateContentHTML from '../scripts/loadTemplates.js';
+import bus from '../scripts/EventBus.js';
 
-const HoodViewUrl = './templates/hood.handlebars';
+const HoodUrl = './templates/Hood.handlebars';
 
-export default class HoodView extends BaseView {
+export default class Hood extends Base {
   #context = HoodContext;
 
-  #url = HoodViewUrl;
+  #url = HoodUrl;
 
   #element;
 
@@ -41,13 +41,9 @@ export default class HoodView extends BaseView {
 
         logoBtn.addEventListener('click', (event) => {
           event.preventDefault();
-
-          // console.log('click');
-          // this.#observe.emit('click', 'hello');
           bus.emit('logo-click', 'logo-click hello');
-        })
+        });
       })
-
 
       .then(() => this.show())
       .catch((error) => alert(error));

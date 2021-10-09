@@ -37,10 +37,10 @@ const loadHbsTemplate = ({ url }) => checkFileExtention({
   .then(() => loadTemplate({ url }));
 
 // ----------------------------------------
-export default function generateContentHTML({ context, url }) {
-  return loadHbsTemplate({ url })
-    .then((templateHTML) => generateHTML({
-      templateHTML,
-      context
-    }));
+export default async function generateContentHTML({ context, url }) {
+  const templateHTML = await loadHbsTemplate({ url });
+  return generateHTML({
+    templateHTML,
+    context
+  });
 }

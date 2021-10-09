@@ -1,4 +1,4 @@
-export default class BaseView {
+export default class Base {
   #element;
 
   get() {
