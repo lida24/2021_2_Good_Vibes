@@ -1,9 +1,7 @@
 /* eslint-disable import/extensions */
 import classesNames from '../constants/classesNames.js';
-import Hood from '../views/hood.js';
 import state from '../constants/state.js';
-import Signin from '../views/signin.js';
-import Signup from '../views/signup.js';
+import constructors from '../constants/constructors.js';
 
 export const hide = {};
 export const show = {};
@@ -36,7 +34,7 @@ export const init = () => {
 
   add({
     Hood: {
-      element: new Hood(root),
+      element: new constructors.Hood(root),
       state: state.hidden
     }
   });
@@ -63,11 +61,6 @@ const visibleControl = (targetName) => {
     view[targetName].state = state.visible;
     main.replaceWith(view[targetName].dom);
   }
-};
-
-const constructors = {
-  Signin,
-  Signup
 };
 
 const viewGenerate = (name) => {

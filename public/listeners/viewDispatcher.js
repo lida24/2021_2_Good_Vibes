@@ -23,16 +23,16 @@ const viewDispatcherListeners = [
 
 ];
 
-classesNames.forEach((className) => {
-  viewDispatcherListeners.push({
-    event: `hide-${className}`,
-    callback: model.hide[className]
-  });
+// classesNames.forEach((className) => {
+//   viewDispatcherListeners.push({
+//     event: `hide-${className}`,
+//     callback: model.hide[className]
+//   });
 
-  viewDispatcherListeners.push({
-    event: `show-${className}`,
-    callback: model.show[className]
-  });
-});
+//   viewDispatcherListeners.push({
+//     event: `show-${className}`,
+//     callback: model.show[className]
+//   });
+// });
 
 export default viewDispatcherListeners;

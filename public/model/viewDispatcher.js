@@ -1,7 +1,8 @@
 /* eslint-disable import/extensions */
-import classesNames from '../views/classesNames.js';
+// import classesNames from '../views/classesNames.js';
 import Hood from '../views/hood.js';
-import state from '../views/state.js';
+// import state from '../views/state.js';
+import state from '../constants/state.js';
 import Signin from '../views/signin.js';
 import Signup from '../views/signup.js';
 
@@ -10,17 +11,17 @@ export const show = {};
 
 let view = {};
 
-classesNames.forEach((className) => {
-  hide[className] = () => {
-    view[className].element.hide();
-    view[className].state = state.hidden;
-  };
+// classesNames.forEach((className) => {
+//   hide[className] = () => {
+//     view[className].element.hide();
+//     view[className].state = state.hidden;
+//   };
 
-  show[className] = () => {
-    view[className].element.show();
-    view[className].state = state.visible;
-  };
-});
+//   show[className] = () => {
+//     view[className].element.show();
+//     view[className].state = state.visible;
+//   };
+// });
 
 const add = (obj) => {
   view = Object.assign(view, obj);
