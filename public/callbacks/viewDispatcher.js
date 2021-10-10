@@ -1,5 +1,4 @@
 /* eslint-disable import/extensions */
-import classesNames from '../constants/classesNames.js';
 import state from '../constants/state.js';
 import constructors from '../constants/constructors.js';
 
@@ -7,18 +6,6 @@ export const hide = {};
 export const show = {};
 
 let view = {};
-
-classesNames.forEach((className) => {
-  hide[className] = () => {
-    view[className].element.hide();
-    view[className].state = state.hidden;
-  };
-
-  show[className] = () => {
-    view[className].element.show();
-    view[className].state = state.visible;
-  };
-});
 
 const add = (obj) => {
   view = Object.assign(view, obj);

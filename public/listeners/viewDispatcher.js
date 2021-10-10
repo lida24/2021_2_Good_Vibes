@@ -1,7 +1,6 @@
 /* eslint-disable import/extensions */
 // import eventBus from '../events/eventBus.js';
 import * as model from '../callbacks/viewDispatcher.js';
-import classesNames from '../constants/classesNames.js';
 
 const viewDispatcherListeners = [
   {
@@ -22,17 +21,5 @@ const viewDispatcherListeners = [
   }
 
 ];
-
-// classesNames.forEach((className) => {
-//   viewDispatcherListeners.push({
-//     event: `hide-${className}`,
-//     callback: model.hide[className]
-//   });
-
-//   viewDispatcherListeners.push({
-//     event: `show-${className}`,
-//     callback: model.show[className]
-//   });
-// });
 
 export default viewDispatcherListeners;
