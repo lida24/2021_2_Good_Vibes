@@ -12,8 +12,8 @@ export default class View {
   constructor(element) {
     this.element = element;
 
-    this.element.dataset.view = this.#className;
-    this.element.hidden = true;
+    // this.element.dataset.view = this.#className;
+    // this.element.hidden = true;
   }
 
   isActive() {
@@ -27,11 +27,19 @@ export default class View {
   }
 
   hide() {
-    this.element.style.visibility = 'hidden';
+    // this.element.style.visibility = 'hidden';
+    // this.element.hidden = true;
+
+    this.element.children[0].style.visibility = 'hidden';
+    this.element.children[0].hidden = true;
   }
 
   show() {
-    this.element.style.visibility = 'visible';
+    // this.element.style.visibility = 'visible';
+    // this.element.hidden = false;
+
+    this.element.children[0].style.visibility = 'visible';
+    this.element.children[0].hidden = false;
   }
 
   delete() {

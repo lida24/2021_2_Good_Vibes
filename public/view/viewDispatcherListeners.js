@@ -1,8 +1,21 @@
 /* eslint-disable import/extensions */
+import eventBus from '../controller/eventBus.js';
 import * as model from '../model/viewDispatcherModel.js';
 import classesNames from './classesNames.js';
 
 const viewDispatcherListeners = [
+  {
+    event: 'profile-click',
+    callback: [
+      model.signinView
+    ]
+  },
+  {
+    event: 'logo-click',
+    callback: [
+      model.logo
+    ]
+  }
 
 ];
 

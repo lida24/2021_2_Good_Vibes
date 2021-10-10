@@ -35,18 +35,36 @@ export default class Hood extends View {
     this.renderHTML();
   }
 
-  render() {
-    this.#renderHTML()
-      .then(() => {
-        bus.add(hoodListeners);
-        this.#generateEvents(this.element);
-      })
-      .then(() => this.show())
-      .catch((error) => alert(error));
+  // render() {
+  //   this.#renderHTML()
+  //     .then(() => {
+  //       bus.add(hoodListeners);
+  //       this.#generateEvents(this.element);
+  //     })
+  //     .then(() => this.show())
+  //     .catch((error) => alert(error));
+  // }
+
+  async render() {
+    await this.#renderHTML();
+    bus.add(hoodListeners);
+    this.#generateEvents(this.element);
+    return this.show();
+    // .catch((error) => alert(error));
   }
 
   delete() {
     bus.delete(hoodListeners);
     this.element.innerHTML = '';
+  }
+
+  hide() {
+    this.element.style.visibility = 'hidden';
+    this.element.hidden = true;
+  }
+
+  show() {
+    this.element.style.visibility = 'visible';
+    this.element.hidden = false;
   }
 }

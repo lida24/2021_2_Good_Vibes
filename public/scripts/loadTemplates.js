@@ -23,7 +23,7 @@ const generateHTML = ({ templateHTML, context }) => {
 };
 
 // ----------------------------------------
-const loadHTML = ({ url }) => checkFileExtention({
+export const loadHTML = ({ url }) => checkFileExtention({
   fileExtention: 'html',
   url
 })

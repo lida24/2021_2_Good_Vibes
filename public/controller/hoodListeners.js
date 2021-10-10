@@ -5,16 +5,18 @@ import eventBus from './eventBus.js';
 const hoodListeners = [
   {
     event: 'logo-click',
-    callback: model.logoClick
-    // callback: () => {
-    //   eventBus.emit('show-Hood');
-    // }
+    callback: [
+      model.logoClick
+    ]
   },
   {
     event: 'profile-click',
-    callback: () => {
-      eventBus.emit('hide-Hood');
-    }
+    // callback: () => {
+    //   eventBus.emit('hide-Hood');
+    // }
+    callback: [
+      model.profileClick
+    ]
   }
 ];
 
