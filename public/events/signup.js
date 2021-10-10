@@ -14,5 +14,24 @@ const signupEvents = (element) => {
 
     eventBus.emit('signinBtn-click');
   });
+
+  // ----------------------------------------
+  element.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const usernameInput = element.getElementsByClassName('login')[0];
+    const emailInput = element.getElementsByClassName('email')[0];
+    const passwordInput = element.getElementsByClassName('password')[0];
+    const repasswordInput = element.getElementsByClassName('repassword')[0];
+
+    const signupData = {
+      username: usernameInput.value.trim(),
+      email: emailInput.value.trim(),
+      password: passwordInput.value.trim(),
+      repassword: repasswordInput.value.trim()
+    };
+
+    eventBus.emit('signupDataCheck', signupData);
+  });
 };
 export default signupEvents;

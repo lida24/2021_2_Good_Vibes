@@ -10,6 +10,20 @@ const signinListeners = [
         eventBus.emit('Signup', 'Signup');
       }
     ]
+  },
+  {
+    event: 'signinDataCheck',
+    callback: [
+      model.signinDataValidation
+    ]
+  },
+  {
+    event: 'signinDataError',
+    callback: model.signinErrorHandler
+  },
+  {
+    event: 'hideSinginAlertLabel',
+    callback: model.hideAlertLabel
   }
 
 ];

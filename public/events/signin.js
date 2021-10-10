@@ -14,5 +14,20 @@ const signinEvents = (element) => {
 
     eventBus.emit('signupBtn-click');
   });
+
+  // ----------------------------------------
+  element.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const usernameInput = element.getElementsByClassName('login')[0];
+    const passwordInput = element.getElementsByClassName('password')[0];
+
+    const signinData = {
+      username: usernameInput.value.trim(),
+      password: passwordInput.value.trim()
+    };
+
+    eventBus.emit('signinDataCheck', signinData);
+  });
 };
 export default signinEvents;
