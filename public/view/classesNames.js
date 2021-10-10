@@ -1,5 +1,6 @@
 const classesNames = [
   'Hood',
-  'Elem'
+  'Signin',
+  'Signup'
 ];
 export default classesNames;
