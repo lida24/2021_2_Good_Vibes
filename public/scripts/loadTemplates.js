@@ -19,6 +19,9 @@ const loadTemplate = ({ url }) => fetch(url)
 const generateHTML = ({ templateHTML, context }) => {
   const compiledTemplate = Handlebars.compile(templateHTML);
   const result = compiledTemplate(context);
+
+  // console.log(context);
+  // console.log(result);
   return result;
 };
 

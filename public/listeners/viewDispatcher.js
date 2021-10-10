@@ -14,6 +14,15 @@ const viewDispatcherListeners = [
     callback: [
       model.showView
     ]
+  },
+  {
+    event: 'Homepage',
+    callback: [
+      model.showView,
+      () => {
+        console.log('! <= Homepage');
+      }
+    ]
   }
 
 ];

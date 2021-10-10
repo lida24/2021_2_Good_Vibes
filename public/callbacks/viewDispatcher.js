@@ -16,19 +16,6 @@ const remove = (name) => {
   delete view[name];
 };
 
-export const init = () => {
-  const root = document.getElementsByClassName('grid-container')[0];
-
-  add({
-    Hood: {
-      element: new constructors.Hood(root),
-      state: state.hidden
-    }
-  });
-  view.Hood.element.render();
-  view.Hood.state = state.visible;
-};
-
 const visibleControl = (targetName) => {
   const main = document.getElementById('main-container');
 
@@ -82,4 +69,20 @@ export const showView = (name) => {
 
 export const viewCheck = () => {
   console.log(view);
+};
+
+export const init = () => {
+  const root = document.getElementsByClassName('grid-container')[0];
+  const buffObj = new constructors.Hood(root);
+  add({
+    Hood: {
+      element: buffObj,
+      dom: root,
+      state: state.hidden
+    }
+  });
+
+  view.Hood.state = state.visible;
+  return view.Hood.element.render()
+    .then(() => viewGenerate('Homepage'));
 };
