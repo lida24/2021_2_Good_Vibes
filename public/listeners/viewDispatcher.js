@@ -4,19 +4,15 @@ import * as model from '../callbacks/viewDispatcher.js';
 
 const viewDispatcherListeners = [
   {
-    event: 'profile-click',
+    event: 'Signin',
     callback: [
       model.showView
-      // model.signinView
-      // model.viewCheck
     ]
   },
   {
-    event: 'logo-click',
+    event: 'Signup',
     callback: [
       model.showView
-      // model.signupView
-      // model.viewCheck
     ]
   }
 

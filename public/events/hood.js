@@ -7,8 +7,8 @@ const hoodEvents = (element) => {
 
   logoBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    // bus.emit('logo-click', 'logo-click');
-    bus.emit('logo-click', 'Signup');
+    bus.emit('logo-click', 'logo-click');
+    // bus.emit('logo-click', 'Signup');
   });
 
   // ----------------------------------------
@@ -17,7 +17,8 @@ const hoodEvents = (element) => {
   profileBtn.addEventListener('click', (event) => {
     event.preventDefault();
     // bus.emit('profile-click', 'profile-click');
-    bus.emit('profile-click', 'Signin');
+    // bus.emit('profile-click', 'Signin');
+    bus.emit('profile-click', 'profile-click');
   });
 };
 export default hoodEvents;

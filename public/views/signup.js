@@ -1,8 +1,9 @@
 /* eslint-disable import/extensions */
-
-// import eventBus from '../events/eventBus.js';
+import signupEvents from '../events/signup.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
 import View from './view.js';
+import signupListeners from '../listeners/signup.js';
+import eventBus from '../events/eventBus.js';
 
 const signupUrl = './templates/signup.handlebars';
 
@@ -12,6 +13,8 @@ export default class Signup extends View {
   element;
 
   #context;
+
+  #generateEvents = signupEvents;
 
   constructor(element) {
     super(element);
@@ -38,6 +41,8 @@ export default class Signup extends View {
 
   async render() {
     await this.#renderHTML();
+    eventBus.add(signupListeners);
+    this.#generateEvents(this.element);
     return this.show();
   }
 

@@ -32,22 +32,20 @@ export const init = () => {
 const visibleControl = (targetName) => {
   const main = document.getElementById('main-container');
 
+  if (view[targetName]) {
+    if (view[targetName].state === state.hidden) {
+      view[targetName].element.show();
+      view[targetName].state = state.visible;
+      main.replaceWith(view[targetName].dom);
+    }
+  }
+
   Object.keys(view).forEach((key) => {
     if (key !== targetName && key !== 'Hood') {
       view[key].element.hide();
       view[key].state = state.hidden;
     }
   });
-
-  if (!view[targetName]) {
-    return;
-  }
-
-  if (view[targetName].state === state.hidden) {
-    view[targetName].element.show();
-    view[targetName].state = state.visible;
-    main.replaceWith(view[targetName].dom);
-  }
 };
 
 const viewGenerate = (name) => {
