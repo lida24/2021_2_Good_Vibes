@@ -23,6 +23,11 @@ export default class Product extends View {
     this.element = element;
   }
 
+  setContext(context) {
+    this.#context = context;
+    this.renderHTML();
+  }
+
   async #renderHTML() {
     const html = await generateContentHTML({
       url: this.#url,

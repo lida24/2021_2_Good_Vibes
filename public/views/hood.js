@@ -32,7 +32,7 @@ export default class Hood extends View {
 
   setContext(context) {
     this.#context = context;
-    this.renderHTML();
+    // this.renderHTML();
   }
 
   // render() {
