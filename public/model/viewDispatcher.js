@@ -1,9 +1,9 @@
 /* eslint-disable import/extensions */
-import classesNames from '../view/classesNames.js';
-import Hood from '../view/hood.js';
-import state from '../view/state.js';
-import Signin from '../view/signin.js';
-import Signup from '../view/signup.js';
+import classesNames from '../views/classesNames.js';
+import Hood from '../views/hood.js';
+import state from '../views/state.js';
+import Signin from '../views/signin.js';
+import Signup from '../views/signup.js';
 
 export const hide = {};
 export const show = {};
@@ -65,68 +65,41 @@ const visibleControl = (targetName) => {
   }
 };
 
-const signinViewGenerate = () => {
+const constructors = {
+  Signin,
+  Signup
+};
+
+const viewGenerate = (name) => {
   const main = document.getElementById('main-container');
 
-  const signinView = document.createElement('main');
-  signinView.id = 'main-container';
+  const buffView = document.createElement('main');
+  buffView.id = 'main-container';
 
-  const signinObj = new Signin(signinView);
+  const buffObj = new constructors[name](buffView);
 
   add({
-    Signin: {
-      element: signinObj,
-      dom: signinView,
+    [name]: {
+      element: buffObj,
+      dom: buffView,
       state: state.hidden
     }
   });
 
-  view.Signin.state = state.visible;
-  main.replaceWith(view.Signin.dom);
-  return view.Signin.element.render();
+  view[name].state = state.visible;
+  main.replaceWith(view[name].dom);
+  return view[name].element.render();
 };
 
-const signupViewGenerate = () => {
-  const main = document.getElementById('main-container');
+export const showView = (name) => {
+  console.log(`${name} view`);
 
-  const signupView = document.createElement('main');
-  signupView.id = 'main-container';
-
-  const signupObj = new Signup(signupView);
-
-  add({
-    Signup: {
-      element: signupObj,
-      dom: signupView,
-      state: state.hidden
-    }
-  });
-
-  view.Signup.state = state.visible;
-  main.replaceWith(view.Signup.dom);
-  return view.Signup.element.render();
-};
-
-export const signinView = () => {
-  console.log('signinView');
-
-  if (!view.Signin) {
-    return signinViewGenerate()
-      .then(() => visibleControl('Signin'));
+  if (!view[name]) {
+    return viewGenerate(name)
+      .then(() => visibleControl(name));
   }
 
-  return visibleControl('Signin');
-};
-
-export const signupView = () => {
-  console.log('signupView');
-
-  if (!view.Signup) {
-    return signupViewGenerate()
-      .then(() => visibleControl('Signup'));
-  }
-
-  return visibleControl('Signup');
+  return visibleControl(name);
 };
 
 export const viewCheck = () => {

@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
-import * as model from '../model/model.js';
-import eventBus from './eventBus.js';
+import * as model from '../callbacks/hood.js';
+// import eventBus from '../controller/eventBus.js';
 
 const hoodListeners = [
   {

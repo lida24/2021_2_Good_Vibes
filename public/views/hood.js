@@ -2,9 +2,9 @@
 import View from './view.js';
 import hoodContext from '../context/hood.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
-import hoodEvents from '../controller/hoodEvents.js';
-import hoodListeners from '../controller/hoodListeners.js';
-import bus from '../controller/eventBus.js';
+import hoodEvents from '../events/hood.js';
+import hoodListeners from '../listeners/hood.js';
+import bus from '../events/eventBus.js';
 
 const HoodUrl = './templates/hood.handlebars';
 

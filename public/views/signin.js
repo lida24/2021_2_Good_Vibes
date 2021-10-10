@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 
-import eventBus from '../controller/eventBus.js';
+// import eventBus from '../events/eventBus.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
 import View from './view.js';
 

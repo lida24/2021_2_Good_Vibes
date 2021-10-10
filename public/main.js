@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
-import eventBus from './controller/eventBus.js';
-import { init } from './model/viewDispatcherModel.js';
-import viewDispatcherListeners from './view/viewDispatcherListeners.js';
+import eventBus from './events/eventBus.js';
+import { init } from './callbacks/viewDispatcher.js';
+import viewDispatcherListeners from './listeners/viewDispatcher.js';
 
 // const root = document.getElementsByClassName('grid-container')[0];
 eventBus.on('init', init);
