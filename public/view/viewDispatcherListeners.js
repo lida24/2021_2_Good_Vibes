@@ -13,7 +13,7 @@ const viewDispatcherListeners = [
   {
     event: 'logo-click',
     callback: [
-      model.logo
+      model.signupView
     ]
   }
 
