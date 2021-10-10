@@ -7,13 +7,15 @@ const viewDispatcherListeners = [
   {
     event: 'profile-click',
     callback: [
-      model.signinView
+      model.signinView,
+      model.viewCheck
     ]
   },
   {
     event: 'logo-click',
     callback: [
-      model.signupView
+      model.signupView,
+      model.viewCheck
     ]
   }
 

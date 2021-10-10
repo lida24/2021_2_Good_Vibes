@@ -4,7 +4,7 @@ import eventBus from '../controller/eventBus.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
 import View from './view.js';
 
-const signupUrl = './templates/signin.handlebars';
+const signupUrl = './templates/signup.handlebars';
 
 export default class Signup extends View {
   #url = signupUrl;
