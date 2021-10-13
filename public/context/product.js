@@ -3,9 +3,7 @@ const productContext = {
   name: 'product name',
   image: '../img/cloth1.png',
   price: 250,
-  rating: {
-    value: 4
-  }
+  rating: 4
 };
 
 export default productContext;

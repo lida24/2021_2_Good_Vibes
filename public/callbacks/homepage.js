@@ -1,42 +1,84 @@
 /* eslint-disable import/extensions */
 import Product from '../views/product.js';
 import state from '../constants/state.js';
+import productContext from '../context/product.js';
 
 export const a = () => {
   console.log('a');
 };
 
-export const productLoad = () => {
-  console.log('product load');
+// ----------------------------------
+let prodList = {};
 
-  const root = document.getElementsByClassName('product-container')[0];
-  const buffView = document.createElement('div');
-  buffView.className = 'product-card';
-  const buffObj = new Product(buffView);
-
-  buffObj.render();
-
-  root.appendChild(buffView);
-  // root.appendChild(buffObj.innerHTML);
+const add = (obj) => {
+  prodList = Object.assign(prodList, obj);
 };
 
-// const viewGenerate = (name) => {
-//   const main = document.getElementById('main-container');
+const remove = (name) => {
+  prodList[name].delete();
+  delete prodList[name];
+};
 
-//   const buffView = document.createElement('main');
-//   buffView.id = 'main-container';
+// ----------------------------------
+export const renderSingleProd = (prodData) => {
+  if (prodList[prodData.id]) {
+    return;
+  }
 
-//   const buffObj = new Product[name](buffView);
+  const root = document.getElementsByClassName('product-container')[0];
+  const prodCard = document.createElement('div');
+  prodCard.className = 'product-card';
+  const prodObj = new Product(prodCard);
 
-//   add({
-//     [name]: {
-//       element: buffObj,
-//       dom: buffView,
-//       state: state.hidden
-//     }
-//   });
+  add({
+    [prodData.id]: {
+      element: prodCard,
+      object: prodObj,
+      state: state.hidden
+    }
+  });
 
-//   view[name].state = state.visible;
-//   main.replaceWith(view[name].dom);
-//   return view[name].element.render();
-// };
+  prodObj.setContext(prodData);
+  prodList[prodData.id].state = state.visible;
+  root.appendChild(prodCard);
+
+  prodObj.render()
+    .then(() => {
+      const ratingParent = prodCard.getElementsByClassName('rating')[0];
+
+      const ratingElem = document.createElement('div');
+      ratingElem.className = 'rating';
+
+      const temp = (rating) => {
+        if (!rating) {
+          return '<div></div>';
+        }
+        return `
+        <div class="rating">
+        <span> <i class="${rating >= 1 ? 'fa fa-star' : rating >= 0.5 ? 'fa fa-star-half-o' : 'fa fa-star-o'}"></i></span> 
+        <span> <i class="${rating >= 2 ? 'fa fa-star' : rating >= 1.5 ? 'fa fa-star-half-o' : 'fa fa-star-o'}"></i></span> 
+        <span> <i class="${rating >= 3 ? 'fa fa-star' : rating >= 2.5 ? 'fa fa-star-half-o' : 'fa fa-star-o'}"></i></span> 
+        <span> <i class="${rating >= 4 ? 'fa fa-star' : rating >= 3.5 ? 'fa fa-star-half-o' : 'fa fa-star-o'}"></i></span> 
+        <span> <i class="${rating >= 5 ? 'fa fa-star' : rating >= 4.5 ? 'fa fa-star-half-o' : 'fa fa-star-o'}"></i></span>
+        </div>
+        `;
+      };
+
+      ratingElem.innerHTML = temp(prodData.rating);
+      ratingParent.replaceWith(ratingElem);
+    });
+};
+
+// ----------------------------------
+export const renderProdArray = (prodArray) => {
+  if (!Array.isArray(prodArray)) {
+    console.log('wrong prodArray');
+    return;
+  }
+
+  prodArray.forEach((item) => {
+    renderSingleProd(item);
+  });
+
+  renderSingleProd(productContext);
+};

@@ -14,9 +14,6 @@ const hoodListeners = [
   },
   {
     event: 'profile-click',
-    // callback: () => {
-    //   eventBus.emit('hide-Hood');
-    // }
     callback: [
       model.profileClick,
       () => {

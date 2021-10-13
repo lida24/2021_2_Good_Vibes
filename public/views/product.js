@@ -25,7 +25,7 @@ export default class Product extends View {
 
   setContext(context) {
     this.#context = context;
-    this.renderHTML();
+    // this.renderHTML();
   }
 
   async #renderHTML() {
