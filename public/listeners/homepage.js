@@ -1,18 +1,23 @@
 /* eslint-disable import/extensions */
-import eventBus from '../events/eventBus.js';
 import * as model from '../callbacks/homepage.js';
 
 const homepageListeners = [
   {
-    event: 'renderSingleProd',
+    event: 'renderProdCard',
     callback: [
-      model.renderSingleProd
+      model.renderProdCard
     ]
   },
   {
     event: 'renderProdArray',
     callback: [
       model.renderProdArray
+    ]
+  },
+  {
+    event: 'homepageLoaded',
+    callback: [
+      model.homepageLoaded
     ]
   }
 ];

@@ -23,6 +23,12 @@ const viewDispatcherListeners = [
         console.log('! <= Homepage');
       }
     ]
+  },
+  {
+    event: 'Product',
+    callback: [
+      model.showView
+    ]
   }
 
 ];

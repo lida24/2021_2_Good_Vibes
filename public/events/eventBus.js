@@ -7,6 +7,11 @@ class EventBus {
 
   on(event, callback) {
     this.#listeners[event] = this.#listeners[event] || [];
+
+    if (this.#listeners[event].includes(callback)) {
+      return;
+    }
+
     this.#listeners[event].push(callback);
   }
 

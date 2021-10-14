@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import eventBus from '../events/eventBus.js';
+import * as model from '../callbacks/productCard.js';
 
 const productListeners = [
 

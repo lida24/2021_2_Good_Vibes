@@ -1,11 +1,9 @@
 /* eslint-disable import/extensions */
-
-import productContext from '../context/product.js';
-import eventBus from '../events/eventBus.js';
-import productEvents from '../events/product.js';
-import productListeners from '../listeners/product.js';
-import generateContentHTML from '../scripts/loadTemplates.js';
 import View from './view.js';
+import productEvents from '../events/product.js';
+import generateContentHTML from '../scripts/loadTemplates.js';
+import eventBus from '../events/eventBus.js';
+import productListeners from '../listeners/product.js';
 
 const productUrl = './templates/product.handlebars';
 
@@ -14,7 +12,7 @@ export default class Product extends View {
 
   element;
 
-  #context = productContext;
+  #context;
 
   #generateEvents = productEvents;
 

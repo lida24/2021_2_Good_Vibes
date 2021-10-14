@@ -11,7 +11,7 @@ const add = (obj) => {
   view = Object.assign(view, obj);
 };
 
-const remove = (name) => {
+const remove = ({ name }) => {
   view[name].delete();
   delete view[name];
 };

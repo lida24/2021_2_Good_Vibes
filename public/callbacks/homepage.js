@@ -1,11 +1,7 @@
 /* eslint-disable import/extensions */
-import Product from '../views/product.js';
 import state from '../constants/state.js';
-import productContext from '../context/product.js';
-
-export const a = () => {
-  console.log('a');
-};
+// import Product from '../views/product.js';
+import ProductCard from '../views/productCard.js';
 
 // ----------------------------------
 let prodList = {};
@@ -20,7 +16,7 @@ const remove = (name) => {
 };
 
 // ----------------------------------
-export const renderSingleProd = (prodData) => {
+export const renderProdCard = (prodData) => {
   if (prodList[prodData.id]) {
     return;
   }
@@ -28,7 +24,7 @@ export const renderSingleProd = (prodData) => {
   const root = document.getElementsByClassName('product-container')[0];
   const prodCard = document.createElement('div');
   prodCard.className = 'product-card';
-  const prodObj = new Product(prodCard);
+  const prodObj = new ProductCard(prodCard);
 
   add({
     [prodData.id]: {
@@ -43,42 +39,24 @@ export const renderSingleProd = (prodData) => {
   root.appendChild(prodCard);
 
   prodObj.render()
-    .then(() => {
-      const ratingParent = prodCard.getElementsByClassName('rating')[0];
-
-      const ratingElem = document.createElement('div');
-      ratingElem.className = 'rating';
-
-      const temp = (rating) => {
-        if (!rating) {
-          return '<div></div>';
-        }
-        return `
-        <div class="rating">
-        <span> <i class="${rating >= 1 ? 'fa fa-star' : rating >= 0.5 ? 'fa fa-star-half-o' : 'fa fa-star-o'}"></i></span> 
-        <span> <i class="${rating >= 2 ? 'fa fa-star' : rating >= 1.5 ? 'fa fa-star-half-o' : 'fa fa-star-o'}"></i></span> 
-        <span> <i class="${rating >= 3 ? 'fa fa-star' : rating >= 2.5 ? 'fa fa-star-half-o' : 'fa fa-star-o'}"></i></span> 
-        <span> <i class="${rating >= 4 ? 'fa fa-star' : rating >= 3.5 ? 'fa fa-star-half-o' : 'fa fa-star-o'}"></i></span> 
-        <span> <i class="${rating >= 5 ? 'fa fa-star' : rating >= 4.5 ? 'fa fa-star-half-o' : 'fa fa-star-o'}"></i></span>
-        </div>
-        `;
-      };
-
-      ratingElem.innerHTML = temp(prodData.rating);
-      ratingParent.replaceWith(ratingElem);
-    });
+    .catch((error) => console.error(error));
 };
 
 // ----------------------------------
 export const renderProdArray = (prodArray) => {
   if (!Array.isArray(prodArray)) {
-    console.log('wrong prodArray');
+    console.error('wrong prodArray');
     return;
   }
 
   prodArray.forEach((item) => {
-    renderSingleProd(item);
+    renderProdCard(item);
   });
+};
 
-  renderSingleProd(productContext);
+// ----------------------------------
+export const homepageLoaded = () => {
+  console.log('homepageLoaded');
+
+  // const prod = Product
 };
