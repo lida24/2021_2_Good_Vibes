@@ -1,6 +1,5 @@
 /* eslint-disable import/extensions */
 import state from '../constants/state.js';
-// import Product from '../views/product.js';
 import ProductCard from '../views/productCard.js';
 
 // ----------------------------------
@@ -58,5 +57,4 @@ export const renderProdArray = (prodArray) => {
 export const homepageLoaded = () => {
   console.log('homepageLoaded');
 
-  // const prod = Product
 };

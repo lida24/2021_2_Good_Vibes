@@ -4,18 +4,10 @@ import eventBus from './eventBus.js';
 const productCardEvents = ({ element, context }) => {
   // console.log('productCardEvents');
 
-  const productId = element.getAttribute('name');
-
-  // const prodFullData = {
-  //   id: productId
-  // };
-
   // ----------------------------
   const productNameBtn = element.getElementsByClassName('productName-href')[0];
   productNameBtn.addEventListener('click', (event) => {
     event.preventDefault();
-
-
 
     eventBus.emit('productName-href click', context);
   });

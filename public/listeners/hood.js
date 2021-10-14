@@ -8,7 +8,7 @@ const hoodListeners = [
     callback: [
       model.logoClick,
       () => {
-        eventBus.emit('Homepage', {
+        eventBus.emit('showView', {
           name: 'Homepage'
         });
       }
@@ -19,7 +19,7 @@ const hoodListeners = [
     callback: [
       model.profileClick,
       () => {
-        eventBus.emit('Signin', {
+        eventBus.emit('showView', {
           name: 'Signin'
         });
       }

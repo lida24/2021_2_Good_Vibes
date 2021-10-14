@@ -6,10 +6,7 @@ const productCardListeners = [
   {
     event: 'productName-href click',
     callback: [
-      model.productPageGenerate,
-      // () => {
-      //   eventBus.emit('Product', 'Product');
-      // }
+      model.productPageGenerate
     ]
   },
   {

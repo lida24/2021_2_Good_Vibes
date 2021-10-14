@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import bus from './eventBus.js';
+import eventBus from './eventBus.js';
 
 const hoodEvents = (element) => {
   // ----------------------------------------
@@ -7,7 +7,7 @@ const hoodEvents = (element) => {
 
   logoBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    bus.emit('logo-click', 'logo-click');
+    eventBus.emit('logo-click', 'logo-click');
     // bus.emit('logo-click', 'Signup');
   });
 
@@ -18,7 +18,7 @@ const hoodEvents = (element) => {
     event.preventDefault();
     // bus.emit('profile-click', 'profile-click');
     // bus.emit('profile-click', 'Signin');
-    bus.emit('profile-click', 'profile-click');
+    eventBus.emit('profile-click', 'profile-click');
   });
 };
 export default hoodEvents;

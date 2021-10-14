@@ -7,7 +7,7 @@ const productListeners = [
     event: 'backToResult click',
     callback: () => {
       console.log('backToResult click');
-      eventBus.emit('Homepage', {
+      eventBus.emit('showView', {
         name: 'Homepage'
       });
     }
