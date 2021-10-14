@@ -7,7 +7,9 @@ const signupListeners = [
     event: 'signinBtn-click',
     callback: [
       () => {
-        eventBus.emit('Signin', 'Signin');
+        eventBus.emit('Signin', {
+          name: 'Signin'
+        });
       }
     ]
   },

@@ -62,7 +62,10 @@ export default class ProductCard extends View {
   async render() {
     await this.#renderHTML();
     eventBus.add(productCardListeners);
-    await this.#generateEvents(this.element);
+    this.#generateEvents({
+      element: this.element,
+      context: this.#context            // Временно прокидываю контекс из самого контейнера, по хорошему я должен брать данные из сервера
+    });
     this.#createRatingHTML();
     return this.show();
   }

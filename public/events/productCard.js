@@ -1,17 +1,23 @@
 /* eslint-disable import/extensions */
 import eventBus from './eventBus.js';
 
-const productCardEvents = (element) => {
+const productCardEvents = ({ element, context }) => {
   // console.log('productCardEvents');
 
   const productId = element.getAttribute('name');
+
+  // const prodFullData = {
+  //   id: productId
+  // };
 
   // ----------------------------
   const productNameBtn = element.getElementsByClassName('productName-href')[0];
   productNameBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
-    eventBus.emit('productName-href click', productId);
+
+
+    eventBus.emit('productName-href click', context);
   });
 
   // ----------------------------
@@ -20,7 +26,7 @@ const productCardEvents = (element) => {
   productImgBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
-    eventBus.emit('productImg-href click', productId);
+    eventBus.emit('productImg-href click', context);
   });
 };
 

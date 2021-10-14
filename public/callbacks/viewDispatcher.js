@@ -11,7 +11,7 @@ const add = (obj) => {
   view = Object.assign(view, obj);
 };
 
-const remove = ({ name }) => {
+const remove = (name) => {
   view[name].delete();
   delete view[name];
 };
@@ -35,7 +35,7 @@ const visibleControl = (targetName) => {
   });
 };
 
-const viewGenerate = (name) => {
+const viewGenerate = ({ name, context }) => {
   const main = document.getElementById('main-container');
 
   const buffView = document.createElement('main');
@@ -43,28 +43,44 @@ const viewGenerate = (name) => {
 
   const buffObj = new constructors[name](buffView);
 
+  let viewName = name;
+  if (context?.id) {
+    viewName += context.id;
+  }
+
   add({
-    [name]: {
+    [viewName]: {
       element: buffObj,
       dom: buffView,
       state: state.hidden
     }
   });
 
-  view[name].state = state.visible;
-  main.replaceWith(view[name].dom);
-  return view[name].element.render();
+  view[viewName].state = state.visible;
+  main.replaceWith(view[viewName].dom);
+
+  if (view[viewName].element?.setContext) {
+    view[viewName].element.setContext(context);
+  }
+  // console.log(view[viewName].element.setContext);
+
+  return view[viewName].element.render();
 };
 
-export const showView = (name) => {
+export const showView = ({ name, context }) => {
   console.log(`${name} view`);
 
-  if (!view[name]) {
-    return viewGenerate(name)
-      .then(() => visibleControl(name));
+  let viewName = name;
+  if (context?.id) {
+    viewName += context.id;
   }
 
-  return visibleControl(name);
+  if (!view[viewName]) {
+    return viewGenerate({ name, context })
+      .then(() => visibleControl(viewName));
+  }
+
+  return visibleControl(viewName);
 };
 
 export const viewCheck = () => {
@@ -84,5 +100,5 @@ export const init = () => {
 
   view.Hood.state = state.visible;
   return view.Hood.element.render()
-    .then(() => viewGenerate('Homepage'));
+    .then(() => viewGenerate({ name: 'Homepage' }));
 };

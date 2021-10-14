@@ -4,20 +4,18 @@
   </div>
   <div class="details">
     <div class="details-image">
-      <img src="${product.image}" alt="${product.name}" />
+      <img src="{{image}}" alt="{{name}}" />
     </div>
     <div class="details-info">
       <ul>
         <li>
-          <h1>${product.name}</h1>
+          <h1>{{name}}</h1>
         </li>
+        <div class="rating">
+          rating
+        </div>
         <li>
-          ${Rating.render({
-          value: product.rating,
-          })}
-        </li>
-        <li>
-          Цена: <strong>$${product.price}</strong>
+          Цена: <strong>${{price}}</strong>
         </li>
         <li>
           Описание:
