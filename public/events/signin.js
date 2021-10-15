@@ -27,7 +27,7 @@ const signinEvents = (element) => {
       password: passwordInput.value.trim()
     };
 
-    eventBus.emit('signinDataCheck', signinData);
+    eventBus.emit('signin submit', signinData);
   });
 };
 export default signinEvents;

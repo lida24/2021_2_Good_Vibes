@@ -6,9 +6,33 @@ const signinListeners = [
     event: 'signup click',
     callback: [
       signin.cleanInputs,
+      signin.hideAlertLabel,
       signin.signup
     ]
   },
+
+
+  {
+    event: 'signin submit',
+    callback: [
+      signin.inputCheck
+    ]
+  },
+  {
+    event: 'validation success',
+    callback: [
+      signin.request
+    ]
+  },
+  {
+    event: 'validation fail',
+    callback: [
+      signin.fail
+    ]
+  },
+
+
+
   {
     event: 'signinDataCheck',
     callback: signin.dataValidation

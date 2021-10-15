@@ -62,7 +62,18 @@ export const cleanInputs = () => {
 
   usernameInput.value = '';
   passwordInput.value = '';
+};
 
-  // console.log(usernameInput.value);
-  // console.log(passwordInput.value);
+export const inputCheck = (data) => {
+  const response = validate.signIn(data);
+
+  if (response) {
+    eventBus.emit('validation fail', response);
+  }
+
+  eventBus.emit('valudation success', data);
+};
+
+export const request = (data) => {
+  eventBus.emit('signin ajax request', data);
 };
