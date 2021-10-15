@@ -80,9 +80,12 @@ export const request = (data) => {
 };
 
 export const showError = (error) => {
-  console.log(error);
-
   const alertLabel = document.getElementById('alert-label');
   alertLabel.innerText = error;
   alertLabel.style.visibility = 'visible';
+};
+
+export const hideError = () => {
+  const alertLabel = document.getElementById('alert-label');
+  alertLabel.style.visibility = 'hidden';
 };

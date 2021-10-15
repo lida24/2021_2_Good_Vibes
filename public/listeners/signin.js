@@ -6,7 +6,7 @@ const signinListeners = [
     event: 'signup click',
     callback: [
       signin.cleanInputs,
-      signin.hideAlertLabel,
+      signin.hideError,
       signin.signup
     ]
   },
@@ -21,8 +21,8 @@ const signinListeners = [
   {
     event: 'validation success',
     callback: [
-      signin.hideAlertLabel,
-      // signin.request
+      signin.hideError,
+      signin.request
     ]
   },
   {
