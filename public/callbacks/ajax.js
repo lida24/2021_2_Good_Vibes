@@ -90,3 +90,15 @@ export const homepage = () => {
     })
     .catch((error) => console.error(error));
 };
+
+export const product = (id) => {
+  ajax.get({
+    url: `${backendAddress}/product?id=${id}`
+  })
+    .then(({ responseText }) => {
+      const responseObj = JSON.parse(responseText);
+      console.log(responseObj);
+    })
+    .catch((error) => console.error(error));
+};
+

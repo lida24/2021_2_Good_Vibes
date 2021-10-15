@@ -21,6 +21,10 @@ const ajaxListeners = [
   {
     event: 'homepage ajax request',
     callback: ajax.homepage
+  },
+  {
+    event: 'product ajax request',
+    callback: ajax.product
   }
 ];
 
