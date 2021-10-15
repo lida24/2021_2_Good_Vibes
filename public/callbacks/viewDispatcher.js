@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import state from '../constants/state.js';
 import constructors from '../constants/constructors.js';
+import eventBus from '../events/eventBus.js';
 
 export const hide = {};
 export const show = {};
@@ -100,5 +101,8 @@ export const init = () => {
 
   view.Hood.state = state.visible;
   return view.Hood.element.render()
-    .then(() => viewGenerate({ name: 'Homepage' }));
+    // .then(() => viewGenerate({ name: 'Homepage' }));
+    .then(() => {
+      eventBus.emit('homepage ajax request');
+    })
 };
