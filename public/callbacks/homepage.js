@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import state from '../constants/state.js';
+import eventBus from '../events/eventBus.js';
 import ProductCard from '../views/productCard.js';
 
 // ----------------------------------
@@ -54,6 +55,10 @@ export const renderProdArray = (prodArray) => {
 };
 
 // ----------------------------------
-export const homepageLoaded = () => {
+export const homepageLoaded = (responseText) => {
   console.log('homepageLoaded');
+
+  console.log(responseText);
+
+  // eventBus.emit('homepage ajax request');
 };
