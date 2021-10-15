@@ -32,7 +32,7 @@ const backendAddress = 'https://ozonback.herokuapp.com';
 export const signin = (data) => {
   console.log(data);
   ajax.post({
-    url: `${backendAddress}/signin`,
+    url: `${backendAddress}/login`,
     body: data
   })
     .then(({ responseText }) => {
