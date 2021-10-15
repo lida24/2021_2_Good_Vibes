@@ -21,7 +21,7 @@ export const signinDataValidation = (signinData) => {
 
   eventBus.emit('showView', {
     name: 'Profile'
-  });
+  });     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 };
 

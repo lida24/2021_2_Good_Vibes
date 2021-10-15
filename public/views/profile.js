@@ -5,7 +5,7 @@ import generateContentHTML from '../scripts/loadTemplates.js';
 import eventBus from '../events/eventBus.js';
 import profileListeners from '../listeners/profile.js';
 
-const profileUrl = './templates/homepage.handlebars';
+const profileUrl = './templates/profile.handlebars';
 
 export default class Profile extends View {
   #url = profileUrl;

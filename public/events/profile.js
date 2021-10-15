@@ -2,7 +2,14 @@
 import eventBus from './eventBus.js';
 
 const profileEvents = (element) => {
-  console.log('profileEvents');
+  // ------------------------------
+  const signoutBtn = element.getElementsByClassName('logout-link')[0];
+
+  signoutBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    eventBus.emit('signout ajax request');
+  });
 };
 
 export default profileEvents;

@@ -48,3 +48,13 @@ export const signup = (data) => {
       console.error(error);
     });
 };
+
+export const signout = () => {
+  ajax.get({
+    url: `${backendAddress}/logout`
+  })
+    .then(() => {
+      console.log('signout successed');
+    })
+    .catch((error) => console.error(error));
+}

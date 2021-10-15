@@ -9,6 +9,10 @@ const ajaxListeners = [
   {
     event: 'signup ajax request',
     callback: ajax.signup
+  },
+  {
+    event: 'signout ajax request',
+    callback: ajax.signout
   }
 ];
 
