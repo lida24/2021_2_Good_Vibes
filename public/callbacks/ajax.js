@@ -31,7 +31,8 @@ export const signup = (data) => {
     body: data
   })
     .then((responseText) => {
-      console.log(responseText);    //==========================
+      user.set(JSON.parse(responseText));
+      console.log(user);    //==========================
     })
     .catch(({ responseText }) => {
       const response = JSON.parse(responseText);
