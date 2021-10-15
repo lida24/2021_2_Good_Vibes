@@ -30,8 +30,9 @@ export const signup = (data) => {
     url: `${backendAddress}/signup`,
     body: data
   })
-    .then((responseText) => {
-      user.set(JSON.parse(responseText));
+    .then(({ responseText }) => JSON.parse(responseText))
+    .then((responseObj) => {
+      user.set(responseObj);
       console.log(user);    //==========================
     })
     .catch(({ responseText }) => {
@@ -41,4 +42,20 @@ export const signup = (data) => {
     .catch((error) => {
       console.error(error);
     });
+
+
+
+
+
+  //   .then((responseText) => {
+  //     user.set(JSON.parse(responseText));
+  //     console.log(user);    //==========================
+  //   })
+  // .catch((responseText) => {
+  //   const response = JSON.parse(responseText);
+  //   eventBus.emit('signupDataError', response['error description']);
+  // })
+  // .catch((error) => {
+  //   console.error(error);
+  // });
 };
