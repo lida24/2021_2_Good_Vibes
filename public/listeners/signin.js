@@ -26,6 +26,14 @@ const signinListeners = [
   {
     event: 'hideSinginAlertLabel',
     callback: model.hideAlertLabel
+  },
+  {
+    event: 'signin success',
+    callback: model.signinSuccess
+  },
+  {
+    event: 'signin fail',
+    callback: model.signinFail
   }
 
 ];

@@ -5,34 +5,10 @@ import user from '../context/user.js';
 
 const backendAddress = 'https://ozonback.herokuapp.com';
 
-export const signin = (data) => {
-  console.log(data);
-  ajax.post({
-    url: `${backendAddress}/login`,
-    body: data
-  })
-    .then(({ responseText }) => JSON.parse(responseText))
-    .then((responseObj) => {
-      user.set(responseObj);
-      console.log(user);    //==========================
-
-      eventBus.emit('showView', {
-        name: 'Homepage'
-      });
-    })
-    .catch(({ responseText }) => {
-      const response = JSON.parse(responseText);
-      eventBus.emit('signinDataError', response['error description']);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-};
-
-// export const signup = (data) => {
+// export const signin = (data) => {
 //   console.log(data);
 //   ajax.post({
-//     url: `${backendAddress}/signup`,
+//     url: `${backendAddress}/login`,
 //     body: data
 //   })
 //     .then(({ responseText }) => JSON.parse(responseText))
@@ -46,12 +22,27 @@ export const signin = (data) => {
 //     })
 //     .catch(({ responseText }) => {
 //       const response = JSON.parse(responseText);
-//       eventBus.emit('signupDataError', response['error description']);
+//       eventBus.emit('signinDataError', response['error description']);
 //     })
 //     .catch((error) => {
 //       console.error(error);
 //     });
 // };
+
+export const signin = (data) => {
+  console.log(data);
+  ajax.post({
+    url: `${backendAddress}/signin`,
+    body: data
+  })
+    .then(({ responseText }) => {
+      eventBus.emit('signin success', responseText);
+    })
+    .catch(({ responseText }) => {
+      eventBus.emit('signin fail', responseText);
+    });
+};
+
 
 export const signup = (data) => {
   console.log(data);
@@ -65,26 +56,6 @@ export const signup = (data) => {
     .catch(({ responseText }) => {
       eventBus.emit('signup fail', responseText);
     });
-
-
-
-
-  // .then(({ responseText }) => JSON.parse(responseText))
-  // .then((responseObj) => {
-  //   user.set(responseObj);
-  //   console.log(user);    //==========================
-
-  //   eventBus.emit('showView', {
-  //     name: 'Homepage'
-  //   });
-  // })
-  // .catch(({ responseText }) => {
-  //   const response = JSON.parse(responseText);
-  //   eventBus.emit('signupDataError', response['error description']);
-  // })
-  // .catch((error) => {
-  //   console.error(error);
-  // });
 };
 
 export const signout = () => {
