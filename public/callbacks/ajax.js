@@ -58,7 +58,10 @@ export const signout = () => {
     url: `${backendAddress}/logout`
   })
     .then(() => {
-      console.log('signout successed');
+      // console.log('signout successed');
+      eventBus.emit('showView', {
+        name: 'Homepage'
+      });
     })
     .catch((error) => console.error(error));
 };
