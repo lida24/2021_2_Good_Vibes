@@ -66,6 +66,20 @@ export const signout = () => {
 };
 
 export const profile = () => {
+  // ajax.get({
+  //   url: `${backendAddress}/profile`
+  // })
+  //   .then(() => {
+  //     eventBus.emit('showView', {
+  //       name: 'Profile'
+  //     });
+  //   })
+  //   .catch(() => {
+  //     eventBus.emit('showView', {
+  //       name: 'Signin'
+  //     });
+  //   });
+
   ajax.get({
     url: `${backendAddress}/profile`
   })
@@ -75,9 +89,10 @@ export const profile = () => {
       });
     })
     .catch(() => {
-      eventBus.emit('showView', {
-        name: 'Signin'
-      });
+      // eventBus.emit('showView', {
+      //   name: 'Signin'
+      // });
+      eventBus.emit('no authorization');
     });
 };
 
@@ -96,8 +111,6 @@ export const product = (id) => {
     url: `${backendAddress}/product?id=${id}`
   })
     .then(({ responseText }) => {
-      // const responseObj = JSON.parse(responseText);
-      // console.log(responseObj);
       eventBus.emit('product response', responseText);
     })
     .catch((error) => console.error(error));
