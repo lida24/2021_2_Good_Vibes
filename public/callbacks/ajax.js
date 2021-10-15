@@ -87,6 +87,7 @@ export const profile = () => {
       // eventBus.emit('showView', {
       //   name: 'Profile'
       // });
+      eventBus.emit('authorization');
     })
     .catch(() => {
       eventBus.emit('no authorization');
