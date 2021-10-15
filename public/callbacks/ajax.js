@@ -11,7 +11,7 @@ export const signin = (data) => {
     body: data
   })
     .then((responseText) => {
-      console.log(responseText);
+      console.log(responseText);    //==========================
     })
     .catch(({ responseText }) => {
       const response = JSON.parse(responseText);
@@ -22,4 +22,20 @@ export const signin = (data) => {
     });
 };
 
-export const a = 9;
+export const signup = (data) => {
+  console.log(data);
+  ajax.post({
+    url: `${backendAddress}/signup`,
+    body: data
+  })
+    .then((responseText) => {
+      console.log(responseText);    //==========================
+    })
+    .catch(({ responseText }) => {
+      const response = JSON.parse(responseText);
+      eventBus.emit('signupDataError', response['error description']);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
