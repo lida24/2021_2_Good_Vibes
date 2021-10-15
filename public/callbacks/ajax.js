@@ -10,11 +10,15 @@ export const signin = (data) => {
     url: `${backendAddress}/login`,
     body: data
   })
-    .then((response) => {
-      console.log(response);
+    .then((responseText) => {
+      console.log(responseText);
     })
     .catch(({ responseText }) => {
-      eventBus.emit('signinDataError', responseText['error description']);
+      const response = JSON.parse(responseText);
+      eventBus.emit('signinDataError', response['error description']);
+    })
+    .catch((error) => {
+      console.error(error);
     });
 };
 
