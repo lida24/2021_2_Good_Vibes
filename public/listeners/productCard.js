@@ -10,10 +10,16 @@ const productCardListeners = [
       model.productAjaxRequest
     ]
   },
+  // {
+  //   event: 'productImg-href click',
+  //   callback: [
+  //     model.productPageGenerate
+  //   ]
+  // },
   {
     event: 'productImg-href click',
     callback: [
-      model.productPageGenerate
+      model.productAjaxRequest
     ]
   },
   {
