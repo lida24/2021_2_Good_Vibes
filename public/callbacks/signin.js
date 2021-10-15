@@ -69,6 +69,7 @@ export const inputCheck = (data) => {
 
   if (response) {
     eventBus.emit('validation fail', response);
+    return;
   }
 
   eventBus.emit('validation success', data);
