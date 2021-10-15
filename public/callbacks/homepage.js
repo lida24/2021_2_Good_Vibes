@@ -56,5 +56,4 @@ export const renderProdArray = (prodArray) => {
 // ----------------------------------
 export const homepageLoaded = () => {
   console.log('homepageLoaded');
-
 };

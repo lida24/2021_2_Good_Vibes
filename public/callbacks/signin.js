@@ -2,6 +2,10 @@
 import eventBus from '../events/eventBus.js';
 import Validate from '../scripts/inputDataValidation.js';
 
+// export const signinRequest = (data) => {
+
+// };
+
 export const signinDataValidation = (signinData) => {
   const response = Validate.signIn(signinData);
 
@@ -11,7 +15,10 @@ export const signinDataValidation = (signinData) => {
   }
 
   eventBus.emit('hideSinginAlertLabel');
-  console.log('signin Ajax request');
+
+  // console.log('signin Ajax request');
+  eventBus.emit('signin ajax request', signinData);
+  // signinRequest(signinData);
 };
 
 export const signinErrorHandler = (response) => {
