@@ -9,7 +9,9 @@ export const productPageGenerate = (prodFullData) => {
 };
 
 export const productAjaxRequest = (id) => {
-  console.log(id);
+  // console.log(id);
+
+  eventBus.emit('product ajax request', id);
 };
 
 export const a = 0;

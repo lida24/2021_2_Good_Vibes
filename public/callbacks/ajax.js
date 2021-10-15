@@ -101,4 +101,3 @@ export const product = (id) => {
     })
     .catch((error) => console.error(error));
 };
-
