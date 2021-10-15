@@ -13,7 +13,7 @@ export const signin = (data) => {
       console.log(response);
     })
     .catch((error) => {
-      console.error(error);
+      console.error(error['error description']);
     });
 };
 
