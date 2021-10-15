@@ -117,4 +117,10 @@ export const showProfile = () => {
   eventBus.emit('showView', {
     name: 'Profile'
   });
-}
+};
+
+export const showHomepage = () => {
+  eventBus.emit('showView', {
+    name: 'Homepage'
+  });
+};

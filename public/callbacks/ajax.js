@@ -58,35 +58,19 @@ export const signout = () => {
     url: `${backendAddress}/logout`
   })
     .then(() => {
-      eventBus.emit('showView', {
-        name: 'Homepage'
-      });
+      // eventBus.emit('showView', {
+      //   name: 'Homepage'
+      // });
+      eventBus.emit('logout success');
     })
     .catch((error) => console.error(error));
 };
 
 export const profile = () => {
-  // ajax.get({
-  //   url: `${backendAddress}/profile`
-  // })
-  //   .then(() => {
-  //     eventBus.emit('showView', {
-  //       name: 'Profile'
-  //     });
-  //   })
-  //   .catch(() => {
-  //     eventBus.emit('showView', {
-  //       name: 'Signin'
-  //     });
-  //   });
-
   ajax.get({
     url: `${backendAddress}/profile`
   })
     .then(() => {
-      // eventBus.emit('showView', {
-      //   name: 'Profile'
-      // });
       eventBus.emit('authorization');
     })
     .catch(() => {

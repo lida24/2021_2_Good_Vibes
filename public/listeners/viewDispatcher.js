@@ -21,6 +21,12 @@ const viewDispatcherListeners = [
     callback: [
       model.showProfile
     ]
+  },
+  {
+    event: 'logout success',
+    callback: [
+      model.showHomepage
+    ]
   }
 ];
 
