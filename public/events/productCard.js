@@ -10,7 +10,6 @@ const productCardEvents = ({ element, context }) => {
     event.preventDefault();
 
     eventBus.emit('productName-href click', context.id);
-    // eventBus.emit('productName-href click', context);
   });
 
   // ----------------------------
