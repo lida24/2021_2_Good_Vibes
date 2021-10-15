@@ -9,7 +9,8 @@ const productCardEvents = ({ element, context }) => {
   productNameBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
-    eventBus.emit('productName-href click', context);
+    eventBus.emit('productName-href click', context.id);
+    // eventBus.emit('productName-href click', context);
   });
 
   // ----------------------------

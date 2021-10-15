@@ -8,4 +8,8 @@ export const productPageGenerate = (prodFullData) => {
   });
 };
 
+export const productAjaxRequest = (id) => {
+  console.log(id);
+};
+
 export const a = 0;

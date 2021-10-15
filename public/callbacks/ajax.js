@@ -86,15 +86,6 @@ export const homepage = () => {
     url: `${backendAddress}/homepage`
   })
     .then(({ responseText }) => {
-      // console.log(responseText);
-
-      // eventBus.emit('showView', {
-      //   name: 'Homepage',
-
-      // });
-      // eventBus.emit('homepageLoaded', responseText);
-
-
       eventBus.emit('homepage response', responseText);
     })
     .catch((error) => console.error(error));
