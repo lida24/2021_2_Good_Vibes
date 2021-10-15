@@ -112,3 +112,9 @@ export const showSignin = () => {
     name: 'Signin'
   });
 };
+
+export const showProfile = () => {
+  eventBus.emit('showView', {
+    name: 'Profile'
+  });
+}

@@ -84,14 +84,11 @@ export const profile = () => {
     url: `${backendAddress}/profile`
   })
     .then(() => {
-      eventBus.emit('showView', {
-        name: 'Profile'
-      });
+      // eventBus.emit('showView', {
+      //   name: 'Profile'
+      // });
     })
     .catch(() => {
-      // eventBus.emit('showView', {
-      //   name: 'Signin'
-      // });
       eventBus.emit('no authorization');
     });
 };
