@@ -77,3 +77,9 @@ export const inputCheck = (data) => {
 export const request = (data) => {
   eventBus.emit('signin ajax request', data);
 };
+
+export const showError = (error) => {
+  const alertLabel = document.getElementById('alert-label');
+  alertLabel.innerText = error;
+  alertLabel.style.visibility = 'visible';
+};
