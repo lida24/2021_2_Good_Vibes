@@ -79,6 +79,8 @@ export const request = (data) => {
 };
 
 export const showError = (error) => {
+  console.log(error);
+
   const alertLabel = document.getElementById('alert-label');
   alertLabel.innerText = error;
   alertLabel.style.visibility = 'visible';
