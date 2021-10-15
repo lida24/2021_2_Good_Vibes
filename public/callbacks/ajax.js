@@ -15,7 +15,7 @@ export const signin = (data) => {
     })
     .catch((error) => {
       // console.error(error);
-      eventBus.emit('signinErrorHandler', error);
+      eventBus.emit('signinDataError', error);
     });
 };
 
