@@ -7,7 +7,7 @@ const hoodEvents = (element) => {
 
   logoBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    eventBus.emit('logo-click', 'logo-click');
+    eventBus.emit('logo-click');
     // bus.emit('logo-click', 'Signup');
   });
 

@@ -17,6 +17,10 @@ const ajaxListeners = [
   {
     event: 'profile ajax request',
     callback: ajax.profile
+  },
+  {
+    event: 'homepage ajax request',
+    callback: ajax.homepage
   }
 ];
 

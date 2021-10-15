@@ -58,7 +58,6 @@ export const signout = () => {
     url: `${backendAddress}/logout`
   })
     .then(() => {
-      // console.log('signout successed');
       eventBus.emit('showView', {
         name: 'Homepage'
       });
@@ -80,4 +79,14 @@ export const profile = () => {
         name: 'Signin'
       });
     });
+};
+
+export const homepage = () => {
+  ajax.get({
+    url: `${backendAddress}/homepage`
+  })
+    .then(({ responseText }) => {
+      console.log(responseText);
+    })
+    .catch((error) => console.error(error));
 };

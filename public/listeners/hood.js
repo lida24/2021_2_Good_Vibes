@@ -7,11 +7,11 @@ const hoodListeners = [
     event: 'logo-click',
     callback: [
       model.logoClick,
-      () => {
-        eventBus.emit('showView', {
-          name: 'Homepage'
-        });
-      }
+      // () => {
+      //   eventBus.emit('showView', {
+      //     name: 'Homepage'
+      //   });
+      // }
     ]
   },
   {
