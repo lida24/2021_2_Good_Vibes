@@ -5,8 +5,8 @@ const signinListeners = [
   {
     event: 'signup click',
     callback: [
-      signin.signup,
-      signin.cleanInputs
+      signin.cleanInputs,
+      signin.signup
     ]
   },
   {
