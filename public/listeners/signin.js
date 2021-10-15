@@ -6,11 +6,7 @@ const signinListeners = [
   {
     event: 'signupBtn-click',
     callback: [
-      () => {
-        eventBus.emit('showView', {
-          name: 'Signup'
-        });
-      }
+      model.signup
     ]
   },
   {

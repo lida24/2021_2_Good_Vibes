@@ -49,3 +49,9 @@ export const signinFail = (responseText) => {
     console.error(error);
   }
 };
+
+export const signup = () => {
+  eventBus.emit('showView', {
+    name: 'Signup'
+  });
+};
