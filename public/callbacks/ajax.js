@@ -13,6 +13,7 @@ export const signin = (data) => {
   })
     .then(({ responseText }) => JSON.parse(responseText))
     .then((responseObj) => {
+      console.log(responseObj);
       user.set(responseObj);
       console.log(user);    //==========================
     })
