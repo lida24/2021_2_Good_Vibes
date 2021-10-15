@@ -34,26 +34,26 @@ const signinListeners = [
 
 
 
-  {
-    event: 'signinDataCheck',
-    callback: signin.dataValidation
-  },
-  {
-    event: 'signinDataError',
-    callback: signin.errorHandler
-  },
-  {
-    event: 'hideSinginAlertLabel',
-    callback: signin.hideAlertLabel
-  },
-  {
-    event: 'signin success',
-    callback: signin.success
-  },
-  {
-    event: 'signin fail',
-    callback: signin.fail
-  }
+  // {
+  //   event: 'signinDataCheck',
+  //   callback: signin.dataValidation
+  // },
+  // {
+  //   event: 'signinDataError',
+  //   callback: signin.errorHandler
+  // },
+  // {
+  //   event: 'hideSinginAlertLabel',
+  //   callback: signin.hideAlertLabel
+  // },
+  // {
+  //   event: 'signin success',
+  //   callback: signin.success
+  // },
+  // {
+  //   event: 'signin fail',
+  //   callback: signin.fail
+  // }
 
 ];
 
