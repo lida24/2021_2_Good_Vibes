@@ -63,6 +63,6 @@ export const cleanInputs = () => {
   // usernameInput.value = '';
   // passwordInput.value = '';
 
-  console.log(usernameInput);
-  console.log(passwordInput);
+  console.log(usernameInput.value);
+  console.log(passwordInput.value);
 };
