@@ -60,8 +60,8 @@ export const cleanInputs = () => {
   const usernameInput = document.getElementsByClassName('login')[0];
   const passwordInput = document.getElementsByClassName('password')[0];
 
-  usernameInput.value = '';
-  passwordInput.value = '';
+  usernameInput.value.clear();
+  passwordInput.value.clear();
 
   // console.log(usernameInput.value);
   // console.log(passwordInput.value);
