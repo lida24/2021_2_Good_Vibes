@@ -19,7 +19,7 @@ const productCardEvents = ({ element, context }) => {
   productImgBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
-    eventBus.emit('productImg-href click', context);
+    eventBus.emit('productImg-href click', context.id);
   });
 };
 
