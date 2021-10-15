@@ -21,6 +21,7 @@ const signinListeners = [
   {
     event: 'validation success',
     callback: [
+      signin.hideAlertLabel,
       signin.request
     ]
   },

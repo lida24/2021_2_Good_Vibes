@@ -71,7 +71,7 @@ export const inputCheck = (data) => {
     eventBus.emit('validation fail', response);
   }
 
-  eventBus.emit('valudation success', data);
+  eventBus.emit('validation success', data);
 };
 
 export const request = (data) => {
