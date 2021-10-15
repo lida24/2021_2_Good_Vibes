@@ -13,6 +13,10 @@ const ajaxListeners = [
   {
     event: 'signout ajax request',
     callback: ajax.signout
+  },
+  {
+    event: 'profile ajax request',
+    callback: ajax.profile
   }
 ];
 

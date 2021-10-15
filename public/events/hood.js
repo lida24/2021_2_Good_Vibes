@@ -18,7 +18,7 @@ const hoodEvents = (element) => {
     event.preventDefault();
     // bus.emit('profile-click', 'profile-click');
     // bus.emit('profile-click', 'Signin');
-    eventBus.emit('profile-click', 'profile-click');
+    eventBus.emit('profile-click');
   });
 };
 export default hoodEvents;

@@ -17,7 +17,7 @@ export const signin = (data) => {
       console.log(user);    //==========================
 
       eventBus.emit('showView', {
-        name: 'Profile'
+        name: 'Homepage'
       });
     })
     .catch(({ responseText }) => {
@@ -39,6 +39,10 @@ export const signup = (data) => {
     .then((responseObj) => {
       user.set(responseObj);
       console.log(user);    //==========================
+
+      eventBus.emit('showView', {
+        name: 'Homepage'
+      });
     })
     .catch(({ responseText }) => {
       const response = JSON.parse(responseText);
@@ -57,4 +61,20 @@ export const signout = () => {
       console.log('signout successed');
     })
     .catch((error) => console.error(error));
-}
+};
+
+export const profile = () => {
+  ajax.get({
+    url: `${backendAddress}/profile`
+  })
+    .then(() => {
+      eventBus.emit('showView', {
+        name: 'Profile'
+      });
+    })
+    .catch(() => {
+      eventBus.emit('showView', {
+        name: 'Signin'
+      });
+    });
+};
