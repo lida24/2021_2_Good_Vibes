@@ -16,9 +16,13 @@ export const signinDataValidation = (signinData) => {
 
   eventBus.emit('hideSinginAlertLabel');
 
-  // console.log('signin Ajax request');
-  eventBus.emit('signin ajax request', signinData);
-  // signinRequest(signinData);
+  // eventBus.emit('signin ajax request', signinData);
+
+
+  eventBus.emit('showView', {
+    name: 'Profile'
+  });
+
 };
 
 export const signinErrorHandler = (response) => {

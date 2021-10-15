@@ -13,7 +13,6 @@ export const signupDataValidation = (signupData) => {
   eventBus.emit('hideSingupAlertLabel');
 
 
-  // console.log('signup Ajax request');
   eventBus.emit('signup ajax request', signupData);
 };
 
