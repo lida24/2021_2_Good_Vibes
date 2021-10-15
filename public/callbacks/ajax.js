@@ -1,4 +1,5 @@
 /* eslint-disable import/extensions */
+import eventBus from '../events/eventBus.js';
 import ajax from '../scripts/ajax.js';
 
 const backendAddress = 'https://ozonback.herokuapp.com';
@@ -13,7 +14,8 @@ export const signin = (data) => {
       console.log(response);
     })
     .catch((error) => {
-      console.error(error['error description']);
+      // console.error(error);
+      eventBus.emit('signinErrorHandler', error);
     });
 };
 
