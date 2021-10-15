@@ -3,16 +3,6 @@ import eventBus from '../events/eventBus.js';
 import validate from '../scripts/inputDataValidation.js';
 import user from '../context/user.js';
 
-
-export const fail = (responseText) => {
-  try {
-    const responseObj = JSON.parse(responseText);
-    eventBus.emit('signinDataError', responseObj['error description']);
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 export const showSignup = () => {
   eventBus.emit('showView', {
     name: 'Signup'
