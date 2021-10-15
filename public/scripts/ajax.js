@@ -71,7 +71,10 @@ export default class Ajax {
             return;
           }
 
-          reject(new Error(responseText));
+          reject({
+            status,
+            responseText
+          });
         }
       });
     });
@@ -98,7 +101,10 @@ export default class Ajax {
             return;
           }
 
-          reject(new Error(responseText));
+          reject({
+            status,
+            responseText
+          });
         }
       });
     });
