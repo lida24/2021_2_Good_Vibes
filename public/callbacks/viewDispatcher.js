@@ -106,3 +106,9 @@ export const init = () => {
   //   eventBus.emit('homepage ajax request');
   // });
 };
+
+export const showSignin = () => {
+  eventBus.emit('showView', {
+    name: 'Signin'
+  });
+};

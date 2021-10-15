@@ -13,9 +13,10 @@ const viewDispatcherListeners = [
   {
     event: 'no authorization',
     callback: [
-      eventBus.emit('showView', {
-        name: 'Signin'
-      })
+      // eventBus.emit('showView', {
+      //   name: 'Signin'
+      // })
+      model.showSignin
     ]
   }
 ];
