@@ -3,29 +3,6 @@ import eventBus from '../events/eventBus.js';
 import validate from '../scripts/inputDataValidation.js';
 import user from '../context/user.js';
 
-export const dataValidation = (signinData) => {
-  const response = validate.signIn(signinData);
-
-  if (response) {
-    eventBus.emit('signinDataError', response);
-    return;
-  }
-
-  eventBus.emit('hideSinginAlertLabel');
-
-  eventBus.emit('signin ajax request', signinData);
-};
-
-export const errorHandler = (response) => {
-  const alertLabel = document.getElementById('alert-label');
-  alertLabel.innerText = response;
-  alertLabel.style.visibility = 'visible';
-};
-
-export const hideAlertLabel = () => {
-  const alertLabel = document.getElementById('alert-label');
-  alertLabel.style.visibility = 'hidden';
-};
 
 export const fail = (responseText) => {
   try {
@@ -96,21 +73,6 @@ export const addUser = (responseText) => {
     const responseObj = JSON.parse(responseText);
     user.set(responseObj);
     console.log(user);
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-
-export const success = (responseText) => {
-  try {
-    const responseObj = JSON.parse(responseText);
-    user.set(responseObj);
-    console.log(user);
-
-    eventBus.emit('showView', {
-      name: 'Homepage'
-    });
   } catch (error) {
     console.error(error);
   }

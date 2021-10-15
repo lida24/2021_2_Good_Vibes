@@ -39,25 +39,7 @@ const signinListeners = [
   {
     event: 'signin fail',
     callback: signin.handleFail
-  },
-
-
-
-
-  {
-    event: 'signinDataCheck',
-    callback: signin.dataValidation
-  },
-  {
-    event: 'signinDataError',
-    callback: signin.errorHandler
-  },
-  {
-    event: 'hideSinginAlertLabel',
-    callback: signin.hideAlertLabel
-  },
-
-
+  }
 ];
 
 export default signinListeners;
