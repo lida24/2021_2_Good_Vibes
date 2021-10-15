@@ -15,6 +15,12 @@ const productCardListeners = [
     callback: [
       model.productPageGenerate
     ]
+  },
+  {
+    event: 'product response',
+    callback: [
+      model.productPageGenerate
+    ]
   }
 ];
 

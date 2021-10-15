@@ -96,8 +96,9 @@ export const product = (id) => {
     url: `${backendAddress}/product?id=${id}`
   })
     .then(({ responseText }) => {
-      const responseObj = JSON.parse(responseText);
-      console.log(responseObj);
+      // const responseObj = JSON.parse(responseText);
+      // console.log(responseObj);
+      eventBus.emit('product response', responseText);
     })
     .catch((error) => console.error(error));
 };
