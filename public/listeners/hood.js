@@ -17,7 +17,7 @@ const hoodListeners = [
   {
     event: 'profile-click',
     callback: [
-      model.profileClick,
+      model.profileClick
       // () => {
       //   eventBus.emit('showView', {
       //     name: 'Signin'
