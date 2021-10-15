@@ -12,7 +12,7 @@ const signinEvents = (element) => {
   signupBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
-    eventBus.emit('signupBtn-click');
+    eventBus.emit('signup click');
   });
 
   // ----------------------------------------

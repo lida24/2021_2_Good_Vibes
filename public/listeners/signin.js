@@ -1,35 +1,33 @@
 /* eslint-disable import/extensions */
-import * as model from '../callbacks/signin.js';
-import eventBus from '../events/eventBus.js';
+import * as signin from '../callbacks/signin.js';
 
 const signinListeners = [
   {
-    event: 'signupBtn-click',
+    event: 'signup click',
     callback: [
-      model.signup
+      signin.signup,
+      signin.cleanInputs
     ]
   },
   {
     event: 'signinDataCheck',
-    callback: [
-      model.signinDataValidation
-    ]
+    callback: signin.dataValidation
   },
   {
     event: 'signinDataError',
-    callback: model.signinErrorHandler
+    callback: signin.errorHandler
   },
   {
     event: 'hideSinginAlertLabel',
-    callback: model.hideAlertLabel
+    callback: signin.hideAlertLabel
   },
   {
     event: 'signin success',
-    callback: model.signinSuccess
+    callback: signin.success
   },
   {
     event: 'signin fail',
-    callback: model.signinFail
+    callback: signin.fail
   }
 
 ];

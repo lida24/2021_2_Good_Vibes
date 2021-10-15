@@ -3,7 +3,7 @@ import eventBus from '../events/eventBus.js';
 import validate from '../scripts/inputDataValidation.js';
 import user from '../context/user.js';
 
-export const signinDataValidation = (signinData) => {
+export const dataValidation = (signinData) => {
   const response = validate.signIn(signinData);
 
   if (response) {
@@ -16,7 +16,7 @@ export const signinDataValidation = (signinData) => {
   eventBus.emit('signin ajax request', signinData);
 };
 
-export const signinErrorHandler = (response) => {
+export const errorHandler = (response) => {
   const alertLabel = document.getElementById('alert-label');
   alertLabel.innerText = response;
   alertLabel.style.visibility = 'visible';
@@ -27,7 +27,7 @@ export const hideAlertLabel = () => {
   alertLabel.style.visibility = 'hidden';
 };
 
-export const signinSuccess = (responseText) => {
+export const success = (responseText) => {
   try {
     const responseObj = JSON.parse(responseText);
     user.set(responseObj);
@@ -41,7 +41,7 @@ export const signinSuccess = (responseText) => {
   }
 };
 
-export const signinFail = (responseText) => {
+export const fail = (responseText) => {
   try {
     const responseObj = JSON.parse(responseText);
     eventBus.emit('signinDataError', responseObj['error description']);
@@ -54,4 +54,12 @@ export const signup = () => {
   eventBus.emit('showView', {
     name: 'Signup'
   });
+};
+
+export const cleanInputs = () => {
+  const usernameInput = document.getElementsByClassName('login')[0];
+  const passwordInput = document.getElementsByClassName('password')[0];
+
+  usernameInput.value = '';
+  passwordInput.value = '';
 };
