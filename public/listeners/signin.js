@@ -7,11 +7,9 @@ const signinListeners = [
     callback: [
       signin.cleanInputs,
       signin.hideError,
-      signin.signup
+      signin.showSignup
     ]
   },
-
-
   {
     event: 'signin submit',
     callback: [
@@ -31,6 +29,18 @@ const signinListeners = [
       signin.showError
     ]
   },
+  {
+    event: 'signin success',
+    callback: [
+      signin.addUser,
+      signin.showHomepage
+    ]
+  },
+  {
+    event: 'signin fail',
+    callback: signin.handleFail
+  },
+
 
 
 
@@ -46,14 +56,7 @@ const signinListeners = [
     event: 'hideSinginAlertLabel',
     callback: signin.hideAlertLabel
   },
-  {
-    event: 'signin success',
-    callback: signin.success
-  },
-  {
-    event: 'signin fail',
-    callback: signin.fail
-  }
+
 
 ];
 

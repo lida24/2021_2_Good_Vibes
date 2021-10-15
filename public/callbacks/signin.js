@@ -27,20 +27,6 @@ export const hideAlertLabel = () => {
   alertLabel.style.visibility = 'hidden';
 };
 
-export const success = (responseText) => {
-  try {
-    const responseObj = JSON.parse(responseText);
-    user.set(responseObj);
-    console.log(user);
-
-    eventBus.emit('showView', {
-      name: 'Homepage'
-    });
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 export const fail = (responseText) => {
   try {
     const responseObj = JSON.parse(responseText);
@@ -50,9 +36,15 @@ export const fail = (responseText) => {
   }
 };
 
-export const signup = () => {
+export const showSignup = () => {
   eventBus.emit('showView', {
     name: 'Signup'
+  });
+};
+
+export const showHomepage = () => {
+  eventBus.emit('showView', {
+    name: 'Homepage'
   });
 };
 
@@ -88,4 +80,38 @@ export const showError = (error) => {
 export const hideError = () => {
   const alertLabel = document.getElementById('alert-label');
   alertLabel.style.visibility = 'hidden';
+};
+
+export const handleFail = (responseText) => {
+  try {
+    const responseObj = JSON.parse(responseText);
+    showError(responseObj['error description']);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const addUser = (responseText) => {
+  try {
+    const responseObj = JSON.parse(responseText);
+    user.set(responseObj);
+    console.log(user);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+export const success = (responseText) => {
+  try {
+    const responseObj = JSON.parse(responseText);
+    user.set(responseObj);
+    console.log(user);
+
+    eventBus.emit('showView', {
+      name: 'Homepage'
+    });
+  } catch (error) {
+    console.error(error);
+  }
 };
