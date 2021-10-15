@@ -71,10 +71,11 @@ export default class Ajax {
             return;
           }
 
-          reject(new Error({
+          // eslint-disable-next-line prefer-promise-reject-errors
+          reject({
             status,
             responseText
-          }));
+          });
         }
       });
     });
@@ -101,10 +102,11 @@ export default class Ajax {
             return;
           }
 
-          reject(new Error({
+          // eslint-disable-next-line prefer-promise-reject-errors
+          reject({
             status,
             responseText
-          }));
+          });
         }
       });
     });
