@@ -13,9 +13,12 @@ export const signin = (data) => {
   })
     .then(({ responseText }) => JSON.parse(responseText))
     .then((responseObj) => {
-      console.log(responseObj);
       user.set(responseObj);
       console.log(user);    //==========================
+
+      eventBus.emit('showView', {
+        name: 'Profile'
+      });
     })
     .catch(({ responseText }) => {
       const response = JSON.parse(responseText);
@@ -44,20 +47,4 @@ export const signup = (data) => {
     .catch((error) => {
       console.error(error);
     });
-
-
-
-
-
-  //   .then((responseText) => {
-  //     user.set(JSON.parse(responseText));
-  //     console.log(user);    //==========================
-  //   })
-  // .catch((responseText) => {
-  //   const response = JSON.parse(responseText);
-  //   eventBus.emit('signupDataError', response['error description']);
-  // })
-  // .catch((error) => {
-  //   console.error(error);
-  // });
 };
