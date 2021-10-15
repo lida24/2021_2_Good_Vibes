@@ -39,9 +39,9 @@ export const signup = (data) => {
       const response = JSON.parse(responseText);
       eventBus.emit('signupDataError', response['error description']);
     })
-    .catch((error) => {
-      console.error(error);
-    });
+  // .catch((error) => {
+  //   console.error(error);
+  // });
 
 
 
