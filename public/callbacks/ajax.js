@@ -29,28 +29,62 @@ export const signin = (data) => {
     });
 };
 
+// export const signup = (data) => {
+//   console.log(data);
+//   ajax.post({
+//     url: `${backendAddress}/signup`,
+//     body: data
+//   })
+//     .then(({ responseText }) => JSON.parse(responseText))
+//     .then((responseObj) => {
+//       user.set(responseObj);
+//       console.log(user);    //==========================
+
+//       eventBus.emit('showView', {
+//         name: 'Homepage'
+//       });
+//     })
+//     .catch(({ responseText }) => {
+//       const response = JSON.parse(responseText);
+//       eventBus.emit('signupDataError', response['error description']);
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+// };
+
 export const signup = (data) => {
   console.log(data);
   ajax.post({
     url: `${backendAddress}/signup`,
     body: data
   })
-    .then(({ responseText }) => JSON.parse(responseText))
-    .then((responseObj) => {
-      user.set(responseObj);
-      console.log(user);    //==========================
-
-      eventBus.emit('showView', {
-        name: 'Homepage'
-      });
+    .then(({ responseText }) => {
+      eventBus.emit('signup success', responseText);
     })
     .catch(({ responseText }) => {
-      const response = JSON.parse(responseText);
-      eventBus.emit('signupDataError', response['error description']);
-    })
-    .catch((error) => {
-      console.error(error);
+      eventBus.emit('signup fail', responseText);
     });
+
+
+
+
+  // .then(({ responseText }) => JSON.parse(responseText))
+  // .then((responseObj) => {
+  //   user.set(responseObj);
+  //   console.log(user);    //==========================
+
+  //   eventBus.emit('showView', {
+  //     name: 'Homepage'
+  //   });
+  // })
+  // .catch(({ responseText }) => {
+  //   const response = JSON.parse(responseText);
+  //   eventBus.emit('signupDataError', response['error description']);
+  // })
+  // .catch((error) => {
+  //   console.error(error);
+  // });
 };
 
 export const signout = () => {
@@ -58,9 +92,6 @@ export const signout = () => {
     url: `${backendAddress}/logout`
   })
     .then(() => {
-      // eventBus.emit('showView', {
-      //   name: 'Homepage'
-      // });
       eventBus.emit('logout success');
     })
     .catch((error) => console.error(error));

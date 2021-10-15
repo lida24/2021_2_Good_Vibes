@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import eventBus from '../events/eventBus.js';
 import Validate from '../scripts/inputDataValidation.js';
+import user from '../context/user.js';
 
 export const signupDataValidation = (signupData) => {
   const response = Validate.signUp(signupData);
@@ -25,4 +26,27 @@ export const signupErrorHandler = (response) => {
 export const hideSingupAlertLabel = () => {
   const alertLabel = document.getElementById('alert-label');
   alertLabel.style.visibility = 'hidden';
+};
+
+export const signupSuccess = (responseText) => {
+  try {
+    const responseObj = JSON.parse(responseText);
+    user.set(responseObj);
+    console.log(user);
+
+    eventBus.emit('showView', {
+      name: 'Homepage'
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const signupFail = (responseText) => {
+  try {
+    const responseObj = JSON.parse(responseText);
+    eventBus.emit('signupDataError', responseObj['error description']);
+  } catch (error) {
+    console.error(error);
+  }
 };

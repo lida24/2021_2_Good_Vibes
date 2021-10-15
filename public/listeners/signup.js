@@ -26,6 +26,14 @@ const signupListeners = [
   {
     event: 'hideSingupAlertLabel',
     callback: model.hideSingupAlertLabel
+  },
+  {
+    event: 'signup success',
+    callback: model.signupSuccess
+  },
+  {
+    event: 'signup fail',
+    callback: model.signupFail
   }
 
 ];
