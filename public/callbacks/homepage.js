@@ -63,6 +63,10 @@ export const homepageLoaded = (responseText) => {
   try {
     const prodArray = JSON.parse(responseText);
     renderProdArray(prodArray);
+
+    eventBus.emit('showView', {
+      name: 'Homepage'
+    });
   } catch {
     console.error();
   }
