@@ -10,12 +10,8 @@ export const signin = (data) => {
     url: `${backendAddress}/login`,
     body: data
   })
-    .then(({ responseText }) => {
-      eventBus.emit('signin success', responseText);
-    })
-    .catch(({ responseText }) => {
-      eventBus.emit('signin fail', responseText);
-    });
+    .then(({ responseText }) => eventBus.emit('signin success', responseText))
+    .catch(({ responseText }) => eventBus.emit('signin fail', responseText));
 };
 
 export const signup = (data) => {
@@ -24,21 +20,15 @@ export const signup = (data) => {
     url: `${backendAddress}/signup`,
     body: data
   })
-    .then(({ responseText }) => {
-      eventBus.emit('signup success', responseText);
-    })
-    .catch(({ responseText }) => {
-      eventBus.emit('signup fail', responseText);
-    });
+    .then(({ responseText }) => eventBus.emit('signup success', responseText))
+    .catch(({ responseText }) => eventBus.emit('signup fail', responseText));
 };
 
 export const signout = () => {
   ajax.get({
     url: `${backendAddress}/logout`
   })
-    .then(() => {
-      eventBus.emit('logout success');
-    })
+    .then(() => eventBus.emit('logout success'))
     .catch((error) => console.error(error));
 };
 
@@ -46,21 +36,15 @@ export const profile = () => {
   ajax.get({
     url: `${backendAddress}/profile`
   })
-    .then(() => {
-      eventBus.emit('authorization');
-    })
-    .catch(() => {
-      eventBus.emit('no authorization');
-    });
+    .then(() => eventBus.emit('authorization'))
+    .catch(() => eventBus.emit('no authorization'));
 };
 
 export const homepage = () => {
   ajax.get({
     url: `${backendAddress}/homepage`
   })
-    .then(({ responseText }) => {
-      eventBus.emit('homepage response', responseText);
-    })
+    .then(({ responseText }) => eventBus.emit('homepage response', responseText))
     .catch((error) => console.error(error));
 };
 
@@ -68,8 +52,6 @@ export const product = (id) => {
   ajax.get({
     url: `${backendAddress}/product?id=${id}`
   })
-    .then(({ responseText }) => {
-      eventBus.emit('product response', responseText);
-    })
+    .then(({ responseText }) => eventBus.emit('product response', responseText))
     .catch((error) => console.error(error));
 };
