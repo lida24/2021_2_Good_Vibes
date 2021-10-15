@@ -60,5 +60,12 @@ export const homepageLoaded = (responseText) => {
 
   console.log(responseText);
 
+  try {
+    const prodArray = JSON.parse(responseText);
+    renderProdArray(prodArray);
+  } catch {
+    console.error();
+  }
+
   // eventBus.emit('homepage ajax request');
 };
