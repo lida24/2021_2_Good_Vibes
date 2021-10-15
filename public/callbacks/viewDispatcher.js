@@ -100,5 +100,5 @@ export const init = () => {
 
   view.Hood.state = state.visible;
   return view.Hood.element.render()
-    .then(() => viewGenerate({ name: 'Homepage' }));
+  // .then(() => viewGenerate({ name: 'Homepage' }));
 };
