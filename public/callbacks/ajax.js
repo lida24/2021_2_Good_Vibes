@@ -11,8 +11,9 @@ export const signin = (data) => {
     url: `${backendAddress}/login`,
     body: data
   })
-    .then((responseText) => {
-      user.set(JSON.parse(responseText));
+    .then(({ responseText }) => JSON.parse(responseText))
+    .then((responseObj) => {
+      user.set(responseObj);
       console.log(user);    //==========================
     })
     .catch(({ responseText }) => {
