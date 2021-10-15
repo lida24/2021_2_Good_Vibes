@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import eventBus from '../events/eventBus.js';
 import ajax from '../scripts/ajax.js';
+import user from '../context/user.js';
 
 const backendAddress = 'https://ozonback.herokuapp.com';
 
@@ -11,7 +12,8 @@ export const signin = (data) => {
     body: data
   })
     .then((responseText) => {
-      console.log(responseText);    //==========================
+      user.set(JSON.parse(responseText));
+      console.log(user);    //==========================
     })
     .catch(({ responseText }) => {
       const response = JSON.parse(responseText);
