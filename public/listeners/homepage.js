@@ -19,6 +19,12 @@ const homepageListeners = [
     callback: [
       model.homepageLoaded
     ]
+  },
+  {
+    event: 'homepage response',
+    callback: [
+      model.homepageResponse
+    ]
   }
 ];
 

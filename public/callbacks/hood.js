@@ -4,7 +4,9 @@ import eventBus from '../events/eventBus.js';
 export const logoClick = () => {
   console.log('logo click');
 
-  eventBus.emit('homepage ajax request');
+  // eventBus.emit('homepage ajax request');
+
+
 };
 
 export const profileClick = () => {

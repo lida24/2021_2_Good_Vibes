@@ -74,3 +74,10 @@ export const homepageLoaded = (responseText) => {
 
   // eventBus.emit('homepage ajax request');
 };
+
+
+// ----------------------------------
+export const homepageResponse = (responseText) => {
+  const prodArray = JSON.parse(responseText);
+  renderProdArray(prodArray);
+};

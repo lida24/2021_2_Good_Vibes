@@ -101,8 +101,8 @@ export const init = () => {
 
   view.Hood.state = state.visible;
   return view.Hood.element.render()
-    // .then(() => viewGenerate({ name: 'Homepage' }));
-    .then(() => {
-      eventBus.emit('homepage ajax request');
-    })
+    .then(() => viewGenerate({ name: 'Homepage' }));
+  // .then(() => {
+  //   eventBus.emit('homepage ajax request');
+  // });
 };

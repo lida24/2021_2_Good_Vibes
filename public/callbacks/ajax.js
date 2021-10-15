@@ -92,7 +92,10 @@ export const homepage = () => {
       //   name: 'Homepage',
 
       // });
-      eventBus.emit('homepageLoaded', responseText);
+      // eventBus.emit('homepageLoaded', responseText);
+
+
+      eventBus.emit('homepage response', responseText);
     })
     .catch((error) => console.error(error));
 };

@@ -2,7 +2,7 @@
 import eventBus from './eventBus.js';
 
 const homepageEvents = (element) => {
-  eventBus.emit('homepageLoaded');
+  // eventBus.emit('homepageLoaded');
 
   // const prodArray = [
   //   {
@@ -35,6 +35,8 @@ const homepageEvents = (element) => {
   // ];
 
   // eventBus.emit('renderProdArray', prodArray);
+
+  eventBus.emit('homepage ajax request');
 };
 
 export default homepageEvents;
