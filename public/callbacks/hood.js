@@ -6,6 +6,10 @@ export const logoClick = () => {
 
   // eventBus.emit('homepage ajax request');
 
+  eventBus.emit('showView', {
+    name: 'Homepage'
+  });
+
 
 };
 
