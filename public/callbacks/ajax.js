@@ -35,8 +35,8 @@ export const signup = (data) => {
       user.set(responseObj);
       console.log(user);    //==========================
     })
-    .catch((error) => {
-      const response = JSON.parse(error);
+    .catch(({ responseText }) => {
+      const response = JSON.parse(responseText);
       eventBus.emit('signupDataError', response['error description']);
     })
     .catch((error) => {
