@@ -5,7 +5,7 @@ import hoodEvents from './events.js';
 import hoodListeners from './listeners.js';
 import bus from '../scripts/eventBus.js';
 
-const HoodUrl = './templates/hood.handlebars';
+const HoodUrl = './hood/template.handlebars';
 
 export default class Hood extends View {
   #context;

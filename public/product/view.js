@@ -5,7 +5,7 @@ import generateContentHTML from '../scripts/loadTemplates.js';
 import eventBus from '../scripts/eventBus.js';
 import productListeners from './listeners.js';
 
-const productUrl = './templates/product.handlebars';
+const productUrl = './product/template.handlebars';
 
 export default class Product extends View {
   #url = productUrl;

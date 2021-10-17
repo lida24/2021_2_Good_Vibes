@@ -6,7 +6,7 @@ import generateContentHTML from '../scripts/loadTemplates.js';
 import View from '../scripts/view.js';
 import signinListeners from './listeners.js';
 
-const signinUrl = './templates/signin.handlebars';
+const signinUrl = './signin/template.handlebars';
 
 export default class Signin extends View {
   #url = signinUrl;

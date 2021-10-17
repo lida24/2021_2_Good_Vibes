@@ -5,7 +5,7 @@ import View from '../scripts/view.js';
 import signupListeners from './listeners.js';
 import eventBus from '../scripts/eventBus.js';
 
-const signupUrl = './templates/signup.handlebars';
+const signupUrl = './signup/template.handlebars';
 
 export default class Signup extends View {
   #url = signupUrl;
