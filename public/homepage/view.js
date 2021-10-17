@@ -1,20 +1,21 @@
 /* eslint-disable import/extensions */
-import View from './view.js';
-import profileEvents from '../events/profile.js';
-import generateContentHTML from '../scripts/loadTemplates.js';
+
 import eventBus from '../scripts/eventBus.js';
-import profileListeners from '../listeners/profile.js';
+import generateContentHTML from '../scripts/loadTemplates.js';
+import View from '../views/view.js';
+import homepageEvents from './events.js';
+import homepageListeners from './listeners.js';
 
-const profileUrl = './templates/profile.handlebars';
+const homepageUrl = './templates/homepage.handlebars';
 
-export default class Profile extends View {
-  #url = profileUrl;
+export default class Homepage extends View {
+  #url = homepageUrl;
 
   element;
 
   #context;
 
-  #generateEvents = profileEvents;
+  #generateEvents = homepageEvents;
 
   constructor(element) {
     super(element);
@@ -31,7 +32,7 @@ export default class Profile extends View {
 
   async render() {
     await this.#renderHTML();
-    eventBus.add(profileListeners);
+    eventBus.add(homepageListeners);
     this.#generateEvents(this.element);
     return this.show();
   }

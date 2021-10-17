@@ -2,9 +2,9 @@
 import Signin from '../signin/view.js';
 import Signup from '../signup/view.js';
 import Hood from '../hood/view.js';
-import Homepage from '../views/homepage.js';
+import Homepage from '../homepage/view.js';
 import Product from '../views/product.js';
-import Profile from '../views/profile.js';
+import Profile from '../profile/view.js';
 
 const constructors = {
   Signin,

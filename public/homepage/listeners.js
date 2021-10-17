@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import * as model from '../callbacks/homepage.js';
+import * as model from './callbacks.js';
 
 const homepageListeners = [
   {
