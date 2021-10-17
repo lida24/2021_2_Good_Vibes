@@ -9,7 +9,14 @@ import eventBus from './eventBus.js';
 // };
 
 const profileEvents = (element) => {
+  // --------------------------------
+  const updateBtn = element.getElementsByClassName('update-button')[0];
 
+  updateBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    eventBus.emit('update click');
+  });
 };
 
 export default profileEvents;
