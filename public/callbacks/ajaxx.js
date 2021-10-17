@@ -55,3 +55,4 @@ export const product = (id) => {
     .then(({ responseText }) => eventBus.emit('product response', responseText))
     .catch((error) => console.error(error));
 };
+
