@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 
-import eventBus from '../events/eventBus.js';
+import eventBus from '../scripts/eventBus.js';
 import productCardEvents from '../events/productCard.js';
 import productCardListeners from '../listeners/productCard.js';
 import generateContentHTML from '../scripts/loadTemplates.js';

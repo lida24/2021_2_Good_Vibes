@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import eventBus from './events/eventBus.js';
+import eventBus from './scripts/eventBus.js';
 import { init } from './callbacks/viewDispatcher.js';
 import viewDispatcherListeners from './listeners/viewDispatcher.js';
 import ajaxListeners from './ajax/listeners.js';

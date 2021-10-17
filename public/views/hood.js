@@ -4,7 +4,7 @@ import hoodContext from '../context/hood.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
 import hoodEvents from '../events/hood.js';
 import hoodListeners from '../listeners/hood.js';
-import bus from '../events/eventBus.js';
+import bus from '../scripts/eventBus.js';
 
 const HoodUrl = './templates/hood.handlebars';
 

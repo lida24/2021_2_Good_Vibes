@@ -2,7 +2,7 @@
 import View from './view.js';
 import profileEvents from '../events/profile.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
-import eventBus from '../events/eventBus.js';
+import eventBus from '../scripts/eventBus.js';
 import profileListeners from '../listeners/profile.js';
 
 const profileUrl = './templates/profile.handlebars';

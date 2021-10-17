@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import eventBus from '../events/eventBus.js';
+import eventBus from '../scripts/eventBus.js';
 
 // export const productPageGenerate = (prodFullData) => {
 //   eventBus.emit('showView', {

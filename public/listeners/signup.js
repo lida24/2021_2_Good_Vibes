@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import * as model from '../callbacks/signup.js';
-import eventBus from '../events/eventBus.js';
+import eventBus from '../scripts/eventBus.js';
 
 const signupListeners = [
   {

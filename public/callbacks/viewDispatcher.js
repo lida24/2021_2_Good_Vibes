@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import state from '../constants/state.js';
 import constructors from '../constants/constructors.js';
-import eventBus from '../events/eventBus.js';
+import eventBus from '../scripts/eventBus.js';
 
 export const hide = {};
 export const show = {};

@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import * as hood from '../callbacks/hood.js';
-import eventBus from '../events/eventBus.js';
+import eventBus from '../scripts/eventBus.js';
 
 const hoodListeners = [
   {

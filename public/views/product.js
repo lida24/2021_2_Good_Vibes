@@ -2,7 +2,7 @@
 import View from './view.js';
 import productEvents from '../events/product.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
-import eventBus from '../events/eventBus.js';
+import eventBus from '../scripts/eventBus.js';
 import productListeners from '../listeners/product.js';
 
 const productUrl = './templates/product.handlebars';

@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import eventBus from '../events/eventBus.js';
+import eventBus from '../scripts/eventBus.js';
 import user from '../context/user.js';
 
 export const sendLogin = () => {
@@ -10,6 +10,6 @@ export const sendLogin = () => {
 };
 
 export const logout = () => {
-    eventBus.emit('signout ajax request');
+  eventBus.emit('signout ajax request');
 }
 

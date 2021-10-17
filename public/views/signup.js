@@ -3,7 +3,7 @@ import signupEvents from '../events/signup.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
 import View from './view.js';
 import signupListeners from '../listeners/signup.js';
-import eventBus from '../events/eventBus.js';
+import eventBus from '../scripts/eventBus.js';
 
 const signupUrl = './templates/signup.handlebars';
 
