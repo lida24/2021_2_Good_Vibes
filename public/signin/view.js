@@ -1,10 +1,10 @@
 /* eslint-disable import/extensions */
 
 import eventBus from '../scripts/eventBus.js';
-import signinEvents from '../events/signin.js';
+import signinEvents from './events.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
-import View from './view.js';
-import signinListeners from '../listeners/signin.js';
+import View from '../views/view.js';
+import signinListeners from './listeners.js';
 
 const signinUrl = './templates/signin.handlebars';
 

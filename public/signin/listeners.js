@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import * as signin from '../callbacks/signin.js';
+import * as signin from './callbacks.js';
 
 const signinListeners = [
   {
