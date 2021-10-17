@@ -30,16 +30,6 @@ export default class Signin extends View {
     this.element.innerHTML = html;
   }
 
-  // render() {
-  //   this.#renderHTML()
-  //     .then(() => {
-  //       // eventBus.add(signinListeners);
-  //       // this.#generateEvents(this.element);
-  //     })
-  //     .then(() => this.show())
-  //     .catch((error) => alert(error));
-  // }
-
   async render() {
     await this.#renderHTML();
     eventBus.add(signinListeners);
@@ -48,7 +38,7 @@ export default class Signin extends View {
   }
 
   delete() {
-    // eventBus.delete(signinListeners);
+    eventBus.delete(signinListeners);
     this.element.innerHTML = '';
   }
 }

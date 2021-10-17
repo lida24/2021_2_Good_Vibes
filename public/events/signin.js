@@ -31,4 +31,3 @@ const signinEvents = (element) => {
   });
 };
 export default signinEvents;
-
