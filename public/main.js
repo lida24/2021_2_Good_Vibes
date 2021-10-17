@@ -2,7 +2,8 @@
 import eventBus from './events/eventBus.js';
 import { init } from './callbacks/viewDispatcher.js';
 import viewDispatcherListeners from './listeners/viewDispatcher.js';
-import ajaxListeners from './listeners/ajax.js';
+// import ajaxListeners from './listeners/ajax.js';
+import ajaxListeners from './ajax/listeners.js';
 
 eventBus.on('init', init);
 eventBus.emit('init');
