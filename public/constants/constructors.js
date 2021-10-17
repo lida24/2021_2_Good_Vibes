@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import Signin from '../signin/view.js';
-import Signup from '../views/signup.js';
+import Signup from '../signup/view.js';
 import Hood from '../views/hood.js';
 import Homepage from '../views/homepage.js';
 import Product from '../views/product.js';
