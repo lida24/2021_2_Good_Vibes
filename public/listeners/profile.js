@@ -8,6 +8,12 @@ const profileListeners = [
           model.sendLogin
         ]
       },
+    {
+      event: 'logout',
+      callback: [
+        model.logout
+      ]
+    }
 ];
 
 export default profileListeners;

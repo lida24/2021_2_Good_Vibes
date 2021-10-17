@@ -17,6 +17,15 @@ const profileEvents = (element) => {
 
     eventBus.emit('update click');
   });
+
+  //-------------------------------
+  const logOutBtn = element.getElementsByClassName('signout-button')[0];
+
+  logOutBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    eventBus.emit('logout');
+  })
 };
 
 export default profileEvents;
