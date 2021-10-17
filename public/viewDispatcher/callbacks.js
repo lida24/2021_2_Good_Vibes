@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
-import state from '../constants/state.js';
-import constructors from '../constants/constructors.js';
+import state from './states.js';
+import constructors from './constructors.js';
 import eventBus from '../scripts/eventBus.js';
 
 export const hide = {};

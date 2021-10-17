@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import state from '../constants/state.js';
+import state from '../viewDispatcher/states.js';
 import eventBus from '../scripts/eventBus.js';
 import ProductCard from '../productCard/view.js';
 
