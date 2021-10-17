@@ -9,7 +9,7 @@ export const sendLogin = () => {
     console.log(user);
 };
 
-export const logOut = () => {
+export const logout = () => {
     eventBus.emit('signout ajax request');
 }
 
