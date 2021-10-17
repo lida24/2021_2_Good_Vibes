@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import eventBus from '../scripts/eventBus.js';
-import user from '../context/user.js';
+import user from '../objects/user.js';
 
 export const sendLogin = () => {
   const login = document.getElementsByName('login')[0].value.trim();

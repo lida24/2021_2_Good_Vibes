@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import eventBus from '../scripts/eventBus.js';
 import Validate from '../scripts/inputDataValidation.js';
-import user from '../context/user.js';
+import user from '../objects/user.js';
 
 export const signupDataValidation = (signupData) => {
   const response = Validate.signUp(signupData);
