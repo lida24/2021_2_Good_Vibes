@@ -1,10 +1,10 @@
 /* global Handlebars */
 
 const checkFileExtention = ({ url, fileExtention }) => new Promise((resolve, reject) => {
-  // const regexp = new RegExp(`.(${fileExtention})$`);
-  // if (regexp.test(url)) {
-  resolve(url);
-  // }
+  const regexp = new RegExp(`.(${fileExtention})$`);
+  if (regexp.test(url)) {
+    resolve(url);
+  }
   reject(new Error('wrong file extention'));
 });
 

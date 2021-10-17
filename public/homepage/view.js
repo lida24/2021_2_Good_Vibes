@@ -7,7 +7,7 @@ import homepageEvents from './events.js';
 import homepageListeners from './listeners.js';
 
 // const homepageUrl = './templates/homepage.handlebars';
-const homepageUrl = './template.handlebars';
+const homepageUrl = './homepage/template.handlebars';
 
 export default class Homepage extends View {
   #url = homepageUrl;
