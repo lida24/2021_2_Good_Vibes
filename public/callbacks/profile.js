@@ -4,7 +4,7 @@ import user from '../context/user.js';
 
 export const sendLogin = () => {
     const login = document.getElementsByName('login')[0].value.trim();
-    this.changeLogin(login);
+    // this.changeLogin(login);
 
     console.log(user);
 };

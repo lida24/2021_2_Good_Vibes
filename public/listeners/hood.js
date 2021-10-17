@@ -28,22 +28,22 @@ const hoodListeners = [
       // }
     ]
   },
-  {
-    event: 'authorization',
-    callback: [
-      () => {
-        console.log('authorization');
-      }
-    ]
-  },
-  {
-    event: 'no authorization',
-    callback: [
-      () => {
-        console.log('no authorization');
-      }
-    ]
-  },
+  // {
+  //   event: 'authorization',
+  //   callback: [
+  //     () => {
+  //       console.log('authorization');
+  //     }
+  //   ]
+  // },
+  // {
+  //   event: 'no authorization',
+  //   callback: [
+  //     () => {
+  //       console.log('no authorization');
+  //     }
+  //   ]
+  // },
 ];
 
 export default hoodListeners;
