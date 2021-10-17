@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import View from '../views/view.js';
+import View from '../scripts/view.js';
 import hoodContext from '../context/hood.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
 import hoodEvents from './events.js';

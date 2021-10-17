@@ -1,21 +1,20 @@
 /* eslint-disable import/extensions */
-
-import eventBus from '../scripts/eventBus.js';
-import productCardEvents from '../events/productCard.js';
-import productCardListeners from '../listeners/productCard.js';
+import View from '../scripts/view.js';
+import productEvents from './events.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
-import View from './view.js';
+import eventBus from '../scripts/eventBus.js';
+import productListeners from './listeners.js';
 
-const productUrl = './templates/productCard.handlebars';
+const productUrl = './templates/product.handlebars';
 
-export default class ProductCard extends View {
+export default class Product extends View {
   #url = productUrl;
 
   element;
 
   #context;
 
-  #generateEvents = productCardEvents;
+  #generateEvents = productEvents;
 
   constructor(element) {
     super(element);
@@ -24,6 +23,7 @@ export default class ProductCard extends View {
 
   setContext(context) {
     this.#context = context;
+    // this.renderHTML();
   }
 
   async #renderHTML() {
@@ -32,7 +32,6 @@ export default class ProductCard extends View {
       context: this.#context
     });
     this.element.innerHTML = html;
-    this.element.setAttribute('name', this.#context.id);
   }
 
   #createRatingHTML() {
@@ -61,11 +60,8 @@ export default class ProductCard extends View {
 
   async render() {
     await this.#renderHTML();
-    eventBus.add(productCardListeners);
-    this.#generateEvents({
-      element: this.element,
-      context: this.#context            // Временно прокидываю контекс из самого контейнера, по хорошему я должен брать данные из сервера
-    });
+    eventBus.add(productListeners);
+    this.#generateEvents(this.element);
     this.#createRatingHTML();
     return this.show();
   }

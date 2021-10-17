@@ -2,7 +2,7 @@
 
 import eventBus from '../scripts/eventBus.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
-import View from '../views/view.js';
+import View from '../scripts/view.js';
 import homepageEvents from './events.js';
 import homepageListeners from './listeners.js';
 

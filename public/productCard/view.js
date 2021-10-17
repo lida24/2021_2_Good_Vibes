@@ -1,20 +1,21 @@
 /* eslint-disable import/extensions */
-import View from './view.js';
-import productEvents from '../events/product.js';
-import generateContentHTML from '../scripts/loadTemplates.js';
+
 import eventBus from '../scripts/eventBus.js';
-import productListeners from '../listeners/product.js';
+import productCardEvents from './events.js';
+import productCardListeners from './listeners.js';
+import generateContentHTML from '../scripts/loadTemplates.js';
+import View from '../scripts/view.js';
 
-const productUrl = './templates/product.handlebars';
+const productUrl = './templates/productCard.handlebars';
 
-export default class Product extends View {
+export default class ProductCard extends View {
   #url = productUrl;
 
   element;
 
   #context;
 
-  #generateEvents = productEvents;
+  #generateEvents = productCardEvents;
 
   constructor(element) {
     super(element);
@@ -23,7 +24,6 @@ export default class Product extends View {
 
   setContext(context) {
     this.#context = context;
-    // this.renderHTML();
   }
 
   async #renderHTML() {
@@ -32,6 +32,7 @@ export default class Product extends View {
       context: this.#context
     });
     this.element.innerHTML = html;
+    this.element.setAttribute('name', this.#context.id);
   }
 
   #createRatingHTML() {
@@ -60,8 +61,11 @@ export default class Product extends View {
 
   async render() {
     await this.#renderHTML();
-    eventBus.add(productListeners);
-    this.#generateEvents(this.element);
+    eventBus.add(productCardListeners);
+    this.#generateEvents({
+      element: this.element,
+      context: this.#context            // Временно прокидываю контекс из самого контейнера, по хорошему я должен брать данные из сервера
+    });
     this.#createRatingHTML();
     return this.show();
   }

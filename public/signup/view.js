@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import signupEvents from './events.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
-import View from '../views/view.js';
+import View from '../scripts/view.js';
 import signupListeners from './listeners.js';
 import eventBus from '../scripts/eventBus.js';
 

@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import state from '../constants/state.js';
 import eventBus from '../scripts/eventBus.js';
-import ProductCard from '../views/productCard.js';
+import ProductCard from '../productCard/view.js';
 
 // ----------------------------------
 let prodList = {};

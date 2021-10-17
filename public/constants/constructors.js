@@ -3,7 +3,7 @@ import Signin from '../signin/view.js';
 import Signup from '../signup/view.js';
 import Hood from '../hood/view.js';
 import Homepage from '../homepage/view.js';
-import Product from '../views/product.js';
+import Product from '../product/view.js';
 import Profile from '../profile/view.js';
 
 const constructors = {
