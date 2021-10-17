@@ -1,12 +1,12 @@
 /* eslint-disable import/extensions */
-import * as model from '../callbacks/hood.js';
+import * as hood from '../callbacks/hood.js';
 import eventBus from '../events/eventBus.js';
 
 const hoodListeners = [
   {
     event: 'logo-click',
     callback: [
-      model.logoClick,
+      hood.logoClick,
       // () => {
       //   eventBus.emit('showView', {
       //     name: 'Homepage'
@@ -15,16 +15,35 @@ const hoodListeners = [
     ]
   },
   {
-    event: 'profile-click',
+    event: 'hood-click',
     callback: [
-      model.showProfile
+      hood.request
+
+      // hood.showProfile
+
       // () => {
       //   eventBus.emit('showView', {
       //     name: 'Signin'
       //   });
       // }
     ]
-  }
+  },
+  {
+    event: 'authorization',
+    callback: [
+      () => {
+        console.console.log('authorization');
+      }
+    ]
+  },
+  {
+    event: 'no authorization',
+    callback: [
+      () => {
+        console.console.log('no authorization');
+      }
+    ]
+  },
 ];
 
 export default hoodListeners;

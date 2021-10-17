@@ -9,4 +9,3 @@ export const sendLogin = () => {
     console.log(user);
 };
 
-export const a = 0;

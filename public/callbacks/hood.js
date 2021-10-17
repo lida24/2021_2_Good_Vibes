@@ -18,3 +18,7 @@ export const showProfile = () => {
     name: 'Profile'
   });
 };
+
+export const request = () => {
+  eventBus.emit('profile ajax request');
+};
