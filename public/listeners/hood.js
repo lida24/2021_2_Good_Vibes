@@ -32,7 +32,7 @@ const hoodListeners = [
     event: 'authorization',
     callback: [
       () => {
-        console.console.log('authorization');
+        console.log('authorization');
       }
     ]
   },
@@ -40,7 +40,7 @@ const hoodListeners = [
     event: 'no authorization',
     callback: [
       () => {
-        console.console.log('no authorization');
+        console.log('no authorization');
       }
     ]
   },
