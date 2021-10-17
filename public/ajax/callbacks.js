@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import eventBus from '../events/eventBus.js';
-import ajax from '../scripts/ajax.js';
+import ajax from './script.js';
 
 const backendAddress = 'https://ozonback.herokuapp.com';
 

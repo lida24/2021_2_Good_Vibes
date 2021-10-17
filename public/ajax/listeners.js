@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import * as ajax from '../callbacks/ajaxx.js';
+import * as ajax from './callbacks.js';
 
 const ajaxListeners = [
   {
