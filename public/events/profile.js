@@ -1,15 +1,11 @@
 /* eslint-disable import/extensions */
 import eventBus from './eventBus.js';
 
-const profileEvents = (element) => {
-  // ------------------------------
-  const signoutBtn = element.getElementsByClassName('logout-link')[0];
+const changeLogin = (login) => {
+  document.getElementsByName('login')[0].value = login;
+  document.getElementById('login').textContent = login;
 
-  signoutBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    eventBus.emit('signout ajax request');
-  });
+  eventBus.emit('update click');
 };
 
 export default profileEvents;

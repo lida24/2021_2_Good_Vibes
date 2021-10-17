@@ -1,8 +1,13 @@
 /* eslint-disable import/extensions */
-import eventBus from '../events/eventBus.js';
+import * as model from '../callbacks/profile.js';
 
 const profileListeners = [
-
+    {
+        event: 'update click',
+        callback: [
+          model.sendLogin
+        ]
+      },
 ];
 
 export default profileListeners;

@@ -13,8 +13,8 @@ export const logoClick = () => {
 
 };
 
-export const profileClick = () => {
-  console.log('profile click');
-
-  eventBus.emit('profile ajax request');
+export const showProfile = () => {
+  eventBus.emit('showView', {
+    name: 'Profile'
+  });
 };
