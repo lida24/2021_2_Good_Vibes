@@ -1,6 +1,5 @@
 /* eslint-disable import/extensions */
 import View from '../scripts/view.js';
-import hoodContext from '../objects/hood.js.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
 import hoodEvents from './events.js';
 import hoodListeners from './listeners.js';
@@ -9,7 +8,7 @@ import bus from '../scripts/eventBus.js';
 const HoodUrl = './templates/hood.handlebars';
 
 export default class Hood extends View {
-  #context = hoodContext;
+  #context;
 
   #url = HoodUrl;
 
