@@ -1,9 +1,9 @@
 /* eslint-disable import/extensions */
-import View from './view.js';
+import View from '../views/view.js';
 import hoodContext from '../context/hood.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
-import hoodEvents from '../events/hood.js';
-import hoodListeners from '../listeners/hood.js';
+import hoodEvents from './events.js';
+import hoodListeners from './listeners.js';
 import bus from '../scripts/eventBus.js';
 
 const HoodUrl = './templates/hood.handlebars';

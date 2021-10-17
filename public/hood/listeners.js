@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import * as hood from '../callbacks/hood.js';
+import * as hood from './callbacks.js';
 import eventBus from '../scripts/eventBus.js';
 
 const hoodListeners = [
