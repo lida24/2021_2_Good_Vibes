@@ -213,6 +213,7 @@ export const addUser = (responseText) => {
   // }
 
   user.name = responseText;
+  console.log(user);
 };
 
 export const cookieCheckDenied = () => {
