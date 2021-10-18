@@ -1,4 +1,6 @@
 export default class Router {
+  root;
+
   constructor(root) {
     this.routes = {};
 
