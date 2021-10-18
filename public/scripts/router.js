@@ -133,8 +133,14 @@ export default class Router {
     //     this.open(currentPath);
     //   });
 
-    //   const currentPath = window.location.pathname;
+    window.addEventListener('popstate', () => {
+      const currentPath = window.location.pathname;
 
-    //   this.open(currentPath);
+      this.open(currentPath);
+    });
+
+    const currentPath = window.location.pathname;
+
+    this.open(currentPath);
   }
 }
