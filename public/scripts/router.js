@@ -70,20 +70,20 @@ export default class Router {
     this.root.addEventListener('click', (event) => {
 
       console.log(event.target);
-      console.log(event.target.pathname);
+      // console.log(this);
 
-      if (!(event.target instanceof HTMLAnchorElement)) {
-        return;
-      }
+      // if (!(event.target instanceof HTMLAnchorElement)) {
+      //   return;
+      // }
 
-      console.log(event.target);
+      // console.log(event.target);
 
-      event.preventDefault();
-      const link = event.target;
+      // event.preventDefault();
+      // const link = event.target;
 
-      console.log({
-        pathname: link.pathname
-      });
+      // console.log({
+      //   pathname: link.pathname
+      // });
 
       // this.open(link.pathname);
     });
