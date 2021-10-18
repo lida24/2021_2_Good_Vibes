@@ -27,7 +27,7 @@ const ajaxListeners = [
     callback: ajax.product
   },
   {
-    event: 'cookie check requset',
+    event: 'cookie check request',
     callback: ajax.cookieCheck
   }
 ];
