@@ -16,7 +16,8 @@ eventBus.emit('init');
 eventBus.add(viewDispatcherListeners);
 eventBus.add(ajaxListeners);
 
-const router = new Router(document.getElementsByClassName('grid-container')[0]);
+const router = new Router();
+router.set(document.getElementsByClassName('grid-container')[0]);
 router
   .add('/', 'Homepage')
   .add('/homepage', 'Homepage')
