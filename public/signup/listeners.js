@@ -1,40 +1,83 @@
 /* eslint-disable import/extensions */
-import * as model from './callbacks.js';
+import * as signup from './callbacks.js';
 import eventBus from '../scripts/eventBus.js';
 
 const signupListeners = [
+  // {
+  //   event: 'signin click',
+  //   callback: [
+  //     () => {
+  //       eventBus.emit('showView', {
+  //         name: 'Signin'
+  //       });
+  //     }
+  //   ]
+  // },
+
   {
-    event: 'signinBtn-click',
+    event: 'signin click',
     callback: [
-      () => {
-        eventBus.emit('showView', {
-          name: 'Signin'
-        });
-      }
+      signup.cleanInputs,
+      signup.showSignin,
+      signup.hideError
+    ]
+  },
+
+  // {
+  //   event: 'signup submit',
+  //   callback: [
+  //     model.signupDataValidation
+  //   ]
+  // },
+
+  {
+    event: 'signup submit',
+    callback: [
+      signup.inputCheck
     ]
   },
   {
-    event: 'signupDataCheck',
+    event: 'signup validation success',
     callback: [
-      model.signupDataValidation
+      signup.hideError,
+      signup.request
     ]
   },
   {
-    event: 'signupDataError',
-    callback: model.signupErrorHandler
-  },
-  {
-    event: 'hideSingupAlertLabel',
-    callback: model.hideSingupAlertLabel
+    event: 'signup validation fail',
+    callback: [
+      signup.showError
+    ]
   },
   {
     event: 'signup success',
-    callback: model.signupSuccess
+    callback: [
+      signup.addUser,
+      signup.showHomepage
+    ]
   },
   {
     event: 'signup fail',
-    callback: model.signupFail
+    callback: signup.handleFail
   }
+
+
+  // {
+  //   event: 'signupDataError',
+  //   callback: model.signupErrorHandler
+  // },
+  // {
+  //   event: 'hideSingupAlertLabel',
+  //   callback: model.hideSingupAlertLabel
+  // },
+  // {
+  //   event: 'signup success',
+  //   callback: model.signupSuccess
+  // },
+  // {
+  //   event: 'signup fail',
+  //   callback: model.signupFail
+  // }
 
 ];
 

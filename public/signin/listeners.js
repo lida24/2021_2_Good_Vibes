@@ -17,14 +17,14 @@ const signinListeners = [
     ]
   },
   {
-    event: 'validation success',
+    event: 'signin validation success',
     callback: [
       signin.hideError,
       signin.request
     ]
   },
   {
-    event: 'validation fail',
+    event: 'signin validation fail',
     callback: [
       signin.showError
     ]

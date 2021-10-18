@@ -27,11 +27,11 @@ export const inputCheck = (data) => {
   const response = validate.signIn(data);
 
   if (response) {
-    eventBus.emit('validation fail', response);
+    eventBus.emit('signin validation fail', response);
     return;
   }
 
-  eventBus.emit('validation success', data);
+  eventBus.emit('signin validation success', data);
 };
 
 export const request = (data) => {
