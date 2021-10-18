@@ -28,6 +28,21 @@ const viewDispatcherListeners = [
     callback: [
       model.showHomepage
     ]
+  },
+
+
+
+  {
+    event: 'to homepage state',
+    callback: [
+      model.toHomepageState
+    ]
+  },
+  {
+    event: 'to profile state',
+    callback: [
+      model.toProfileState
+    ]
   }
 ];
 

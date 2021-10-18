@@ -131,3 +131,12 @@ export const rout = ({ name, context }) => {
   // console.log(name, context);
   eventBus.emit('rout', name);
 };
+
+
+export const toHomepageState = () => {
+  console.log('toHomepageState');
+};
+
+export const toProfileState = () => {
+  console.log('toProfileState');
+};
