@@ -7,7 +7,8 @@ const signupListeners = [
     callback: [
       signup.cleanInputs,
       signup.hideError,
-      signup.signinStateRequest
+      signup.signinStateRequest,
+      signup.addSigninToHist
     ]
   },
   {
@@ -33,7 +34,8 @@ const signupListeners = [
     event: 'signup success',
     callback: [
       signup.addUser,
-      signup.homepageStateRequest
+      signup.homepageStateRequest,
+      signup.addHomepageToHist
     ]
   },
   {

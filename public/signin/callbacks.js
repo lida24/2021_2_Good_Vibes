@@ -69,3 +69,11 @@ export const addUser = (responseText) => {
     console.error(error);
   }
 };
+
+export const addHomepageToHist = () => {
+  eventBus.emit('history add', 'homepage');
+};
+
+export const addSignupToHist = () => {
+  eventBus.emit('history add', 'signup');
+};

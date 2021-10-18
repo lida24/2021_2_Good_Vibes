@@ -79,3 +79,11 @@ export const handleFail = (responseText) => {
     console.error(error);
   }
 };
+
+export const addHomepageToHist = () => {
+  eventBus.emit('history add', 'homepage');
+};
+
+export const addSigninToHist = () => {
+  eventBus.emit('history add', 'signin');
+};
