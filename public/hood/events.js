@@ -20,5 +20,12 @@ const hoodEvents = (element) => {
     // bus.emit('profile-click', 'Signin');
     eventBus.emit('profile-click');
   });
+  //----------------------------------------------------
+  const cartBtn = element.getElementsByClassName('cart-href')[0];
+
+  profileBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    eventBus.emit('cart-click');
+  });
 };
 export default hoodEvents;

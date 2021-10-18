@@ -22,3 +22,7 @@ export const showProfile = () => {
 export const request = () => {
   eventBus.emit('profile ajax request');
 };
+
+export const logoClick = () => {
+  eventBus.emit('cart ajax request');
+  };

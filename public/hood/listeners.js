@@ -44,6 +44,12 @@ const hoodListeners = [
   //     }
   //   ]
   // },
+  {
+    event: 'cart-click',
+    callback: [
+      hood.cartClick
+    ]
+  },
 ];
 
 export default hoodListeners;
