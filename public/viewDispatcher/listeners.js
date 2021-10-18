@@ -97,6 +97,13 @@ const viewDispatcherListeners = [
       model.addUser
     ]
   },
+  {
+    event: 'cookie check denied',
+    callback: [
+      model.cookieCheckDenied
+    ]
+  }
+
 
 ];
 

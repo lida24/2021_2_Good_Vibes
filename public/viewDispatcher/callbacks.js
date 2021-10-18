@@ -204,11 +204,16 @@ export const signinStateConfirmed = () => {
 // ==================================
 
 export const addUser = (responseText) => {
-  try {
-    const responseObj = JSON.parse(responseText);
-    user.set(responseObj);
-    console.log(user);
-  } catch (error) {
-    console.error(error);
-  }
+  // try {
+  //   const responseObj = JSON.parse(responseText);
+  //   user.set(responseObj);
+  //   console.log(user);
+  // } catch (error) {
+  //   console.error(error);
+  // }
+
+  user.name = responseText;
+};
+
+export const cookieCheckDenied = () => {
 };
