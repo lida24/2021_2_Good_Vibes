@@ -17,7 +17,7 @@ const hoodListeners = [
   {
     event: 'profile-click',
     callback: [
-      hood.request
+      // hood.request
 
       // hood.showProfile
 

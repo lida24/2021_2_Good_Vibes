@@ -65,8 +65,9 @@ export default class Router {
     //   name: 'Homepage'
     // });
 
-    if (path === '/login') {
-      console.log('login');
+    if (path === '/profile') {
+      console.log('profile');
+      eventBus.emit('profile ajax request');
     }
 
 
