@@ -9,10 +9,11 @@ import routerListeners from './router/listeners.js';
 
 // import route from './scripts/_router.js';
 
-eventBus.on('init', init);
-eventBus.emit('init');
+
 eventBus.add(viewDispatcherListeners);
 eventBus.add(ajaxListeners);
+eventBus.on('init', init);
+eventBus.emit('init');
 
 const root = document.getElementsByClassName('grid-container')[0];
 

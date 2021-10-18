@@ -48,7 +48,6 @@ export const cookieCheck = () => {
     .catch(() => eventBus.emit('cookie check fail'));
 };
 
-
 export const homepage = () => {
   ajax.get({
     url: `${backendAddress}/homepage`
