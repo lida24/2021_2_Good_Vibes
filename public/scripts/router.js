@@ -48,6 +48,14 @@ export default class Router {
     //   );
     // }
 
+    if (window.location.pathname !== path) {
+      window.history.pushState(
+        this.routes[path].state,
+        this.routes[path].state,
+        path
+      );
+    }
+
     // eventBus.emit('showView', {
     //   name: 'Homepage'
     // });
