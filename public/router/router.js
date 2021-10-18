@@ -188,9 +188,9 @@ class Router {
 
       this.open(currentPath);
 
-      // eventBus.emit('showView', {
-      //   name: this.routes[currentPath].state
-      // });
+      eventBus.emit('showView', {
+        name: this.routes[currentPath].state
+      });
     });
 
     const currentPath = window.location.pathname;
