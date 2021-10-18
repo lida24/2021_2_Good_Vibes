@@ -72,7 +72,7 @@ class Router {
     // });
 
 
-    eventBus.emit('history add', route);
+    // eventBus.emit('history add', route);
 
 
 
