@@ -71,9 +71,7 @@ class Router {
     });
 
 
-    window.addEventListener('popstate', (event) => {
-      event.preventDefault();
-
+    window.addEventListener('popstate', () => {
       const currentPath = window.location.pathname;
 
       console.log('popstate');

@@ -147,14 +147,14 @@ export const rout = ({ name, context }) => {
 
 // ==================================
 export const homepageStateRequest = () => {
-  eventBus.emit('homepage state confirmed');
+  eventBus.emit('homepage state confirmed', 'homepage');
 };
 
 export const homepageStateConfirmed = () => {
   showHomepage();
 
   currentState = 'homepage';
-  eventBus.emit('history add', currentState);
+  // eventBus.emit('history add', currentState);
 };
 
 export const homepageStateDenied = () => {
@@ -175,7 +175,7 @@ export const profileStateConfirmed = () => {
   showProfile();
 
   currentState = 'profile';
-  eventBus.emit('history add', currentState);
+  // eventBus.emit('history add', currentState);
 };
 
 export const profileStateDenied = () => {
@@ -224,7 +224,7 @@ export const signinStateRequest = () => {
   eventBus.on('cookie check success', callback);
 
   callback2 = () => {
-    eventBus.emit('signin state confirmed');
+    eventBus.emit('signin state confirmed', 'signin');
 
     eventBus.off('cookie check success', callback);
     eventBus.off('cookie check fail', callback2);
@@ -245,7 +245,7 @@ export const signinStateConfirmed = () => {
   showSignin();
 
   currentState = 'signin';
-  eventBus.emit('history add', currentState);
+  // eventBus.emit('history add', currentState);
 };
 
 // ==================================
@@ -270,7 +270,7 @@ export const signupStateRequest = () => {
   eventBus.on('cookie check success', callback);
 
   callback2 = () => {
-    eventBus.emit('signup state confirmed');
+    eventBus.emit('signup state confirmed', 'signup');
 
     eventBus.off('cookie check success', callback);
     eventBus.off('cookie check fail', callback2);
@@ -292,5 +292,9 @@ export const signupStateConfirmed = () => {
 
   currentState = 'signup';
 
-  eventBus.emit('history add', currentState);
+  // eventBus.emit('history add', currentState);
+};
+
+export const histAdd = (name) => {
+  eventBus.emit('history add', name);
 };

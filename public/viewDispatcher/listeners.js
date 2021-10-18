@@ -40,7 +40,8 @@ const viewDispatcherListeners = [
   {
     event: 'homepage state confirmed',
     callback: [
-      model.homepageStateConfirmed
+      model.homepageStateConfirmed,
+      model.histAdd
     ]
   },
   {
@@ -80,7 +81,8 @@ const viewDispatcherListeners = [
   {
     event: 'signin state confirmed',
     callback: [
-      model.signinStateConfirmed
+      model.signinStateConfirmed,
+      model.histAdd
     ]
   },
   {
@@ -114,7 +116,8 @@ const viewDispatcherListeners = [
   {
     event: 'signup state confirmed',
     callback: [
-      model.signupStateConfirmed
+      model.signupStateConfirmed,
+      model.histAdd
     ]
   },
   {
