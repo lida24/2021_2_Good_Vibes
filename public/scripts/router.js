@@ -90,8 +90,9 @@ export default class Router {
       // if (!this.root.contains(target)) return;
 
       const target = this.hrefget(event.target);
+      if (!target) return;
 
-      console.log(target);
+      console.log(target.pathname);
 
       // if (!(event.target instanceof HTMLAnchorElement)) {
       //   return;
