@@ -1,3 +1,5 @@
+import eventBus from "./eventBus";
+
 export default class Router {
   root;
 
@@ -32,13 +34,17 @@ export default class Router {
       return;
     }
 
-    if (window.location.pathname !== path) {
-      window.history.pushState(
-        null,
-        '',
-        path
-      );
-    }
+    // if (window.location.pathname !== path) {
+    //   window.history.pushState(
+    //     null,
+    //     '',
+    //     path
+    //   );
+    // }
+
+    eventBus.emit('showView', {
+      name: 'Homepage'
+    });
 
     // console.log(route);
 
