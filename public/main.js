@@ -5,6 +5,7 @@ import viewDispatcherListeners from './viewDispatcher/listeners.js';
 import ajaxListeners from './ajax/listeners.js';
 // import Router from './scripts/router.js';
 import Router from './router/router.js';
+import routerListeners from './router/listeners.js';
 
 // import route from './scripts/_router.js';
 
@@ -24,6 +25,8 @@ eventBus.on('init', init);
 eventBus.emit('init');
 eventBus.add(viewDispatcherListeners);
 eventBus.add(ajaxListeners);
+
+eventBus.add(routerListeners);
 
 
 
