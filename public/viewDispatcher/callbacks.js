@@ -66,7 +66,7 @@ const viewGenerate = ({ name, context }) => {
   if (view[viewName].element?.setContext) {
     view[viewName].element.setContext(context);
   }
-  // console.log(view[viewName].element.setContext);
+  console.log(view[viewName].element.setContext);
 
   return view[viewName].element.render();
 };
@@ -212,22 +212,18 @@ export const signinStateRequest = () => {
     addUser(responseText);
     eventBus.emit('signin state denied');
     eventBus.off('cookie check success', callback);
-
-    console.log(eventBus);
+    // console.log(eventBus);
   };
   eventBus.on('cookie check success', callback);
 
   const callback2 = () => {
     eventBus.emit('sigin state confirmed');
-    // eventBus.off('cookie check fail', callback2);
-
-    console.log(eventBus);
+    eventBus.off('cookie check fail', callback2);
+    // console.log(eventBus);
   };
   eventBus.on('cookie check fail', callback2);
 
   eventBus.emit('cookie check request');
-
-  // eventBus.emit('signin state confirmed');
 };
 
 export const signinStateDenied = () => {
