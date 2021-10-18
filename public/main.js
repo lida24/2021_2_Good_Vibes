@@ -12,7 +12,7 @@ eventBus.emit('init');
 eventBus.add(viewDispatcherListeners);
 eventBus.add(ajaxListeners);
 
-const router = new Router(document.getElementsByClassName('grid-container'));
+const router = new Router(document.getElementsByClassName('grid-container')[0]);
 
 // console.log(router);
 

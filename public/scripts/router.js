@@ -68,6 +68,9 @@ export default class Router {
 
   start() {
     this.root.addEventListener('click', (event) => {
+
+      console.log(this.root);
+
       if (!(event.target instanceof HTMLAnchorElement)) {
         return;
       }
