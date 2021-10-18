@@ -226,7 +226,7 @@ export const signinStateRequest = () => {
 
     eventBus.off('cookie check success', callback);
     eventBus.off('cookie check fail', callback2);
-    // console.log(eventBus);
+    console.log(eventBus);
   };
   eventBus.on('cookie check success', callback);
 
@@ -235,7 +235,7 @@ export const signinStateRequest = () => {
 
     eventBus.off('cookie check success', callback);
     eventBus.off('cookie check fail', callback2);
-    // console.log(eventBus);
+    console.log(eventBus);
   };
   eventBus.on('cookie check fail', callback2);
 
