@@ -83,9 +83,6 @@ class Router {
       // });
 
       eventBus.emit(`${currentPath.slice(1)} state request`);
-
-
-
     });
 
     const currentPath = window.location.pathname;
