@@ -1,11 +1,14 @@
 export const rout = (name) => {
   console.log('rout', name);
 
-
   if (window.location.pathname !== path) {
+    const historyState = {
+      state: this.routes[path].state
+    };
+
     window.history.pushState(
-      null,
-      '',
+      historyState,
+      this.routes[path].state,
       path
     );
   }

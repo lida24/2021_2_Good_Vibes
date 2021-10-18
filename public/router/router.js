@@ -54,18 +54,17 @@ class Router {
 
 
 
-    // if (window.location.pathname !== path) {
+    if (window.location.pathname !== path) {
+      const historyState = {
+        state: this.routes[path].state
+      };
 
-    //   const historyState = {
-    //     state: this.routes[path].state
-    //   };
-
-    //   window.history.pushState(
-    //     historyState,
-    //     this.routes[path].state,
-    //     path
-    //   );
-    // }
+      window.history.pushState(
+        historyState,
+        this.routes[path].state,
+        path
+      );
+    }
 
     // eventBus.emit('showView', {
     //   name: 'Homepage'
@@ -156,7 +155,7 @@ class Router {
       console.log(target.pathname);
 
 
-      this.open(target.pathname);
+      // this.open(target.pathname);
 
       // console.log(window.history);
 
@@ -187,10 +186,11 @@ class Router {
 
       console.log('popstate');
 
-      // this.open(currentPath);
-      eventBus.emit('showView', {
-        name: this.routes[currentPath].state
-      });
+      this.open(currentPath);
+
+      // eventBus.emit('showView', {
+      //   name: this.routes[currentPath].state
+      // });
     });
 
     const currentPath = window.location.pathname;
