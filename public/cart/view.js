@@ -1,13 +1,13 @@
 /* eslint-disable import/extensions */
 import View from '../scripts/view.js';
-import profileEvents from './events.js';
+import cartEvents from './events.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
 import eventBus from '../scripts/eventBus.js';
-import profileListeners from './listeners.js';
+import cartListeners from './listeners.js';
 
 const cartUrl = './template.handlebars';
 
-export default class Profile extends View {
+export default class Cart extends View {
   #url = cartUrl;
 
   element;
