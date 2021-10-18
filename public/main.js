@@ -14,6 +14,8 @@ eventBus.add(ajaxListeners);
 
 const router = new Router(document.getElementsByClassName('grid-container')[0]);
 
+console.log(router);
+
 // router
 //   .register('/', MenuView);
 
