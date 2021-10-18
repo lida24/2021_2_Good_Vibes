@@ -179,7 +179,7 @@ header .icons i:hover {
 }
 .details-info,
 .details-action {
-  flex: 1 1 40rem;
+  flex: 1 1 30rem;
 }
 .details-info ul,
 .details-action ul {
