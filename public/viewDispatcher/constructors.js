@@ -5,6 +5,7 @@ import Hood from '../hood/view.js';
 import Homepage from '../homepage/view.js';
 import Product from '../product/view.js';
 import Profile from '../profile/view.js';
+import Cart from '../cart/view.js';
 
 const constructors = {
   Signin,
