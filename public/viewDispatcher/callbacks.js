@@ -11,6 +11,8 @@ let view = {};
 
 let currentState = '';
 
+// const 
+
 const add = (obj) => {
   view = Object.assign(view, obj);
 };
@@ -74,7 +76,7 @@ const viewGenerate = ({ name, context }) => {
 export const showView = ({ name, context }) => {
   console.log(`${name} view`);
 
-  eventBus.emit('history add', name);
+  // eventBus.emit('history add', name);
 
   let viewName = name;
   if (context?.id) {
@@ -151,7 +153,8 @@ export const homepageStateRequest = () => {
 export const homepageStateConfirmed = () => {
   showHomepage();
 
-  currentState = 'Homepage';
+  currentState = 'homepage';
+  eventBus.emit('history add', currentState);
 };
 
 export const homepageStateDenied = () => {
@@ -171,7 +174,8 @@ export const profileStateRequest = () => {
 export const profileStateConfirmed = () => {
   showProfile();
 
-  currentState = 'Profile';
+  currentState = 'profile';
+  eventBus.emit('history add', currentState);
 };
 
 export const profileStateDenied = () => {
@@ -240,7 +244,8 @@ export const signinStateDenied = () => {
 export const signinStateConfirmed = () => {
   showSignin();
 
-  currentState = 'Signin';
+  currentState = 'signin';
+  eventBus.emit('history add', currentState);
 };
 
 // ==================================
@@ -285,5 +290,7 @@ export const signupStateDenied = () => {
 export const signupStateConfirmed = () => {
   showSignup();
 
-  currentState = 'Signin';
+  currentState = 'signup';
+
+  eventBus.emit('history add', currentState);
 };
