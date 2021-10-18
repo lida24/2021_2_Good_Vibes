@@ -49,8 +49,13 @@ export default class Router {
     // }
 
     if (window.location.pathname !== path) {
+
+      const historyState = {
+        state: this.routes[path].state
+      };
+
       window.history.pushState(
-        this.routes[path].state,
+        historyState,
         this.routes[path].state,
         path
       );
