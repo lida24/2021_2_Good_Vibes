@@ -43,9 +43,11 @@ export default class Router {
     //   );
     // }
 
-    eventBus.emit('showView', {
-      name: 'Homepage'
-    });
+    // eventBus.emit('showView', {
+    //   name: 'Homepage'
+    // });
+
+    console.log(route);
 
     // console.log(route);
 
