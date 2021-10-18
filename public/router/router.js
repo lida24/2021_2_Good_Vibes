@@ -82,7 +82,7 @@ class Router {
       //   name: this.routes[currentPath].state
       // });
 
-      eventBus.emit(`${this.routes[currentPath].state} state request`);
+      eventBus.emit(`${currentPath} state request`);
 
 
 
