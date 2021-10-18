@@ -14,10 +14,14 @@ export const inputCheck = (data) => {
   eventBus.emit('signup validation success', data);
 };
 
-export const showSignin = () => {
-  eventBus.emit('showView', {
-    name: 'Signin'
-  });
+// export const showSignin = () => {
+//   eventBus.emit('showView', {
+//     name: 'Signin'
+//   });
+// };
+
+export const signinStateRequest = () => {
+  eventBus.emit('signin state request');
 };
 
 export const hideError = () => {
@@ -57,10 +61,14 @@ export const addUser = (responseText) => {
   }
 };
 
-export const showHomepage = () => {
-  eventBus.emit('showView', {
-    name: 'Homepage'
-  });
+// export const showHomepage = () => {
+//   eventBus.emit('showView', {
+//     name: 'Homepage'
+//   });
+// };
+
+export const homepageStateRequest = () => {
+  eventBus.emit('homepage state request');
 };
 
 export const handleFail = (responseText) => {
