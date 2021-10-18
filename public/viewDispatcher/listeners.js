@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 // import eventBus from '../events/eventBus.js';
 import * as model from './callbacks.js';
-import eventBus from '../scripts/eventBus.js';
+// import eventBus from '../scripts/eventBus.js';
 
 const viewDispatcherListeners = [
   {
