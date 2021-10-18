@@ -66,7 +66,7 @@ const viewGenerate = ({ name, context }) => {
   if (view[viewName].element?.setContext) {
     view[viewName].element.setContext(context);
   }
-  console.log(view[viewName].element.setContext);
+  // console.log(view[viewName].element.setContext);
 
   return view[viewName].element.render();
 };
@@ -117,6 +117,12 @@ export const init = () => {
 export const showSignin = () => {
   eventBus.emit('showView', {
     name: 'Signin'
+  });
+};
+
+export const showSignup = () => {
+  eventBus.emit('showView', {
+    name: 'Signup'
   });
 };
 
@@ -203,7 +209,6 @@ export const addUser = (responseText) => {
 export const cookieCheckFail = () => {
 };
 
-
 // ==================================
 export const signinStateRequest = () => {
   // console.log(user);
@@ -213,16 +218,22 @@ export const signinStateRequest = () => {
     return;
   }
 
+  let callback2;
+
   const callback = ({ responseText }) => {
     addUser(responseText);
     eventBus.emit('signin state denied');
+
     eventBus.off('cookie check success', callback);
+    eventBus.off('cookie check fail', callback2);
     // console.log(eventBus);
   };
   eventBus.on('cookie check success', callback);
 
-  const callback2 = () => {
+  callback2 = () => {
     eventBus.emit('signin state confirmed');
+
+    eventBus.off('cookie check success', callback);
     eventBus.off('cookie check fail', callback2);
     // console.log(eventBus);
   };
@@ -241,4 +252,43 @@ export const signinStateConfirmed = () => {
   showSignin();
 
   currentState = 'Signin';
+};
+
+// ==================================
+export const signupStateRequest = () => {
+  // console.log(user);
+
+  if (user.username) {
+    eventBus.emit('signup state denied');
+    return;
+  }
+
+  const callback = ({ responseText }) => {
+    addUser(responseText);
+    eventBus.emit('signup state denied');
+    eventBus.off('cookie check success', callback);
+    // console.log(eventBus);
+  };
+  eventBus.on('cookie check success', callback);
+
+  const callback2 = () => {
+    eventBus.emit('signup state confirmed');
+    eventBus.off('cookie check fail', callback2);
+    // console.log(eventBus);
+  };
+  eventBus.on('cookie check fail', callback2);
+
+  eventBus.emit('cookie check request');
+};
+
+export const signupStateDenied = () => {
+  console.error('signup state denied');
+
+  eventBus.emit('homepage state request');
+};
+
+export const signupStateConfirmed = () => {
+  showSignup();
+
+  currentState = 'Signup';
 };
