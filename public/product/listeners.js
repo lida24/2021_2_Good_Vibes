@@ -15,7 +15,7 @@ const productListeners = [
   {
     event: 'cart click',
     callback: product.request
-  }
+  },
 ];
 
 export default productListeners;
