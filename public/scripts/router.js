@@ -149,7 +149,7 @@ export default class Router {
     window.addEventListener('popstate', () => {
       const currentPath = window.location.pathname;
 
-      console.log(currentPath);
+      console.log('popstate');
 
       this.open(currentPath);
     });
