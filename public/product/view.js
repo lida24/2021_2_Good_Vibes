@@ -63,8 +63,8 @@ export default class Product extends View {
     const statusElem = document.createElement('div');
     statusElem.className = 'status';
 
-    const temp = (countInStock) => {
-      if (countInStock > 0) {
+    const temp = (count_in_stock) => {
+      if (count_in_stock > 0) {
         return `
         Status: <span class="success">In Stock</span>
         `;
@@ -74,7 +74,7 @@ export default class Product extends View {
         `;
       }
     };
-    statusElem.innerHTML = temp(this.#context.countInStock);
+    statusElem.innerHTML = temp(this.#context.count_in_stock);
     statusParent.replaceWith(statusElem);
   }
 
