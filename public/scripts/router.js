@@ -101,7 +101,7 @@ export default class Router {
 
       console.log(target.pathname);
 
-      console.open(target.pathname);
+      this.open(target.pathname);
 
       // if (!(event.target instanceof HTMLAnchorElement)) {
       //   return;
