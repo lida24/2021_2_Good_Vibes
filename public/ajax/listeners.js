@@ -25,6 +25,10 @@ const ajaxListeners = [
   {
     event: 'product ajax request',
     callback: ajax.product
+  },
+  {
+    event: 'cart ajax request',
+    callback: ajax.cart
   }
 ];
 

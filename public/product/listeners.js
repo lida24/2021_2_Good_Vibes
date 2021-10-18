@@ -11,6 +11,10 @@ const productListeners = [
         name: 'Homepage'
       });
     }
+  },
+  {
+    event: 'cart click',
+    callback: product.request
   }
 ];
 
