@@ -210,13 +210,21 @@ export const signinStateRequest = () => {
 
   const callback = ({ responseText }) => {
     addUser(responseText);
-    eventBus.emit('signin state confirmed');
+    eventBus.emit('signin state denied');
     eventBus.off('cookie check success', callback);
 
     console.log(eventBus);
   };
-
   eventBus.on('cookie check success', callback);
+
+  const callback2 = () => {
+    eventBus.emit('sigin state confirmed');
+    eventBus.off('cookie check fail', callback2);
+
+    console.log(eventBus);
+  };
+  eventBus.on('cookie check fail', callback2);
+
   eventBus.emit('cookie check request');
 
   // eventBus.emit('signin state confirmed');
