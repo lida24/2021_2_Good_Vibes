@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import * as product from '../product/callbacks.js';
+import * as product from './callbacks.js';
 import eventBus from '../scripts/eventBus.js';
 
 const productListeners = [
