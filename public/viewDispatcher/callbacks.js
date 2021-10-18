@@ -104,7 +104,7 @@ export const init = () => {
     }
   });
 
-  // eventBus.emit('cookie check');
+  eventBus.emit('cookie check request');
 
   view.Hood.state = state.visible;
   return view.Hood.element.render()

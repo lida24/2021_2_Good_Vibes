@@ -90,19 +90,19 @@ const viewDispatcherListeners = [
     ]
   },
 
-  // // ================================
-  // {
-  //   event: 'cookie check success',
-  //   callback: [
-  //     model.addUser
-  //   ]
-  // },
-  // {
-  //   event: 'cookie check fail',
-  //   callback: [
-  //     model.cookieCheckFail
-  //   ]
-  // },
+  // ================================
+  {
+    event: 'cookie check success',
+    callback: [
+      model.addUser
+    ]
+  },
+  {
+    event: 'cookie check fail',
+    callback: [
+      model.cookieCheckFail
+    ]
+  },
 
   // // ================================
   // {
