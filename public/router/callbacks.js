@@ -3,5 +3,5 @@ export const rout = (name) => {
 };
 
 export const add = (name) => {
-
+  console.log('hist add', name);
 };
