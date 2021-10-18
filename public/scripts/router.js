@@ -10,15 +10,20 @@ export default class Router {
     this.root = root;
   }
 
-  /**
-   * @param {string} path
-   * @param {BaseView} View
-   */
-  register(path, View) {
+  // /**
+  //  * @param {string} path
+  //  * @param {BaseView} View
+  //  */
+  // register(path, View) {
+  //   this.routes[path] = {
+  //     View,
+  //     view: null,
+  //     el: null
+  //   };
+
+  register(path, state) {
     this.routes[path] = {
-      View,
-      view: null,
-      el: null
+      state
     };
 
     return this;

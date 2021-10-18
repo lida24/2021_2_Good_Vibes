@@ -9,7 +9,7 @@ import Router from './scripts/router.js';
 
 const router = new Router(document.getElementsByClassName('grid-container')[0]);
 router
-  .register('/', {});
+  .register('/', 'Homepage');
 router.start();
 
 
