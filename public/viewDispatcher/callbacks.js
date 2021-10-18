@@ -166,7 +166,7 @@ export const homepageStateDenied = () => {
 // ==================================
 export const profileStateRequest = () => {
   if (user.username) {
-    eventBus.emit('profile state confirmed');
+    eventBus.emit('authorization', user);
     return;
   }
 
