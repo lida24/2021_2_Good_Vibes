@@ -111,18 +111,18 @@ const viewDispatcherListeners = [
   //     model.signupStateRequest
   //   ]
   // },
-  {
-    event: 'signup state confirmed',
-    callback: [
-      model.signupStateConfirmed
-    ]
-  },
-  {
-    event: 'signup state denied',
-    callback: [
-      model.signupStateDenied
-    ]
-  },
+  // {
+  //   event: 'signup state confirmed',
+  //   callback: [
+  //     model.signupStateConfirmed
+  //   ]
+  // },
+  // {
+  //   event: 'signup state denied',
+  //   callback: [
+  //     model.signupStateDenied
+  //   ]
+  // },
 
 
 ];
