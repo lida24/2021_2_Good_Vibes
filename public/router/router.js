@@ -50,22 +50,32 @@ class Router {
     //   );
     // }
 
-    if (window.location.pathname !== path) {
 
-      const historyState = {
-        state: this.routes[path].state
-      };
 
-      window.history.pushState(
-        historyState,
-        this.routes[path].state,
-        path
-      );
-    }
+
+
+    // if (window.location.pathname !== path) {
+
+    //   const historyState = {
+    //     state: this.routes[path].state
+    //   };
+
+    //   window.history.pushState(
+    //     historyState,
+    //     this.routes[path].state,
+    //     path
+    //   );
+    // }
 
     // eventBus.emit('showView', {
     //   name: 'Homepage'
     // });
+
+
+    eventBus.emit('history add', route);
+
+
+
 
 
     // // -------------------------
