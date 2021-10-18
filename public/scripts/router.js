@@ -77,6 +77,7 @@ export default class Router {
 
     console.log(route);
 
+
     // console.log(route);
 
     // let { View, view, el } = route;
