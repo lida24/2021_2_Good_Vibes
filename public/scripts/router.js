@@ -10,15 +10,20 @@ export default class Router {
     this.root = root;
   }
 
-  /**
-   * @param {string} path
-   * @param {BaseView} View
-   */
-  register(path, View) {
+  // /**
+  //  * @param {string} path
+  //  * @param {BaseView} View
+  //  */
+  // register(path, View) {
+  //   this.routes[path] = {
+  //     View,
+  //     view: null,
+  //     el: null
+  //   };
+
+  register(path, state) {
     this.routes[path] = {
-      View,
-      view: null,
-      el: null
+      state
     };
 
     return this;
@@ -43,9 +48,23 @@ export default class Router {
     //   );
     // }
 
+    if (window.location.pathname !== path) {
+
+      const historyState = {
+        state: this.routes[path].state
+      };
+
+      window.history.pushState(
+        historyState,
+        this.routes[path].state,
+        path
+      );
+    }
+
     // eventBus.emit('showView', {
     //   name: 'Homepage'
     // });
+
 
     console.log(route);
 
@@ -128,8 +147,18 @@ export default class Router {
     //     this.open(currentPath);
     //   });
 
-    //   const currentPath = window.location.pathname;
+    window.addEventListener('popstate', () => {
+      const currentPath = window.location.pathname;
 
-    //   this.open(currentPath);
+      console.log('popstate');
+
+      this.open(currentPath);
+    });
+
+    const currentPath = window.location.pathname;
+
+    console.log(currentPath);
+
+    this.open(currentPath);
   }
 }
