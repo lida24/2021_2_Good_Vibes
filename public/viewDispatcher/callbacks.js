@@ -224,8 +224,8 @@ export const signinStateRequest = () => {
     addUser(responseText);
     eventBus.emit('signin state denied');
 
-    eventBus.off('cookie check success', callback);
-    eventBus.off('cookie check fail', callback2);
+    // eventBus.off('cookie check success', callback);
+    // eventBus.off('cookie check fail', callback2);
     console.log(eventBus);
   };
   eventBus.on('cookie check success', callback);
@@ -233,8 +233,8 @@ export const signinStateRequest = () => {
   callback2 = () => {
     eventBus.emit('signin state confirmed');
 
-    eventBus.off('cookie check success', callback);
-    eventBus.off('cookie check fail', callback2);
+    // eventBus.off('cookie check success', callback);
+    // eventBus.off('cookie check fail', callback2);
     console.log(eventBus);
   };
   eventBus.on('cookie check fail', callback2);
