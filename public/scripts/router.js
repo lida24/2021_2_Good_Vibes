@@ -103,6 +103,7 @@ export default class Router {
 
       this.open(target.pathname);
 
+
       // if (!(event.target instanceof HTMLAnchorElement)) {
       //   return;
       // }
