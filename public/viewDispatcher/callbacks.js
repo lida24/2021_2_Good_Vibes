@@ -174,4 +174,6 @@ export const profileStateConfirmed = () => {
 
 export const profileStateDenied = () => {
   // eventBus.emit('signin state request');
+
+  showSignin();
 };
