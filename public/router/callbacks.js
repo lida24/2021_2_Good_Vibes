@@ -8,8 +8,7 @@ export const rout = (name) => {
 
     window.history.pushState(
       historyState,
-      this.routes[path].state,
-      path
+      this.routes[path].state
     );
   }
 
