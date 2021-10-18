@@ -126,5 +126,6 @@ export const showHomepage = () => {
 };
 
 export const rout = ({ name, context }) => {
-  console.log(name, context);
+  // console.log(name, context);
+  eventBus.emit('rout', name);
 };
