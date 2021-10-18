@@ -30,8 +30,7 @@ const viewDispatcherListeners = [
     ]
   },
 
-
-
+  // ================================
   {
     event: 'homepage state request',
     callback: [
@@ -51,10 +50,7 @@ const viewDispatcherListeners = [
     ]
   },
 
-
-
-
-
+  // ================================
   {
     event: 'profile state request',
     callback: [
@@ -72,7 +68,27 @@ const viewDispatcherListeners = [
     callback: [
       model.profileStateConfirmed
     ]
-  }
+  },
+
+  // ================================
+  {
+    event: 'signin state request',
+    callback: [
+      model.signinStateRequest
+    ]
+  },
+  {
+    event: 'signin state confirmed',
+    callback: [
+      model.signinStateConfirmed
+    ]
+  },
+  {
+    event: 'signin state denied',
+    callback: [
+      model.signinStateDenied
+    ]
+  },
 
 ];
 

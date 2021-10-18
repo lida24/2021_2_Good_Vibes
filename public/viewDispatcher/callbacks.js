@@ -2,6 +2,7 @@
 import state from './states.js';
 import constructors from './constructors.js';
 import eventBus from '../scripts/eventBus.js';
+import user from '../objects/user.js';
 
 export const hide = {};
 export const show = {};
@@ -145,7 +146,7 @@ export const rout = ({ name, context }) => {
 //   eventBus.emit('profile ajax request');
 // };
 
-
+// ==================================
 export const homepageStateRequest = () => {
   eventBus.emit('homepage state confirmed');
 };
@@ -160,8 +161,7 @@ export const homepageStateDenied = () => {
   console.error('homepage state denied');
 };
 
-
-
+// ==================================
 export const profileStateRequest = () => {
   eventBus.emit('profile ajax request');
 };
@@ -173,7 +173,27 @@ export const profileStateConfirmed = () => {
 };
 
 export const profileStateDenied = () => {
-  // eventBus.emit('signin state request');
+  eventBus.emit('signin state request');
 
+  // showSignin();
+};
+
+// ==================================
+export const signinStateRequest = () => {
+  if (user.name) {
+    eventBus.emit('signin state denied');
+    return;
+  }
+
+  eventBus.emit('signin state confirmed');
+};
+
+export const signinStateDenied = () => {
+  console.error('signin state denied');
+};
+
+export const signinStateConfirmed = () => {
   showSignin();
+
+  currentState = 'Signin';
 };
