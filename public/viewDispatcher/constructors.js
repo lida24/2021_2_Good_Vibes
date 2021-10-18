@@ -12,7 +12,8 @@ const constructors = {
   Hood,
   Homepage,
   Product,
-  Profile
+  Profile,
+  Cart,
 };
 
 export default constructors;
