@@ -6,5 +6,7 @@ export const homepageStateRequest = () => {
 };
 
 export const profileStateRequest = () => {
-  eventBus.emit('profile state request');
+  // eventBus.emit('profile state request');
+
+  eventBus.emit('signin state request');
 };

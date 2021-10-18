@@ -90,19 +90,39 @@ const viewDispatcherListeners = [
     ]
   },
 
-  // ================================
-  {
-    event: 'cookie check success',
-    callback: [
-      model.addUser
-    ]
-  },
-  {
-    event: 'cookie check denied',
-    callback: [
-      model.cookieCheckDenied
-    ]
-  }
+  // // ================================
+  // {
+  //   event: 'cookie check success',
+  //   callback: [
+  //     model.addUser
+  //   ]
+  // },
+  // {
+  //   event: 'cookie check fail',
+  //   callback: [
+  //     model.cookieCheckFail
+  //   ]
+  // },
+
+  // // ================================
+  // {
+  //   event: 'signup state request',
+  //   callback: [
+  //     model.signupStateRequest
+  //   ]
+  // },
+  // {
+  //   event: 'signup state confirmed',
+  //   callback: [
+  //     model.signupStateConfirmed
+  //   ]
+  // },
+  // {
+  //   event: 'signup state denied',
+  //   callback: [
+  //     model.signupStateDenied
+  //   ]
+  // },
 
 
 ];

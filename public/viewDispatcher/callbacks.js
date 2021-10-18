@@ -104,7 +104,7 @@ export const init = () => {
     }
   });
 
-  eventBus.emit('cookie check');
+  // eventBus.emit('cookie check');
 
   view.Hood.state = state.visible;
   return view.Hood.element.render()
@@ -181,28 +181,6 @@ export const profileStateDenied = () => {
 };
 
 // ==================================
-export const signinStateRequest = () => {
-  // console.log(user);
-
-  if (user.name) {
-    eventBus.emit('signin state denied');
-    return;
-  }
-
-  eventBus.emit('signin state confirmed');
-};
-
-export const signinStateDenied = () => {
-  console.error('signin state denied');
-};
-
-export const signinStateConfirmed = () => {
-  showSignin();
-
-  currentState = 'Signin';
-};
-// ==================================
-
 export const addUser = (responseText) => {
   // try {
   //   const responseObj = JSON.parse(responseText);
@@ -217,5 +195,41 @@ export const addUser = (responseText) => {
   console.log(user);
 };
 
-export const cookieCheckDenied = () => {
+export const cookieCheckFail = () => {
+};
+
+
+// ==================================
+export const signinStateRequest = () => {
+  // console.log(user);
+
+  if (user.username) {
+    eventBus.emit('signin state denied');
+    return;
+  }
+
+  const callback = ({ responseText }) => {
+    addUser(responseText);
+    eventBus.emit('signin state confirmed');
+    eventBus.off('cookie check success', callback);
+
+    console.log(eventBus);
+  };
+
+  eventBus.on('cookie check success', callback);
+  eventBus.emit('cookie check request');
+
+  // eventBus.emit('signin state confirmed');
+};
+
+export const signinStateDenied = () => {
+  console.error('signin state denied');
+
+  eventBus.emit('homepage state request');
+};
+
+export const signinStateConfirmed = () => {
+  showSignin();
+
+  currentState = 'Signin';
 };
