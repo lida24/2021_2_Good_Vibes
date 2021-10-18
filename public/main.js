@@ -9,13 +9,6 @@ import Router from './scripts/router.js';
 // import route from './scripts/_router.js';
 
 
-
-
-eventBus.on('init', init);
-eventBus.emit('init');
-eventBus.add(viewDispatcherListeners);
-eventBus.add(ajaxListeners);
-
 const router = new Router(document.getElementsByClassName('grid-container')[0]);
 router
   .register('/', 'Homepage')
@@ -26,6 +19,13 @@ router
   .register('/logout', 'Signout')
   .register('/product', 'Product');
 router.start();
+
+eventBus.on('init', init);
+eventBus.emit('init');
+eventBus.add(viewDispatcherListeners);
+eventBus.add(ajaxListeners);
+
+
 
 
 
