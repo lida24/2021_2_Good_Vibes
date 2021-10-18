@@ -170,7 +170,7 @@ header .icons i:hover {
   flex-wrap: wrap;
 }
 .details-image {
-  flex: 2 1;
+  flex: 2 1 0rem;
 }
 .details-image img {
   max-width: 60rem;
