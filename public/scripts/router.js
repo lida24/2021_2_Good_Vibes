@@ -66,19 +66,30 @@ export default class Router {
     // this.routes[path] = { View, view, el };
   }
 
+  hrefget = (target) => {
+    if (target instanceof HTMLAnchorElement) {
+      return target;
+    }
+
+    const result = target.closest('a');
+    if (!result) return undefined;
+    if (!this.root.contains(result)) return undefined;
+
+    return result;
+  }
+
   start() {
     this.root.addEventListener('click', (event) => {
 
-      if (event.target instanceof HTMLAnchorElement) {
-        console.log(event.target);
-      }
+      // if (event.target instanceof HTMLAnchorElement) {
+      //   console.log(event.target);
+      // }
 
-      const target = event.target.closest('a');
+      // const target = event.target.closest('a');
+      // if (!target) return;
+      // if (!this.root.contains(target)) return;
 
-      if (!target) return;
-
-      // if (!event.target.contains(target)) return;
-      if (!this.root.contains(target)) return;
+      const target = this.hrefget(event.target);
 
       console.log(target);
 
