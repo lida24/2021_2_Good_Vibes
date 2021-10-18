@@ -9,7 +9,13 @@ import Router from './scripts/router.js';
 
 const router = new Router(document.getElementsByClassName('grid-container')[0]);
 router
-  .register('/', 'Homepage');
+  .register('/', 'Homepage')
+  .register('/homepage', 'Homepage')
+  .register('/login', 'Signin')
+  .register('/signup', 'Signup')
+  .register('/profile', 'Profile')
+  .register('/logout', 'Signout')
+  .register('/product', 'Product');
 router.start();
 
 
