@@ -70,6 +70,10 @@ export default class Router {
       eventBus.emit('profile ajax request');
     }
 
+    if (path === '/signup') {
+      console.log('signup');
+      eventBus.emit('signup click');
+    }
 
     console.log(route);
 
