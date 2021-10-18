@@ -94,7 +94,7 @@ class Router {
     // // -------------------------
 
     // eventBus.emit('rout', this.routes[path].state);
-    // console.log(window.history);
+    console.log(window.history);
 
 
 
@@ -155,7 +155,7 @@ class Router {
       console.log(target.pathname);
 
 
-      // this.open(target.pathname);
+      this.open(target.pathname);
 
       // console.log(window.history);
 
