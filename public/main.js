@@ -8,6 +8,8 @@ import Router from './scripts/router.js';
 // import route from './scripts/_router.js';
 
 const router = new Router(document.getElementsByClassName('grid-container')[0]);
+router
+  .register('/', {});
 router.start();
 
 
