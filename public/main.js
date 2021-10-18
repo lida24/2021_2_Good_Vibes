@@ -1,10 +1,10 @@
 /* eslint-disable import/extensions */
 import eventBus from './scripts/eventBus.js';
-import { init } from './viewDispatcher/callbacks.js';
+import { init, rout } from './viewDispatcher/callbacks.js';
 import viewDispatcherListeners from './viewDispatcher/listeners.js';
 import ajaxListeners from './ajax/listeners.js';
 // import Router from './scripts/router.js';
-import Router from './router/router.js';
+import router from './router/router.js';
 import routerListeners from './router/listeners.js';
 
 // import route from './scripts/_router.js';
@@ -14,7 +14,10 @@ eventBus.emit('init');
 eventBus.add(viewDispatcherListeners);
 eventBus.add(ajaxListeners);
 
-const router = new Router(document.getElementsByClassName('grid-container')[0]);
+const root = document.getElementsByClassName('grid-container')[0];
+
+// const router = new Router();
+router.set(root);
 router
   .register('/', 'Homepage')
   .register('/homepage', 'Homepage')

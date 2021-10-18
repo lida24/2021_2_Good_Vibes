@@ -7,6 +7,12 @@ const routerListeners = [
     callback: [
       router.rout
     ]
+  },
+  {
+    event: 'history add',
+    callback: [
+      router.add
+    ]
   }
 ];
 

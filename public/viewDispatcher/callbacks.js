@@ -71,6 +71,8 @@ const viewGenerate = ({ name, context }) => {
 export const showView = ({ name, context }) => {
   console.log(`${name} view`);
 
+  eventBus.emit('history add', name);
+
   let viewName = name;
   if (context?.id) {
     viewName += context.id;

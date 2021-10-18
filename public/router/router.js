@@ -1,12 +1,14 @@
 /* eslint-disable import/extensions */
 import eventBus from '../scripts/eventBus.js';
 
-export default class Router {
+class Router {
   root;
 
-  constructor(root) {
+  constructor() {
     this.routes = {};
+  }
 
+  set(root) {
     this.root = root;
   }
 
@@ -188,3 +190,5 @@ export default class Router {
     this.open(currentPath);
   }
 }
+
+export default new Router();
