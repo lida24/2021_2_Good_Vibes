@@ -2,5 +2,5 @@
 import eventBus from '../scripts/eventBus.js';
 
 export const request = () => {
-    eventBus.emit('cart ajax request');
+    eventBus.emit('profile ajax request');
   };
