@@ -18,8 +18,8 @@ const signupListeners = [
     event: 'signin click',
     callback: [
       signup.cleanInputs,
-      signup.showSignin,
-      signup.hideError
+      signup.hideError,
+      signup.showSignin
     ]
   },
 
