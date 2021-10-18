@@ -117,7 +117,7 @@ header .icons i:hover {
 .product-container .product-card {
   height: 50rem;
   width: 30rem;
-  flex: 1 1 40rem;
+  flex: 1 1 30rem;
   overflow: hidden;
   position: relative;
   margin: 2rem 2rem;
