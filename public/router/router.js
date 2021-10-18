@@ -85,6 +85,10 @@ export default class Router {
     eventBus.emit('rout', this.routes[path].state);
     console.log(window.history);
 
+
+
+
+
     // console.log(route);
 
     // let { View, view, el } = route;
@@ -171,7 +175,10 @@ export default class Router {
 
       console.log('popstate');
 
-      this.open(currentPath);
+      // this.open(currentPath);
+      eventBus.emit('showView', {
+        name: this.routes[currentPath].state
+      });
     });
 
     const currentPath = window.location.pathname;
