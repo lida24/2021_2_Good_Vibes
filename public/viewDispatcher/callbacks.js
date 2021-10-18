@@ -201,7 +201,7 @@ export const cookieCheckFail = () => {
 
 // ==================================
 export const signinStateRequest = () => {
-  console.log(user);
+  // console.log(user);
 
   if (user.username) {
     eventBus.emit('signin state denied');
