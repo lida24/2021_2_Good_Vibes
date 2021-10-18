@@ -1,6 +1,8 @@
 /* eslint-disable import/extensions */
 // import eventBus from '../scripts/eventBus.js';
 
+import eventBus from "../scripts/eventBus";
+
 export default class Router {
   root;
 
@@ -65,17 +67,25 @@ export default class Router {
     //   name: 'Homepage'
     // });
 
-    if (path === '/profile') {
-      console.log('profile');
-      // eventBus.emit('profile ajax request');
-    }
 
-    if (path === '/signup') {
-      console.log('signup');
-      // eventBus.emit('signup click');
-    }
+    // // -------------------------
 
-    console.log(route);
+    // if (path === '/profile') {
+    //   console.log('profile');
+    //   // eventBus.emit('profile ajax request');
+    // }
+
+    // if (path === '/signup') {
+    //   console.log('signup');
+    //   // eventBus.emit('signup click');
+    // }
+
+    // console.log(route);
+
+    // // -------------------------
+
+    eventBus.emit('rout', this.routes[path].state);
+    console.log(window.history);
 
     // console.log(route);
 
