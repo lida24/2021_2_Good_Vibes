@@ -8,6 +8,8 @@ export const show = {};
 
 let view = {};
 
+let state = '';
+
 const add = (obj) => {
   view = Object.assign(view, obj);
 };
@@ -150,8 +152,26 @@ export const homepageStateRequest = () => {
 
 export const homepageStateConfirmed = () => {
   showHomepage();
+
+  state = 'Homepage';
 };
 
 export const homepageStateDenied = () => {
   console.error('homepage state denied');
+};
+
+
+
+export const profileStateRequest = () => {
+  eventBus.emit('profile ajax request');
+};
+
+export const profileStateConfirmed = () => {
+  showProfile();
+
+  state = 'Profile';
+};
+
+export const profileStateDenied = () => {
+  // eventBus.emit('signin state request');
 };

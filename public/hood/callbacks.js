@@ -11,10 +11,10 @@ import eventBus from '../scripts/eventBus.js';
 //   eventBus.emit('profile ajax request');
 // };
 
-export const toHomepageState = () => {
+export const homepageStateRequest = () => {
   eventBus.emit('homepage state request');
 };
 
-export const toProfileState = () => {
+export const profileStateRequest = () => {
   eventBus.emit('profile state request');
 };
