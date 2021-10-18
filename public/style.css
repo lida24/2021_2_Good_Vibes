@@ -180,7 +180,8 @@ header .icons i:hover {
 .details-info,
 .details-action {
   flex: 1 1 30rem;
-  margin: 10rem 0rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
 }
 .details-info ul,
 .details-action ul {
