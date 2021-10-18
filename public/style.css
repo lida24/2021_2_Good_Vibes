@@ -68,6 +68,14 @@ button.primary {
   width: 100%;
 }
 
+.success {
+  color: #40c040;
+}
+
+.error {
+  color: #c04040;
+}
+
 header {
   grid-area: header;
   background-color: #333;
