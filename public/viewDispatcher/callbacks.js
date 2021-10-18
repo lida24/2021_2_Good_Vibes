@@ -104,6 +104,8 @@ export const init = () => {
     }
   });
 
+  eventBus.emit('cookie check');
+
   view.Hood.state = state.visible;
   return view.Hood.element.render()
     .then(() => viewGenerate({ name: 'Homepage' }));
@@ -180,7 +182,7 @@ export const profileStateDenied = () => {
 
 // ==================================
 export const signinStateRequest = () => {
-  console.log(user);
+  // console.log(user);
 
   if (user.name) {
     eventBus.emit('signin state denied');
@@ -198,4 +200,15 @@ export const signinStateConfirmed = () => {
   showSignin();
 
   currentState = 'Signin';
+};
+// ==================================
+
+export const addUser = (responseText) => {
+  try {
+    const responseObj = JSON.parse(responseText);
+    user.set(responseObj);
+    console.log(user);
+  } catch (error) {
+    console.error(error);
+  }
 };

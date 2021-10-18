@@ -90,6 +90,14 @@ const viewDispatcherListeners = [
     ]
   },
 
+  // ================================
+  {
+    event: 'cookie check success',
+    callback: [
+      model.addUser
+    ]
+  },
+
 ];
 
 export default viewDispatcherListeners;

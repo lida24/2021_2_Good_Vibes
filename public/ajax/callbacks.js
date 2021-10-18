@@ -40,6 +40,15 @@ export const profile = () => {
     .catch(() => eventBus.emit('no authorization'));
 };
 
+export const cookieCheck = () => {
+  ajax.get({
+    url: `${backendAddress}/profile`
+  })
+    .then(() => eventBus.emit('cookie check success'))
+    .catch(() => eventBus.emit('cookie check fail'));
+};
+
+
 export const homepage = () => {
   ajax.get({
     url: `${backendAddress}/homepage`
