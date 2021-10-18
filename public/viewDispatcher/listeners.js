@@ -49,7 +49,7 @@ const viewDispatcherListeners = [
     callback: [
       model.homepageStateDenied
     ]
-  }
+  },
   {
     event: 'profile state request',
     callback: [
