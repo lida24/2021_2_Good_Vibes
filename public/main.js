@@ -3,7 +3,8 @@ import eventBus from './scripts/eventBus.js';
 import { init } from './viewDispatcher/callbacks.js';
 import viewDispatcherListeners from './viewDispatcher/listeners.js';
 import ajaxListeners from './ajax/listeners.js';
-import Router from './scripts/router.js';
+// import Router from './scripts/router.js';
+import Router from './scripts/_router.js';
 
 // import route from './scripts/_router.js';
 
