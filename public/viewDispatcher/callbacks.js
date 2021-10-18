@@ -211,8 +211,9 @@ export const addUser = (responseText) => {
   // } catch (error) {
   //   console.error(error);
   // }
+  console.log(responseText);
 
-  user.name = responseText;
+  user.username = responseText;
   console.log(user);
 };
 
