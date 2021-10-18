@@ -8,7 +8,7 @@ export const show = {};
 
 let view = {};
 
-let state = '';
+let currentState = '';
 
 const add = (obj) => {
   view = Object.assign(view, obj);
@@ -153,7 +153,7 @@ export const homepageStateRequest = () => {
 export const homepageStateConfirmed = () => {
   showHomepage();
 
-  state = 'Homepage';
+  currentState = 'Homepage';
 };
 
 export const homepageStateDenied = () => {
@@ -169,7 +169,7 @@ export const profileStateRequest = () => {
 export const profileStateConfirmed = () => {
   showProfile();
 
-  state = 'Profile';
+  currentState = 'Profile';
 };
 
 export const profileStateDenied = () => {
