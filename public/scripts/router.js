@@ -77,17 +77,17 @@ export default class Router {
         pathname: link.pathname
       });
 
-      this.open(link.pathname);
+      // this.open(link.pathname);
     });
 
-    window.addEventListener('popstate', () => {
-      const currentPath = window.location.pathname;
+    //   window.addEventListener('popstate', () => {
+    //     const currentPath = window.location.pathname;
 
-      this.open(currentPath);
-    });
+    //     this.open(currentPath);
+    //   });
 
-    const currentPath = window.location.pathname;
+    //   const currentPath = window.location.pathname;
 
-    this.open(currentPath);
+    //   this.open(currentPath);
+    // }
   }
-}
