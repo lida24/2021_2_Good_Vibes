@@ -23,7 +23,7 @@ const hoodEvents = (element) => {
   //----------------------------------------------------
   const cartBtn = element.getElementsByClassName('cart-href')[0];
 
-  profileBtn.addEventListener('click', (event) => {
+  cartBtn.addEventListener('click', (event) => {
     event.preventDefault();
     eventBus.emit('cart-click');
     console.log('cart-click');
