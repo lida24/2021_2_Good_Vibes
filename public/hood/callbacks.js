@@ -23,6 +23,6 @@ export const request = () => {
   eventBus.emit('profile ajax request');
 };
 
-export const logoClick = () => {
+export const cartClick = () => {
   eventBus.emit('cart ajax request');
   };
