@@ -145,7 +145,7 @@ export const rout = ({ name, context }) => {
 
 
 export const homepageStateRequest = () => {
-  eventBus.emit('profile ajax request');
+  eventBus.emit('homepage state confirmed');
 };
 
 export const homepageStateConfirmed = () => {

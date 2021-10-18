@@ -11,18 +11,18 @@ const viewDispatcherListeners = [
       model.rout
     ]
   },
-  // {
-  //   event: 'no authorization',
-  //   callback: [
-  //     model.showSignin
-  //   ]
-  // },
-  // {
-  //   event: 'authorization',
-  //   callback: [
-  //     model.showProfile
-  //   ]
-  // },
+  {
+    event: 'no authorization',
+    callback: [
+      model.showSignin
+    ]
+  },
+  {
+    event: 'authorization',
+    callback: [
+      model.showProfile
+    ]
+  },
   {
     event: 'logout success',
     callback: [
@@ -39,13 +39,13 @@ const viewDispatcherListeners = [
     ]
   },
   {
-    event: 'authorization',
+    event: 'homepage state confirmed',
     callback: [
       model.homepageStateConfirmed
     ]
   },
   {
-    event: 'no authorization',
+    event: 'hompage state denied',
     callback: [
       model.homepageStateDenied
     ]
