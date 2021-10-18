@@ -65,6 +65,10 @@ export default class Router {
     //   name: 'Homepage'
     // });
 
+    if (path === '/login') {
+      console.log('login');
+    }
+
 
     console.log(route);
 
