@@ -3,14 +3,8 @@ import eventBus from '../scripts/eventBus.js';
 import validate from '../scripts/inputDataValidation.js';
 import user from '../objects/user.js';
 
-// export const showSignup = () => {
-//   eventBus.emit('showView', {
-//     name: 'Signup'
-//   });
-// };
-
 export const signupStateRequest = () => {
-  eventBus.emit('signin state request');
+  eventBus.emit('signup state request');
 };
 
 export const homepageStateRequest = () => {
