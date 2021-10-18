@@ -5,7 +5,7 @@ import generateContentHTML from '../scripts/loadTemplates.js';
 import eventBus from '../scripts/eventBus.js';
 import cartListeners from './listeners.js';
 
-const cartUrl = './template.handlebars';
+const cartUrl = './cart/template.handlebars';
 
 export default class Cart extends View {
   #url = cartUrl;
