@@ -44,8 +44,8 @@ export const cookieCheck = () => {
   ajax.get({
     url: `${backendAddress}/profile`
   })
-    .then(() => eventBus.emit('cookie check success'))
-    .catch(() => eventBus.emit('cookie check fail'));
+    .then(({ responseText }) => eventBus.emit('cookie check success', responseText))
+    .catch(({ responseText }) => eventBus.emit('cookie check fail', responseText));
 };
 
 export const homepage = () => {
