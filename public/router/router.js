@@ -1,7 +1,5 @@
 /* eslint-disable import/extensions */
-// import eventBus from '../scripts/eventBus.js';
-
-import eventBus from "../scripts/eventBus";
+import eventBus from '../scripts/eventBus.js';
 
 export default class Router {
   root;
