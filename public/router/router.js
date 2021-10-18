@@ -1,6 +1,10 @@
 /* eslint-disable import/extensions */
 import eventBus from '../scripts/eventBus.js';
 
+// const requests = {
+//   homepage
+// }
+
 class Router {
   root;
 
@@ -74,9 +78,14 @@ class Router {
 
       this.open(currentPath);
 
-      eventBus.emit('showView', {
-        name: this.routes[currentPath].state
-      });
+      // eventBus.emit('showView', {
+      //   name: this.routes[currentPath].state
+      // });
+
+      eventBus.emit(`${this.routes[currentPath].state} state request`);
+
+
+
     });
 
     const currentPath = window.location.pathname;

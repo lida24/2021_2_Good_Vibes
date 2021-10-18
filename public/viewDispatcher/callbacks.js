@@ -143,17 +143,6 @@ export const rout = ({ name, context }) => {
   eventBus.emit('rout', name);
 };
 
-
-// export const toHomepageState = () => {
-//   // console.log('toHomepageState');
-//   showHomepage();
-// };
-
-// export const toProfileState = () => {
-//   // console.log('toProfileState');
-//   eventBus.emit('profile ajax request');
-// };
-
 // ==================================
 export const homepageStateRequest = () => {
   eventBus.emit('homepage state confirmed');

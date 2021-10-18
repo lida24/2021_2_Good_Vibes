@@ -20,13 +20,13 @@ const root = document.getElementsByClassName('grid-container')[0];
 // const router = new Router();
 router.set(root);
 router
-  .register('/', 'Homepage')
-  .register('/homepage', 'Homepage')
-  .register('/login', 'Signin')
-  .register('/signup', 'Signup')
-  .register('/profile', 'Profile')
-  .register('/logout', 'Signout')
-  .register('/product', 'Product');
+  .register('/', 'homepage')
+  .register('/homepage', 'homepage')
+  .register('/login', 'signin')
+  .register('/signup', 'signup')
+  .register('/profile', 'profile')
+  .register('/logout', 'signout')
+  .register('/product', 'product');
 router.start();
 
 eventBus.add(routerListeners);
