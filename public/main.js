@@ -18,11 +18,11 @@ eventBus.add(ajaxListeners);
 
 const router = new Router(document.getElementsByClassName('grid-container')[0]);
 router
-  .register('/', 'Homepage')
-  .register('/homepage', 'Homepage')
-  .register('/login', 'Signin')
-  .register('/signup', 'Signup')
-  .register('/profile', 'Profile')
-  .register('/logout', 'Signout')
-  .register('/product', 'Product');
+  .add('/', 'Homepage')
+  .add('/homepage', 'Homepage')
+  .add('/login', 'Signin')
+  .add('/signup', 'Signup')
+  .add('/profile', 'Profile')
+  .add('/logout', 'Signout')
+  .add('/product', 'Product');
 router.start();
