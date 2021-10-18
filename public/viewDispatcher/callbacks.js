@@ -124,3 +124,7 @@ export const showHomepage = () => {
     name: 'Homepage'
   });
 };
+
+export const rout = ({ name, context }) => {
+  console.log(name, context);
+};

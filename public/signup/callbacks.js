@@ -3,21 +3,6 @@ import eventBus from '../scripts/eventBus.js';
 import validate from '../scripts/inputDataValidation.js';
 import user from '../objects/user.js';
 
-export const signupDataValidation = (signupData) => {
-  const response = validate.signUp(signupData);
-
-  if (response) {
-    eventBus.emit('signupDataError', response);
-    return;
-  }
-
-  eventBus.emit('hideSingupAlertLabel');
-
-
-  eventBus.emit('signup ajax request', signupData);
-};
-
-
 export const inputCheck = (data) => {
   const response = validate.signUp(data);
 
@@ -28,41 +13,6 @@ export const inputCheck = (data) => {
 
   eventBus.emit('signup validation success', data);
 };
-
-export const signupErrorHandler = (response) => {
-  const alertLabel = document.getElementById('alert-label');
-  alertLabel.innerText = response;
-  alertLabel.style.visibility = 'visible';
-};
-
-export const hideSingupAlertLabel = () => {
-  const alertLabel = document.getElementById('alert-label');
-  alertLabel.style.visibility = 'hidden';
-};
-
-export const signupSuccess = (responseText) => {
-  try {
-    const responseObj = JSON.parse(responseText);
-    user.set(responseObj);
-    console.log(user);
-
-    eventBus.emit('showView', {
-      name: 'Homepage'
-    });
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-export const signupFail = (responseText) => {
-  try {
-    const responseObj = JSON.parse(responseText);
-    eventBus.emit('signupDataError', responseObj['error description']);
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 
 export const showSignin = () => {
   eventBus.emit('showView', {

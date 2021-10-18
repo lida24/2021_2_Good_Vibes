@@ -1,24 +1,12 @@
 /* eslint-disable import/extensions */
 import eventBus from '../scripts/eventBus.js';
 
-export const logoClick = () => {
-  console.log('logo click');
-
-  // eventBus.emit('homepage ajax request');
-
+export const showHomepage = () => {
   eventBus.emit('showView', {
     name: 'Homepage'
   });
-
-
 };
 
-export const showProfile = () => {
-  eventBus.emit('showView', {
-    name: 'Profile'
-  });
-};
-
-export const request = () => {
+export const profileRequest = () => {
   eventBus.emit('profile ajax request');
 };
