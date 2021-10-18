@@ -65,6 +65,7 @@ export default class Router {
     //   name: 'Homepage'
     // });
 
+
     console.log(route);
 
     // console.log(route);
@@ -155,6 +156,8 @@ export default class Router {
     });
 
     const currentPath = window.location.pathname;
+
+    console.log(currentPath);
 
     this.open(currentPath);
   }
