@@ -180,6 +180,8 @@ export const profileStateDenied = () => {
 
 // ==================================
 export const signinStateRequest = () => {
+  console.log(user);
+
   if (user.name) {
     eventBus.emit('signin state denied');
     return;
