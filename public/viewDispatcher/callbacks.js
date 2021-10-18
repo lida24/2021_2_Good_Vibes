@@ -288,13 +288,13 @@ export const signupStateRequest = () => {
 };
 
 export const signupStateDenied = () => {
-  console.error('signin state denied');
+  console.error('signup state denied');
 
   eventBus.emit('homepage state request');
 };
 
 export const signupStateConfirmed = () => {
-  showSignin();
+  showSignup();
 
   currentState = 'Signin';
 };
