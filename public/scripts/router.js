@@ -1,125 +1,93 @@
-class Router {
-  static #instance;
+export default class Router {
+  constructor(root) {
+    this.routes = {};
 
-  #routes;
-
-  #root;
-
-  constructor() {
-    if (Router.#instance) {
-      return Router.#instance;
-    }
-    this.#routes = [];
-    Router.#instance = this;
+    this.root = root;
   }
 
-  set(root) {
-    this.#root = root;
-  }
+  /**
+   * @param {string} path
+   * @param {BaseView} View
+   */
+  register(path, View) {
+    this.routes[path] = {
+      View,
+      view: null,
+      el: null
+    };
 
-  add(path, view) {
-    this.#routes.push([path, view]);
     return this;
   }
 
-  goBack() {
-    window.history.back();
-  }
-
-  open(path, params = {
-    replaceState: false
-  }, pathParams = {}) {
-    let route;
-    let groups;
-
-    // for (const page of this.#routes) {
-    //   if (path.match(page[0])) {
-    //     groups = path.match(page[0]).groups;
-    //     route = page;
-    //   }
-    // }
-
-    this.#routes.forEach((page) => {
-      if (path.match(page[0])) {
-        groups = path.match(page[0]).groups;
-        route = page;
-      }
-    });
+  /**
+   * @param {string} path
+   */
+  open(path) {
+    const route = this.routes[path];
 
     if (!route) {
       this.open('/');
       return;
     }
 
-    path = this.adaptPath(path, pathParams);
-
-    if (window.location.pathname !== path && !params.replaceState) {
+    if (window.location.pathname !== path) {
       window.history.pushState(
         null,
         '',
-        path,
-      );
-    } else if (window.location.pathname !== path) {
-      window.history.replaceState(
-        null,
-        '',
-        path,
+        path
       );
     }
 
-    const view = route[1];
-    view.IDs = groups || {};
-    if (Object.keys(params).length) {
-      view.IDs = Object.assign(view.IDs, params);
-    }
-    Object.assign(pathParams, this.parseSearch(window.location.search));
+    console.log(route);
 
-    view.show(pathParams);
-  }
+    // let { View, view, el } = route;
 
-  adaptPath(path, params) {
-    if (!Object.keys(params).length) {
-      return path;
-    }
+    // if (!el) {
+    //   el = document.createElement('section');
+    //   this.root.appendChild(el);
+    // }
 
-    path += '?' + Object.keys(params).map((key) => [key, params[key]].join('=')).join('&');
-    return path;
-  }
+    // if (!view) {
+    //   view = new View(el);
+    // }
 
-  parseSearch(search) {
-    if (!search) {
-      return null;
-    }
-    search = search.substr(1).split('&');
-    const returnObject = {};
-    for (let param of search) {
-      param = param.split('=');
-      returnObject[param[0]] = decodeURI(param[1]);
-    }
-    return returnObject;
+    // if (!view.active) {
+    //   Object.values(this.routes).forEach(({ view }) => {
+    //     if (view && view.active) {
+    //       view.hide();
+    //     }
+    //   });
+
+    //   view.show();
+    // }
+
+    // this.routes[path] = { View, view, el };
   }
 
   start() {
-    this.#root.addEventListener('click', (event) => {
+    this.root.addEventListener('click', (event) => {
       if (!(event.target instanceof HTMLAnchorElement)) {
         return;
       }
 
       event.preventDefault();
       const link = event.target;
+
+      console.log({
+        pathname: link.pathname
+      });
+
       this.open(link.pathname);
     });
 
     window.addEventListener('popstate', () => {
-      let currentPath = window.location.pathname;
-      if (currentPath[0] !== '/') {
-        currentPath = '/' + url;
-      }
+      const currentPath = window.location.pathname;
+
       this.open(currentPath);
     });
 
-    this.open(window.location.pathname);
+    const currentPath = window.location.pathname;
+
+    this.open(currentPath);
   }
 }
-
-export default new Router();
