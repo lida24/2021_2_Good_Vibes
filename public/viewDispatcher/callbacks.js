@@ -133,10 +133,25 @@ export const rout = ({ name, context }) => {
 };
 
 
-export const toHomepageState = () => {
-  console.log('toHomepageState');
+// export const toHomepageState = () => {
+//   // console.log('toHomepageState');
+//   showHomepage();
+// };
+
+// export const toProfileState = () => {
+//   // console.log('toProfileState');
+//   eventBus.emit('profile ajax request');
+// };
+
+
+export const homepageStateRequest = () => {
+  eventBus.emit('homepage state confirmed');
 };
 
-export const toProfileState = () => {
-  console.log('toProfileState');
+export const homepageStateConfirmed = () => {
+  showHomepage();
+};
+
+export const homepageStateDenied = () => {
+  console.error('homepage state denied');
 };

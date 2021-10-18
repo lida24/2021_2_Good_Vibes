@@ -12,9 +12,9 @@ import eventBus from '../scripts/eventBus.js';
 // };
 
 export const toHomepageState = () => {
-  eventBus.emit('to homepage state');
+  eventBus.emit('homepage state request');
 };
 
 export const toProfileState = () => {
-  eventBus.emit('to profile state');
+  eventBus.emit('profile state request');
 };
