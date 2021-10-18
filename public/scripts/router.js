@@ -72,8 +72,8 @@ export default class Router {
 
       if (!target) return;
 
-      if (!event.target.contains(target)) return;
-      // if (!this.root.contains(target)) return;
+      // if (!event.target.contains(target)) return;
+      if (!this.root.contains(target)) return;
 
       console.log(target);
 
