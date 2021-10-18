@@ -219,7 +219,7 @@ export const signinStateRequest = () => {
 
   const callback2 = () => {
     eventBus.emit('sigin state confirmed');
-    eventBus.off('cookie check fail', callback2);
+    // eventBus.off('cookie check fail', callback2);
 
     console.log(eventBus);
   };
