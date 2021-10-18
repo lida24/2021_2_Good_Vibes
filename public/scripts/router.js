@@ -69,6 +69,9 @@ export default class Router {
   start() {
     this.root.addEventListener('click', (event) => {
 
+      if (event.target instanceof HTMLAnchorElement) {
+        console.log(event.target);
+      }
 
       const target = event.target.closest('a');
 
