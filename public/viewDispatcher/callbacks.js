@@ -346,3 +346,13 @@ export const productStateDenied = () => {
 
   currentState = 'homepage';
 };
+
+// ==================================
+export const signoutStateRequest = () => {
+  // if (user.username) {
+  //   eventBus.emit('signout state denied');
+  //   return;
+  // };
+
+
+}

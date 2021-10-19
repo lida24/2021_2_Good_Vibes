@@ -26,7 +26,7 @@ const viewDispatcherListeners = [
   {
     event: 'logout success',
     callback: [
-      model.showHomepage
+      model.homepageStateRequest
     ]
   },
 
@@ -147,7 +147,6 @@ const viewDispatcherListeners = [
       model.productStateDenied
     ]
   },
-
 
 ];
 

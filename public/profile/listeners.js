@@ -1,17 +1,19 @@
 /* eslint-disable import/extensions */
-import * as model from './callbacks.js';
+import * as profile from './callbacks.js';
 
 const profileListeners = [
   {
     event: 'update click',
     callback: [
-      model.sendLogin
+      profile.sendLogin
     ]
   },
   {
     event: 'logout',
     callback: [
-      model.logout
+      // profile.signoutStateRequest
+      profile.logout,
+      profile.addHomepageToHistory
     ]
   }
 ];
