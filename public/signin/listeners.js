@@ -33,6 +33,7 @@ const signinListeners = [
   {
     event: 'signin success',
     callback: [
+      signin.cleanInputs,
       signin.addUser,
       signin.homepageStateRequest,
       signin.addHomepageToHistory

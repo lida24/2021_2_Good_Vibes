@@ -33,6 +33,7 @@ const signupListeners = [
   {
     event: 'signup success',
     callback: [
+      signup.cleanInputs,
       signup.addUser,
       signup.homepageStateRequest,
       signup.addHomepageToHistory

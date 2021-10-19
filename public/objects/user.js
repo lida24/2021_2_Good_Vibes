@@ -9,8 +9,8 @@ class User {
   }
 
   delete() {
-    this.email = '';
-    this.username = '';
+    this.email = undefined;
+    this.username = undefined;
   }
 }
 
