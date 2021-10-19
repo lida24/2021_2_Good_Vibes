@@ -101,6 +101,7 @@ class Router {
 
       // eventBus.emit(`${requieredState} state request`, id);
       eventBus.emit(`${requieredState} state request`);
+
     });
 
     const currentPath = window.location.pathname;
