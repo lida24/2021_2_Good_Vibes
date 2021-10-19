@@ -332,15 +332,17 @@ export const productStateRequest = (id) => {
 };
 
 export const productStateConfirmed = (responseText) => {
+  console.log('productStateConfirmed');
+
   showProduct(responseText);
 
   currentState = 'product';
 };
 
 export const productStateDenied = () => {
-  // console.log(responseText);
+  console.log('productStateDenied');
 
   showHomepage();
 
-  currentState = 'product';
+  currentState = 'homepage';
 };
