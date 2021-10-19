@@ -99,6 +99,8 @@ class Router {
       // eventBus.emit(`${currentPath.slice(1)} state request`);
 
       const requieredState = this.urlHandler(currentPath);
+
+      console.log(requieredState);
       eventBus.emit(`${requieredState} state request`);
     });
 
