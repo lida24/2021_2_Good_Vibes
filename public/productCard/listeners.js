@@ -27,13 +27,15 @@ const productCardListeners = [
   {
     event: 'productName-href click',
     callback: [
-      product.productStateRequest
+      product.productStateRequest,
+      product.addProductToHistory
     ]
   },
   {
     event: 'productImg-href click',
     callback: [
-      product.productStateRequest
+      product.productStateRequest,
+      product.addProductToHistory
     ]
   }
 
