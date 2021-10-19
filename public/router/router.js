@@ -70,7 +70,7 @@ class Router {
       return 'homepage';
     }
 
-    if (!requests[state] === 'product') {
+    if (requests[state] === 'product') {
       return `${requests[state]}${params}`;
     }
 
