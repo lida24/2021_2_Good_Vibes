@@ -64,15 +64,15 @@ class Router {
     return result;
   }
 
-  urlHandler = ({ path, params }) => {
+  urlHandler = ({ path }) => {
     const state = path.slice(1);
     if (!requests[state]) {
       return 'homepage';
     }
 
-    if (requests[state] === 'product') {
-      return `${requests[state]}${params}`;
-    }
+    // if (requests[state] === 'product') {
+    //   return `${requests[state]}${params}`;
+    // }
 
     return requests[state];
   }
@@ -97,7 +97,7 @@ class Router {
 
       console.log('popstate');
 
-      // console.log(currentPath);
+      console.log(currentPath.params);
       // console.log(params);
 
       // this.open(currentPath);
@@ -112,7 +112,7 @@ class Router {
 
 
 
-      eventBus.emit(`${requieredState} state request`);
+      eventBus.emit(`${requieredState} state request`,);
     });
 
     const currentPath = window.location.pathname;
