@@ -34,7 +34,7 @@ class Router {
 
     if (!route) {
       this.open('/');
-      return;
+      // return;
     }
 
     // if (window.location.pathname !== path) {
@@ -84,10 +84,8 @@ class Router {
 
       console.log(target.pathname);
 
-
       this.open(target.pathname);
     });
-
 
     window.addEventListener('popstate', () => {
       const currentPath = {
@@ -98,7 +96,7 @@ class Router {
       console.log('popstate');
 
       console.log(currentPath.params);
-      // console.log(params);
+      console.log(currentPath.params.match(/\?id=\d*/));
 
       // this.open(currentPath);
 
@@ -109,8 +107,6 @@ class Router {
       // eventBus.emit(`${currentPath.slice(1)} state request`);
 
       const requieredState = this.urlHandler(currentPath);
-
-
 
       eventBus.emit(`${requieredState} state request`);
     });
