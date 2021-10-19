@@ -64,7 +64,7 @@ class Router {
     return result;
   }
 
-  urlHandler = ({ path }) => {
+  urlHandler = (path) => {
     const state = path.slice(1);
     if (!requests[state]) {
       return 'homepage';
