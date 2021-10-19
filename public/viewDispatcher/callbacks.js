@@ -306,7 +306,7 @@ export const productStateRequest = (id) => {
   let callback2;
 
   const callback = ({ responseText }) => {
-    eventBus.emit('product state confirmed', responseText);
+    // eventBus.emit('product state confirmed', responseText);
 
     eventBus.off('product request success', callback);
     eventBus.off('product request fail', callback2);
@@ -317,7 +317,7 @@ export const productStateRequest = (id) => {
   eventBus.on('product request success', callback);
 
   callback2 = ({ responseText }) => {
-    eventBus.emit('product state denied', responseText);
+    // eventBus.emit('product state denied', responseText);
 
     eventBus.off('product request success', callback);
     eventBus.off('product request fail', callback2);
