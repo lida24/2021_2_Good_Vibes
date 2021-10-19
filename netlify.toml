@@ -1,4 +1,9 @@
+[[plugins]]
+  package = "@netlify/plugin-edge-handlers"
 
+[[edge_handlers]]
+  path = "/*"
+  handler = "logRequest"
 
 [[redirects]]
   from = "/*"
