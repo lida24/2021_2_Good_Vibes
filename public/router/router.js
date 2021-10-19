@@ -86,12 +86,13 @@ class Router {
 
 
     window.addEventListener('popstate', () => {
-      const currentPath = window.location.pathname;
+      const currentPath = window.location;
 
       console.log('popstate');
 
       console.log(currentPath);
-      console.log(decodeURIComponent(currentPath));
+      // console.log(decodeURIComponent(currentPath));
+      console.log();
 
       // this.open(currentPath);
 
