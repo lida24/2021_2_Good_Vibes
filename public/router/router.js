@@ -99,7 +99,8 @@ class Router {
 
       const requieredState = this.urlHandler(currentPath);
 
-      eventBus.emit(`${requieredState} state request`, id);
+      // eventBus.emit(`${requieredState} state request`, id);
+      eventBus.emit(`${requieredState} state request`);
     });
 
     const currentPath = window.location.pathname;
