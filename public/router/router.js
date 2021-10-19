@@ -1,9 +1,14 @@
 /* eslint-disable import/extensions */
 import eventBus from '../scripts/eventBus.js';
 
-// const requests = {
-//   homepage
-// }
+const requests = {
+  homepage: 'homepage',
+  signin: 'signin',
+  signup: 'signup',
+  profile: 'profile',
+  product: 'product',
+  logout: 'homepage'
+};
 
 class Router {
   root;
@@ -59,6 +64,15 @@ class Router {
     return result;
   }
 
+  urlHandler = (path) => {
+    const state = path.slice(1);
+    if (!requests[state]) {
+      return 'homepage';
+    }
+
+    return requests[state];
+  }
+
   start() {
     this.root.addEventListener('click', (event) => {
       const target = this.hrefget(event.target);
@@ -82,7 +96,10 @@ class Router {
       //   name: this.routes[currentPath].state
       // });
 
-      eventBus.emit(`${currentPath.slice(1)} state request`);
+      // eventBus.emit(`${currentPath.slice(1)} state request`);
+
+      const requieredState = this.urlHandler(currentPath);
+      eventBus.emit(`${requieredState} state request`);
     });
 
     const currentPath = window.location.pathname;
