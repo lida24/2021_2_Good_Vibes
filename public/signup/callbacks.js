@@ -80,10 +80,10 @@ export const handleFail = (responseText) => {
   }
 };
 
-export const addHomepageToHist = () => {
+export const addHomepageToHistory = () => {
   eventBus.emit('history add', 'homepage');
 };
 
-export const addSigninToHist = () => {
+export const addSigninToHistory = () => {
   eventBus.emit('history add', 'signin');
 };

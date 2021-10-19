@@ -70,10 +70,10 @@ export const addUser = (responseText) => {
   }
 };
 
-export const addHomepageToHist = () => {
+export const addHomepageToHistory = () => {
   eventBus.emit('history add', 'homepage');
 };
 
-export const addSignupToHist = () => {
+export const addSignupToHistory = () => {
   eventBus.emit('history add', 'signup');
 };

@@ -10,3 +10,11 @@ export const profileStateRequest = () => {
 
   // eventBus.emit('signin state request');
 };
+
+export const addHomepageToHistory = () => {
+  eventBus.emit('history add', 'homepage');
+};
+
+export const addProfileToHistory = () => {
+  eventBus.emit('history add', 'profile');
+};

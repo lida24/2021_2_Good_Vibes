@@ -5,13 +5,15 @@ const hoodListeners = [
   {
     event: 'logo button click',
     callback: [
-      hood.homepageStateRequest
+      hood.homepageStateRequest,
+      hood.addHomepageToHistory
     ]
   },
   {
     event: 'profile button click',
     callback: [
-      hood.profileStateRequest
+      hood.profileStateRequest,
+      hood.addProfileToHistory
     ]
   }
 ];
