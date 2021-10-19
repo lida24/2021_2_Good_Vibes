@@ -96,7 +96,7 @@ class Router {
       console.log('popstate');
 
       console.log(currentPath.params);
-      console.log(currentPath.params.match(/\?id=\d*/));
+      console.log(currentPath.params.match(/\?id=\d*/)[0]);
 
       // this.open(currentPath);
 
