@@ -61,7 +61,7 @@ export const product = (id) => {
     url: `${backendAddress}/product?id=${id}`
   })
     .then(({ responseText }) => {
-      eventBus.emit('product request success', responseText);
+      // eventBus.emit('product request success', responseText);
       console.log(responseText);
     })
     // .catch((error) => console.error(error));
