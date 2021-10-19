@@ -89,7 +89,19 @@ class Router {
 
     console.log(currentPath);
 
-    this.open(currentPath);
+    // this.open(currentPath);
+
+    if (window.location.pathname !== currentPath) {
+      const historyState = {
+        state: currentPath
+      };
+
+      window.history.pushState(
+        historyState,
+        currentPath,
+        currentPath
+      );
+    }
   }
 }
 
