@@ -70,10 +70,6 @@ class Router {
       return 'homepage';
     }
 
-    // if (requests[state] === 'product') {
-    //   return `${requests[state]}${params}`;
-    // }
-
     return requests[state];
   }
 
@@ -88,20 +84,17 @@ class Router {
     });
 
     window.addEventListener('popstate', () => {
-      const currentPath = {
-        path: window.location.pathname,
-        params: window.location.search
-      };
+      const path = window.location.pathname;
+      const params = window.location.search;
 
       console.log('popstate');
 
-      const id = currentPath.params.match(/\?id=(\d*)/)[1];
+      const id = params.match(/\?id=(\d*)/)[1];
 
-      const requieredState = this.urlHandler(currentPath);
+      const requieredState = this.urlHandler(path);
 
-      // eventBus.emit(`${requieredState} state request`, id);
+      eventBus.emit(`${requieredState} state request`, id);
       eventBus.emit(`${requieredState} state request`);
-
     });
 
     const currentPath = window.location.pathname;
