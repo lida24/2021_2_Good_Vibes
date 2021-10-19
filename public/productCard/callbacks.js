@@ -28,6 +28,6 @@ export const productStateRequest = (id) => {
   eventBus.emit('product state request', id);
 };
 
-export const addProductToHistory = () => {
-  eventBus.emit('history add', 'product');
+export const addProductToHistory = (id) => {
+  eventBus.emit('history add', `product?id=${id}`);
 };
