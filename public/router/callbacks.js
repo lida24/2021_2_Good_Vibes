@@ -7,7 +7,7 @@ export const add = (name) => {
   console.log('hist add', name);
   console.log(window.location.pathname);
 
-  if (window.location.pathname !== name) {
+  if (window.location.pathname.slice(1) !== name) {
     const historyState = {
       state: name
     };
