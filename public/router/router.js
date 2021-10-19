@@ -89,9 +89,11 @@ class Router {
 
       console.log('popstate');
 
-      const regRes = params.match(/\?id=(\d*)/);
-
-      const id = regRes[1] || 0;
+      const regRes = params.match(/\?id=(\d*)/) || [];
+      const id = regRes[1];
+      // if (regRes) {
+      //   id = regRes;
+      // }
 
       const requieredState = this.urlHandler(path);
 
