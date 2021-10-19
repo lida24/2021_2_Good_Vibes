@@ -5,6 +5,7 @@ export const rout = (name) => {
 
 export const add = (name) => {
   console.log('hist add', name);
+  console.log(window.location.pathname);
 
   if (window.location.pathname !== name) {
     const historyState = {
@@ -17,5 +18,5 @@ export const add = (name) => {
       name
     );
   }
-  console.log(window.history);
+  // console.log(window.history);
 };
