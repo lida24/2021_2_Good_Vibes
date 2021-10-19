@@ -208,6 +208,10 @@ export const addUser = (responseText) => {
   console.log(user);
 };
 
+export const deleteUser = () => {
+  user.delete();
+};
+
 export const cookieCheckFail = () => {
 };
 

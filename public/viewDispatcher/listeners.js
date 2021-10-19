@@ -26,7 +26,8 @@ const viewDispatcherListeners = [
   {
     event: 'logout success',
     callback: [
-      model.homepageStateRequest
+      model.homepageStateRequest,
+      model.deleteUser
     ]
   },
 
