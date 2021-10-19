@@ -127,6 +127,27 @@ const viewDispatcherListeners = [
     ]
   },
 
+  // ================================
+  {
+    event: 'product state request',
+    callback: [
+      model.productStateRequest
+    ]
+  },
+  {
+    event: 'product state confirmed',
+    callback: [
+      model.productStateConfirmed
+      // model.histAdd
+    ]
+  },
+  {
+    event: 'product state denied',
+    callback: [
+      model.productStateDenied
+    ]
+  },
+
 
 ];
 

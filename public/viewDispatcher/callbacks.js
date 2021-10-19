@@ -298,3 +298,30 @@ export const signupStateConfirmed = () => {
 export const histAdd = (name) => {
   eventBus.emit('history add', name);
 };
+
+// ==================================
+export const productStateRequest = (id) => {
+  let callback2;
+
+  const callback = ({ responseText }) => {
+    eventBus.emit('product state confirmed', responseText);
+
+    eventBus.off('product request success', callback);
+    eventBus.off('product request fail', callback2);
+    // console.log(eventBus);
+
+    console.log(responseText);
+  };
+  eventBus.on('product request success', callback);
+
+  callback2 = ({ responseText }) => {
+    eventBus.emit('product state denied', responseText);
+
+    eventBus.off('product request success', callback);
+    eventBus.off('product request fail', callback2);
+    // console.log(eventBus);
+  };
+  eventBus.on('product request fail', callback2);
+
+  eventBus.emit('product ajax request', id);
+};

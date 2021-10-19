@@ -60,7 +60,8 @@ export const product = (id) => {
   ajax.get({
     url: `${backendAddress}/product?id=${id}`
   })
-    .then(({ responseText }) => eventBus.emit('product response', responseText))
-    .catch((error) => console.error(error));
+    .then(({ responseText }) => eventBus.emit('product request success', responseText))
+    // .catch((error) => console.error(error));
+    .catch(({ responseText }) => eventBus.emit('product request fail', responseText));
 };
 
