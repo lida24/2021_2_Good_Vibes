@@ -91,7 +91,7 @@ class Router {
       console.log('popstate');
 
       console.log(currentPath);
-      console.log(decodeURI(currentPath));
+      console.log(decodeURIComponent(currentPath));
 
       // this.open(currentPath);
 
