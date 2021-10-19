@@ -301,6 +301,8 @@ export const histAdd = (name) => {
 
 // ==================================
 export const productStateRequest = (id) => {
+  console.log(id);
+
   let callback2;
 
   const callback = ({ responseText }) => {
