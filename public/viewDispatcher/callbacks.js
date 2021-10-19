@@ -312,7 +312,7 @@ export const productStateRequest = (id) => {
     eventBus.off('product request fail', callback2);
     // console.log(eventBus);
 
-    // console.log(responseText);
+    console.log(responseText);
   };
   eventBus.on('product request success', callback);
 
