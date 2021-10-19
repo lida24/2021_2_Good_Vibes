@@ -95,8 +95,9 @@ class Router {
 
       console.log('popstate');
 
-      console.log(currentPath.params);
-      console.log(currentPath.params.match(/\?id=(\d*)/));
+      // console.log(currentPath.params);
+      const id = currentPath.params.match(/\?id=(\d*)/)[1];
+      // console.log(id);
 
       // this.open(currentPath);
 
@@ -108,7 +109,7 @@ class Router {
 
       const requieredState = this.urlHandler(currentPath);
 
-      eventBus.emit(`${requieredState} state request`);
+      eventBus.emit(`${requieredState} state request`, id);
     });
 
     const currentPath = window.location.pathname;
