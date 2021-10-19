@@ -62,9 +62,12 @@ export const product = (id) => {
   })
     .then(({ responseText }) => {
       // eventBus.emit('product request success', responseText);
-      console.log(responseText);
+      console.log('product request success');
     })
     // .catch((error) => console.error(error));
-    .catch(({ responseText }) => eventBus.emit('product request fail', responseText));
+    .catch(({ responseText }) => {
+      // eventBus.emit('product request fail', responseText);
+      console.log('product request fail');
+    });
 };
 
