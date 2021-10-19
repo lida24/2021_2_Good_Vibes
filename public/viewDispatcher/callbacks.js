@@ -140,10 +140,12 @@ export const showHomepage = () => {
   });
 };
 
-export const showProduct = (context) => {
+export const showProduct = (responseText) => {
+  const responseObj = JSON.parse(responseText);
+
   eventBus.emit('showView', {
     name: 'Product',
-    data: context
+    context: responseObj
   });
 };
 
@@ -335,7 +337,7 @@ export const productStateConfirmed = (responseText) => {
   currentState = 'product';
 };
 
-export const productStateDenied = (responseText) => {
+export const productStateDenied = () => {
   // console.log(responseText);
 
   showHomepage();
