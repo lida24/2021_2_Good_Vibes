@@ -91,19 +91,13 @@ class Router {
 
       const regRes = params.match(/\?id=(\d*)/) || [];
       const id = regRes[1];
-      // if (regRes) {
-      //   id = regRes;
-      // }
 
       const requieredState = this.urlHandler(path);
 
       eventBus.emit(`${requieredState} state request`, id);
-      // eventBus.emit(`${requieredState} state request`);
     });
 
     const currentPath = window.location.pathname;
-
-    console.log(currentPath);
 
     // this.open(currentPath);
 
