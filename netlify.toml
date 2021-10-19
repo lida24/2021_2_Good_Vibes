@@ -1,2 +1,3 @@
-[[redirects]]
-
+[[edge_handlers]]
+  path = "/*"
+  handler = "logRequest"
