@@ -90,7 +90,10 @@ class Router {
 
       console.log('popstate');
 
-      this.open(currentPath);
+      console.log(currentPath);
+      console.log(decodeURI(currentPath));
+
+      // this.open(currentPath);
 
       // eventBus.emit('showView', {
       //   name: this.routes[currentPath].state
@@ -100,8 +103,7 @@ class Router {
 
       const requieredState = this.urlHandler(currentPath);
 
-      console.log(requieredState);
-      console.log(currentPath);
+
 
       eventBus.emit(`${requieredState} state request`);
     });
