@@ -64,10 +64,14 @@ class Router {
     return result;
   }
 
-  urlHandler = (path) => {
+  urlHandler = ({ path, params }) => {
     const state = path.slice(1);
     if (!requests[state]) {
       return 'homepage';
+    }
+
+    if (!requests[state] === 'product') {
+      return `${requests[state]}${params}`;
     }
 
     return requests[state];
@@ -86,13 +90,15 @@ class Router {
 
 
     window.addEventListener('popstate', () => {
-      const currentPath = window.location.pathname;
-      const params = window.location.search;
+      const currentPath = {
+        path: window.location.pathname,
+        params: window.location.search
+      };
 
       console.log('popstate');
 
-      console.log(currentPath);
-      console.log(params);
+      // console.log(currentPath);
+      // console.log(params);
 
       // this.open(currentPath);
 
