@@ -140,6 +140,13 @@ export const showHomepage = () => {
   });
 };
 
+export const showProduct = (context) => {
+  eventBus.emit('showView', {
+    name: 'Product',
+    data: context
+  });
+};
+
 export const rout = ({ name, context }) => {
   // console.log(name, context);
   eventBus.emit('rout', name);
@@ -301,29 +308,37 @@ export const histAdd = (name) => {
 
 // ==================================
 export const productStateRequest = (id) => {
-  // console.log(id);
-
   let callback2;
 
   const callback = ({ responseText }) => {
-    // eventBus.emit('product state confirmed', responseText);
+    eventBus.emit('product state confirmed', responseText);
 
     eventBus.off('product request success', callback);
     eventBus.off('product request fail', callback2);
-    // console.log(eventBus);
-
-    console.log(responseText);
   };
   eventBus.on('product request success', callback);
 
   callback2 = ({ responseText }) => {
-    // eventBus.emit('product state denied', responseText);
+    eventBus.emit('product state denied', responseText);
 
     eventBus.off('product request success', callback);
     eventBus.off('product request fail', callback2);
-    // console.log(eventBus);
   };
   eventBus.on('product request fail', callback2);
 
   eventBus.emit('product ajax request', id);
+};
+
+export const productStateConfirmed = (responseText) => {
+  showProduct(responseText);
+
+  currentState = 'product';
+};
+
+export const productStateDenied = (responseText) => {
+  // console.log(responseText);
+
+  showHomepage();
+
+  currentState = 'product';
 };
