@@ -34,22 +34,7 @@ class Router {
 
     if (!route) {
       this.open('/');
-      // return;
     }
-
-    // if (window.location.pathname !== path) {
-    //   const historyState = {
-    //     state: this.routes[path].state
-    //   };
-
-    //   window.history.pushState(
-    //     historyState,
-    //     this.routes[path].state,
-    //     path
-    //   );
-    // }
-
-    // console.log(window.history);
   }
 
   hrefget = (target) => {

@@ -1,3 +1,6 @@
+[context.production]
+  publish = "public/"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

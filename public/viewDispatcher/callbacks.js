@@ -11,7 +11,6 @@ let view = {};
 
 let currentState = '';
 
-// const 
 
 const add = (obj) => {
   view = Object.assign(view, obj);
@@ -142,6 +141,8 @@ export const showHomepage = () => {
 
 export const showProduct = (responseText) => {
   const responseObj = JSON.parse(responseText);
+
+  console.log(responseText);
 
   eventBus.emit('showView', {
     name: 'Product',
@@ -325,7 +326,7 @@ export const productStateRequest = (id) => {
   eventBus.on('product request success', callback);
 
   callback2 = ({ responseText }) => {
-    eventBus.emit('product state denied', responseText);
+    // eventBus.emit('product state denied', responseText); //=========================================================================
 
     eventBus.off('product request success', callback);
     eventBus.off('product request fail', callback2);
@@ -343,8 +344,8 @@ export const productStateConfirmed = (responseText) => {
   currentState = 'product';
 };
 
-export const productStateDenied = () => {
-  console.log('productStateDenied');
+export const productStateDenied = (responseText) => {
+  console.log('productStateDenied', responseText);
 
   showHomepage();
 
@@ -360,3 +361,13 @@ export const signoutStateRequest = () => {
 
 
 }
+
+
+// ========================
+export const profileStateConfirmedEmit = () => {
+  eventBus.emit('profile state confirmed', 'profile');
+};
+
+export const profileStateDeniedEmit = () => {
+  eventBus.emit('profile state denied');
+};

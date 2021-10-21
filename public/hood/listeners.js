@@ -6,14 +6,14 @@ const hoodListeners = [
     event: 'logo button click',
     callback: [
       hood.homepageStateRequest,
-      hood.addHomepageToHistory
+      // hood.addHomepageToHistory
     ]
   },
   {
     event: 'profile button click',
     callback: [
       hood.profileStateRequest,
-      hood.addProfileToHistory
+      // hood.addProfileToHistory
     ]
   }
 ];

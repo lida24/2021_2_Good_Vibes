@@ -9,7 +9,6 @@ import routerListeners from './router/listeners.js';
 
 // import route from './scripts/_router.js';
 
-
 eventBus.add(viewDispatcherListeners);
 eventBus.add(ajaxListeners);
 eventBus.on('init', init);
