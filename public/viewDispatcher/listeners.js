@@ -137,14 +137,15 @@ const viewDispatcherListeners = [
   {
     event: 'product state request',
     callback: [
-      model.productStateRequest
+      model.productStateRequest,
+      history.addProduct,
     ]
   },
   {
     event: 'product state confirmed',
     callback: [
       model.productStateConfirmed,
-      history.addProduct,
+      // history.addProduct,
       // history.add
     ]
   },
@@ -154,6 +155,11 @@ const viewDispatcherListeners = [
       model.productStateDenied
     ]
   },
+
+  // // ================================
+  // {
+  //   event: 'homepage show request',
+  // }
 
 ];
 

@@ -13,6 +13,7 @@ export const add = (name) => {
     };
 
     window.history.pushState(
+      // window.history.replaceState(
       historyState,
       name,
       name
