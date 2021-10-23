@@ -19,6 +19,12 @@ export const showProfile = () => {
   });
 };
 
+export const showCart = () => {
+  eventBus.emit('showView', {
+    name: 'Cart'
+  });
+};
+
 export const request = () => {
   eventBus.emit('profile ajax request');
 };
