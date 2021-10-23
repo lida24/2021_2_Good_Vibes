@@ -113,12 +113,6 @@ export const showSignin = () => {
   });
 };
 
-export const showCart = () => {
-  eventBus.emit('showView', {
-    name: 'Cart'
-  });
-};
-
 export const showProfile = () => {
   eventBus.emit('showView', {
     name: 'Profile'
