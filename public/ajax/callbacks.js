@@ -60,6 +60,6 @@ export const cart = () => {
   ajax.get({
     url: `${backendAddress}/cart/put`
   })
-  .then(({ responseText }) => eventBus.emit('cart response', responseText))
-  .catch(() => eventBus.emit('no authorization'));
+  //.then(({ responseText }) => eventBus.emit('cart response', responseText))
+  .catch(() => eventBus.emit('cart response'));
 };
