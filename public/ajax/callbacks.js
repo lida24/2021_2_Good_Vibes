@@ -61,5 +61,4 @@ export const cart = () => {
     url: `${backendAddress}/cart/put`
   })
   .then(({ responseText }) => eventBus.emit('cart response', responseText))
-  .catch(({ responseText }) => eventBus.emit('cart response', responseText));
 };
