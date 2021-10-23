@@ -1,4 +1,5 @@
 export const cartResponse = (responseText) => {
-    const prodArray = JSON.parse(responseText);
-    renderProdArray(prodArray);
+  eventBus.emit('signin ajax request', responseText);
   };
+
+  
