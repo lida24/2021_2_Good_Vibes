@@ -61,5 +61,6 @@ export const cart = () => {
     url: `${backendAddress}/cart`
   })
   .then(({ responseText }) => eventBus.emit('cart response', responseText))
-  .catch((error) => console.error(error));
+  .then(() => eventBus.emit('authorization'))
+  .catch(() => eventBus.emit('no authorization'));
 };
