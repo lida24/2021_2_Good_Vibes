@@ -58,7 +58,7 @@ export const product = (id) => {
 
 export const cart = () => {
   ajax.get({
-    url: `${backendAddress}/cart`
+    url: `${backendAddress}/cart/put`
   })
   .then(({ responseText }) => eventBus.emit('cart response', responseText))
   .catch((error) => console.log(error));
