@@ -9,8 +9,6 @@ export const logoClick = () => {
   eventBus.emit('showView', {
     name: 'Homepage'
   });
-
-
 };
 
 export const showProfile = () => {

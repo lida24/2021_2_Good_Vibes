@@ -14,8 +14,10 @@ const productListeners = [
   },
   {
     event: 'cart click',
-    callback:
-      product.showCart
+    callback: [
+      product.showSignin,
+      product.showCart,
+    ]
   },
 ];
 
