@@ -63,4 +63,3 @@ export const cart = () => {
     .then(({ responseText }) => eventBus.emit('cart response', responseText))
     .catch((error) => console.error(error));
 };
-
