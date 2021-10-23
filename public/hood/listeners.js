@@ -47,7 +47,7 @@ const hoodListeners = [
   {
     event: 'cart-click',
     callback: [
-      hood.cartClick
+      hood.showCart
     ]
   },
 ];
