@@ -2,9 +2,7 @@
 import eventBus from '../scripts/eventBus.js';
 
 export const showCart = () => {
-  eventBus.emit('showView', {
-    name: 'Cart'
-  });
+  eventBus.emit('cart ajax request');
 };
 
 export const request = () => {
