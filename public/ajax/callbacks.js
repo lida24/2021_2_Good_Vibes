@@ -60,6 +60,6 @@ export const cart = () => {
   ajax.get({
     url: `${backendAddress}/cart/put`
   })
-  .then(({ responseText }) => eventBus.emit('homepage response', responseText))
+  .then(({ responseText }) => eventBus.emit('cart response', responseText))
   .catch((error) => console.error(error));
 };
