@@ -13,7 +13,8 @@ const viewDispatcherListeners = [
   {
     event: 'no authorization',
     callback: [
-      model.showSignin
+      model.showSignin,
+      model.showCart
     ]
   },
   {
