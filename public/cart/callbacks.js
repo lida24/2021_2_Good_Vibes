@@ -1,3 +1,4 @@
 export const cartResponse = (responseText) => {
-  eventBus.emit('cart ajax request', responseText);
-  };
+  const prodArray = JSON.parse(responseText);
+  renderProdArray(prodArray);
+};
