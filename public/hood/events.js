@@ -26,7 +26,6 @@ const hoodEvents = (element) => {
   cartBtn.addEventListener('click', (event) => {
     event.preventDefault();
     eventBus.emit('cart-click');
-    console.log('cart-click');
   });
 };
 export default hoodEvents;

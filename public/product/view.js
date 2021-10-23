@@ -66,11 +66,11 @@ export default class Product extends View {
     const temp = (count_in_stock) => {
       if (count_in_stock > 0) {
         return `
-        Status: <span class="success">In Stock</span>
+        Статус: <span class="success">В наличии</span>
         `;
       } else {
         return `
-        Status: <span class="error">Unavailable</span>
+        Статус: <span class="error">Нет в наличии</span>
         `;
       }
     };
