@@ -2,11 +2,15 @@
 import state from './states.js';
 import constructors from './constructors.js';
 import eventBus from '../scripts/eventBus.js';
+import user from '../objects/user.js';
 
 export const hide = {};
 export const show = {};
 
 let view = {};
+
+let currentState = '';
+
 
 const add = (obj) => {
   view = Object.assign(view, obj);
@@ -71,6 +75,8 @@ const viewGenerate = ({ name, context }) => {
 export const showView = ({ name, context }) => {
   console.log(`${name} view`);
 
+  // eventBus.emit('history add', name);
+
   let viewName = name;
   if (context?.id) {
     viewName += context.id;
@@ -99,6 +105,8 @@ export const init = () => {
     }
   });
 
+  eventBus.emit('cookie check request');
+
   view.Hood.state = state.visible;
   return view.Hood.element.render()
     .then(() => viewGenerate({ name: 'Homepage' }));
@@ -113,6 +121,12 @@ export const showSignin = () => {
   });
 };
 
+export const showSignup = () => {
+  eventBus.emit('showView', {
+    name: 'Signup'
+  });
+};
+
 export const showProfile = () => {
   eventBus.emit('showView', {
     name: 'Profile'
@@ -123,4 +137,237 @@ export const showHomepage = () => {
   eventBus.emit('showView', {
     name: 'Homepage'
   });
+};
+
+export const showProduct = (responseText) => {
+  const responseObj = JSON.parse(responseText);
+
+  console.log(responseText);
+
+  eventBus.emit('showView', {
+    name: 'Product',
+    context: responseObj
+  });
+};
+
+export const rout = ({ name, context }) => {
+  // console.log(name, context);
+  eventBus.emit('rout', name);
+};
+
+// ==================================
+export const homepageStateRequest = () => {
+  eventBus.emit('homepage state confirmed', 'homepage');
+};
+
+export const homepageStateConfirmed = () => {
+  showHomepage();
+
+  currentState = 'homepage';
+  // eventBus.emit('history add', currentState);
+};
+
+export const homepageStateDenied = () => {
+  console.error('homepage state denied');
+};
+
+// ==================================
+export const profileStateRequest = () => {
+  if (user.username) {
+    eventBus.emit('authorization', user);
+    return;
+  }
+
+  eventBus.emit('profile ajax request');
+};
+
+export const profileStateConfirmed = () => {
+  showProfile();
+
+  currentState = 'profile';
+  // eventBus.emit('history add', currentState);
+};
+
+export const profileStateDenied = () => {
+  eventBus.emit('signin state request');
+
+  // showSignin();
+};
+
+// ==================================
+export const addUser = (responseText) => {
+  // try {
+  //   const responseObj = JSON.parse(responseText);
+  //   user.set(responseObj);
+  //   console.log(user);
+  // } catch (error) {
+  //   console.error(error);
+  // }
+  console.log(responseText);
+
+  user.username = responseText;
+  console.log(user);
+};
+
+export const deleteUser = () => {
+  user.delete();
+};
+
+export const cookieCheckFail = () => {
+};
+
+// ==================================
+export const signinStateRequest = () => {
+  // console.log(user);
+
+  if (user.username) {
+    eventBus.emit('signin state denied');
+    return;
+  }
+
+  let callback2;
+
+  const callback = ({ responseText }) => {
+    addUser(responseText);
+    eventBus.emit('signin state denied');
+
+    eventBus.off('cookie check success', callback);
+    eventBus.off('cookie check fail', callback2);
+    // console.log(eventBus);
+  };
+  eventBus.on('cookie check success', callback);
+
+  callback2 = () => {
+    eventBus.emit('signin state confirmed', 'signin');
+
+    eventBus.off('cookie check success', callback);
+    eventBus.off('cookie check fail', callback2);
+    // console.log(eventBus);
+  };
+  eventBus.on('cookie check fail', callback2);
+
+  eventBus.emit('cookie check request');
+};
+
+export const signinStateDenied = () => {
+  console.error('signin state denied');
+
+  eventBus.emit('homepage state request');
+};
+
+export const signinStateConfirmed = () => {
+  showSignin();
+
+  currentState = 'signin';
+  // eventBus.emit('history add', currentState);
+};
+
+// ==================================
+export const signupStateRequest = () => {
+  // console.log(user);
+
+  if (user.username) {
+    eventBus.emit('signup state denied');
+    return;
+  }
+
+  let callback2;
+
+  const callback = ({ responseText }) => {
+    addUser(responseText);
+    eventBus.emit('signup state denied');
+
+    eventBus.off('cookie check success', callback);
+    eventBus.off('cookie check fail', callback2);
+    // console.log(eventBus);
+  };
+  eventBus.on('cookie check success', callback);
+
+  callback2 = () => {
+    eventBus.emit('signup state confirmed', 'signup');
+
+    eventBus.off('cookie check success', callback);
+    eventBus.off('cookie check fail', callback2);
+    // console.log(eventBus);
+  };
+  eventBus.on('cookie check fail', callback2);
+
+  eventBus.emit('cookie check request');
+};
+
+export const signupStateDenied = () => {
+  console.error('signup state denied');
+
+  eventBus.emit('homepage state request');
+};
+
+export const signupStateConfirmed = () => {
+  showSignup();
+
+  currentState = 'signup';
+
+  // eventBus.emit('history add', currentState);
+};
+
+export const histAdd = (name) => {
+  eventBus.emit('history add', name);
+};
+
+// ==================================
+export const productStateRequest = (id) => {
+  let callback2;
+
+  const callback = ({ responseText }) => {
+    eventBus.emit('product state confirmed', responseText);
+
+    eventBus.off('product request success', callback);
+    eventBus.off('product request fail', callback2);
+  };
+  eventBus.on('product request success', callback);
+
+  callback2 = ({ responseText }) => {
+    eventBus.emit('product state denied', responseText); //=========================================================================
+
+    eventBus.off('product request success', callback);
+    eventBus.off('product request fail', callback2);
+  };
+  eventBus.on('product request fail', callback2);
+
+  eventBus.emit('product ajax request', id);
+};
+
+export const productStateConfirmed = (responseText) => {
+  console.log('productStateConfirmed');
+
+  showProduct(responseText);
+
+  currentState = 'product';
+};
+
+export const productStateDenied = (responseText) => {
+  console.log('productStateDenied', responseText);
+
+  showHomepage();
+
+  currentState = 'homepage';
+};
+
+// ==================================
+export const signoutStateRequest = () => {
+  // if (user.username) {
+  //   eventBus.emit('signout state denied');
+  //   return;
+  // };
+
+
+}
+
+
+// ========================
+export const profileStateConfirmedEmit = () => {
+  eventBus.emit('profile state confirmed', 'profile');
+};
+
+export const profileStateDeniedEmit = () => {
+  eventBus.emit('profile state denied');
 };

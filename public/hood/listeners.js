@@ -1,31 +1,19 @@
 /* eslint-disable import/extensions */
 import * as hood from './callbacks.js';
-import eventBus from '../scripts/eventBus.js';
 
 const hoodListeners = [
   {
-    event: 'logo-click',
+    event: 'logo button click',
     callback: [
-      hood.logoClick,
-      // () => {
-      //   eventBus.emit('showView', {
-      //     name: 'Homepage'
-      //   });
-      // }
+      hood.homepageStateRequest,
+      // hood.addHomepageToHistory
     ]
   },
   {
-    event: 'profile-click',
+    event: 'profile button click',
     callback: [
-      hood.request
-
-      // hood.showProfile
-
-      // () => {
-      //   eventBus.emit('showView', {
-      //     name: 'Signin'
-      //   });
-      // }
+      hood.profileStateRequest,
+      // hood.addProfileToHistory
     ]
   },
   // {
