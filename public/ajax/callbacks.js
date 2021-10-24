@@ -63,3 +63,11 @@ export const product = (id) => {
     .then(({ responseText }) => eventBus.emit('product request success', { responseText }))
     .catch(({ responseText }) => eventBus.emit('product request fail', { responseText }));
 };
+
+export const cart = () => {
+  ajax.get({
+    url: `${backendAddress}/cart`
+  })
+  .then(({ responseText }) => eventBus.emit('cart response', responseText))
+  .catch((error) => console.error(error));
+};

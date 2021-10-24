@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import * as product from './callbacks.js';
+import eventBus from '../scripts/eventBus.js';
 
 const productListeners = [
   {
@@ -8,7 +9,22 @@ const productListeners = [
       product.homepageStateRequest,
       // product.addHomepageToHistory
     ]
-  }
+//     callback: () => {
+//       console.log('backToResult click');
+//       eventBus.emit('showView', {
+//         name: 'Homepage'
+//       });
+//     }
+  },
+  {
+    event: 'cart click',
+    callback:
+      product.showCart
+  },
+//     callback: [
+//       product.homepageStateRequest,
+//       // product.addHomepageToHistory
+//     ]
 ];
 
 export default productListeners;

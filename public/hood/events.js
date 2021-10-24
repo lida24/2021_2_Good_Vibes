@@ -17,5 +17,12 @@ const hoodEvents = (element) => {
     event.preventDefault();
     eventBus.emit('profile button click');
   });
+  //----------------------------------------------------
+  const cartBtn = element.getElementsByClassName('cart-href')[0];
+
+  cartBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    eventBus.emit('cart-click');
+  });
 };
 export default hoodEvents;

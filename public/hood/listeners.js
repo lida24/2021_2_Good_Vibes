@@ -15,7 +15,29 @@ const hoodListeners = [
       hood.profileStateRequest,
       // hood.addProfileToHistory
     ]
-  }
+  },
+  // {
+  //   event: 'authorization',
+  //   callback: [
+  //     () => {
+  //       console.log('authorization');
+  //     }
+  //   ]
+  // },
+  // {
+  //   event: 'no authorization',
+  //   callback: [
+  //     () => {
+  //       console.log('no authorization');
+  //     }
+  //   ]
+  // },
+  {
+    event: 'cart-click',
+    callback: [
+      hood.showCart
+    ]
+  },
 ];
 
 export default hoodListeners;

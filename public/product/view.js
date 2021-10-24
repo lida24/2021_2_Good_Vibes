@@ -58,11 +58,32 @@ export default class Product extends View {
     ratingParent.replaceWith(ratingElem);
   }
 
+  #createStatusHTML() {
+    const statusParent = this.element.getElementsByClassName('status')[0];
+    const statusElem = document.createElement('div');
+    statusElem.className = 'status';
+
+    const temp = (count_in_stock) => {
+      if (count_in_stock > 0) {
+        return `
+        Статус: <span class="success">В наличии</span>
+        `;
+      } else {
+        return `
+        Статус: <span class="error">Нет в наличии</span>
+        `;
+      }
+    };
+    statusElem.innerHTML = temp(this.#context.count_in_stock);
+    statusParent.replaceWith(statusElem);
+  }
+
   async render() {
     await this.#renderHTML();
     eventBus.add(productListeners);
     this.#generateEvents(this.element);
     this.#createRatingHTML();
+    this.#createStatusHTML();
     return this.show();
   }
 
