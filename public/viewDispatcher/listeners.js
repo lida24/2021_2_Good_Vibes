@@ -47,13 +47,14 @@ const viewDispatcherListeners = [
   {
     event: 'profile state request',
     callback: [
-      model.profileStateRequest
+      model.profileStateRequest,
+      model.logCurrentPage
     ]
   },
   {
     event: 'no authorization',
     callback: [
-//       model.showSignin,
+      //       model.showSignin,
       model.profileStateDeniedEmit
     ]
   },

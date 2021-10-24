@@ -371,3 +371,7 @@ export const profileStateConfirmedEmit = () => {
 export const profileStateDeniedEmit = () => {
   eventBus.emit('profile state denied');
 };
+
+export const logCurrentPage = () => {
+  console.log('current page', currentState);
+};
