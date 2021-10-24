@@ -10,7 +10,7 @@ class Cart {
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
     };
 
-    addToCart = (item, forceUpdate = false) => {
+   /*  addToCart = (item, forceUpdate = false) => {
         let cartItems = getCartItems();
         const existItem = cartItems.find((x) => x.product === item.product);
         if (existItem) {
@@ -21,5 +21,7 @@ class Cart {
           cartItems = [...cartItems, item];
         }
         setCartItems(cartItems);
-      }; 
+      };  */
 }
+
+export default new Cart();

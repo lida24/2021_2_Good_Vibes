@@ -4,6 +4,7 @@ import productEvents from './events.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
 import eventBus from '../scripts/eventBus.js';
 import productListeners from './listeners.js';
+import cart from '../objects/cart.js'
 
 const productUrl = './product/template.handlebars';
 
@@ -84,6 +85,7 @@ export default class Product extends View {
     this.#generateEvents(this.element);
     this.#createRatingHTML();
     this.#createStatusHTML();
+    console.log(cart.getCartItems().length);
     return this.show();
   }
 
