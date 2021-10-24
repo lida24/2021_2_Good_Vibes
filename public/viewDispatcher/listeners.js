@@ -47,8 +47,9 @@ const viewDispatcherListeners = [
   {
     event: 'profile state request',
     callback: [
+      model.logCurrentPage,
       model.profileStateRequest,
-      model.logCurrentPage
+
     ]
   },
   {
