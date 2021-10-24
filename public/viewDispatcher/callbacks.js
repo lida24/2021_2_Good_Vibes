@@ -372,6 +372,8 @@ export const profileStateDeniedEmit = () => {
   eventBus.emit('profile state denied');
 };
 
+let stateToSave = '';
 export const logCurrentPage = () => {
-  console.log('current page', currentState);
+  stateToSave = currentState;
+  console.log('page to save', stateToSave);
 };
