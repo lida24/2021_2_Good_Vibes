@@ -83,6 +83,7 @@ class Router {
       // eventBus.emit(`${requieredState} show request`, id);
     });
 
+
     const currentPath = window.location.pathname;
 
     // this.open(currentPath);
