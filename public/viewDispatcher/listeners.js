@@ -167,6 +167,10 @@ const viewDispatcherListeners = [
     ]
   }
 
+  // const obj = {
+  //   showSavedState: 'show saved state'
+  // }
+
   // {
   //   event: 'signin success',
   //   callback: [
