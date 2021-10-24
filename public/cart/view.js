@@ -33,7 +33,10 @@ export default class Cart extends View {
     await this.#renderHTML();
     eventBus.add(cartListeners);
     this.#generateEvents(this.element);
-    return this.show();
+    //return this.show();
+    return `<div>Cart Screen</div>
+    <div>${getCartItems().length}</div>
+    `
   }
 
   delete() {
