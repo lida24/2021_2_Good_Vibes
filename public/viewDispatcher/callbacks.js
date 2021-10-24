@@ -341,7 +341,10 @@ export const productStateConfirmed = (responseText) => {
 
   showProduct(responseText);
 
-  currentState = 'product';
+  // currentState = 'product';
+
+  console.log(responseText.match(/."id":(\d*)/)[1]);
+  currentState = `product${responseText.match(/."id":(\d*)/)[1]}`;
 };
 
 export const productStateDenied = (responseText) => {
@@ -372,8 +375,30 @@ export const profileStateDeniedEmit = () => {
   eventBus.emit('profile state denied');
 };
 
+
+// ======================================
 let stateToSave = '';
-export const logCurrentPage = () => {
+export const saveCurrentState = () => {
   stateToSave = currentState;
-  console.log('page to save', stateToSave);
+  // console.log('page to save', stateToSave);
+};
+
+export const showSavedState = () => {
+  // console.log('state to show', stateToSave);
+
+  if (!stateToSave) {
+    stateToSave = 'homepage';
+  }
+
+  const temp = stateToSave.match(/(\D+)/);
+  console.log('reg exp', temp[1]);
+
+  const temp2 = stateToSave.match(/\D+(\d+)/);
+  if (!temp2) {
+    eventBus.emit(`${temp[1]} state request`);
+    return;
+  }
+  console.log('reg exp', temp2[1]);
+
+  eventBus.emit(`${temp[1]} state request`, temp2[1]);
 };

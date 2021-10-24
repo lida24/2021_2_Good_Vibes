@@ -16,7 +16,8 @@ const viewDispatcherListeners = [
   {
     event: 'logout success',
     callback: [
-      model.homepageStateRequest,
+      // model.homepageStateRequest,
+      model.showSavedState,
       model.deleteUser
     ]
   },
@@ -47,7 +48,7 @@ const viewDispatcherListeners = [
   {
     event: 'profile state request',
     callback: [
-      model.logCurrentPage,
+      model.saveCurrentState,
       model.profileStateRequest,
 
     ]
@@ -158,6 +159,20 @@ const viewDispatcherListeners = [
       model.productStateDenied
     ]
   },
+
+  {
+    event: 'show saved state',
+    callback: [
+      model.showSavedState
+    ]
+  }
+
+  // {
+  //   event: 'signin success',
+  //   callback: [
+
+  //   ]
+  // }
 
   // // ================================
   // {
