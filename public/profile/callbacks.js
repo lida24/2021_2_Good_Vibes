@@ -11,5 +11,12 @@ export const sendLogin = () => {
 
 export const logout = () => {
   eventBus.emit('signout ajax request');
-}
+};
 
+export const signoutStateRequest = () => {
+  eventBus.emit('signout state request');
+};
+
+export const addHomepageToHistory = () => {
+  eventBus.emit('history add', 'homepage');
+};

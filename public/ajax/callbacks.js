@@ -40,6 +40,14 @@ export const profile = () => {
     .catch(() => eventBus.emit('no authorization'));
 };
 
+export const cookieCheck = () => {
+  ajax.get({
+    url: `${backendAddress}/profile`
+  })
+    .then(({ responseText }) => eventBus.emit('cookie check success', responseText))
+    .catch(({ responseText }) => eventBus.emit('cookie check fail', responseText));
+};
+
 export const homepage = () => {
   ajax.get({
     url: `${backendAddress}/homepage`
@@ -52,8 +60,8 @@ export const product = (id) => {
   ajax.get({
     url: `${backendAddress}/product?id=${id}`
   })
-    .then(({ responseText }) => eventBus.emit('product response', responseText))
-    .catch((error) => console.error(error));
+    .then(({ responseText }) => eventBus.emit('product request success', { responseText }))
+    .catch(({ responseText }) => eventBus.emit('product request fail', { responseText }));
 };
 
 export const cart = () => {

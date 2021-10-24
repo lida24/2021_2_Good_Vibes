@@ -5,18 +5,26 @@ import eventBus from '../scripts/eventBus.js';
 const productListeners = [
   {
     event: 'backToResult click',
-    callback: () => {
-      console.log('backToResult click');
-      eventBus.emit('showView', {
-        name: 'Homepage'
-      });
-    }
+    callback: [
+      product.homepageStateRequest,
+      // product.addHomepageToHistory
+    ]
+//     callback: () => {
+//       console.log('backToResult click');
+//       eventBus.emit('showView', {
+//         name: 'Homepage'
+//       });
+//     }
   },
   {
     event: 'cart click',
     callback:
       product.showCart
   },
+//     callback: [
+//       product.homepageStateRequest,
+//       // product.addHomepageToHistory
+//     ]
 ];
 
 export default productListeners;

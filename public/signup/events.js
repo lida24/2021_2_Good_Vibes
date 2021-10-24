@@ -12,7 +12,7 @@ const signupEvents = (element) => {
   signinBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
-    eventBus.emit('signinBtn-click');
+    eventBus.emit('signin click');
   });
 
   // ----------------------------------------
@@ -31,7 +31,7 @@ const signupEvents = (element) => {
       repassword: repasswordInput.value.trim()
     };
 
-    eventBus.emit('signupDataCheck', signupData);
+    eventBus.emit('signup submit', signupData);
   });
 };
 export default signupEvents;

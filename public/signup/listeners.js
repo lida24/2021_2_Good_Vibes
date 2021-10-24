@@ -1,41 +1,48 @@
 /* eslint-disable import/extensions */
-import * as model from './callbacks.js';
-import eventBus from '../scripts/eventBus.js';
+import * as signup from './callbacks.js';
 
 const signupListeners = [
   {
-    event: 'signinBtn-click',
+    event: 'signin click',
     callback: [
-      () => {
-        eventBus.emit('showView', {
-          name: 'Signin'
-        });
-      }
+      signup.cleanInputs,
+      signup.hideError,
+      signup.signinStateRequest,
+      // signup.addSigninToHistory
     ]
   },
   {
-    event: 'signupDataCheck',
+    event: 'signup submit',
     callback: [
-      model.signupDataValidation
+      signup.inputCheck
     ]
   },
   {
-    event: 'signupDataError',
-    callback: model.signupErrorHandler
+    event: 'signup validation success',
+    callback: [
+      signup.hideError,
+      signup.request
+    ]
   },
   {
-    event: 'hideSingupAlertLabel',
-    callback: model.hideSingupAlertLabel
+    event: 'signup validation fail',
+    callback: [
+      signup.showError
+    ]
   },
   {
     event: 'signup success',
-    callback: model.signupSuccess
+    callback: [
+      signup.cleanInputs,
+      signup.addUser,
+      signup.homepageStateRequest,
+      // signup.addHomepageToHistory
+    ]
   },
   {
     event: 'signup fail',
-    callback: model.signupFail
+    callback: signup.handleFail
   }
-
 ];
 
 export default signupListeners;

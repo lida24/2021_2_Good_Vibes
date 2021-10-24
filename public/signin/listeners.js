@@ -7,7 +7,8 @@ const signinListeners = [
     callback: [
       signin.cleanInputs,
       signin.hideError,
-      signin.showSignup
+      signin.signupStateRequest,
+      // signin.addSignupToHistory
     ]
   },
   {
@@ -17,14 +18,14 @@ const signinListeners = [
     ]
   },
   {
-    event: 'validation success',
+    event: 'signin validation success',
     callback: [
       signin.hideError,
       signin.request
     ]
   },
   {
-    event: 'validation fail',
+    event: 'signin validation fail',
     callback: [
       signin.showError
     ]
@@ -32,8 +33,10 @@ const signinListeners = [
   {
     event: 'signin success',
     callback: [
+      signin.cleanInputs,
       signin.addUser,
-      signin.showHomepage
+      signin.homepageStateRequest,
+      // signin.addHomepageToHistory
     ]
   },
   {

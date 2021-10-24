@@ -3,10 +3,12 @@ import eventBus from '../scripts/eventBus.js';
 import validate from '../scripts/inputDataValidation.js';
 import user from '../objects/user.js';
 
-export const showSignup = () => {
-  eventBus.emit('showView', {
-    name: 'Signup'
-  });
+export const signupStateRequest = () => {
+  eventBus.emit('signup state request');
+};
+
+export const homepageStateRequest = () => {
+  eventBus.emit('homepage state request');
 };
 
 export const showHomepage = () => {
@@ -27,11 +29,11 @@ export const inputCheck = (data) => {
   const response = validate.signIn(data);
 
   if (response) {
-    eventBus.emit('validation fail', response);
+    eventBus.emit('signin validation fail', response);
     return;
   }
 
-  eventBus.emit('validation success', data);
+  eventBus.emit('signin validation success', data);
 };
 
 export const request = (data) => {
@@ -66,4 +68,12 @@ export const addUser = (responseText) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+export const addHomepageToHistory = () => {
+  eventBus.emit('history add', 'homepage');
+};
+
+export const addSignupToHistory = () => {
+  eventBus.emit('history add', 'signup');
 };

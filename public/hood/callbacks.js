@@ -6,16 +6,25 @@ export const logoClick = () => {
 
   // eventBus.emit('homepage ajax request');
 
-  eventBus.emit('showView', {
-    name: 'Homepage'
-  });
+//   eventBus.emit('showView', {
+//     name: 'Homepage'
+//   });
 };
 
-export const showProfile = () => {
-  eventBus.emit('showView', {
-    name: 'Profile'
-  });
+export const homepageStateRequest = () => {
+  eventBus.emit('homepage state request');
 };
+
+export const profileStateRequest = () => {
+  eventBus.emit('profile state request');
+
+  // eventBus.emit('signin state request');
+};
+
+export const addHomepageToHistory = () => {
+  eventBus.emit('history add', 'homepage');
+};
+
 
 export const showCart = () => {
   eventBus.emit('showView', {
@@ -27,6 +36,10 @@ export const request = () => {
   eventBus.emit('profile ajax request');
 };
 
+export const addProfileToHistory = () => {
+  eventBus.emit('history add', 'profile');
+};
+
 export const cartClick = () => {
   eventBus.emit('cart ajax request');
-  };
+};

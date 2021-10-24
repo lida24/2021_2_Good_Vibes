@@ -7,8 +7,7 @@ const hoodEvents = (element) => {
 
   logoBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    eventBus.emit('logo-click');
-    // bus.emit('logo-click', 'Signup');
+    eventBus.emit('logo button click');
   });
 
   // ----------------------------------------
@@ -16,9 +15,7 @@ const hoodEvents = (element) => {
 
   profileBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    // bus.emit('profile-click', 'profile-click');
-    // bus.emit('profile-click', 'Signin');
-    eventBus.emit('profile-click');
+    eventBus.emit('profile button click');
   });
   //----------------------------------------------------
   const cartBtn = element.getElementsByClassName('cart-href')[0];

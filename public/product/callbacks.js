@@ -9,4 +9,12 @@ export const showCart = () => {
 
 export const request = () => {
     eventBus.emit('profile ajax request');
-  };
+};
+
+export const homepageStateRequest = () => {
+  eventBus.emit('homepage state request');
+};
+
+export const addHomepageToHistory = () => {
+  eventBus.emit('history add', 'homepage');
+};

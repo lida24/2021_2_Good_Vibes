@@ -23,4 +23,11 @@ export const productAjaxRequest = (id) => {
   eventBus.emit('product ajax request', id);
 };
 
-export const a = 0;
+// ========================
+export const productStateRequest = (id) => {
+  eventBus.emit('product state request', id);
+};
+
+export const addProductToHistory = (id) => {
+  eventBus.emit('history add', `product?id=${id}`);
+};
