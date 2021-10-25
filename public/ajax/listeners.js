@@ -31,6 +31,10 @@ const ajaxListeners = [
     callback: ajax.cart
   },
   {
+    event: 'order ajax request',
+    callback: ajax.order
+  },
+  {
     event: 'cookie check request',
     callback: ajax.cookieCheck
   }

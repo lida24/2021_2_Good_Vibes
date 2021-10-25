@@ -72,7 +72,7 @@ export const cart = () => {
   .catch((error) => console.error(error));
 };
 
-export const cart = () => {
+export const order = () => {
   ajax.get({
     url: `${backendAddress}/cart/confirm`
   })
