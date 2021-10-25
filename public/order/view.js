@@ -36,7 +36,7 @@ export default class Order extends View {
         return '<div></div>';
       }
       return `
-      <div class="checkout-steps">
+      <div class="steps">
       <div class="${steps ? 'active' : ''}">Signin</div>
       <div class="${steps ? 'active' : ''}">Shipping</div>
       <div class="${steps ? 'active' : ''}">Payment</div>
