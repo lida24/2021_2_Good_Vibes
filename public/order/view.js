@@ -45,8 +45,8 @@ export default class Order extends View {
         `;
     };
 
-    ratingElem.innerHTML = temp(this.#context.rating);
-    ratingParent.replaceWith(ratingElem);
+    stepsElem.innerHTML = temp(this.#context.steps);
+    stepsParent.replaceWith(stepsElem);
   }
 
   async render() {
