@@ -14,7 +14,7 @@ export default class Order extends View {
 
   #context;
 
-  #generateEvents = orderEvents;
+  //#generateEvents = orderEvents;
 
   constructor(element) {
     super(element);
@@ -31,8 +31,8 @@ export default class Order extends View {
 
   async render() {
     await this.#renderHTML();
-    eventBus.add(orderListeners);
-    this.#generateEvents(this.element);
+    //eventBus.add(orderListeners);
+    //this.#generateEvents(this.element);
     return this.show();
   }
 
