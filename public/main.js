@@ -14,17 +14,17 @@ eventBus.add(ajaxListeners);
 eventBus.on('init', init);
 eventBus.emit('init');
 
-(function () {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js', { scope: '/' })
-      .then((registration) => {
-        console.log('sw registration on scope:', registration.scope);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-}());
+// (function () {
+//   if ('serviceWorker' in navigator) {
+//     navigator.serviceWorker.register('sw.js', { scope: '/' })
+//       .then((registration) => {
+//         console.log('sw registration on scope:', registration.scope);
+//       })
+//       .catch((err) => {
+//         console.error(err);
+//       });
+//   }
+// }());
 
 
 const root = document.getElementsByClassName('grid-container')[0];

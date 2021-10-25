@@ -35,8 +35,9 @@ const signupListeners = [
     callback: [
       signup.cleanInputs,
       signup.addUser,
-      signup.homepageStateRequest,
+      // signup.homepageStateRequest,
       // signup.addHomepageToHistory
+      signup.showSavedState
     ]
   },
   {

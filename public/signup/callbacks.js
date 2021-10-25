@@ -67,6 +67,10 @@ export const addUser = (responseText) => {
 //   });
 // };
 
+export const showSavedState = () => {
+  eventBus.emit('show previous state');
+};
+
 export const homepageStateRequest = () => {
   eventBus.emit('homepage state request');
 };

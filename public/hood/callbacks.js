@@ -6,9 +6,9 @@ export const logoClick = () => {
 
   // eventBus.emit('homepage ajax request');
 
-//   eventBus.emit('showView', {
-//     name: 'Homepage'
-//   });
+  //   eventBus.emit('showView', {
+  //     name: 'Homepage'
+  //   });
 };
 
 export const homepageStateRequest = () => {
@@ -24,7 +24,6 @@ export const profileStateRequest = () => {
 export const addHomepageToHistory = () => {
   eventBus.emit('history add', 'homepage');
 };
-
 
 export const showCart = () => {
   eventBus.emit('showView', {

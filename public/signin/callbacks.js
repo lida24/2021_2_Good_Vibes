@@ -7,8 +7,12 @@ export const signupStateRequest = () => {
   eventBus.emit('signup state request');
 };
 
-export const homepageStateRequest = () => {
-  eventBus.emit('homepage state request');
+// export const homepageStateRequest = () => {
+//   eventBus.emit('homepage state request');
+// };
+
+export const showSavedState = () => {
+  eventBus.emit('show saved state');
 };
 
 export const showHomepage = () => {
