@@ -1,11 +1,11 @@
 /* eslint-disable import/extensions */
-import * as model from './callbacks.js';
+import * as cart from './callbacks.js';
 
 const cartListeners = [
   {
-    event: 'cart response',
+    event: 'order click',
     callback: [
-      model.cartResponse
+      cart.showOrder
     ]
   }
 ];

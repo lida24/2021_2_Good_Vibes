@@ -71,3 +71,11 @@ export const cart = () => {
   .then(({ responseText }) => eventBus.emit('cart response', responseText))
   .catch((error) => console.error(error));
 };
+
+export const cart = () => {
+  ajax.get({
+    url: `${backendAddress}/cart/confirm`
+  })
+  .then(({ responseText }) => eventBus.emit('order response', responseText))
+  .catch((error) => console.error(error));
+};
