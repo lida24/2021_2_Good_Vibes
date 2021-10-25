@@ -38,6 +38,6 @@ export const request = () => {
 
 // };
 
-export const contextRequest = () => {
+export const productContextRequest = () => {
   eventBus.emit('product context request');
 };

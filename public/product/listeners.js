@@ -20,7 +20,7 @@ const productListeners = [
     event: 'cart click',
     callback:
       // product.addToCart
-      product.contextRequest
+      product.productContextRequest
     // product.showContext
   },
   {
