@@ -9,22 +9,29 @@ const productListeners = [
       product.homepageStateRequest,
       // product.addHomepageToHistory
     ]
-//     callback: () => {
-//       console.log('backToResult click');
-//       eventBus.emit('showView', {
-//         name: 'Homepage'
-//       });
-//     }
+    //     callback: () => {
+    //       console.log('backToResult click');
+    //       eventBus.emit('showView', {
+    //         name: 'Homepage'
+    //       });
+    //     }
   },
   {
     event: 'cart click',
     callback:
-      product.addToCart
+      // product.addToCart
+      product.contextRequest
+    // product.showContext
   },
-//     callback: [
-//       product.homepageStateRequest,
-//       // product.addHomepageToHistory
-//     ]
+  {
+    event: 'product context response',
+    callback:
+      product.addToCart
+  }
+  //     callback: [
+  //       product.homepageStateRequest,
+  //       // product.addHomepageToHistory
+  //     ]
 ];
 
 export default productListeners;

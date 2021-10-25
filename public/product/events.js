@@ -18,6 +18,8 @@ const productEvents = (element) => {
 
   cartBtn.addEventListener('click', (event) => {
     event.preventDefault();
+    // eventBus.emit('cart click');
+    // console.log(element.parentNode.getContext);
     eventBus.emit('cart click');
   });
 

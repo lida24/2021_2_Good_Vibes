@@ -165,7 +165,7 @@ const viewDispatcherListeners = [
     callback: [
       model.showSavedState
     ]
-  }
+  },
 
   // const obj = {
   //   showSavedState: 'show saved state'
@@ -183,6 +183,13 @@ const viewDispatcherListeners = [
   //   event: 'homepage show request',
   // }
 
+  // =============================
+  {
+    event: 'product context request',
+    callback: [
+      model.productContextRequest
+    ]
+  }
 ];
 
 export default viewDispatcherListeners;
