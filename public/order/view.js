@@ -32,9 +32,6 @@ export default class Order extends View {
     stepsElem.className = 'steps';
 
     const temp = (steps) => {
-      if (!steps) {
-        return '<div></div>';
-      }
       return `
       <div class="steps">
       <div class="${steps ? 'active' : ''}">Signin</div>
