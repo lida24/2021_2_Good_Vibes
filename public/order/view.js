@@ -31,18 +31,18 @@ export default class Order extends View {
     const stepsElem = document.createElement('div');
     stepsElem.className = 'steps';
 
-    const temp = (steps) => {
+    const temp = (step) => {
       return `
       <div class="steps">
-      <div class="${steps ? 'active' : ''}">Signin</div>
-      <div class="${steps ? 'active' : ''}">Shipping</div>
-      <div class="${steps ? 'active' : ''}">Payment</div>
-      <div class="${steps ? 'active' : ''}">Place Order</div>
+      <div class="${step ? 'active' : ''}">Signin</div>
+      <div class="${step ? 'active' : ''}">Shipping</div>
+      <div class="${step ? 'active' : ''}">Payment</div>
+      <div class="${step ? 'active' : ''}">Place Order</div>
     </div>
         `;
     };
 
-    stepsElem.innerHTML = temp(this.#context.steps);
+    stepsElem.innerHTML = temp(this.#context.step);
     stepsParent.replaceWith(stepsElem);
   }
 
