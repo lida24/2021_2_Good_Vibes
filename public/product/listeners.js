@@ -19,7 +19,7 @@ const productListeners = [
   {
     event: 'cart click',
     callback:
-      product.showCart
+      product.addToCart
   },
 //     callback: [
 //       product.homepageStateRequest,

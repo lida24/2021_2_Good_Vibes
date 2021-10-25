@@ -2,7 +2,12 @@
 import eventBus from '../scripts/eventBus.js';
 
 const cartEvents = (element) => {
-  eventBus.emit('cart ajax request');
+  const orderBtn = element.getElementsByClassName('primary fw')[0];
+
+  orderBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    eventBus.emit('order click');
+  });
 };
 
 export default cartEvents;
