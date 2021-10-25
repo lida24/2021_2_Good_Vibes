@@ -26,10 +26,34 @@ export default class Order extends View {
     this.element.innerHTML = html;
   }
 
+  #createStepsHTML() {
+    const stepsParent = this.element.getElementsByClassName('steps')[0];
+    const stepsElem = document.createElement('div');
+    stepsElem.className = 'steps';
+
+    const temp = (steps) => {
+      if (!steps) {
+        return '<div></div>';
+      }
+      return `
+      <div class="checkout-steps">
+      <div class="${steps ? 'active' : ''}">Signin</div>
+      <div class="${steps ? 'active' : ''}">Shipping</div>
+      <div class="${steps ? 'active' : ''}">Payment</div>
+      <div class="${steps ? 'active' : ''}">Place Order</div>
+    </div>
+        `;
+    };
+
+    ratingElem.innerHTML = temp(this.#context.rating);
+    ratingParent.replaceWith(ratingElem);
+  }
+
   async render() {
     await this.#renderHTML();
     //eventBus.add(orderListeners);
     //this.#generateEvents(this.element);
+    this.#createStepsHTML();
     return this.show();
   }
 
