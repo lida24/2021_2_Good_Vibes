@@ -73,6 +73,9 @@ class Router {
   }
 
   start() {
+
+    eventBus.emit('init');
+
     console.log('router start');
 
     this.root.addEventListener('click', (event) => {

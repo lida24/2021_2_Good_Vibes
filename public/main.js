@@ -12,7 +12,7 @@ import routerListeners from './router/listeners.js';
 eventBus.add(viewDispatcherListeners);
 eventBus.add(ajaxListeners);
 eventBus.on('init', init);
-eventBus.emit('init');
+// eventBus.emit('init');
 
 (function () {
   if ('serviceWorker' in navigator) {
