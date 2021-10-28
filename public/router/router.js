@@ -34,22 +34,7 @@ class Router {
 
     if (!route) {
       this.open('/');
-      // return;
     }
-
-    // if (window.location.pathname !== path) {
-    //   const historyState = {
-    //     state: this.routes[path].state
-    //   };
-
-    //   window.history.pushState(
-    //     historyState,
-    //     this.routes[path].state,
-    //     path
-    //   );
-    // }
-
-    // console.log(window.history);
   }
 
   hrefget = (target) => {
@@ -95,7 +80,9 @@ class Router {
       const requieredState = this.urlHandler(path);
 
       eventBus.emit(`${requieredState} state request`, id);
+      // eventBus.emit(`${requieredState} show request`, id);
     });
+
 
     const currentPath = window.location.pathname;
 

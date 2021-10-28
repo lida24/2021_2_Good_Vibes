@@ -60,14 +60,22 @@ export const product = (id) => {
   ajax.get({
     url: `${backendAddress}/product?id=${id}`
   })
-    .then(({ responseText }) => {
-      eventBus.emit('product request success', { responseText });
-      // console.log(responseText);
-    })
-    // .catch((error) => console.error(error));
-    .catch(({ responseText }) => {
-      eventBus.emit('product request fail', { responseText });
-      // console.log(responseText);
-    });
+    .then(({ responseText }) => eventBus.emit('product request success', { responseText }))
+    .catch(({ responseText }) => eventBus.emit('product request fail', { responseText }));
 };
 
+export const cart = () => {
+  ajax.get({
+    url: `${backendAddress}/cart`
+  })
+  .then(({ responseText }) => eventBus.emit('cart response', responseText))
+  .catch((error) => console.error(error));
+};
+
+export const order = () => {
+  ajax.get({
+    url: `${backendAddress}/cart/confirm`
+  })
+  .then(({ responseText }) => eventBus.emit('order response', responseText))
+  .catch((error) => console.error(error));
+};

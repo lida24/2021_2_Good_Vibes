@@ -6,16 +6,38 @@ const hoodListeners = [
     event: 'logo button click',
     callback: [
       hood.homepageStateRequest,
-      hood.addHomepageToHistory
+      // hood.addHomepageToHistory
     ]
   },
   {
     event: 'profile button click',
     callback: [
       hood.profileStateRequest,
-      hood.addProfileToHistory
+      // hood.addProfileToHistory
     ]
-  }
+  },
+  // {
+  //   event: 'authorization',
+  //   callback: [
+  //     () => {
+  //       console.log('authorization');
+  //     }
+  //   ]
+  // },
+  // {
+  //   event: 'no authorization',
+  //   callback: [
+  //     () => {
+  //       console.log('no authorization');
+  //     }
+  //   ]
+  // },
+  {
+    event: 'cart-click',
+    callback: [
+      hood.showCart
+    ]
+  },
 ];
 
 export default hoodListeners;

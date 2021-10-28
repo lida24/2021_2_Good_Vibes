@@ -1,7 +1,7 @@
-[[edge_handlers]]
-  path = "/*"
-  handler = "logRequest"
+[context.production]
+  publish = "public/"
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/"
+  status = 200

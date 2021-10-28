@@ -12,6 +12,17 @@ const productEvents = (element) => {
 
     eventBus.emit('backToResult click');
   });
+
+  //-------------------------------------
+  const cartBtn = element.getElementsByClassName('fw add-button primary')[0];
+
+  cartBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    // eventBus.emit('cart click');
+    // console.log(element.parentNode.getContext);
+    eventBus.emit('cart click');
+  });
+
 };
 
 export default productEvents;

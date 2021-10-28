@@ -2,6 +2,7 @@
 // import eventBus from '../events/eventBus.js';
 import * as model from './callbacks.js';
 // import eventBus from '../scripts/eventBus.js';
+import * as history from './history.js';
 
 const viewDispatcherListeners = [
   {
@@ -11,22 +12,12 @@ const viewDispatcherListeners = [
       model.rout
     ]
   },
-  // {
-  //   event: 'no authorization',
-  //   callback: [
-  //     model.showSignin
-  //   ]
-  // },
-  // {
-  //   event: 'authorization',
-  //   callback: [
-  //     model.showProfile
-  //   ]
-  // },
+
   {
     event: 'logout success',
     callback: [
-      model.homepageStateRequest,
+      // model.homepageStateRequest,
+      model.showSavedState,
       model.deleteUser
     ]
   },
@@ -43,6 +34,7 @@ const viewDispatcherListeners = [
     callback: [
       model.homepageStateConfirmed,
       // model.histAdd
+      history.add
     ]
   },
   {
@@ -56,19 +48,36 @@ const viewDispatcherListeners = [
   {
     event: 'profile state request',
     callback: [
-      model.profileStateRequest
+      model.saveCurrentState,
+      model.profileStateRequest,
+
     ]
   },
   {
     event: 'no authorization',
     callback: [
-      model.profileStateDenied
+      //       model.showSignin,
+      model.profileStateDeniedEmit
     ]
   },
   {
     event: 'authorization',
     callback: [
-      model.profileStateConfirmed
+      model.profileStateConfirmedEmit,
+      // historyAdd
+    ]
+  },
+  {
+    event: 'profile state denied',
+    callback: [
+      model.profileStateDenied
+    ]
+  },
+  {
+    event: 'profile state confirmed',
+    callback: [
+      model.profileStateConfirmed,
+      history.add
     ]
   },
 
@@ -83,7 +92,7 @@ const viewDispatcherListeners = [
     event: 'signin state confirmed',
     callback: [
       model.signinStateConfirmed,
-      // model.histAdd
+      history.add
     ]
   },
   {
@@ -118,7 +127,7 @@ const viewDispatcherListeners = [
     event: 'signup state confirmed',
     callback: [
       model.signupStateConfirmed,
-      // model.histAdd
+      history.add
     ]
   },
   {
@@ -132,14 +141,16 @@ const viewDispatcherListeners = [
   {
     event: 'product state request',
     callback: [
-      model.productStateRequest
+      model.productStateRequest,
+      history.addProduct,
     ]
   },
   {
     event: 'product state confirmed',
     callback: [
-      model.productStateConfirmed
-      // model.histAdd
+      model.productStateConfirmed,
+      // history.addProduct,
+      // history.add
     ]
   },
   {
@@ -149,6 +160,36 @@ const viewDispatcherListeners = [
     ]
   },
 
+  {
+    event: 'show saved state',
+    callback: [
+      model.showSavedState
+    ]
+  },
+
+  // const obj = {
+  //   showSavedState: 'show saved state'
+  // }
+
+  // {
+  //   event: 'signin success',
+  //   callback: [
+
+  //   ]
+  // }
+
+  // // ================================
+  // {
+  //   event: 'homepage show request',
+  // }
+
+  // =============================
+  {
+    event: 'product context request',
+    callback: [
+      model.productContextRequest
+    ]
+  }
 ];
 
 export default viewDispatcherListeners;

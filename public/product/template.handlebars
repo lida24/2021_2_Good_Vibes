@@ -20,7 +20,7 @@
         <li>
           Описание:
           <div>
-            Здесь будет прекрасное описание товара
+            {{description}}
           </div>
         </li>
       </ul>
@@ -28,11 +28,12 @@
     <div class="details-action">
       <ul>
         <li>
-          Price: $${{price}}
+          Цена: ${{price}}
         </li>
         <li>
-          Status: {{countInStock}} > 0 ? `<span class="success">In Stock</span>`:
-          `<span class="error">Unavailable</span>`
+          <div class="status">
+            status
+          </div>
         </li>
         <li>
           <button id="add-button" class="fw add-button primary">Добавить в корзину</button>

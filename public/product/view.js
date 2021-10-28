@@ -4,6 +4,7 @@ import productEvents from './events.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
 import eventBus from '../scripts/eventBus.js';
 import productListeners from './listeners.js';
+import cart from '../objects/cart.js'
 
 const productUrl = './product/template.handlebars';
 
@@ -24,6 +25,10 @@ export default class Product extends View {
   setContext(context) {
     this.#context = context;
     // this.renderHTML();
+  }
+
+  getContext() {
+    return this.#context;
   }
 
   async #renderHTML() {
@@ -58,11 +63,34 @@ export default class Product extends View {
     ratingParent.replaceWith(ratingElem);
   }
 
+  #createStatusHTML() {
+    const statusParent = this.element.getElementsByClassName('status')[0];
+    const statusElem = document.createElement('div');
+    statusElem.className = 'status';
+
+    const temp = (count_in_stock) => {
+      if (count_in_stock > 0) {
+        return `
+        Статус: <span class="success">В наличии</span>
+        `;
+      } else {
+        return `
+        Статус: <span class="error">Нет в наличии</span>
+        `;
+      }
+    };
+    statusElem.innerHTML = temp(this.#context.count_in_stock);
+    statusParent.replaceWith(statusElem);
+  }
+
   async render() {
     await this.#renderHTML();
     eventBus.add(productListeners);
     this.#generateEvents(this.element);
     this.#createRatingHTML();
+    this.#createStatusHTML();
+    //const cartItems = cart.getCartItems();
+    //console.log(cartItems);
     return this.show();
   }
 

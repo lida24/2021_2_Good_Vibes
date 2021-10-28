@@ -13,7 +13,8 @@ const profileListeners = [
     callback: [
       // profile.signoutStateRequest
       profile.logout,
-      profile.addHomepageToHistory
+      // profile.addHomepageToHistory,
+      // profile.
     ]
   }
 ];

@@ -8,7 +8,7 @@ const signinListeners = [
       signin.cleanInputs,
       signin.hideError,
       signin.signupStateRequest,
-      signin.addSignupToHistory
+      // signin.addSignupToHistory
     ]
   },
   {
@@ -35,8 +35,9 @@ const signinListeners = [
     callback: [
       signin.cleanInputs,
       signin.addUser,
-      signin.homepageStateRequest,
-      signin.addHomepageToHistory
+      // signin.homepageStateRequest,
+      // signin.addHomepageToHistory,
+      signin.showSavedState
     ]
   },
   {
