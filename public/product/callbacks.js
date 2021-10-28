@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import eventBus from '../scripts/eventBus.js';
 import cart from '../objects/cart.js';
+import { response } from 'express';
 
 /* export const showCart = () => {
   eventBus.emit('profile ajax request');
@@ -8,8 +9,8 @@ import cart from '../objects/cart.js';
 export const addToCart = (responseText) => {
 
   try {
-    let cartItems = responseText.id;
-    console.log(cartItems);
+    let cartItems = getCartItems();
+    //console.log(cartItems);
     /* if (!cartItems.numbers['213']) {
 
     } */
@@ -17,13 +18,13 @@ export const addToCart = (responseText) => {
     const existItem = cartItems.find((x) => x.id === responseText.id);
     if (existItem) {
       cartItems = cartItems.map((x) =>
-        x.id === existItem.id ? item : x
+        x.id === existItem.id ? responseText : x
       );
     } else {
       cartItems = [...cartItems, responseText];
     }
     cart.setCartItems(cartItems);
-    console.log(cart.length());
+   // console.log(cart.length());
   } catch (error) {
     console.error(error);
   }
