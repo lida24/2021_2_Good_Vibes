@@ -8,7 +8,7 @@ import cart from '../objects/cart.js';
 export const addToCart = (responseText) => {
 
   try {
-    let cartItems = responseText;
+    let cartItems = responseText.id;
     console.log(cartItems);
     /* if (!cartItems.numbers['213']) {
 
