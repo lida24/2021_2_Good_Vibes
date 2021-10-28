@@ -33,6 +33,8 @@ export default class Cart extends View {
     await this.#renderHTML();
     eventBus.add(cartListeners);
     this.#generateEvents(this.element);
+    const cartItems = cart.getCartItems();
+    console.log(cartItems);
     return this.show();
   }
 
