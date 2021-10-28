@@ -9,7 +9,7 @@ export const addToCart = (responseText) => {
   console.log(responseText);
 
   try {
-    let cartItems = responseText;
+    let cartItems = responseText.product;
     console.log(cartItems);
     /* if (!cartItems.numbers['213']) {
 
