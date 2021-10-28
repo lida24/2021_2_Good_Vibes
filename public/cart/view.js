@@ -58,7 +58,7 @@ export default class Cart extends View {
                   </a>
                 </div>
                 <div>
-                  <h3>Кол-во: </h3>
+                  Кол-во:
                   <select class="qty-select" id="${item.product}">
                     <option value="1">1</option>
                   </select>
