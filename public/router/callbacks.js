@@ -1,8 +1,5 @@
 /* eslint-disable import/extensions */
-
 import router from './router.js';
-
-// };
 
 export const rout = () => {
   router.rout();

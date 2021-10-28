@@ -43,3 +43,5 @@ router
   .register('/product', 'product');
 
 router.start();
+
+console.log(window.location.pathname);
