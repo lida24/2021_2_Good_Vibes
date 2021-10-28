@@ -1,4 +1,4 @@
-/* eslint-disable import/extensions
+/* eslint-disable import/extensions */
 import eventBus from '../scripts/eventBus.js';
 
 const cartEvents = (element) => {
@@ -11,4 +11,3 @@ const cartEvents = (element) => {
 };
 
 export default cartEvents;
- */
