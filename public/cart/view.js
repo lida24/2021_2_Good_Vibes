@@ -68,7 +68,10 @@ export default class Cart extends View {
             </li>
             `
                   )
-                  .join('\n')
+                  .join('\n');
+                  statusElem.innerHTML = temp(this.#context.item);
+                  statusParent.replaceWith(statusElem);
+
   }
 
 
