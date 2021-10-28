@@ -1,13 +1,13 @@
 class Cart {
     getCartItems = () => {
-        const cartItems = this.getItem('cartItems')
-            ? JSON.parse(this.getItem('cartItems'))
+        const cartItems = localStorage.getItem('cartItems')
+            ? JSON.parse(localStorage.getItem('cartItems'))
             : [];
         return cartItems;
     };
 
     setCartItems = (cartItems) => {
-        this.setItem('cartItems', JSON.stringify(cartItems));
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
     };
 
     /* addToCart = (item, forceUpdate = false) => {
