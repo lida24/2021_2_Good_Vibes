@@ -89,9 +89,6 @@ export default class Cart extends View {
             :
             $${cart.getCartItems().reduce((a, c) => a + c.price * c.qty, 0)}
           </h3>
-          <button id="checkout-button" class="primary fw">
-            Оформить заказ
-          </button>
           `;
     subParent.appendChild(subElem);
   }
