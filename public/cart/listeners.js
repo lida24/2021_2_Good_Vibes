@@ -14,6 +14,24 @@ const cartListeners = [
       cart.renderItemCart
     ]
   },
+  {
+    event: 'renderItemArray',
+    callback: [
+      cart.renderItemArray
+    ]
+  },
+  {
+    event: 'cartpageLoaded',
+    callback: [
+      cart.cartpageLoaded
+    ]
+  },
+  {
+    event: 'cart response',
+    callback: [
+      cart.cartpageResponse
+    ]
+  }
 ];
 
 export default cartListeners;
