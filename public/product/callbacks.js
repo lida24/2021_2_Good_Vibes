@@ -6,7 +6,6 @@ import cart from '../objects/cart.js';
   eventBus.emit('profile ajax request');
 }; */
 export const addToCart = (responseText) => {
-  console.log(responseText);
 
   try {
     let cartItems = responseText;
@@ -24,7 +23,7 @@ export const addToCart = (responseText) => {
       cartItems = [...cartItems, responseText];
     }
     cart.setCartItems(cartItems);
-    //console.log(cart.getCartItems().length);
+    console.log(cart.getCartItems().length);
   } catch (error) {
     console.error(error);
   }
