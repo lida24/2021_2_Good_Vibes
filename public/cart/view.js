@@ -15,7 +15,7 @@ export default class Cart extends View {
 
   #context;
 
-  #generateEvents = cartEvents;
+  //#generateEvents = cartEvents;
 
   constructor(element) {
     super(element);
@@ -100,7 +100,7 @@ export default class Cart extends View {
   async render() {
     await this.#renderHTML();
     eventBus.add(cartListeners);
-    this.#generateEvents(this.element);
+    //this.#generateEvents(this.element);
     //this.#createItemsHTML();
     //this.#createSubtotalHTML();
     //console.log(cartItems);
