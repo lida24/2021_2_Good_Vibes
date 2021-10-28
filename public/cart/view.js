@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import View from '../scripts/view.js';
-/* import cartEvents from './events.js'; */
+import cartEvents from './events.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
 import eventBus from '../scripts/eventBus.js';
 import cartListeners from './listeners.js';
@@ -102,7 +102,7 @@ export default class Cart extends View {
     eventBus.add(cartListeners);
     this.#generateEvents(this.element);
     this.#createItemsHTML();
-    this.#createSubtotalHTML();
+    //this.#createSubtotalHTML();
     //console.log(cartItems);
     return this.show();
   }
