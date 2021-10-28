@@ -6,13 +6,13 @@ import cart from '../objects/cart.js';
   eventBus.emit('profile ajax request');
 }; */
 export const addToCart = (cartItems) => {
-  // console.log(responseText);
+  console.log(responseText);
 
   try {
     // let cartItems = JSON.parse(responseText);
-    if (!cartItems.numbers['213']) {
+    /* if (!cartItems.numbers['213']) {
 
-    }
+    } */
 
     const existItem = cartItems.find((x) => x.product === item.product);
     if (existItem) {
