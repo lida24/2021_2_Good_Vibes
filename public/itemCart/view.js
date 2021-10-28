@@ -2,7 +2,7 @@
 
 import eventBus from '../scripts/eventBus.js';
 /* import itemCartEvents from './events.js'; */
-import itemCartListeners from './listeners.js';
+/* import itemCartListeners from './listeners.js'; */
 import generateContentHTML from '../scripts/loadTemplates.js';
 import View from '../scripts/view.js';
 
