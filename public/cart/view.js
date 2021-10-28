@@ -58,12 +58,12 @@ export default class Cart extends View {
                   </a>
                 </div>
                 <div>
-                  Qty:
+                  <h3>Кол-во: </h3>
                   <select class="qty-select" id="${item.product}">
                     <option value="1">1</option>
                   </select>
                   <button type="button" class="delete-button" id="${item.product}">
-                    Delete
+                    Удалить
                   </button>
                 </div>
               </div>
