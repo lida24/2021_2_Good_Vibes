@@ -10,10 +10,6 @@ export const addToCart = (responseText) => {
 
   try {
     let cartItems = cart.getCartItems();
-    //console.log(cartItems);
-    /* if (!cartItems.numbers['213']) {
-
-    } */
 
     const existItem = cartItems.find((x) => x.id === responseText.id);
     if (existItem) {
@@ -24,7 +20,7 @@ export const addToCart = (responseText) => {
       cartItems = [...cartItems, responseText];
     }
     cart.setCartItems(cartItems);
-   console.log(cart.getCartItems());
+  // console.log(cart.getCartItems());
   } catch (error) {
     console.error(error);
   }
