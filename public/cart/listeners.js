@@ -7,7 +7,13 @@ const cartListeners = [
     callback: [
       cart.showOrder
     ]
-  }
+  },
+  {
+    event: 'renderItemCart',
+    callback: [
+      cart.renderItemCart
+    ]
+  },
 ];
 
 export default cartListeners;

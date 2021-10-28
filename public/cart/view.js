@@ -101,8 +101,8 @@ export default class Cart extends View {
     await this.#renderHTML();
     eventBus.add(cartListeners);
     this.#generateEvents(this.element);
-    this.#createItemsHTML();
-    this.#createSubtotalHTML();
+    //this.#createItemsHTML();
+    //this.#createSubtotalHTML();
     //console.log(cartItems);
     return this.show();
   }
