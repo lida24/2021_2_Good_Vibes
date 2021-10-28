@@ -4,6 +4,7 @@ import cartEvents from './events.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
 import eventBus from '../scripts/eventBus.js';
 import cartListeners from './listeners.js';
+import cart from '../objects/cart.js';
 
 const cartUrl = './cart/template.handlebars';
 
