@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import View from '../scripts/view.js';
-import cartEvents from './events.js';
+/* import cartEvents from './events.js'; */
 import generateContentHTML from '../scripts/loadTemplates.js';
 import eventBus from '../scripts/eventBus.js';
 import cartListeners from './listeners.js';
@@ -53,16 +53,16 @@ export default class Cart extends View {
               </div>
               <div class="cart-name">
                 <div>
-                  <a href="/#/product/${item.product}">
+                  <a href="/#/product/${item.id}">
                     ${item.name}
                   </a>
                 </div>
                 <div>
                   Кол-во:
-                  <select class="qty-select" id="${item.product}">
+                  <select class="qty-select" id="${item.id}">
                     <option value="1">1</option>
                   </select>
-                  <button type="button" class="delete-button" id="${item.product}">
+                  <button type="button" class="delete-button" id="${item.id}">
                     Удалить
                   </button>
                 </div>
