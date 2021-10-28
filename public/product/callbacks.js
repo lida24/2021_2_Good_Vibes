@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import eventBus from '../scripts/eventBus.js';
 import cart from '../objects/cart.js';
-import { response } from 'express';
+/*import { response } from 'express';*/
 
 /* export const showCart = () => {
   eventBus.emit('profile ajax request');
