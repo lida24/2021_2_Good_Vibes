@@ -75,17 +75,25 @@ export default class Cart extends View {
 
         )
         .join('\n');
-
-
-
-
-
     }
-
-    // console.log(cartItems);
-    // const container = document.getElementsByClassName('items')[0];
-
     itemParent.appendChild(itemElem);
+  }
+
+  #createSubtotalHTML() {
+    const subParent = this.element.getElementsByClassName('cart-action')[0];
+    const subElem = document.createElement('div');
+    subElem.className = 'cart-action';
+    subElem.innerHTML = `
+    <h3>
+            Итого (${cart.getCartItems().reduce((a, c) => a + c.qty, 0)} товаров)
+            :
+            $${cart.getCartItems().reduce((a, c) => a + c.price * c.qty, 0)}
+          </h3>
+          <button id="checkout-button" class="primary fw">
+            Оформить заказ
+          </button>
+          `;
+    subParent.appendChild(subElem);
   }
 
 
@@ -94,6 +102,7 @@ export default class Cart extends View {
     eventBus.add(cartListeners);
     this.#generateEvents(this.element);
     this.#createItemsHTML();
+    this.#createSubtotalHTML();
     //console.log(cartItems);
     return this.show();
   }
