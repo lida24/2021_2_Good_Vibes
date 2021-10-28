@@ -31,9 +31,9 @@ export default class Cart extends View {
   }
 
   #createItemsHTML() {
-    const ratingParent = this.element.getElementsByClassName('items')[0];
-    const ratingElem = document.createElement('div');
-    ratingElem.className = 'items';
+    const itemParent = this.element.getElementsByClassName('items')[0];
+    const itemElem = document.createElement('div');
+    itemElem.className = 'items';
 
     const cartItems = cart.getCartItems();
 
@@ -69,8 +69,8 @@ export default class Cart extends View {
             `
                   )
                   .join('\n');
-                  statusElem.innerHTML = temp(this.#context.item);
-                  statusParent.replaceWith(statusElem);
+                  itemElem.innerHTML = temp(this.#context.item);
+                  itemParent.replaceWith(itemElem);
 
   }
 
