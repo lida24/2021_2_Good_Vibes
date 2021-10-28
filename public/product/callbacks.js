@@ -9,12 +9,13 @@ export const addToCart = (responseText) => {
   console.log(responseText);
 
   try {
-    // let cartItems = JSON.parse(responseText);
+    let cartItems = JSON.parse(responseText);
+    console.log(cartItems);
     /* if (!cartItems.numbers['213']) {
 
     } */
 
-    const existItem = cartItems.find((x) => x.product === item.product);
+    /*const existItem = cartItems.find((x) => x.product === item.product);
     if (existItem) {
       cartItems = cartItems.map((x) =>
         x.product === existItem.product ? item : x
@@ -23,7 +24,7 @@ export const addToCart = (responseText) => {
       cartItems = [...cartItems, item];
     }
     cart.setCartItems(cartItems);
-    console.log(cart.getCartItems().length);
+    console.log(cart.getCartItems().length);*/
   } catch (error) {
     console.error(error);
   }
