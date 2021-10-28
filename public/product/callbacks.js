@@ -24,7 +24,7 @@ export const addToCart = (responseText) => {
       cartItems = [...cartItems, responseText];
     }
     cart.setCartItems(cartItems);
-   console.log(cart.getCartItems().length);
+   console.log(cart.getCartItems());
   } catch (error) {
     console.error(error);
   }
