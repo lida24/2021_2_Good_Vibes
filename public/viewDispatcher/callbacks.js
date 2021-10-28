@@ -403,3 +403,12 @@ export const showSavedState = () => {
   eventBus.emit(`${temp[1]} state request`, temp2[1]);
 };
 
+export const productContextRequest = () => {
+  // console.log(currentState);
+  const viewName = currentState[0].toUpperCase() + currentState.slice(1);
+  const viewObj = view[viewName].element;
+
+  eventBus.emit('product context response', viewObj.getContext());
+  // console.log(temp3.getContext());
+
+};

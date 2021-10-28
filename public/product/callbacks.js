@@ -5,9 +5,15 @@ import cart from '../objects/cart.js';
 /* export const showCart = () => {
   eventBus.emit('profile ajax request');
 }; */
-export const addToCart = (responseText) => {
+export const addToCart = (cartItems) => {
+  // console.log(responseText);
+
   try {
-    let cartItems = JSON.parse(responseText);
+    // let cartItems = JSON.parse(responseText);
+    if (!cartItems.numbers['213']) {
+
+    }
+
     const existItem = cartItems.find((x) => x.product === item.product);
     if (existItem) {
       cartItems = cartItems.map((x) =>
@@ -26,4 +32,12 @@ export const addToCart = (responseText) => {
 
 export const request = () => {
   eventBus.emit('product ajax request');
+};
+
+// export const showContext = () => {
+
+// };
+
+export const productContextRequest = () => {
+  eventBus.emit('product context request');
 };
