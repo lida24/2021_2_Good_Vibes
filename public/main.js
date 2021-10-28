@@ -31,6 +31,8 @@ const root = document.getElementsByClassName('grid-container')[0];
 
 // const router = new Router();
 router.set(root);
+eventBus.add(routerListeners);
+
 router
   .register('/', 'homepage')
   .register('/homepage', 'homepage')
@@ -40,5 +42,3 @@ router
   .register('/logout', 'signout')
   .register('/product', 'product');
 router.start();
-
-eventBus.add(routerListeners);
