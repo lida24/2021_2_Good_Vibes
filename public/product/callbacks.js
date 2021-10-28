@@ -5,7 +5,7 @@ import cart from '../objects/cart.js';
 /* export const showCart = () => {
   eventBus.emit('profile ajax request');
 }; */
-export const addToCart = (cartItems) => {
+export const addToCart = (responseText) => {
   console.log(responseText);
 
   try {
