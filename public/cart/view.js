@@ -88,9 +88,9 @@ export default class Cart extends View {
 
     subElem.innerHTML = `
     <h3>
-            Итого (${cartItems.reduce((a, c) => a + c.qty, 0)} товаров)
+            Итого (${cartItems.reduce((a, c) => a + c.count_in_stock, 0)} товаров)
             :
-            $${cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
+            $${cartItems.reduce((a, c) => a + c.price * c.count_in_stock, 0)}
           </h3>
           `;
     subParent.appendChild(subElem);
