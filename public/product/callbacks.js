@@ -15,16 +15,16 @@ export const addToCart = (responseText) => {
 
     } */
 
-    /*const existItem = cartItems.find((x) => x.product === item.product);
+    const existItem = cartItems.find((x) => x.id === responseText.id);
     if (existItem) {
       cartItems = cartItems.map((x) =>
-        x.product === existItem.product ? item : x
+        x.id === existItem.id ? item : x
       );
     } else {
-      cartItems = [...cartItems, item];
+      cartItems = [...cartItems, responseText];
     }
     cart.setCartItems(cartItems);
-    console.log(cart.getCartItems().length);*/
+    //console.log(cart.getCartItems().length);
   } catch (error) {
     console.error(error);
   }
