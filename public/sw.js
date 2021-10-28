@@ -1,4 +1,29 @@
+// import eventBus from './scripts/eventBus.js';
+// this.importScripts('foo.js')
+
+// this.importScripts('./scripts/eventBus.js');
+
 const CACHE_NAME = 'Ozon2.0 cache';
+
+// const offlineFoo = () => {
+//   // console.log('offline');
+//   // console.log(window.blur());
+//   // window.blur();
+
+//   console.log(document.getElementsByClassName('main-container')[0]);
+
+//   const temp = document.getElementsByClassName('main-container')[0];
+
+//   temp.style.visibility = 'hidden';
+
+
+
+// };
+
+// const onlineFoo = () => {
+//   // console.log('online');
+//   // eventBus.emit('smth');
+// };
 
 this.addEventListener('install', (event) => {
   let cacheUrls = ['/'];
@@ -23,9 +48,11 @@ this.addEventListener('install', (event) => {
 
 this.addEventListener('fetch', (event) => {
   if (navigator.onLine === true) {
+    // onlineFoo();
     return fetch(event.request);
   }
 
+  // offlineFoo();
   event.respondWith(
     caches
       .match(event.request)
