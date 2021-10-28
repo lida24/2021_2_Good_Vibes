@@ -80,9 +80,9 @@ export default class Cart extends View {
   }
 
   #createSubtotalHTML() {
-    const subParent = this.element.getElementsByClassName('cart-action')[0];
+    const subParent = this.element.getElementsByClassName('subtotal')[0];
     const subElem = document.createElement('div');
-    subElem.className = 'cart-action';
+    subElem.className = 'subtotal';
     subElem.innerHTML = `
     <h3>
             Итого (${cart.getCartItems().reduce((a, c) => a + c.qty, 0)} товаров)
