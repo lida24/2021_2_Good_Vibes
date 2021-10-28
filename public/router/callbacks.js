@@ -1,6 +1,11 @@
-export const rout = (name) => {
-  console.log('rout', name);
+/* eslint-disable import/extensions */
 
+import router from './router.js';
+
+// };
+
+export const rout = () => {
+  router.rout();
 };
 
 export const add = (name) => {

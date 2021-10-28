@@ -9,7 +9,7 @@ const viewDispatcherListeners = [
     event: 'showView',
     callback: [
       model.showView,
-      model.rout
+      // model.rout
     ]
   },
 

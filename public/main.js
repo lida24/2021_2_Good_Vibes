@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import eventBus from './scripts/eventBus.js';
-import { init, rout } from './viewDispatcher/callbacks.js';
+import { init } from './viewDispatcher/callbacks.js';
 import viewDispatcherListeners from './viewDispatcher/listeners.js';
 import ajaxListeners from './ajax/listeners.js';
 // import Router from './scripts/router.js';
@@ -41,4 +41,5 @@ router
   .register('/profile', 'profile')
   .register('/logout', 'signout')
   .register('/product', 'product');
+
 router.start();

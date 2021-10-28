@@ -74,7 +74,7 @@ class Router {
 
   start() {
 
-    eventBus.emit('init');
+
 
     console.log('router start');
 
@@ -120,7 +120,10 @@ class Router {
       );
     }
 
-    this.rout();
+    // setTimeout(this.rout, 300);
+    // this.rout();
+
+    eventBus.emit('init');
 
   }
 }
