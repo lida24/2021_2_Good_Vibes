@@ -89,7 +89,8 @@ export default class Product extends View {
     this.#generateEvents(this.element);
     this.#createRatingHTML();
     this.#createStatusHTML();
-    console.log(cart.getCartItems());
+    const cartItems = cart.getCartItems();
+    console.log(cartItems);
     return this.show();
   }
 
