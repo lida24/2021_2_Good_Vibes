@@ -1,7 +1,6 @@
 /* eslint-disable import/extensions */
 import eventBus from '../scripts/eventBus.js';
 import cart from '../objects/cart.js';
-import { getCartItems } from '../objects/cart.js';
 /*import { response } from 'express';*/
 
 /* export const showCart = () => {
@@ -10,7 +9,7 @@ import { getCartItems } from '../objects/cart.js';
 export const addToCart = (responseText) => {
 
   try {
-    let cartItems = getCartItems();
+    let cartItems = cart.getCartItems();
     //console.log(cartItems);
     /* if (!cartItems.numbers['213']) {
 
