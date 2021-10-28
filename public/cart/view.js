@@ -83,11 +83,14 @@ export default class Cart extends View {
     const subParent = this.element.getElementsByClassName('subtotal')[0];
     const subElem = document.createElement('div');
     subElem.className = 'subtotal';
+
+    const cartItems = cart.getCartItems();
+
     subElem.innerHTML = `
     <h3>
-            Итого (${cart.getCartItems().reduce((a, c) => a + c.qty, 0)} товаров)
+            Итого (${cartItems.reduce((a, c) => a + c.qty, 0)} товаров)
             :
-            $${cart.getCartItems().reduce((a, c) => a + c.price * c.qty, 0)}
+            $${cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
           </h3>
           `;
     subParent.appendChild(subElem);
