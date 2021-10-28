@@ -40,38 +40,6 @@ export default class Cart extends View {
     cartItems.length === 0
       ? '<div>Cart is empty. <a href="/#/">Go Shopping</a>'
       : cartItems
-        .map(
-          (item) => `
-            <li>
-              <div class="cart-image">
-                <img src="${item.image}" alt="${item.name}" />
-              </div>
-              <div class="cart-name">
-                <div>
-                  <a href="/#/product/${item.id}">
-                    ${item.name}
-                  </a>
-                </div>
-                <div>
-                  Qty: 
-                  <select class="qty-select" id="${item.id}">
-                    <option value="1">1</option>
-                  </select>
-                  <button type="button" class="delete-button" id="${item.id}">
-                    Delete
-                  </button>
-                </div>
-              </div>
-              <div class="cart-price">
-                $${item.price}
-              </div>
-            </li>
-            `
-        )
-        .join('\n');
-    itemElem.innerHTML = item(this.#context.item);
-    itemParent.replaceWith(itemElem);
-
   }
 
 
