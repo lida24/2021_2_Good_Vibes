@@ -4,6 +4,7 @@ import cartpageEvents from './events.js';
 import eventBus from '../scripts/eventBus.js';
 import cartListeners from './listeners.js';
 import compiledTemplate from './template.handlebars';
+import cart from '../objects/cart.js';
 
 export default class Cart extends View {
   element;
@@ -72,6 +73,23 @@ export default class Cart extends View {
     itemParent.appendChild(itemElem);
   }
 
+  // #createSubtotalHTML() {
+  //   const subParent = this.element.getElementsByClassName('subtotal')[0];
+  //   const subElem = document.createElement('div');
+  //   subElem.className = 'subtotal';
+
+  //   const cartItems = cart.getCartItems();
+
+  //   subElem.innerHTML = `
+  //   <h3>
+  //           Итого (${cartItems.reduce((a, c) => a + c.count_in_stock, 0)} товаров)
+  //           :
+  //           $${cartItems.reduce((a, c) => a + c.price * c.count_in_stock, 0)}
+  //         </h3>
+  //         `;
+  //   subParent.appendChild(subElem);
+  // }
+
   #createSubtotalHTML() {
     const subParent = this.element.getElementsByClassName('subtotal')[0];
     const subElem = document.createElement('div');
@@ -95,7 +113,7 @@ export default class Cart extends View {
     eventBus.add(cartListeners);
     this.#generateEvents(this.element);
     //this.#createItemsHTML();
-    //this.#createSubtotalHTML();
+    this.#createSubtotalHTML();
     //console.log(cartItems);
     return this.show();
   }
