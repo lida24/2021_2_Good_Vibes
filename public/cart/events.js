@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import eventBus from '../scripts/eventBus.js';
+/* import eventBus from '../scripts/eventBus.js';
 
 const cartEvents = (element) => {
   const orderBtn = element.getElementsByClassName('primary fw')[0];
@@ -10,4 +10,12 @@ const cartEvents = (element) => {
   });
 };
 
-export default cartEvents;
+export default cartEvents; */
+
+import eventBus from '../scripts/eventBus.js';
+
+const cartpageEvents = (element) => {
+  eventBus.emit('cart ajax request');
+};
+
+export default cartpageEvents;
