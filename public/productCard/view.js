@@ -3,14 +3,10 @@
 import eventBus from '../scripts/eventBus.js';
 import productCardEvents from './events.js';
 import productCardListeners from './listeners.js';
-import generateContentHTML from '../scripts/loadTemplates.js';
 import View from '../scripts/view.js';
-
-const productUrl = './productCard/template.handlebars';
+import compiledTemplate from './template.handlebars';
 
 export default class ProductCard extends View {
-  #url = productUrl;
-
   element;
 
   #context;
@@ -27,10 +23,7 @@ export default class ProductCard extends View {
   }
 
   async #renderHTML() {
-    const html = await generateContentHTML({
-      url: this.#url,
-      context: this.#context
-    });
+    const html = compiledTemplate(this.#context);
     this.element.innerHTML = html;
     this.element.setAttribute('name', this.#context.id);
   }
@@ -64,7 +57,7 @@ export default class ProductCard extends View {
     eventBus.add(productCardListeners);
     this.#generateEvents({
       element: this.element,
-      context: this.#context            // Временно прокидываю контекс из самого контейнера, по хорошему я должен брать данные из сервера
+      context: this.#context
     });
     this.#createRatingHTML();
     return this.show();

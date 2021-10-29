@@ -13,6 +13,11 @@
 ./profile/events.js
 ./profile/template.handlebars
 ./profile/callbacks.js
+./order/listeners.js
+./order/view.js
+./order/events.js
+./order/template.handlebars
+./order/callbacks.js
 ./sw.js
 ./signin/listeners.js
 ./signin/view.js
@@ -25,6 +30,7 @@
 ./homepage/template.handlebars
 ./homepage/callbacks.js
 ./objects/user.js
+./objects/cart.js
 ./style.css
 ./router/listeners.js
 ./router/callbacks.js
@@ -76,7 +82,6 @@
 ./cart/events.js
 ./cart/template.handlebars
 ./cart/callbacks.js
-./netlify/edge-handlers/logRequest.js
 ./scripts/loadScript.js
 ./scripts/urls.js
 ./scripts/inputDataValidation.js

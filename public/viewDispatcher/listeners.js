@@ -8,15 +8,13 @@ const viewDispatcherListeners = [
   {
     event: 'showView',
     callback: [
-      model.showView,
-      model.rout
+      model.showView
     ]
   },
 
   {
     event: 'logout success',
     callback: [
-      // model.homepageStateRequest,
       model.showSavedState,
       model.deleteUser
     ]

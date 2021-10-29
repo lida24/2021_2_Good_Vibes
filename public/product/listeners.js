@@ -7,6 +7,8 @@ const productListeners = [
     event: 'backToResult click',
     callback: [
       product.homepageStateRequest,
+
+
       // product.addHomepageToHistory
     ]
     //     callback: () => {
@@ -23,6 +25,8 @@ const productListeners = [
       [
         product.productContextRequest,
       ]
+
+      product.productContextRequest
     // product.showContext
   },
   {

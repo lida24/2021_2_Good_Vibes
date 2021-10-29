@@ -6,6 +6,7 @@ import cart from '../objects/cart.js';
 /* export const showCart = () => {
   eventBus.emit('profile ajax request');
 }; */
+
 export const addToCart = (responseText) => {
 
   try {
@@ -39,6 +40,11 @@ export const productContextRequest = () => {
   eventBus.emit('product context request');
 };
 
+
 export const addToServerCartRequest = (responseObj) => {
   eventBus.emit('add product to server cart request', responseObj);
+};
+
+export const homepageStateRequest = () => {
+  eventBus.emit('homepage state request');
 };

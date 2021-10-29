@@ -1,16 +1,12 @@
 /* eslint-disable import/extensions */
 
 import eventBus from '../scripts/eventBus.js';
-import generateContentHTML from '../scripts/loadTemplates.js';
 import View from '../scripts/view.js';
 import homepageEvents from './events.js';
 import homepageListeners from './listeners.js';
-
-const homepageUrl = './homepage/template.handlebars';
+import compiledTemplate from './template.handlebars';
 
 export default class Homepage extends View {
-  #url = homepageUrl;
-
   element;
 
   #context;
@@ -23,11 +19,9 @@ export default class Homepage extends View {
   }
 
   async #renderHTML() {
-    const html = await generateContentHTML({
-      url: this.#url,
-      context: this.#context
-    });
+    const html = compiledTemplate(this.#context);
     this.element.innerHTML = html;
+    // this.element.setAttribute('name', this.#context.id);
   }
 
   async render() {
