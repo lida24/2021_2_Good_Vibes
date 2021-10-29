@@ -121,5 +121,27 @@ export const cartGet = () => {
 };
 
 export const cartConfirm = (array) => {
-  console.log(array);
+  // console.log(array);
+
+  const temp = {
+    date: '2016-12-06 06:56:01',
+    address: {
+      country: 'country',
+      region: 'region',
+      city: 'city',
+      street: 'street',
+      house: 'house',
+      flat: 'flat',
+      index: 'index'
+    },
+    cost: 213,
+    products: array
+  };
+
+  ajax.post({
+    url: `${backendAddress}/cart/confirm`,
+    body: temp
+  })
+    .then(({ responseText }) => console.log({ responseText }))
+    .catch(({ responseText }) => console.log({ responseText }));
 };
