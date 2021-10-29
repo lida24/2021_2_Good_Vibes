@@ -7,7 +7,8 @@ const requests = {
   signup: 'signup',
   profile: 'profile',
   product: 'product',
-  logout: 'homepage'
+  logout: 'homepage',
+  cart: 'cart'
 };
 
 class Router {

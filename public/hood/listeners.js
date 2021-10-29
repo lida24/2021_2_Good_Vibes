@@ -37,7 +37,7 @@ const hoodListeners = [
     callback: [
       hood.showCart,
 
-      hood.showLocalCart
+      // hood.showLocalCart
     ]
   },
 ];
