@@ -41,3 +41,7 @@ export const request = () => {
 export const productContextRequest = () => {
   eventBus.emit('product context request');
 };
+
+export const homepageStateRequest = () => {
+  eventBus.emit('homepage state request');
+};

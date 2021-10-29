@@ -6,11 +6,7 @@ import productCardListeners from './listeners.js';
 import View from '../scripts/view.js';
 import compiledTemplate from './template.handlebars';
 
-const productUrl = './productCard/template.handlebars';
-
 export default class ProductCard extends View {
-  #url = productUrl;
-
   element;
 
   #context;
