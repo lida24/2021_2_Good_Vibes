@@ -88,9 +88,11 @@ export const order = () => {
     .catch((error) => console.error(error));
 };
 
-export const addProductToCart = (obj) => {
+export const addProductToCart = (data) => {
+  console.log(data);
+
   const temp = {
-    product_id: obj.id,
+    product_id: data.id,
     number: 1
   };
 
@@ -102,14 +104,10 @@ export const addProductToCart = (obj) => {
     url: `${backendAddress}/cart/put`,
     body: temp
   })
-    // .then(({ responseText }) => console.log(responseText))
-    // .catch(({ responseText }) => console.log(responseText));
 
-    .then(({ responseText }) => eventBus.emit('add product to cart success', { responseText }))
-    .catch(({ responseText }) => eventBus.emit('add product to cart fail', { responseText }));
+  // .then(({ responseText }) => eventBus.emit('add product to cart success', { responseText }))
+  // .catch(({ responseText }) => eventBus.emit('add product to cart fail', { responseText }));
 
-  // 	ProductId int`json:"product_id"`
-  // Number    int`json:"number,omitempty"`
 };
 
 export const cartGet = () => {

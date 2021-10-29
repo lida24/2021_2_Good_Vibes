@@ -71,7 +71,12 @@ export const productContextRequest = () => {
 };
 
 export const addToCartRequest = (responseObj) => {
-  eventBus.emit('add product to cart request', responseObj);
+  const data = {
+    id: responseObj.id,
+    number: 1
+  };
+
+  eventBus.emit('add product to cart request', data);
 };
 
 export const homepageStateRequest = () => {
