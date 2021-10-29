@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import View from '../scripts/view.js';
-import cartEvents from './events.js';
+import cartpageEvents from './events.js';
 import eventBus from '../scripts/eventBus.js';
 import cartListeners from './listeners.js';
 import compiledTemplate from './template.handlebars';
