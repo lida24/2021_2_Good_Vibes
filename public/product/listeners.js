@@ -6,7 +6,9 @@ const productListeners = [
   {
     event: 'backToResult click',
     callback: [
-      product.homepageStateRequest,
+      // product.homepageStateRequest,
+
+
       // product.addHomepageToHistory
     ]
     //     callback: () => {
