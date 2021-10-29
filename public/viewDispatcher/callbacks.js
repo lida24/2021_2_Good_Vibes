@@ -413,5 +413,5 @@ export const productContextRequest = () => {
 
   eventBus.emit('product context response', viewObj.getContext());
   // console.log(temp3.getContext());
-
 };
+

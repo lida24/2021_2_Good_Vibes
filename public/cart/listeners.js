@@ -7,6 +7,32 @@ const cartListeners = [
     callback: [
       cart.showOrder
     ]
+  },
+  {
+    event: 'renderItemCart',
+    callback: [
+      cart.renderItemCart
+    ]
+  },
+  {
+    event: 'renderItemArray',
+    callback: [
+      cart.renderItemArray
+    ]
+  },
+  {
+    event: 'cartpageLoaded',
+    callback: [
+      cart.cartpageLoaded
+    ]
+  },
+  {
+    event: 'cart response',
+    callback: [
+      // cart.cartpageResponse
+
+      cart.localCartResponse
+    ]
   }
 ];
 

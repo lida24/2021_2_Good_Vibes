@@ -1,26 +1,24 @@
 /* eslint-disable import/extensions */
 import eventBus from '../scripts/eventBus.js';
 import cart from '../objects/cart.js';
+/*import { response } from 'express';*/
 
 /* export const showCart = () => {
   eventBus.emit('profile ajax request');
 }; */
-export const addToCart = (cartItems) => {
-  // console.log(responseText);
+
+export const addToCart = (responseText) => {
 
   try {
-    // let cartItems = JSON.parse(responseText);
-    if (!cartItems.numbers['213']) {
+    let cartItems = cart.getCartItems();
 
-    }
-
-    const existItem = cartItems.find((x) => x.product === item.product);
+    const existItem = cartItems.find((x) => x.id === responseText.id);
     if (existItem) {
       cartItems = cartItems.map((x) =>
-        x.product === existItem.product ? item : x
+        x.id === existItem.id ? responseText : x
       );
     } else {
-      cartItems = [...cartItems, item];
+      cartItems = [...cartItems, responseText];
     }
     cart.setCartItems(cartItems);
     console.log(cart.getCartItems().length);
@@ -40,6 +38,11 @@ export const request = () => {
 
 export const productContextRequest = () => {
   eventBus.emit('product context request');
+};
+
+
+export const addToServerCartRequest = (responseObj) => {
+  eventBus.emit('add product to server cart request', responseObj);
 };
 
 export const homepageStateRequest = () => {
