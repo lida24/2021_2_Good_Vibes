@@ -22,7 +22,7 @@ const remove = (name) => {
 };
 
 export const renderItemCart = (itemData) => {
-  console.log('renderItemCart', itemData);
+  // console.log('renderItemCart', itemData);
 
   if (itemList[itemData.id]) {
     return;
