@@ -7,6 +7,17 @@ export const showOrder = () => {
   });
 };
 
+let itemList = {};
+
+const add = (obj) => {
+  itemList = Object.assign(itemList, obj);
+};
+
+const remove = (name) => {
+  itemList[name].delete();
+  delete itemList[name];
+};
+
 export const renderItemCart = (itemData) => {
   if (itemList[itemData.id]) {
     return;
@@ -61,8 +72,6 @@ export const cartpageLoaded = (responseText) => {
   } catch {
     console.error();
   }
-
-  // eventBus.emit('homepage ajax request');
 };
 
 export const cartpageResponse = (responseText) => {
