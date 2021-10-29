@@ -38,7 +38,7 @@ class Cart {
     localStorage.setItem('cartItems', JSON.stringify(this.#cartItems));
   }
 
-  show() {
+  get() {
     return this.#cartItems;
   }
 }

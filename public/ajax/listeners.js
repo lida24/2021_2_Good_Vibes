@@ -47,6 +47,11 @@ const ajaxListeners = [
   {
     event: 'cart get request',
     callback: ajax.cartGet
+  },
+
+  {
+    event: 'cart confirm request',
+    callback: ajax.cartConfirm
   }
 ];
 

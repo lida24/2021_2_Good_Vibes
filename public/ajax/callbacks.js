@@ -119,3 +119,7 @@ export const cartGet = () => {
     .then(({ responseText }) => console.log(responseText))
     .catch(({ responseText }) => console.log(responseText));
 };
+
+export const cartConfirm = (array) => {
+  console.log(array);
+};

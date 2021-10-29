@@ -51,3 +51,7 @@ export const showLocalCart = () => {
 export const cartGetRequest = () => {
   eventBus.emit('cart get request');
 };
+
+export const cartConfirmRequest = () => {
+  eventBus.emit('cart confirm request', cart.get());
+};
