@@ -33,6 +33,12 @@ const cartListeners = [
 
       cart.localCartResponse
     ]
+  },
+  {
+    event: 'add product array to cart view',
+    callback: [
+      cart.addProductArray
+    ]
   }
 ];
 

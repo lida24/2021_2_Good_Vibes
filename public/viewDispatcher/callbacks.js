@@ -12,6 +12,8 @@ let view = {};
 
 let currentState = '';
 
+let currentCart = [];
+
 
 const add = (obj) => {
   view = Object.assign(view, obj);
@@ -122,6 +124,12 @@ export const init = () => {
 export const showSignin = () => {
   eventBus.emit('showView', {
     name: 'Signin'
+  });
+};
+
+export const showCart = () => {
+  eventBus.emit('showView', {
+    name: 'Cart'
   });
 };
 
@@ -428,4 +436,117 @@ export const addToCart = ({ responseText }) => {
     id: obj.product_id,
     number: obj.number
   });
+};
+
+// ================================
+export const productRequest = (id) => {
+  let callback2;
+
+  const callback = ({ responseText }) => {
+    eventBus.emit('product confirmed', responseText);
+
+    eventBus.off('product request success', callback);
+    eventBus.off('product request fail', callback2);
+  };
+  eventBus.on('product request success', callback);
+
+  callback2 = ({ responseText }) => {
+    eventBus.emit('product denied', responseText); //=========================================================================
+
+    eventBus.off('product request success', callback);
+    eventBus.off('product request fail', callback2);
+  };
+  eventBus.on('product request fail', callback2);
+
+  eventBus.emit('product ajax request', id);
+};
+
+export const productConfirmed = (responseText) => {
+  // console.log(responseText);
+  const obj = JSON.parse(responseText);
+  currentCart.push(obj);
+
+  // console.log(currentCart);
+};
+
+export const productDenied = (responseText) => {
+  console.log(responseText);
+};
+
+export const cartGetSuccess = ({ responseText }) => {
+  console.log('cartGetSuccess', responseText);
+
+  const temp = JSON.parse(responseText);
+  // productRequest(temp[2].product_id);
+
+  // temp.forEach((element) => productRequest(element.product_id));
+
+  // Promise.all(temp.map(async (element) => {
+  //   productRequest(element.product_id);
+  // }));
+
+  eventBus.emit('product array request', temp);
+
+
+  // console.log(currentCart);
+
+  // showCart();
+
+  // const promise = new Promise((resolve) => { resolve(); });
+
+  // promise
+  //   .then(() => showCart())
+  //   .then(() => eventBus.emit('add product array to cart view', currentCart))
+  //   .catch((err) => console.error(err));
+
+  // showCart();
+
+  // setTimeout(() => {
+  //   eventBus.emit('add product array to cart view', currentCart);
+  // }, 300);
+
+  // currentState = 'cart';
+};
+
+// export const cartGetFail = ({ responseText }) => {
+//   console.log('cartGetFail', responseText);
+// };
+
+
+export const productArrayRequest = () => {
+  eventBus.emit('product array request', currentCart);
+};
+
+export const productArrayRequestSuccess = (array) => {
+  // console.log(array);
+
+  // const copy = Object.assign([], array);
+  // console.log('copy', copy);
+
+
+  const promise = new Promise((resolve) => { resolve(); });
+
+  promise
+    .then(() => showCart())
+    .then(() => eventBus.emit('add product array to cart view', array))
+    .catch((err) => console.error(err));
+
+  currentState = 'cart';
+};
+
+export const productArrayRequestFail = (responseText) => {
+  console.error(responseText);
+};
+
+
+// =======================
+
+export const cartStateRequest = () => {
+  eventBus.emit('cart get request');
+};
+
+export const cartStateDenied = () => {
+  console.error('cart state denied');
+
+  eventBus.emit('signin state request');
 };

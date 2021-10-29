@@ -203,6 +203,72 @@ const viewDispatcherListeners = [
       model.saveCurrentState,
       model.signinStateRequest
     ]
+  },
+
+  // ==================================
+  {
+    event: 'cart state request',
+    callback: [
+      model.saveCurrentState,
+      model.cartStateRequest
+    ]
+  },
+
+  // ==========================
+  {
+    event: 'cart get success',
+    callback: [
+      model.cartGetSuccess
+    ]
+  },
+  {
+    event: 'cart get fail',
+    callback: [
+      // model.cartGetFail
+      // model.saveCurrentState,
+      // model.signinStateRequest
+      model.cartStateDenied
+    ]
+  },
+
+  // ================
+  {
+    event: 'product request',
+    callback: [
+      model.productRequest
+    ]
+  },
+  {
+    event: 'product confirmed',
+    callback: [
+      model.productConfirmed
+    ]
+  },
+  {
+    event: 'product denied',
+    callback: [
+      model.productDenied
+    ]
+  },
+
+  // {
+  //   event: 'product array request',
+  //   callback: [
+  //     model.productArrayRequest
+  //   ]
+  // }
+
+  {
+    event: 'product array request success',
+    callback: [
+      model.productArrayRequestSuccess
+    ]
+  },
+  {
+    event: 'product array request fail',
+    callback: [
+      model.productArrayRequestFail
+    ]
   }
 ];
 

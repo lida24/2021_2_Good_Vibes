@@ -113,7 +113,7 @@ export default class Cart extends View {
     eventBus.add(cartListeners);
     this.#generateEvents(this.element);
     //this.#createItemsHTML();
-    this.#createSubtotalHTML();
+    // this.#createSubtotalHTML();
     //console.log(cartItems);
     return this.show();
   }

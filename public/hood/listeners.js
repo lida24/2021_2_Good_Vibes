@@ -35,9 +35,11 @@ const hoodListeners = [
   {
     event: 'cart-click',
     callback: [
-      hood.showCart,
+      // hood.showCart,
 
-      hood.cartGetRequest
+      // hood.cartGetRequest
+
+      hood.cartStateRequest
 
       // hood.cartConfirmRequest
 

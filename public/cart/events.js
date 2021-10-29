@@ -15,7 +15,7 @@ export default cartEvents; */
 import eventBus from '../scripts/eventBus.js';
 
 const cartpageEvents = (element) => {
-  eventBus.emit('cart ajax request');
+  // eventBus.emit('cart ajax request');
 };
 
 export default cartpageEvents;
