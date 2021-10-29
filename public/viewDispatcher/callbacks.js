@@ -419,8 +419,13 @@ export const productContextRequest = () => {
 export const addToCart = ({ responseText }) => {
   const obj = JSON.parse(responseText);
 
-  cart.add({
+  // cart.add({
+  //   id: obj.product_id,
+  //   number: obj.number
+  // });
+
+  cart.set({
     id: obj.product_id,
-    number: 1
+    number: obj.number
   });
 };

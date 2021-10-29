@@ -22,6 +22,21 @@ class Cart {
     localStorage.setItem('cartItems', JSON.stringify(this.#cartItems));
   }
 
+  set({ id, number }) {
+    const target = this.#cartItems.find((value) => value.product_id === id);
+
+    if (!target) {
+      this.#cartItems.push({
+        product_id: id,
+        number
+      });
+    } else {
+      target.number = number;
+    }
+
+    localStorage.setItem('cartItems', JSON.stringify(this.#cartItems));
+  }
+
   delete({ id, number }) {
     const target = this.#cartItems.find((value) => value.product_id === id);
 
@@ -40,6 +55,10 @@ class Cart {
 
   get() {
     return this.#cartItems;
+  }
+
+  getProduct(id) {
+    return this.#cartItems.find((value) => value.product_id === id);
   }
 }
 

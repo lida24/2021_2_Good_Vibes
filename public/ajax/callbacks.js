@@ -89,11 +89,11 @@ export const order = () => {
 };
 
 export const addProductToCart = (data) => {
-  console.log(data);
+  console.log('addProductToCart', data);
 
   const temp = {
     product_id: data.id,
-    number: 1
+    number: data.number
   };
 
   console.log(temp);
@@ -105,8 +105,11 @@ export const addProductToCart = (data) => {
     body: temp
   })
 
-  // .then(({ responseText }) => eventBus.emit('add product to cart success', { responseText }))
-  // .catch(({ responseText }) => eventBus.emit('add product to cart fail', { responseText }));
+    // .then(({ responseText }) => console.log({ responseText }))
+    // .catch(({ responseText }) => console.log({ responseText }));
+
+    .then(({ responseText }) => eventBus.emit('add product to cart success', { responseText }))
+    .catch(({ responseText }) => eventBus.emit('add product to cart fail', { responseText }));
 
 };
 
