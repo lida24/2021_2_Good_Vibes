@@ -38,3 +38,7 @@ export const request = () => {
 export const productContextRequest = () => {
   eventBus.emit('product context request');
 };
+
+export const addToServerCartRequest = (responseObj) => {
+  eventBus.emit('add product to server cart request', responseObj);
+};

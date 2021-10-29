@@ -20,13 +20,17 @@ const productListeners = [
     event: 'cart click',
     callback:
       // product.addToCart
-      product.productContextRequest
+      [
+        product.productContextRequest,
+      ]
     // product.showContext
   },
   {
     event: 'product context response',
-    callback:
-      product.addToCart
+    callback: [
+      product.addToCart,
+      product.addToServerCartRequest
+    ]
   }
   //     callback: [
   //       product.homepageStateRequest,

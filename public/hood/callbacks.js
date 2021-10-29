@@ -1,4 +1,5 @@
 /* eslint-disable import/extensions */
+import cart from '../objects/cart.js';
 import eventBus from '../scripts/eventBus.js';
 
 export const logoClick = () => {
@@ -41,4 +42,8 @@ export const addProfileToHistory = () => {
 
 export const cartClick = () => {
   eventBus.emit('cart ajax request');
+};
+
+export const showLocalCart = () => {
+  console.log(cart.getCartItems());
 };

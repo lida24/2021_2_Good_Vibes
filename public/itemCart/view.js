@@ -1,12 +1,12 @@
 /* eslint-disable import/extensions */
 
 import eventBus from '../scripts/eventBus.js';
-/* import itemCartEvents from './events.js'; */
-/* import itemCartListeners from './listeners.js'; */
+import itemCartEvents from './events.js';
+import itemCartListeners from './listeners.js';
 import generateContentHTML from '../scripts/loadTemplates.js';
 import View from '../scripts/view.js';
 
-const itemUrl = './template.handlebars';
+const itemUrl = './itemCart/template.handlebars';
 
 export default class ItemCart extends View {
   #url = itemUrl;
