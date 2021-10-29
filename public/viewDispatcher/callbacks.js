@@ -3,6 +3,7 @@ import state from './states.js';
 import constructors from './constructors.js';
 import eventBus from '../scripts/eventBus.js';
 import user from '../objects/user.js';
+import cart from '../objects/cart.js';
 
 export const hide = {};
 export const show = {};
@@ -415,3 +416,11 @@ export const productContextRequest = () => {
   // console.log(temp3.getContext());
 };
 
+export const addToCart = ({ responseText }) => {
+  const obj = JSON.parse(responseText);
+
+  cart.add({
+    id: obj.product_id,
+    number: 1
+  });
+};

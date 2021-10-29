@@ -7,6 +7,25 @@ import cart from '../objects/cart.js';
   eventBus.emit('profile ajax request');
 }; */
 
+// export const addToCart = (responseText) => {
+//   try {
+//     let cartItems = cart.getCartItems();
+
+//     const existItem = cartItems.find((x) => x.id === responseText.id);
+//     if (existItem) {
+//       cartItems = cartItems.map((x) =>
+//         x.id === existItem.id ? responseText : x
+//       );
+//     } else {
+//       cartItems = [...cartItems, responseText];
+//     }
+//     cart.setCartItems(cartItems);
+//     console.log(cart.getCartItems().length);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
+
 export const addToCart = (responseText) => {
   // try {
   //   let cartItems = cart.getCartItems();
@@ -25,23 +44,17 @@ export const addToCart = (responseText) => {
   //   console.error(error);
   // }
 
+  // cart.add({
+  //   id: responseText.id,
+  //   number: 1
+  // });
 
-  try {
-    let cartItems = cart.getCartItems();
+  cart.add({
+    id: responseText.id,
+    number: 1
+  });
 
-    const existItem = cartItems.find((x) => x.id === responseText.id);
-    if (existItem) {
-      cartItems = cartItems.map((x) =>
-        x.id === existItem.id ? responseText : x
-      );
-    } else {
-      cartItems = [...cartItems, responseText];
-    }
-    cart.setCartItems(cartItems);
-    console.log(cart.getCartItems().length);
-  } catch (error) {
-    console.error(error);
-  }
+  console.log(JSON.stringify(cart.show()));
 };
 
 
@@ -57,9 +70,8 @@ export const productContextRequest = () => {
   eventBus.emit('product context request');
 };
 
-
-export const addToServerCartRequest = (responseObj) => {
-  eventBus.emit('add product to server cart request', responseObj);
+export const addToCartRequest = (responseObj) => {
+  eventBus.emit('add product to cart request', responseObj);
 };
 
 export const homepageStateRequest = () => {

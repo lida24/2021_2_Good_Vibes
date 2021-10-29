@@ -187,6 +187,22 @@ const viewDispatcherListeners = [
     callback: [
       model.productContextRequest
     ]
+  },
+
+  // ==============================
+
+  {
+    event: 'add product to cart success',
+    callback: [
+      model.addToCart
+    ]
+  },
+  {
+    event: 'add product to cart fail',
+    callback: [
+      model.saveCurrentState,
+      model.signinStateRequest
+    ]
   }
 ];
 

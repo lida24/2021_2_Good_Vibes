@@ -5,38 +5,42 @@ class Cart {
     this.#cartItems = localStorage.getItem('cartItems')
       ? JSON.parse(localStorage.getItem('cartItems'))
       : [];
-    // return cartItems;
   }
 
-  getCartItems = () => {
-    const cartItems = localStorage.getItem('cartItems')
-      ? JSON.parse(localStorage.getItem('cartItems'))
-      : [];
-    return cartItems;
-  };
+  add({ id, number }) {
+    const target = this.#cartItems.find((value) => value.product_id === id);
 
-  setCartItems = (cartItems) => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  };
-
-  addToCart = (obj) => {
-    this.#cartItems.push(obj);  // !!!!!!!!!!!!!!!!!!
+    if (!target) {
+      this.#cartItems.push({
+        product_id: id,
+        number
+      });
+    } else {
+      target.number += number;
+    }
 
     localStorage.setItem('cartItems', JSON.stringify(this.#cartItems));
   }
 
-  /* addToCart = (item, forceUpdate = false) => {
-      let cartItems = getCartItems();
-      const existItem = cartItems.find((x) => x.product === item.product);
-      if (existItem) {
-          cartItems = cartItems.map((x) =>
-          x.product === existItem.product ? item : x
-        );
-      } else {
-        cartItems = [...cartItems, item];
+  delete({ id, number }) {
+    const target = this.#cartItems.find((value) => value.product_id === id);
+
+    if (target) {
+      target.number -= number;
+
+      if (target.number <= 0) {
+        const idx = this.#cartItems.findIndex((value) => value.product_id === id);
+        console.log(idx);
+        this.#cartItems.splice(idx, 1);
       }
-      setCartItems(cartItems);
-    };  */
+    }
+
+    localStorage.setItem('cartItems', JSON.stringify(this.#cartItems));
+  }
+
+  show() {
+    return this.#cartItems;
+  }
 }
 
 export default new Cart();

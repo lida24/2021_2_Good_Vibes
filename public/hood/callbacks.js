@@ -47,3 +47,7 @@ export const cartClick = () => {
 export const showLocalCart = () => {
   console.log(cart.getCartItems());
 };
+
+export const cartGetRequest = () => {
+  eventBus.emit('cart get request');
+};

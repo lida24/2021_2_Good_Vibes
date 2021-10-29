@@ -39,9 +39,14 @@ const ajaxListeners = [
     callback: ajax.cookieCheck
   },
 
+  // ======================
   {
-    event: 'add product to server cart request',
+    event: 'add product to cart request',
     callback: ajax.addProductToCart
+  },
+  {
+    event: 'cart get request',
+    callback: ajax.cartGet
   }
 ];
 

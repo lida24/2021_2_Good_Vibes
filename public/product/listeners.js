@@ -32,14 +32,24 @@ const productListeners = [
   {
     event: 'product context response',
     callback: [
-      product.addToCart,
-      product.addToServerCartRequest
+      // product.addToCart,
+      product.addToCartRequest
     ]
-  }
-  //     callback: [
-  //       product.homepageStateRequest,
-  //       // product.addHomepageToHistory
-  //     ]
+  },
+
+  // {
+  //   event: 'add product to cart success',
+  //   callback: [
+  //     product.handleResponse
+  //   ]
+  // },
+
+  // {
+  //   event: 'add to cart',
+  //   callback: [
+  //     product.addToCart
+  //   ]
+  // }
 ];
 
 export default productListeners;

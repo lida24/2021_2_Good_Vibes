@@ -90,21 +90,32 @@ export const order = () => {
 
 export const addProductToCart = (obj) => {
   const temp = {
-    ProductId: obj.id,
-    Number: 1
+    product_id: obj.id,
+    number: 1
   };
 
-  console.log(JSON.stringify(temp));
+  console.log(temp);
 
-  const data = JSON.stringify(temp);
+  // const data = JSON.stringify(temp);
 
   ajax.post({
     url: `${backendAddress}/cart/put`,
-    body: data
+    body: temp
   })
-    .then(({ responseText }) => console.log(responseText))
-    .catch(({ responseText }) => console.log(responseText));
+    // .then(({ responseText }) => console.log(responseText))
+    // .catch(({ responseText }) => console.log(responseText));
+
+    .then(({ responseText }) => eventBus.emit('add product to cart success', { responseText }))
+    .catch(({ responseText }) => eventBus.emit('add product to cart fail', { responseText }));
 
   // 	ProductId int`json:"product_id"`
   // Number    int`json:"number,omitempty"`
+};
+
+export const cartGet = () => {
+  ajax.get({
+    url: `${backendAddress}/cart/get`
+  })
+    .then(({ responseText }) => console.log(responseText))
+    .catch(({ responseText }) => console.log(responseText));
 };
