@@ -37,9 +37,9 @@ const hoodListeners = [
     callback: [
       hood.showCart,
 
-      // hood.cartGetRequest
+      hood.cartGetRequest
 
-      hood.cartConfirmRequest
+      // hood.cartConfirmRequest
 
       // hood.showLocalCart
     ]
