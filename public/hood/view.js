@@ -1,16 +1,12 @@
 /* eslint-disable import/extensions */
 import View from '../scripts/view.js';
-import generateContentHTML from '../scripts/loadTemplates.js';
 import hoodEvents from './events.js';
 import hoodListeners from './listeners.js';
 import bus from '../scripts/eventBus.js';
-
-const HoodUrl = './hood/template.handlebars';
+import compiledTemplate from './template.handlebars';
 
 export default class Hood extends View {
   #context;
-
-  #url = HoodUrl;
 
   element;
 
@@ -22,27 +18,14 @@ export default class Hood extends View {
   }
 
   async #renderHTML() {
-    const html = await generateContentHTML({
-      url: this.#url,
-      context: this.#context
-    });
+    const html = compiledTemplate(this.#context);
     this.element.innerHTML = html;
+    // this.element.setAttribute('name', this.#context.id);
   }
 
   setContext(context) {
     this.#context = context;
-    // this.renderHTML();
   }
-
-  // render() {
-  //   this.#renderHTML()
-  //     .then(() => {
-  //       bus.add(hoodListeners);
-  //       this.#generateEvents(this.element);
-  //     })
-  //     .then(() => this.show())
-  //     .catch((error) => alert(error));
-  // }
 
   async render() {
     await this.#renderHTML();

@@ -29,7 +29,9 @@ const cartListeners = [
   {
     event: 'cart response',
     callback: [
-      cart.cartpageResponse
+      // cart.cartpageResponse
+
+      cart.localCartResponse
     ]
   }
 ];

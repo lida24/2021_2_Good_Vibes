@@ -1,15 +1,11 @@
 /* eslint-disable import/extensions */
 import View from '../scripts/view.js';
 import profileEvents from './events.js';
-import generateContentHTML from '../scripts/loadTemplates.js';
 import eventBus from '../scripts/eventBus.js';
 import profileListeners from './listeners.js';
-
-const profileUrl = './profile/template.handlebars';
+import compiledTemplate from './template.handlebars';
 
 export default class Profile extends View {
-  #url = profileUrl;
-
   element;
 
   #context;
@@ -22,11 +18,9 @@ export default class Profile extends View {
   }
 
   async #renderHTML() {
-    const html = await generateContentHTML({
-      url: this.#url,
-      context: this.#context
-    });
+    const html = compiledTemplate(this.#context);
     this.element.innerHTML = html;
+    // this.element.setAttribute('name', this.#context.id);
   }
 
   async render() {

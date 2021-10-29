@@ -1,15 +1,11 @@
 /* eslint-disable import/extensions */
 import signupEvents from './events.js';
-import generateContentHTML from '../scripts/loadTemplates.js';
 import View from '../scripts/view.js';
 import signupListeners from './listeners.js';
 import eventBus from '../scripts/eventBus.js';
-
-const signupUrl = './signup/template.handlebars';
+import compiledTemplate from './template.handlebars';
 
 export default class Signup extends View {
-  #url = signupUrl;
-
   element;
 
   #context;
@@ -22,22 +18,10 @@ export default class Signup extends View {
   }
 
   async #renderHTML() {
-    const html = await generateContentHTML({
-      url: this.#url,
-      context: this.#context
-    });
+    const html = compiledTemplate(this.#context);
     this.element.innerHTML = html;
+    // this.element.setAttribute('name', this.#context.id);
   }
-
-  // render() {
-  //   this.#renderHTML()
-  //     .then(() => {
-  //       // eventBus.add(signinListeners);
-  //       // this.#generateEvents(this.element);
-  //     })
-  //     .then(() => this.show())
-  //     .catch((error) => alert(error));
-  // }
 
   async render() {
     await this.#renderHTML();

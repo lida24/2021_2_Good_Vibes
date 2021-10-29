@@ -62,6 +62,7 @@ const viewGenerate = ({ name, context }) => {
   });
 
   view[viewName].state = state.visible;
+  console.log(main);
   main.replaceWith(view[viewName].dom);
 
   if (view[viewName].element?.setContext) {
@@ -109,7 +110,9 @@ export const init = () => {
 
   view.Hood.state = state.visible;
   return view.Hood.element.render()
-    .then(() => viewGenerate({ name: 'Homepage' }));
+    // .then(() => console.log('adsfasdf'))
+    .then(() => eventBus.emit('hood render finished'));
+  // .then(() => viewGenerate({ name: 'Homepage' }));
   // .then(() => {
   //   eventBus.emit('homepage ajax request');
   // });
@@ -150,10 +153,10 @@ export const showProduct = (responseText) => {
   });
 };
 
-export const rout = ({ name, context }) => {
-  // console.log(name, context);
-  eventBus.emit('rout', name);
-};
+// export const rout = ({ name, context }) => {
+//   // console.log(name, context);
+//   eventBus.emit('rout', name);
+// };
 
 // ==================================
 export const homepageStateRequest = () => {
@@ -410,5 +413,5 @@ export const productContextRequest = () => {
 
   eventBus.emit('product context response', viewObj.getContext());
   // console.log(temp3.getContext());
-
 };
+

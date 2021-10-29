@@ -1,5 +1,8 @@
+/* eslint-disable import/extensions */
 import eventBus from '../scripts/eventBus.js';
 import ItemCart from '../itemCart/view.js';
+import state from '../viewDispatcher/states.js';
+import cart from '../objects/cart.js';
 
 export const showOrder = () => {
   eventBus.emit('showView', {
@@ -23,9 +26,14 @@ export const renderItemCart = (itemData) => {
     return;
   }
 
-  const root = document.getElementsByClassName('content cart')[0];
-  const itemCart = document.createElement('div');
-  itemCart.className = 'content cart';
+  // const root = document.getElementsByClassName('content cart')[0];
+  // const itemCart = document.createElement('div');
+  // itemCart.className = 'content cart';
+  // const itemObj = new ItemCart(itemCart);
+
+  const root = document.getElementsByClassName('items')[0];
+  const itemCart = document.createElement('li');
+  // itemCart.className = 'content cart';
   const itemObj = new ItemCart(itemCart);
 
   add({
@@ -40,11 +48,13 @@ export const renderItemCart = (itemData) => {
   itemList[itemData.id].state = state.visible;
   root.appendChild(itemCart);
 
-  prodObj.render()
+  itemObj.render()
     .catch((error) => console.error(error));
 };
 
 export const renderItemArray = (itemArray) => {
+  // console.log('!!!', itemArray);
+
   if (!Array.isArray(itemArray)) {
     console.error('wrong itemArray');
     return;
@@ -59,7 +69,7 @@ export const renderItemArray = (itemArray) => {
 export const cartpageLoaded = (responseText) => {
   console.log('cartpageLoaded');
 
-  console.log(responseText);
+  // console.log('!!!', responseText);
 
   try {
     const itemArray = JSON.parse(responseText);
@@ -75,6 +85,12 @@ export const cartpageLoaded = (responseText) => {
 };
 
 export const cartpageResponse = (responseText) => {
+  console.log('!!!', responseText);
   const itemArray = JSON.parse(responseText);
   renderItemArray(itemArray);
+};
+
+export const localCartResponse = () => {
+  console.log(cart.getCartItems());
+  renderItemArray(cart.getCartItems());
 };

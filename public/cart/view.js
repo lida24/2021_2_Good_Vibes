@@ -1,16 +1,11 @@
 /* eslint-disable import/extensions */
 import View from '../scripts/view.js';
-import cartpageEvents from './events.js';
-import generateContentHTML from '../scripts/loadTemplates.js';
+import cartEvents from './events.js';
 import eventBus from '../scripts/eventBus.js';
 import cartListeners from './listeners.js';
-import cart from '../objects/cart.js';
-
-const cartUrl = './cart/template.handlebars';
+import compiledTemplate from './template.handlebars';
 
 export default class Cart extends View {
-  #url = cartUrl;
-
   element;
 
   #context;
@@ -23,11 +18,9 @@ export default class Cart extends View {
   }
 
   async #renderHTML() {
-    const html = await generateContentHTML({
-      url: this.#url,
-      context: this.#context
-    });
+    const html = compiledTemplate(this.#context);
     this.element.innerHTML = html;
+    // this.element.setAttribute('name', this.#context.id);
   }
 
   #createItemsHTML() {

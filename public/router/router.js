@@ -58,7 +58,23 @@ class Router {
     return requests[state];
   }
 
+  rout = () => {
+    const path = window.location.pathname;
+    const params = window.location.search;
+
+    console.log(path);
+
+    const regRes = params.match(/\?id=(\d*)/) || [];
+    const id = regRes[1];
+
+    const requieredState = this.urlHandler(path);
+
+    eventBus.emit(`${requieredState} state request`, id);
+  }
+
   start() {
+    console.log('router start');
+
     this.root.addEventListener('click', (event) => {
       const target = this.hrefget(event.target);
       if (!target) return;
@@ -68,25 +84,9 @@ class Router {
       this.open(target.pathname);
     });
 
-    window.addEventListener('popstate', () => {
-      const path = window.location.pathname;
-      const params = window.location.search;
-
-      console.log('popstate');
-
-      const regRes = params.match(/\?id=(\d*)/) || [];
-      const id = regRes[1];
-
-      const requieredState = this.urlHandler(path);
-
-      eventBus.emit(`${requieredState} state request`, id);
-      // eventBus.emit(`${requieredState} show request`, id);
-    });
-
+    window.addEventListener('popstate', this.rout);
 
     const currentPath = window.location.pathname;
-
-    // this.open(currentPath);
 
     if (window.location.pathname !== currentPath) {
       const historyState = {
@@ -100,6 +100,8 @@ class Router {
 
       );
     }
+
+    eventBus.emit('init');
   }
 }
 
