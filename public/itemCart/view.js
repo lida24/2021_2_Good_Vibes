@@ -40,7 +40,7 @@ export default class ItemCart extends View {
     eventBus.add(itemCartListeners);
     this.#generateEvents({
       element: this.element,
-      context: this.#context            // Временно прокидываю контекс из самого контейнера, по хорошему я должен брать данные из сервера
+      context: this.#context
     });
     return this.show();
   }
