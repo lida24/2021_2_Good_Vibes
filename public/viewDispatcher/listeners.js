@@ -148,8 +148,6 @@ const viewDispatcherListeners = [
     event: 'product state confirmed',
     callback: [
       model.productStateConfirmed,
-      // history.addProduct,
-      // history.add
     ]
   },
   {
@@ -166,21 +164,6 @@ const viewDispatcherListeners = [
     ]
   },
 
-  // const obj = {
-  //   showSavedState: 'show saved state'
-  // }
-
-  // {
-  //   event: 'signin success',
-  //   callback: [
-
-  //   ]
-  // }
-
-  // // ================================
-  // {
-  //   event: 'homepage show request',
-  // }
 
   // =============================
   {
@@ -214,6 +197,19 @@ const viewDispatcherListeners = [
       model.cartStateRequest
     ]
   },
+  {
+    event: 'cart state confirmed',
+    callback: [
+      model.cartStateConfirmed,
+      history.add
+    ]
+  },
+  {
+    event: 'cart state denied',
+    callback: [
+      model.cartStateDenied
+    ]
+  }
 
   // ==========================
   {

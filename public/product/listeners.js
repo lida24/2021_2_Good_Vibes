@@ -37,19 +37,6 @@ const productListeners = [
     ]
   },
 
-  // {
-  //   event: 'add product to cart success',
-  //   callback: [
-  //     product.handleResponse
-  //   ]
-  // },
-
-  // {
-  //   event: 'add to cart',
-  //   callback: [
-  //     product.addToCart
-  //   ]
-  // }
 ];
 
 export default productListeners;

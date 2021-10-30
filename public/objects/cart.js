@@ -45,7 +45,7 @@ class Cart {
 
       if (target.number <= 0) {
         const idx = this.#cartItems.findIndex((value) => value.product_id === id);
-        console.log(idx);
+        // console.log(idx);
         this.#cartItems.splice(idx, 1);
       }
     }

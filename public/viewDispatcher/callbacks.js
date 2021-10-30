@@ -558,14 +558,26 @@ export const cartStateRequest = () => {
   // eventBus.emit('cart get request');
   console.log('cart state request');
 
-  // eventBus.emit('')
+  if (user.username) {
+    // eventBus.emit('product array request', cart.get());
+    eventBus.emit('cart state confirmed', 'cart');
+    return;
+  }
+
+  eventBus.emit('cart state denied');
+
+
+  // eventBus.emit('product array request', cart.get());
+};
+
+export const cartStateConfirmed = () => {
   eventBus.emit('product array request', cart.get());
 };
 
 export const cartStateDenied = () => {
   console.error('cart state denied');
 
-  // eventBus.emit('signin state request');
+  eventBus.emit('signin state request');
   // showSavedState();
 };
 
