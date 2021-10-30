@@ -209,7 +209,7 @@ const viewDispatcherListeners = [
     callback: [
       model.cartStateDenied
     ]
-  }
+  },
 
   // ==========================
   {
