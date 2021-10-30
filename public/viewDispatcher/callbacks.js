@@ -372,14 +372,14 @@ export const productStateDenied = (responseText) => {
 };
 
 // ==================================
-export const signoutStateRequest = () => {
-  // if (user.username) {
-  //   eventBus.emit('signout state denied');
-  //   return;
-  // };
+// export const signoutStateRequest = () => {
+//   // if (user.username) {
+//   //   eventBus.emit('signout state denied');
+//   //   return;
+//   // };
 
 
-}
+// }
 
 
 // ========================
@@ -442,28 +442,28 @@ export const addToCart = ({ responseText }) => {
   });
 };
 
-// ================================
-export const productRequest = (id) => {
-  let callback2;
+// // ================================
+// export const productRequest = (id) => {
+//   let callback2;
 
-  const callback = ({ responseText }) => {
-    eventBus.emit('product confirmed', responseText);
+//   const callback = ({ responseText }) => {
+//     eventBus.emit('product confirmed', responseText);
 
-    eventBus.off('product request success', callback);
-    eventBus.off('product request fail', callback2);
-  };
-  eventBus.on('product request success', callback);
+//     eventBus.off('product request success', callback);
+//     eventBus.off('product request fail', callback2);
+//   };
+//   eventBus.on('product request success', callback);
 
-  callback2 = ({ responseText }) => {
-    eventBus.emit('product denied', responseText); //=========================================================================
+//   callback2 = ({ responseText }) => {
+//     eventBus.emit('product denied', responseText); //=========================================================================
 
-    eventBus.off('product request success', callback);
-    eventBus.off('product request fail', callback2);
-  };
-  eventBus.on('product request fail', callback2);
+//     eventBus.off('product request success', callback);
+//     eventBus.off('product request fail', callback2);
+//   };
+//   eventBus.on('product request fail', callback2);
 
-  eventBus.emit('product ajax request', id);
-};
+//   eventBus.emit('product ajax request', id);
+// };
 
 export const productConfirmed = (responseText) => {
   // console.log(responseText);
@@ -490,49 +490,9 @@ export const cartGetSuccess = ({ responseText }) => {
   });
 };
 
-// export const cartGetSuccess = ({ responseText }) => {
-//   console.log('cartGetSuccess', responseText);
-
-//   const temp = JSON.parse(responseText);
-//   // productRequest(temp[2].product_id);
-
-//   // temp.forEach((element) => productRequest(element.product_id));
-
-//   // Promise.all(temp.map(async (element) => {
-//   //   productRequest(element.product_id);
-//   // }));
-
-//   eventBus.emit('product array request', temp);
-
-
-//   // console.log(currentCart);
-
-//   // showCart();
-
-//   // const promise = new Promise((resolve) => { resolve(); });
-
-//   // promise
-//   //   .then(() => showCart())
-//   //   .then(() => eventBus.emit('add product array to cart view', currentCart))
-//   //   .catch((err) => console.error(err));
-
-//   // showCart();
-
-//   // setTimeout(() => {
-//   //   eventBus.emit('add product array to cart view', currentCart);
-//   // }, 300);
-
-//   // currentState = 'cart';
+// export const productArrayRequest = () => {
+//   eventBus.emit('product array request', currentCart);
 // };
-
-// // export const cartGetFail = ({ responseText }) => {
-// //   console.log('cartGetFail', responseText);
-// // };
-
-
-export const productArrayRequest = () => {
-  eventBus.emit('product array request', currentCart);
-};
 
 export const productArrayRequestSuccess = (array) => {   // для получения корзины
   console.log('productArrayRequestSuccess');
@@ -581,15 +541,15 @@ export const cartStateDenied = () => {
   // showSavedState();
 };
 
-export const cartGetRequest = () => {
-  eventBus.emit('cart get request');
+// export const cartGetRequest = () => {
+//   eventBus.emit('cart get request');
 
-  // console.log('cart get request event');
+//   // console.log('cart get request event');
 
-  // setTimeout(() => {
-  //   eventBus.emit('cart get request');
-  // }, 3000);
-};
+//   // setTimeout(() => {
+//   //   eventBus.emit('cart get request');
+//   // }, 3000);
+// };
 
 export const dropCart = () => {
   cart.drop();

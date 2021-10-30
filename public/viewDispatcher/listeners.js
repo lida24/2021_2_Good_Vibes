@@ -229,33 +229,6 @@ const viewDispatcherListeners = [
     ]
   },
 
-  // ================
-  {
-    event: 'product request',
-    callback: [
-      model.productRequest
-    ]
-  },
-  {
-    event: 'product confirmed',
-    callback: [
-      model.productConfirmed
-    ]
-  },
-  {
-    event: 'product denied',
-    callback: [
-      model.productDenied
-    ]
-  },
-
-  // {
-  //   event: 'product array request',
-  //   callback: [
-  //     model.productArrayRequest
-  //   ]
-  // }
-
   {
     event: 'product array request success',
     callback: [
