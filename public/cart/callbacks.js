@@ -68,7 +68,7 @@ export const renderItemArray = (itemArray) => {
   }
 
   itemArray.forEach((element) => {
-    // console.log(element);
+    console.log('renderItemArray', element);
     renderItemCart(element);
   });
 
