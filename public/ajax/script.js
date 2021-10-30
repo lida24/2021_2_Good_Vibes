@@ -38,7 +38,8 @@ export default class Ajax {
     xhr.addEventListener('readystatechange', () => {
       if (xhr.readyState !== XMLHttpRequest.DONE) return;
 
-      console.log('headers', xhr.getAllResponseHeaders());
+      // console.log('headers', xhr.getAllResponseHeaders());
+      console.log('xhr', xhr.getResponseHeader('X-CSRF-Token'));
 
       // console.log('headers', document.cookie);
       // alert(document.cookie);
