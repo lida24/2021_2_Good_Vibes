@@ -56,6 +56,14 @@ const ajaxListeners = [
   {
     event: 'product array request',
     callback: ajax.productArrayRequest
+  },
+
+
+  {
+    event: 'product add request',
+    callback: [
+      ajax.productAdd
+    ]
   }
 ];
 

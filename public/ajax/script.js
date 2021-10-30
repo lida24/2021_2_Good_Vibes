@@ -8,11 +8,14 @@ const AJAX_METHODS = {
   GET: 'GET'
 };
 
+let csrf;
+
 /**
  * Класс для создания Ajax-запросов
  * @exports
  */
 export default class Ajax {
+
   /**
    * Ajax коллбэк
    * @callback AjaxCallback
@@ -34,11 +37,16 @@ export default class Ajax {
     const xhr = new XMLHttpRequest();
     xhr.open(method, url, true);
     xhr.withCredentials = true;
+    xhr.setRequestHeader('X-CSRF-Token', csrf);
 
     xhr.addEventListener('readystatechange', () => {
       if (xhr.readyState !== XMLHttpRequest.DONE) return;
 
-      console.log('headers', xhr.getAllResponseHeaders());
+      // console.log('headers', xhr.getAllResponseHeaders());
+
+      csrf = xhr.getResponseHeader('X-Csrf-Token');
+
+      console.log('csrf', csrf);
 
       // setTimeout(() => {
       //   console.log('xhr', xhr.getResponseHeader('X-Csrf-Token'));

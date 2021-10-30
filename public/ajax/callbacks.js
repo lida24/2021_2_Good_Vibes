@@ -48,6 +48,12 @@ export const cookieCheck = () => {
     .catch(({ responseText }) => eventBus.emit('cookie check fail', responseText));
 };
 
+export const productAdd = () => {
+  ajax.get({
+    url: `${backendAddress}/product/add`
+  })
+}
+
 export const homepage = () => {
   ajax.get({
     url: `${backendAddress}/homepage`

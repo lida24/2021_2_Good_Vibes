@@ -43,7 +43,7 @@ const hoodListeners = [
       hood.cartStateRequest
 
       // () => {
-      //   eventBus.emit('add product to cart request', 23);
+      //   eventBus.emit('product add request');
       // }
     ]
   },
