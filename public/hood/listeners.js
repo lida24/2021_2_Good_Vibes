@@ -4,6 +4,13 @@ import eventBus from '../scripts/eventBus.js';
 
 const hoodListeners = [
   {
+    event: 'aside button click',
+    callback: [
+      hood.showAside,
+      // hood.addHomepageToHistory
+    ]
+  },
+  {
     event: 'logo button click',
     callback: [
       hood.homepageStateRequest,

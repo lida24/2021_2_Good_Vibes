@@ -2,6 +2,12 @@
 import cart from '../objects/cart.js';
 import eventBus from '../scripts/eventBus.js';
 
+export const showAside = () => {
+  eventBus.emit('showView', {
+    name: 'Aside'
+  });
+};
+
 export const logoClick = () => {
   console.log('logo click');
 

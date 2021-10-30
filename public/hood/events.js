@@ -2,6 +2,16 @@
 import eventBus from '../scripts/eventBus.js';
 
 const hoodEvents = (element) => {
+  const asideBtn = element.getElementsByClassName('aside-open-button')[0];
+
+  asideBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    element.getElementsByClassName('aside-container');
+    eventBus.emit('aside button click');
+  });
+
+/*   console.log('aside event'); */
+
   // ----------------------------------------
   const logoBtn = element.getElementsByClassName('logo')[0];
 

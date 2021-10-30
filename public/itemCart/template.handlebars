@@ -1,6 +1,11 @@
-{{!-- <li> --}}
-  <div class="cart-image">
-    <img src="{{image}}" alt="${{name}}" />
+<div class="cart-image">
+  <img src="{{image}}" alt="${{name}}" />
+</div>
+<div class="cart-name">
+  <div>
+    <a href="/product?id={{id}}">
+      {{name}}
+    </a>
   </div>
   <div class="cart-name">
     <div>
@@ -18,8 +23,7 @@
       </button>
     </div>
   </div>
-  <div class="cart-price">
-    ${{price}}
-  </div>
-  {{!--
-</li> --}}
+</div>
+<div class="cart-price">
+  ${{price}}
+</div>
