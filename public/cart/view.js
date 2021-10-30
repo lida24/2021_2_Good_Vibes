@@ -91,20 +91,22 @@ export default class Cart extends View {
   // }
 
   #createSubtotalHTML() {
-    const subParent = this.element.getElementsByClassName('subtotal')[0];
-    const subElem = document.createElement('div');
-    subElem.className = 'subtotal';
+    // const subParent = this.element.getElementsByClassName('subtotal')[0];
+    // const subElem = document.createElement('div');
+    // subElem.className = 'subtotal';
 
-    const cartItems = cart.getCartItems();
+    // const cartItems = cart.getCartItems();
 
-    subElem.innerHTML = `
-    <h3>
-            Итого (${cartItems.reduce((a, c) => a + c.count_in_stock, 0)} товаров)
-            :
-            $${cartItems.reduce((a, c) => a + c.price * c.count_in_stock, 0)}
-          </h3>
-          `;
-    subParent.appendChild(subElem);
+    // subElem.innerHTML = `
+    // <h3>
+    //         Итого (${cartItems.reduce((a, c) => a + c.count_in_stock, 0)} товаров)
+    //         :
+    //         $${cartItems.reduce((a, c) => a + c.price * c.count_in_stock, 0)}
+    //       </h3>
+    //       `;
+    // subParent.appendChild(subElem);
+
+    console.log(cart.get());
   }
 
 
@@ -113,7 +115,7 @@ export default class Cart extends View {
     eventBus.add(cartListeners);
     this.#generateEvents(this.element);
     //this.#createItemsHTML();
-    // this.#createSubtotalHTML();
+    this.#createSubtotalHTML();
     //console.log(cartItems);
     return this.show();
   }
