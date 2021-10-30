@@ -68,8 +68,15 @@ export const renderItemArray = (itemArray) => {
   }
 
   itemArray.forEach((element) => {
-    console.log('renderItemArray', element);
+    // console.log('renderItemArray', element);
+
+    cart.setItemPrice({
+      id: element.id,
+      price: element.price
+    });
     renderItemCart(element);
+
+    // console.log('!renderItemArray', element);
   });
 
   // console.log(array);

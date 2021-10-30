@@ -114,8 +114,9 @@ export const init = () => {
   view.Hood.state = state.visible;
   return view.Hood.element.render()
     // .then(() => console.log('adsfasdf'))
-    .then(() => eventBus.emit('hood render finished'))
-    .then(() => eventBus.emit('cart get request'));
+
+    .then(() => eventBus.emit('cart get request'))
+    .then(() => eventBus.emit('hood render finished'));
 
 
 
@@ -515,19 +516,13 @@ export const productArrayRequestFail = (responseText) => {
 // =======================
 
 export const cartStateRequest = () => {
-  // eventBus.emit('cart get request');
   console.log('cart state request');
 
-  if (user.username) {
-    // eventBus.emit('product array request', cart.get());
+  if (cart) {
     eventBus.emit('cart state confirmed', 'cart');
     return;
   }
-
   eventBus.emit('cart state denied');
-
-
-  // eventBus.emit('product array request', cart.get());
 };
 
 export const cartStateConfirmed = () => {

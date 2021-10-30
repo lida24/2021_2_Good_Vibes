@@ -65,6 +65,11 @@ class Cart {
     this.#cartItems = [];
     localStorage.setItem('cartItems', JSON.stringify([]));
   }
+
+  setItemPrice({ id, price }) {
+    const target = this.#cartItems.find((value) => value.product_id === id);
+    target.price = price;
+  }
 }
 
 export default new Cart();
