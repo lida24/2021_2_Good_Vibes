@@ -91,3 +91,7 @@ export const addHomepageToHistory = () => {
 export const addSigninToHistory = () => {
   eventBus.emit('history add', 'signin');
 };
+
+export const cartGetRequest = () => {
+  eventBus.emit('cart get request');
+};

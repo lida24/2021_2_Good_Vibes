@@ -27,19 +27,17 @@ const productListeners = [
       ]
 
      /*  product.productContextRequest */
+
     // product.showContext
   },
   {
     event: 'product context response',
     callback: [
-      product.addToCart,
-      product.addToServerCartRequest
+      // product.addToCart,
+      product.addToCartRequest
     ]
-  }
-  //     callback: [
-  //       product.homepageStateRequest,
-  //       // product.addHomepageToHistory
-  //     ]
+  },
+
 ];
 
 export default productListeners;

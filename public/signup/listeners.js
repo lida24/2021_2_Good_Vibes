@@ -37,7 +37,8 @@ const signupListeners = [
       signup.addUser,
       // signup.homepageStateRequest,
       // signup.addHomepageToHistory
-      signup.showSavedState
+      signup.showSavedState,
+      signup.cartGetRequest
     ]
   },
   {

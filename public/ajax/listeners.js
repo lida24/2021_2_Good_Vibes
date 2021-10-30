@@ -26,10 +26,10 @@ const ajaxListeners = [
     event: 'product ajax request',
     callback: ajax.product
   },
-  {
-    event: 'cart ajax request',
-    callback: ajax.cart
-  },
+  // {
+  //   event: 'cart ajax request',
+  //   callback: ajax.cart
+  // },
   {
     event: 'order ajax request',
     callback: ajax.order
@@ -39,9 +39,31 @@ const ajaxListeners = [
     callback: ajax.cookieCheck
   },
 
+  // ======================
   {
-    event: 'add product to server cart request',
+    event: 'add product to cart request',
     callback: ajax.addProductToCart
+  },
+  {
+    event: 'cart get request',
+    callback: ajax.cartGet
+  },
+
+  {
+    event: 'cart confirm request',
+    callback: ajax.cartConfirm
+  },
+  {
+    event: 'product array request',
+    callback: ajax.productArrayRequest
+  },
+
+
+  {
+    event: 'product add request',
+    callback: [
+      ajax.productAdd
+    ]
   }
 ];
 

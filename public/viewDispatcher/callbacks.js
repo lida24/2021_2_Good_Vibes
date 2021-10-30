@@ -3,6 +3,7 @@ import state from './states.js';
 import constructors from './constructors.js';
 import eventBus from '../scripts/eventBus.js';
 import user from '../objects/user.js';
+import cart from '../objects/cart.js';
 
 export const hide = {};
 export const show = {};
@@ -10,6 +11,8 @@ export const show = {};
 let view = {};
 
 let currentState = '';
+
+let currentCart = [];
 
 
 const add = (obj) => {
@@ -111,7 +114,12 @@ export const init = () => {
   view.Hood.state = state.visible;
   return view.Hood.element.render()
     // .then(() => console.log('adsfasdf'))
+
+    .then(() => eventBus.emit('cart get request'))
     .then(() => eventBus.emit('hood render finished'));
+
+
+
   // .then(() => viewGenerate({ name: 'Homepage' }));
   // .then(() => {
   //   eventBus.emit('homepage ajax request');
@@ -121,6 +129,12 @@ export const init = () => {
 export const showSignin = () => {
   eventBus.emit('showView', {
     name: 'Signin'
+  });
+};
+
+export const showCart = () => {
+  eventBus.emit('showView', {
+    name: 'Cart'
   });
 };
 
@@ -365,14 +379,14 @@ export const productStateDenied = (responseText) => {
 };
 
 // ==================================
-export const signoutStateRequest = () => {
-  // if (user.username) {
-  //   eventBus.emit('signout state denied');
-  //   return;
-  // };
+// export const signoutStateRequest = () => {
+//   // if (user.username) {
+//   //   eventBus.emit('signout state denied');
+//   //   return;
+//   // };
 
 
-}
+// }
 
 
 // ========================
@@ -421,3 +435,133 @@ export const productContextRequest = () => {
   // console.log(temp3.getContext());
 };
 
+export const addToCart = ({ responseText }) => {
+  const obj = JSON.parse(responseText);
+
+  // cart.add({
+  //   id: obj.product_id,
+  //   number: obj.number
+  // });
+
+  cart.set({
+    id: obj.product_id,
+    number: obj.number
+  });
+};
+
+// // ================================
+// export const productRequest = (id) => {
+//   let callback2;
+
+//   const callback = ({ responseText }) => {
+//     eventBus.emit('product confirmed', responseText);
+
+//     eventBus.off('product request success', callback);
+//     eventBus.off('product request fail', callback2);
+//   };
+//   eventBus.on('product request success', callback);
+
+//   callback2 = ({ responseText }) => {
+//     eventBus.emit('product denied', responseText); //=========================================================================
+
+//     eventBus.off('product request success', callback);
+//     eventBus.off('product request fail', callback2);
+//   };
+//   eventBus.on('product request fail', callback2);
+
+//   eventBus.emit('product ajax request', id);
+// };
+
+export const productConfirmed = (responseText) => {
+  // console.log(responseText);
+  const obj = JSON.parse(responseText);
+  currentCart.push(obj);
+
+  // console.log(currentCart);
+};
+
+export const productDenied = (responseText) => {
+  console.log(responseText);
+};
+
+export const cartGetSuccess = ({ responseText }) => {
+  console.log(responseText);
+
+  const obj = JSON.parse(responseText);
+
+  obj.forEach((element) => {
+    cart.set({
+      id: element.product_id,
+      number: element.number
+    });
+  });
+};
+
+// export const productArrayRequest = () => {
+//   eventBus.emit('product array request', currentCart);
+// };
+
+export const productArrayRequestSuccess = (array) => {   // для получения корзины
+  console.log('productArrayRequestSuccess');
+
+  currentState = 'cart';
+
+  const promise = new Promise((resolve) => { resolve(); });
+
+  promise
+    .then(() => showCart())
+    .then(() => eventBus.emit('add product array to cart view', array))
+    // .then(() => {
+    //   console.log('view.Cart.element', view.Cart.element);
+    // })
+    .catch((err) => console.error(err));
+
+
+};
+
+export const productArrayRequestFail = (responseText) => {
+  console.error(responseText);
+};
+
+export const subtotal = () => {
+  console.log('subtotal');
+  view.Cart.element.createSubtotalHTML();
+};
+
+// =======================
+
+export const cartStateRequest = () => {
+  console.log('cart state request');
+
+  if (cart) {
+    eventBus.emit('cart state confirmed', 'cart');
+
+    return;
+  }
+  eventBus.emit('cart state denied');
+};
+
+export const cartStateConfirmed = () => {
+  eventBus.emit('product array request', cart.get());
+};
+
+export const cartStateDenied = () => {
+  console.error('cart state denied');
+
+  eventBus.emit('signin state request');
+  // showSavedState();
+};
+
+// export const cartGetRequest = () => {
+//   eventBus.emit('cart get request');
+
+//   // console.log('cart get request event');
+
+//   // setTimeout(() => {
+//   //   eventBus.emit('cart get request');
+//   // }, 3000);
+// };
+
+export const dropCart = () => {
+  cart.drop();
+};

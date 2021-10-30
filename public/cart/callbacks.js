@@ -22,6 +22,8 @@ const remove = (name) => {
 };
 
 export const renderItemCart = (itemData) => {
+  // console.log('renderItemCart', itemData);
+
   if (itemList[itemData.id]) {
     return;
   }
@@ -53,16 +55,31 @@ export const renderItemCart = (itemData) => {
 };
 
 export const renderItemArray = (itemArray) => {
-  // console.log('!!!', itemArray);
+  // console.log('renderItemArray', itemArray);
+
+  // const array = Object.assign({}, itemArray);
+
+  // const array = itemArray.slice();
+
 
   if (!Array.isArray(itemArray)) {
     console.error('wrong itemArray');
     return;
   }
 
-  itemArray.forEach((item) => {
-    renderItemCart(item);
+  itemArray.forEach((element) => {
+    // console.log('renderItemArray', element);
+
+    cart.setItemPrice({
+      id: element.id,
+      price: element.price
+    });
+    renderItemCart(element);
+
+    // console.log('!renderItemArray', element);
   });
+
+  // console.log(array);
 };
 
 
@@ -85,7 +102,7 @@ export const cartpageLoaded = (responseText) => {
 };
 
 export const cartpageResponse = (responseText) => {
-  console.log('!!!', responseText);
+  // console.log('!!!', responseText);
   const itemArray = JSON.parse(responseText);
   renderItemArray(itemArray);
 };
@@ -93,4 +110,11 @@ export const cartpageResponse = (responseText) => {
 export const localCartResponse = () => {
   console.log(cart.getCartItems());
   renderItemArray(cart.getCartItems());
+};
+
+export const addProductArray = (array) => {
+  // console.log('addProductArray', array);
+  renderItemArray(array);
+
+  eventBus.emit('calculate subtotal');
 };

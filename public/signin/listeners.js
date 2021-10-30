@@ -37,7 +37,8 @@ const signinListeners = [
       signin.addUser,
       // signin.homepageStateRequest,
       // signin.addHomepageToHistory,
-      signin.showSavedState
+      signin.showSavedState,
+      signin.cartGetRequest
     ]
   },
   {

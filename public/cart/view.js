@@ -4,7 +4,7 @@ import cartpageEvents from './events.js';
 import eventBus from '../scripts/eventBus.js';
 import cartListeners from './listeners.js';
 import compiledTemplate from './template.handlebars';
-import cart from '../objects/cart.js'
+import cart from '../objects/cart.js';
 
 export default class Cart extends View {
   element;
@@ -37,18 +37,63 @@ export default class Cart extends View {
     itemParent.appendChild(itemElem);
   }
 
-  #createSubtotalHTML() {
+  // #createSubtotalHTML() {
+  //   const subParent = this.element.getElementsByClassName('subtotal')[0];
+  //   const subElem = document.createElement('div');
+  //   subElem.className = 'subtotal';
+
+  //   const cartItems = cart.getCartItems();
+
+  //   subElem.innerHTML = `
+  //   <h3>
+  //           Итого (${cartItems.reduce((a, c) => a + c.count_in_stock, 0)} товаров)
+  //           :
+  //           $${cartItems.reduce((a, c) => a + c.price * c.count_in_stock, 0)}
+  //         </h3>
+  //         `;
+  //   subParent.appendChild(subElem);
+  // }
+
+  createSubtotalHTML() {
+    // #createSubtotalHTML() {
+    // const subParent = this.element.getElementsByClassName('subtotal')[0];
+    // const subElem = document.createElement('div');
+    // subElem.className = 'subtotal';
+
+    // const cartItems = cart.getCartItems();
+
+    // subElem.innerHTML = `
+    // <h3>
+    //         Итого (${cartItems.reduce((a, c) => a + c.count_in_stock, 0)} товаров)
+    //         :
+    //         $${cartItems.reduce((a, c) => a + c.price * c.count_in_stock, 0)}
+    //       </h3>
+    //       `;
+    // subParent.appendChild(subElem);
+
+    console.log(cart.get());
+
     const subParent = this.element.getElementsByClassName('subtotal')[0];
     const subElem = document.createElement('div');
     subElem.className = 'subtotal';
 
-    const cartItems = cart.getCartItems();
+    // const cartItems = cart.get();
+
+    let totalItemsNumber = 0;
+    let totalPrice = 0;
+
+    cart.get().forEach((element) => {
+      // console.log(element);
+
+      totalItemsNumber += element.number;
+      totalPrice += element.price * element.number;
+    });
 
     subElem.innerHTML = `
     <h3>
-            Итого (${cartItems.reduce((a, c) => a + c.count_in_stock, 0)} товаров)
+            Итого (${totalItemsNumber} товаров)
             :
-            $${cartItems.reduce((a, c) => a + c.price * c.count_in_stock, 0)}
+            $${totalPrice}
           </h3>
           `;
     subParent.appendChild(subElem);
@@ -59,8 +104,10 @@ export default class Cart extends View {
     await this.#renderHTML();
     eventBus.add(cartListeners);
     this.#generateEvents(this.element);
-    this.#createItemsHTML();
-    //this.#createSubtotalHTML();
+
+    //this.#createItemsHTML();
+    // this.#createSubtotalHTML();
+
     //console.log(cartItems);
     return this.show();
   }

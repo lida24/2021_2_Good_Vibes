@@ -40,7 +40,8 @@ router
   .register('/signup', 'signup')
   .register('/profile', 'profile')
   .register('/logout', 'signout')
-  .register('/product', 'product');
+  .register('/product', 'product')
+  .register('/cart', 'cart');
 
 router.start();
 

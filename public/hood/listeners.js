@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import * as hood from './callbacks.js';
+import eventBus from '../scripts/eventBus.js';
 
 const hoodListeners = [
   {
@@ -42,9 +43,15 @@ const hoodListeners = [
   {
     event: 'cart-click',
     callback: [
-      hood.showCart,
+      // hood.showCart,
 
-      hood.showLocalCart
+      // hood.cartGetRequest
+
+      hood.cartStateRequest
+
+      // () => {
+      //   eventBus.emit('product add request');
+      // }
     ]
   },
 ];

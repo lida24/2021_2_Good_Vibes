@@ -1,28 +1,75 @@
 class Cart {
+  #cartItems;
 
-  getCartItems = () => {
-    const cartItems = localStorage.getItem('cartItems')
+  constructor() {
+    this.#cartItems = localStorage.getItem('cartItems')
       ? JSON.parse(localStorage.getItem('cartItems'))
       : [];
-    return cartItems;
-  };
+  }
 
-  setCartItems = (cartItems) => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  };
+  add({ id, number }) {
+    const target = this.#cartItems.find((value) => value.product_id === id);
 
-  /* addToCart = (item, forceUpdate = false) => {
-      let cartItems = getCartItems();
-      const existItem = cartItems.find((x) => x.product === item.product);
-      if (existItem) {
-          cartItems = cartItems.map((x) =>
-          x.product === existItem.product ? item : x
-        );
-      } else {
-        cartItems = [...cartItems, item];
+    if (!target) {
+      this.#cartItems.push({
+        product_id: id,
+        number
+      });
+    } else {
+      target.number += number;
+    }
+
+    localStorage.setItem('cartItems', JSON.stringify(this.#cartItems));
+  }
+
+  set({ id, number }) {
+    const target = this.#cartItems.find((value) => value.product_id === id);
+
+    if (!target) {
+      this.#cartItems.push({
+        product_id: id,
+        number
+      });
+    } else {
+      target.number = number;
+    }
+
+    localStorage.setItem('cartItems', JSON.stringify(this.#cartItems));
+  }
+
+  delete({ id, number }) {
+    const target = this.#cartItems.find((value) => value.product_id === id);
+
+    if (target) {
+      target.number -= number;
+
+      if (target.number <= 0) {
+        const idx = this.#cartItems.findIndex((value) => value.product_id === id);
+        // console.log(idx);
+        this.#cartItems.splice(idx, 1);
       }
-      setCartItems(cartItems);
-    };  */
+    }
+
+    localStorage.setItem('cartItems', JSON.stringify(this.#cartItems));
+  }
+
+  get() {
+    return this.#cartItems;
+  }
+
+  getProduct(id) {
+    return this.#cartItems.find((value) => value.product_id === id);
+  }
+
+  drop() {
+    this.#cartItems = [];
+    localStorage.setItem('cartItems', JSON.stringify([]));
+  }
+
+  setItemPrice({ id, price }) {
+    const target = this.#cartItems.find((value) => value.product_id === id);
+    target.price = price;
+  }
 }
 
 export default new Cart();

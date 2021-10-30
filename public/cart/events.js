@@ -9,12 +9,16 @@ const cartpageEvents = (element) => {
     eventBus.emit('order click');
   });
 
+
 /*   const cartpageBtn = element.getElementsByClassName('cart-href')[0];
   
   cartpageBtn.addEventListener('click', (event) => {
     event.preventDefault();
     eventBus.emit('cart ajax request');
   }); */
+
+const cartpageEvents = (element) => {
+  // eventBus.emit('cart ajax request');
 };
 
 export default cartpageEvents;

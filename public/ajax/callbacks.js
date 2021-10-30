@@ -48,6 +48,12 @@ export const cookieCheck = () => {
     .catch(({ responseText }) => eventBus.emit('cookie check fail', responseText));
 };
 
+export const productAdd = () => {
+  ajax.get({
+    url: `${backendAddress}/product/add`
+  })
+}
+
 export const homepage = () => {
   ajax.get({
     url: `${backendAddress}/homepage`
@@ -64,20 +70,27 @@ export const product = (id) => {
     .catch(({ responseText }) => eventBus.emit('product request fail', { responseText }));
 };
 
-// export const cart = () => {
-//   ajax.get({
-//     url: `${backendAddress}/cart`
-//   })
-//   .then(({ responseText }) => eventBus.emit('cart response', responseText))
-//   .catch((error) => console.error(error));
-// };
+export const productArrayRequest = async (array) => {
+  const result = [];
 
-export const cart = () => {
-  ajax.get({
-    url: `${backendAddress}/cart/get`
-  })
-    .then(({ responseText }) => eventBus.emit('cart response', responseText))
-    .catch((error) => console.error(error));
+  array.forEach((element) => {
+    ajax.get({
+      url: `${backendAddress}/product?id=${element.product_id}`
+    })
+      .then(({ responseText }) => JSON.parse(responseText))
+      .then((obj) => {
+        const tempObj = obj;
+        tempObj.number = element.number;
+        return tempObj;
+      })
+      .then((obj) => result.push(obj))
+      .then(() => {
+        if (result.length === array.length) {
+          eventBus.emit('product array request success', result);
+        }
+      })
+      .catch(({ responseText }) => eventBus.emit('product array request fail', responseText));
+  });
 };
 
 export const order = () => {
@@ -88,23 +101,56 @@ export const order = () => {
     .catch((error) => console.error(error));
 };
 
-export const addProductToCart = (obj) => {
+export const addProductToCart = (data) => {
+  console.log('addProductToCart', data);
+
   const temp = {
-    ProductId: obj.id,
-    Number: 1
+    product_id: data.id,
+    number: data.number
   };
 
-  console.log(JSON.stringify(temp));
-
-  const data = JSON.stringify(temp);
+  console.log(temp);
 
   ajax.post({
     url: `${backendAddress}/cart/put`,
-    body: data
+    body: temp
   })
-    .then(({ responseText }) => console.log(responseText))
-    .catch(({ responseText }) => console.log(responseText));
+    .then(({ responseText }) => eventBus.emit('add product to cart success', { responseText }))
+    .catch(({ responseText }) => eventBus.emit('add product to cart fail', { responseText }));
+};
 
-  // 	ProductId int`json:"product_id"`
-  // Number    int`json:"number,omitempty"`
+export const cartGet = () => {
+  ajax.get({
+    url: `${backendAddress}/cart/get`
+  })
+    // .then(({ responseText }) => console.log(responseText))
+    // .catch(({ responseText }) => console.log(responseText));
+    .then(({ responseText }) => eventBus.emit('cart get success', { responseText }))
+    .catch(({ responseText }) => eventBus.emit('cart get fail', { responseText }));
+};
+
+export const cartConfirm = (array) => {
+  // console.log(array);
+
+  const temp = {
+    date: '2016-12-06 06:56:01',
+    address: {
+      country: 'country',
+      region: 'region',
+      city: 'city',
+      street: 'street',
+      house: 'house',
+      flat: 'flat',
+      index: 'index'
+    },
+    // cost: 213,
+    products: array
+  };
+
+  ajax.post({
+    url: `${backendAddress}/cart/confirm`,
+    body: temp
+  })
+    .then(({ responseText }) => console.log({ responseText }))
+    .catch(({ responseText }) => console.log({ responseText }));
 };

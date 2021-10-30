@@ -16,7 +16,8 @@ const viewDispatcherListeners = [
     event: 'logout success',
     callback: [
       model.showSavedState,
-      model.deleteUser
+      model.deleteUser,
+      model.dropCart
     ]
   },
 
@@ -104,7 +105,7 @@ const viewDispatcherListeners = [
   {
     event: 'cookie check success',
     callback: [
-      model.addUser
+      model.addUser,
     ]
   },
   {
@@ -147,8 +148,6 @@ const viewDispatcherListeners = [
     event: 'product state confirmed',
     callback: [
       model.productStateConfirmed,
-      // history.addProduct,
-      // history.add
     ]
   },
   {
@@ -165,27 +164,89 @@ const viewDispatcherListeners = [
     ]
   },
 
-  // const obj = {
-  //   showSavedState: 'show saved state'
-  // }
-
-  // {
-  //   event: 'signin success',
-  //   callback: [
-
-  //   ]
-  // }
-
-  // // ================================
-  // {
-  //   event: 'homepage show request',
-  // }
 
   // =============================
   {
     event: 'product context request',
     callback: [
       model.productContextRequest
+    ]
+  },
+
+  // ==============================
+
+  {
+    event: 'add product to cart success',
+    callback: [
+      model.addToCart
+    ]
+  },
+  {
+    event: 'add product to cart fail',
+    callback: [
+      model.saveCurrentState,
+      model.signinStateRequest
+    ]
+  },
+
+  // ==================================
+  {
+    event: 'cart state request',
+    callback: [
+      model.saveCurrentState,
+      model.cartStateRequest
+    ]
+  },
+  {
+    event: 'cart state confirmed',
+    callback: [
+      model.cartStateConfirmed,
+      history.add
+    ]
+  },
+  {
+    event: 'cart state denied',
+    callback: [
+      model.cartStateDenied
+    ]
+  },
+
+  // ==========================
+  {
+    event: 'cart get success',
+    callback: [
+      model.cartGetSuccess
+    ]
+  },
+  {
+    event: 'cart get fail',
+    callback: [
+      // model.cartGetFail
+      // model.saveCurrentState,
+      // model.signinStateRequest
+
+      // model.cartStateDenied
+    ]
+  },
+
+  {
+    event: 'product array request success',
+    callback: [
+      model.productArrayRequestSuccess,
+      // model.subtotal
+    ]
+  },
+  {
+    event: 'product array request fail',
+    callback: [
+      model.productArrayRequestFail
+    ]
+  },
+
+  {
+    event: 'calculate subtotal',
+    callback: [
+      model.subtotal
     ]
   }
 ];
