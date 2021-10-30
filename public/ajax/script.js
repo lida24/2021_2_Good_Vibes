@@ -34,7 +34,6 @@ export default class Ajax {
     const xhr = new XMLHttpRequest();
     xhr.open(method, url, true);
     xhr.withCredentials = true;
-
     xhr.addEventListener('readystatechange', () => {
       if (xhr.readyState !== XMLHttpRequest.DONE) return;
 
