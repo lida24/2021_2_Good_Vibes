@@ -200,7 +200,7 @@ export const cartConfirm = (array) => {
       flat: 'flat',
       index: 'index'
     },
-    cost: 213,
+    // cost: 213,
     products: array
   };
 
