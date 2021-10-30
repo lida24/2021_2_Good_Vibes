@@ -60,6 +60,11 @@ class Cart {
   getProduct(id) {
     return this.#cartItems.find((value) => value.product_id === id);
   }
+
+  drop() {
+    this.#cartItems = [];
+    localStorage.setItem('cartItems', JSON.stringify([]));
+  }
 }
 
 export default new Cart();

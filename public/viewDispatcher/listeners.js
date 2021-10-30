@@ -16,7 +16,8 @@ const viewDispatcherListeners = [
     event: 'logout success',
     callback: [
       model.showSavedState,
-      model.deleteUser
+      model.deleteUser,
+      model.dropCart
     ]
   },
 
@@ -104,7 +105,7 @@ const viewDispatcherListeners = [
   {
     event: 'cookie check success',
     callback: [
-      model.addUser
+      model.addUser,
     ]
   },
   {
@@ -227,7 +228,8 @@ const viewDispatcherListeners = [
       // model.cartGetFail
       // model.saveCurrentState,
       // model.signinStateRequest
-      model.cartStateDenied
+
+      // model.cartStateDenied
     ]
   },
 

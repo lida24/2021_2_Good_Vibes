@@ -114,7 +114,11 @@ export const init = () => {
   view.Hood.state = state.visible;
   return view.Hood.element.render()
     // .then(() => console.log('adsfasdf'))
-    .then(() => eventBus.emit('hood render finished'));
+    .then(() => eventBus.emit('hood render finished'))
+    .then(() => eventBus.emit('cart get request'));
+
+
+
   // .then(() => viewGenerate({ name: 'Homepage' }));
   // .then(() => {
   //   eventBus.emit('homepage ajax request');
@@ -474,55 +478,64 @@ export const productDenied = (responseText) => {
 };
 
 export const cartGetSuccess = ({ responseText }) => {
-  console.log('cartGetSuccess', responseText);
+  console.log(responseText);
 
-  const temp = JSON.parse(responseText);
-  // productRequest(temp[2].product_id);
+  const obj = JSON.parse(responseText);
 
-  // temp.forEach((element) => productRequest(element.product_id));
-
-  // Promise.all(temp.map(async (element) => {
-  //   productRequest(element.product_id);
-  // }));
-
-  eventBus.emit('product array request', temp);
-
-
-  // console.log(currentCart);
-
-  // showCart();
-
-  // const promise = new Promise((resolve) => { resolve(); });
-
-  // promise
-  //   .then(() => showCart())
-  //   .then(() => eventBus.emit('add product array to cart view', currentCart))
-  //   .catch((err) => console.error(err));
-
-  // showCart();
-
-  // setTimeout(() => {
-  //   eventBus.emit('add product array to cart view', currentCart);
-  // }, 300);
-
-  // currentState = 'cart';
+  obj.forEach((element) => {
+    cart.set({
+      id: element.product_id,
+      number: element.number
+    });
+  });
 };
 
-// export const cartGetFail = ({ responseText }) => {
-//   console.log('cartGetFail', responseText);
+// export const cartGetSuccess = ({ responseText }) => {
+//   console.log('cartGetSuccess', responseText);
+
+//   const temp = JSON.parse(responseText);
+//   // productRequest(temp[2].product_id);
+
+//   // temp.forEach((element) => productRequest(element.product_id));
+
+//   // Promise.all(temp.map(async (element) => {
+//   //   productRequest(element.product_id);
+//   // }));
+
+//   eventBus.emit('product array request', temp);
+
+
+//   // console.log(currentCart);
+
+//   // showCart();
+
+//   // const promise = new Promise((resolve) => { resolve(); });
+
+//   // promise
+//   //   .then(() => showCart())
+//   //   .then(() => eventBus.emit('add product array to cart view', currentCart))
+//   //   .catch((err) => console.error(err));
+
+//   // showCart();
+
+//   // setTimeout(() => {
+//   //   eventBus.emit('add product array to cart view', currentCart);
+//   // }, 300);
+
+//   // currentState = 'cart';
 // };
+
+// // export const cartGetFail = ({ responseText }) => {
+// //   console.log('cartGetFail', responseText);
+// // };
 
 
 export const productArrayRequest = () => {
   eventBus.emit('product array request', currentCart);
 };
 
-export const productArrayRequestSuccess = (array) => {
-  // console.log(array);
-
-  // const copy = Object.assign([], array);
-  // console.log('copy', copy);
-
+export const productArrayRequestSuccess = (array) => {   // для получения корзины
+  console.log('productArrayRequestSuccess');
 
   const promise = new Promise((resolve) => { resolve(); });
 
@@ -542,11 +555,30 @@ export const productArrayRequestFail = (responseText) => {
 // =======================
 
 export const cartStateRequest = () => {
-  eventBus.emit('cart get request');
+  // eventBus.emit('cart get request');
+  console.log('cart state request');
+
+  // eventBus.emit('')
+  eventBus.emit('product array request', cart.get());
 };
 
 export const cartStateDenied = () => {
   console.error('cart state denied');
 
-  eventBus.emit('signin state request');
+  // eventBus.emit('signin state request');
+  // showSavedState();
+};
+
+export const cartGetRequest = () => {
+  eventBus.emit('cart get request');
+
+  // console.log('cart get request event');
+
+  // setTimeout(() => {
+  //   eventBus.emit('cart get request');
+  // }, 3000);
+};
+
+export const dropCart = () => {
+  cart.drop();
 };
