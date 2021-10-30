@@ -498,20 +498,29 @@ export const cartGetSuccess = ({ responseText }) => {
 export const productArrayRequestSuccess = (array) => {   // для получения корзины
   console.log('productArrayRequestSuccess');
 
+  currentState = 'cart';
+
   const promise = new Promise((resolve) => { resolve(); });
 
   promise
     .then(() => showCart())
     .then(() => eventBus.emit('add product array to cart view', array))
+    // .then(() => {
+    //   console.log('view.Cart.element', view.Cart.element);
+    // })
     .catch((err) => console.error(err));
 
-  currentState = 'cart';
+
 };
 
 export const productArrayRequestFail = (responseText) => {
   console.error(responseText);
 };
 
+export const subtotal = () => {
+  console.log('subtotal');
+  view.Cart.element.createSubtotalHTML();
+};
 
 // =======================
 
@@ -520,6 +529,7 @@ export const cartStateRequest = () => {
 
   if (cart) {
     eventBus.emit('cart state confirmed', 'cart');
+
     return;
   }
   eventBus.emit('cart state denied');

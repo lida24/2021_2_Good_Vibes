@@ -232,13 +232,21 @@ const viewDispatcherListeners = [
   {
     event: 'product array request success',
     callback: [
-      model.productArrayRequestSuccess
+      model.productArrayRequestSuccess,
+      // model.subtotal
     ]
   },
   {
     event: 'product array request fail',
     callback: [
       model.productArrayRequestFail
+    ]
+  },
+
+  {
+    event: 'calculate subtotal',
+    callback: [
+      model.subtotal
     ]
   }
 ];

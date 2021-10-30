@@ -115,4 +115,6 @@ export const localCartResponse = () => {
 export const addProductArray = (array) => {
   // console.log('addProductArray', array);
   renderItemArray(array);
+
+  eventBus.emit('calculate subtotal');
 };
