@@ -27,6 +27,23 @@ export default class ItemCart extends View {
     this.element.innerHTML = html;
   }
 
+  #createQtyHTML() {
+    const qtyParent = this.element.getElementsByClassName('qty-select')[0];
+    const qtyElem = document.createElement('div');
+    //   subElem.className = 'subtotal';
+
+    //   const cartItems = cart.getCartItems();
+
+    subElem.innerHTML = `
+    ${[...Array(count_in_stock).keys()].map((x) =>
+      number === x + 1
+        ? `<option selected value ="${x + 1}">${x + 1}</option>`
+        : `<option value="${x + 1}">${x + 1}</option>`
+    )};
+         `;
+    qtyParent.appendChild(qtyElem);
+  }
+
   async render() {
     await this.#renderHTML();
     eventBus.add(itemCartListeners);
