@@ -284,6 +284,7 @@ export const signinStateRequest = () => {
   eventBus.emit('cookie check request');
 };
 
+
 export const signinStateDenied = () => {
   console.error('signin state denied');
 
