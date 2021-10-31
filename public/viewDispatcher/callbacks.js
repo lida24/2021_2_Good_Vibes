@@ -228,8 +228,8 @@ export const addUser = (responseText) => {
   // }
   console.log(responseText);
 
-  user.username = responseText;
-  console.log(user);
+  user = responseText;
+  console.log('user', user);
 };
 
 export const deleteUser = () => {
@@ -567,9 +567,9 @@ export const dropCart = () => {
 };
 
 export const renderAside = () => {
-    const asideObj = document.getElementById('aside-container');
-    console.log(asideObj);
-    const aside = new Aside(asideObj);
-    console.log(aside.element);
-    aside.render();
+  const asideObj = document.getElementById('aside-container');
+  console.log(asideObj);
+  const aside = new Aside(asideObj);
+  console.log(aside.element);
+  aside.render();
 }
