@@ -154,3 +154,20 @@ export const cartConfirm = (array) => {
     .then(({ responseText }) => console.log({ responseText }))
     .catch(({ responseText }) => console.log({ responseText }));
 };
+
+export const avatarUpload = (file) => {
+  // console.log('avatar upload');
+
+  ajax.avatarUpload({
+    method: 'POST',
+    url: `${backendAddress}/upload/avatar`,
+    file,
+    callback: (status, responseText) => {
+      if (status < 300) {
+        eventBus.emit('avatar upload success', responseText);
+        return;
+      }
+      eventBus.emit('avatar upload fail', responseText);
+    }
+  });
+};

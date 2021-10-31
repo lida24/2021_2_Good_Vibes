@@ -34,19 +34,19 @@ const profileEvents = (element) => {
   const file = element.getElementsByClassName('uploadFile')[0];
 
   file.addEventListener('change', (event) => {
-  event.preventDefault();
-  const choosedFile = file.files[0];
+    event.preventDefault();
+    const choosedFile = file.files[0];
 
-  if(choosedFile) {
+    if (choosedFile) {
 
-    const reader = new FileReader();
-    reader.addEventListener('load', function(){
+      const reader = new FileReader();
+      reader.addEventListener('load', function () {
 
-      eventBus.emit('change photo', reader);
-    });
-    reader.readAsDataURL(choosedFile);
-    } 
-});
+        eventBus.emit('change photo', reader);
+      });
+      reader.readAsDataURL(choosedFile);
+    }
+  });
   // --------------------------------
   const updateBtn = element.getElementsByClassName('update-button')[0];
 

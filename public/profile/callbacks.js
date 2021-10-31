@@ -41,3 +41,20 @@ export const signoutStateRequest = () => {
 export const addHomepageToHistory = () => {
   eventBus.emit('history add', 'homepage');
 };
+
+export const avatarUploadRequest = () => {
+  const file = document.getElementsByClassName('uploadFile')[0];
+  const choosedFile = file.files[0];
+
+  if (choosedFile) {
+    eventBus.emit('avatar upload request', choosedFile);
+  }
+};
+
+export const avatarUploadSuccess = (responseText) => {
+  console.log('avatar upload success', responseText);
+};
+
+export const avatarUploadFail = (responseText) => {
+  console.error('avatar upload fail', responseText);
+};

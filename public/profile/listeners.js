@@ -29,7 +29,8 @@ const profileListeners = [
   {
     event: 'update click',
     callback: [
-      profile.sendLogin
+      profile.sendLogin,
+      profile.avatarUploadRequest
     ]
   },
   {
@@ -39,6 +40,19 @@ const profileListeners = [
       profile.logout,
       // profile.addHomepageToHistory,
       // profile.
+    ]
+  },
+
+  {
+    event: 'avatar upload success',
+    callback: [
+      profile.avatarUploadSuccess
+    ]
+  },
+  {
+    event: 'avatar upload fail',
+    callback: [
+      profile.avatarUploadFail
     ]
   }
 ];
