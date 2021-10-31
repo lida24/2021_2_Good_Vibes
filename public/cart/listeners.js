@@ -39,7 +39,14 @@ const cartListeners = [
     callback: [
       cart.addProductArray
     ]
-  }
+  },
+
+  // {
+  //   event: 'cart clean',
+  //   callback: [
+  //     cart.clean
+  //   ]
+  // }
 ];
 
 export default cartListeners;

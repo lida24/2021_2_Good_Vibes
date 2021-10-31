@@ -45,7 +45,8 @@ export const cookieCheck = () => {
     url: `${backendAddress}/profile`
   })
     .then(({ responseText }) => eventBus.emit('cookie check success', responseText))
-    .catch(({ responseText }) => eventBus.emit('cookie check fail', responseText));
+    .catch(({ responseText }) => eventBus.emit('cookie check fail', responseText))
+  // .then(() => eventBus.emit('cookie check finished'));
 };
 
 export const productAdd = () => {

@@ -13,7 +13,23 @@ const routerListeners = [
     callback: [
       router.rout
     ]
-  }
+  },
+
+  // {
+  //   event: 'cookie check success',
+  //   callback: [
+  //     router.rout
+  //   ]
+  // },
+  // {
+  //   event: 'cookie check finished',
+  //   callback: [
+  //     router.rout
+  //   ]
+  // },
+
+
+
 ];
 
 export default routerListeners;
