@@ -6,7 +6,7 @@ const hoodEvents = (element) => {
 
   asideBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    element.getElementsByClassName('aside-container');
+   /*  element.getElementsByClassName('aside-container'); */
     eventBus.emit('aside button click');
   });
 

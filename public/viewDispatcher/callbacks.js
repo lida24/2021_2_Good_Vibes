@@ -4,6 +4,8 @@ import constructors from './constructors.js';
 import eventBus from '../scripts/eventBus.js';
 import user from '../objects/user.js';
 import cart from '../objects/cart.js';
+import Aside from '../aside/view.js';
+
 
 export const hide = {};
 export const show = {};
@@ -116,9 +118,7 @@ export const init = () => {
     // .then(() => console.log('adsfasdf'))
 
     .then(() => eventBus.emit('cart get request'))
-    .then(() => eventBus.emit('hood render finished'));
-
-
+    .then(() => eventBus.emit('hood render finished'))
 
   // .then(() => viewGenerate({ name: 'Homepage' }));
   // .then(() => {
@@ -565,3 +565,11 @@ export const cartStateDenied = () => {
 export const dropCart = () => {
   cart.drop();
 };
+
+export const renderAside = () => {
+    const asideObj = document.getElementById('aside-container');
+    console.log(asideObj);
+    const aside = new Aside(asideObj);
+    console.log(aside.element);
+    aside.render();
+}

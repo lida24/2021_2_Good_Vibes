@@ -75,7 +75,7 @@ export default class Cart extends View {
 
     const subParent = this.element.getElementsByClassName('subtotal')[0];
     const subElem = document.createElement('div');
-    subElem.className = 'subtotal';
+    /* subElem.className = 'subtotal'; */
 
     // const cartItems = cart.get();
 

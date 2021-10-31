@@ -6,7 +6,10 @@ const hoodListeners = [
   {
     event: 'aside button click',
     callback: [
-      hood.showAside,
+     /*  hood.addAsideConteiner, */
+      
+        hood.showAside
+      
       // hood.addHomepageToHistory
     ]
   },
@@ -21,6 +24,7 @@ const hoodListeners = [
     event: 'profile button click',
     callback: [
       hood.profileStateRequest,
+
       // hood.addProfileToHistory
     ]
   },
@@ -47,7 +51,7 @@ const hoodListeners = [
 
       // hood.cartGetRequest
 
-      hood.cartStateRequest
+     hood.cartStateRequest,
 
       // () => {
       //   eventBus.emit('product add request');
