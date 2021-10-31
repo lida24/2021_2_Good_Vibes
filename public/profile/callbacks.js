@@ -69,7 +69,7 @@ export const updateUserInformation = () => {
   usernameInput.value = user.username;
   emailInput.value = user.email;
 
-  if (!user.avatar.String) {
+  if (!user.avatar) {
     photo.src = 'avatar.jpg';
     return;
   }
