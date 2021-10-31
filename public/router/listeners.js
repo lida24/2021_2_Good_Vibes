@@ -8,12 +8,12 @@ const routerListeners = [
       router.add
     ]
   },
-  {
-    event: 'hood render finished',
-    callback: [
-      router.rout
-    ]
-  },
+  // {
+  //   event: 'hood render finished',
+  //   callback: [
+  //     router.rout
+  //   ]
+  // },
 
   // {
   //   event: 'cookie check success',
@@ -22,11 +22,25 @@ const routerListeners = [
   //   ]
   // },
   // {
-  //   event: 'cookie check finished',
+  //   event: 'cookie check fail',
   //   callback: [
   //     router.rout
   //   ]
   // },
+
+  {
+    event: 'cart get success',
+    callback: [
+      router.rout
+    ]
+  },
+  // {
+  //   event: 'cookie check fail',
+  //   callback: [
+  //     router.rout
+  //   ]
+  // },
+
 
 
 
