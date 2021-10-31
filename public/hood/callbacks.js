@@ -1,12 +1,7 @@
 /* eslint-disable import/extensions */
 import cart from '../objects/cart.js';
 import eventBus from '../scripts/eventBus.js';
-
-export const showAside = () => {
-  eventBus.emit('showView', {
-    name: 'Aside'
-  });
-};
+import Aside from '../aside/view.js';
 
 export const logoClick = () => {
   console.log('logo click');
@@ -17,6 +12,10 @@ export const logoClick = () => {
   //     name: 'Homepage'
   //   });
 };
+
+export const showAside = () => {
+  eventBus.emit('show aside');
+}
 
 export const homepageStateRequest = () => {
   eventBus.emit('homepage state request');

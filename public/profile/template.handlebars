@@ -3,6 +3,11 @@
     <ul class="form-items">
       <li>
         <h1>Профиль</h1>
+        <div class="profile-pic">
+          <img src="avatar.jpg" class="photo" />
+          <label for="file" class="uploadBtn">Загрузить фото</label>
+        </div>
+        <input type="file" class="uploadFile" />
       </li>
       <li>
         <label for="login">Имя пользователя</label>
@@ -13,8 +18,12 @@
         <input type="email" name="email" id="email" value="{{email}}" />
       </li>
       <li>
-        <label for="password">Пароль</label>
+        <label for="password">Изменить пароль</label>
         <input type="password" name="password" id="password" />
+      </li>
+      <li>
+        <label for="password">Подтвердить новый пароль</label>
+        <input type="password" name="confirm-password" id="confirm-password" />
       </li>
       <li>
         <a href="/update">
