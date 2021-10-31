@@ -97,7 +97,7 @@ export default class Cart extends View {
           </h3>
           `;
     // subParent.appendChild(subElem);
-    subParent.replace(subElem);
+    subParent.replaceWith(subElem);
   }
 
 
