@@ -248,6 +248,13 @@ const viewDispatcherListeners = [
     callback: [
       model.subtotal
     ]
+  },
+
+  {
+    event: 'hood render finished',
+    callback: [
+      model.renderAside
+    ]
   }
 ];
 
