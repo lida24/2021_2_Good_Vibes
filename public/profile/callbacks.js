@@ -58,3 +58,21 @@ export const avatarUploadSuccess = (responseText) => {
 export const avatarUploadFail = (responseText) => {
   console.error('avatar upload fail', responseText);
 };
+
+export const updateUserInformation = () => {
+  console.log('updateUserInformation');
+
+  const usernameInput = document.getElementById('login');
+  const emailInput = document.getElementById('email');
+  const photo = document.getElementsByClassName('photo')[0];
+
+  usernameInput.value = user.username;
+  emailInput.value = user.email;
+
+  if (!user.avatar.String) {
+    photo.src = 'avatar.jpg';
+    return;
+  }
+
+  photo.src = user.avatar.String;
+};

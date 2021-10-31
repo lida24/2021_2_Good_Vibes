@@ -54,6 +54,19 @@ const profileListeners = [
     callback: [
       profile.avatarUploadFail
     ]
+  },
+
+  {
+    event: 'Profile shown',
+    callback: [
+      profile.updateUserInformation
+    ]
+  },
+  {
+    event: 'Profile rendered',
+    callback: [
+      profile.updateUserInformation
+    ]
   }
 ];
 

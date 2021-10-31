@@ -27,6 +27,9 @@ export default class Profile extends View {
     await this.#renderHTML();
     eventBus.add(profileListeners);
     this.#generateEvents(this.element);
+
+    // console.log('render profile', user);
+
     return this.show();
   }
 

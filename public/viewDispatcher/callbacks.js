@@ -43,6 +43,9 @@ const visibleControl = (targetName) => {
       view[key].state = state.hidden;
     }
   });
+
+  console.log(`${targetName} shown`);
+  eventBus.emit(`${targetName} shown`, targetName);
 };
 
 const viewGenerate = ({ name, context }) => {
@@ -75,7 +78,8 @@ const viewGenerate = ({ name, context }) => {
   }
   // console.log(view[viewName].element.setContext);
 
-  return view[viewName].element.render();
+  return view[viewName].element.render()
+    .then(() => { eventBus.emit(`${viewName} rendered`, viewName); });
 };
 
 export const showView = ({ name, context }) => {
@@ -226,9 +230,8 @@ export const addUser = (responseText) => {
   // } catch (error) {
   //   console.error(error);
   // }
-  console.log(responseText);
+  user.set(JSON.parse(responseText));
 
-  user = responseText;
   console.log('user', user);
 };
 
