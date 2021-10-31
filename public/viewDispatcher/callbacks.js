@@ -260,28 +260,30 @@ export const signinStateRequest = () => {
     return;
   }
 
-  let callback2;
+  eventBus.emit('signin state confirmed', 'signin');
 
-  const callback = ({ responseText }) => {
-    addUser(responseText);
-    eventBus.emit('signin state denied');
+  // let callback2;
 
-    eventBus.off('cookie check success', callback);
-    eventBus.off('cookie check fail', callback2);
-    // console.log(eventBus);
-  };
-  eventBus.on('cookie check success', callback);
+  // const callback = ({ responseText }) => {
+  //   addUser(responseText);
+  //   eventBus.emit('signin state denied');
 
-  callback2 = () => {
-    eventBus.emit('signin state confirmed', 'signin');
+  //   eventBus.off('cookie check success', callback);
+  //   eventBus.off('cookie check fail', callback2);
+  //   // console.log(eventBus);
+  // };
+  // eventBus.on('cookie check success', callback);
 
-    eventBus.off('cookie check success', callback);
-    eventBus.off('cookie check fail', callback2);
-    // console.log(eventBus);
-  };
-  eventBus.on('cookie check fail', callback2);
+  // callback2 = () => {
+  //   eventBus.emit('signin state confirmed', 'signin');
 
-  eventBus.emit('cookie check request');
+  //   eventBus.off('cookie check success', callback);
+  //   eventBus.off('cookie check fail', callback2);
+  //   // console.log(eventBus);
+  // };
+  // eventBus.on('cookie check fail', callback2);
+
+  // eventBus.emit('cookie check request');
 };
 
 
@@ -307,28 +309,30 @@ export const signupStateRequest = () => {
     return;
   }
 
-  let callback2;
+  eventBus.emit('signup state confirmed', 'signup');
 
-  const callback = ({ responseText }) => {
-    addUser(responseText);
-    eventBus.emit('signup state denied');
+  // let callback2;
 
-    eventBus.off('cookie check success', callback);
-    eventBus.off('cookie check fail', callback2);
-    // console.log(eventBus);
-  };
-  eventBus.on('cookie check success', callback);
+  // const callback = ({ responseText }) => {
+  //   addUser(responseText);
+  //   eventBus.emit('signup state denied');
 
-  callback2 = () => {
-    eventBus.emit('signup state confirmed', 'signup');
+  //   eventBus.off('cookie check success', callback);
+  //   eventBus.off('cookie check fail', callback2);
+  //   // console.log(eventBus);
+  // };
+  // eventBus.on('cookie check success', callback);
 
-    eventBus.off('cookie check success', callback);
-    eventBus.off('cookie check fail', callback2);
-    // console.log(eventBus);
-  };
-  eventBus.on('cookie check fail', callback2);
+  // callback2 = () => {
+  //   eventBus.emit('signup state confirmed', 'signup');
 
-  eventBus.emit('cookie check request');
+  //   eventBus.off('cookie check success', callback);
+  //   eventBus.off('cookie check fail', callback2);
+  //   // console.log(eventBus);
+  // };
+  // eventBus.on('cookie check fail', callback2);
+
+  // eventBus.emit('cookie check request');
 };
 
 export const signupStateDenied = () => {
