@@ -45,7 +45,8 @@ export const cookieCheck = () => {
     url: `${backendAddress}/profile`
   })
     .then(({ responseText }) => eventBus.emit('cookie check success', responseText))
-    .catch(({ responseText }) => eventBus.emit('cookie check fail', responseText));
+    .catch(({ responseText }) => eventBus.emit('cookie check fail', responseText))
+  // .then(() => eventBus.emit('cookie check finished'));
 };
 
 export const productAdd = () => {
@@ -153,4 +154,21 @@ export const cartConfirm = (array) => {
   })
     .then(({ responseText }) => console.log({ responseText }))
     .catch(({ responseText }) => console.log({ responseText }));
+};
+
+export const avatarUpload = (file) => {
+  // console.log('avatar upload');
+
+  ajax.avatarUpload({
+    method: 'POST',
+    url: `${backendAddress}/upload/avatar`,
+    file,
+    callback: (status, responseText) => {
+      if (status < 300) {
+        eventBus.emit('avatar upload success', responseText);
+        return;
+      }
+      eventBus.emit('avatar upload fail', responseText);
+    }
+  });
 };

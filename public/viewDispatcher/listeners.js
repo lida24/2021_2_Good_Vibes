@@ -15,9 +15,10 @@ const viewDispatcherListeners = [
   {
     event: 'logout success',
     callback: [
-      model.showSavedState,
+      model.dropCart,
       model.deleteUser,
-      model.dropCart
+      model.cleanCartView,
+      model.showSavedState,
     ]
   },
 
@@ -253,7 +254,9 @@ const viewDispatcherListeners = [
   {
     event: 'hood render finished',
     callback: [
-      model.renderAside
+      model.renderAside,
+      // model.cookieCheckRequest,
+      // model.cartGetRequest
     ]
   }
 ];

@@ -42,22 +42,8 @@ export default class Ajax {
     xhr.addEventListener('readystatechange', () => {
       if (xhr.readyState !== XMLHttpRequest.DONE) return;
 
-      // console.log('headers', xhr.getAllResponseHeaders());
-
       csrf = xhr.getResponseHeader('X-Csrf-Token');
 
-      console.log('csrf', csrf);
-
-      // setTimeout(() => {
-      //   console.log('xhr', xhr.getResponseHeader('X-Csrf-Token'));
-      // }, 3000);
-
-      // console.log('xhr', xhr.getResponseHeader('X-Csrf-Token'));
-
-      // console.log('headers', document.cookie);
-      // alert(document.cookie);
-
-      // console.log('headers', xhr.getResponseHeader('Set-Cookie'));
       callback(xhr.status, xhr.responseText);
     });
 
@@ -130,5 +116,34 @@ export default class Ajax {
         }
       });
     });
+  }
+
+  static avatarUpload({
+    method = AJAX_METHODS.GET, url = '/', callback = () => { }, file = undefined
+  }) {
+    var formData = new FormData();
+
+    // const file = document.getElementsByClassName('uploadFile')[0];
+
+    // const choosedFile = file.files[0];
+
+    formData.append('file', file);
+
+    console.log(formData);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, url, true);
+    xhr.withCredentials = true;
+    xhr.setRequestHeader('X-CSRF-Token', csrf);
+
+    xhr.addEventListener('readystatechange', () => {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+
+      csrf = xhr.getResponseHeader('X-Csrf-Token');
+
+      callback(xhr.status, xhr.responseText);
+    });
+
+    xhr.send(formData);
   }
 }

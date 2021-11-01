@@ -1,6 +1,8 @@
 class Cart {
   #cartItems;
 
+  #isExist = false;
+
   constructor() {
     this.#cartItems = localStorage.getItem('cartItems')
       ? JSON.parse(localStorage.getItem('cartItems'))
@@ -69,6 +71,21 @@ class Cart {
   setItemPrice({ id, price }) {
     const target = this.#cartItems.find((value) => value.product_id === id);
     target.price = price;
+  }
+
+  isEmpty() {
+    if (this.#cartItems) {
+      return true;
+    }
+    return false;
+  }
+
+  setExist(a) {
+    this.#isExist = a;
+  }
+
+  isExist() {
+    return this.#isExist;
   }
 }
 

@@ -6,11 +6,7 @@ const hoodListeners = [
   {
     event: 'aside button click',
     callback: [
-     /*  hood.addAsideConteiner, */
-      
-        hood.showAside
-      
-      // hood.addHomepageToHistory
+      hood.showAside
     ]
   },
   {
@@ -28,22 +24,7 @@ const hoodListeners = [
       // hood.addProfileToHistory
     ]
   },
-  // {
-  //   event: 'authorization',
-  //   callback: [
-  //     () => {
-  //       console.log('authorization');
-  //     }
-  //   ]
-  // },
-  // {
-  //   event: 'no authorization',
-  //   callback: [
-  //     () => {
-  //       console.log('no authorization');
-  //     }
-  //   ]
-  // },
+
   {
     event: 'cart-click',
     callback: [
@@ -51,11 +32,7 @@ const hoodListeners = [
 
       // hood.cartGetRequest
 
-     hood.cartStateRequest,
-
-      // () => {
-      //   eventBus.emit('product add request');
-      // }
+      hood.cartStateRequest,
     ]
   },
 ];

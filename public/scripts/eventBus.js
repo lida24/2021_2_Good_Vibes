@@ -22,7 +22,7 @@ class EventBus {
 
   emit(event, data) {
     if (!this.#listeners[event]) {
-      console.error(event);
+      console.log(`${event} without listeners`);
       return;
     }
     this.#listeners[event].forEach((listener) => listener(data));

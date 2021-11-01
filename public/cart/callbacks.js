@@ -24,16 +24,20 @@ const remove = (name) => {
 export const renderItemCart = (itemData) => {
   // console.log('renderItemCart', itemData);
 
-  if (itemList[itemData.id]) {
+  // if (itemList[itemData.id]) {
+  //   return;
+  // }
+
+
+  const root = document.getElementsByClassName('items')[0];
+
+  const temp = itemList[itemData.id];
+  console.log(temp);
+  if (temp) {
+    root.appendChild(temp.element);
     return;
   }
 
-  // const root = document.getElementsByClassName('content cart')[0];
-  // const itemCart = document.createElement('div');
-  // itemCart.className = 'content cart';
-  // const itemObj = new ItemCart(itemCart);
-
-  const root = document.getElementsByClassName('items')[0];
   const itemCart = document.createElement('li');
   // itemCart.className = 'content cart';
   const itemObj = new ItemCart(itemCart);
@@ -118,3 +122,9 @@ export const addProductArray = (array) => {
 
   eventBus.emit('calculate subtotal');
 };
+
+// export const clean = () => {
+//   const cartList = document.getElementsByClassName('cart-list')[0];
+
+//   cartList.innerHTML = '';
+// };
