@@ -189,14 +189,18 @@ export const showProduct = (responseText) => {
   });
 };
 
-export const showCategory = (responseObj) => {
+export const showCategory = (name) => {
   // const responseObj = JSON.parse(responseText);
 
   // console.log(responseText);
 
+  const context = {
+    category: name
+  };
+
   eventBus.emit('showView', {
     name: 'Category',
-    context: responseObj
+    context
   });
 };
 
@@ -669,13 +673,15 @@ export const categoryRequestSuccess = (responseText) => {
 
   const obj = JSON.parse(responseText);
 
-  console.log(obj);
+  console.log('category object', obj);
 };
 
 export const categoryStateRequest = (name) => {
   console.log('categoryStateRequest', name);
 
   eventBus.emit('category state confirmed', name);
+
+  showCategory(name);
 };
 
 export const categoryStateConfirmed = (name) => {
