@@ -9,6 +9,10 @@ const asideListeners = [
         event: 'show aside',
         callback:  aside.showAside,
     },
+    {
+        event: 'show subcategory',
+        callback: aside.showSubCategory
+    }
 ]
 
 export default asideListeners;

@@ -25,23 +25,26 @@ export default class ItemCart extends View {
   async #renderHTML() {
     const html = compiledTemplate(this.#context);
     this.element.innerHTML = html;
+    /* this.element.setAttribute('name', this.#context.id); */
   }
 
   #createQtyHTML() {
     const qtyParent = this.element.getElementsByClassName('qty-select')[0];
-    const qtyElem = document.createElement('div');
-    //   subElem.className = 'subtotal';
+    const qtyElem = document.createElement('select');
+    qtyElem.className = 'qty-select';
+    qtyElem.id = this.#context.id;
 
-    //   const cartItems = cart.getCartItems();
-
-    subElem.innerHTML = `
+    const temp = (count_in_stock, number) => {
+      return `
     ${[...Array(count_in_stock).keys()].map((x) =>
-      number === x + 1
-        ? `<option selected value ="${x + 1}">${x + 1}</option>`
-        : `<option value="${x + 1}">${x + 1}</option>`
-    )};
+        number === x + 1
+          ? `<option value ="${x + 1} selected">${x + 1}</option>`
+          : `<option value="${x + 1}">${x + 1}</option>`
+      )};
          `;
-    qtyParent.appendChild(qtyElem);
+    }
+    qtyElem.innerHTML = temp(this.#context.count_in_stock, this.#context.number);
+    qtyParent.replaceWith(qtyElem);
   }
 
   async render() {
@@ -51,6 +54,7 @@ export default class ItemCart extends View {
       element: this.element,
       context: this.#context
     });
+    this.#createQtyHTML();
     return this.show();
   }
 
