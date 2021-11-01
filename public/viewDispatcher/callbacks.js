@@ -608,57 +608,50 @@ export const cleanCartView = () => {
   eventBus.emit('cart clean');
 };
 
-export const addCategory = (name, parent) => {
-  // console.log(name);
+// export const addCategory = (name, parent) => {
 
-  // const categories = document.getElementsByClassName('categories')[0];
+//   const child = document.createElement('li');
 
-  const child = document.createElement('li');
+//   const href = document.createElement('a');
+//   href.href = '#';
+//   href.innerHTML = name;
 
+//   const span = document.createElement('span');
 
+//   const i = document.createElement('i');
+//   i.className = 'fa fa-chevron-right';
 
-  // child.innerHTML = name;
-  const href = document.createElement('a');
-  href.href = '#';
-  href.innerHTML = name;
+//   span.appendChild(i);
 
-  const span = document.createElement('span');
+//   href.appendChild(span);
 
-  const i = document.createElement('i');
-  i.className = 'fa fa-chevron-right';
+//   child.appendChild(href);
 
-  span.appendChild(i);
+//   parent.appendChild(child);
+//   return child;
+// };
 
-  href.appendChild(span);
+// export const handleObj = (obj, parent) => {
+//   console.log(obj.name);
 
-  child.appendChild(href);
+//   const child = addCategory(obj.name, parent);
 
+//   if (obj.children) {
+//     obj.children.forEach((element) => {
+//       handleObj(element, child);
+//     });
+//   }
+// };
 
-  parent.appendChild(child);
-  return child;
-};
+// export const parseCategoryObject = (obj) => {
+//   console.log('parseCategoryObject');
 
-export const handleObj = (obj, parent) => {
-  console.log(obj.name);
+//   console.log(obj);
 
-  const child = addCategory(obj.name, parent);
+//   const parent = document.getElementsByClassName('categories')[0];
 
-  if (obj.children) {
-    obj.children.forEach((element) => {
-      handleObj(element, child);
-    });
-  }
-};
-
-export const parseCategoryObject = (obj) => {
-  console.log('parseCategoryObject');
-
-  console.log(obj);
-
-  const parent = document.getElementsByClassName('categories')[0];
-
-  handleObj(obj, parent);
-};
+//   handleObj(obj, parent);
+// };
 
 export const categoryGetSuccess = (responseText) => {
   console.log('category get success');
@@ -666,7 +659,8 @@ export const categoryGetSuccess = (responseText) => {
   const obj = JSON.parse(responseText);
   // console.log(obj);
 
-  parseCategoryObject(obj);
+  // parseCategoryObject(obj);
+  eventBus.emit('parse category obj', obj);
 };
 
 export const categoryGetFail = (responseText) => {
