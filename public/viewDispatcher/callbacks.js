@@ -125,6 +125,7 @@ export const init = () => {
 
   eventBus.emit('cookie check request');
   eventBus.emit('cart get request');
+  eventBus.emit('category get request');
 
   view.Hood.state = state.visible;
   return view.Hood.element.render()
@@ -605,4 +606,71 @@ export const renderAside = () => {
 
 export const cleanCartView = () => {
   eventBus.emit('cart clean');
+};
+
+export const addCategory = (name, parent) => {
+  // console.log(name);
+
+  // const categories = document.getElementsByClassName('categories')[0];
+
+  const child = document.createElement('li');
+
+
+
+  // child.innerHTML = name;
+  const href = document.createElement('a');
+  href.href = '#';
+  href.innerHTML = name;
+
+  const span = document.createElement('span');
+
+  const i = document.createElement('i');
+  i.className = 'fa fa-chevron-right';
+
+  span.appendChild(i);
+
+  href.appendChild(span);
+
+  child.appendChild(href);
+
+
+  parent.appendChild(child);
+  return child;
+};
+
+export const handleObj = (obj, parent) => {
+  console.log(obj.name);
+
+  const child = addCategory(obj.name, parent);
+
+  if (obj.children) {
+    obj.children.forEach((element) => {
+      handleObj(element, child);
+    });
+  }
+};
+
+export const parseCategoryObject = (obj) => {
+  console.log('parseCategoryObject');
+
+  console.log(obj);
+
+  const parent = document.getElementsByClassName('categories')[0];
+
+  handleObj(obj, parent);
+};
+
+export const categoryGetSuccess = (responseText) => {
+  console.log('category get success');
+
+  const obj = JSON.parse(responseText);
+  // console.log(obj);
+
+  parseCategoryObject(obj);
+};
+
+export const categoryGetFail = (responseText) => {
+  console.log('category get fail');
+
+  console.error(responseText);
 };

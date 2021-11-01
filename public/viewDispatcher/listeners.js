@@ -258,7 +258,20 @@ const viewDispatcherListeners = [
       // model.cookieCheckRequest,
       // model.cartGetRequest
     ]
-  }
+  },
+
+  {
+    event: 'category get success',
+    callback: [
+      model.categoryGetSuccess
+    ]
+  },
+  {
+    event: 'category get fail',
+    callback: [
+      model.categoryGetFail
+    ]
+  },
 ];
 
 export default viewDispatcherListeners;

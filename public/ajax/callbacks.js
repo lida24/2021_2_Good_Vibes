@@ -172,3 +172,16 @@ export const avatarUpload = (file) => {
     }
   });
 };
+
+export const categoryGet = () => {
+  console.log('category get');
+
+  ajax.get({
+    url: `${backendAddress}/category`
+  })
+    // .then(({ responseText }) => console.log(responseText))
+    // .catch(({ responseText }) => console.log(responseText));
+
+    .then(({ responseText }) => eventBus.emit('category get success', responseText))
+    .catch(({ responseText }) => eventBus.emit('category get fail', responseText));
+};

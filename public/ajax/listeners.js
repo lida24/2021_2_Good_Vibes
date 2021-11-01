@@ -70,6 +70,13 @@ const ajaxListeners = [
     callback: [
       ajax.avatarUpload
     ]
+  },
+
+  {
+    event: 'category get request',
+    callback: [
+      ajax.categoryGet
+    ]
   }
 ];
 

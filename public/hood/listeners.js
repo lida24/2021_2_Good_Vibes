@@ -28,11 +28,11 @@ const hoodListeners = [
   {
     event: 'cart-click',
     callback: [
-      // hood.showCart,
-
-      // hood.cartGetRequest
-
       hood.cartStateRequest,
+
+      // () => {
+      //   eventBus.emit('category get request');
+      // }
     ]
   },
 ];
