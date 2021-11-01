@@ -189,6 +189,17 @@ export const showProduct = (responseText) => {
   });
 };
 
+export const showCategory = (responseObj) => {
+  // const responseObj = JSON.parse(responseText);
+
+  // console.log(responseText);
+
+  eventBus.emit('showView', {
+    name: 'Category',
+    context: responseObj
+  });
+};
+
 export const showPayment = () => {
   eventBus.emit('showView', {
     name: 'Payment'
@@ -392,8 +403,17 @@ export const productStateConfirmed = (responseText) => {
 
   // currentState = 'product';
 
-  console.log(responseText.match(/."id":(\d*)/)[1]);
-  currentState = `product${responseText.match(/."id":(\d*)/)[1]}`;
+  // console.log(responseText.match(/."id":(\d*)/)[1]);
+  // currentState = `product${responseText.match(/."id":(\d*)/)[1]}`;
+
+  const id = responseText.match(/."id":(\d*)/)[1];
+  const category = responseText.match(/.*"category":"(\w*)"/)[1];
+  console.log('id', id);
+  console.log('category', category);
+
+  currentState = `product${id}${category}`;
+
+  console.log('current state', currentState);
 };
 
 export const productStateDenied = (responseText) => {
@@ -650,4 +670,20 @@ export const categoryRequestSuccess = (responseText) => {
   const obj = JSON.parse(responseText);
 
   console.log(obj);
-}
+};
+
+export const categoryStateRequest = (name) => {
+  console.log('categoryStateRequest', name);
+
+  eventBus.emit('category state confirmed', name);
+};
+
+export const categoryStateConfirmed = (name) => {
+  eventBus.emit('category request', name);
+};
+
+export const categoryStateDenied = () => {
+  console.log('category state denied');
+
+  eventBus.emit('homepage state request');
+};

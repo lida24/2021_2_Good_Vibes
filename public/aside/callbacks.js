@@ -34,7 +34,8 @@ export const addCategory = (name, parent) => {
   href.addEventListener('click', (event) => {
     event.preventDefault();
 
-    eventBus.emit('category request', name);
+    // eventBus.emit('category request', name);
+    eventBus.emit('category state request', name);
   });
 
   return child;
@@ -86,6 +87,8 @@ export const parseCategoryObject = (obj) => {
   href.addEventListener('click', (event) => {
     event.preventDefault();
 
-    eventBus.emit('category request', name);
+    // eventBus.emit('category request', name);
+    eventBus.emit('category state request', name);
+
   });
 };

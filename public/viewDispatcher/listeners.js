@@ -285,6 +285,25 @@ const viewDispatcherListeners = [
       model.categoryRequestFail
     ]
   },
+
+  {
+    event: 'category state request',
+    callback: [
+      model.categoryStateRequest
+    ]
+  },
+  {
+    event: 'category state confirmed',
+    callback: [
+      model.categoryStateConfirmed
+    ]
+  },
+  {
+    event: 'category state denied',
+    callback: [
+      model.categoryStateDenied
+    ]
+  }
 ];
 
 export default viewDispatcherListeners;

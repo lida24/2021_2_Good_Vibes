@@ -21,7 +21,7 @@ export default class CategoryPage extends View {
   async #renderHTML() {
     const html = compiledTemplate(this.#context);
     this.element.innerHTML = html;
-    // this.element.setAttribute('name', this.#context.id);
+    this.element.setAttribute('category-name', this.#context.category);
   }
 
   async render() {
