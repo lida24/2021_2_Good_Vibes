@@ -16,6 +16,11 @@ const asideListeners = [
     callback: [
       aside.parseCategoryObject
     ]
+  },
+
+  {
+    event: 'show subcategory',
+    callback: aside.showSubCategory
   }
 ];
 
