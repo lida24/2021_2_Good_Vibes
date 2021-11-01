@@ -92,3 +92,12 @@ export const parseCategoryObject = (obj) => {
 
   });
 };
+
+
+export const showSubCategory = () => {
+  const subcategory = document.getElementsByClassName('category')[0];
+  const subcategory1 = document.getElementsByClassName('category')[1];
+
+  subcategory.classList.toggle("subcategory");
+  subcategory1.classList.toggle("subcategory");
+}
