@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import * as model from './callbacks.js';
 
-const homepageListeners = [
+const categoryPageListeners = [
   {
     event: 'renderProdCard',
     callback: [
@@ -15,17 +15,17 @@ const homepageListeners = [
     ]
   },
   {
-    event: 'homepageLoaded',
+    event: 'categoryPageLoaded',
     callback: [
       model.homepageLoaded
     ]
   },
   {
-    event: 'homepage response',
+    event: 'categoryPage response',
     callback: [
       model.homepageResponse
     ]
   }
 ];
 
-export default homepageListeners;
+export default categoryPageListeners;

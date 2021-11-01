@@ -2,16 +2,16 @@
 
 import eventBus from '../scripts/eventBus.js';
 import View from '../scripts/view.js';
-import homepageEvents from './events.js';
-import homepageListeners from './listeners.js';
+import categoryPageEvents from './events.js';
+import categoryPageListeners from './listeners.js';
 import compiledTemplate from './template.handlebars';
 
-export default class Homepage extends View {
+export default class CategoryPage extends View {
   element;
 
   #context;
 
-  #generateEvents = homepageEvents;
+  #generateEvents = categoryPageEvents;
 
   constructor(element) {
     super(element);
@@ -26,7 +26,7 @@ export default class Homepage extends View {
 
   async render() {
     await this.#renderHTML();
-    eventBus.add(homepageListeners);
+    eventBus.add(categoryPageListeners);
     this.#generateEvents(this.element);
     return this.show();
   }

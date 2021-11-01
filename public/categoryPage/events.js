@@ -1,8 +1,8 @@
 /* eslint-disable import/extensions */
 import eventBus from '../scripts/eventBus.js';
 
-const homepageEvents = (element) => {
-  eventBus.emit('homepage ajax request');
+const categoryPageEvents = (element) => {
+  // eventBus.emit('categoryPage ajax request');
 };
 
-export default homepageEvents;
+export default categoryPageEvents;

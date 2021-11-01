@@ -61,6 +61,10 @@ const viewGenerate = ({ name, context }) => {
     viewName += context.id;
   }
 
+  if (context?.category) {
+    viewName += context.category;
+  }
+
   add({
     [viewName]: {
       element: buffObj,
@@ -90,6 +94,10 @@ export const showView = ({ name, context }) => {
   let viewName = name;
   if (context?.id) {
     viewName += context.id;
+  }
+
+  if (context?.category) {
+    viewName += context.category;
   }
 
   if (!view[viewName]) {
