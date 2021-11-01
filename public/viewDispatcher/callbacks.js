@@ -49,6 +49,8 @@ const visibleControl = (targetName) => {
 };
 
 const viewGenerate = ({ name, context }) => {
+  // console.log('context', context);
+
   const main = document.getElementById('main-container');
 
   const buffView = document.createElement('main');
@@ -74,8 +76,10 @@ const viewGenerate = ({ name, context }) => {
   });
 
   view[viewName].state = state.visible;
-  console.log(main);
+
   main.replaceWith(view[viewName].dom);
+
+  console.log(main);
 
   if (view[viewName].element?.setContext) {
     view[viewName].element.setContext(context);
@@ -189,17 +193,17 @@ export const showProduct = (responseText) => {
   });
 };
 
-export const showCategory = (name) => {
+export const showCategory = (categoryName) => {
   // const responseObj = JSON.parse(responseText);
 
   // console.log(responseText);
 
   const context = {
-    category: name
+    category: categoryName
   };
 
   eventBus.emit('showView', {
-    name: 'Category',
+    name: 'CategoryPage',
     context
   });
 };
@@ -674,6 +678,7 @@ export const categoryRequestSuccess = (responseText) => {
   const obj = JSON.parse(responseText);
 
   console.log('category object', obj);
+  eventBus.emit('render category prod array', obj);
 };
 
 export const categoryStateRequest = (name) => {

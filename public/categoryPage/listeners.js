@@ -9,7 +9,7 @@ const categoryPageListeners = [
     ]
   },
   {
-    event: 'renderProdArray',
+    event: 'render category prod array',
     callback: [
       model.renderProdArray
     ]

@@ -21,7 +21,8 @@ export default class CategoryPage extends View {
   async #renderHTML() {
     const html = compiledTemplate(this.#context);
     this.element.innerHTML = html;
-    this.element.setAttribute('category-name', this.#context.category);
+    // this.element.setAttribute('category-name', this.#context.category);
+    // console.log(this.#context);
   }
 
   async render() {
@@ -34,5 +35,9 @@ export default class CategoryPage extends View {
   delete() {
     // eventBus.delete(signinListeners);
     this.element.innerHTML = '';
+  }
+
+  setContext(context) {
+    this.#context = context;
   }
 }
