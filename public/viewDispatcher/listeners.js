@@ -272,6 +272,19 @@ const viewDispatcherListeners = [
       model.categoryGetFail
     ]
   },
+
+  {
+    event: 'category request success',
+    callback: [
+      model.categoryRequestSuccess,
+    ]
+  },
+  {
+    event: 'category request fail',
+    callback: [
+      model.categoryRequestFail
+    ]
+  },
 ];
 
 export default viewDispatcherListeners;

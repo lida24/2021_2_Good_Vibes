@@ -608,51 +608,6 @@ export const cleanCartView = () => {
   eventBus.emit('cart clean');
 };
 
-// export const addCategory = (name, parent) => {
-
-//   const child = document.createElement('li');
-
-//   const href = document.createElement('a');
-//   href.href = '#';
-//   href.innerHTML = name;
-
-//   const span = document.createElement('span');
-
-//   const i = document.createElement('i');
-//   i.className = 'fa fa-chevron-right';
-
-//   span.appendChild(i);
-
-//   href.appendChild(span);
-
-//   child.appendChild(href);
-
-//   parent.appendChild(child);
-//   return child;
-// };
-
-// export const handleObj = (obj, parent) => {
-//   console.log(obj.name);
-
-//   const child = addCategory(obj.name, parent);
-
-//   if (obj.children) {
-//     obj.children.forEach((element) => {
-//       handleObj(element, child);
-//     });
-//   }
-// };
-
-// export const parseCategoryObject = (obj) => {
-//   console.log('parseCategoryObject');
-
-//   console.log(obj);
-
-//   const parent = document.getElementsByClassName('categories')[0];
-
-//   handleObj(obj, parent);
-// };
-
 export const categoryGetSuccess = (responseText) => {
   console.log('category get success');
 
@@ -668,3 +623,23 @@ export const categoryGetFail = (responseText) => {
 
   console.error(responseText);
 };
+
+export const categoryRequestFail = (responseText) => {
+  console.log('category request fail', responseText);
+
+  eventBus.emit('homepage state request');
+};
+
+export const categoryRequestSuccess = (responseText) => {
+  // console.log('category request success', responseText);
+  console.log('category request success');
+
+  if (responseText === null) {
+    console.error('category dont exist');
+    return;
+  }
+
+  const obj = JSON.parse(responseText);
+
+  console.log(obj);
+}

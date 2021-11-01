@@ -1,3 +1,6 @@
+/* eslint-disable import/extensions */
+import eventBus from '../scripts/eventBus.js';
+
 export const showAside = () => {
   const asideObj = document.getElementById('aside-container');
   asideObj.classList.add('open');
@@ -27,6 +30,13 @@ export const addCategory = (name, parent) => {
   child.appendChild(href);
 
   parent.appendChild(child);
+
+  href.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    eventBus.emit('category request', name);
+  });
+
   return child;
 };
 
@@ -50,4 +60,32 @@ export const parseCategoryObject = (obj) => {
   const parent = document.getElementsByClassName('categories')[0];
 
   handleObj(obj, parent);
+
+  // ---------------
+
+  const child = document.createElement('li');
+
+  const href = document.createElement('a');
+  href.href = '#';
+  const name = 'fake af';
+  href.innerHTML = name;
+
+  const span = document.createElement('span');
+
+  const i = document.createElement('i');
+  i.className = 'fa fa-chevron-right';
+
+  span.appendChild(i);
+
+  href.appendChild(span);
+
+  child.appendChild(href);
+
+  parent.appendChild(child);
+
+  href.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    eventBus.emit('category request', name);
+  });
 };

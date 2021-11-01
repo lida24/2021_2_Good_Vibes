@@ -77,6 +77,13 @@ const ajaxListeners = [
     callback: [
       ajax.categoryGet
     ]
+  },
+
+  {
+    event: 'category request',
+    callback: [
+      ajax.categoryRequest
+    ]
   }
 ];
 

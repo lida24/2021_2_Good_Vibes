@@ -185,3 +185,16 @@ export const categoryGet = () => {
     .then(({ responseText }) => eventBus.emit('category get success', responseText))
     .catch(({ responseText }) => eventBus.emit('category get fail', responseText));
 };
+
+export const categoryRequest = (name) => {
+  console.log('categoryRequest', name);
+
+  ajax.get({
+    url: `${backendAddress}/category/${name}`
+  })
+    // .then(({ responseText }) => console.log(responseText))
+    // .catch(({ responseText }) => console.log(responseText));
+
+    .then(({ responseText }) => eventBus.emit('category request success', responseText))
+    .catch(({ responseText }) => eventBus.emit('category request fail', responseText));
+};
