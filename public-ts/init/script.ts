@@ -1,8 +1,11 @@
+import ajaxConnections from '../ajax/connections';
 import bus from '../eventbus';
-import connections from './connections';
+import initConnections from './connections';
 
 const init = () => {
-  bus.add(connections);
+  bus.add(ajaxConnections);
+
+  bus.add(initConnections);
 
   bus.emit('cookie check request', undefined);
   bus.emit('cart get request', undefined);

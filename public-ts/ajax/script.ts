@@ -19,6 +19,13 @@ type AjaxInput = {
   callback: AjaxCallback
 };
 
+type AvatarUploadInput = {
+  method: string,
+  url: string,
+  callback: AjaxCallback,
+  file: File
+};
+
 type Request = (arg?: any) => Promise<unknown>;
 
 /**
@@ -95,32 +102,32 @@ export default class Ajax {
     });
   });
 
-  // static avatarUpload({
-  //   method = AJAX_METHODS.GET, url = '/', callback = () => { }, file = undefined,
-  // }) {
-  //   const formData = new FormData();
+  static avatarUpload: (arg0: AvatarUploadInput) => void = ({
+    method = AJAX_METHODS.GET, url = '/', callback = () => { }, file = undefined,
+  }) => {
+    const formData = new FormData();
 
-  //   // const file = document.getElementsByClassName('uploadFile')[0];
+    // const file = document.getElementsByClassName('uploadFile')[0];
 
-  //   // const choosedFile = file.files[0];
+    // const choosedFile = file.files[0];
 
-  //   formData.append('file', file);
+    formData.append('file', file);
 
-  //   console.log(formData);
+    console.log(formData);
 
-  //   const xhr = new XMLHttpRequest();
-  //   xhr.open(method, url, true);
-  //   xhr.withCredentials = true;
-  //   xhr.setRequestHeader('X-CSRF-Token', csrf);
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, url, true);
+    xhr.withCredentials = true;
+    xhr.setRequestHeader('X-CSRF-Token', csrf);
 
-  //   xhr.addEventListener('readystatechange', () => {
-  //     if (xhr.readyState !== XMLHttpRequest.DONE) return;
+    xhr.addEventListener('readystatechange', () => {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
 
-  //     csrf = xhr.getResponseHeader('X-Csrf-Token');
+      csrf = xhr.getResponseHeader('X-Csrf-Token');
 
-  //     callback(xhr.status, xhr.responseText);
-  //   });
+      callback(xhr.status, xhr.responseText);
+    });
 
-  //   xhr.send(formData);
-  // }
+    xhr.send(formData);
+  };
 }
