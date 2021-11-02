@@ -41,3 +41,55 @@ export const signoutStateRequest = () => {
 export const addHomepageToHistory = () => {
   eventBus.emit('history add', 'homepage');
 };
+
+export const avatarUploadRequest = () => {
+  const file = document.getElementsByClassName('uploadFile')[0];
+  const choosedFile = file.files[0];
+
+  if (choosedFile) {
+    eventBus.emit('avatar upload request', choosedFile);
+  }
+};
+
+export const avatarUploadSuccess = (responseText) => {
+  console.log('avatar upload success', responseText);
+
+  // const photo = document.getElementsByClassName('photo')[0];
+  // photo.srt = responseText;
+};
+
+export const avatarUploadFail = (responseText) => {
+  console.error('avatar upload fail', responseText);
+};
+
+export const updateUserInformation = () => {
+  console.log('updateUserInformation');
+
+  const usernameInput = document.getElementById('login');
+  const emailInput = document.getElementById('email');
+  const photo = document.getElementsByClassName('photo')[0];
+
+  usernameInput.value = user.username;
+  emailInput.value = user.email;
+
+  if (!user.avatar) {
+    photo.src = 'avatar.jpg';
+    return;
+  }
+
+  photo.src = user.avatar;
+};
+
+export const profileUploadRequest = () => {
+  console.log('profileUploadRequest');
+
+  const usernameInput = document.getElementById('login');
+  const emailInput = document.getElementById('email');
+
+  const obj = {
+    username: usernameInput.value.trim(),
+    email: emailInput.value.trim()
+  };
+
+  eventBus.emit('profile upload request', obj);
+};

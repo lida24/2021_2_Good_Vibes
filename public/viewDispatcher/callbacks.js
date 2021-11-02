@@ -43,9 +43,14 @@ const visibleControl = (targetName) => {
       view[key].state = state.hidden;
     }
   });
+
+  console.log(`${targetName} shown`);
+  eventBus.emit(`${targetName} shown`, targetName);
 };
 
 const viewGenerate = ({ name, context }) => {
+  // console.log('context', context);
+
   const main = document.getElementById('main-container');
 
   const buffView = document.createElement('main');
@@ -58,6 +63,10 @@ const viewGenerate = ({ name, context }) => {
     viewName += context.id;
   }
 
+  if (context?.category) {
+    viewName += context.category;
+  }
+
   add({
     [viewName]: {
       element: buffObj,
@@ -67,15 +76,18 @@ const viewGenerate = ({ name, context }) => {
   });
 
   view[viewName].state = state.visible;
-  console.log(main);
+
   main.replaceWith(view[viewName].dom);
+
+  console.log(main);
 
   if (view[viewName].element?.setContext) {
     view[viewName].element.setContext(context);
   }
   // console.log(view[viewName].element.setContext);
 
-  return view[viewName].element.render();
+  return view[viewName].element.render()
+    .then(() => { eventBus.emit(`${viewName} rendered`, viewName); });
 };
 
 export const showView = ({ name, context }) => {
@@ -86,6 +98,10 @@ export const showView = ({ name, context }) => {
   let viewName = name;
   if (context?.id) {
     viewName += context.id;
+  }
+
+  if (context?.category) {
+    viewName += context.category;
   }
 
   if (!view[viewName]) {
@@ -100,6 +116,14 @@ export const viewCheck = () => {
   console.log(view);
 };
 
+export const cookieCheckRequest = () => {
+  eventBus.emit('cookie check request');
+};
+
+export const cartGetRequest = () => {
+  eventBus.emit('cart get request');
+};
+
 export const init = () => {
   const root = document.getElementsByClassName('grid-container')[0];
   const buffObj = new constructors.Hood(root);
@@ -112,13 +136,15 @@ export const init = () => {
   });
 
   eventBus.emit('cookie check request');
+  eventBus.emit('cart get request');
+  eventBus.emit('category get request');
 
   view.Hood.state = state.visible;
   return view.Hood.element.render()
-    // .then(() => console.log('adsfasdf'))
+    .then(() => console.log('hood render finished'))
 
-    .then(() => eventBus.emit('cart get request'))
-    .then(() => eventBus.emit('hood render finished'))
+    // .then(() => eventBus.emit('cart get request'))
+    .then(() => eventBus.emit('hood render finished'));
 
   // .then(() => viewGenerate({ name: 'Homepage' }));
   // .then(() => {
@@ -164,6 +190,21 @@ export const showProduct = (responseText) => {
   eventBus.emit('showView', {
     name: 'Product',
     context: responseObj
+  });
+};
+
+export const showCategory = (categoryName) => {
+  // const responseObj = JSON.parse(responseText);
+
+  // console.log(responseText);
+
+  const context = {
+    category: categoryName
+  };
+
+  eventBus.emit('showView', {
+    name: 'CategoryPage',
+    context
   });
 };
 
@@ -226,10 +267,9 @@ export const addUser = (responseText) => {
   // } catch (error) {
   //   console.error(error);
   // }
-  console.log(responseText);
+  user.set(JSON.parse(responseText));
 
-  user.username = responseText;
-  console.log(user);
+  console.log('user', user);
 };
 
 export const deleteUser = () => {
@@ -248,29 +288,32 @@ export const signinStateRequest = () => {
     return;
   }
 
-  let callback2;
+  eventBus.emit('signin state confirmed', 'signin');
 
-  const callback = ({ responseText }) => {
-    addUser(responseText);
-    eventBus.emit('signin state denied');
+  // let callback2;
 
-    eventBus.off('cookie check success', callback);
-    eventBus.off('cookie check fail', callback2);
-    // console.log(eventBus);
-  };
-  eventBus.on('cookie check success', callback);
+  // const callback = ({ responseText }) => {
+  //   addUser(responseText);
+  //   eventBus.emit('signin state denied');
 
-  callback2 = () => {
-    eventBus.emit('signin state confirmed', 'signin');
+  //   eventBus.off('cookie check success', callback);
+  //   eventBus.off('cookie check fail', callback2);
+  //   // console.log(eventBus);
+  // };
+  // eventBus.on('cookie check success', callback);
 
-    eventBus.off('cookie check success', callback);
-    eventBus.off('cookie check fail', callback2);
-    // console.log(eventBus);
-  };
-  eventBus.on('cookie check fail', callback2);
+  // callback2 = () => {
+  //   eventBus.emit('signin state confirmed', 'signin');
 
-  eventBus.emit('cookie check request');
+  //   eventBus.off('cookie check success', callback);
+  //   eventBus.off('cookie check fail', callback2);
+  //   // console.log(eventBus);
+  // };
+  // eventBus.on('cookie check fail', callback2);
+
+  // eventBus.emit('cookie check request');
 };
+
 
 export const signinStateDenied = () => {
   console.error('signin state denied');
@@ -294,28 +337,30 @@ export const signupStateRequest = () => {
     return;
   }
 
-  let callback2;
+  eventBus.emit('signup state confirmed', 'signup');
 
-  const callback = ({ responseText }) => {
-    addUser(responseText);
-    eventBus.emit('signup state denied');
+  // let callback2;
 
-    eventBus.off('cookie check success', callback);
-    eventBus.off('cookie check fail', callback2);
-    // console.log(eventBus);
-  };
-  eventBus.on('cookie check success', callback);
+  // const callback = ({ responseText }) => {
+  //   addUser(responseText);
+  //   eventBus.emit('signup state denied');
 
-  callback2 = () => {
-    eventBus.emit('signup state confirmed', 'signup');
+  //   eventBus.off('cookie check success', callback);
+  //   eventBus.off('cookie check fail', callback2);
+  //   // console.log(eventBus);
+  // };
+  // eventBus.on('cookie check success', callback);
 
-    eventBus.off('cookie check success', callback);
-    eventBus.off('cookie check fail', callback2);
-    // console.log(eventBus);
-  };
-  eventBus.on('cookie check fail', callback2);
+  // callback2 = () => {
+  //   eventBus.emit('signup state confirmed', 'signup');
 
-  eventBus.emit('cookie check request');
+  //   eventBus.off('cookie check success', callback);
+  //   eventBus.off('cookie check fail', callback2);
+  //   // console.log(eventBus);
+  // };
+  // eventBus.on('cookie check fail', callback2);
+
+  // eventBus.emit('cookie check request');
 };
 
 export const signupStateDenied = () => {
@@ -366,8 +411,17 @@ export const productStateConfirmed = (responseText) => {
 
   // currentState = 'product';
 
-  console.log(responseText.match(/."id":(\d*)/)[1]);
-  currentState = `product${responseText.match(/."id":(\d*)/)[1]}`;
+  // console.log(responseText.match(/."id":(\d*)/)[1]);
+  // currentState = `product${responseText.match(/."id":(\d*)/)[1]}`;
+
+  const id = responseText.match(/."id":(\d*)/)[1];
+  const category = responseText.match(/.*"category":"(\w*)"/)[1];
+  console.log('id', id);
+  console.log('category', category);
+
+  currentState = `product${id}${category}`;
+
+  console.log('current state', currentState);
 };
 
 export const productStateDenied = (responseText) => {
@@ -407,7 +461,7 @@ export const saveCurrentState = () => {
 };
 
 export const showSavedState = () => {
-  // console.log('state to show', stateToSave);
+  console.log('state to show', stateToSave);
 
   if (!stateToSave) {
     stateToSave = 'homepage';
@@ -485,9 +539,11 @@ export const productDenied = (responseText) => {
 };
 
 export const cartGetSuccess = ({ responseText }) => {
-  console.log(responseText);
+  console.log('cartGetSuccess', responseText);
 
   const obj = JSON.parse(responseText);
+
+  cart.setExist(true);
 
   obj.forEach((element) => {
     cart.set({
@@ -495,6 +551,8 @@ export const cartGetSuccess = ({ responseText }) => {
       number: element.number
     });
   });
+
+  console.log(cart);
 };
 
 // export const productArrayRequest = () => {
@@ -533,7 +591,10 @@ export const subtotal = () => {
 export const cartStateRequest = () => {
   console.log('cart state request');
 
-  if (cart) {
+  console.log(user);
+  console.log(cart);
+
+  if (user.username) {
     eventBus.emit('cart state confirmed', 'cart');
 
     return;
@@ -542,10 +603,15 @@ export const cartStateRequest = () => {
 };
 
 export const cartStateConfirmed = () => {
+  console.log('cartStateConfirmed');
+
+  showCart();
+
   eventBus.emit('product array request', cart.get());
 };
 
 export const cartStateDenied = () => {
+  console.log('cartStateDenied');
   console.error('cart state denied');
 
   eventBus.emit('signin state request');
@@ -567,9 +633,113 @@ export const dropCart = () => {
 };
 
 export const renderAside = () => {
-    const asideObj = document.getElementById('aside-container');
-    console.log(asideObj);
-    const aside = new Aside(asideObj);
-    console.log(aside.element);
-    aside.render();
-}
+  const asideObj = document.getElementById('aside-container');
+  console.log(asideObj);
+  const aside = new Aside(asideObj);
+  console.log(aside.element);
+  aside.render();
+};
+
+export const cleanCartView = () => {
+  eventBus.emit('cart clean');
+};
+
+export const categoryGetSuccess = (responseText) => {
+  console.log('category get success');
+
+  const obj = JSON.parse(responseText);
+  // console.log(obj);
+
+  // parseCategoryObject(obj);
+  eventBus.emit('parse category obj', obj);
+};
+
+export const categoryGetFail = (responseText) => {
+  console.log('category get fail');
+
+  console.error(responseText);
+};
+
+export const categoryRequestFail = (responseText) => {
+  console.log('category request fail', responseText);
+
+  eventBus.emit('homepage state request');
+};
+
+export const categoryRequestSuccess = (responseText) => {
+  // console.log('category request success', responseText);
+  console.log('category request success');
+
+  if (responseText === null) {
+    console.error('category dont exist');
+    return;
+  }
+
+  const obj = JSON.parse(responseText);
+
+  console.log('category object', obj);
+  eventBus.emit('render category prod array', obj);
+};
+
+export const categoryStateRequest = (name) => {
+  console.log('categoryStateRequest', name);
+
+  eventBus.emit('category state confirmed', name);
+
+  showCategory(name);
+};
+
+export const categoryStateConfirmed = (name) => {
+  eventBus.emit('category request', name);
+};
+
+export const categoryStateDenied = () => {
+  console.log('category state denied');
+
+  eventBus.emit('homepage state request');
+};
+
+export const cartDeleteRequest = (id) => {
+  console.log('cart delete request', id);
+
+  const obj = cart.getProduct(id);
+
+  const temp = {};
+  Object.assign(temp, obj);
+  delete temp.price;
+
+  console.log(temp);
+
+  eventBus.emit('cart delete request', obj);
+};
+
+export const cartDeleteFail = (responseText) => {
+  console.error('cart delete fail', responseText);
+};
+
+export const cartDeleteSuccess = (responseText) => {
+  console.log('cart delete success', responseText);
+
+  const obj = JSON.parse(responseText);
+
+  cart.delete({
+    id: obj.product_id,
+    number: obj.number
+  });
+};
+
+export const cartConfirmFail = (responseText) => {
+  console.error('cart confirm error', responseText);
+};
+
+export const cartConfirmSuccess = (responseText) => {
+  console.log('cart confirm success', responseText);
+};
+
+export const profileUploadFail = (responseText) => {
+  console.error('profile upload fail', responseText);
+};
+
+export const profileUploadSuccess = (responseText) => {
+  console.log('profile upload success', responseText);
+};

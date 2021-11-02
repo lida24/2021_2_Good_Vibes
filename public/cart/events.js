@@ -17,6 +17,32 @@ const cartpageEvents = (element) => {
       eventBus.emit('cart ajax request');
     }); */
 
+  eventBus.on('cart clean', () => {
+    // const cartList = element.getElementsByClassName('cart-list-container')[0];
+    const cartList = element.getElementsByClassName('items');
+    const subtotal = element.getElementsByClassName('subtotal')[0];
+
+    // cartList.innerHTML = '';
+
+    // cartList.forEach((item) => {
+    //   item.remove();
+    // });
+
+    // for (const item of cartList) {
+    //   item.remove();
+    // }
+
+    const array = Array.from(cartList);
+    array.forEach((item) => {
+      item.remove();
+    });
+
+    subtotal.innerHTML = '';
+
+    const div = document.createElement('div');
+    div.className = 'items';
+    element.getElementsByClassName('cart-list-container')[0].appendChild(div);
+  });
 };
 
 export default cartpageEvents;

@@ -3,8 +3,9 @@ import * as order from './callbacks.js';
 
 const orderListeners = [
   {
-    event: 'continue click',
+    event: 'order continue click',
     callback: [
+      order.saveAddress,
       order.showPayment,
     ]
   },

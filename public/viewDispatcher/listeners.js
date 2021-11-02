@@ -15,9 +15,10 @@ const viewDispatcherListeners = [
   {
     event: 'logout success',
     callback: [
-      model.showSavedState,
+      model.dropCart,
       model.deleteUser,
-      model.dropCart
+      model.cleanCartView,
+      model.showSavedState,
     ]
   },
 
@@ -253,7 +254,100 @@ const viewDispatcherListeners = [
   {
     event: 'hood render finished',
     callback: [
-      model.renderAside
+      model.renderAside,
+      // model.cookieCheckRequest,
+      // model.cartGetRequest
+    ]
+  },
+
+  {
+    event: 'category get success',
+    callback: [
+      model.categoryGetSuccess
+    ]
+  },
+  {
+    event: 'category get fail',
+    callback: [
+      model.categoryGetFail
+    ]
+  },
+
+  {
+    event: 'category request success',
+    callback: [
+      model.categoryRequestSuccess,
+    ]
+  },
+  {
+    event: 'category request fail',
+    callback: [
+      model.categoryRequestFail
+    ]
+  },
+
+  {
+    event: 'category state request',
+    callback: [
+      model.categoryStateRequest
+    ]
+  },
+  {
+    event: 'category state confirmed',
+    callback: [
+      model.categoryStateConfirmed
+    ]
+  },
+  {
+    event: 'category state denied',
+    callback: [
+      model.categoryStateDenied
+    ]
+  },
+
+  {
+    event: 'delete button click',
+    callback: [
+      model.cartDeleteRequest
+    ]
+  },
+  {
+    event: 'cart delete fail',
+    callback: [
+      model.cartDeleteFail
+    ]
+  },
+  {
+    event: 'cart delete success',
+    callback: [
+      model.cartDeleteSuccess
+    ]
+  },
+
+  {
+    event: 'cart confirm fail',
+    callback: [
+      model.cartConfirmFail
+    ]
+  },
+  {
+    event: 'cart confirm success',
+    callback: [
+      model.cartConfirmSuccess,
+      model.cleanCartView
+    ]
+  },
+
+  {
+    event: 'profile upload success',
+    callback: [
+      model.profileUploadSuccess
+    ]
+  },
+  {
+    event: 'profile upload fail',
+    callback: [
+      model.profileUploadFail
     ]
   }
 ];

@@ -8,12 +8,42 @@ const routerListeners = [
       router.add
     ]
   },
+  // {
+  //   event: 'hood render finished',
+  //   callback: [
+  //     router.rout
+  //   ]
+  // },
+
   {
-    event: 'hood render finished',
+    event: 'cookie check success',
     callback: [
       router.rout
     ]
-  }
+  },
+  {
+    event: 'cookie check fail',
+    callback: [
+      router.rout
+    ]
+  },
+
+  // {
+  //   event: 'cart get success',
+  //   callback: [
+  //     router.rout
+  //   ]
+  // },
+  // {
+  //   event: 'cookie check fail',
+  //   callback: [
+  //     router.rout
+  //   ]
+  // },
+
+
+
+
 ];
 
 export default routerListeners;

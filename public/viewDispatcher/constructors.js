@@ -10,6 +10,7 @@ import Order from '../order/view.js';
 import Payment from '../payment/view.js';
 import Delivery from '../delivery/view.js';
 import Aside from '../aside/view.js';
+import CategoryPage from '../categoryPage/view.js';
 
 const constructors = {
   Signin,
@@ -23,6 +24,7 @@ const constructors = {
   Payment,
   Delivery,
   Aside,
+  CategoryPage
 };
 
 export default constructors;

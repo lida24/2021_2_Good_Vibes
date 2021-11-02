@@ -33,7 +33,7 @@ export default class Cart extends View {
 
     if (cartItems.length === 0) {
       itemElem.innerHTML = '<div>Cart is empty. <a href="/#/">Go Shopping</a>'
-    } 
+    }
     itemParent.appendChild(itemElem);
   }
 
@@ -75,7 +75,7 @@ export default class Cart extends View {
 
     const subParent = this.element.getElementsByClassName('subtotal')[0];
     const subElem = document.createElement('div');
-    /* subElem.className = 'subtotal'; */
+    subElem.className = 'subtotal';
 
     // const cartItems = cart.get();
 
@@ -96,7 +96,8 @@ export default class Cart extends View {
             $${totalPrice}
           </h3>
           `;
-    subParent.appendChild(subElem);
+    // subParent.appendChild(subElem);
+    subParent.replaceWith(subElem);
   }
 
 

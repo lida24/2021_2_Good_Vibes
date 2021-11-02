@@ -45,7 +45,8 @@ export const cookieCheck = () => {
     url: `${backendAddress}/profile`
   })
     .then(({ responseText }) => eventBus.emit('cookie check success', responseText))
-    .catch(({ responseText }) => eventBus.emit('cookie check fail', responseText));
+    .catch(({ responseText }) => eventBus.emit('cookie check fail', responseText))
+  // .then(() => eventBus.emit('cookie check finished'));
 };
 
 export const productAdd = () => {
@@ -129,28 +130,97 @@ export const cartGet = () => {
     .catch(({ responseText }) => eventBus.emit('cart get fail', { responseText }));
 };
 
-export const cartConfirm = (array) => {
+export const cartConfirm = (obj) => {
   // console.log(array);
 
-  const temp = {
-    date: '2016-12-06 06:56:01',
-    address: {
-      country: 'country',
-      region: 'region',
-      city: 'city',
-      street: 'street',
-      house: 'house',
-      flat: 'flat',
-      index: 'index'
-    },
-    // cost: 213,
-    products: array
-  };
+  // const temp = {
+  //   date: '2016-12-06 06:56:01',
+  //   address: {
+  //     country: 'country',
+  //     region: 'region',
+  //     city: 'city',
+  //     street: 'street',
+  //     house: 'house',
+  //     flat: 'flat',
+  //     index: 'index'
+  //   },
+  //   // cost: 213,
+  //   products: array
+  // };
+
+  console.log('cart confirm', JSON.stringify(obj));
 
   ajax.post({
     url: `${backendAddress}/cart/confirm`,
-    body: temp
+    body: obj
   })
-    .then(({ responseText }) => console.log({ responseText }))
-    .catch(({ responseText }) => console.log({ responseText }));
+    // .then(({ responseText }) => console.log({ responseText }))
+    // .catch(({ responseText }) => console.log({ responseText }));
+    .then(({ responseText }) => eventBus.emit('cart confirm success', responseText))
+    .catch(({ responseText }) => eventBus.emit('cart comfirm fail', responseText));
 };
+
+export const avatarUpload = (file) => {
+  // console.log('avatar upload');
+
+  ajax.avatarUpload({
+    method: 'POST',
+    url: `${backendAddress}/upload/avatar`,
+    file,
+    callback: (status, responseText) => {
+      if (status < 300) {
+        eventBus.emit('avatar upload success', responseText);
+        return;
+      }
+      eventBus.emit('avatar upload fail', responseText);
+    }
+  });
+};
+
+export const categoryGet = () => {
+  console.log('category get');
+
+  ajax.get({
+    url: `${backendAddress}/category`
+  })
+    // .then(({ responseText }) => console.log(responseText))
+    // .catch(({ responseText }) => console.log(responseText));
+
+    .then(({ responseText }) => eventBus.emit('category get success', responseText))
+    .catch(({ responseText }) => eventBus.emit('category get fail', responseText));
+};
+
+export const categoryRequest = (name) => {
+  console.log('categoryRequest', name);
+
+  ajax.get({
+    url: `${backendAddress}/category/${name}`
+  })
+    // .then(({ responseText }) => console.log(responseText))
+    // .catch(({ responseText }) => console.log(responseText));
+
+    .then(({ responseText }) => eventBus.emit('category request success', responseText))
+    .catch(({ responseText }) => eventBus.emit('category request fail', responseText));
+};
+
+export const cartDelete = (obj) => {
+  console.log('cart delete', obj);
+
+  ajax.post({
+    url: `${backendAddress}/cart/delete`,
+    body: obj
+  })
+    .then(({ responseText }) => eventBus.emit('cart delete success', responseText))
+    .catch(({ responseText }) => eventBus.emit('cart delete fail', responseText));
+};
+
+export const profileUpload = (obj) => {
+  console.log('profile upload', obj);
+
+  ajax.post({
+    url: `${backendAddress}/profile`,
+    body: obj
+  })
+    .then(({ responseText }) => eventBus.emit('profile upload success', responseText))
+    .catch(({ responseText }) => eventBus.emit('profile upload fail', responseText));
+}

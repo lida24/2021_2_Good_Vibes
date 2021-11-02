@@ -17,23 +17,27 @@ const add = (obj) => {
 };
 
 const remove = (name) => {
-  itemList[name].delete();
+  itemList[name].element.remove();
   delete itemList[name];
 };
 
 export const renderItemCart = (itemData) => {
   // console.log('renderItemCart', itemData);
 
-  if (itemList[itemData.id]) {
+  // if (itemList[itemData.id]) {
+  //   return;
+  // }
+
+
+  const root = document.getElementsByClassName('items')[0];
+
+  const temp = itemList[itemData.id];
+  console.log(temp);
+  if (temp) {
+    root.appendChild(temp.element);
     return;
   }
 
-  // const root = document.getElementsByClassName('content cart')[0];
-  // const itemCart = document.createElement('div');
-  // itemCart.className = 'content cart';
-  // const itemObj = new ItemCart(itemCart);
-
-  const root = document.getElementsByClassName('items')[0];
   const itemCart = document.createElement('li');
   // itemCart.className = 'content cart';
   const itemObj = new ItemCart(itemCart);
@@ -115,6 +119,36 @@ export const localCartResponse = () => {
 export const addProductArray = (array) => {
   // console.log('addProductArray', array);
   renderItemArray(array);
+
+  eventBus.emit('calculate subtotal');
+};
+
+// export const clean = () => {
+//   const cartList = document.getElementsByClassName('cart-list')[0];
+
+//   cartList.innerHTML = '';
+// };
+
+export const deleteItem = (responseText) => {
+  console.log('delete item');
+
+  const obj = JSON.parse(responseText);
+
+  console.log(obj);
+
+  remove(obj.product_id);
+  eventBus.emit('calculate subtotal');
+};
+
+export const deleteAllItems = () => {
+  console.log('deleteAllItems');
+
+  console.log(cart.get());
+  cart.get().forEach((element) => {
+    console.log(element);
+    remove(element.product_id);
+  });
+  cart.drop();
 
   eventBus.emit('calculate subtotal');
 };

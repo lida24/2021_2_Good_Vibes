@@ -57,9 +57,9 @@ export const cartGetRequest = () => {
   eventBus.emit('cart get request');
 };
 
-export const cartConfirmRequest = () => {
-  eventBus.emit('cart confirm request', cart.get());
-};
+// export const cartConfirmRequest = () => {
+//   eventBus.emit('cart confirm request', cart.get());
+// };
 
 export const cartStateRequest = () => {
   eventBus.emit('cart state request');

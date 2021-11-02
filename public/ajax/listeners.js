@@ -58,11 +58,44 @@ const ajaxListeners = [
     callback: ajax.productArrayRequest
   },
 
-
   {
     event: 'product add request',
     callback: [
       ajax.productAdd
+    ]
+  },
+
+  {
+    event: 'avatar upload request',
+    callback: [
+      ajax.avatarUpload
+    ]
+  },
+
+  {
+    event: 'category get request',
+    callback: [
+      ajax.categoryGet
+    ]
+  },
+
+  {
+    event: 'category request',
+    callback: [
+      ajax.categoryRequest
+    ]
+  },
+  {
+    event: 'cart delete request',
+    callback: [
+      ajax.cartDelete
+    ]
+  },
+
+  {
+    event: 'profile upload request',
+    callback: [
+      ajax.profileUpload
     ]
   }
 ];
