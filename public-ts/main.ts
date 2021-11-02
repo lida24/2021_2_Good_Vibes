@@ -1,3 +1,3 @@
-import bus from './eventbus';
+import init from './init/script';
 
-console.log(bus);
+init();

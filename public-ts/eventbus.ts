@@ -1,9 +1,4 @@
-type Callback = (arg0: object) => void;
-
-type Connection = {
-  event: string,
-  callback: Callback
-};
+import { Callback, Connection } from './types';
 
 class EventBus {
   private listeners: { event: Callback[] };
