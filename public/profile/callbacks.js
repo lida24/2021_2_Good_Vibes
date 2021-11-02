@@ -54,8 +54,8 @@ export const avatarUploadRequest = () => {
 export const avatarUploadSuccess = (responseText) => {
   console.log('avatar upload success', responseText);
 
-  const photo = document.getElementsByClassName('photo')[0];
-  photo.srt = responseText;
+  // const photo = document.getElementsByClassName('photo')[0];
+  // photo.srt = responseText;
 };
 
 export const avatarUploadFail = (responseText) => {
