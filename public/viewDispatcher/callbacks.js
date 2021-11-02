@@ -712,3 +712,18 @@ export const cartDeleteRequest = (id) => {
 
   eventBus.emit('cart delete request', obj);
 };
+
+export const cartDeleteFail = (responseText) => {
+  console.error('cart delete fail', responseText);
+};
+
+export const cartDeleteSuccess = (responseText) => {
+  console.log('cart delete success', responseText);
+
+  const obj = JSON.parse(responseText);
+
+  cart.delete({
+    id: obj.product_id,
+    number: obj.number
+  });
+};

@@ -46,6 +46,13 @@ const cartListeners = [
     callback: [
       // cart.deleteItem
     ]
+  },
+
+  {
+    event: 'cart delete success',
+    callback: [
+      cart.deleteItem
+    ]
   }
 ];
 

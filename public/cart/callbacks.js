@@ -17,7 +17,7 @@ const add = (obj) => {
 };
 
 const remove = (name) => {
-  itemList[name].delete();
+  itemList[name].element.remove();
   delete itemList[name];
 };
 
@@ -128,3 +128,14 @@ export const addProductArray = (array) => {
 
 //   cartList.innerHTML = '';
 // };
+
+export const deleteItem = (responseText) => {
+  console.log('delete item');
+
+  const obj = JSON.parse(responseText);
+
+  console.log(obj);
+
+  remove(obj.product_id);
+  eventBus.emit('calculate subtotal');
+};

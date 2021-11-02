@@ -310,6 +310,18 @@ const viewDispatcherListeners = [
     callback: [
       model.cartDeleteRequest
     ]
+  },
+  {
+    event: 'cart delete fail',
+    callback: [
+      model.cartDeleteFail
+    ]
+  },
+  {
+    event: 'cart delete success',
+    callback: [
+      model.cartDeleteSuccess
+    ]
   }
 ];
 

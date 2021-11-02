@@ -210,6 +210,6 @@ export const cartDelete = (obj) => {
     url: `${backendAddress}/cart/delete`,
     body: obj
   })
-    .then(({ responseText }) => console.log(responseText))
-    .catch(({ responseText }) => console.log(responseText));
+    .then(({ responseText }) => eventBus.emit('cart delete success', responseText))
+    .catch(({ responseText }) => eventBus.emit('cart delete fail', responseText));
 };
