@@ -9,6 +9,15 @@ const ItemCartEvents = ({ element, context }) => {
 
     eventBus.emit('delete button click', context.id);
   });
+
+  const qtySelects = document.getElementsByClassName('qty-select');
+    Array.from(qtySelects).forEach((qtySelect) => {
+      qtySelect.addEventListener('change', (event) => {
+         event.preventDefault();
+
+         eventBus.emit('change qty select', qtySelect, event);
+      });
+    });
 };
 
 export default ItemCartEvents;
