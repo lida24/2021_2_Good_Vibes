@@ -1,6 +1,6 @@
 import ajaxConnections from '../ajax/connections';
 import Hood from '../hood/view';
-import bus from '../scripts/eventBus';
+import bus from '../scripts/bus';
 import initConnections from './connections';
 
 const init = () => {

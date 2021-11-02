@@ -2,7 +2,7 @@ import * as compiledTemplate from './template.handlebars';
 import View from '../scripts/view';
 // import hoodEvents from './events.js';
 // import hoodListeners from './listeners.js';
-import bus from '../scripts/eventBus';
+import bus from '../scripts/bus';
 // import '*.hadnlebars';
 // import compiledTemplate from './template.handlebars';
 
