@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import bus from '../eventbus';
+import bus from '../scripts/eventBus';
 import ajax from './script';
 
 const backendAddress = 'https://ozonback.herokuapp.com';
@@ -45,8 +45,8 @@ export const cookieCheck = () => {
     url: `${backendAddress}/profile`,
   })
     .then(({ responseText }) => bus.emit('cookie check success', responseText))
-    .catch(({ responseText }) => bus.emit('cookie check fail', responseText));
-  // .then(() => bus.emit('cookie check finished'));
+    .catch(({ responseText }) => bus.emit('cookie check fail', responseText))
+    .then(() => bus.emit('cookie check finished', undefined));
 };
 
 export const productAdd = () => {
@@ -127,7 +127,8 @@ export const cartGet = () => {
     // .then(({ responseText }) => console.log(responseText))
     // .catch(({ responseText }) => console.log(responseText));
     .then(({ responseText }) => bus.emit('cart get success', { responseText }))
-    .catch(({ responseText }) => bus.emit('cart get fail', { responseText }));
+    .catch(({ responseText }) => bus.emit('cart get fail', { responseText }))
+    .then(() => bus.emit('cart get finished', undefined));
 };
 
 export const cartConfirm = (obj) => {
@@ -187,7 +188,8 @@ export const categoryGet = () => {
     // .catch(({ responseText }) => console.log(responseText));
 
     .then(({ responseText }) => bus.emit('category get success', responseText))
-    .catch(({ responseText }) => bus.emit('category get fail', responseText));
+    .catch(({ responseText }) => bus.emit('category get fail', responseText))
+    .then(() => bus.emit('category get finished', undefined));
 };
 
 export const categoryRequest = (name) => {

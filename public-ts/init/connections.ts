@@ -1,19 +1,19 @@
 import { Connection } from '../types';
 import * as init from './callbacks';
 
-const connections: Connection[] = [
+const initConnections: Connection[] = [
   {
-    event: 'cookie check success',
-    callback: init.cookieCheckSuccess,
+    event: 'cookie check finished',
+    callback: init.cookieCheckFinished,
   },
   {
-    event: 'cart get success',
-    callback: init.cartGetSuccess,
+    event: 'cart get finished',
+    callback: init.cartGetFinished,
   },
   {
-    event: 'category get success',
-    callback: init.categoryGetSuccess,
+    event: 'category get finished',
+    callback: init.categoryGetFinished,
   },
 ];
 
-export default connections;
+export default initConnections;
