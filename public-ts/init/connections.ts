@@ -1,6 +1,7 @@
+import { Connection } from '../types';
 import * as init from './callbacks';
 
-const connections = [
+const connections: Connection[] = [
   {
     event: 'cookie check request',
     callback: init.cookieCheck,
