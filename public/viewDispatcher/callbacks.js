@@ -698,3 +698,17 @@ export const categoryStateDenied = () => {
 
   eventBus.emit('homepage state request');
 };
+
+export const cartDeleteRequest = (id) => {
+  console.log('cart delete request', id);
+
+  const obj = cart.getProduct(id);
+
+  const temp = {};
+  Object.assign(temp, obj);
+  delete temp.price;
+
+  console.log(temp);
+
+  eventBus.emit('cart delete request', obj);
+};

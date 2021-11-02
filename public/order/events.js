@@ -6,7 +6,7 @@ const orderEvents = (element) => {
 
   continueBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    eventBus.emit('continue click');
+    eventBus.emit('order continue click');
   });
 };
 export default orderEvents;

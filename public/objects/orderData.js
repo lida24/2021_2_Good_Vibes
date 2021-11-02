@@ -1,29 +1,35 @@
-class User {
-  email;
+class OrderData {
+  #address = {
+    country: 'country',
+    city: 'city',
+    index: 'index',
+    street: 'street',
 
-  username;
-
-  avatar;
-
-  // country: 'country',
-  // region: 'region',
-  // city: 'city',
-  // street: 'street',
-  // house: 'house',
-  // flat: 'flat',
-  // index: 'index'
-
-  set({ email, username, avatar }) {
-    this.email = email;
-    this.username = username;
-    this.avatar = avatar;
+    region: 'region',
+    house: 'house',
+    flat: 'flat'
   }
 
-  delete() {
-    this.email = undefined;
-    this.username = undefined;
-    this.avatar = undefined;
+  #payMethod;
+
+  setAddress(obj) {
+    this.#address.country = obj.country;
+    this.#address.city = obj.city;
+    this.#address.index = obj.index;
+    this.#address.street = obj.street;
+  }
+
+  getAddress() {
+    return this.#address;
+  }
+
+  setPayMethod(method) {
+    this.#payMethod = method;
+  }
+
+  getPayMethod() {
+    return this.#payMethod;
   }
 }
 
-export default new User();
+export default new OrderData();

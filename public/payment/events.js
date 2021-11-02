@@ -6,7 +6,7 @@ const paymentEvents = (element) => {
 
   continueBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    eventBus.emit('continue click');
+    eventBus.emit('payment continue click');
   });
 };
 export default paymentEvents;

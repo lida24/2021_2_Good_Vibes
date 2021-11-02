@@ -303,6 +303,13 @@ const viewDispatcherListeners = [
     callback: [
       model.categoryStateDenied
     ]
+  },
+
+  {
+    event: 'delete button click',
+    callback: [
+      model.cartDeleteRequest
+    ]
   }
 ];
 

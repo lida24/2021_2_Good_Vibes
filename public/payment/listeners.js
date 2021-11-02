@@ -3,9 +3,9 @@ import * as payment from './callbacks.js';
 
 const paymentListeners = [
   {
-    event: 'continue click',
+    event: 'payment continue click',
     callback: [
-        payment.showDelivery,
+      payment.showDelivery,
     ]
   },
 ];
