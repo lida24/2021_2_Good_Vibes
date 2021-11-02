@@ -1,14 +1,40 @@
 import { Callback } from '../types';
-// import ajax from '../ajax/script';
+import checkList from './state';
+import bus from '../eventbus';
 
-export const cookieCheck: Callback = () => {
+export const initRequestsCheck: () => void = () => {
+  let res = true;
+
+  Object.keys(checkList).forEach((key) => {
+    if (checkList[key] === false) {
+      res = false;
+      return false;
+    }
+    return true;
+  });
+
+  if (res) {
+    bus.emit('init check success', undefined);
+  }
+};
+
+export const cookieCheckSuccess: Callback = () => {
   console.log('cookieCheck');
+
+  checkList.cookie = true;
+  initRequestsCheck();
 };
 
-export const cartGet: Callback = () => {
+export const cartGetSuccess: Callback = () => {
   console.log('cartGet');
+
+  checkList.cart = true;
+  initRequestsCheck();
 };
 
-export const categoryGet: Callback = () => {
+export const categoryGetSuccess: Callback = () => {
   console.log('categoryGet');
+
+  checkList.category = true;
+  initRequestsCheck();
 };

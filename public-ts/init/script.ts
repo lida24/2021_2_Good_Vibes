@@ -5,6 +5,8 @@ import initConnections from './connections';
 const init = () => {
   bus.add(ajaxConnections);
 
+
+
   bus.add(initConnections);
 
   bus.emit('cookie check request', undefined);
