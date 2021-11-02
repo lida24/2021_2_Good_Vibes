@@ -1,0 +1,1 @@
+(()=>{var e=document.getElementById("num1"),t=document.getElementById("num2"),n=document.getElementById("result");document.getElementById("btn").addEventListener("click",(function(m){var u;u=e.valueAsNumber+t.valueAsNumber,n.innerHTML=u.toString()}))})();

@@ -1,2 +1,5 @@
 [context.production]
-  publish = "public/"
+
+  # publish = "public/"
+  
+  publish = "public-ts/"
