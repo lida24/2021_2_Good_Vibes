@@ -1,6 +1,7 @@
 import { Callback } from '../types';
 import checkList from './checkList';
 import bus from '../scripts/eventBus';
+import SignIn from '../signin/view';
 
 export const initRequestsCheck: () => void = () => {
   let res = true;
@@ -43,4 +44,11 @@ export const categoryGetFinished: Callback = () => {
 
   checkList.category = true;
   initRequestsCheck();
+};
+
+export const signInShow: Callback = () => {
+  const main = <HTMLElement>document.getElementById('main-container');
+  const signin = new SignIn(main);
+
+  signin.render();
 };

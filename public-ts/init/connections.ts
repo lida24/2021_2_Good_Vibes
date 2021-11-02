@@ -14,6 +14,10 @@ const initConnections: Connection[] = [
     event: 'category get finished',
     callback: init.categoryGetFinished,
   },
+  {
+    event: 'init check success',
+    callback: init.signInShow,
+  },
 ];
 
 export default initConnections;

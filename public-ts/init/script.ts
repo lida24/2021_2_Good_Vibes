@@ -13,9 +13,9 @@ const init = () => {
   bus.emit('category get request', undefined);
 
   const root = <HTMLElement>document.getElementsByClassName('grid-container')[0];
-  const view = new Hood(root);
+  const hood = new Hood(root);
 
-  view.render();
+  hood.render();
 };
 
 export default init;
