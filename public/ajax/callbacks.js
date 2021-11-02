@@ -213,3 +213,14 @@ export const cartDelete = (obj) => {
     .then(({ responseText }) => eventBus.emit('cart delete success', responseText))
     .catch(({ responseText }) => eventBus.emit('cart delete fail', responseText));
 };
+
+export const profileUpload = (obj) => {
+  console.log('profile upload', obj);
+
+  ajax.post({
+    url: `${backendAddress}/profile`,
+    body: obj
+  })
+    .then(({ responseText }) => eventBus.emit('profile upload success', responseText))
+    .catch(({ responseText }) => eventBus.emit('profile upload fail', responseText));
+}

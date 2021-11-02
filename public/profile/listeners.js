@@ -29,8 +29,9 @@ const profileListeners = [
   {
     event: 'update click',
     callback: [
-      profile.sendLogin,
-      profile.avatarUploadRequest
+      // profile.sendLogin,
+      profile.avatarUploadRequest,
+      profile.profileUploadRequest
     ]
   },
   {

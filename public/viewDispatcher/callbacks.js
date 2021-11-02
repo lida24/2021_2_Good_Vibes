@@ -735,3 +735,11 @@ export const cartConfirmFail = (responseText) => {
 export const cartConfirmSuccess = (responseText) => {
   console.log('cart confirm success', responseText);
 };
+
+export const profileUploadFail = (responseText) => {
+  console.error('profile upload fail', responseText);
+};
+
+export const profileUploadSuccess = (responseText) => {
+  console.log('profile upload success', responseText);
+};

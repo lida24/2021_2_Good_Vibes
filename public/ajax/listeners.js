@@ -90,6 +90,13 @@ const ajaxListeners = [
     callback: [
       ajax.cartDelete
     ]
+  },
+
+  {
+    event: 'profile upload request',
+    callback: [
+      ajax.profileUpload
+    ]
   }
 ];
 

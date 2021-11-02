@@ -336,6 +336,19 @@ const viewDispatcherListeners = [
       model.cartConfirmSuccess,
       model.cleanCartView
     ]
+  },
+
+  {
+    event: 'profile upload success',
+    callback: [
+      model.profileUploadSuccess
+    ]
+  },
+  {
+    event: 'profile upload fail',
+    callback: [
+      model.profileUploadFail
+    ]
   }
 ];
 

@@ -79,3 +79,17 @@ export const updateUserInformation = () => {
 
   photo.src = user.avatar;
 };
+
+export const profileUploadRequest = () => {
+  console.log('profileUploadRequest');
+
+  const usernameInput = document.getElementById('login');
+  const emailInput = document.getElementById('email');
+
+  const obj = {
+    username: usernameInput.value.trim(),
+    email: emailInput.value.trim()
+  };
+
+  eventBus.emit('profile upload request', obj);
+};
