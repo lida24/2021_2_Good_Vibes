@@ -727,3 +727,11 @@ export const cartDeleteSuccess = (responseText) => {
     number: obj.number
   });
 };
+
+export const cartConfirmFail = (responseText) => {
+  console.error('cart confirm error', responseText);
+};
+
+export const cartConfirmSuccess = (responseText) => {
+  console.log('cart confirm success', responseText);
+};

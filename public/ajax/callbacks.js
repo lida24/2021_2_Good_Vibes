@@ -156,8 +156,8 @@ export const cartConfirm = (obj) => {
   })
     // .then(({ responseText }) => console.log({ responseText }))
     // .catch(({ responseText }) => console.log({ responseText }));
-    .then(({ responseText }) => console.log({ responseText }))
-    .catch(({ responseText }) => console.log({ responseText }));
+    .then(({ responseText }) => eventBus.emit('cart confirm success', responseText))
+    .catch(({ responseText }) => eventBus.emit('cart comfirm fail', responseText));
 };
 
 export const avatarUpload = (file) => {

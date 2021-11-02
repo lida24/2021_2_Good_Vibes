@@ -53,6 +53,13 @@ const cartListeners = [
     callback: [
       cart.deleteItem
     ]
+  },
+
+  {
+    event: 'cart clean',
+    callback: [
+      cart.deleteAllItems
+    ]
   }
 ];
 

@@ -139,3 +139,16 @@ export const deleteItem = (responseText) => {
   remove(obj.product_id);
   eventBus.emit('calculate subtotal');
 };
+
+export const deleteAllItems = () => {
+  console.log('deleteAllItems');
+
+  console.log(cart.get());
+  cart.get().forEach((element) => {
+    console.log(element);
+    remove(element.product_id);
+  });
+  cart.drop();
+
+  eventBus.emit('calculate subtotal');
+};
