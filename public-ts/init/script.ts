@@ -5,11 +5,13 @@ import initConnections from './connections';
 
 import viewControlConnections from '../viewControl/connections';
 import dispatcherConnections from '../dispatcher/connections';
+import routerConnections from '../rout/connections';
 
 const init = () => {
   bus.add(ajaxConnections);
   bus.add(viewControlConnections);
   bus.add(dispatcherConnections);
+  bus.add(routerConnections);
 
   bus.add(initConnections);
 
