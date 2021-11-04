@@ -1,10 +1,8 @@
 import bus from '../scripts/bus';
 import { Callback } from '../types';
 
-export const SignInBtnClick = () => {
-  console.log('SignInBtnClick');
-};
-
-export const SignInShow: Callback = () => {
+export const signInStateRequest: Callback = () => {
   bus.emit('signIn state request', undefined);
 };
+
+export const a = 0;

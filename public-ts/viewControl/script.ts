@@ -11,8 +11,6 @@ const viewMap: {
 } = {};
 
 const add: (name: string, view: ViewInterface) => void = (name: string, view: ViewInterface) => {
-  console.log('add', name);
-
   viewMap[name] = {
     view,
     visibility: true,
@@ -44,8 +42,6 @@ export const showView: ShowViewSignature = (obj) => {
 
   document.getElementById('main-container').replaceWith(viewMap[name].view.self);
   viewMap[name].visibility = true;
-
-  console.log(viewMap);
 };
 
 export const a = 0;

@@ -5,7 +5,7 @@ import bus from '../scripts/bus';
 import connections from './connections';
 import initEvents from './events';
 
-export default class SignIn extends View implements ViewInterface {
+export default class Profile extends View implements ViewInterface {
   private async renderHTML() {
     const html = compiledTemplate(this.context);
     this.self.innerHTML = html;

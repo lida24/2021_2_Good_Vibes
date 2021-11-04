@@ -41,6 +41,6 @@ export const categoryGetFinished: Callback = () => {
 };
 
 export const signInShow: Callback = () => {
-  const signin = new SignIn('main');
-  document.getElementById('main-container').replaceWith(signin.self);
+  // bus.emit('signIn state request', undefined);
+  bus.emit('profile state request', undefined);
 };
