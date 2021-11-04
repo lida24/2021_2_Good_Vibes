@@ -26,30 +26,21 @@ export const initRequestsCheck: () => void = () => {
 };
 
 export const cookieCheckFinished: Callback = () => {
-  // console.log('cookieCheck');
-
   checkList.cookie = true;
   initRequestsCheck();
 };
 
 export const cartGetFinished: Callback = () => {
-  // console.log('cartGet');
-
   checkList.cart = true;
   initRequestsCheck();
 };
 
 export const categoryGetFinished: Callback = () => {
-  // console.log('categoryGet');
-
   checkList.category = true;
   initRequestsCheck();
 };
 
 export const signInShow: Callback = () => {
-  // const main = <HTMLElement>document.getElementById('main-container');
   const signin = new SignIn('main');
-
-  // signin.render();
   document.getElementById('main-container').replaceWith(signin.self);
 };

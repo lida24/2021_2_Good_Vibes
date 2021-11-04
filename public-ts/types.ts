@@ -7,13 +7,11 @@ export type Connection = {
 
 export interface ViewInterface {
   self: HTMLElement;
-  get(): HTMLElement;
   isActive(): boolean;
   hide(): void;
   show(): void;
   delete(): void;
   setContext(context: object): void;
-  // render(): Promise<void>;
 }
 
 export interface ConstructorInterface {

@@ -15,8 +15,8 @@ export default class Hood extends View implements ViewInterface {
 
   private async render() {
     await this.renderHTML();
-    bus.add(connections);
-    initEvents(this.self);
+    // bus.add(connections);
+    // initEvents(this.self);
     return this.show();
   }
 
