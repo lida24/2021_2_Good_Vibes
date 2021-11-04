@@ -1,6 +1,6 @@
 import { Connection } from '../types';
 import requestConnections from './request/connections';
-import confirmedConnections from './confirm/connections';
+import confirmedConnections from './confirmed/connections';
 import deniedConnections from './denied/connections';
 
 let res: Connection[] = [];

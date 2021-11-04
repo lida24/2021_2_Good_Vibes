@@ -1,10 +1,13 @@
+import router from '../../rout/router';
 import { Connection } from '../../types';
 import * as confirm from './callbacks';
 
 const connections: Connection[] = [
   {
     event: 'signIn state confirmed',
-    callback: confirm.signIn,
+    callback: [
+      confirm.signIn,
+    ],
   },
   {
     event: 'signUp state confirmed',
