@@ -47,8 +47,9 @@ export const categoryGetFinished: Callback = () => {
 };
 
 export const signInShow: Callback = () => {
-  const main = <HTMLElement>document.getElementById('main-container');
-  const signin = new SignIn(main);
+  // const main = <HTMLElement>document.getElementById('main-container');
+  const signin = new SignIn('main');
 
-  signin.render();
+  // signin.render();
+  document.getElementById('main-container').replaceWith(signin.self);
 };

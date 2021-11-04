@@ -15,10 +15,8 @@ const init = () => {
   bus.emit('cart get request', undefined);
   bus.emit('category get request', undefined);
 
-  const root = <HTMLElement>document.getElementsByClassName('grid-container')[0];
-  const hood = new Hood(root);
-
-  hood.render();
+  const hood = new Hood('grid-container');
+  document.getElementsByClassName('grid-container')[0].replaceWith(hood.self);
 };
 
 export default init;
