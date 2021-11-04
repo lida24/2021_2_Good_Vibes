@@ -10,4 +10,6 @@ export const init: Callback = () => {
   router.start();
 };
 
-export const a = 0;
+export const addToHistory: Callback = (obj: { 'pathname': string }) => {
+  router.add(obj);
+};

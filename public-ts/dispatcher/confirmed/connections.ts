@@ -1,4 +1,4 @@
-import router from '../../rout/router';
+import { addToHistory } from '../../rout/callbacks';
 import { Connection } from '../../types';
 import * as confirm from './callbacks';
 
@@ -6,16 +6,23 @@ const connections: Connection[] = [
   {
     event: 'signIn state confirmed',
     callback: [
-      confirm.signIn,
+      confirm.showSignIn,
+      addToHistory,
     ],
   },
   {
     event: 'signUp state confirmed',
-    callback: confirm.signUp,
+    callback: [
+      confirm.showSignUp,
+      addToHistory,
+    ],
   },
   {
     event: 'profile state confirmed',
-    callback: confirm.profile,
+    callback: [
+      confirm.showProfile,
+      addToHistory,
+    ],
   },
 ];
 

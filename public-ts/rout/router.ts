@@ -3,7 +3,7 @@ import bus from '../init/bus';
 class Router {
   private site = 'https://peaceful-bell-d76220.netlify.app';
 
-  private list: { [path: string]: string } = {};
+  private list: { [pathname: string]: string } = {};
 
   private root: HTMLElement;
 
@@ -11,27 +11,29 @@ class Router {
     this.root = root;
   }
 
-  public register(path: string, state: string): Router {
-    this.list[path] = state;
+  public register(pathname: string, state: string): Router {
+    this.list[pathname] = state;
     return this;
   }
 
-  public add(path: string): void {
-    if (!this.list[path]) {
+  public add(obj: { 'pathname': string }): void {
+    const { pathname } = obj;
+
+    if (!this.list[pathname]) {
       console.error('router add error');
       return;
     }
 
-    if (path === window.location.pathname) {
+    if (pathname === window.location.pathname) {
       return;
     }
 
     window.history.pushState(
       {
-        state: this.list[path],
+        state: this.list[pathname],
       },
-      path,
-      path,
+      pathname,
+      pathname,
     );
   }
 
