@@ -1,6 +1,6 @@
-import Profile from '../profile/view';
-import SignIn from '../signin/view';
-import SignUp from '../signup/view';
+import Profile from '../view/profile/view';
+import SignIn from '../view/signin/view';
+import SignUp from '../view/signup/view';
 import { ConstructorInterface } from '../types';
 
 const constructor: { [name: string]: ConstructorInterface } = {

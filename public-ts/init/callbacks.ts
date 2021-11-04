@@ -1,7 +1,7 @@
 import { Callback } from '../types';
 import checkList from './checkList';
 import bus from '../scripts/bus';
-import SignIn from '../signin/view';
+import SignIn from '../view/signin/view';
 
 export const initRequestsCheck: () => void = () => {
   let res = true;

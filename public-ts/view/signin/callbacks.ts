@@ -1,5 +1,5 @@
-import bus from '../scripts/bus';
-import { Callback } from '../types';
+import bus from '../../scripts/bus';
+import { Callback } from '../../types';
 
 export const SignUpBtnClick = () => {
   console.log('SignUpBtnClick');

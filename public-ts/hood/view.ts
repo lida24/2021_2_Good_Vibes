@@ -1,9 +1,9 @@
 import * as compiledTemplate from './template.handlebars';
 import View from '../scripts/view';
 import { ViewInterface } from '../types';
-import bus from '../scripts/bus';
-import connections from '../signin/connections';
-import initEvents from '../signin/events';
+// import bus from '../scripts/bus';
+// import connections from '../view/signin/connections';
+// import initEvents from '../view/signin/events';
 
 export default class Hood extends View implements ViewInterface {
   private async renderHTML() {

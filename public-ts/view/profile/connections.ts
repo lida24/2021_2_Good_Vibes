@@ -1,4 +1,4 @@
-import { Connection } from '../types';
+import { Connection } from '../../types';
 import * as profile from './callbacks';
 
 const connections: Connection[] = [

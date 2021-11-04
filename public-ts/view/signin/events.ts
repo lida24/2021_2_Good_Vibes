@@ -1,4 +1,4 @@
-import bus from '../scripts/bus';
+import bus from '../../scripts/bus';
 
 const initEvents = (self: HTMLElement) => {
   const signUpBtn = document.getElementById('register-href');

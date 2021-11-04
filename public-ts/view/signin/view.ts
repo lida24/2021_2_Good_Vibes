@@ -1,7 +1,7 @@
 import * as compiledTemplate from './template.handlebars';
-import View from '../scripts/view';
-import { ViewInterface } from '../types';
-import bus from '../scripts/bus';
+import View from '../../scripts/view';
+import { ViewInterface } from '../../types';
+import bus from '../../scripts/bus';
 import connections from './connections';
 import initEvents from './events';
 
