@@ -1,4 +1,4 @@
-import bus from '../../scripts/bus';
+import bus from '../../init/bus';
 import { Callback } from '../../types';
 
 export const SignInBtnClick = () => {

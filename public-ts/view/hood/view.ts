@@ -1,6 +1,6 @@
 import * as compiledTemplate from './template.handlebars';
-import View from '../scripts/view';
-import { ViewInterface } from '../types';
+import View from '../view';
+import { ViewInterface } from '../../types';
 // import bus from '../scripts/bus';
 // import connections from '../view/signin/connections';
 // import initEvents from '../view/signin/events';

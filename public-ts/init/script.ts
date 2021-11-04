@@ -1,6 +1,6 @@
 import ajaxConnections from '../ajax/connections';
-import Hood from '../hood/view';
-import bus from '../scripts/bus';
+import Hood from '../view/hood/view';
+import bus from './bus';
 import initConnections from './connections';
 
 import viewControlConnections from '../viewControl/connections';

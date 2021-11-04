@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import bus from '../scripts/bus';
+import bus from '../init/bus';
 import ajax from './script';
 
 const backendAddress = 'https://ozonback.herokuapp.com';

@@ -1,19 +1,14 @@
 import { Connection } from '../types';
-import * as dispatcher from './callbacks';
+import requestConnections from './request/connections';
+import confirmedConnections from './confirm/connections';
+import deniedConnections from './denied/connections';
 
-const connections: Connection[] = [
-  {
-    event: 'signIn state request',
-    callback: dispatcher.signIn,
-  },
-  {
-    event: 'signUp state request',
-    callback: dispatcher.signUp,
-  },
-  {
-    event: 'profile state request',
-    callback: dispatcher.profile,
-  },
-];
+let res: Connection[] = [];
+
+res = res.concat(requestConnections);
+res = res.concat(confirmedConnections);
+res = res.concat(deniedConnections);
+
+const connections = res;
 
 export default connections;

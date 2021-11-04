@@ -1,4 +1,4 @@
-import bus from '../../scripts/bus';
+import bus from '../../init/bus';
 
 const initEvents = (parent: HTMLElement) => {
   const signUpBtn = document.getElementById('signin-href');

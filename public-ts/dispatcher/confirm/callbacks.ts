@@ -1,5 +1,5 @@
-import bus from '../scripts/bus';
-import { Callback } from '../types';
+import bus from '../../init/bus';
+import { Callback } from '../../types';
 
 export const signIn: Callback = () => {
   bus.emit('show view', { name: 'signin' });

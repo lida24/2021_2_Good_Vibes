@@ -1,4 +1,4 @@
-import bus from '../../scripts/bus';
+import bus from '../../init/bus';
 
 const initEvents = (self: HTMLElement) => {
   const signOutBtn = self.getElementsByClassName('signout-button')[0];
