@@ -1,12 +1,10 @@
-import SignIn from '../signin/view';
+import bus from '../scripts/bus';
 
 export const SignInBtnClick = () => {
   console.log('SignInBtnClick');
 };
 
 export const SignInShow = () => {
-  const main = <HTMLElement>document.getElementById('main-container');
-  const signin = new SignIn(main);
-
-  signin.render();
+  // showView('signin');
+  bus.emit('show view', { name: 'signin' });
 };

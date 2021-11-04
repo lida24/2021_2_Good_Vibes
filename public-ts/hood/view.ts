@@ -10,6 +10,8 @@ export default class Hood extends View {
   public async renderHTML() {
     const html = compiledTemplate(this.context);
     this.self.innerHTML = html;
+
+    console.log(this.self);
   }
 
   public async render() {

@@ -1,6 +1,6 @@
 import bus from '../scripts/bus';
 
-const initEvents = (self: HTMLElement) => {
+const initEvents = (parent: HTMLElement) => {
   const signUpBtn = document.getElementById('signin-href');
   signUpBtn.addEventListener('click', (event) => {
     event.preventDefault();

@@ -7,11 +7,11 @@ export default class View {
     this.self = self;
   }
 
-  public get() {
+  public get(): HTMLElement {
     return this.self;
   }
 
-  public isActive() {
+  public isActive(): boolean {
     if (this.self.style.visibility === 'visible') {
       return true;
     }
@@ -21,22 +21,33 @@ export default class View {
     return undefined;
   }
 
-  public hide() {
+  public hide(): void {
+    // const a = <HTMLElement>this.self.firstChild;
+    // a.style.visibility = 'hidden';
+    // a.hidden = true;
+
+    // this.self.style.visibility = 'hidden';
+    // this.self.hidden = true;
+
+    this.self.firstChild.replaceWith('');
+  }
+
+  public show(): void {
     const a = <HTMLElement>this.self.firstChild;
-    a.style.visibility = 'hidden';
-    a.hidden = true;
+    a.style.visibility = 'visible';
+    a.hidden = false;
+
+    // this.self.style.visibility = 'visible';
+    // this.self.hidden = false;
+
+    // this.self.firstChild.replaceWith(this.self);
   }
 
-  public show() {
-    this.self.style.visibility = 'visible';
-    this.self.hidden = false;
-  }
-
-  public delete() {
+  public delete(): void {
     this.self.innerHTML = '';
   }
 
-  public setContext(context: object) {
+  public setContext(context: object): void {
     this.context = context;
   }
 
@@ -49,11 +60,6 @@ export default class View {
   //   await this.renderHTML();
   //   return this.show();
   // }
-
-
-
-
-
 
   // hide() {
   //   // this.element.style.visibility = 'hidden';

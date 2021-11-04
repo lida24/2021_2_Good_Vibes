@@ -3,8 +3,11 @@ import Hood from '../hood/view';
 import bus from '../scripts/bus';
 import initConnections from './connections';
 
+import dispatcherConnections from '../dispatcher/connections';
+
 const init = () => {
   bus.add(ajaxConnections);
+  bus.add(dispatcherConnections);
 
   bus.add(initConnections);
 

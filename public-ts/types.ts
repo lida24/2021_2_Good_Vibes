@@ -4,3 +4,17 @@ export type Connection = {
   event: string,
   callback: (Callback | Callback[])
 };
+
+export interface ViewInterface {
+  get(): HTMLElement;
+  isActive(): boolean;
+  hide(): void;
+  show(): void;
+  delete(): void;
+  setContext(context: object): void;
+  render(): Promise<void>;
+}
+
+export interface ConstructorInterface {
+  new(self: HTMLElement): ViewInterface;
+}
