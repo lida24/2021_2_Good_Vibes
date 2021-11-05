@@ -17,3 +17,8 @@ export interface ViewInterface {
 export interface ConstructorInterface {
   new(classId: string): ViewInterface;
 }
+
+export type AjaxResponse = {
+  'responseText': string,
+  'status': number,
+};

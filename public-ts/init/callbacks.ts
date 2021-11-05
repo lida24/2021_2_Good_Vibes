@@ -1,7 +1,6 @@
 import { Callback } from '../types';
 import checkList from './checkList';
 import bus from './bus';
-import SignIn from '../view/signin/view';
 
 export const initRequestsCheck: () => void = () => {
   let res = true;
@@ -38,9 +37,4 @@ export const cartGetFinished: Callback = () => {
 export const categoryGetFinished: Callback = () => {
   checkList.category = true;
   initRequestsCheck();
-};
-
-export const signInShow: Callback = () => {
-  // bus.emit('signIn state request', undefined);
-  bus.emit('profile state request', undefined);
 };

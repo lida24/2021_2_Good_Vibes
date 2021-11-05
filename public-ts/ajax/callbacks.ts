@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import bus from '../init/bus';
+import { AjaxResponse } from '../types';
 import ajax from './script';
 
 const backendAddress = 'https://ozonback.herokuapp.com';
@@ -10,8 +11,8 @@ export const signin = (data) => {
     url: `${backendAddress}/login`,
     body: data,
   })
-    .then(({ responseText }) => bus.emit('signin success', responseText))
-    .catch(({ responseText }) => bus.emit('signin fail', responseText));
+    .then((response: AjaxResponse) => bus.emit('signin success', response))
+    .catch((response: AjaxResponse) => bus.emit('signin fail', response));
 };
 
 export const signup = (data) => {
@@ -20,8 +21,8 @@ export const signup = (data) => {
     url: `${backendAddress}/signup`,
     body: data,
   })
-    .then(({ responseText }) => bus.emit('signup success', responseText))
-    .catch(({ responseText }) => bus.emit('signup fail', responseText));
+    .then((response: AjaxResponse) => bus.emit('signup success', response))
+    .catch((response: AjaxResponse) => bus.emit('signup fail', response));
 };
 
 export const signout = () => {
@@ -36,16 +37,16 @@ export const profile = () => {
   ajax.get({
     url: `${backendAddress}/profile`,
   })
-    .then(() => bus.emit('authorization', undefined))
-    .catch(() => bus.emit('no authorization', undefined));
+    .then((response: AjaxResponse) => bus.emit('authorization', undefined))
+    .catch((response: AjaxResponse) => bus.emit('no authorization', undefined));
 };
 
 export const cookieCheck = () => {
   ajax.get({
     url: `${backendAddress}/profile`,
   })
-    .then(({ responseText }) => bus.emit('cookie check success', responseText))
-    .catch(({ responseText }) => bus.emit('cookie check fail', responseText))
+    .then((response: AjaxResponse) => bus.emit('cookie check success', response))
+    .catch((response: AjaxResponse) => bus.emit('cookie check fail', response))
     .then(() => bus.emit('cookie check finished', undefined));
 };
 
