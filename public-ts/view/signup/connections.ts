@@ -11,7 +11,9 @@ const connections: Connection[] = [
   },
   {
     event: 'signIn toggle button click',
-    callback: signUp.SignInShow,
+    callback: [
+      signUp.SignInShow,
+    ],
   },
   {
     event: 'signUp submit',
@@ -26,7 +28,7 @@ const connections: Connection[] = [
     callback: signUp.hideAlert,
   },
   {
-    event: 'validation complete',
+    event: 'signUp validation complete',
     callback: signUp.ajaxRequest,
   },
   {

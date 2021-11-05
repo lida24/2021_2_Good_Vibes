@@ -28,3 +28,7 @@ export const profile: Callback = () => {
 
   bus.emit('profile state confirmed', { pathname: '/profile' });
 };
+
+export const homepage: Callback = () => {
+  bus.emit('homepage state confirmed', { pathname: '/' });
+};

@@ -14,6 +14,10 @@ const connections: Connection[] = [
     event: 'profile state request',
     callback: request.profile,
   },
+  {
+    event: 'homepage state request',
+    callback: request.homepage,
+  },
 ];
 
 export default connections;

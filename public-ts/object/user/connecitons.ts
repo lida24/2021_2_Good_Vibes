@@ -18,10 +18,10 @@ const connections: Connection[] = [
     event: 'signout confirmed',
     callback: user.del,
   },
-  {
-    event: 'add user finished',
-    callback: user.profileRequest,
-  },
+  // {
+  //   event: 'add user finished',
+  //   callback: user.profileRequest,
+  // },
 ];
 
 export default connections;

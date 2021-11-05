@@ -1,6 +1,7 @@
 import { addToHistory } from '../../rout/callbacks';
 import { Connection } from '../../types';
 import * as confirm from './callbacks';
+import * as request from '../request/callbacks';
 
 const connections: Connection[] = [
   {
@@ -25,6 +26,13 @@ const connections: Connection[] = [
     ],
   },
   {
+    event: 'homepage state confirmed',
+    callback: [
+      confirm.showHomepage,
+      addToHistory,
+    ],
+  },
+  {
     event: 'signout confirmed',
     callback: [
       confirm.signOut,
@@ -35,6 +43,7 @@ const connections: Connection[] = [
     callback: [
       confirm.addUser,
       confirm.cartGetRequest,
+      request.homepage,
     ],
   },
   {
@@ -42,6 +51,7 @@ const connections: Connection[] = [
     callback: [
       confirm.addUser,
       confirm.cartGetRequest,
+      request.homepage,
     ],
   },
 ];

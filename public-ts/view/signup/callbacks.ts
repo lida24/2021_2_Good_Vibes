@@ -31,7 +31,7 @@ export const inputDataValidate: Callback = () => {
 
   bus.emit('hide alert', undefined);
 
-  bus.emit('validation complete', { username, password });
+  bus.emit('signUp validation complete', { username, password });
 };
 
 export const showAlert: Callback = (obj: { 'error': string }) => {

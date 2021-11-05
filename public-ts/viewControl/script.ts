@@ -35,6 +35,7 @@ export const showView: ShowViewSignature = (obj) => {
 
   Object.keys(viewMap).forEach((key) => {
     viewMap[key].visibility = false;
+    // viewMap[key].view.hide();
   });
 
   if (!viewMap[name]) {
@@ -42,6 +43,7 @@ export const showView: ShowViewSignature = (obj) => {
   }
 
   viewMap[name].visibility = true;
+  // viewMap[name].view.show();
 
   Promise.resolve()
     .then(() => document.getElementById('main-container').replaceWith(viewMap[name].view.self))

@@ -1,9 +1,9 @@
 import * as compiledTemplate from './template.handlebars';
 import View from '../view';
 import { ViewInterface } from '../../types';
-// import bus from '../scripts/bus';
-// import connections from '../view/signin/connections';
-// import initEvents from '../view/signin/events';
+import bus from '../../init/bus';
+import connections from './connections';
+import initEvents from './events';
 
 export default class Hood extends View implements ViewInterface {
   private async renderHTML() {
@@ -15,8 +15,8 @@ export default class Hood extends View implements ViewInterface {
 
   private async render() {
     await this.renderHTML();
-    // bus.add(connections);
-    // initEvents(this.self);
+    bus.add(connections);
+    initEvents(this.self);
     return this.show();
   }
 

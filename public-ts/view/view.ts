@@ -15,12 +15,12 @@ export default class View {
 
   public hide(): void {
     this.self.style.visibility = 'hidden';
-    // this.self.hidden = true;
+    this.self.hidden = true;
   }
 
   public show(): void {
     this.self.style.visibility = 'visible';
-    // this.self.hidden = false;
+    this.self.hidden = false;
   }
 
   public delete(): void {

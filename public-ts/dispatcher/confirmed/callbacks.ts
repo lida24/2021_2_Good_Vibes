@@ -16,8 +16,12 @@ export const showProfile: Callback = () => {
   bus.emit('show view', { name: 'profile' });
 };
 
+export const showHomepage: Callback = () => {
+  bus.emit('show view', { name: 'homepage' });
+};
+
 export const signOut: Callback = () => {
-  bus.emit('profile state request', undefined);
+  bus.emit('homepage state request', undefined);
 };
 
 export const addUser: Callback = (obj: { 'responseText': string }) => {

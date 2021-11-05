@@ -13,6 +13,6 @@ export const del: Callback = () => {
   user.delete();
 };
 
-export const profileRequest: Callback = () => {
-  bus.emit('profile state request', undefined);
-};
+// export const profileRequest: Callback = () => {
+//   bus.emit('profile state request', undefined);
+// };
