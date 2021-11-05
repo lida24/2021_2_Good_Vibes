@@ -1,4 +1,5 @@
 import bus from '../../init/bus';
+import user from '../../object/user/user';
 import router from '../../rout/router';
 import { Callback } from '../../types';
 
@@ -15,5 +16,19 @@ export const showProfile: Callback = () => {
 };
 
 export const signOut: Callback = () => {
+  bus.emit('profile state request', undefined);
+};
+
+export const addUser: Callback = (obj: { 'responseText': string }) => {
+  const { responseText } = obj;
+
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((value) => user.set(value))
+    .then(() => bus.emit('add user finished', undefined))
+    .catch((err) => console.error(err));
+};
+
+export const profileRequet: Callback = () => {
   bus.emit('profile state request', undefined);
 };

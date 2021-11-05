@@ -28,6 +28,16 @@ const connections: Connection[] = [
     event: 'signout confirmed',
     callback: confirm.signOut,
   },
+  {
+    event: 'signIn ajax confirmed',
+    callback: [
+      confirm.addUser,
+    ],
+  },
+  {
+    event: 'add user finished',
+    callback: confirm.profileRequet,
+  },
 ];
 
 export default connections;

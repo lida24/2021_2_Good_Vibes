@@ -7,6 +7,13 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
     bus.emit('signUp button click', undefined);
   });
+
+  const singInBtn = <HTMLElement>self.getElementsByClassName('primary')[0];
+  singInBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('signIn button click', undefined);
+  });
 };
 
 export default initEvents;
