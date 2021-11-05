@@ -24,6 +24,10 @@ const connections: Connection[] = [
       addToHistory,
     ],
   },
+  {
+    event: 'signout confirmed',
+    callback: confirm.signOut,
+  },
 ];
 
 export default connections;

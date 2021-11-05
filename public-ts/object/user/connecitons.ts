@@ -15,7 +15,7 @@ const connections: Connection[] = [
     callback: user.set,
   },
   {
-    event: 'logout success',
+    event: 'signout confirmed',
     callback: user.del,
   },
 ];

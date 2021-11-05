@@ -30,6 +30,8 @@ const viewGenerate: (name: string) => void = (name: string) => {
 };
 
 export const showView: ShowViewSignature = (obj) => {
+  console.log(obj);
+
   const { name } = obj;
 
   Object.keys(viewMap).forEach((key) => {
@@ -42,6 +44,8 @@ export const showView: ShowViewSignature = (obj) => {
 
   document.getElementById('main-container').replaceWith(viewMap[name].view.self);
   viewMap[name].visibility = true;
+
+  console.log(name);
 };
 
 export const a = 0;

@@ -13,3 +13,7 @@ export const showSignUp: Callback = () => {
 export const showProfile: Callback = () => {
   bus.emit('show view', { name: 'profile' });
 };
+
+export const signOut: Callback = () => {
+  bus.emit('profile state request', undefined);
+};

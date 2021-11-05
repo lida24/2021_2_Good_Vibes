@@ -3,7 +3,7 @@ import user from '../../object/user/user';
 import { Callback } from '../../types';
 
 export const signIn: Callback = () => {
-  if (user.isAutorize) {
+  if (user.isAutorize()) {
     bus.emit('signIn state denied', undefined);
     return;
   }
@@ -12,7 +12,7 @@ export const signIn: Callback = () => {
 };
 
 export const signUp: Callback = () => {
-  if (user.isAutorize) {
+  if (user.isAutorize()) {
     bus.emit('signUp state denied', undefined);
     return;
   }
@@ -21,8 +21,9 @@ export const signUp: Callback = () => {
 };
 
 export const profile: Callback = () => {
-  if (!user.isAutorize) {
+  if (!user.isAutorize()) {
     bus.emit('profile state denied', undefined);
+    return;
   }
 
   bus.emit('profile state confirmed', { pathname: '/profile' });

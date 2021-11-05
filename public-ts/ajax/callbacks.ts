@@ -29,7 +29,7 @@ export const signout = () => {
   ajax.get({
     url: `${backendAddress}/logout`,
   })
-    .then(() => bus.emit('logout success', undefined))
+    .then(() => bus.emit('signout confirmed', undefined))
     .catch((error) => console.error(error));
 };
 

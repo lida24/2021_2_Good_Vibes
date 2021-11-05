@@ -9,11 +9,11 @@ import routerConnections from '../rout/connections';
 import userConnections from '../object/user/connecitons';
 
 const init: () => void = () => {
+  bus.add(userConnections);
   bus.add(ajaxConnections);
   bus.add(viewControlConnections);
   bus.add(dispatcherConnections);
   bus.add(routerConnections);
-  bus.add(userConnections);
 
   bus.add(initConnections);
 
