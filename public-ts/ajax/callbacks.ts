@@ -132,6 +132,7 @@ export const cartGet = () => {
     .then(() => bus.emit('cart get finished', undefined));
 };
 
+
 export const cartConfirm = (obj) => {
   // console.log(array);
 
