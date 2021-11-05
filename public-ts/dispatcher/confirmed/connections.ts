@@ -30,6 +30,7 @@ const connections: Connection[] = [
     callback: [
       confirm.showHomepage,
       addToHistory,
+      // confirm.homepageArray,
     ],
   },
   {
@@ -52,6 +53,13 @@ const connections: Connection[] = [
       confirm.addUser,
       confirm.cartGetRequest,
       request.homepage,
+    ],
+  },
+  {
+    event: 'homepage ajax confirmed',
+    callback: [
+      confirm.homepageArray,
+      confirm.homepage,
     ],
   },
 ];

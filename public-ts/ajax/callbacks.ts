@@ -60,7 +60,7 @@ export const homepage = () => {
   ajax.get({
     url: `${backendAddress}/homepage`,
   })
-    .then(({ responseText }) => bus.emit('homepage response', responseText))
+    .then((response: AjaxResponse) => bus.emit('homepage ajax confirmed', response))
     .catch((error) => console.error(error));
 };
 
