@@ -1,18 +1,18 @@
 import bus from '../../init/bus';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
-  const signUpBtn = <HTMLElement>self.getElementsByClassName('signin-href')[0];
-  signUpBtn.addEventListener('click', (event) => {
+  const signInBtn = <HTMLElement>self.getElementsByClassName('signin-href')[0];
+  signInBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
     bus.emit('signIn toggle button click', undefined);
   });
 
-  const singUpBtn = <HTMLElement>self.getElementsByClassName('primary')[0];
-  singUpBtn.addEventListener('click', (event) => {
+  const singUpBtn = <HTMLButtonElement>self.getElementsByClassName('primary')[0];
+  self.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    bus.emit('signUp button click', { self });
+    bus.emit('signUp submit', undefined);
   });
 };
 

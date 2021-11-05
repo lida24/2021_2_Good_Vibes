@@ -8,11 +8,11 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit('signUp toggle button click', undefined);
   });
 
-  const singInBtn = <HTMLElement>self.getElementsByClassName('primary')[0];
-  singInBtn.addEventListener('click', (event) => {
+  const signInBtn = <HTMLButtonElement>self.getElementsByClassName('primary')[0];
+  self.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    bus.emit('signIn button click', { self });
+    bus.emit('signIn submit', undefined);
   });
 };
 

@@ -6,13 +6,11 @@ export const SignInShow: Callback = () => {
   bus.emit('signIn state request', undefined);
 };
 
-export const inputDataValidate: Callback = (obj: { 'self': HTMLElement }) => {
-  const { self } = obj;
-
-  const usernameInput = <HTMLInputElement>self.getElementsByClassName('login')[0];
-  const emailInput = <HTMLInputElement>self.getElementsByClassName('email')[0];
-  const passwordInput = <HTMLInputElement>self.getElementsByClassName('password')[0];
-  const repasswordInput = <HTMLInputElement>self.getElementsByClassName('repassword')[0];
+export const inputDataValidate: Callback = () => {
+  const usernameInput = <HTMLInputElement>document.getElementsByClassName('login')[0];
+  const emailInput = <HTMLInputElement>document.getElementsByClassName('email')[0];
+  const passwordInput = <HTMLInputElement>document.getElementsByClassName('password')[0];
+  const repasswordInput = <HTMLInputElement>document.getElementsByClassName('repassword')[0];
 
   const username = usernameInput.value.trim();
   const email = emailInput.value.trim();
@@ -66,13 +64,11 @@ export const handleSignUpDenied: Callback = (obj: { 'responseText': string }) =>
     .catch((error) => console.error('ajax response parse error', error));
 };
 
-export const cleanInputs: Callback = (obj: { 'self': HTMLElement }) => {
-  const { self } = obj;
-
-  const usernameInput = <HTMLInputElement>self.getElementsByClassName('login')[0];
-  const emailInput = <HTMLInputElement>self.getElementsByClassName('email')[0];
-  const passwordInput = <HTMLInputElement>self.getElementsByClassName('password')[0];
-  const repasswordInput = <HTMLInputElement>self.getElementsByClassName('repassword')[0];
+export const cleanInputs: Callback = () => {
+  const usernameInput = <HTMLInputElement>document.getElementsByClassName('login')[0];
+  const emailInput = <HTMLInputElement>document.getElementsByClassName('email')[0];
+  const passwordInput = <HTMLInputElement>document.getElementsByClassName('password')[0];
+  const repasswordInput = <HTMLInputElement>document.getElementsByClassName('repassword')[0];
 
   usernameInput.value = '';
   emailInput.value = '';

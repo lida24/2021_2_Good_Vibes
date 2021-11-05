@@ -3,7 +3,6 @@ import * as signIn from './callbacks';
 
 const connections: Connection[] = [
   {
-    // event: 'signIn state confirmed',
     event: 'signin shown',
     callback: [
       signIn.hideAlert,
@@ -15,7 +14,7 @@ const connections: Connection[] = [
     callback: signIn.SignUpShow,
   },
   {
-    event: 'signIn button click',
+    event: 'signIn submit',
     callback: signIn.inputDataValidate,
   },
   {

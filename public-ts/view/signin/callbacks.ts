@@ -19,13 +19,9 @@ export const hideAlert: Callback = () => {
   alertLabel.style.visibility = 'hidden';
 };
 
-export const inputDataValidate: Callback = (obj: { 'self': HTMLElement }) => {
-  console.log('signin input data validate', obj);
-
-  const { self } = obj;
-
-  const usernameInput = <HTMLInputElement>self.getElementsByClassName('login')[0];
-  const passwordInput = <HTMLInputElement>self.getElementsByClassName('password')[0];
+export const inputDataValidate: Callback = () => {
+  const usernameInput = <HTMLInputElement>document.getElementsByClassName('login')[0];
+  const passwordInput = <HTMLInputElement>document.getElementsByClassName('password')[0];
 
   const username = usernameInput.value.trim();
   const password = passwordInput.value.trim();
@@ -51,11 +47,9 @@ export const ajaxRequest: Callback = (obj: {
   bus.emit('signin ajax request', { username, password });
 };
 
-export const cleanInputs: Callback = (obj: { 'self': HTMLElement }) => {
-  const { self } = obj;
-
-  const usernameInput = <HTMLInputElement>self.getElementsByClassName('login')[0];
-  const passwordInput = <HTMLInputElement>self.getElementsByClassName('password')[0];
+export const cleanInputs: Callback = () => {
+  const usernameInput = <HTMLInputElement>document.getElementsByClassName('login')[0];
+  const passwordInput = <HTMLInputElement>document.getElementsByClassName('password')[0];
 
   usernameInput.value = '';
   passwordInput.value = '';
