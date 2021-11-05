@@ -7,6 +7,7 @@ import viewControlConnections from '../viewControl/connections';
 import dispatcherConnections from '../dispatcher/connections';
 import routerConnections from '../rout/connections';
 import userConnections from '../object/user/connecitons';
+import cartConnections from '../object/cart/connections';
 
 const init: () => void = () => {
   bus.add(userConnections);
@@ -14,6 +15,7 @@ const init: () => void = () => {
   bus.add(viewControlConnections);
   bus.add(dispatcherConnections);
   bus.add(routerConnections);
+  bus.add(cartConnections);
 
   bus.add(initConnections);
 

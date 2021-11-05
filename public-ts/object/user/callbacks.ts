@@ -1,3 +1,4 @@
+import bus from '../../init/bus';
 import { AjaxResponse, Callback } from '../../types';
 import user from './user';
 
@@ -12,4 +13,6 @@ export const del: Callback = () => {
   user.delete();
 };
 
-export const a = 0;
+export const profileRequest: Callback = () => {
+  bus.emit('profile state request', undefined);
+};

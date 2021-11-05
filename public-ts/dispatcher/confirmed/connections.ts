@@ -26,23 +26,23 @@ const connections: Connection[] = [
   },
   {
     event: 'signout confirmed',
-    callback: confirm.signOut,
+    callback: [
+      confirm.signOut,
+    ],
   },
   {
     event: 'signIn ajax confirmed',
     callback: [
       confirm.addUser,
+      confirm.cartGetRequest,
     ],
   },
   {
     event: 'signUp ajax confirmed',
     callback: [
       confirm.addUser,
+      confirm.cartGetRequest,
     ],
-  },
-  {
-    event: 'add user finished',
-    callback: confirm.profileRequet,
   },
 ];
 

@@ -22,3 +22,8 @@ export type AjaxResponse = {
   'responseText': string,
   'status': number,
 };
+
+export type AjaxProduct = {
+  'product_id': number,
+  'number': number,
+};

@@ -127,8 +127,8 @@ export const cartGet = () => {
   })
     // .then(({ responseText }) => console.log(responseText))
     // .catch(({ responseText }) => console.log(responseText));
-    .then(({ responseText }) => bus.emit('cart get success', { responseText }))
-    .catch(({ responseText }) => bus.emit('cart get fail', { responseText }))
+    .then(({ responseText }) => bus.emit('cart get confirmed', { responseText }))
+    .catch(({ responseText }) => bus.emit('cart get denied', { responseText }))
     .then(() => bus.emit('cart get finished', undefined));
 };
 

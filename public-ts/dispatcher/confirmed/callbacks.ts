@@ -1,4 +1,5 @@
 import bus from '../../init/bus';
+import cart from '../../object/cart/cart';
 import user from '../../object/user/user';
 import router from '../../rout/router';
 import { Callback } from '../../types';
@@ -29,6 +30,6 @@ export const addUser: Callback = (obj: { 'responseText': string }) => {
     .catch((err) => console.error(err));
 };
 
-export const profileRequet: Callback = () => {
-  bus.emit('profile state request', undefined);
+export const cartGetRequest: Callback = () => {
+  bus.emit('cart get request', undefined);
 };
