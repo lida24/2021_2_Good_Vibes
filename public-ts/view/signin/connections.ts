@@ -3,14 +3,15 @@ import * as signIn from './callbacks';
 
 const connections: Connection[] = [
   {
-    event: 'signIn state confirmed',
+    // event: 'signIn state confirmed',
+    event: 'signin shown',
     callback: [
       signIn.hideAlert,
       signIn.cleanInputs,
     ],
   },
   {
-    event: 'signUp button click',
+    event: 'signUp toggle button click',
     callback: signIn.SignUpShow,
   },
   {

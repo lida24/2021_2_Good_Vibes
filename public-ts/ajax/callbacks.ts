@@ -21,8 +21,8 @@ export const signup = (data) => {
     url: `${backendAddress}/signup`,
     body: data,
   })
-    .then((response: AjaxResponse) => bus.emit('signup success', response))
-    .catch((response: AjaxResponse) => bus.emit('signup fail', response));
+    .then((response: AjaxResponse) => bus.emit('signUp ajax confirmed', response))
+    .catch((response: AjaxResponse) => bus.emit('signUp ajax denied', response));
 };
 
 export const signout = () => {

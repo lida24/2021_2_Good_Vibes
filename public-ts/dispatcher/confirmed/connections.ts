@@ -35,6 +35,12 @@ const connections: Connection[] = [
     ],
   },
   {
+    event: 'signUp ajax confirmed',
+    callback: [
+      confirm.addUser,
+    ],
+  },
+  {
     event: 'add user finished',
     callback: confirm.profileRequet,
   },

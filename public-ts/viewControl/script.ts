@@ -1,3 +1,4 @@
+import bus from '../init/bus';
 import { ViewInterface } from '../types';
 import constructor from './constructors';
 
@@ -30,7 +31,7 @@ const viewGenerate: (name: string) => void = (name: string) => {
 };
 
 export const showView: ShowViewSignature = (obj) => {
-  console.log(obj);
+  // console.log(obj);
 
   const { name } = obj;
 
@@ -42,10 +43,15 @@ export const showView: ShowViewSignature = (obj) => {
     viewGenerate(name);
   }
 
-  document.getElementById('main-container').replaceWith(viewMap[name].view.self);
   viewMap[name].visibility = true;
 
-  console.log(name);
+  Promise.resolve()
+    .then(() => document.getElementById('main-container').replaceWith(viewMap[name].view.self))
+    .then(() => console.log(viewMap[name].view.self))
+    .then(() => bus.emit(`${name} shown`, { self: viewMap[name].view.self }));
+
+  // console.log(viewMap[name].view.self);
+  console.log('viewMap', viewMap);
 };
 
 export const a = 0;

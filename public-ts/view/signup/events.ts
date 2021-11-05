@@ -5,7 +5,14 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   signUpBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
-    bus.emit('signIn button click', undefined);
+    bus.emit('signIn toggle button click', undefined);
+  });
+
+  const singUpBtn = <HTMLElement>self.getElementsByClassName('primary')[0];
+  singUpBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('signUp button click', { self });
   });
 };
 
