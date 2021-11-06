@@ -23,7 +23,18 @@ export type AjaxResponse = {
   'status': number,
 };
 
-export type AjaxProduct = {
+export type CartItem = {
   'product_id': number,
   'number': number,
+};
+
+export type Product = {
+  category: string,
+  count_in_stock: number,
+  description: string,
+  id: number,
+  image: string,
+  name: string,
+  price: number,
+  rating: number,
 };

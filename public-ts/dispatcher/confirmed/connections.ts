@@ -58,7 +58,7 @@ const connections: Connection[] = [
   {
     event: 'homepage ajax confirmed',
     callback: [
-      confirm.homepageArray,
+      confirm.homepageArrayParse,
       confirm.homepage,
     ],
   },

@@ -2,7 +2,7 @@ import bus from '../../init/bus';
 import cart from '../../object/cart/cart';
 import user from '../../object/user/user';
 import router from '../../rout/router';
-import { AjaxResponse, Callback } from '../../types';
+import { CartItem, AjaxResponse, Callback, Product } from '../../types';
 
 export const showSignIn: Callback = () => {
   bus.emit('show view', { name: 'signin' });
@@ -38,14 +38,13 @@ export const cartGetRequest: Callback = () => {
   bus.emit('cart get request', undefined);
 };
 
-export const homepageArray: Callback = (response: AjaxResponse) => {
+export const homepageArrayParse: Callback = (response: AjaxResponse) => {
   const { responseText } = response;
-
-  // console.log(responseText);
 
   Promise.resolve()
     .then(() => JSON.parse(responseText))
-    .then((obj) => console.log(obj))
+    .then((obj: Product[]) => bus.emit('add product array to homepage', obj))
+    // .then(() => console.log('add product array to homepage emitted'))
     .catch((err) => console.log(err));
 };
 

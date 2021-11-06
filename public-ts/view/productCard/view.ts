@@ -1,7 +1,7 @@
 import * as compiledTemplate from './template.handlebars';
 import View from '../view';
-import { ViewInterface } from '../../types';
-import bus from '../../init/bus';
+import { Product, ViewInterface } from '../../types';
+// import bus from '../../init/bus';
 // import connections from './connections';
 // import initEvents from './events';
 
@@ -11,17 +11,18 @@ export default class ProductCard extends View implements ViewInterface {
     this.self.innerHTML = html;
   }
 
-  private async render() {
+  public async render() {
     await this.renderHTML();
     // bus.add(connections);
     // initEvents(this.self);
     return this.show();
   }
 
-  constructor(classId: string) {
+  constructor(className: string, context: Product) {
     super();
-    this.self = <HTMLElement>document.createElement('main');
-    this.self.id = 'main-container';
+    this.setContext(context);
+    this.self = <HTMLElement>document.createElement('div');
+    this.self.className = className;
     this.render();
   }
 }

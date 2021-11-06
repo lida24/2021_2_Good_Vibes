@@ -1,11 +1,11 @@
-import { AjaxProduct } from '../../types';
+import { CartItem } from '../../types';
 
 class Cart {
-  private self: AjaxProduct[] = [];
+  private self: CartItem[] = [];
 
   private created = false;
 
-  public load(obj: AjaxProduct[]) {
+  public load(obj: CartItem[]) {
     this.created = true;
 
     this.self = obj;
