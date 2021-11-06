@@ -41,7 +41,7 @@ export const cartGetRequest: Callback = () => {
 export const homepageArray: Callback = (response: AjaxResponse) => {
   const { responseText } = response;
 
-  console.log(responseText);
+  // console.log(responseText);
 
   Promise.resolve()
     .then(() => JSON.parse(responseText))
