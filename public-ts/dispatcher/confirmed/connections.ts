@@ -65,6 +65,12 @@ const connections: Connection[] = [
   {
     event: 'product request confirmed',
     callback: [
+      confirm.productStateConfirmed,
+    ],
+  },
+  {
+    event: 'product state confirmed',
+    callback: [
       confirm.showProductPage,
       addToHistory,
     ],

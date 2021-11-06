@@ -13,7 +13,6 @@ export default class ProductCard extends View implements ViewInterface {
 
   public async render(): Promise<void> {
     await this.renderHTML();
-    bus.add(connections);
     initEvents(this.self, this.context);
     return this.show();
   }
@@ -23,6 +22,7 @@ export default class ProductCard extends View implements ViewInterface {
     this.setContext(context);
     this.self = <HTMLElement>document.createElement('div');
     this.self.className = className;
+    bus.add(connections);
     this.render();
   }
 }

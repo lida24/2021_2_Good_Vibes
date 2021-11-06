@@ -1,8 +1,8 @@
 import bus from '../init/bus';
-import { ViewInterface } from '../types';
+import { Product, ViewInterface } from '../types';
 import constructor from './constructors';
 
-type ShowViewSignature = (obj: { [name: string]: string }) => void;
+type ShowViewSignature = (obj: { 'name': string, 'context': Product }) => void;
 
 const viewMap: {
   [name: string]: {
@@ -30,24 +30,33 @@ const viewGenerate: (name: string) => void = (name: string) => {
   viewMap[name].visibility = false;
 };
 
-export const showView: ShowViewSignature = (obj) => {
-  const { name } = obj;
+export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Product }) => {
+  const { name, context } = obj;
 
   Object.keys(viewMap).forEach((key) => {
     viewMap[key].visibility = false;
-    // viewMap[key].view.hide();
   });
 
   if (!viewMap[name]) {
     viewGenerate(name);
   }
 
+  // --------------------
+
+  const { view } = viewMap[name];
+
+  if (context) {
+    view.setContext(context);
+    view.render();
+  }
+
+  // --------------------
+
   viewMap[name].visibility = true;
-  // viewMap[name].view.show();
 
   Promise.resolve()
-    .then(() => document.getElementById('main-container').replaceWith(viewMap[name].view.self))
-    .then(() => bus.emit(`${name} shown`, undefined));
+    .then(() => document.getElementById('main-container').replaceWith(view.self))
+    .then(() => bus.emit(`${name} ${context?.id} shown`, undefined))
 };
 
 export const a = 0;

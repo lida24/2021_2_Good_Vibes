@@ -11,7 +11,8 @@ export interface ViewInterface {
   hide(): void;
   show(): void;
   delete(): void;
-  setContext(context: object): void;
+  setContext(context: Product): void;
+  render(): Promise<void>;
 }
 
 export interface ConstructorInterface {

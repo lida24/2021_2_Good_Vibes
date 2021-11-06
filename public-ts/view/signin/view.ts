@@ -11,9 +11,8 @@ export default class SignIn extends View implements ViewInterface {
     this.self.innerHTML = html;
   }
 
-  private async render() {
+  public async render(): Promise<void> {
     await this.renderHTML();
-    bus.add(connections);
     initEvents(this.self);
     return this.show();
   }
@@ -22,6 +21,7 @@ export default class SignIn extends View implements ViewInterface {
     super();
     this.self = <HTMLElement>document.createElement('main');
     this.self.id = 'main-container';
+    bus.add(connections);
     this.render();
   }
 }

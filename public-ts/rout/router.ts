@@ -19,18 +19,24 @@ class Router {
   public add(obj: { 'pathname': string }): void {
     const { pathname } = obj;
 
-    if (!this.list[pathname]) {
+    let uri = pathname;
+    const reg = pathname.match(/(\/.*)\?/);
+    if (reg) {
+      [, uri] = reg;
+    }
+
+    if (!this.list[uri]) {
       console.error('router add error');
       return;
     }
 
-    if (pathname === window.location.pathname) {
+    if (pathname === `${window.location.pathname}${window.location.search}`) {
       return;
     }
 
     window.history.pushState(
       {
-        state: this.list[pathname],
+        state: this.list[uri],
       },
       pathname,
       pathname,
@@ -49,7 +55,13 @@ class Router {
     const { pathname, search } = window.location;
     const state = this.handlePathname(pathname);
 
-    bus.emit(`${state} state request`, { params: search });
+    const reg = search.match(/.*id=(\d+)/);
+    let id: number;
+    if (reg) {
+      id = +reg[1];
+    }
+
+    bus.emit(`${state} state request`, { id });
   };
 
   public start(): void {

@@ -1,9 +1,7 @@
 import bus from '../../init/bus';
-import cart from '../../object/cart/cart';
 import user from '../../object/user/user';
-import router from '../../rout/router';
 import {
-  CartItem, AjaxResponse, Callback, Product,
+  AjaxResponse, Callback, Product,
 } from '../../types';
 
 export const showSignIn: Callback = () => {
@@ -53,11 +51,17 @@ export const homepage: Callback = () => {
   bus.emit('homepage state confirmed', { pathname: '/' });
 };
 
-export const showProductPage: Callback = (obj: { 'responseText': string }) => {
+export const showProductPage: Callback = (obj: { 'context': Product }) => {
+  const { context } = obj;
+
+  bus.emit('show view', { name: 'productPage', context });
+};
+
+export const productStateConfirmed: Callback = (obj: { 'responseText': string }) => {
   const { responseText } = obj;
 
   Promise.resolve()
     .then(() => JSON.parse(responseText))
-    .then((parseObj) => console.log('showProductPage', parseObj))
+    .then((parseObj: Product) => bus.emit('product state confirmed', { pathname: `/product?id=${parseObj.id}`, context: parseObj }))
     .catch((err) => console.error('product page response parse error', err));
 };

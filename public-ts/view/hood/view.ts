@@ -13,9 +13,8 @@ export default class Hood extends View implements ViewInterface {
     console.log(this.self);
   }
 
-  private async render() {
+  public async render(): Promise<void> {
     await this.renderHTML();
-    bus.add(connections);
     initEvents(this.self);
     return this.show();
   }
@@ -24,6 +23,7 @@ export default class Hood extends View implements ViewInterface {
     super();
     this.self = <HTMLElement>document.createElement('div');
     this.self.className = className;
+    bus.add(connections);
     this.render();
   }
 }
