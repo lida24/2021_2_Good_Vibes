@@ -2,7 +2,9 @@ import bus from '../../init/bus';
 import cart from '../../object/cart/cart';
 import user from '../../object/user/user';
 import router from '../../rout/router';
-import { CartItem, AjaxResponse, Callback, Product } from '../../types';
+import {
+  CartItem, AjaxResponse, Callback, Product,
+} from '../../types';
 
 export const showSignIn: Callback = () => {
   bus.emit('show view', { name: 'signin' });
@@ -44,10 +46,18 @@ export const homepageArrayParse: Callback = (response: AjaxResponse) => {
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .then((obj: Product[]) => bus.emit('add product array to homepage', obj))
-    // .then(() => console.log('add product array to homepage emitted'))
     .catch((err) => console.log(err));
 };
 
 export const homepage: Callback = () => {
   bus.emit('homepage state confirmed', { pathname: '/' });
+};
+
+export const showProductPage: Callback = (obj: { 'responseText': string }) => {
+  const { responseText } = obj;
+
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((parseObj) => console.log('showProductPage', parseObj))
+    .catch((err) => console.error('product page response parse error', err));
 };

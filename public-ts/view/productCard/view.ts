@@ -1,9 +1,9 @@
 import * as compiledTemplate from './template.handlebars';
 import View from '../view';
 import { Product, ViewInterface } from '../../types';
-// import bus from '../../init/bus';
-// import connections from './connections';
-// import initEvents from './events';
+import bus from '../../init/bus';
+import connections from './connections';
+import initEvents from './events';
 
 export default class ProductCard extends View implements ViewInterface {
   private async renderHTML() {
@@ -11,10 +11,10 @@ export default class ProductCard extends View implements ViewInterface {
     this.self.innerHTML = html;
   }
 
-  public async render() {
+  public async render(): Promise<void> {
     await this.renderHTML();
-    // bus.add(connections);
-    // initEvents(this.self);
+    bus.add(connections);
+    initEvents(this.self, this.context);
     return this.show();
   }
 

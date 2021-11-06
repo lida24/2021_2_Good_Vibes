@@ -62,6 +62,13 @@ const connections: Connection[] = [
       confirm.homepage,
     ],
   },
+  {
+    event: 'product request confirmed',
+    callback: [
+      confirm.showProductPage,
+      addToHistory,
+    ],
+  },
 ];
 
 export default connections;

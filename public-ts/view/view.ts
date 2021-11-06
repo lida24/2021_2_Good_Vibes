@@ -1,7 +1,9 @@
+import { Product } from '../types';
+
 export default class View {
   public self: HTMLElement;
 
-  protected context: object;
+  protected context: Product;
 
   public isActive(): boolean {
     if (this.self.style.visibility === 'visible') {
@@ -27,7 +29,7 @@ export default class View {
     this.self.innerHTML = '';
   }
 
-  public setContext(context: object): void {
+  public setContext(context: Product): void {
     this.context = context;
   }
 }

@@ -33,3 +33,7 @@ export const homepage: Callback = () => {
   // bus.emit('homepage state confirmed', { pathname: '/' });
   bus.emit('homepage ajax request', undefined);
 };
+
+export const product: Callback = (obj: { 'id': number }) => {
+  bus.emit('product ajax request', obj);
+};

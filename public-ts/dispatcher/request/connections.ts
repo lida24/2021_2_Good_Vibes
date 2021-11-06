@@ -18,6 +18,10 @@ const connections: Connection[] = [
     event: 'homepage state request',
     callback: request.homepage,
   },
+  {
+    event: 'product state request',
+    callback: request.product,
+  },
 ];
 
 export default connections;

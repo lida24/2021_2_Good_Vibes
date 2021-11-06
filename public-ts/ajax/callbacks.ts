@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import bus from '../init/bus';
-import { AjaxResponse } from '../types';
+import { AjaxResponse, Callback } from '../types';
 import ajax from './script';
 
 const backendAddress = 'https://ozonback.herokuapp.com';
@@ -64,12 +64,14 @@ export const homepage = () => {
     .catch((error) => console.error(error));
 };
 
-export const product = (id) => {
+export const product: Callback = (obj: { 'id': number }) => {
+  const { id } = obj;
+
   ajax.get({
     url: `${backendAddress}/product?id=${id}`,
   })
-    .then(({ responseText }) => bus.emit('product request success', { responseText }))
-    .catch(({ responseText }) => bus.emit('product request fail', { responseText }));
+    .then(({ responseText }) => bus.emit('product request confirmed', { responseText }))
+    .catch(({ responseText }) => bus.emit('product request denied', { responseText }));
 };
 
 export const productArrayRequest = async (array) => {

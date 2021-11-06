@@ -14,6 +14,10 @@ const connections: Connection[] = [
     event: 'profile state denied',
     callback: denied.profile,
   },
+  {
+    event: 'product request denied',
+    callback: denied.product,
+  }
 ];
 
 export default connections;
