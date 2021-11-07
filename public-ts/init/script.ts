@@ -8,6 +8,7 @@ import dispatcherConnections from '../dispatcher/connections';
 import routerConnections from '../rout/connections';
 import userConnections from '../object/user/connecitons';
 import cartConnections from '../object/cart/connections';
+import productContextListConnections from '../object/productContextList/connections';
 
 const init: () => void = () => {
   bus.add(userConnections);
@@ -16,6 +17,7 @@ const init: () => void = () => {
   bus.add(dispatcherConnections);
   bus.add(routerConnections);
   bus.add(cartConnections);
+  bus.add(productContextListConnections);
 
   bus.add(initConnections);
 
