@@ -72,6 +72,13 @@ class Cart {
   public getItem(id: number): CartItem {
     return this.self.find((elem) => elem.product_id === id);
   }
+
+  public isEmpty(): boolean {
+    if (this.self && this.self !== []) {
+      return false;
+    }
+    return true;
+  }
 }
 
 export default new Cart();

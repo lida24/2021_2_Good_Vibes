@@ -39,7 +39,7 @@ export const address: Callback = () => {
     return;
   }
 
-  if (!cart.isConfirmed()) {
+  if (!cart.isConfirmed() || cart.isEmpty()) {
     bus.emit('cart state request', undefined);
     return;
   }
