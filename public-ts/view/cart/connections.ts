@@ -12,7 +12,7 @@ const connections: Connection[] = [
   },
   {
     event: 'product array request confirmed',
-    callback: cart.show,
+    callback: cart.showCartItems,
   },
 ];
 
