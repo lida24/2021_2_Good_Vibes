@@ -9,13 +9,11 @@ export default class SignUp extends View implements ViewInterface {
   private async renderHTML() {
     const html = compiledTemplate(this.context);
     this.self.innerHTML = html;
-
-    console.log(this.self);
+    initEvents(this.self);
   }
 
   public async render(): Promise<void> {
     await this.renderHTML();
-    initEvents(this.self);
     return this.show();
   }
 

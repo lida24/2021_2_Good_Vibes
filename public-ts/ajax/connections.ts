@@ -67,13 +67,6 @@ const ajaxConnections: Connection[] = [
   },
 
   {
-    event: 'avatar upload request',
-    callback: [
-      ajax.avatarUpload,
-    ],
-  },
-
-  {
     event: 'category get request',
     callback: [
       ajax.categoryGet,
@@ -97,6 +90,12 @@ const ajaxConnections: Connection[] = [
     event: 'profile upload request',
     callback: [
       ajax.profileUpload,
+    ],
+  },
+  {
+    event: 'avatar upload request',
+    callback: [
+      ajax.avatarUpload,
     ],
   },
 ];

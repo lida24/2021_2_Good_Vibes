@@ -54,9 +54,14 @@ export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Pr
 
   viewMap[name].visibility = true;
 
+  let fullName = name;
+  if (context) {
+    fullName += ` ${context.id}`;
+  }
+
   Promise.resolve()
     .then(() => document.getElementById('main-container').replaceWith(view.self))
-    .then(() => bus.emit(`${name} ${context?.id} shown`, undefined))
+    .then(() => bus.emit(`${fullName} shown`, undefined));
 };
 
 export const a = 0;

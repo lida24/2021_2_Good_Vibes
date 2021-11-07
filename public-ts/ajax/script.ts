@@ -1,5 +1,7 @@
 /** @module Ajax */
 
+import { AjaxResponse } from '../types';
+
 /**
  * Объект с Ajax-запросами
  */
@@ -10,7 +12,7 @@ const AJAX_METHODS = {
 
 let csrf: string;
 
-type AjaxCallback = (status: number, text: string) => void;
+type AjaxCallback = (response: AjaxResponse) => void;
 
 type AjaxInput = {
   method: string,
@@ -46,7 +48,7 @@ export default class Ajax {
 
       csrf = xhr.getResponseHeader('X-Csrf-Token');
 
-      callback(xhr.status, xhr.responseText);
+      callback({ status: xhr.status, responseText: xhr.responseText });
     });
 
     if (body) {
@@ -62,20 +64,15 @@ export default class Ajax {
     this.ajax({
       ...args,
       method: AJAX_METHODS.GET,
-      callback: (status, responseText) => {
+      callback: (response: AjaxResponse) => {
+        const { status } = response;
         if (status < 300) {
-          resolve({
-            status,
-            responseText,
-          });
+          resolve(response);
           return;
         }
 
         // eslint-disable-next-line prefer-promise-reject-errors
-        reject({
-          status,
-          responseText,
-        });
+        reject(response);
       },
     });
   });
@@ -84,20 +81,15 @@ export default class Ajax {
     this.ajax({
       ...args,
       method: AJAX_METHODS.POST,
-      callback: (status, responseText) => {
+      callback: (response: AjaxResponse) => {
+        const { status } = response;
         if (status < 300) {
-          resolve({
-            status,
-            responseText,
-          });
+          resolve(response);
           return;
         }
 
         // eslint-disable-next-line prefer-promise-reject-errors
-        reject({
-          status,
-          responseText,
-        });
+        reject(response);
       },
     });
   });
@@ -106,10 +98,6 @@ export default class Ajax {
     method = AJAX_METHODS.GET, url = '/', callback = () => { }, file = undefined,
   }) => {
     const formData = new FormData();
-
-    // const file = document.getElementsByClassName('uploadFile')[0];
-
-    // const choosedFile = file.files[0];
 
     formData.append('file', file);
 
@@ -125,7 +113,7 @@ export default class Ajax {
 
       csrf = xhr.getResponseHeader('X-Csrf-Token');
 
-      callback(xhr.status, xhr.responseText);
+      callback({ status: xhr.status, responseText: xhr.responseText });
     });
 
     xhr.send(formData);

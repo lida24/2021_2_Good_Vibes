@@ -9,11 +9,11 @@ export default class ProductCard extends View implements ViewInterface {
   private async renderHTML() {
     const html = compiledTemplate(this.context);
     this.self.innerHTML = html;
+    initEvents(this.self, this.context);
   }
 
   public async render(): Promise<void> {
     await this.renderHTML();
-    initEvents(this.self, this.context);
     return this.show();
   }
 

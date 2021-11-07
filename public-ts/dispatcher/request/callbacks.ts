@@ -30,7 +30,6 @@ export const profile: Callback = () => {
 };
 
 export const homepage: Callback = () => {
-  // bus.emit('homepage state confirmed', { pathname: '/' });
   bus.emit('homepage ajax request', undefined);
 };
 

@@ -9,11 +9,11 @@ export default class SignIn extends View implements ViewInterface {
   private async renderHTML() {
     const html = compiledTemplate(this.context);
     this.self.innerHTML = html;
+    initEvents(this.self);
   }
 
   public async render(): Promise<void> {
     await this.renderHTML();
-    initEvents(this.self);
     return this.show();
   }
 

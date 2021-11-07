@@ -13,9 +13,9 @@ class User {
     'avatar': string,
   }): void {
     const { email, avatar, username } = obj;
-    this.email = email;
-    this.username = username;
-    this.avatar = avatar;
+    this.email = email || this.email;
+    this.username = username || this.username;
+    this.avatar = avatar || this.avatar;
     this.autorize = true;
   }
 

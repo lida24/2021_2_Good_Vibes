@@ -134,7 +134,6 @@ export const cartGet = () => {
     .then(() => bus.emit('cart get finished', undefined));
 };
 
-
 export const cartConfirm = (obj) => {
   // console.log(array);
 
@@ -165,31 +164,12 @@ export const cartConfirm = (obj) => {
     .catch(({ responseText }) => bus.emit('cart comfirm fail', responseText));
 };
 
-export const avatarUpload = (file: File) => {
-  // console.log('avatar upload');
-
-  ajax.avatarUpload({
-    method: 'POST',
-    url: `${backendAddress}/upload/avatar`,
-    file,
-    callback: (status, responseText) => {
-      if (status < 300) {
-        bus.emit('avatar upload success', { responseText });
-        return;
-      }
-      bus.emit('avatar upload fail', { responseText });
-    },
-  });
-};
-
 export const categoryGet = () => {
   console.log('category get');
 
   ajax.get({
     url: `${backendAddress}/category`,
   })
-    // .then(({ responseText }) => console.log(responseText))
-    // .catch(({ responseText }) => console.log(responseText));
 
     .then(({ responseText }) => bus.emit('category get success', responseText))
     .catch(({ responseText }) => bus.emit('category get fail', responseText))
@@ -202,8 +182,6 @@ export const categoryRequest = (name) => {
   ajax.get({
     url: `${backendAddress}/category/${name}`,
   })
-    // .then(({ responseText }) => console.log(responseText))
-    // .catch(({ responseText }) => console.log(responseText));
 
     .then(({ responseText }) => bus.emit('category request success', responseText))
     .catch(({ responseText }) => bus.emit('category request fail', responseText));
@@ -220,13 +198,30 @@ export const cartDelete = (obj) => {
     .catch(({ responseText }) => bus.emit('cart delete fail', responseText));
 };
 
-export const profileUpload = (obj) => {
-  console.log('profile upload', obj);
-
+export const profileUpload: Callback = (obj: { 'username': string, 'email': string }) => {
   ajax.post({
     url: `${backendAddress}/profile`,
     body: obj,
   })
-    .then(({ responseText }) => bus.emit('profile upload success', responseText))
-    .catch(({ responseText }) => bus.emit('profile upload fail', responseText));
+    .then((response: AjaxResponse) => bus.emit('profile upload confirmed', response))
+    .catch((response: AjaxResponse) => bus.emit('profile upload denied', response));
+};
+
+export const avatarUpload: Callback = (file: File) => {
+  // console.log('avatar upload');
+
+  ajax.avatarUpload({
+    method: 'POST',
+    url: `${backendAddress}/upload/avatar`,
+    file,
+    callback: (response: AjaxResponse) => {
+      const { status } = response;
+
+      if (status < 300) {
+        bus.emit('avatar upload confirmed', response);
+        return;
+      }
+      bus.emit('avatar upload denied', response);
+    },
+  });
 };
