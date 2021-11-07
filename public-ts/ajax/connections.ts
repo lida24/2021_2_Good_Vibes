@@ -80,7 +80,7 @@ const ajaxConnections: Connection[] = [
     ],
   },
   {
-    event: 'cart delete request',
+    event: 'delete product from cart request',
     callback: [
       ajax.cartDelete,
     ],

@@ -21,10 +21,6 @@ class ProductCardList {
       return;
     }
 
-    if (JSON.stringify(this.list[productContext.id].context) === JSON.stringify(productContext)) {
-      return;
-    }
-
     this.modify(productContext);
   }
 
@@ -51,6 +47,10 @@ class ProductCardList {
     });
 
     return result;
+  }
+
+  public deleteItem(id: number) {
+    delete this.list[id];
   }
 }
 

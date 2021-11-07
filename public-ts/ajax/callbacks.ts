@@ -184,15 +184,21 @@ export const categoryRequest = (name) => {
     .catch(({ responseText }) => bus.emit('category request fail', responseText));
 };
 
-export const cartDelete = (obj) => {
-  console.log('cart delete', obj);
+export const cartDelete: Callback = (obj: { 'id': number, 'number': number }) => {
+  // console.log('cart delete', obj);
+
+  const { id, number } = obj;
+  const temp = {
+    product_id: id,
+    number,
+  };
 
   ajax.post({
     url: `${backendAddress}/cart/delete`,
-    body: obj,
+    body: temp,
   })
-    .then(({ responseText }) => bus.emit('cart delete success', responseText))
-    .catch(({ responseText }) => bus.emit('cart delete fail', responseText));
+    .then((response: AjaxResponse) => bus.emit('delete product from cart confirmed', response))
+    .catch((response: AjaxResponse) => bus.emit('delete product from cart denied', response));
 };
 
 export const profileUpload: Callback = (obj: { 'username': string, 'email': string }) => {

@@ -21,7 +21,11 @@ export const put: Callback = (obj: { 'id': number, 'number': number }) => {
   cart.set(obj);
 };
 
-export const handleResponse: Callback = (obj: { 'responseText': string }) => {
+export const deleteItem: Callback = (obj: { 'id': number, 'number': number }) => {
+  cart.delete(obj);
+};
+
+export const handlePutResponse: Callback = (obj: { 'responseText': string }) => {
   const { responseText } = obj;
 
   Promise.resolve()
@@ -42,6 +46,24 @@ export const addProductMiddleware: Callback = (obj: { 'id': number, 'number': nu
   }
 
   bus.emit('put product to cart request', { id, number });
+};
+
+export const deleteProductMiddleware: Callback = (obj: { 'id': number, 'number': number }) => {
+  if (!user.isAutorize()) {
+    bus.emit('delete product', obj);
+    return;
+  }
+
+  bus.emit('delete product from cart request', obj);
+};
+
+export const handleDeleteResponse: Callback = (obj: { 'responseText': string }) => {
+  const { responseText } = obj;
+
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((parseObj: CartItem) => bus.emit('delete product', { id: parseObj.product_id, number: parseObj.number }))
+    .catch((err) => console.error('delete product from cart parse error', err));
 };
 
 export const setConfirmed: Callback = () => {

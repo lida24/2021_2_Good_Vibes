@@ -14,6 +14,10 @@ const connections: Connection[] = [
     event: 'product array request confirmed',
     callback: cart.showCartItems,
   },
+  // {
+  //   event: 'delete product',
+  //   callback: cart.showCartItems,
+  // },
 ];
 
 export default connections;
