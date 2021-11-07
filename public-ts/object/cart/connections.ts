@@ -10,6 +10,18 @@ const connections: Connection[] = [
     event: 'signout confirmed',
     callback: cart.drop,
   },
+  {
+    event: 'add product to cart',
+    callback: cart.addProductMiddleware,
+  },
+  {
+    event: 'put product to cart confirmed',
+    callback: cart.handleResponse,
+  },
+  {
+    event: 'put product to cart',
+    callback: cart.put,
+  },
 ];
 
 export default connections;

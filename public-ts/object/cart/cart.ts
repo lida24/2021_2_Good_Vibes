@@ -3,18 +3,14 @@ import { CartItem } from '../../types';
 class Cart {
   private self: CartItem[] = [];
 
-  private created = false;
-
   public load(obj: CartItem[]) {
-    this.created = true;
-
-    this.self = obj;
+    this.self = obj || this.self;
   }
 
   public set(obj: { id: number, number: number }) {
     const { id, number } = obj;
 
-    const target = this.self.find((elem) => elem.product_id === id);
+    const target = this.getItem(id);
     if (!target) {
       this.self.push({
         product_id: id,
@@ -28,7 +24,7 @@ class Cart {
   public add(obj: { id: number, number: number }) {
     const { id, number } = obj;
 
-    const target = this.self.find((elem) => elem.product_id === id);
+    const target = this.getItem(id);
     if (!target) {
       this.self.push({
         product_id: id,
@@ -42,7 +38,7 @@ class Cart {
   public delete(obj: { id: number, number: number }) {
     const { id, number } = obj;
 
-    const target = this.self.find((elem) => elem.product_id === id);
+    const target = this.getItem(id);
 
     if (target) {
       target.number -= number;
@@ -55,7 +51,6 @@ class Cart {
   }
 
   public drop() {
-    this.created = false;
     this.self = [];
   }
 
@@ -63,8 +58,8 @@ class Cart {
     return this.self;
   }
 
-  public isCreated() {
-    return this.created;
+  public getItem(id: number): CartItem {
+    return this.self.find((elem) => elem.product_id === id);
   }
 }
 

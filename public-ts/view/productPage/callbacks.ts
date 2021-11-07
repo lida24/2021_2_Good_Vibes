@@ -8,3 +8,5 @@ export const backToCategoryPage: Callback = () => {
 export const addProductToCart: Callback = (obj: { 'id': number, 'number': number }) => {
   console.log('add product to cart', obj);
 };
+
+export const a = 0;

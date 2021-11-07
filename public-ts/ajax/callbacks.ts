@@ -105,22 +105,19 @@ export const order = () => {
     .catch((error) => console.error(error));
 };
 
-export const addProductToCart = (data) => {
-  console.log('addProductToCart', data);
-
+export const putProductToCart: Callback = (obj: { 'id': number, 'number': number }) => {
+  const { id, number } = obj;
   const temp = {
-    product_id: data.id,
-    number: data.number,
+    product_id: id,
+    number,
   };
-
-  console.log(temp);
 
   ajax.post({
     url: `${backendAddress}/cart/put`,
     body: temp,
   })
-    .then(({ responseText }) => bus.emit('add product to cart success', { responseText }))
-    .catch(({ responseText }) => bus.emit('add product to cart fail', { responseText }));
+    .then((response: AjaxResponse) => bus.emit('put product to cart confirmed', response))
+    .catch((response: AjaxResponse) => bus.emit('put product to cart denied', response));
 };
 
 export const cartGet = () => {

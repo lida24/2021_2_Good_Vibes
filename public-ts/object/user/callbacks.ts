@@ -1,4 +1,3 @@
-import bus from '../../init/bus';
 import { AjaxResponse, Callback } from '../../types';
 import user from './user';
 
@@ -12,7 +11,3 @@ export const set: (response: AjaxResponse) => void = ({ responseText }) => {
 export const del: Callback = () => {
   user.delete();
 };
-
-// export const profileRequest: Callback = () => {
-//   bus.emit('profile state request', undefined);
-// };

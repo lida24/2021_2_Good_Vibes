@@ -42,8 +42,8 @@ const ajaxConnections: Connection[] = [
 
   // ======================
   {
-    event: 'add product to cart request',
-    callback: ajax.addProductToCart,
+    event: 'put product to cart request',
+    callback: ajax.putProductToCart,
   },
   {
     event: 'cart get request',
