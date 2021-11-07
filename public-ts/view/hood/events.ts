@@ -24,6 +24,14 @@ const initEvents = (self: HTMLElement) => {
 
     bus.emit('cart button click', undefined);
   });
+
+  // ---------------------
+  const asideBtn = <HTMLElement>self.getElementsByClassName('aside-open-button')[0];
+  asideBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('aside button click', undefined);
+  });
 };
 
 export default initEvents;

@@ -8,6 +8,7 @@ import dispatcherConnections from '../dispatcher/connections';
 import routerConnections from '../rout/connections';
 import userConnections from '../object/user/connecitons';
 import cartConnections from '../object/cart/connections';
+import Aside from '../view/aside/view';
 
 const init: () => void = () => {
   bus.add(userConnections);
@@ -25,6 +26,9 @@ const init: () => void = () => {
 
   const hood = new Hood('grid-container');
   document.getElementsByClassName('grid-container')[0].replaceWith(hood.self);
+
+  const aside = new Aside();
+  document.getElementsByClassName('aside-container')[0].replaceWith(aside.self);
 };
 
 export default init;

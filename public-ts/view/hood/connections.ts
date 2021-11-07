@@ -14,6 +14,10 @@ const connections: Connection[] = [
     event: 'cart button click',
     callback: hood.cartStateRequest,
   },
+  {
+    event: 'aside button click',
+    callback: hood.showAside,
+  },
 ];
 
 export default connections;

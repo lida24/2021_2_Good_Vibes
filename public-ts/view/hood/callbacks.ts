@@ -13,3 +13,7 @@ export const cartStateRequest: Callback = () => {
   // console.log('here will be cart request soon');
   bus.emit('cart state request', undefined);
 };
+
+export const showAside: Callback = () => {
+  bus.emit('show aside', undefined);
+};

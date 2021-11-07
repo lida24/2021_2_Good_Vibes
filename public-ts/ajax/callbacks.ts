@@ -161,15 +161,15 @@ export const cartConfirm = (obj) => {
     .catch(({ responseText }) => bus.emit('cart comfirm fail', responseText));
 };
 
-export const categoryGet = () => {
+export const categoryGet: Callback = () => {
   console.log('category get');
 
   ajax.get({
     url: `${backendAddress}/category`,
   })
 
-    .then(({ responseText }) => bus.emit('category get success', responseText))
-    .catch(({ responseText }) => bus.emit('category get fail', responseText))
+    .then((response: Response) => bus.emit('category get confirmed', response))
+    .catch((response: Response) => bus.emit('category get denied', response))
     .then(() => bus.emit('category get finished', undefined));
 };
 
