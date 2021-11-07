@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import bus from '../init/bus';
-import { AjaxResponse, Callback } from '../types';
+import { AjaxResponse, Callback, CartItem } from '../types';
 import ajax from './script';
 
 const backendAddress = 'https://ozonback.herokuapp.com';
@@ -74,7 +74,7 @@ export const product: Callback = (obj: { 'id': number }) => {
     .catch(({ responseText }) => bus.emit('product request denied', { responseText }));
 };
 
-export const productArrayRequest = async (array) => {
+export const productArrayRequest: Callback = (array: CartItem[]) => {
   const result = [];
 
   array.forEach((element) => {
@@ -84,16 +84,16 @@ export const productArrayRequest = async (array) => {
       .then(({ responseText }) => JSON.parse(responseText))
       .then((obj) => {
         const tempObj = obj;
-        tempObj.number = element.number;
+        // tempObj.number = element.number;
         return tempObj;
       })
       .then((obj) => result.push(obj))
       .then(() => {
         if (result.length === array.length) {
-          bus.emit('product array request success', result);
+          bus.emit('product array request confirmed', result);
         }
       })
-      .catch(({ responseText }) => bus.emit('product array request fail', responseText));
+      .catch(({ responseText }) => bus.emit('product array request denied', responseText));
   });
 };
 

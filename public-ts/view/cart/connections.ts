@@ -6,6 +6,14 @@ const connections: Connection[] = [
     event: 'checkout button click',
     callback: cart.addressStateRequest,
   },
+  {
+    event: 'cart shown',
+    callback: cart.productArrayRequest,
+  },
+  {
+    event: 'product array request confirmed',
+    callback: cart.show,
+  },
 ];
 
 export default connections;
