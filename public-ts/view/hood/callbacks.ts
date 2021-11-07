@@ -10,5 +10,6 @@ export const profileStateRequest: Callback = () => {
 };
 
 export const cartStateRequest: Callback = () => {
-  console.log('here will be cart request soon');
+  // console.log('here will be cart request soon');
+  bus.emit('cart state request', undefined);
 };

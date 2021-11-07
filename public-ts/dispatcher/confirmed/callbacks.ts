@@ -65,3 +65,7 @@ export const productStateConfirmed: Callback = (obj: { 'responseText': string })
     .then((parseObj: Product) => bus.emit('product state confirmed', { pathname: `/product?id=${parseObj.id}`, context: parseObj }))
     .catch((err) => console.error('product page response parse error', err));
 };
+
+export const showCart: Callback = () => {
+  bus.emit('show view', { name: 'cart' });
+};

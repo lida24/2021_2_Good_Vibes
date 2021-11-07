@@ -22,6 +22,14 @@ const connections: Connection[] = [
     event: 'product state request',
     callback: request.product,
   },
+  {
+    event: 'cart state request',
+    callback: request.cartState,
+  },
+  {
+    event: 'address state request',
+    callback: request.address,
+  },
 ];
 
 export default connections;

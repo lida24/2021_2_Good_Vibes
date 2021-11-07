@@ -22,6 +22,10 @@ const connections: Connection[] = [
     event: 'put product to cart',
     callback: cart.put,
   },
+  {
+    event: 'checkout button click',
+    callback: cart.setConfirmed,
+  },
 ];
 
 export default connections;

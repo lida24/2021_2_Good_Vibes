@@ -1,4 +1,5 @@
 import bus from '../../init/bus';
+import cart from '../../object/cart/cart';
 import user from '../../object/user/user';
 import { Callback } from '../../types';
 
@@ -35,4 +36,22 @@ export const homepage: Callback = () => {
 
 export const product: Callback = (obj: { 'id': number }) => {
   bus.emit('product ajax request', obj);
+};
+
+export const cartState: Callback = () => {
+  bus.emit('cart state confirmed', { pathname: '/cart' });
+};
+
+export const address: Callback = () => {
+  if (!user.isAutorize()) {
+    bus.emit('address state denied', undefined);
+    return;
+  }
+
+  if (!cart.isConfirmed()) {
+    bus.emit('address state denied', undefined);
+    return;
+  }
+
+  bus.emit('address state confirmed', undefined);
 };

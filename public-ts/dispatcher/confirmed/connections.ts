@@ -75,6 +75,13 @@ const connections: Connection[] = [
       addToHistory,
     ],
   },
+  {
+    event: 'cart state confirmed',
+    callback: [
+      confirm.showCart,
+      addToHistory,
+    ],
+  },
 ];
 
 export default connections;

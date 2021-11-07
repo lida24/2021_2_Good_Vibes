@@ -43,3 +43,7 @@ export const addProductMiddleware: Callback = (obj: { 'id': number, 'number': nu
 
   bus.emit('put product to cart request', { id, number });
 };
+
+export const setConfirmed: Callback = () => {
+  cart.setConfirmed(true);
+};

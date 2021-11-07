@@ -3,6 +3,16 @@ import { CartItem } from '../../types';
 class Cart {
   private self: CartItem[] = [];
 
+  private confirmed = false;
+
+  public isConfirmed() {
+    return this.confirmed;
+  }
+
+  public setConfirmed(confirmed: boolean) {
+    this.confirmed = confirmed;
+  }
+
   public load(obj: CartItem[]) {
     this.self = obj || this.self;
   }
@@ -52,6 +62,7 @@ class Cart {
 
   public drop() {
     this.self = [];
+    this.confirmed = false;
   }
 
   public get() {

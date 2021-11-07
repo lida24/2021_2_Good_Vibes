@@ -17,7 +17,11 @@ const connections: Connection[] = [
   {
     event: 'product request denied',
     callback: denied.product,
-  }
+  },
+  {
+    event: 'address state denied',
+    callback: denied.address,
+  },
 ];
 
 export default connections;
