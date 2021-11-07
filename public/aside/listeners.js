@@ -14,14 +14,14 @@ const asideListeners = [
   {
     event: 'parse category obj',
     callback: [
-      aside.parseCategoryObject
-    ]
+      aside.parseCategoryObject,
+    ],
   },
 
   {
     event: 'show subcategory',
-    callback: aside.showSubCategory
-  }
+    callback: aside.showSubCategory,
+  },
 ];
 
 export default asideListeners;

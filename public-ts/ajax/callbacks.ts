@@ -173,15 +173,17 @@ export const categoryGet: Callback = () => {
     .then(() => bus.emit('category get finished', undefined));
 };
 
-export const categoryRequest = (name) => {
+export const categoryRequest: Callback = (obj: { name: string }) => {
+  const { name } = obj;
+
   console.log('categoryRequest', name);
 
   ajax.get({
     url: `${backendAddress}/category/${name}`,
   })
 
-    .then(({ responseText }) => bus.emit('category request success', responseText))
-    .catch(({ responseText }) => bus.emit('category request fail', responseText));
+    .then((response: AjaxResponse) => bus.emit('category ajax confirmed', response))
+    .catch((response: AjaxResponse) => bus.emit('category ajax denied', response));
 };
 
 export const cartDelete: Callback = (obj: { 'id': number, 'number': number }) => {

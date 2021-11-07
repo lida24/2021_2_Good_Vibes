@@ -55,3 +55,7 @@ export const address: Callback = () => {
 
   bus.emit('address state confirmed', undefined);
 };
+
+export const category: Callback = (obj: { name: string }) => {
+  bus.emit('category ajax request', obj);
+};

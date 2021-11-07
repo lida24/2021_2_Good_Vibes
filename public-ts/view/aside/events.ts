@@ -17,13 +17,13 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit('show subcategory', undefined);
   });
 
-  // -------------------------
-  const category1 = <HTMLElement>self.getElementsByClassName('category subcategory')[0];
-  category1.addEventListener('click', (event) => {
-    event.preventDefault();
+  // // -------------------------
+  // const category1 = <HTMLElement>self.getElementsByClassName('category subcategory')[0];
+  // category1.addEventListener('click', (event) => {
+  //   event.preventDefault();
 
-    bus.emit('show subcategory', undefined);
-  });
+  //   bus.emit('show subcategory', undefined);
+  // });
 };
 
 export default initEvents;

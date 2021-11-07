@@ -51,6 +51,10 @@ export const homepage: Callback = () => {
   bus.emit('homepage state confirmed', { pathname: '/' });
 };
 
+export const showCart: Callback = () => {
+  bus.emit('show view', { name: 'cart' });
+};
+
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
 
@@ -66,6 +70,19 @@ export const productStateConfirmed: Callback = (obj: { 'responseText': string })
     .catch((err) => console.error('product page response parse error', err));
 };
 
-export const showCart: Callback = () => {
-  bus.emit('show view', { name: 'cart' });
+export const category: Callback = () => {
+  bus.emit('category state confirmed', { pathname: '/category' });
+};
+
+export const categoryArrayParse: Callback = (response: AjaxResponse) => {
+  const { responseText } = response;
+
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((obj: Product[]) => bus.emit('add product array to category page', obj))
+    .catch((err) => console.log(err));
+};
+
+export const showCategoryPage: Callback = () => {
+  bus.emit('show view', { name: 'categoryPage' });
 };

@@ -82,6 +82,20 @@ const connections: Connection[] = [
       addToHistory,
     ],
   },
+  {
+    event: 'category ajax confirmed',
+    callback: [
+      confirm.categoryArrayParse,
+      confirm.category,
+    ],
+  },
+  {
+    event: 'category state confirmed',
+    callback: [
+      confirm.showCategoryPage,
+      // addToHistory,
+    ],
+  },
 ];
 
 export default connections;

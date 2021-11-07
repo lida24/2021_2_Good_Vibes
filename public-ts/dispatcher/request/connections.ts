@@ -30,6 +30,10 @@ const connections: Connection[] = [
     event: 'address state request',
     callback: request.address,
   },
+  {
+    event: 'category state request',
+    callback: request.category,
+  },
 ];
 
 export default connections;

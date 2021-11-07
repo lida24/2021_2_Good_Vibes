@@ -74,7 +74,7 @@ const ajaxConnections: Connection[] = [
   },
 
   {
-    event: 'category request',
+    event: 'category ajax request',
     callback: [
       ajax.categoryRequest,
     ],
