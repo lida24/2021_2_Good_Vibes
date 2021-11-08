@@ -63,3 +63,7 @@ export const category: Callback = (obj: { name: string }) => {
 export const payment: Callback = () => {
   bus.emit('payment state confirmed', { pathname: '/payment' });
 };
+
+export const confirmation: Callback = () => {
+  bus.emit('confirmation state confirmed', { pathname: '/confirmation' });
+};

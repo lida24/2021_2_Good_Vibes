@@ -11,7 +11,8 @@ const register: () => void = () => {
     .register('/cart', 'cart')
     .register('/category', 'category')
     .register('/address', 'address')
-    .register('/payment', 'payment');
+    .register('/payment', 'payment')
+    .register('/confirmation', 'confirmation');
 };
 
 export default register;

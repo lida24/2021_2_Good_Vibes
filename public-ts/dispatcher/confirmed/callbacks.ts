@@ -101,3 +101,7 @@ export const address: Callback = () => {
 export const payment: Callback = () => {
   bus.emit('show view', { name: 'paymentPage' });
 };
+
+export const confirmation: Callback = () => {
+  bus.emit('show view', { name: 'confirmationPage' });
+};

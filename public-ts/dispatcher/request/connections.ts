@@ -38,6 +38,10 @@ const connections: Connection[] = [
     event: 'payment state request',
     callback: request.payment,
   },
+  {
+    event: 'confirmation state request',
+    callback: request.confirmation,
+  },
 ];
 
 export default connections;

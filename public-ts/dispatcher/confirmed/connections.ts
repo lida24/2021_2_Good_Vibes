@@ -114,6 +114,13 @@ const connections: Connection[] = [
       addToHistory,
     ],
   },
+  {
+    event: 'confirmation state confirmed',
+    callback: [
+      confirm.confirmation,
+      addToHistory,
+    ],
+  },
 ];
 
 export default connections;
