@@ -22,6 +22,14 @@ const connections: Connection[] = [
     event: 'address state denied',
     callback: denied.address,
   },
+  {
+    event: 'payment state denied',
+    callback: denied.payment,
+  },
+  {
+    event: 'confirmation state denied',
+    callback: denied.confirmation,
+  },
 ];
 
 export default connections;

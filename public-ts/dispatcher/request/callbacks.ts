@@ -61,9 +61,31 @@ export const category: Callback = (obj: { name: string }) => {
 };
 
 export const payment: Callback = () => {
+  // bus.emit('payment state confirmed', { pathname: '/payment' });
+  if (!user.isAutorize()) {
+    bus.emit('payment state denied', undefined);
+    return;
+  }
+
+  if (!cart.isConfirmed() || cart.isEmpty()) {
+    bus.emit('payment state denied', undefined);
+    return;
+  }
+
   bus.emit('payment state confirmed', { pathname: '/payment' });
 };
 
 export const confirmation: Callback = () => {
+  // bus.emit('confirmation state confirmed', { pathname: '/confirmation' });
+  if (!user.isAutorize()) {
+    bus.emit('confirmation state denied', undefined);
+    return;
+  }
+
+  if (!cart.isConfirmed() || cart.isEmpty()) {
+    bus.emit('confirmation state denied', undefined);
+    return;
+  }
+
   bus.emit('confirmation state confirmed', { pathname: '/confirmation' });
 };

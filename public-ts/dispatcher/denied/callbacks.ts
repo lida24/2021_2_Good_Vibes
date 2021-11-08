@@ -46,3 +46,35 @@ export const address: Callback = () => {
 
   bus.emit('homepage state request', undefined);
 };
+
+export const payment: Callback = () => {
+  console.error('payment state denied');
+
+  if (!user.isAutorize()) {
+    bus.emit('signIn state request', undefined);
+    return;
+  }
+
+  if (!cart.isConfirmed() || cart.isEmpty()) {
+    bus.emit('cart state request', undefined);
+    return;
+  }
+
+  bus.emit('homepage state request', undefined);
+};
+
+export const confirmation: Callback = () => {
+  console.error('confirmation state denied');
+
+  if (!user.isAutorize()) {
+    bus.emit('signIn state request', undefined);
+    return;
+  }
+
+  if (!cart.isConfirmed() || cart.isEmpty()) {
+    bus.emit('cart state request', undefined);
+    return;
+  }
+
+  bus.emit('homepage state request', undefined);
+};
