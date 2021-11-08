@@ -14,8 +14,6 @@ export const productArrayRequest: Callback = () => {
 };
 
 export const calculateSubtotal: Callback = () => {
-  console.log('calculate subtotal');
-
   let totalNumber = 0;
   let totalPrice = 0;
 

@@ -74,7 +74,7 @@ class Cart {
   }
 
   public isEmpty(): boolean {
-    if (this.self && this.self !== []) {
+    if (this.self.length !== 0) {
       return false;
     }
     return true;

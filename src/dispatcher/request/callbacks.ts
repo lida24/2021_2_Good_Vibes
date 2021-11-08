@@ -48,6 +48,9 @@ export const address: Callback = () => {
     return;
   }
 
+  console.log(cart);
+  console.log(cart.isEmpty());
+
   if (!cart.isConfirmed() || cart.isEmpty()) {
     bus.emit('address state denied', undefined);
     return;
