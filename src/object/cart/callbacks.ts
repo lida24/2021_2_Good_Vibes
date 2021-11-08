@@ -8,6 +8,14 @@ export const load: Callback = (obj: AjaxResponse) => {
 
   Promise.resolve()
     .then(() => JSON.parse(responseText))
+
+    .then((value: CartItem[]) => {
+      if (!value) return null;
+
+      value.forEach((item) => bus.emit('put product to cart request', item));
+      return value;
+    })
+
     .then((value) => cart.load(value))
     .then(() => cart.get())
     .catch((err) => console.error('cart get error', err));
