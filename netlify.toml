@@ -1,0 +1,7 @@
+[context.production]
+
+  #publish = "public/"
+  
+  #publish = "public-ts/"
+
+  publish = "dist"
