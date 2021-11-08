@@ -121,6 +121,10 @@ const connections: Connection[] = [
       addToHistory,
     ],
   },
+  {
+    event: 'order confirmed',
+    callback: request.homepage,
+  },
 ];
 
 export default connections;
