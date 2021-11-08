@@ -1,5 +1,6 @@
 import { Connection } from '../../types';
 import * as denied from './callbacks';
+import redirect from '../redirect';
 
 const connections: Connection[] = [
   {
@@ -20,15 +21,27 @@ const connections: Connection[] = [
   },
   {
     event: 'address state denied',
-    callback: denied.address,
+    callback: [
+      // redirect.saveState,
+      denied.saveState,
+      denied.address,
+    ],
   },
   {
     event: 'payment state denied',
-    callback: denied.payment,
+    callback: [
+      // redirect.saveState,
+      denied.saveState,
+      denied.payment,
+    ],
   },
   {
     event: 'confirmation state denied',
-    callback: denied.confirmation,
+    callback: [
+      // redirect.saveState,
+      denied.saveState,
+      denied.confirmation,
+    ],
   },
 ];
 

@@ -17,13 +17,15 @@ export const calculateSubtotal: Callback = () => {
   let totalNumber = 0;
   let totalPrice = 0;
 
-  cart.get().forEach((cartElem) => {
-    const { number } = cartElem;
-    totalNumber += number;
+  if (!cart.isEmpty()) {
+    cart.get().forEach((cartElem) => {
+      const { number } = cartElem;
+      totalNumber += number;
 
-    const { price } = CartItemList.list[cartElem.product_id].context;
-    totalPrice += number * price;
-  });
+      const { price } = CartItemList.list[cartElem.product_id].context;
+      totalPrice += number * price;
+    });
+  }
 
   const subElem = <HTMLElement>document.getElementsByClassName('subtotal')[0];
   subElem.innerHTML = `<h3>Итого (${totalNumber} товаров): $${totalPrice}</h3>`;

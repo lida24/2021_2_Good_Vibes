@@ -44,7 +44,8 @@ const connections: Connection[] = [
     callback: [
       confirm.addUser,
       confirm.cartGetRequest,
-      request.homepage,
+      // request.homepage,
+      request.savedState,
     ],
   },
   {
@@ -52,7 +53,8 @@ const connections: Connection[] = [
     callback: [
       confirm.addUser,
       confirm.cartGetRequest,
-      request.homepage,
+      // request.homepage,
+      request.savedState,
     ],
   },
   {
