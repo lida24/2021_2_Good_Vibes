@@ -8,7 +8,8 @@ const register: () => void = () => {
     .register('/signup', 'signUp')
     .register('/homepage', 'homepage')
     .register('/product', 'product')
-    .register('/cart', 'cart');
+    .register('/cart', 'cart')
+    .register('/category', 'category');
 };
 
 export default register;

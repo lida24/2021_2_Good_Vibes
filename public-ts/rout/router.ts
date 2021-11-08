@@ -19,6 +19,8 @@ class Router {
   public add(obj: { 'pathname': string }): void {
     const { pathname } = obj;
 
+    console.log(pathname);
+
     let uri = pathname;
     const reg = pathname.match(/(\/.*)\?/);
     if (reg) {
@@ -55,13 +57,25 @@ class Router {
     const { pathname, search } = window.location;
     const state = this.handlePathname(pathname);
 
-    const reg = search.match(/.*id=(\d+)/);
+    const idReg = search.match(/.*id=(\d+)/);
     let id: number;
-    if (reg) {
-      id = +reg[1];
+    if (idReg) {
+      id = +idReg[1];
     }
 
-    bus.emit(`${state} state request`, { id });
+    const nameReg = search.match(/.*name=(\w+)/u);
+    let name: string;
+    if (nameReg) {
+      // name = +nameReg[1];
+      name = name.concat(nameReg[1]);
+    }
+
+    console.log('search', search);
+    console.log('regular', nameReg);
+
+    bus.emit(`${state} state request`, { id, name });
+
+    console.log(`${state} state request`, { id, name });
   };
 
   public start(): void {

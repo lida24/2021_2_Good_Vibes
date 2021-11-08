@@ -6,7 +6,16 @@ export const addProductArray: Callback = (array: Product[]) => {
 
   productContainer.textContent = '';
 
+  if (!array) {
+    productContainer.appendChild(document.createTextNode('нет товаров в этой категории'));
+    return;
+  }
+
   const viewArray = ProductCatdList.viewArray(array);
+  // if (!viewArray) {
+  //   productContainer.appendChild(document.createTextNode('нет товаров в этой категории'));
+  //   return;
+  // }
 
   viewArray.forEach((cardView) => {
     productContainer.appendChild(cardView.self);

@@ -96,6 +96,10 @@ const connections: Connection[] = [
       // addToHistory,
     ],
   },
+  {
+    event: 'category ajax name',
+    callback: confirm.categoryAddToHistory,
+  },
 ];
 
 export default connections;

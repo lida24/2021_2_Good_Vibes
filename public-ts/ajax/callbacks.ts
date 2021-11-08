@@ -183,6 +183,7 @@ export const categoryRequest: Callback = (obj: { name: string }) => {
   })
 
     .then((response: AjaxResponse) => bus.emit('category ajax confirmed', response))
+    .then(() => bus.emit('category ajax name', obj))
     .catch((response: AjaxResponse) => bus.emit('category ajax denied', response));
 };
 

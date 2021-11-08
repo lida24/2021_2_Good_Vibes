@@ -1,5 +1,6 @@
 import bus from '../../init/bus';
 import user from '../../object/user/user';
+import { addToHistory } from '../../rout/callbacks';
 import {
   AjaxResponse, Callback, Product,
 } from '../../types';
@@ -85,4 +86,10 @@ export const categoryArrayParse: Callback = (response: AjaxResponse) => {
 
 export const showCategoryPage: Callback = () => {
   bus.emit('show view', { name: 'categoryPage' });
+};
+
+export const categoryAddToHistory: Callback = (obj: { name: string }) => {
+  addToHistory({
+    pathname: `/category?name=${obj.name}`,
+  });
 };
