@@ -4,7 +4,10 @@ import * as payment from './callbacks';
 const connections: Connection[] = [
   {
     event: 'payment page continue button click',
-    callback: payment.confirmationStateRequest,
+    callback: [
+      payment.getMethod,
+      payment.confirmationStateRequest,
+    ],
   },
 ];
 

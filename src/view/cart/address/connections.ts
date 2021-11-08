@@ -4,7 +4,10 @@ import * as address from './callbacks';
 const connecions: Connection[] = [
   {
     event: 'address page continue button click',
-    callback: address.paymentPageRequest,
+    callback: [
+      address.getAddress,
+      address.paymentPageRequest,
+    ],
   },
 ];
 
