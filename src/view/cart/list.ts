@@ -2,7 +2,7 @@ import { Product } from '../../types';
 import CartItemClass from './item/view';
 
 class ProductCardList {
-  private list: {
+  public list: {
     [id: number]: {
       'context': Product,
       'view': CartItemClass,

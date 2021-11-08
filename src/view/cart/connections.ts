@@ -18,6 +18,10 @@ const connections: Connection[] = [
   //   event: 'delete product',
   //   callback: cart.showCartItems,
   // },
+  {
+    event: 'delete product',
+    callback: cart.calculateSubtotal,
+  },
 ];
 
 export default connections;

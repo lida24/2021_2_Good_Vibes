@@ -13,6 +13,24 @@ export const productArrayRequest: Callback = () => {
   bus.emit('product array request', cart.get());
 };
 
+export const calculateSubtotal: Callback = () => {
+  console.log('calculate subtotal');
+
+  let totalNumber = 0;
+  let totalPrice = 0;
+
+  cart.get().forEach((cartElem) => {
+    const { number } = cartElem;
+    totalNumber += number;
+
+    const { price } = CartItemList.list[cartElem.product_id].context;
+    totalPrice += number * price;
+  });
+
+  const subElem = <HTMLElement>document.getElementsByClassName('subtotal')[0];
+  subElem.innerHTML = `<h3>Итого (${totalNumber} товаров): $${totalPrice}</h3>`;
+};
+
 export const showCartItems: Callback = (array: Product[]) => {
   const itemsContainer = <HTMLElement>document.getElementsByClassName('items')[0];
 
@@ -23,4 +41,5 @@ export const showCartItems: Callback = (array: Product[]) => {
     const numberElem = <HTMLInputElement>itemView.self.getElementsByClassName('number')[0];
     numberElem.value = number.toString();
   });
+  calculateSubtotal(undefined);
 };
