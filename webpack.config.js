@@ -16,6 +16,7 @@ module.exports = {
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       { test: /\.(js)$/, use: 'babel-loader' },
       { test: /\.handlebars$/, use: 'handlebars-loader' },
+      { test: /\.tsx?$/, loader: 'ts-loader' },
       {
         test: /\.scss$/,
         use: ['style-loader',
