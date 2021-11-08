@@ -9,7 +9,9 @@ const register: () => void = () => {
     .register('/homepage', 'homepage')
     .register('/product', 'product')
     .register('/cart', 'cart')
-    .register('/category', 'category');
+    .register('/category', 'category')
+    .register('/address', 'address')
+    .register('/payment', 'payment');
 };
 
 export default register;

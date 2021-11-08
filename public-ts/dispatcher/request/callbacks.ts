@@ -53,9 +53,13 @@ export const address: Callback = () => {
     return;
   }
 
-  bus.emit('address state confirmed', undefined);
+  bus.emit('address state confirmed', { pathname: '/address' });
 };
 
 export const category: Callback = (obj: { name: string }) => {
   bus.emit('category ajax request', obj);
+};
+
+export const payment: Callback = () => {
+  bus.emit('payment state confirmed', { pathname: '/payment' });
 };

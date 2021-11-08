@@ -34,6 +34,10 @@ const connections: Connection[] = [
     event: 'category state request',
     callback: request.category,
   },
+  {
+    event: 'payment state request',
+    callback: request.payment,
+  },
 ];
 
 export default connections;

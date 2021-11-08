@@ -100,6 +100,20 @@ const connections: Connection[] = [
     event: 'category ajax name',
     callback: confirm.categoryAddToHistory,
   },
+  {
+    event: 'address state confirmed',
+    callback: [
+      confirm.address,
+      addToHistory,
+    ],
+  },
+  {
+    event: 'payment state confirmed',
+    callback: [
+      confirm.payment,
+      addToHistory,
+    ],
+  },
 ];
 
 export default connections;

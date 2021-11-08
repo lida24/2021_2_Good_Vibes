@@ -6,6 +6,8 @@ import Homepage from '../view/homepage/view';
 import ProductPage from '../view/productPage/view';
 import Cart from '../view/cart/view';
 import CategoryPage from '../view/categoryPage/view';
+import AddressPage from '../view/order/address/view';
+import PaymentPage from '../view/order/payment/view';
 
 const constructor: { [name: string]: ConstructorInterface } = {
   signup: SignUp,
@@ -15,6 +17,8 @@ const constructor: { [name: string]: ConstructorInterface } = {
   productPage: ProductPage,
   cart: Cart,
   categoryPage: CategoryPage,
+  addressPage: AddressPage,
+  paymentPage: PaymentPage,
 };
 
 export default constructor;

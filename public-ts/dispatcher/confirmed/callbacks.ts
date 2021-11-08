@@ -93,3 +93,11 @@ export const categoryAddToHistory: Callback = (obj: { name: string }) => {
     pathname: `/category?name=${obj.name}`,
   });
 };
+
+export const address: Callback = () => {
+  bus.emit('show view', { name: 'addressPage' });
+};
+
+export const payment: Callback = () => {
+  bus.emit('show view', { name: 'paymentPage' });
+};
