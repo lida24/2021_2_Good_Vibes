@@ -1,5 +1,5 @@
-import { Product } from '../../../types';
-import CartItemClass from './view';
+import { Product } from '../../types';
+import CartItemClass from './item/view';
 
 class ProductCardList {
   private list: {

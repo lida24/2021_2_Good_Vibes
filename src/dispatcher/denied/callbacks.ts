@@ -78,4 +78,3 @@ export const confirmation: Callback = () => {
 
   bus.emit('homepage state request', undefined);
 };
-
