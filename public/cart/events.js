@@ -2,7 +2,7 @@
 import eventBus from '../scripts/eventBus.js';
 
 const cartpageEvents = (element) => {
-  const orderBtn = element.getElementsByClassName('primary fw')[0];
+  const orderBtn = element.getElementsByClassName('btn')[0];
 
   orderBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -19,8 +19,8 @@ const cartpageEvents = (element) => {
 
   eventBus.on('cart clean', () => {
     // const cartList = element.getElementsByClassName('cart-list-container')[0];
-    const cartList = element.getElementsByClassName('items');
-    const subtotal = element.getElementsByClassName('subtotal')[0];
+    const cartList = element.getElementsByClassName('cart-list__items')[0];
+    const subtotal = element.getElementsByClassName('cart__subtotal')[0];
 
     // cartList.innerHTML = '';
 
@@ -40,8 +40,8 @@ const cartpageEvents = (element) => {
     subtotal.innerHTML = '';
 
     const div = document.createElement('div');
-    div.className = 'items';
-    element.getElementsByClassName('cart-list-container')[0].appendChild(div);
+    div.className = 'cart-list__items';
+    element.getElementsByClassName('cart-list__container')[0].appendChild(div);
   });
 };
 

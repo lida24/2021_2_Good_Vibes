@@ -25,9 +25,9 @@ export default class Cart extends View {
   }
 
   #createItemsHTML() {
-    const itemParent = this.element.getElementsByClassName('items')[0];
+    const itemParent = this.element.getElementsByClassName('cart-list__items')[0];
     const itemElem = document.createElement('div');
-    itemElem.className = 'items';
+    itemElem.className = 'cart-list__items';
 
     const cartItems = cart.getCartItems();
 
@@ -73,9 +73,9 @@ export default class Cart extends View {
 
     console.log(cart.get());
 
-    const subParent = this.element.getElementsByClassName('subtotal')[0];
+    const subParent = this.element.getElementsByClassName('cart__subtotal')[0];
     const subElem = document.createElement('div');
-    subElem.className = 'subtotal';
+    subElem.className = 'cart__subtotal';
 
     // const cartItems = cart.get();
 

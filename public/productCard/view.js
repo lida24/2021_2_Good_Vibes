@@ -29,9 +29,9 @@ export default class ProductCard extends View {
   }
 
   #createRatingHTML() {
-    const ratingParent = this.element.getElementsByClassName('rating')[0];
+    const ratingParent = this.element.getElementsByClassName('product__rating')[0];
     const ratingElem = document.createElement('div');
-    ratingElem.className = 'rating';
+    ratingElem.className = 'product__rating';
 
     const temp = (rating) => {
       if (!rating) {

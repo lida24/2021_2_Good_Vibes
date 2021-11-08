@@ -2,7 +2,7 @@
 import eventBus from '../scripts/eventBus.js';
 
 const hoodEvents = (element) => {
-  const asideBtn = element.getElementsByClassName('aside-open-button')[0];
+  const asideBtn = element.getElementsByClassName('aside__button')[0];
 
   asideBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -13,7 +13,7 @@ const hoodEvents = (element) => {
 /*   console.log('aside event'); */
 
   // ----------------------------------------
-  const logoBtn = element.getElementsByClassName('logo')[0];
+  const logoBtn = element.getElementsByClassName('logo__link')[0];
 
   logoBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -21,14 +21,14 @@ const hoodEvents = (element) => {
   });
 
   // ----------------------------------------
-  const profileBtn = element.getElementsByClassName('profile-href')[0];
+  const profileBtn = element.getElementsByClassName('icons__link-profile')[0];
 
   profileBtn.addEventListener('click', (event) => {
     event.preventDefault();
     eventBus.emit('profile button click');
   });
   //----------------------------------------------------
-  const cartBtn = element.getElementsByClassName('cart-href')[0];
+  const cartBtn = element.getElementsByClassName('icons__link-cart')[0];
 
   cartBtn.addEventListener('click', (event) => {
     event.preventDefault();

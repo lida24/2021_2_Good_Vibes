@@ -29,7 +29,7 @@ export const renderItemCart = (itemData) => {
   // }
 
 
-  const root = document.getElementsByClassName('items')[0];
+  const root = document.getElementsByClassName('cart-list__items')[0];
 
   const temp = itemList[itemData.id];
   console.log(temp);
@@ -39,7 +39,7 @@ export const renderItemCart = (itemData) => {
   }
 
   const itemCart = document.createElement('li');
-  // itemCart.className = 'content cart';
+/*   itemCart.className = 'cart'; */
   const itemObj = new ItemCart(itemCart);
 
   add({

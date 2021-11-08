@@ -13,16 +13,16 @@ export const saveAddress = () => {
 
   const addressObj = {};
 
-  const addressInput = document.getElementById('address');
+  const addressInput = document.getElementsByClassName('form__address')[0];
   addressObj.street = addressInput.value;
 
-  const cityInput = document.getElementById('city');
+  const cityInput = document.getElementsByClassName('form__city')[0];
   addressObj.city = cityInput.value;
 
-  const postalCodeInput = document.getElementById('postalCode');
+  const postalCodeInput = document.getElementsByClassName('form__postalCode')[0];
   addressObj.index = postalCodeInput.value;
 
-  const countryInput = document.getElementById('country');
+  const countryInput = document.getElementsByClassName('form__country')[0];
   addressObj.country = countryInput.value;
 
   orderData.setAddress(addressObj);
