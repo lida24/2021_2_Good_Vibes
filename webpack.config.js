@@ -4,15 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   // entry: './public/main.js',
   entry: './src/main.ts',
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './dist/index.html',
-      minify: {
-        minifyCSS: true,
-        minifyJS: true,
-      },
-    }),
-  ],
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     template: './dist/index.html',
+  //     minify: {
+  //       minifyCSS: true,
+  //       // minifyJS: true,
+  //     },
+  //   }),
+  // ],
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
     extensions: ['.ts', '.tsx', '.js', '.handlebars', '.scss'],
