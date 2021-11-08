@@ -1,16 +1,7 @@
-type FullAddress = {
-  'country': string,
-  'city': string,
-  'index': string,
-  'street': string,
-
-  'region'?: string,
-  'house'?: string,
-  'flat'?: string,
-};
+import { Address } from '../../types';
 
 class OrderData {
-  public address: FullAddress = {
+  public address: Address = {
     country: 'country',
     city: 'city',
     index: 'index',
@@ -23,7 +14,7 @@ class OrderData {
 
   public payMethod: string;
 
-  public setAddress(obj: FullAddress) {
+  public setAddress(obj: Address) {
     this.address.country = obj.country;
     this.address.city = obj.city;
     this.address.index = obj.index;

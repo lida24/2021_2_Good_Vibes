@@ -39,3 +39,19 @@ export type Product = {
   price: number,
   rating: number,
 };
+
+export type Address = {
+  'country': string,
+  'city': string,
+  'index': string,
+  'street': string,
+
+  'region'?: string,
+  'house'?: string,
+  'flat'?: string,
+};
+
+export type OrderRequest = {
+  'address': Address,
+  'products': CartItem[],
+};

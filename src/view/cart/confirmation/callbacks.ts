@@ -1,6 +1,7 @@
+import bus from '../../../init/bus';
 import cart from '../../../object/cart/cart';
 import orderData from '../../../object/orderData/orderData';
-import { Callback } from '../../../types';
+import { Address, Callback, CartItem, OrderRequest } from '../../../types';
 import productCardList from '../list';
 
 export const showProductArray: Callback = () => {
@@ -33,4 +34,13 @@ export const showAddress: Callback = () => {
 export const showPayMethod: Callback = () => {
   const payMethod = <HTMLElement>document.getElementsByClassName('payMethod')[0];
   payMethod.textContent = orderData.payMethod;
+};
+
+export const confirmAjaxRequest: Callback = () => {
+  const obj: OrderRequest = {
+    address: orderData.address,
+    products: cart.get(),
+  };
+
+  bus.emit('cart confirm request', obj);
 };

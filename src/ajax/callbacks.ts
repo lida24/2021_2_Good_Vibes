@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import bus from '../init/bus';
-import { AjaxResponse, Callback, CartItem } from '../types';
+import { AjaxResponse, Callback, CartItem, OrderRequest } from '../types';
 import ajax from './script';
 
 const backendAddress = 'https://ozonback.herokuapp.com';
@@ -131,7 +131,7 @@ export const cartGet = () => {
     .then(() => bus.emit('cart get finished', undefined));
 };
 
-export const cartConfirm = (obj) => {
+export const cartConfirm: Callback = (obj: OrderRequest) => {
   // console.log(array);
 
   // const temp = {
@@ -149,7 +149,7 @@ export const cartConfirm = (obj) => {
   //   products: array
   // };
 
-  console.log('cart confirm', JSON.stringify(obj));
+  // console.log('cart confirm', JSON.stringify(obj));
 
   ajax.post({
     url: `${backendAddress}/cart/confirm`,
@@ -157,8 +157,8 @@ export const cartConfirm = (obj) => {
   })
     // .then(({ responseText }) => console.log({ responseText }))
     // .catch(({ responseText }) => console.log({ responseText }));
-    .then(({ responseText }) => bus.emit('cart confirm success', responseText))
-    .catch(({ responseText }) => bus.emit('cart comfirm fail', responseText));
+    .then(({ responseText }) => bus.emit('order confirmed', responseText))
+    .catch(({ responseText }) => bus.emit('order denied', responseText));
 };
 
 export const categoryGet: Callback = () => {

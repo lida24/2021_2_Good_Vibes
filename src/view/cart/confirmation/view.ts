@@ -3,13 +3,13 @@ import View from '../../view';
 import { Product, ViewInterface } from '../../../types';
 import bus from '../../../init/bus';
 import connections from './connections';
-// import initEvents from './events';
+import initEvents from './events';
 
 export default class ConfirmationPage extends View implements ViewInterface {
   private async renderHTML() {
     const html = compiledTemplate(this.context);
     this.self.innerHTML = html;
-    // initEvents(this.self);
+    initEvents(this.self);
   }
 
   public async render(): Promise<void> {

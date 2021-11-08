@@ -38,6 +38,10 @@ const connections: Connection[] = [
     event: 'delete product from cart confirmed',
     callback: cart.handleDeleteResponse,
   },
+  {
+    event: 'order confirmed',
+    callback: cart.drop,
+  },
 ];
 
 export default connections;

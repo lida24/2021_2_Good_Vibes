@@ -10,6 +10,10 @@ const connections: Connection[] = [
       confirmation.showProductArray,
     ],
   },
+  {
+    event: 'confirm order button click',
+    callback: confirmation.confirmAjaxRequest,
+  },
 ];
 
 export default connections;

@@ -1,13 +1,13 @@
-// import bus from "../../../init/bus";
+import bus from '../../../init/bus';
 
-// const initEvents: (self: HTMLElement) => void = (self) => {
-//   // -------------------
-//   const nameHref = <HTMLAnchorElement>self.getElementsByClassName('name-href')[0];
-//   nameHref.addEventListener('click', (event) => {
-//     event.preventDefault();
+const initEvents: (self: HTMLElement) => void = (self) => {
+  // --------------------
+  const confirmBtn = <HTMLButtonElement>self.getElementsByClassName('confirm-btn')[0];
+  confirmBtn.addEventListener('click', (event) => {
+    event.preventDefault();
 
-//     bus.emit('')
-//   });
-// };
+    bus.emit('confirm order button click', undefined);
+  });
+};
 
-// export default initEvents;
+export default initEvents;
