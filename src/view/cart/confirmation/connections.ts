@@ -4,7 +4,11 @@ import * as confirmation from './callbacks';
 const connections: Connection[] = [
   {
     event: 'confirmationPage shown',
-    callback: confirmation.showProductArray,
+    callback: [
+      confirmation.showAddress,
+      confirmation.showPayMethod,
+      confirmation.showProductArray,
+    ],
   },
 ];
 
