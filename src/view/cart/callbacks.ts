@@ -20,10 +20,7 @@ export const showCartItems: Callback = (array: Product[]) => {
   viewArray.forEach((itemView, index) => {
     itemsContainer.appendChild(itemView.self);
     const { number } = cart.getItem(array[index].id);
-    // const 
+    const numberElem = <HTMLInputElement>itemView.self.getElementsByClassName('number')[0];
+    numberElem.value = number.toString();
   });
-
-  // array.forEach((product) => {
-  //   product.id
-  // })
 };
