@@ -1,11 +1,18 @@
+import cart from '../../../object/cart/cart';
 import orderData from '../../../object/orderData/orderData';
 import { Callback } from '../../../types';
 import productCardList from '../list';
 
 export const showProductArray: Callback = () => {
   const itemsContainer = <HTMLElement>document.getElementsByClassName('items')[0];
-  productCardList.views.forEach((view) => {
-    itemsContainer.appendChild(view.self);
+
+  cart.get().forEach((cartItem, index) => {
+    const view = productCardList.views[index].self;
+    itemsContainer.appendChild(view);
+
+    const { number } = cartItem;
+    const numberElem = <HTMLInputElement>view.getElementsByClassName('number')[0];
+    numberElem.value = number.toString();
   });
 };
 

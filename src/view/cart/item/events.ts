@@ -11,6 +11,14 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
 
     self.remove();
   });
+
+  // --------------
+  const nameHref = <HTMLAnchorElement>self.getElementsByClassName('name-href')[0];
+  nameHref.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('product name href click', context);
+  });
 };
 
 export default initEvents;

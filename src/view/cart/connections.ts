@@ -8,7 +8,10 @@ const connections: Connection[] = [
   },
   {
     event: 'cart shown',
-    callback: cart.productArrayRequest,
+    callback: [
+      cart.productArrayRequest,
+      cart.calculateSubtotal,
+    ],
   },
   {
     event: 'product array request confirmed',
