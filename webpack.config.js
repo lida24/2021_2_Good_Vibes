@@ -17,7 +17,8 @@ module.exports = {
       { test: /\.(js)$/, use: 'babel-loader' },
       { test: /\.handlebars$/, use: 'handlebars-loader' },
       {
-        test: /\.scss$/, use: ['style-loader',
+        test: /\.scss$/,
+        use: ['style-loader',
           {
             loader: 'css-loader',
           },
@@ -25,7 +26,7 @@ module.exports = {
           'sass-loader',
         ],
       },
-    ]
+    ],
   },
   output: {
     // path: path.resolve(__dirname, './public/bundle'),
