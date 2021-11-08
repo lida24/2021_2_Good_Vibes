@@ -2,7 +2,7 @@
 import eventBus from '../scripts/eventBus.js';
 
 const deliveryEvents = (element) => {
-  const deliveryBtn = element.getElementsByClassName('primary fw')[0];
+  const deliveryBtn = element.getElementsByClassName('btn')[0];
   deliveryBtn.addEventListener('click', (event) => {
     event.preventDefault();
 

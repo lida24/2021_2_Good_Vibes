@@ -633,7 +633,7 @@ export const dropCart = () => {
 };
 
 export const renderAside = () => {
-  const asideObj = document.getElementById('aside-container');
+  const asideObj = document.getElementsByClassName('aside-container')[0];
   console.log(asideObj);
   const aside = new Aside(asideObj);
   console.log(aside.element);

@@ -4,11 +4,11 @@ import eventBus from '../scripts/eventBus.js';
 
 const signupEvents = (element) => {
   // ----------------------------------------
-  const alertLabel = document.getElementById('alert-label');
-  alertLabel.style.visibility = 'hidden';
+  const alertLabel = document.getElementsByClassName('form__error')[0];
+  /* alertLabel.style.visibility = 'hidden'; */
 
   // ----------------------------------------
-  const signinBtn = document.getElementById('signin-href');
+  const signinBtn = document.getElementsByClassName('form__link-signin')[0];
   signinBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -19,10 +19,10 @@ const signupEvents = (element) => {
   element.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const usernameInput = element.getElementsByClassName('login')[0];
-    const emailInput = element.getElementsByClassName('email')[0];
-    const passwordInput = element.getElementsByClassName('password')[0];
-    const repasswordInput = element.getElementsByClassName('repassword')[0];
+    const usernameInput = element.getElementsByClassName('form__login')[0];
+    const emailInput = element.getElementsByClassName('form__email')[0];
+    const passwordInput = element.getElementsByClassName('form__password')[0];
+    const repasswordInput = element.getElementsByClassName('form__repassword')[0];
 
     const signupData = {
       username: usernameInput.value.trim(),

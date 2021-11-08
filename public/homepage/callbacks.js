@@ -23,7 +23,7 @@ export const renderProdCard = (prodData) => {
 
   const root = document.getElementsByClassName('product-container')[0];
   const prodCard = document.createElement('div');
-  prodCard.className = 'product-card';
+  prodCard.className = 'product';
   const prodObj = new ProductCard(prodCard);
 
   add({

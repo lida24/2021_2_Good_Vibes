@@ -4,27 +4,27 @@ import user from '../objects/user.js';
 
 
 export const mouseEnter = () => {
-  const uploadBtn = document.getElementsByClassName('uploadBtn')[0];
+  const uploadBtn = document.getElementsByClassName('form__uploadBtn')[0];
   uploadBtn.style.display = "block";
 };
 
 export const mouseLeave = () => {
-  const uploadBtn = document.getElementsByClassName('uploadBtn')[0];
+  const uploadBtn = document.getElementsByClassName('form__uploadBtn')[0];
   uploadBtn.style.display = "none";
 }
 
 export const uploadBtnClick = () => {
-  const file = document.getElementsByClassName('uploadFile')[0];
+  const file = document.getElementsByClassName('form__uploadFile')[0];
   file.style.display = "block";
 }
 
 export const changePhoto = (reader) => {
-  const img = document.getElementsByClassName('photo')[0];
+  const img = document.getElementsByClassName('form__photo')[0];
   img.setAttribute('src', reader.result);
 }
 
 export const sendLogin = () => {
-  const login = document.getElementsByName('login')[0].value.trim();
+  const login = document.getElementsByName('form__login')[0].value.trim();
   // this.changeLogin(login);
 
   console.log(user);
@@ -43,7 +43,7 @@ export const addHomepageToHistory = () => {
 };
 
 export const avatarUploadRequest = () => {
-  const file = document.getElementsByClassName('uploadFile')[0];
+  const file = document.getElementsByClassName('form__uploadFile')[0];
   const choosedFile = file.files[0];
 
   if (choosedFile) {
@@ -65,9 +65,9 @@ export const avatarUploadFail = (responseText) => {
 export const updateUserInformation = () => {
   console.log('updateUserInformation');
 
-  const usernameInput = document.getElementById('login');
-  const emailInput = document.getElementById('email');
-  const photo = document.getElementsByClassName('photo')[0];
+  const usernameInput = document.getElementsByClassName('form__login')[0];
+  const emailInput = document.getElementsByClassName('form__email')[0];
+  const photo = document.getElementsByClassName('form__photo')[0];
 
   usernameInput.value = user.username;
   emailInput.value = user.email;
@@ -83,8 +83,8 @@ export const updateUserInformation = () => {
 export const profileUploadRequest = () => {
   console.log('profileUploadRequest');
 
-  const usernameInput = document.getElementById('login');
-  const emailInput = document.getElementById('email');
+  const usernameInput = document.getElementsByClassName('form__login')[0];
+  const emailInput = document.getElementsByClassName('form__email')[0];
 
   const obj = {
     username: usernameInput.value.trim(),

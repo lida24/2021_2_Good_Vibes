@@ -2,7 +2,7 @@
 import eventBus from '../scripts/eventBus.js';
 
 const paymentEvents = (element) => {
-  const continueBtn = element.getElementsByClassName('primary')[0];
+  const continueBtn = element.getElementsByClassName('btn')[0];
 
   continueBtn.addEventListener('click', (event) => {
     event.preventDefault();

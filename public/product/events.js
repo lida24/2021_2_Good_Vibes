@@ -14,7 +14,7 @@ const productEvents = (element) => {
   });
 
   //-------------------------------------
-  const cartBtn = element.getElementsByClassName('fw add-button primary')[0];
+  const cartBtn = element.getElementsByClassName('btn')[0];
 
   cartBtn.addEventListener('click', (event) => {
     event.preventDefault();

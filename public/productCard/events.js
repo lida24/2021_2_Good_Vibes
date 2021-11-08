@@ -5,7 +5,7 @@ const productCardEvents = ({ element, context }) => {
   // console.log('productCardEvents');
 
   // ----------------------------
-  const productNameBtn = element.getElementsByClassName('productName-href')[0];
+  const productNameBtn = element.getElementsByClassName('product__link-name')[0];
   productNameBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -13,7 +13,7 @@ const productCardEvents = ({ element, context }) => {
   });
 
   // ----------------------------
-  const productImgBtn = element.getElementsByClassName('productImg-href')[0];
+  const productImgBtn = element.getElementsByClassName('product__link-img')[0];
 
   productImgBtn.addEventListener('click', (event) => {
     event.preventDefault();

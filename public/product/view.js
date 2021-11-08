@@ -34,7 +34,7 @@ export default class Product extends View {
   }
 
   #createRatingHTML() {
-    const ratingParent = this.element.getElementsByClassName('rating')[0];
+    const ratingParent = this.element.getElementsByClassName('product__rating')[0];
     const ratingElem = document.createElement('div');
     ratingElem.className = 'rating';
 
@@ -43,7 +43,7 @@ export default class Product extends View {
         return '<div></div>';
       }
       return `
-        <div class="rating">
+        <div class="product__rating">
         <span> <i class="${rating >= 1 ? 'fa fa-star' : rating >= 0.5 ? 'fa fa-star-half-o' : 'fa fa-star-o'}"></i></span> 
         <span> <i class="${rating >= 2 ? 'fa fa-star' : rating >= 1.5 ? 'fa fa-star-half-o' : 'fa fa-star-o'}"></i></span> 
         <span> <i class="${rating >= 3 ? 'fa fa-star' : rating >= 2.5 ? 'fa fa-star-half-o' : 'fa fa-star-o'}"></i></span> 
@@ -65,11 +65,11 @@ export default class Product extends View {
     const temp = (count_in_stock) => {
       if (count_in_stock > 0) {
         return `
-        Статус: <span class="success">В наличии</span>
+        Статус: <span class="status__success">В наличии</span>
         `;
       } else {
         return `
-        Статус: <span class="error">Нет в наличии</span>
+        Статус: <span class="status__error">Нет в наличии</span>
         `;
       }
     };

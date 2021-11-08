@@ -9,7 +9,7 @@ import eventBus from '../scripts/eventBus.js';
 // };
 
 const profileEvents = (element) => {
-  const profilePic = element.getElementsByClassName('profile-pic')[0];
+  const profilePic = element.getElementsByClassName('form__pic')[0];
 
   profilePic.addEventListener('mouseenter', (event) => {
     event.preventDefault();
@@ -23,7 +23,7 @@ const profileEvents = (element) => {
     eventBus.emit('mouse leave');
   });
 
-  const uploadBtn = element.getElementsByClassName('uploadBtn')[0];
+  const uploadBtn = element.getElementsByClassName('form__uploadBtn')[0];
 
   uploadBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -31,7 +31,7 @@ const profileEvents = (element) => {
     eventBus.emit('upload button click');
   })
 
-  const file = element.getElementsByClassName('uploadFile')[0];
+  const file = element.getElementsByClassName('form__uploadFile')[0];
 
   file.addEventListener('change', (event) => {
     event.preventDefault();
@@ -48,7 +48,7 @@ const profileEvents = (element) => {
     }
   });
   // --------------------------------
-  const updateBtn = element.getElementsByClassName('update-button')[0];
+  const updateBtn = element.getElementsByClassName('form__btn-color')[0];
 
   updateBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -57,7 +57,7 @@ const profileEvents = (element) => {
   });
 
   //-------------------------------
-  const logOutBtn = element.getElementsByClassName('signout-button')[0];
+  const logOutBtn = element.getElementsByClassName('form__signout-button')[0];
 
   logOutBtn.addEventListener('click', (event) => {
     event.preventDefault();

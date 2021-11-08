@@ -29,9 +29,9 @@ export default class ItemCart extends View {
   }
 
   #createQtyHTML() {
-    const qtyParent = this.element.getElementsByClassName('qty-select')[0];
+    const qtyParent = this.element.getElementsByClassName('cart__qty-select')[0];
     const qtyElem = document.createElement('select');
-    qtyElem.className = 'qty-select';
+    qtyElem.className = 'cart__qty-select';
     qtyElem.id = this.#context.id;
 
     const temp = (count_in_stock, number) => {

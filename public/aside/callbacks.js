@@ -2,12 +2,12 @@
 import eventBus from '../scripts/eventBus.js';
 
 export const showAside = () => {
-  const asideObj = document.getElementById('aside-container');
+  const asideObj = document.getElementsByClassName('aside-container')[0];
   asideObj.classList.add('open');
 };
 
 export const hideAside = () => {
-  const asideObj = document.getElementById('aside-container');
+  const asideObj = document.getElementsByClassName('aside-container')[0];
   asideObj.classList.remove('open');
 };
 
@@ -19,11 +19,6 @@ export const addCategory = (name, parent) => {
   href.innerHTML = name;
 
   const span = document.createElement('span');
-
-  const i = document.createElement('i');
-  i.className = 'fa fa-chevron-right';
-
-  span.appendChild(i);
 
   href.appendChild(span);
 
@@ -42,6 +37,7 @@ export const addCategory = (name, parent) => {
 };
 
 export const handleObj = (obj, parent) => {
+  console.log('obj name');
   console.log(obj.name);
 
   const child = addCategory(obj.name, parent);
@@ -72,11 +68,6 @@ export const parseCategoryObject = (obj) => {
   href.innerHTML = name;
 
   const span = document.createElement('span');
-
-  const i = document.createElement('i');
-  i.className = 'fa fa-chevron-right';
-
-  span.appendChild(i);
 
   href.appendChild(span);
 

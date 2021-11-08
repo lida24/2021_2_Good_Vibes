@@ -22,8 +22,8 @@ export const showHomepage = () => {
 };
 
 export const cleanInputs = () => {
-  const usernameInput = document.getElementsByClassName('login')[0];
-  const passwordInput = document.getElementsByClassName('password')[0];
+  const usernameInput = document.getElementsByClassName('form__login')[0];
+  const passwordInput = document.getElementsByClassName('form__password')[0];
 
   usernameInput.value = '';
   passwordInput.value = '';
@@ -45,14 +45,14 @@ export const request = (data) => {
 };
 
 export const showError = (error) => {
-  const alertLabel = document.getElementById('alert-label');
+  const alertLabel = document.getElementsByClassName('form__error')[0];
   alertLabel.innerText = error;
-  alertLabel.style.visibility = 'visible';
+  alertLabel.style.display = 'block';
 };
 
 export const hideError = () => {
-  const alertLabel = document.getElementById('alert-label');
-  alertLabel.style.visibility = 'hidden';
+  const alertLabel = document.getElementsByClassName('form__error')[0];
+  alertLabel.style.display = 'none';
 };
 
 export const handleFail = (responseText) => {
