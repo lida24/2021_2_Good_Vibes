@@ -2,4 +2,6 @@
 
   # publish = "public/"
   
-  publish = "public-ts/"
+  #publish = "public-ts/"
+
+  publish = "dist"

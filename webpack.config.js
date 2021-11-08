@@ -21,7 +21,7 @@ module.exports = {
   },
   output: {
     // path: path.resolve(__dirname, './public/bundle'),
-    path: path.resolve(__dirname, './public-ts/bundle'),
+    path: path.resolve(__dirname, './dist'),
     filename: 'main_bundle.js',
   },
   mode: 'production',
