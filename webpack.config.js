@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   // entry: './public/main.js',
-  entry: './public-ts/main.ts',
+  entry: './src/main.ts',
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
     extensions: ['.ts', '.tsx', '.js', '.handlebars'],
