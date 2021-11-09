@@ -1,22 +1,32 @@
-<div class="cart-image">
-  <img src="{{image}}" alt="${{name}}" />
+<div class="cart__image">
+  <img class="cart__image-img" src="{{image}}" alt="${{name}}" />
 </div>
-<div class="cart-name">
+{{!-- <<<<<<< HEAD <div class="cart-name">
   <div>
     <a href="/product?id={{id}}" class="name-href">
-      {{name}}
-    </a>
+      ======= --}}
+      <div class="cart__name">
+        <div class="cart__link">
+          <a href="/product?id={{id}}">
+            {{!-- >>>>>>> 0b511cea9ffbd83ba014236bfb32bbf8173798db --}}
+            {{name}}
+          </a>
+        </div>
+        {{!-- Кол-во:
+        <<<<<<< HEAD {{!-- <select class="qty-select" id="{{id}}">
+          </select> --}}
+          <input type="number" class="qty-select number" id="{{id}}" min="0" step="1">
+          <button type="button" class="delete-button" id="{{id}}">
+            ======= --}}
+            <select class="cart__qty-select" id="{{id}}">
+            </select>
+            <button class="delete-button" type="button" id="{{id}}">
+              {{!-- >>>>>>> 0b511cea9ffbd83ba014236bfb32bbf8173798db --}}
+              Удалить
+            </button>
+      </div>
   </div>
-  Кол-во:
-  {{!-- <select class="qty-select" id="{{id}}">
-  </select> --}}
-  <input type="number" class="qty-select number" id="{{id}}" min="0" step="1">
-  <button type="button" class="delete-button" id="{{id}}">
-    Удалить
-  </button>
-</div>
-</div>
-</div>
-<div class="cart-price">
-  ${{price}}
-</div>
+  </div>
+  <div class="cart__price">
+    ${{price}}
+  </div>

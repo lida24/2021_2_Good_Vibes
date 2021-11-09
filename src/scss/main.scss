@@ -10,6 +10,12 @@
 $twitter-color: #1da1f2;
 $dark-grey-color: #444;
 
+%steps {
+  flex: 1 1;
+  padding-top: 1rem;
+  text-align: center;
+}
+
 html {
   font-size: 62.5%;
   font-family: "Nunito", sans-serif;
@@ -51,4 +57,9 @@ button {
 input:hover,
 button:hover {
   border: 0.1rem #404040 solid;
+}
+
+.btn {
+  width: 100%;
+  background-color: $twitter-color;
 }

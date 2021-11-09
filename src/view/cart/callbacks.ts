@@ -8,7 +8,7 @@ export const addressStateRequest: Callback = () => {
 };
 
 export const productArrayRequest: Callback = () => {
-  const itemsContainer = <HTMLElement>document.getElementsByClassName('items')[0];
+  const itemsContainer = <HTMLElement>document.getElementsByClassName('cart-list__items')[0];
   itemsContainer.textContent = '';
   bus.emit('product array request', cart.get());
 };
@@ -27,7 +27,17 @@ export const calculateSubtotal: Callback = () => {
     });
   }
 
-  const subElem = <HTMLElement>document.getElementsByClassName('subtotal')[0];
+  // <<<<<<< HEAD
+  //   const subElem = <HTMLElement>document.getElementsByClassName('subtotal')[0];
+  //   if (!subElem) {
+  //     return;
+  //   }
+  // =======
+  //   const subElem = <HTMLElement>document.getElementsByClassName('cart__subtotal')[0];
+  // >>>>>>> 0b511cea9ffbd83ba014236bfb32bbf8173798db
+  //   subElem.innerHTML = `<h3>Итого (${totalNumber} товаров): $${totalPrice}</h3>`;
+
+  const subElem = <HTMLElement>document.getElementsByClassName('cart__subtotal')[0];
   if (!subElem) {
     return;
   }
@@ -35,7 +45,7 @@ export const calculateSubtotal: Callback = () => {
 };
 
 export const showCartItems: Callback = (array: Product[]) => {
-  const itemsContainer = <HTMLElement>document.getElementsByClassName('items')[0];
+  const itemsContainer = <HTMLElement>document.getElementsByClassName('cart-list__items')[0];
 
   const viewArray = CartItemList.viewArray(array);
   viewArray.forEach((itemView, index) => {
