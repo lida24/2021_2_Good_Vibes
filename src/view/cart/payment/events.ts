@@ -2,7 +2,7 @@ import bus from '../../../init/bus';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
   // ---------------
-  const continueBtn = <HTMLButtonElement>self.getElementsByClassName('continue-btn')[0];
+  const continueBtn = <HTMLButtonElement>self.getElementsByClassName('btn')[0];
   continueBtn.addEventListener('click', (event) => {
     event.preventDefault();
 

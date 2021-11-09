@@ -4,6 +4,7 @@ import { ViewInterface } from '../../types';
 import bus from '../../init/bus';
 import initEvents from './events';
 import connections from './connections';
+import './productPage.scss';
 
 export default class ProductPage extends View implements ViewInterface {
   private async renderHTML() {
