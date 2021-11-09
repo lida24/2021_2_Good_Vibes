@@ -40,9 +40,16 @@ export const showPayMethod: Callback = () => {
 };
 
 export const confirmAjaxRequest: Callback = () => {
+  const array = cart.get();
+
+  if (array.length === 0) {
+    console.error('cart is empty');
+    return;
+  }
+
   const obj: OrderRequest = {
     address: orderData.address,
-    products: cart.get(),
+    products: array,
   };
 
   bus.emit('cart confirm request', obj);

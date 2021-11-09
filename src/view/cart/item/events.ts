@@ -22,10 +22,29 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
 
   // ----------------
   const numberInput = <HTMLInputElement>self.getElementsByClassName('number')[0];
-  numberInput.addEventListener('submit', (event) => {
+  numberInput.addEventListener('change', (event) => {
     event.preventDefault();
 
-    console.log('number input', context.id, numberInput.value);
+    // const { value } = numberInput;
+
+    let value = +numberInput.value;
+
+    if (value < 0) {
+      value = 0;
+    }
+    value = Math.floor(value);
+
+    numberInput.value = value.toString();
+
+    // console.log('number input', context.id, value);
+
+    if (value === 0) {
+      bus.emit('delete button click', context);
+      // self.remove();
+      return;
+    }
+
+    bus.emit('put product to cart request', { id: context.id, number: value });
   });
 };
 
