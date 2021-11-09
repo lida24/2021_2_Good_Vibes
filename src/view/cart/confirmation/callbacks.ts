@@ -7,8 +7,12 @@ import productCardList from '../list';
 export const showProductArray: Callback = () => {
   const itemsContainer = <HTMLElement>document.getElementsByClassName('items')[0];
 
+  itemsContainer.textContent = '';
+
   cart.get().forEach((cartItem, index) => {
-    const view = productCardList.views[index].self;
+    // const view = productCardList.views[index].self;
+    const view = productCardList.list[cartItem.product_id].view.self;
+
     itemsContainer.appendChild(view);
 
     const { number } = cartItem;

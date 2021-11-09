@@ -45,7 +45,7 @@ const connections: Connection[] = [
       confirm.addUser,
       confirm.cartGetRequest,
       // request.homepage,
-      request.savedState,
+      // request.savedState,
     ],
   },
   {
@@ -54,8 +54,12 @@ const connections: Connection[] = [
       confirm.addUser,
       confirm.cartGetRequest,
       // request.homepage,
-      request.savedState,
+      // request.savedState,
     ],
+  },
+  {
+    event: 'add user finished',
+    callback: request.savedState,
   },
   {
     event: 'homepage ajax confirmed',

@@ -28,6 +28,9 @@ export const calculateSubtotal: Callback = () => {
   }
 
   const subElem = <HTMLElement>document.getElementsByClassName('subtotal')[0];
+  if (!subElem) {
+    return;
+  }
   subElem.innerHTML = `<h3>Итого (${totalNumber} товаров): $${totalPrice}</h3>`;
 };
 
@@ -42,4 +45,9 @@ export const showCartItems: Callback = (array: Product[]) => {
     numberElem.value = number.toString();
   });
   calculateSubtotal(undefined);
+};
+
+export const deleteView: Callback = (obj: { 'id': number }) => {
+  const { id } = obj;
+  delete CartItemList.list[id];
 };

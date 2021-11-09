@@ -15,11 +15,16 @@ const connections: Connection[] = [
   },
   {
     event: 'product array request confirmed',
-    callback: cart.showCartItems,
+    callback: [
+      cart.showCartItems,
+    ],
   },
   {
     event: 'delete product',
-    callback: cart.calculateSubtotal,
+    callback: [
+      cart.deleteView,
+      cart.calculateSubtotal,
+    ],
   },
 ];
 
