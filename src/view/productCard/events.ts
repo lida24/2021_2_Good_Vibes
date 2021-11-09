@@ -5,7 +5,7 @@ const initEvents = (self: HTMLElement, context: Product) => {
   const { id } = context;
 
   // ------------------
-  const productImgHref = <HTMLAnchorElement>self.getElementsByClassName('productImg-href')[0];
+  const productImgHref = <HTMLAnchorElement>self.getElementsByClassName('product__link-img')[0];
   productImgHref.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -13,7 +13,7 @@ const initEvents = (self: HTMLElement, context: Product) => {
   });
 
   // ------------------
-  const productNameHref = <HTMLAnchorElement>self.getElementsByClassName('productName-href')[0];
+  const productNameHref = <HTMLAnchorElement>self.getElementsByClassName('product__link-name')[0];
   productNameHref.addEventListener('click', (event) => {
     event.preventDefault();
 

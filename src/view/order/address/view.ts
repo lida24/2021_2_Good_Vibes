@@ -4,6 +4,7 @@ import { Product, ViewInterface } from '../../../types';
 import bus from '../../../init/bus';
 import connections from './connections';
 import initEvents from './events';
+import './address.scss';
 
 export default class AddressPage extends View implements ViewInterface {
   private async renderHTML() {

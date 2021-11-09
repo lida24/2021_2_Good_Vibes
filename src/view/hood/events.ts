@@ -10,7 +10,7 @@ const initEvents = (self: HTMLElement) => {
   });
 
   // ------------------
-  const profileBtn = <HTMLAnchorElement>self.getElementsByClassName('profile-href')[0];
+  const profileBtn = <HTMLAnchorElement>self.getElementsByClassName('icons__link-profile')[0];
   profileBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -18,7 +18,7 @@ const initEvents = (self: HTMLElement) => {
   });
 
   // ------------------
-  const cartBtn = <HTMLAnchorElement>self.getElementsByClassName('cart-href')[0];
+  const cartBtn = <HTMLAnchorElement>self.getElementsByClassName('icons__link-cart')[0];
   cartBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -26,7 +26,7 @@ const initEvents = (self: HTMLElement) => {
   });
 
   // ---------------------
-  const asideBtn = <HTMLElement>self.getElementsByClassName('aside-open-button')[0];
+  const asideBtn = <HTMLElement>self.getElementsByClassName('aside__button')[0];
   asideBtn.addEventListener('click', (event) => {
     event.preventDefault();
 

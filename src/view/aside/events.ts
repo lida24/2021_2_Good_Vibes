@@ -2,7 +2,7 @@ import bus from '../../init/bus';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
   // -------------------------
-  const closeBtn = <HTMLElement>self.getElementsByClassName('aside-close-button')[0];
+  const closeBtn = <HTMLElement>self.getElementsByClassName('aside-container_close-button')[0];
   closeBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -10,7 +10,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // -------------------------
-  const category = <HTMLElement>self.getElementsByClassName('title-category')[0];
+  const category = <HTMLElement>self.getElementsByClassName('categories')[0];
   category.addEventListener('click', (event) => {
     event.preventDefault();
 

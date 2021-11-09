@@ -1,38 +1,56 @@
-<div class="form-container">
-  <form id="profile-form">
-    <ul class="form-items">
-      <li>
-        <h1>Профиль</h1>
-        <div class="profile-pic">
-          <img src="" class="photo" />
-          <label for="file" class="uploadBtn">Загрузить фото</label>
-        </div>
-        <input type="file" class="uploadFile" />
-      </li>
+
+  
+<div class="form">
+  <form class="form__container">
+    <ul class="form__container-items">
+      <div class="form__changePhoto">
+        <li>
+          <h1>Профиль</h1>
+          <div class="form__pic">
+            <img class="form__photo" src="" />
+            <label class="form__uploadBtn" for="file">Загрузить фото</label>
+          </div>
+          <input class="form__uploadFile" type="file" />
+        </li>
+      </div>
       <li>
         <label for="login">Имя пользователя</label>
-        <input type="login" name="login" id="login" value="{{login}}" />
+        <input
+          class="form__login"
+          type="login"
+          name="login"
+          value="{{login}}"
+        />
       </li>
       <li>
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" value="{{email}}" />
+        <input
+          class="form__email"
+          type="email"
+          name="email"
+          value="{{email}}"
+        />
       </li>
       <li>
         <label for="password">Изменить пароль</label>
-        <input type="password" name="password" id="password" />
+        <input class="form__password" type="password" name="password" />
       </li>
       <li>
         <label for="password">Подтвердить новый пароль</label>
-        <input type="password" name="confirm-password" id="confirm-password" />
+        <input
+          class="form__confirm-password"
+          type="password"
+          name="confirm-password"
+        />
       </li>
       <li>
         <a href="/update">
-          <button type="submit" class="update-button primary">Обновить</button>
+          <button class="form__btn-color" type="submit">Обновить</button>
         </a>
       </li>
       <li>
         <a href="/logout">
-          <button type="button" class="signout-button">Выйти из профиля</button>
+          <button  class="form__signout-button" type="button">Выйти из профиля</button>
         </a>
       </li>
     </ul>

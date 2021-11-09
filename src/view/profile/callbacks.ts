@@ -7,9 +7,9 @@ export const signOutRequest: Callback = () => {
 };
 
 export const fieldsFill: Callback = () => {
-  const loginInput = <HTMLInputElement>document.getElementById('login');
-  const emailInput = <HTMLInputElement>document.getElementById('email');
-  const photo = <HTMLImageElement>document.getElementsByClassName('photo')[0];
+  const loginInput = <HTMLInputElement>document.getElementsByClassName('form__login')[0];
+  const emailInput = <HTMLInputElement>document.getElementsByClassName('form__email')[0];
+  const photo = <HTMLImageElement>document.getElementsByClassName('form__photo')[0];
 
   loginInput.value = user.username;
   emailInput.value = user.email;
@@ -17,8 +17,8 @@ export const fieldsFill: Callback = () => {
 };
 
 export const profileUploadRequest: Callback = () => {
-  const usernameInput = <HTMLInputElement>document.getElementById('login');
-  const emailInput = <HTMLInputElement>document.getElementById('email');
+  const usernameInput = <HTMLInputElement>document.getElementsByClassName('form__login')[0];
+  const emailInput = <HTMLInputElement>document.getElementsByClassName('form__email')[0];
 
   const obj = {
     username: usernameInput.value.trim(),
@@ -29,7 +29,7 @@ export const profileUploadRequest: Callback = () => {
 };
 
 export const avatarUploadRequest: Callback = () => {
-  const file = <HTMLInputElement>document.getElementsByClassName('uploadFile')[0];
+  const file = <HTMLInputElement>document.getElementsByClassName('form__uploadFile')[0];
   const choosedFile = file.files[0];
 
   if (choosedFile) {

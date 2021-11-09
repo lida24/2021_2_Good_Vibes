@@ -70,11 +70,11 @@ export const parseCategoryObject: Callback = (obj: Category) => {
 };
 
 export const showSubCategory: Callback = () => {
-  const subcategory = document.getElementsByClassName('category')[0];
-  const subcategory1 = document.getElementsByClassName('category')[1];
+/*   const subcategory = document.getElementsByClassName('categories')[0];
+  const subcategory1 = document.getElementsByClassName('categories')[1];
 
   subcategory.classList.toggle('subcategory');
-  subcategory1.classList.toggle('subcategory');
+  subcategory1.classList.toggle('subcategory'); */
 };
 
 export const parse: Callback = (response: AjaxResponse) => {

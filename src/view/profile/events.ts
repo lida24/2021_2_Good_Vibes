@@ -1,7 +1,7 @@
 import bus from '../../init/bus';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
-  const signOutBtn = self.getElementsByClassName('signout-button')[0];
+  const signOutBtn = self.getElementsByClassName('form__signout-button')[0];
   signOutBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -9,32 +9,32 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // ---------------------
-  const profilePic = self.getElementsByClassName('profile-pic')[0];
+  const profilePic = self.getElementsByClassName('form__photo')[0];
 
   profilePic.addEventListener('mouseenter', (event) => {
     event.preventDefault();
 
-    const uploadBtn = <HTMLButtonElement>self.getElementsByClassName('uploadBtn')[0];
+    const uploadBtn = <HTMLButtonElement>self.getElementsByClassName('form__uploadBtn')[0];
     uploadBtn.style.display = 'block';
   });
 
   profilePic.addEventListener('mouseleave', (event) => {
     event.preventDefault();
 
-    const uploadBtn = <HTMLButtonElement>self.getElementsByClassName('uploadBtn')[0];
+    const uploadBtn = <HTMLButtonElement>self.getElementsByClassName('form__uploadBtn')[0];
     uploadBtn.style.display = 'none';
   });
 
-  const uploadBtn = <HTMLButtonElement>self.getElementsByClassName('uploadBtn')[0];
+  const uploadBtn = <HTMLButtonElement>self.getElementsByClassName('form__uploadBtn')[0];
 
   uploadBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
-    const file = <HTMLInputElement>document.getElementsByClassName('uploadFile')[0];
+    const file = <HTMLInputElement>document.getElementsByClassName('form__uploadFile')[0];
     file.style.display = 'block';
   });
 
-  const file = <HTMLInputElement>self.getElementsByClassName('uploadFile')[0];
+  const file = <HTMLInputElement>self.getElementsByClassName('form__uploadFile')[0];
 
   file.addEventListener('change', (event) => {
     event.preventDefault();
@@ -43,7 +43,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     if (choosedFile) {
       const reader = new FileReader();
       reader.addEventListener('load', () => {
-        const img = <HTMLImageElement>document.getElementsByClassName('photo')[0];
+        const img = <HTMLImageElement>document.getElementsByClassName('form__photo')[0];
         img.setAttribute('src', <string>reader.result);
       });
       reader.readAsDataURL(choosedFile);
@@ -51,7 +51,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // --------------------------
-  const updateBtn = <HTMLButtonElement>self.getElementsByClassName('update-button')[0];
+  const updateBtn = <HTMLButtonElement>self.getElementsByClassName('form__btn-color')[0];
   updateBtn.addEventListener('click', (event) => {
     event.preventDefault();
 

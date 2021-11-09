@@ -8,7 +8,7 @@ export const addressStateRequest: Callback = () => {
 };
 
 export const productArrayRequest: Callback = () => {
-  const itemsContainer = <HTMLElement>document.getElementsByClassName('items')[0];
+  const itemsContainer = <HTMLElement>document.getElementsByClassName('cart-list__items')[0];
   itemsContainer.textContent = '';
   bus.emit('product array request', cart.get());
 };
@@ -25,12 +25,12 @@ export const calculateSubtotal: Callback = () => {
     totalPrice += number * price;
   });
 
-  const subElem = <HTMLElement>document.getElementsByClassName('subtotal')[0];
+  const subElem = <HTMLElement>document.getElementsByClassName('cart__subtotal')[0];
   subElem.innerHTML = `<h3>Итого (${totalNumber} товаров): $${totalPrice}</h3>`;
 };
 
 export const showCartItems: Callback = (array: Product[]) => {
-  const itemsContainer = <HTMLElement>document.getElementsByClassName('items')[0];
+  const itemsContainer = <HTMLElement>document.getElementsByClassName('cart-list__items')[0];
 
   const viewArray = CartItemList.viewArray(array);
   viewArray.forEach((itemView, index) => {
