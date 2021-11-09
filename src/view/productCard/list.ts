@@ -29,7 +29,7 @@ class ProductCardList {
   }
 
   private create(productContext: Product) {
-    const productCard = new ProductCard('product-card', productContext);
+    const productCard = new ProductCard('product', productContext);
     this.list[productContext.id] = {
       context: productContext,
       view: productCard,
