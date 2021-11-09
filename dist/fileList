@@ -1,0 +1,5 @@
+./main_bundle.js
+./sw.js
+./fileList
+./index.html
+./_redirects
