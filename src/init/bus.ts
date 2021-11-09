@@ -18,7 +18,7 @@ class EventBus {
       .filter((listener) => listener !== callback);
   }
 
-  public emit(event: string, data: Record<string, unknown>) {
+  public emit(event: string, data: any) {
     if (!this.listeners[event]) {
       console.log(`${event} without listeners`);
       return;
