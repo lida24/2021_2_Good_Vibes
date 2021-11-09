@@ -11,7 +11,7 @@ const initEvents = (self: HTMLElement, context: Product) => {
   });
 
   // ------------------
-  const addBtn = <HTMLButtonElement>self.getElementsByClassName('add-button')[0];
+  const addBtn = <HTMLButtonElement>self.getElementsByClassName('btn')[0];
   addBtn.addEventListener('click', (event) => {
     event.preventDefault();
 

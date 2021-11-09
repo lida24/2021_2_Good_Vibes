@@ -1,18 +1,17 @@
 <div class="content">
   <div class="back-to-result">
-    <a href="/homepage">Вернуться в каталог</a>
+    <a class="back-to-result__link" href="/homepage">Вернуться в каталог</a>
   </div>
   <div class="details">
-    <div class="details-image">
-      <img src="{{image}}" alt="{{name}}" />
+    <div class="details__image">
+      <img class="details__image-img" src="{{image}}" alt="{{name}}" />
     </div>
-    <div class="details-info">
+    <div class="details__info">
       <ul>
         <li>
           <h1>{{name}}</h1>
         </li>
-        <div class="rating">
-          rating
+        <div class="product__rating">
         </div>
         <li>
           Цена: <strong>${{price}}</strong>
@@ -25,7 +24,7 @@
         </li>
       </ul>
     </div>
-    <div class="details-action">
+    <div class="details__action">
       <ul>
         <li>
           Цена: ${{price}}
@@ -36,7 +35,7 @@
           </div>
         </li>
         <li>
-          <button id="add-button" class="fw add-button primary add-button">Добавить в корзину</button>
+          <button class="btn">Добавить в корзину</button>
         </li>
       </ul>
     </div>
