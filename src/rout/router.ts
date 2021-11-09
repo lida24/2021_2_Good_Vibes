@@ -75,6 +75,10 @@ class Router {
 
     this.rout();
   }
+
+  public getRoutList(): { [pathname: string]: string } {
+    return this.list;
+  }
 }
 
 export default new Router();

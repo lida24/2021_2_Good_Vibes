@@ -1,5 +1,7 @@
 const CACHE_NAME = 'Ozon2.0 cache';
 
+
+
 const callback = (event) => {
   event.respondWith((async () => {
     // // if (navigator.onLine === false) {
@@ -17,10 +19,9 @@ const callback = (event) => {
 
     const cache = await caches.open(CACHE_NAME);
 
-
     if (navigator.onLine === true) {
       const response = await fetch(event.request);
-      // console.log(`[Service Worker] Caching new resource: ${event.request.url}`);
+      console.log(`[Service Worker] Caching new resource: ${event.request.url}`);
 
       // console.log(event.request);
 
@@ -40,8 +41,9 @@ const callback = (event) => {
 };
 
 
-this.addEventListener('install', (event) => {
+this.addEventListener('fetch', (event) => callback(event));
 
+this.addEventListener('install', (event) => {
   // let cacheUrls = ['/'];
 
   // event.waitUntil(
@@ -74,10 +76,21 @@ this.addEventListener('install', (event) => {
 
   let cacheUrls = [
     '/',
+    '/profile',
+    '/signin',
+    '/signup',
+    '/homepage',
+    '/product',
+    '/cart',
+    '/category',
+    '/address',
+    '/payment',
+    '/confirmation',
   ];
 
   console.log('[Service Worker] Install');
   event.waitUntil((async () => {
+    // this.addEventListener('fetch', (e) => callback(e));
     // fetch('./fileList')
     //   .then((response) => response.text())
     //   .then((text) => text.split('\n'))
@@ -113,9 +126,13 @@ this.addEventListener('install', (event) => {
     const cache = await caches.open(CACHE_NAME);
     console.log('[Service Worker] Caching all: app shell and content');
     await cache.addAll(cacheUrls);
-  })());
 
+    this.addEventListener('fetch', (e) => callback(e));
+  })());
 });
 
-
-this.addEventListener('fetch', (event) => callback(event));
+this.addEventListener('activate', (event) => {
+  event.waitUntil((async () => {
+    console.log('Claiming control');
+  })());
+});
