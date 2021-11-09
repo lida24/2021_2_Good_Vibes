@@ -2,7 +2,7 @@
   "name": "Ozon2.0",
   "version": "1.0.0",
   "description": "TP project of Good Vibes team",
-  "main": "index.js",
+  "main": "main_bundle.js",
   "scripts": {
     "build": "./addFiles.sh && webpack",
     "lint": "npx eslint ./src**",
