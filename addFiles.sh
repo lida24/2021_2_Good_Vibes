@@ -1,3 +1,3 @@
 #!/bin/bash
-cd public 
+cd dist
 find . -type f > fileList

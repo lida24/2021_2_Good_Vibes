@@ -5,6 +5,10 @@ class Cart {
 
   private confirmed = false;
 
+  constructor() {
+    this.localLoad();
+  }
+
   public isConfirmed() {
     return this.confirmed;
   }
@@ -14,7 +18,18 @@ class Cart {
   }
 
   public load(obj: CartItem[]) {
-    this.self = obj || this.self;
+    if (obj && obj.length !== 0) {
+      this.self = obj;
+      this.localSave();
+      return;
+    }
+
+    obj.forEach((item) => {
+      this.add({
+        id: item.product_id,
+        number: item.number,
+      });
+    });
   }
 
   public set(obj: { id: number, number: number }) {
@@ -29,6 +44,8 @@ class Cart {
     } else {
       target.number = number;
     }
+
+    this.localSave();
   }
 
   public add(obj: { id: number, number: number }) {
@@ -43,6 +60,8 @@ class Cart {
     } else {
       target.number += number;
     }
+
+    this.localSave();
   }
 
   public delete(obj: { id: number, number: number }) {
@@ -58,11 +77,15 @@ class Cart {
         this.self.splice(idx, 1);
       }
     }
+
+    this.localSave();
   }
 
   public drop() {
     this.self = [];
     this.confirmed = false;
+
+    this.localSave();
   }
 
   public get() {
@@ -78,6 +101,16 @@ class Cart {
       return false;
     }
     return true;
+  }
+
+  private localSave() {
+    localStorage.setItem('cartItems', JSON.stringify(this.self));
+  }
+
+  private localLoad() {
+    this.self = localStorage.getItem('cartItems')
+      ? JSON.parse(localStorage.getItem('cartItems'))
+      : [];
   }
 }
 

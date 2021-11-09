@@ -23,7 +23,5 @@ export default class Homepage extends View implements ViewInterface {
     this.self.id = 'main-container';
     bus.add(connections);
     this.render();
-    // this.self.style.cssText = styles;
-    // console.log(styles.default);
   }
 }

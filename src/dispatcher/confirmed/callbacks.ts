@@ -45,7 +45,7 @@ export const homepageArrayParse: Callback = (response: AjaxResponse) => {
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .then((obj: Product[]) => bus.emit('add product array to homepage', obj))
-    .catch((err) => console.log(err));
+    .catch((err) => console.error(err));
 };
 
 export const homepage: Callback = () => {
@@ -81,7 +81,7 @@ export const categoryArrayParse: Callback = (response: AjaxResponse) => {
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .then((obj: Product[]) => bus.emit('add product array to category page', obj))
-    .catch((err) => console.log(err));
+    .catch((err) => console.error(err));
 };
 
 export const showCategoryPage: Callback = () => {

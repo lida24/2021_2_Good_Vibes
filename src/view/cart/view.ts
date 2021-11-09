@@ -18,7 +18,7 @@ export default class Cart extends View implements ViewInterface {
     return this.show();
   }
 
-  constructor(classId: string) {
+  constructor() {
     super();
     this.self = <HTMLElement>document.createElement('main');
     this.self.id = 'main-container';

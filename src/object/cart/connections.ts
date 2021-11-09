@@ -15,6 +15,10 @@ const connections: Connection[] = [
     callback: cart.addProductMiddleware,
   },
   {
+    event: 'put product to cart request',
+    callback: cart.putProductMiddleware,
+  },
+  {
     event: 'put product to cart confirmed',
     callback: cart.handlePutResponse,
   },
@@ -37,6 +41,10 @@ const connections: Connection[] = [
   {
     event: 'delete product from cart confirmed',
     callback: cart.handleDeleteResponse,
+  },
+  {
+    event: 'order confirmed',
+    callback: cart.drop,
   },
 ];
 

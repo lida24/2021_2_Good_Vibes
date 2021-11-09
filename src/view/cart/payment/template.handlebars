@@ -1,0 +1,29 @@
+<div class="checkout-steps">
+  <div class="checkout-steps_none">Оформление заказа</div>
+  <div class="checkout-steps_active">Оплата</div>
+  <div class="checkout-steps_none">Доставка</div>
+</div>
+<div class="form">
+  <form class="form__container">
+    <ul class="form__container-items">
+      <li>
+        <h1>Оплата</h1>
+      </li>
+      <li>
+        <div>
+          <input class="payment-method" type="radio" name="payment-method" value="Paypal" id="paypal" checked />
+          <label for="paypal">Онлайн по карте</label>
+        </div>
+      </li>
+      <li>
+        <div>
+          <input class="payment-method" type="radio" name="payment-method" value="Stripe" id="stripe" />
+          <label for="stripe">Наличными при получении</label>
+        </div>
+      </li>
+      <li>
+        <button class="btn" type="submit">Продолжить</button>
+      </li>
+    </ul>
+  </form>
+</div>

@@ -2,6 +2,7 @@ import bus from '../../init/bus';
 import cart from '../../object/cart/cart';
 import user from '../../object/user/user';
 import { Callback } from '../../types';
+import redirect from '../redirect';
 
 export const signIn: Callback = () => {
   console.error('signIn state denied');
@@ -77,4 +78,8 @@ export const confirmation: Callback = () => {
   }
 
   bus.emit('homepage state request', undefined);
+};
+
+export const saveState: Callback = (obj: { 'state': string }) => {
+  redirect.saveState(obj);
 };

@@ -2,6 +2,7 @@ import bus from '../../init/bus';
 import cart from '../../object/cart/cart';
 import user from '../../object/user/user';
 import { Callback } from '../../types';
+import redirect from '../redirect';
 
 export const signIn: Callback = () => {
   if (user.isAutorize()) {
@@ -44,15 +45,12 @@ export const cartState: Callback = () => {
 
 export const address: Callback = () => {
   if (!user.isAutorize()) {
-    bus.emit('address state denied', undefined);
+    bus.emit('address state denied', { state: 'address' });
     return;
   }
 
-  console.log(cart);
-  console.log(cart.isEmpty());
-
   if (!cart.isConfirmed() || cart.isEmpty()) {
-    bus.emit('address state denied', undefined);
+    bus.emit('address state denied', { state: 'address' });
     return;
   }
 
@@ -64,14 +62,13 @@ export const category: Callback = (obj: { name: string }) => {
 };
 
 export const payment: Callback = () => {
-  // bus.emit('payment state confirmed', { pathname: '/payment' });
   if (!user.isAutorize()) {
-    bus.emit('payment state denied', undefined);
+    bus.emit('payment state denied', { state: 'payment' });
     return;
   }
 
   if (!cart.isConfirmed() || cart.isEmpty()) {
-    bus.emit('payment state denied', undefined);
+    bus.emit('payment state denied', { state: 'payment' });
     return;
   }
 
@@ -79,16 +76,21 @@ export const payment: Callback = () => {
 };
 
 export const confirmation: Callback = () => {
-  // bus.emit('confirmation state confirmed', { pathname: '/confirmation' });
   if (!user.isAutorize()) {
-    bus.emit('confirmation state denied', undefined);
+    bus.emit('confirmation state denied', { state: 'confirmation' });
     return;
   }
 
   if (!cart.isConfirmed() || cart.isEmpty()) {
-    bus.emit('confirmation state denied', undefined);
+    bus.emit('confirmation state denied', { state: 'confirmation' });
     return;
   }
 
   bus.emit('confirmation state confirmed', { pathname: '/confirmation' });
+};
+
+export const savedState: Callback = () => {
+  const state = redirect.popSavedState();
+
+  bus.emit(`${state} state request`, undefined);
 };

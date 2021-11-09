@@ -1,4 +1,4 @@
-export type Callback = (arg0: object) => void;
+export type Callback = (arg0: any) => void;
 
 export type Connection = {
   event: string,
@@ -38,4 +38,20 @@ export type Product = {
   name: string,
   price: number,
   rating: number,
+};
+
+export type Address = {
+  'country': string,
+  'city': string,
+  'index': string,
+  'street': string,
+
+  'region'?: string,
+  'house'?: string,
+  'flat'?: string,
+};
+
+export type OrderRequest = {
+  'address': Address,
+  'products': CartItem[],
 };

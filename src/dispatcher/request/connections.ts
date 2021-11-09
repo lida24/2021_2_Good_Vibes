@@ -27,12 +27,12 @@ const connections: Connection[] = [
     callback: request.cartState,
   },
   {
-    event: 'address state request',
-    callback: request.address,
-  },
-  {
     event: 'category state request',
     callback: request.category,
+  },
+  {
+    event: 'address state request',
+    callback: request.address,
   },
   {
     event: 'payment state request',
@@ -41,6 +41,10 @@ const connections: Connection[] = [
   {
     event: 'confirmation state request',
     callback: request.confirmation,
+  },
+  {
+    event: 'saved state request',
+    callback: request.savedState,
   },
 ];
 

@@ -1,6 +1,6 @@
 import bus from '../../init/bus';
 
-const initEvents = (self: HTMLElement) => {
+const initEvents: (self: HTMLElement) => void = (self) => {
   // -----------------
   const checkoutBtn = <HTMLButtonElement>self.getElementsByClassName('btn')[0];
   checkoutBtn.addEventListener('click', (event) => {

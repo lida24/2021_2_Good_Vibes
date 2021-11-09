@@ -6,9 +6,9 @@ import Homepage from '../view/homepage/view';
 import ProductPage from '../view/productPage/view';
 import Cart from '../view/cart/view';
 import CategoryPage from '../view/categoryPage/view';
-import AddressPage from '../view/order/address/view';
-import PaymentPage from '../view/order/payment/view';
-import ConfirmationPage from '../view/order/confirmation/view';
+import AddressPage from '../view/cart/address/view';
+import PaymentPage from '../view/cart/payment/view';
+import ConfirmationPage from '../view/cart/confirmation/view';
 
 const constructor: { [name: string]: ConstructorInterface } = {
   signup: SignUp,

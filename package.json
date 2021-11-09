@@ -1,11 +1,11 @@
 {
-  "name": "adf",
+  "name": "Ozon2.0",
   "version": "1.0.0",
-  "description": "asdf",
-  "main": "index.js",
+  "description": "TP project of Good Vibes team",
+  "main": "main_bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "./addFiles.sh && webpack",
+    "lint": "npx eslint ./src**",
     "start": "webpack --watch"
   },
   "author": "",

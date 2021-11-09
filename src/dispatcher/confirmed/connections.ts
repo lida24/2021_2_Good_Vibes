@@ -30,7 +30,6 @@ const connections: Connection[] = [
     callback: [
       confirm.showHomepage,
       addToHistory,
-      // confirm.homepageArray,
     ],
   },
   {
@@ -44,7 +43,6 @@ const connections: Connection[] = [
     callback: [
       confirm.addUser,
       confirm.cartGetRequest,
-      request.homepage,
     ],
   },
   {
@@ -52,8 +50,11 @@ const connections: Connection[] = [
     callback: [
       confirm.addUser,
       confirm.cartGetRequest,
-      request.homepage,
     ],
+  },
+  {
+    event: 'add user finished',
+    callback: request.savedState,
   },
   {
     event: 'homepage ajax confirmed',
@@ -93,7 +94,6 @@ const connections: Connection[] = [
     event: 'category state confirmed',
     callback: [
       confirm.showCategoryPage,
-      // addToHistory,
     ],
   },
   {
@@ -120,6 +120,10 @@ const connections: Connection[] = [
       confirm.confirmation,
       addToHistory,
     ],
+  },
+  {
+    event: 'order confirmed',
+    callback: request.homepage,
   },
 ];
 

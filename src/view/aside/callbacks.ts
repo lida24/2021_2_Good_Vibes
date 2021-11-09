@@ -48,7 +48,7 @@ type Category = {
 };
 
 export const handleObj: (obj: Category, parent: HTMLElement) => void = (obj, parent) => {
-  console.log(obj.name);
+  // console.log(obj.name);
 
   const child = addCategory(obj.name, parent);
 
@@ -60,9 +60,9 @@ export const handleObj: (obj: Category, parent: HTMLElement) => void = (obj, par
 };
 
 export const parseCategoryObject: Callback = (obj: Category) => {
-  console.log('parseCategoryObject');
+  // console.log('parseCategoryObject');
 
-  console.log(obj);
+  // console.log(obj);
 
   const parent = <HTMLElement>document.getElementsByClassName('categories')[0];
 
@@ -70,11 +70,10 @@ export const parseCategoryObject: Callback = (obj: Category) => {
 };
 
 export const showSubCategory: Callback = () => {
-/*   const subcategory = document.getElementsByClassName('categories')[0];
-  const subcategory1 = document.getElementsByClassName('categories')[1];
-
-  subcategory.classList.toggle('subcategory');
-  subcategory1.classList.toggle('subcategory'); */
+  /*   const subcategory = document.getElementsByClassName('categories')[0];
+    const subcategory1 = document.getElementsByClassName('categories')[1];
+    subcategory.classList.toggle('subcategory');
+    subcategory1.classList.toggle('subcategory'); */
 };
 
 export const parse: Callback = (response: AjaxResponse) => {
@@ -83,7 +82,6 @@ export const parse: Callback = (response: AjaxResponse) => {
   const { responseText } = response;
   Promise.resolve()
     .then(() => JSON.parse(responseText))
-    // .then((parsedObj) => console.log(parsedObj))
     .then((parsedObj) => parseCategoryObject(parsedObj))
 
     .catch((err) => console.error('category response parse error', err));
