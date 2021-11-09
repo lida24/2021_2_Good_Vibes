@@ -8,7 +8,16 @@ const connections: Connection[] = [
       confirmation.showAddress,
       confirmation.showPayMethod,
       confirmation.showProductArray,
+      confirmation.calculateSubtotal,
     ],
+  },
+  {
+    event: 'delete product',
+    callback: confirmation.calculateSubtotal,
+  },
+  {
+    event: 'put product to cart',
+    callback: confirmation.calculateSubtotal,
   },
   {
     event: 'confirm order button click',

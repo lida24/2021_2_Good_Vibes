@@ -54,3 +54,32 @@ export const confirmAjaxRequest: Callback = () => {
 
   bus.emit('cart confirm request', obj);
 };
+
+export const calculateSubtotal: Callback = () => {
+  // let totalNumber = 0;
+  let totalPrice = 0;
+
+  if (!cart.isEmpty()) {
+    cart.get().forEach((cartElem) => {
+      const { number } = cartElem;
+      // totalNumber += number;
+
+      const price = productCardList.list[cartElem.product_id]?.context?.price;
+      if (!price) return;
+
+      totalPrice += number * price;
+    });
+  }
+
+  const itemPriceDiv = <HTMLElement>document.getElementsByClassName('items-price')[0];
+  if (!itemPriceDiv) {
+    return;
+  }
+  itemPriceDiv.innerHTML = `$${totalPrice}`;
+
+  const totalPriceDiv = <HTMLElement>document.getElementsByClassName('total-price')[0];
+  if (!totalPriceDiv) {
+    return;
+  }
+  totalPriceDiv.innerHTML = `$${totalPrice}`;
+};
