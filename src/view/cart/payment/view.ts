@@ -4,6 +4,7 @@ import { ViewInterface } from '../../../types';
 import bus from '../../../init/bus';
 import connections from './connections';
 import initEvents from './events';
+import './payment.scss';
 
 export default class PaymentPage extends View implements ViewInterface {
   private async renderHTML() {
