@@ -41,7 +41,6 @@ class ProductCardList {
   }
 
   public viewArray(array: Product[]): CartItemClass[] {
-    // const result: CartItemClass[] = [];
     this.views = [];
 
     this.addArray(array);

@@ -6,8 +6,6 @@ class Redirect {
     if (state) {
       this.savedState = state;
     }
-
-    console.log('save state', this.savedState);
   }
 
   public popSavedState(): string {

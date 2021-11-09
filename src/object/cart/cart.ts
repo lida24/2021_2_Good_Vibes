@@ -18,7 +18,6 @@ class Cart {
   }
 
   public load(obj: CartItem[]) {
-    // this.self = obj || this.self;      !!!!!!!!!
     if (obj && obj.length !== 0) {
       this.self = obj;
       this.localSave();

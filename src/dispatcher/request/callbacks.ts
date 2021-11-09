@@ -49,9 +49,6 @@ export const address: Callback = () => {
     return;
   }
 
-  console.log(cart);
-  console.log(cart.isEmpty());
-
   if (!cart.isConfirmed() || cart.isEmpty()) {
     bus.emit('address state denied', { state: 'address' });
     return;
@@ -65,7 +62,6 @@ export const category: Callback = (obj: { name: string }) => {
 };
 
 export const payment: Callback = () => {
-  // bus.emit('payment state confirmed', { pathname: '/payment' });
   if (!user.isAutorize()) {
     bus.emit('payment state denied', { state: 'payment' });
     return;
@@ -80,7 +76,6 @@ export const payment: Callback = () => {
 };
 
 export const confirmation: Callback = () => {
-  // bus.emit('confirmation state confirmed', { pathname: '/confirmation' });
   if (!user.isAutorize()) {
     bus.emit('confirmation state denied', { state: 'confirmation' });
     return;

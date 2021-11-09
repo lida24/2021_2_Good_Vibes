@@ -42,20 +42,12 @@ export const handlePutResponse: Callback = (obj: { 'responseText': string }) => 
     .catch((err) => console.error('put product response parse error', err));
 };
 
-
 export const putProductMiddleware: Callback = (obj: { 'id': number, 'number': number }) => {
-  // let { number } = obj;
-  // const { id } = obj;
-
-  // number += cart.getItem(id)?.number || 0;
-
   if (!user.isAutorize()) {
-    // bus.emit('put product to cart', { id, number });
     bus.emit('put product to cart', obj);
     return;
   }
 
-  // bus.emit('put product to cart request', { id, number });
   bus.emit('put product to cart', obj);
 };
 

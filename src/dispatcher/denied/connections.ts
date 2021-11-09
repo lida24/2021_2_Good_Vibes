@@ -22,7 +22,6 @@ const connections: Connection[] = [
   {
     event: 'address state denied',
     callback: [
-      // redirect.saveState,
       denied.saveState,
       denied.address,
     ],
@@ -30,7 +29,6 @@ const connections: Connection[] = [
   {
     event: 'payment state denied',
     callback: [
-      // redirect.saveState,
       denied.saveState,
       denied.payment,
     ],
@@ -38,7 +36,6 @@ const connections: Connection[] = [
   {
     event: 'confirmation state denied',
     callback: [
-      // redirect.saveState,
       denied.saveState,
       denied.confirmation,
     ],

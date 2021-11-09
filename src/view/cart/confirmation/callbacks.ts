@@ -1,7 +1,7 @@
 import bus from '../../../init/bus';
 import cart from '../../../object/cart/cart';
 import orderData from '../../../object/orderData/orderData';
-import { Address, Callback, CartItem, OrderRequest } from '../../../types';
+import { Callback, OrderRequest } from '../../../types';
 import productCardList from '../list';
 
 export const showProductArray: Callback = () => {

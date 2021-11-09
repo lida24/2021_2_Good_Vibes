@@ -10,10 +10,6 @@ const connections: Connection[] = [
     event: 'show aside',
     callback: aside.show,
   },
-  // {
-  //   event: 'parse category obj',
-  //   callback: aside.parseCategoryObject,
-  // },
   {
     event: 'category get confirmed',
     callback: aside.parse,

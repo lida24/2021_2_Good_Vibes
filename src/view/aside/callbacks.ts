@@ -83,7 +83,6 @@ export const parse: Callback = (response: AjaxResponse) => {
   const { responseText } = response;
   Promise.resolve()
     .then(() => JSON.parse(responseText))
-    // .then((parsedObj) => console.log(parsedObj))
     .then((parsedObj) => parseCategoryObject(parsedObj))
 
     .catch((err) => console.error('category response parse error', err));

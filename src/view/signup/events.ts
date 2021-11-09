@@ -8,7 +8,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit('signIn toggle button click', undefined);
   });
 
-  const singUpBtn = <HTMLButtonElement>self.getElementsByClassName('signup-submit')[0];
+  // const singUpBtn = <HTMLButtonElement>self.getElementsByClassName('signup-submit')[0];
   self.addEventListener('submit', (event) => {
     event.preventDefault();
 

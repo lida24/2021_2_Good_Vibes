@@ -25,24 +25,18 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
   numberInput.addEventListener('change', (event) => {
     event.preventDefault();
 
-    // const { value } = numberInput;
-
     let value = +numberInput.value;
-
     if (value < 0) {
       value = 0;
     }
     value = Math.floor(value);
-
-    numberInput.value = value.toString();
-
-    // console.log('number input', context.id, value);
-
     if (value === 0) {
       bus.emit('delete button click', context);
-      // self.remove();
+      self.remove();
       return;
     }
+
+    numberInput.value = value.toString();
 
     bus.emit('put product to cart request', { id: context.id, number: value });
   });

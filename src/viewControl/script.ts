@@ -20,7 +20,7 @@ const add: (name: string, view: ViewInterface) => void = (name: string, view: Vi
 
 const viewGenerate: (name: string) => void = (name: string) => {
   if (!constructor[name]) {
-    console.log('haven\'t constructor for name', name);
+    console.error('haven\'t constructor for name', name);
     return;
   }
 
