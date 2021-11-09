@@ -48,12 +48,28 @@ export const showCartItems: Callback = (array: Product[]) => {
   const itemsContainer = <HTMLElement>document.getElementsByClassName('cart-list__items')[0];
 
   const viewArray = CartItemList.viewArray(array);
+
+  // console.log(viewArray.slice());
+
   viewArray.forEach((itemView, index) => {
+    console.log(itemView.self);
+
     itemsContainer.appendChild(itemView.self);
     const { number } = cart.getItem(array[index].id);
-    const numberElem = <HTMLInputElement>itemView.self.getElementsByClassName('number')[0];
+    const numberElem = <HTMLInputElement>itemView.self.getElementsByClassName('cart__qty-select')[0];
     numberElem.value = number.toString();
   });
+
+  // cart.get().forEach((cartItem) => {
+  //   const view = CartItemList.list[cartItem.product_id].view.self;
+
+  //   itemsContainer.appendChild(view);
+
+  //   const { number } = cartItem;
+  //   const numberElem = <HTMLInputElement>view.getElementsByClassName('cart__qty-select')[0];
+  //   numberElem.value = number.toString();
+  // });
+
   calculateSubtotal(undefined);
 };
 

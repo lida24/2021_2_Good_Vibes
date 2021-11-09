@@ -15,7 +15,7 @@ export const showProductArray: Callback = () => {
     itemsContainer.appendChild(view);
 
     const { number } = cartItem;
-    const numberElem = <HTMLInputElement>view.getElementsByClassName('number')[0];
+    const numberElem = <HTMLInputElement>view.getElementsByClassName('cart__qty-select')[0];
     numberElem.value = number.toString();
   });
 };

@@ -10,36 +10,20 @@
         <h1>Оформление заказа</h1>
       </li>
       <li>
-        {{!-- <<<<<<< HEAD:src/view/cart/address/template.handlebars <label for="postalCode">Почтовый индекс</label>
-          <input type="text" name="postalCode" id="postalCode" class="postalCode" value="{{postalCode}}" />
-      </li>
-      <li>
-        <label for="country">Страна</label>
-        <input type="text" name="country" id="country" class="country" value="{{country}}" />
+        <label for="address">Адрес</label>
+        <input class="form__address" type="text" name="address" id="address" />
       </li>
       <li>
         <label for="city">Город</label>
-        <input type="text" name="city" id="city" class="city" value="{{city}}" />
-      </li>
-      <li>
-        <label for="address">Адрес</label>
-        <input type="text" name="address" id="address" class="address" value="{{address}}" />
-        ======= --}}
-        <label for="address">Адрес</label>
-        <input class="form__address" type="text" name="address" value="{{address}}" />
-      </li>
-      <li>
-        <label for="city">Город</label>
-        <input class="form__city" type="text" name="city" value="{{city}}" />
+        <input class="form__city" type="text" name="city" id="city" />
       </li>
       <li>
         <label for="postalCode">Почтовый индекс</label>
-        <input class="form__postalCode" type="text" name="postalCode" value="{{postalCode}}" />
+        <input class="form__postalCode" type="text" name="postalCode" id="postalCode" />
       </li>
       <li>
         <label for="country">Страна</label>
-        <input class="form__country" type="text" name="country" value="{{country}}" />
-        {{!-- >>>>>>> 0b511cea9ffbd83ba014236bfb32bbf8173798db:src/view/order/address/template.handlebars --}}
+        <input class="form__country" type="text" name="country" id="country" />
       </li>
       <a href="/update">
         <button type="submit" class="btn">Продолжить</button>
