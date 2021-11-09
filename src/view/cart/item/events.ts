@@ -13,7 +13,6 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
   });
 
   // --------------
-  // const nameHref = <HTMLAnchorElement>self.getElementsByClassName('cart__link')[0].firstChild;
   const nameHref = <HTMLAnchorElement>self.getElementsByClassName('link')[0];
 
   nameHref.addEventListener('click', (event) => {

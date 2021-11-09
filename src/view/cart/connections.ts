@@ -26,6 +26,10 @@ const connections: Connection[] = [
       cart.calculateSubtotal,
     ],
   },
+  {
+    event: 'put product to cart',
+    callback: cart.calculateSubtotal,
+  },
 ];
 
 export default connections;

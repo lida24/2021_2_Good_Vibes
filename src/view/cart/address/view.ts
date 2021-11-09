@@ -9,9 +9,6 @@ import './address.scss';
 export default class AddressPage extends View implements ViewInterface {
   private async renderHTML() {
     const html = compiledTemplate(this.context);
-
-    console.log(html);
-
     this.self.innerHTML = html;
     initEvents(this.self);
   }
@@ -27,8 +24,5 @@ export default class AddressPage extends View implements ViewInterface {
     this.self.id = 'main-container';
     bus.add(connections);
     this.render();
-
-    console.log(this.self);
-
   }
 }

@@ -5,7 +5,7 @@ import { Callback, OrderRequest } from '../../../types';
 import productCardList from '../list';
 
 export const showProductArray: Callback = () => {
-  const itemsContainer = <HTMLElement>document.getElementsByClassName('items')[0];
+  const itemsContainer = <HTMLElement>document.getElementsByClassName('cart-list__items')[0];
 
   itemsContainer.textContent = '';
 
