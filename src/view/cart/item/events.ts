@@ -19,6 +19,14 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
 
     bus.emit('product name href click', context);
   });
+
+  // ----------------
+  const numberInput = <HTMLInputElement>self.getElementsByClassName('number')[0];
+  numberInput.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    console.log('number input', context.id, numberInput.value);
+  });
 };
 
 export default initEvents;

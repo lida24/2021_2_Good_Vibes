@@ -9,8 +9,7 @@ export const showProductArray: Callback = () => {
 
   itemsContainer.textContent = '';
 
-  cart.get().forEach((cartItem, index) => {
-    // const view = productCardList.views[index].self;
+  cart.get().forEach((cartItem) => {
     const view = productCardList.list[cartItem.product_id].view.self;
 
     itemsContainer.appendChild(view);
