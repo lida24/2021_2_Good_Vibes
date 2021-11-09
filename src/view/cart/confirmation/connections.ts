@@ -26,4 +26,3 @@ const connections: Connection[] = [
 ];
 
 export default connections;
-

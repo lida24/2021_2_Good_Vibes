@@ -1,6 +1,5 @@
 import { Connection } from '../../types';
 import * as denied from './callbacks';
-import redirect from '../redirect';
 
 const connections: Connection[] = [
   {

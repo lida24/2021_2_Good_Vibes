@@ -1,4 +1,4 @@
-export type Callback = (arg0: object) => void;
+export type Callback = (arg0: Record<string, unknown>) => void;
 
 export type Connection = {
   event: string,

@@ -1,7 +1,12 @@
 /* eslint-disable import/extensions */
 import bus from '../init/bus';
-import { AjaxResponse, Callback, CartItem, OrderRequest } from '../types';
 import ajax from './script';
+import {
+  AjaxResponse,
+  Callback,
+  CartItem,
+  OrderRequest,
+} from '../types';
 
 const backendAddress = 'https://ozonback.herokuapp.com';
 
@@ -124,39 +129,16 @@ export const cartGet = () => {
   ajax.get({
     url: `${backendAddress}/cart/get`,
   })
-    // .then(({ responseText }) => console.log(responseText))
-    // .catch(({ responseText }) => console.log(responseText));
     .then(({ responseText }) => bus.emit('cart get confirmed', { responseText }))
     .catch(({ responseText }) => bus.emit('cart get denied', { responseText }))
     .then(() => bus.emit('cart get finished', undefined));
 };
 
 export const cartConfirm: Callback = (obj: OrderRequest) => {
-  // console.log(array);
-
-  // const temp = {
-  //   date: '2016-12-06 06:56:01',
-  //   address: {
-  //     country: 'country',
-  //     region: 'region',
-  //     city: 'city',
-  //     street: 'street',
-  //     house: 'house',
-  //     flat: 'flat',
-  //     index: 'index'
-  //   },
-  //   // cost: 213,
-  //   products: array
-  // };
-
-  // console.log('cart confirm', JSON.stringify(obj));
-
   ajax.post({
     url: `${backendAddress}/cart/confirm`,
     body: obj,
   })
-    // .then(({ responseText }) => console.log({ responseText }))
-    // .catch(({ responseText }) => console.log({ responseText }));
     .then(({ responseText }) => bus.emit('order confirmed', responseText))
     .catch(({ responseText }) => bus.emit('order denied', responseText));
 };
@@ -214,8 +196,6 @@ export const profileUpload: Callback = (obj: { 'username': string, 'email': stri
 };
 
 export const avatarUpload: Callback = (file: File) => {
-  // console.log('avatar upload');
-
   ajax.avatarUpload({
     method: 'POST',
     url: `${backendAddress}/upload/avatar`,
