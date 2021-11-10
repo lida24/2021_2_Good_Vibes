@@ -8,7 +8,10 @@ const connections: Connection[] = [
   },
   {
     event: 'profile shown',
-    callback: profile.fieldsFill,
+    callback: [
+      profile.fieldsFill,
+      profile.ordersListRequest,
+    ],
   },
   {
     event: 'update button click',
@@ -16,6 +19,14 @@ const connections: Connection[] = [
       profile.profileUploadRequest,
       profile.avatarUploadRequest,
     ],
+  },
+  {
+    event: 'orders list confirmed',
+    callback: profile.parseResponse,
+  },
+  {
+    event: 'show orders list',
+    callback: profile.showOrderList,
   },
 ];
 
