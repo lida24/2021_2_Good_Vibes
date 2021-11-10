@@ -123,7 +123,7 @@ const connections: Connection[] = [
   },
   {
     event: 'order confirmed',
-    callback: request.homepage,
+    callback: request.profile,
   },
 ];
 

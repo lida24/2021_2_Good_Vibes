@@ -98,6 +98,10 @@ const ajaxConnections: Connection[] = [
       ajax.avatarUpload,
     ],
   },
+  {
+    event: 'orders list request',
+    callback: ajax.orderList,
+  },
 ];
 
 export default ajaxConnections;
