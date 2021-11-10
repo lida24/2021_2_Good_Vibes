@@ -8,7 +8,14 @@ const connections: Connection[] = [
   },
   {
     event: 'add product to cart',
-    callback: productPage.addProductToCart,
+    callback: [
+      productPage.addProductToCart,
+      productPage.changeBtn,
+    ]
+  },
+  {
+    event: 'cart button click',
+    callback: productPage.cartStateRequest,
   },
 ];
 

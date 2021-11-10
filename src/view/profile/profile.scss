@@ -78,3 +78,30 @@
         margin-bottom: -90px;
       }
   }
+
+  .profile__content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .profile__info {
+    flex: 1 1 20rem;
+  }
+  .profile__orders {
+    flex: 3 1 60rem;
+    margin-left: 1rem;
+  }
+
+  table {
+    width: 100%;
+  }
+  th {
+    text-align: left;
+  }
+  tbody > tr:nth-child(odd) {
+    background-color: #f0f0f0;
+  }
+  td {
+    padding: 0.5rem;
+  }
