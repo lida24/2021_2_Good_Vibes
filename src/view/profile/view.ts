@@ -26,3 +26,4 @@ export default class Profile extends View implements ViewInterface {
     this.render();
   }
 }
+
