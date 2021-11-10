@@ -99,11 +99,13 @@ export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement = 
 
   const child = <HTMLUListElement>document.createElement('ul');
 
+  child.style.paddingLeft = '5px';
+
   const li = <HTMLLIElement>document.createElement('li');
   addLiEvents(li, obj);
   child.appendChild(li);
 
-  const link = <HTMLSpanElement>document.createElement('a');
+  const link = <HTMLAnchorElement>document.createElement('a');
   link.innerHTML = description;
   link.className = 'categories__span-fa';
   li.appendChild(link);
