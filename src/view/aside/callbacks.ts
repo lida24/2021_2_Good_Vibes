@@ -143,16 +143,7 @@ export const parseCategoryObject: Callback = (obj: Category) => {
   handleObj(obj, parent);
 };
 
-export const showSubCategory: Callback = () => {
-  /*   const subcategory = document.getElementsByClassName('categories')[0];
-    const subcategory1 = document.getElementsByClassName('categories')[1];
-    subcategory.classList.toggle('subcategory');
-    subcategory1.classList.toggle('subcategory'); */
-};
-
 export const parse: Callback = (response: AjaxResponse) => {
-  console.log('parse category list', response);
-
   const { responseText } = response;
   Promise.resolve()
     .then(() => JSON.parse(responseText))

@@ -38,8 +38,6 @@ export const avatarUploadRequest: Callback = () => {
 };
 
 export const ordersListRequest: Callback = () => {
-  console.log('ordersListRequest');
-
   bus.emit('orders list request', undefined);
 };
 
