@@ -12,6 +12,10 @@ export const load: Callback = (obj: AjaxResponse) => {
     .then((value: CartItem[]) => {
       if (value) return value;
 
+      if (cart.isEmpty()) {
+        return null;
+      }
+
       cart.get().forEach((item) => bus.emit('put product to cart request', { id: item.product_id, number: item.number }));
       return null;
     })

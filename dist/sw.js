@@ -1,44 +1,55 @@
 const CACHE_NAME = 'Ozon2.0 cache';
 
-this.addEventListener('install', (event) => {
-  let cacheUrls = ['/'];
+let cacheUrls = [
+  '/',
+  '/profile',
+  '/signin',
+  '/signup',
+  '/homepage',
+  '/product',
+  '/cart',
+  '/category',
+  '/address',
+  '/payment',
+  '/confirmation',
+];
 
-  event.waitUntil(
-    fetch('./fileList')
-      .then((response) => response.text())
-      .then((text) => text.split('\n'))
-      .then((split) => cacheUrls.concat(split))
-      .then((split) => {
-        cacheUrls = split.filter((url) => {
-          if (url !== './_redirects'
-            && url !== './fileList'
-            && url !== './sw.js') {
-            return url;
-          }
-          return undefined;
-        });
-      })
-      .caches.open('CACHE_NAME')
-      .then((cache) => cache.addAll(cacheUrls))
-      .catch((err) => console.error(err)),
-  );
+this.addEventListener('install', (event) => {
+  event.waitUntil((async () => {
+    const response = await fetch('./fileList');
+    const text = (await response.text()).split('\n');
+    const split = cacheUrls.concat(text);
+    cacheUrls = split.filter((url) => {
+      if (url !== './_redirects'
+        && url !== './fileList'
+        && url !== './sw.js'
+      ) {
+        return url;
+      }
+      return undefined;
+    });
+    const cache = await caches.open(CACHE_NAME);
+    await cache.addAll(cacheUrls);
+  })());
 });
 
 this.addEventListener('fetch', (event) => {
-  if (navigator.onLine === true) {
-    return fetch(event.request);
-  }
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE_NAME);
 
-  return event.respondWith(
-    caches
-      .match(event.request)
-      .then((cachedResponse) => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
+    if (navigator.onLine === true) {
+      const response = await fetch(event.request);
 
-        return fetch(event.request);
-      })
-      .catch((err) => console.error('smth went wrong with caches.match: ', err)),
-  );
+      if (event.request.method !== 'POST') {
+        cache.put(event.request, response.clone());
+      }
+      return response;
+    }
+
+    const r = await caches.match(event.request);
+    if (r) return r;
+
+    const response = await fetch(event.request);
+    return response;
+  })());
 });

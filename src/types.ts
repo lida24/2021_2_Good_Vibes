@@ -55,3 +55,12 @@ export type OrderRequest = {
   'address': Address,
   'products': CartItem[],
 };
+
+export type Order = {
+  'address': Address,
+  'cost': number,
+  'date': string,
+  'order_id': number,
+  'products': Product[],
+  'status': string,
+};

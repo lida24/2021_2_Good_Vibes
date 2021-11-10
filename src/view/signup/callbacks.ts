@@ -17,12 +17,14 @@ export const inputDataValidate: Callback = () => {
   const password = passwordInput.value.trim();
   const repassword = repasswordInput.value.trim();
 
-  const error = validate.signUp({
+  const data = {
     username,
     email,
     password,
     repassword,
-  });
+  };
+
+  const error = validate.signUp(data);
 
   if (error) {
     bus.emit('show alert', { error });
@@ -31,7 +33,7 @@ export const inputDataValidate: Callback = () => {
 
   bus.emit('hide alert', undefined);
 
-  bus.emit('signUp validation complete', { username, password });
+  bus.emit('signUp validation complete', data);
 };
 
 export const showAlert: Callback = (obj: { 'error': string }) => {

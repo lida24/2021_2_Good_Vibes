@@ -9,7 +9,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // ---------------------
-  const profilePic = self.getElementsByClassName('form__photo')[0];
+  const profilePic = <HTMLImageElement>self.getElementsByClassName('form__photo')[0];
 
   profilePic.addEventListener('mouseenter', (event) => {
     event.preventDefault();
