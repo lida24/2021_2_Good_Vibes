@@ -17,9 +17,11 @@ export const addCategory: (name: string, parent: HTMLElement) => HTMLElement = (
   const href = <HTMLAnchorElement>document.createElement('a');
   href.href = '#';
   // href.innerHTML = name;
+  href.className = 'categories__link';
   href.text = name;
 
   const span = <HTMLSpanElement>document.createElement('span');
+  span.className = 'categories__span-fa';
 
   const i = <HTMLElement>document.createElement('i');
   i.className = 'fa fa-chevron-right';
