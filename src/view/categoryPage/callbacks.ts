@@ -7,7 +7,7 @@ export const addProductArray: Callback = (array: Product[]) => {
   productContainer.textContent = '';
 
   if (!array) {
-    productContainer.appendChild(document.createTextNode('нет товаров в этой категории'));
+    productContainer.appendChild(document.createTextNode('Нет товаров в этой категории'));
     return;
   }
 
