@@ -27,3 +27,23 @@
         padding: 0;
       }
   }
+
+  .categories {
+    padding: 0;
+    & > li {
+      list-style-type: none;
+    }
+    &__link {
+      display: flex;
+      padding: 1rem;
+      padding-left: 2rem;
+      justify-content: space-between;
+    }
+  
+  
+    &__span-fa {
+      font-size: 1.4rem;
+      color: #808080;
+    }
+  }
+
