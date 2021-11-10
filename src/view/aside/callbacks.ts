@@ -1,5 +1,5 @@
 import bus from '../../init/bus';
-import { AjaxResponse, Callback } from '../../types';
+import { AjaxResponse, Callback, Category } from '../../types';
 
 export const show: Callback = () => {
   const asideObj = <HTMLElement>document.getElementsByClassName('aside-container')[0];
@@ -11,14 +11,16 @@ export const hide: Callback = () => {
   asideObj.classList.remove('open');
 };
 
-export const addCategory: (name: string, parent: HTMLElement) => HTMLElement = (name, parent) => {
+export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement = (obj, parent) => {
+  const { name, description } = obj;
+
   const child = <HTMLLIElement>document.createElement('li');
 
   const href = <HTMLAnchorElement>document.createElement('a');
   href.href = '#';
   // href.innerHTML = name;
   href.className = 'categories__link';
-  href.text = name;
+  href.text = `${name} ${description}`;
 
   const span = <HTMLSpanElement>document.createElement('span');
   span.className = 'categories__span-fa';
@@ -44,15 +46,10 @@ export const addCategory: (name: string, parent: HTMLElement) => HTMLElement = (
   return child;
 };
 
-type Category = {
-  'name': string,
-  'children'?: Category[],
-};
-
 export const handleObj: (obj: Category, parent: HTMLElement) => void = (obj, parent) => {
   // console.log(obj.name);
 
-  const child = addCategory(obj.name, parent);
+  const child = addCategory(obj, parent);
 
   if (obj.children) {
     obj.children.forEach((element) => {
@@ -62,9 +59,9 @@ export const handleObj: (obj: Category, parent: HTMLElement) => void = (obj, par
 };
 
 export const parseCategoryObject: Callback = (obj: Category) => {
-  // console.log('parseCategoryObject');
+  console.log('parseCategoryObject');
 
-  // console.log(obj);
+  console.log(obj);
 
   const parent = <HTMLElement>document.getElementsByClassName('categories')[0];
 
