@@ -213,7 +213,7 @@ export const avatarUpload: Callback = (file: File) => {
 };
 
 export const orderList: Callback = () => {
-  console.log('orderList ajax request');
+  // console.log('orderList ajax request');
 
   ajax.get({
     url: `${backendAddress}/profile/orders`,

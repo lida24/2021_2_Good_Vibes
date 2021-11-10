@@ -52,10 +52,12 @@ export const parseResponse: Callback = (obj: { 'responseText': string }) => {
 };
 
 export const showOrderList: Callback = (obj: Order[]) => {
-  console.log('showOrderList', obj);
+  // console.log('showOrderList', obj);
 
   const oldTbody = <HTMLTableRowElement>document.getElementsByClassName('table-body')[0];
-  oldTbody.remove();
+  if (oldTbody) {
+    oldTbody.remove();
+  }
 
   const tbody = <HTMLTableSectionElement>document.createElement('tbody');
   tbody.className = 'table-body';
