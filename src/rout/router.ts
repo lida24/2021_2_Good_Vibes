@@ -62,7 +62,7 @@ class Router {
     }
 
     const nameReg = search.match(/.*name=(\w+)/u);
-    let name: string;
+    let name = '';
     if (nameReg) {
       name = name.concat(nameReg[1]);
     }
