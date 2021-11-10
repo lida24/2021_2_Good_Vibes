@@ -64,3 +64,9 @@ export type Order = {
   'products': Product[],
   'status': string,
 };
+
+export type Category = {
+  'name': string,
+  'description'?: string
+  'children'?: Category[],
+};
