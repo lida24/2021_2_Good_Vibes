@@ -99,7 +99,7 @@ export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement = 
 
   const child = <HTMLUListElement>document.createElement('ul');
 
-  child.style.paddingLeft = '5px';
+  child.style.paddingLeft = '0';
 
   const li = <HTMLLIElement>document.createElement('li');
   addLiEvents(li, obj);
