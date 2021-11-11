@@ -117,9 +117,15 @@ export const hideHandle: Callback = () => {
   const asideBtnNone = <Node>document.getElementsByClassName('aside')[0];
 
   document.addEventListener('click', (event) => {
-    const target = <Node>event.target;
+    const targetNode = <Node>event.target;
+    const targetElement = <HTMLElement>event.target;
 
-    if (asideContainerNode.contains(target) || asideBtnNone.contains(target)) return;
+    if (targetElement.tagName === 'A') {
+      hide(undefined);
+      return;
+    }
+
+    if (asideContainerNode.contains(targetNode) || asideBtnNone.contains(targetNode)) return;
     hide(undefined);
   });
 };
