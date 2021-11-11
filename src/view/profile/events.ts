@@ -9,22 +9,22 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // ---------------------
-  const profilePic = <HTMLImageElement>self.getElementsByClassName('form__photo')[0];
+  const profilePic = <HTMLElement>self.getElementsByClassName('form__pic')[0];
 
-  profilePic.addEventListener('mouseenter', (event) => {
-    event.preventDefault();
-
+  const mouseEventHandler = (event: MouseEvent) => {
     const uploadBtn = <HTMLButtonElement>self.getElementsByClassName('form__uploadBtn')[0];
-    uploadBtn.style.display = 'block';
-  });
+    if (event.type === 'mouseover') {
+      uploadBtn.style.display = 'block';
+    }
+    if (event.type === 'mouseout') {
+      uploadBtn.style.display = 'none';
+    }
+  };
 
-  profilePic.addEventListener('mouseleave', (event) => {
-    event.preventDefault();
+  profilePic.onmouseover = mouseEventHandler;
+  profilePic.onmouseout = mouseEventHandler;
 
-    const uploadBtn = <HTMLButtonElement>self.getElementsByClassName('form__uploadBtn')[0];
-    uploadBtn.style.display = 'none';
-  });
-
+  // ---------------------
   const uploadBtn = <HTMLButtonElement>self.getElementsByClassName('form__uploadBtn')[0];
 
   uploadBtn.addEventListener('click', (event) => {
