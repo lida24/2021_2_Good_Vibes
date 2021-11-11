@@ -40,9 +40,6 @@ export const showCartItems: Callback = (array: Product[]) => {
   const itemsContainer = <HTMLElement>document.getElementsByClassName('cart-list__items')[0];
 
   const viewArray = CartItemList.viewArray(array);
-  // viewArray.sort((a, b) => a.self);
-  console.log(viewArray);
-
   viewArray.forEach((itemView, index) => {
     itemsContainer.appendChild(itemView.self);
     const { number } = cart.getItem(array[index].id);
