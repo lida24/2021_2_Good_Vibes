@@ -50,8 +50,6 @@ export const parseResponse: Callback = (obj: { 'responseText': string }) => {
 };
 
 export const showOrderList: Callback = (obj: Order[]) => {
-  // console.log('showOrderList', obj);
-
   const oldTbody = <HTMLTableRowElement>document.getElementsByClassName('table-body')[0];
   if (oldTbody) {
     oldTbody.remove();
@@ -69,6 +67,10 @@ export const showOrderList: Callback = (obj: Order[]) => {
 
     const dateCell = <HTMLTableCellElement>document.createElement('td');
     dateCell.textContent = item.date;
+
+    const a = new Date(item.date);
+    console.log(a.toISOString());
+
     tr.appendChild(dateCell);
 
     const costCell = <HTMLTableCellElement>document.createElement('td');
