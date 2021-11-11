@@ -66,10 +66,9 @@ export const showOrderList: Callback = (obj: Order[]) => {
     tr.appendChild(orderIdCell);
 
     const dateCell = <HTMLTableCellElement>document.createElement('td');
-    dateCell.textContent = item.date;
-
-    const a = new Date(item.date);
-    console.log(a.toISOString());
+    const date = new Date(item.date);
+    // console.log(a.toLocaleDateString(), a.toLocaleTimeString());
+    dateCell.textContent = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
 
     tr.appendChild(dateCell);
 
