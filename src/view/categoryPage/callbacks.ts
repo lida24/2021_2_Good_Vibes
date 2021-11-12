@@ -5,8 +5,8 @@ let categoryName: string;
 const pageYOffset: { [name: string]: number } = {};
 
 export const addProductArray: Callback = (array: Product[]) => {
-  const productContainer = document.getElementsByClassName('product-container')[0];
-  // const productContainer = document.getElementsByClassName('product-table-body')[0];
+  /* const productContainer = document.getElementsByClassName('product-container')[0]; */
+  const productContainer = document.getElementsByClassName('product-table-body')[0];
 
   productContainer.textContent = '';
 
