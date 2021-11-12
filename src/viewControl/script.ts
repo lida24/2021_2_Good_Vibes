@@ -35,6 +35,17 @@ const viewGenerate: (name: string) => void = (name: string) => {
 export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Product }) => {
   const { name, context } = obj;
 
+  const header = <HTMLElement>document.getElementsByClassName('header')[0];
+  const footer = <HTMLElement>document.getElementsByClassName('footer')[0];
+
+  header.style.visibility = 'visible';
+  footer.style.visibility = 'visible';
+
+  if (name === 'signIn' || name === 'signUp') {
+    header.style.visibility = 'hidden';
+    footer.style.visibility = 'hidden';
+  }
+
   // Object.keys(viewMap).forEach((key) => {
   //   viewMap[key].visibility = false;
   // });
