@@ -77,3 +77,7 @@ export const cleanInputs: Callback = () => {
   passwordInput.value = '';
   repasswordInput.value = '';
 };
+
+export const close: Callback = () => {
+  bus.emit('homepage state request', undefined);
+};

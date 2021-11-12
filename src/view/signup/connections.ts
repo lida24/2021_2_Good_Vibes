@@ -35,6 +35,10 @@ const connections: Connection[] = [
     event: 'signUp ajax denied',
     callback: signUp.handleSignUpDenied,
   },
+  {
+    event: 'close button click',
+    callback: signUp.close,
+  },
 ];
 
 export default connections;
