@@ -1,35 +1,41 @@
+<div class="auth" id="auth">
+  <div class="auth-content" id="auth-content">
+    <div class="auth-content-inner">
+      <div class="auth-content-inner__title">
+        <span>Вход</span>
+      </div>
+      <form class="auth-content-form" id="auth-form">
 
-  
-<div class="form">
-  <form class="form__container">
-    <ul class="form__container-items">
-      <li>
-        <h1>Вход</h1>
-      </li>
-      <li>
-        <label for="login">Имя пользователя</label>
-        <input class="form__login" type="login" name="login"/>
-      </li>
-      <li>
-        <label for="password">Пароль</label>
-        <input class="form__password" type="password" name="password" />
-      </li>
-      <li>
-        <label class="form__error">error</label>
-      </li>
-      <li>
-        <a class="form__link-signin" href="/login">
-          <button class="form__btn-color" type="submit">
-            Войти
-          </button>
-        </a>
-      </li>
-      <li>
         <div>
-          Новый пользователь?
-          <a href="/signup" class="form__link-signup">Создать аккаунт </a>
+          <input
+            class="auth-content-form__input auth-content-form__login"
+            id="auth-login"
+            type="login"
+            placeholder="Логин"
+          />
         </div>
-      </li>
-    </ul>
-  </form>
+
+        <div>
+          <input
+            class="auth-content-form__input auth-content-form__password"
+            id="auth-password"
+            type="password"
+            placeholder="Пароль"
+          />
+        </div>
+        <div class="auth-content-inner__error" id="auth-error">
+          <span></span>
+        </div>
+        <button class="auth-content-form__button" type="submit">Войти</button>
+      </form>
+      <div class="auth-content-form-registration">
+        <span>Новый пользователь?</span>
+        <a
+          href="/signup"
+          class="auth-content-form-registration__link"
+          data-action="regClick"
+        >Создать аккаунт</a>
+      </div>
+    </div>
+  </div>
 </div>
