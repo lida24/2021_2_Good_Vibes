@@ -41,7 +41,7 @@ export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Pr
   header.style.visibility = 'visible';
   footer.style.visibility = 'visible';
 
-  if (name === 'signIn' || name === 'signUp') {
+  if (name === 'signin' || name === 'signup') {
     header.style.visibility = 'hidden';
     footer.style.visibility = 'hidden';
   }

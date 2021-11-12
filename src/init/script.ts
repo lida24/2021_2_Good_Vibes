@@ -29,6 +29,14 @@ const init: () => void = () => {
 
   const aside = new Aside();
   document.getElementsByClassName('aside-container')[0].replaceWith(aside.self);
+
+
+
+  const header = <HTMLElement>document.getElementsByClassName('header')[0];
+  const footer = <HTMLElement>document.getElementsByClassName('footer')[0];
+
+  header.style.visibility = 'hidden';
+  footer.style.visibility = 'hidden';
 };
 
 export default init;
