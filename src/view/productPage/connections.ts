@@ -11,10 +11,7 @@ const connections: Connection[] = [
     callback: productPage.changeBtn,
 
   },
-  // {
-  //   event: 'cart button click',
-  //   callback: productPage.cartStateRequest,
-  // },
+
   {
     event: 'productPage shown',
     callback: [

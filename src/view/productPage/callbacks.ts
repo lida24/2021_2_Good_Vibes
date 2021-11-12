@@ -1,5 +1,6 @@
 import bus from '../../init/bus';
-import { Callback } from '../../types';
+import cart from '../../object/cart/cart';
+import { Callback, Product } from '../../types';
 
 export const backToCategoryPage: Callback = () => {
   bus.emit('homepage state request', undefined);
@@ -18,14 +19,14 @@ export const changeBtn: Callback = () => {
   });
 };
 
-// export const cartStateRequest: Callback = () => {
-//   bus.emit('cart state request', undefined);
-// };
-
 export const scrollToTop: Callback = () => {
   document.documentElement.scrollTop = 0;
 };
 
-export const productCheckInCart: Callback = () => {
-  console.log('product check in cart');
+export const productCheckInCart: Callback = (context: Product) => {
+  console.log('product check in cart', context);
+
+  if (cart.getItem(context.id)) {
+    changeBtn(undefined);
+  }
 };

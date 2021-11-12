@@ -67,6 +67,8 @@ export const showCart: Callback = () => {
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
 
+  // console.log('showProductPage', context);
+
   bus.emit('show view', { name: 'productPage', context });
 };
 
