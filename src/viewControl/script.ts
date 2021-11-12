@@ -71,6 +71,7 @@ export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Pr
     .then(() => document.getElementById('main-container').replaceWith(view.self))
     .then(() => { currentView = name; })
     .then(() => { if (fullName !== name) bus.emit(`${name} shown`, undefined); })
+    .then(() => document.getElementById('layout').replaceWith(view.self))
     .then(() => bus.emit(`${fullName} shown`, undefined));
 };
 

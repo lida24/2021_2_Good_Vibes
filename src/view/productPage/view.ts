@@ -20,8 +20,8 @@ export default class ProductPage extends View implements ViewInterface {
 
   constructor(classId: string) {
     super();
-    this.self = <HTMLElement>document.createElement('main');
-    this.self.id = 'main-container';
+    this.self = <HTMLElement>document.createElement('class');
+    this.self.className = 'layout layout__main';
     bus.add(connections);
     this.render();
   }

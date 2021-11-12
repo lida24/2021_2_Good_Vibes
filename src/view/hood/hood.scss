@@ -1,63 +1,125 @@
-@import '../../scss/style.scss';
-
-.header {
-  grid-area: header;
-  background-color: #333;
-  color: $bg-color-1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-}
-
-.logo__link {
-  font-size: 2.5rem;
-  font-weight: bolder;
-  color: $bg-color-1;
-  text-transform: uppercase;
-
-  & span {
-    color: $twitter-color;
-  }
-}
-
-
-.icons i {
-  font-size: 2.5rem;
-  color: $bg-color-1;
-  cursor: pointer;
-  margin-right: 2rem;
-}
-
-i:hover {
-  color: $twitter-color;
-}
-
-.aside__button {
-  font-size: 3rem;
-  padding: 0.5rem;
-  background: none;
-  border: none;
-  color: $bg-color-1;
-  cursor: pointer;
-}
+@import "../../scss/main.scss";
 
 .grid-container {
   display: grid;
-  grid-template-areas:
-    "header"
-    "main"
-    "footer";
-  grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 5rem;
-  height: 100%;
+}
+
+.layout {
+  @include set-size(100%, 100%);
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &-inner {
+    margin: 0 10vw;
+    margin-top: 7vh;
+  }
+}
+
+.header {
+  height: 5vh;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  position: fixed;
+
+  display: flex;
+  @include shadow-block(#333);
+  border-radius: 0;
+
+  &-inner {
+    height: 100%;
+    width: 100%;
+
+    padding-left: 10vw;
+    padding-right: 10vw;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-left {
+    display: flex;
+    align-items: center;
+
+    &__brand {
+      font-size: 2.5rem;
+      margin-right: 1vw;
+      cursor: pointer;
+    }
+
+    &__aside {
+      font-size: 2.5rem;
+      padding: 0.5rem;
+      background: none;
+      border: none;
+      color: $bg-color-1;
+      cursor: pointer;
+    }
+
+    &__link {
+      font-size: 2.5rem;
+      font-weight: bolder;
+      color: $bg-color-1;
+      text-transform: uppercase;
+
+      span {
+        color: $twitter-color;
+      }
+    }
+  }
+
+  &-right {
+    display: flex;
+    align-items: center;
+
+
+    &-avatar {
+      display: flex;
+      position: relative;
+    }
+
+    &-cart {
+      display: flex;
+      position: relative;
+    }
+
+    i {
+      font-size: 2.5rem;
+      color: $bg-color-1;
+      cursor: pointer;
+      margin-right: 2rem;
+    }
+  }
 }
 
 .footer {
-  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: $bg-color-1;
+
+  &-inner {
+    margin: 0 10vw;
+  }
+
+  &-corp {
+    &-inner {
+      display: flex;
+      flex-direction: row;
+
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+
+
+      margin: 1vh 2vh;
+
+      font-size: 1.5vh;
+    }
+  }
 }

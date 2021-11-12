@@ -1,43 +1,63 @@
-<div class="content">
-  <div class="back-to-result">
-    <a class="back-to-result__link" href="/homepage">Вернуться в каталог</a>
+<div class="layout-inner">
+  <div class="navigation">
+    <div class="navigation-inner">
+      <a class="back-to-result__link" href="/homepage">Вернуться в каталог</a>
+    </div>
   </div>
-  <div class="details">
-    <div class="details__image">
-      <img class="details__image-img" src="{{image}}" alt="{{name}}" />
-    </div>
-    <div class="details__info">
-      <ul>
-        <li>
-          <h1>{{name}}</h1>
-        </li>
-        <div class="product__rating">
+  <div class="board">
+    <div class="board-inner" id="board">
+      <div class="board-left" id="board-left-side">
+        <div class="slides">
+          <img
+            class="slides__picture"
+            id="pic"
+            src="{{image}}"
+            alt=""
+          />
         </div>
-        <li>
-          Цена: <strong>${{price}}</strong>
-        </li>
-        <li>
-          Описание:
-          <div>
-            {{description}}
+      </div>
+      <div class="board-right" id="board-right-side">
+        <div class="info-card">
+          <span class="info-card__name">{{name}}</span>
+          <p class="info-card__price">{{price}} ₽</p>
+          <div class="info-card__separator"></div>
+          <div
+            class="info-card-content"
+            id="card-profile"
+            data-action="userClick"
+          >
+            <div class="info-card-container">
+
+              <div class="info-card-rating">
+                <div class="info-card-rating__rate">
+                  <span class="star"></span>
+                </div>
+                <div class="info-card-rating__text">{{rating}}</div>
+
+              </div>
+            </div>
           </div>
-        </li>
-      </ul>
-    </div>
-    <div class="details__action">
-      <ul>
-        <li>
-          Цена: ${{price}}
-        </li>
-        <li>
-          <div class="status">
-            В наличии: {{count_in_stock}}
+          <div class="info-card-btn" id="info-card-btns">
+            <div class="info-card-btn__wrap">
+              <button class="info-card-btn__cart">Добавить в корзину</button>
+              <button class="info-card-btn__like"><svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="info-card__like"
+          ><path
+              d="M12.333 5.673L12 5.97l-.333-.298C10.487 4.618 9.229 4 8 4 4.962 4 3 5.962 3 9c0 4.01 3.244 7.656 8.842 10.975a.4.4 0 0 0 .326-.004C17.772 16.615 21 12.996 21 9c0-3.038-1.962-5-5-5-1.229 0-2.488.618-3.667 1.673zM16 3c3.59 0 6 2.41 6 6 0 4.452-3.44 8.308-9.311 11.824-.394.246-.98.246-1.366.006C5.46 17.353 2 13.466 2 9c0-3.59 2.41-6 6-6 1.39 0 2.746.61 4 1.641C13.254 3.61 14.61 3 16 3z"
+            ></path></svg></button>
+            </div>
           </div>
-        </li>
-        <li>
-          <button class="btn">Добавить в корзину</button>
-        </li>
-      </ul>
+          <div class="info-card__separator"></div>
+          <div class="info-card-about">
+            <span class="info-card-about__span">О товаре</span>
+            <span class="info-card-about__description">{{description}}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

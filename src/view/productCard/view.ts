@@ -18,11 +18,12 @@ export default class ProductCard extends View implements ViewInterface {
     return this.show();
   }
 
-  constructor(className: string, context: Product) {
+  constructor(className: string,  context: Product) {
     super();
     this.setContext(context);
     this.self = <HTMLElement>document.createElement('div');
-    this.self.className = className;
+    /* this.self.className = className;
+    console.log(className); */
     bus.add(connections);
     this.render();
   }
