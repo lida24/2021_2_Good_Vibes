@@ -6,7 +6,7 @@ export const backToCategoryPage: Callback = () => {
 };
 
 export const changeBtn: Callback = () => {
-  const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('btn')[0];
+  const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__cart')[0];
   const cartBtnElem = <HTMLButtonElement>document.createElement('button');
   cartBtnElem.className = 'btn go-to-cart';
   cartBtnElem.innerHTML = 'Перейти в корзину';
