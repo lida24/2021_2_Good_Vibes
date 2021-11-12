@@ -15,6 +15,10 @@ const connections: Connection[] = [
     event: 'cart button click',
     callback: productPage.cartStateRequest,
   },
+  {
+    event: 'productPage shown',
+    callback: productPage.scrollToTop,
+  },
 ];
 
 export default connections;

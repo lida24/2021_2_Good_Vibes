@@ -1,6 +1,9 @@
 import { Callback, Product } from '../../types';
 import ProductCatdList from '../productCard/list';
 
+let categoryName: string;
+const pageYOffset: { [name: string]: number } = {};
+
 export const addProductArray: Callback = (array: Product[]) => {
   const productContainer = document.getElementsByClassName('product-container')[0];
 
@@ -17,4 +20,15 @@ export const addProductArray: Callback = (array: Product[]) => {
   });
 };
 
-export const a = 0;
+export const saveCurrentCategoryName: Callback = () => {
+  const { search } = window.location;
+  [, categoryName] = search.match(/.*name=(\w+)/u);
+};
+
+export const savePageYOffset: Callback = () => {
+  pageYOffset[categoryName] = window.pageYOffset;
+};
+
+export const scrollToPageYOffset: Callback = () => {
+  document.documentElement.scrollTop = pageYOffset[categoryName] || 0;
+};

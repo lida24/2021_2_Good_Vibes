@@ -1,6 +1,8 @@
 import { Callback, Product } from '../../types';
 import ProductCatdList from '../productCard/list';
 
+let pageYOffset: number;
+
 export const addProductArray: Callback = (array: Product[]) => {
   const productContainer = document.getElementsByClassName('product-container')[0];
   productContainer.textContent = '';
@@ -11,4 +13,10 @@ export const addProductArray: Callback = (array: Product[]) => {
   });
 };
 
-export const a = 0;
+export const savePageYOffset: Callback = () => {
+  pageYOffset = window.pageYOffset;
+};
+
+export const scrollToPageYOffset: Callback = () => {
+  document.documentElement.scrollTop = pageYOffset || 0;
+}

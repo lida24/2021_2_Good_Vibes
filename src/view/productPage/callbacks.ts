@@ -22,4 +22,6 @@ export const cartStateRequest: Callback = () => {
   bus.emit('cart state request', undefined);
 };
 
-export const a = 0;
+export const scrollToTop: Callback = () => {
+  document.documentElement.scrollTop = 0;
+};
