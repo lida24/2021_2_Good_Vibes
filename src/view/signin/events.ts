@@ -1,7 +1,7 @@
 import bus from '../../init/bus';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
-  const signUpBtn = <HTMLElement>self.getElementsByClassName('form__link-signup')[0];
+  const signUpBtn = <HTMLElement>self.getElementsByClassName('auth-content-form-registration__link')[0];
   signUpBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
