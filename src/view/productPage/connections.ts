@@ -11,7 +11,6 @@ const connections: Connection[] = [
     callback: productPage.changeBtn,
 
   },
-
   {
     event: 'productPage shown',
     callback: [

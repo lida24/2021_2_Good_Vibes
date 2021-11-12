@@ -39,6 +39,10 @@ export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Pr
   //   viewMap[key].visibility = false;
   // });
 
+  // if (name === currentView) {
+  //   return;
+  // }
+
   if (currentView) {
     Promise.resolve()
       .then(() => bus.emit(`${currentView} hidden`, undefined))
@@ -68,7 +72,11 @@ export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Pr
   }
 
   Promise.resolve()
-    .then(() => document.getElementById('layout').replaceWith(view.self))
+    .then(() => {
+      if (currentView !== name) {
+        document.getElementById('layout').replaceWith(view.self);
+      }
+    })
     .then(() => { currentView = name; })
     .then(() => { if (fullName !== name) bus.emit(`${name} shown`, context); })
     .then(() => bus.emit(`${fullName} shown`, context));
