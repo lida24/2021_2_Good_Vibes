@@ -8,7 +8,7 @@ export const backToCategoryPage: Callback = () => {
 export const changeBtn: Callback = () => {
   const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__cart')[0];
   const cartBtnElem = <HTMLButtonElement>document.createElement('button');
-  cartBtnElem.className = 'btn go-to-cart';
+  cartBtnElem.className = 'info-card-btn__add-cart';
   cartBtnElem.innerHTML = 'Перейти в корзину';
   addBtnParent.replaceWith(cartBtnElem);
   cartBtnElem.addEventListener('click', (event) => {

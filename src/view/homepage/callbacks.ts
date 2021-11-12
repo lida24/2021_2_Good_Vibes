@@ -9,7 +9,7 @@ export const addProductArray: Callback = (array: Product[]) => {
   const productContainer = document.getElementsByClassName('product-table-body')[0];
 
 
-  console.log(productContainer);
+  // console.log(productContainer);
 
   productContainer.textContent = '';
 
