@@ -18,10 +18,14 @@ export const changeBtn: Callback = () => {
   });
 };
 
-export const cartStateRequest: Callback = () => {
-  bus.emit('cart state request', undefined);
-};
+// export const cartStateRequest: Callback = () => {
+//   bus.emit('cart state request', undefined);
+// };
 
 export const scrollToTop: Callback = () => {
   document.documentElement.scrollTop = 0;
+};
+
+export const productCheckInCart: Callback = () => {
+  console.log('product check in cart');
 };

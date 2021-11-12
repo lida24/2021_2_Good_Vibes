@@ -17,8 +17,6 @@ const showSignInContent: Callback = () => {
 };
 
 export const authorizeContentHandle: Callback = () => {
-  console.log('authorizeContentHandle');
-
   if (user.isAutorize()) {
     hideSignInContent(undefined);
     return;
