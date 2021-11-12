@@ -19,8 +19,6 @@ export const scrollToTop: Callback = () => {
 };
 
 export const productCheckInCart: Callback = (context: Product) => {
-  console.log('product check in cart', context);
-
   if (cart.getItem(context.id)) {
     changeBtn(undefined);
   }
