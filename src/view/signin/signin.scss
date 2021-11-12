@@ -1,39 +1,70 @@
-@import '../../scss/style.scss';
+@import "../../scss/main.scss";
 
-.form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+.auth {
+  @include popup(50vh);
 
-  &__container-items {
-    display: flex;
-    flex-direction: column;
-    width: 32rem;
-    padding: 2rem;
-    border: 0.1rem #c0c0c0 solid;
-    border-radius: 0.5rem;
-    list-style-type: none;
-    column-count: 2;
-  }
+  &-content {
+    &-inner {
+      &__title {
+        margin: 4vh 0 2vh;
+        font-size: 3vh;
+      }
 
-  &__container-items li {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    font-size: 1.5rem;
-  }
+      &__error {
+        height: 2vh;
+        width: 30vh;
 
-  & h1 {
-    font-size: 2.5rem;
-  }
+        font-size: 1.5vh;
+        text-align: center;
 
-  &__btn-color {
-    background-color: $twitter-color;
-  }
+        font-style: italic;
+        color: rgb(170, 0, 0);
 
-  &__error {
-    display: none;
+        overflow: hidden;
+      }
+    }
+
+    &-form {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      margin-bottom: 2vh;
+
+      &__input {
+        margin: 1vh 0;
+        padding-left: 1vh;
+        @include input;
+      }
+
+      &__login {
+        @include set-size(25.2vh, 4vh);
+
+      }
+
+      &__password {
+        @include set-size(25.2vh, 4vh);
+
+      }
+
+      &__button {
+        @include blue-button(14vh, 4vh);
+        margin-top: 1.5vh;
+
+      }
+
+      &-registration {
+        font-size: 1.7vh;
+        margin-bottom: 1vh;
+
+        text-align: center;
+
+        &__link {
+          cursor: pointer;
+          text-decoration: underline;
+          color: $purpleColor;
+        }
+      }
+    }
   }
 }

@@ -116,6 +116,8 @@ export const hideHandle: Callback = () => {
   const asideContainerNode = <Node>document.getElementsByClassName('aside-container')[0];
   const asideBtnNone = <Node>document.getElementsByClassName('header-left__aside')[0];
 
+  console.log(asideBtnNone);
+
   document.addEventListener('click', (event) => {
     const targetNode = <Node>event.target;
     const targetElement = <HTMLElement>event.target;
