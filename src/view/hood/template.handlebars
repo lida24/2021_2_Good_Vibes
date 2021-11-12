@@ -1,11 +1,11 @@
-<header class="header">
+{{! <header class="header">
   <div class="aside">
     <button class="aside__button">
       &#9776;
     </button>
-  </div>
-  <div class="logo">
+      <div class="logo">
     <a class="logo__link" href="/homepage"><span>A</span>zot</a>
+  </div>
   </div>
   <div class="icons">
         <a class="icons__link-profile" href="/profile"><i
@@ -17,8 +17,40 @@
           >
           </i></a>
     </div>
+  </div>    margin-top: 7vh;
+</header> }}
+
+<div class="header" id="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="header-left__brand">
+        <button class="header-left__aside">
+          &#9776;
+        </button>
+        <a class="header-left__link" href="/homepage"><span>A</span>zot</a>
+      </div>
+
+    </div>
+
+    <div class="header-right">
+
+      <a class="header-right-avatar" href="/profile"><i class="fas fa-user">
+        </i></a>
+      <a class="header-right-cart" href="/cart"><i class="fas fa-shopping-cart">
+        </i></a>
+    </div>
   </div>
-</header>
-<aside class="aside-container"></aside> 
-<main id="main-container">{{name}}</main>
-<footer class="footer">@2021 GoodVibes</footer>
+</div>
+<aside class="aside-container"></aside>
+<div class="layout" id="layout">
+
+</div>
+<div class="footer" id="footer">
+  <div class="footer-inner">
+    <div class="footer-corp">
+      <div class="footer-corp-inner">
+        <span>© 2021 GoodVibes</span>
+      </div>
+    </div>
+  </div>
+</div>
