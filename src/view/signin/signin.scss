@@ -1,58 +1,13 @@
-/* @import '../../scss/style.scss';
-
-.form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-
-  &__container-items {
-    display: flex;
-    flex-direction: column;
-    width: 32rem;
-    padding: 2rem;
-    border: 0.1rem #c0c0c0 solid;
-    border-radius: 0.5rem;
-    list-style-type: none;
-    column-count: 2;
-  }
-
-  &__container-items li {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    font-size: 1.5rem;
-  }
-
-  & h1 {
-    font-size: 2.5rem;
-  }
-
-  &__btn-color {
-    background-color: $twitter-color;
-  }
-
-  &__error {
-    display: none;
-  }
-} */
-
-
-
 @import "../../scss/main.scss";
 
 .auth {
   @include popup(50vh);
 
   &-content {
-
-
     &-inner {
       &__title {
         margin: 4vh 0 2vh;
         font-size: 3vh;
-
       }
 
       &__error {
@@ -109,45 +64,6 @@
           text-decoration: underline;
           color: $purpleColor;
         }
-      }
-    }
-
-    &-text {
-      width: 100%;
-
-      margin-bottom: 2vh;
-
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-
-      &__separator {
-        width: 30%;
-        @include separator;
-        margin: 0;
-      }
-
-      &__or {
-        margin: 0 3vh;
-      }
-    }
-
-    &-vk {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      margin-bottom: 2vh;
-
-      padding: 1vh 5vh;
-      background-color: transparent;
-      color: rgb(70, 128, 194);
-      border-radius: 1vh;
-      border: 1px solid rgb(70, 128, 194);
-
-      &__logo {
-        @include set-size(2.5vh, 2.5vh);
       }
     }
   }

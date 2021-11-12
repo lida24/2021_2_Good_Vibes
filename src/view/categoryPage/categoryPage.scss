@@ -1,0 +1,21 @@
+@import "../../scss/main.scss";
+
+.product-table {
+  width: 100%;
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 3vh;
+    margin-bottom: 1vh;
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
