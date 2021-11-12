@@ -1,4 +1,5 @@
 import bus from '../../init/bus';
+import cart from '../../object/cart/cart';
 import user from '../../object/user/user';
 import { addToHistory } from '../../rout/callbacks';
 import {
@@ -53,6 +54,13 @@ export const homepage: Callback = () => {
 };
 
 export const showCart: Callback = () => {
+  // bus.emit('show view', { name: 'cart' });
+
+  if (cart.isEmpty()) {
+    bus.emit('show view', { name: 'emptyCart' });
+    return;
+  }
+
   bus.emit('show view', { name: 'cart' });
 };
 

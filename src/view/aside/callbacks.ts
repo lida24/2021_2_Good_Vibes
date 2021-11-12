@@ -11,41 +11,6 @@ export const hide: Callback = () => {
   asideObj.classList.remove('open');
 };
 
-// export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement = (obj, parent) => {
-//   const { name, description } = obj;
-
-//   const child = <HTMLLIElement>document.createElement('li');
-
-//   const href = <HTMLAnchorElement>document.createElement('a');
-//   href.href = '#';
-//   // href.innerHTML = name;
-//   href.className = 'categories__link';
-//   href.text = `${name} ${description}`;
-
-//   const span = <HTMLSpanElement>document.createElement('span');
-//   span.className = 'categories__span-fa';
-
-//   const i = <HTMLElement>document.createElement('i');
-//   i.className = 'fa fa-chevron-right';
-
-//   span.appendChild(i);
-
-//   href.appendChild(span);
-
-//   child.appendChild(href);
-
-//   parent.appendChild(child);
-
-//   href.addEventListener('click', (event) => {
-//     event.preventDefault();
-
-//     // eventBus.emit('category request', name);
-//     bus.emit('category state request', { name });
-//   });
-
-//   return child;
-// };
-
 export const addLiEvents: (li: HTMLLIElement, obj: Category) => void = (li, obj) => {
   const { name } = obj;
 
@@ -95,7 +60,7 @@ export const addLiEvents: (li: HTMLLIElement, obj: Category) => void = (li, obj)
 };
 
 export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement = (obj, parent) => {
-  const { name, description } = obj;
+  const { description } = obj;
 
   const child = <HTMLUListElement>document.createElement('ul');
 
@@ -113,7 +78,6 @@ export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement = 
   if (obj.children) {
     const span = <HTMLAnchorElement>document.createElement('span');
     li.appendChild(span);
-    // span.innerHTML = 'развернуть';
     const i = <HTMLElement>document.createElement('i');
     i.className = 'fa fa-chevron-right';
     span.appendChild(i);
@@ -134,29 +98,34 @@ export const handleObj: (obj: Category, parent: HTMLElement) => void = (obj, par
 };
 
 export const parseCategoryObject: Callback = (obj: Category) => {
-  // console.log('parseCategoryObject');
-
-  // console.log(obj);
-
   const parent = <HTMLElement>document.getElementsByClassName('categories')[0];
 
   handleObj(obj, parent);
 };
 
-export const showSubCategory: Callback = () => {
-  /*   const subcategory = document.getElementsByClassName('categories')[0];
-    const subcategory1 = document.getElementsByClassName('categories')[1];
-    subcategory.classList.toggle('subcategory');
-    subcategory1.classList.toggle('subcategory'); */
-};
-
 export const parse: Callback = (response: AjaxResponse) => {
-  console.log('parse category list', response);
-
   const { responseText } = response;
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .then((parsedObj: Category) => parseCategoryObject(parsedObj))
 
     .catch((err) => console.error('category response parse error', err));
+};
+
+export const hideHandle: Callback = () => {
+  const asideContainerNode = <Node>document.getElementsByClassName('aside-container')[0];
+  const asideBtnNone = <Node>document.getElementsByClassName('header-left__aside')[0];
+
+  document.addEventListener('click', (event) => {
+    const targetNode = <Node>event.target;
+    const targetElement = <HTMLElement>event.target;
+
+    if (targetElement.tagName === 'A') {
+      hide(undefined);
+      return;
+    }
+
+    if (asideContainerNode.contains(targetNode) || asideBtnNone.contains(targetNode)) return;
+    hide(undefined);
+  });
 };

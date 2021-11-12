@@ -38,8 +38,6 @@ export const avatarUploadRequest: Callback = () => {
 };
 
 export const ordersListRequest: Callback = () => {
-  console.log('ordersListRequest');
-
   bus.emit('orders list request', undefined);
 };
 
@@ -52,8 +50,6 @@ export const parseResponse: Callback = (obj: { 'responseText': string }) => {
 };
 
 export const showOrderList: Callback = (obj: Order[]) => {
-  // console.log('showOrderList', obj);
-
   const oldTbody = <HTMLTableRowElement>document.getElementsByClassName('table-body')[0];
   if (oldTbody) {
     oldTbody.remove();
@@ -70,7 +66,10 @@ export const showOrderList: Callback = (obj: Order[]) => {
     tr.appendChild(orderIdCell);
 
     const dateCell = <HTMLTableCellElement>document.createElement('td');
-    dateCell.textContent = item.date;
+    const date = new Date(item.date);
+    // console.log(a.toLocaleDateString(), a.toLocaleTimeString());
+    dateCell.textContent = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+
     tr.appendChild(dateCell);
 
     const costCell = <HTMLTableCellElement>document.createElement('td');

@@ -1,4 +1,5 @@
 import bus from '../init/bus';
+import routMap from './routMap';
 
 class Router {
   private site = 'https://peaceful-bell-d76220.netlify.app';
@@ -11,9 +12,13 @@ class Router {
     this.root = root;
   }
 
-  public register(pathname: string, state: string): Router {
+  private addToList(pathname: string, state: string) {
     this.list[pathname] = state;
     return this;
+  }
+
+  public register() {
+    Object.keys(routMap).forEach((key) => this.addToList(key, routMap[key]));
   }
 
   public add(obj: { 'pathname': string }): void {

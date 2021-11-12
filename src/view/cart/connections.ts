@@ -22,6 +22,7 @@ const connections: Connection[] = [
   {
     event: 'delete product',
     callback: [
+      cart.emptyCartViewControl,
       cart.deleteView,
       cart.calculateSubtotal,
     ],

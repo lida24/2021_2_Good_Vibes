@@ -51,5 +51,14 @@ export const showCartItems: Callback = (array: Product[]) => {
 
 export const deleteView: Callback = (obj: { 'id': number }) => {
   const { id } = obj;
+  CartItemList.list[id].view.self.remove();
+
   delete CartItemList.list[id];
+};
+
+export const emptyCartViewControl: Callback = () => {
+  if (cart.isEmpty()) {
+    // bus.emit('show view', { name: 'emptyCart' });
+    bus.emit('cart state request', undefined);
+  }
 };

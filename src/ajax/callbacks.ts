@@ -11,7 +11,6 @@ import {
 const backendAddress = 'https://ozonback.herokuapp.com';
 
 export const signin = (data) => {
-  console.log(data);
   ajax.post({
     url: `${backendAddress}/login`,
     body: data,
@@ -21,7 +20,6 @@ export const signin = (data) => {
 };
 
 export const signup = (data) => {
-  console.log(data);
   ajax.post({
     url: `${backendAddress}/signup`,
     body: data,
@@ -144,8 +142,6 @@ export const cartConfirm: Callback = (obj: OrderRequest) => {
 };
 
 export const categoryGet: Callback = () => {
-  console.log('category get');
-
   ajax.get({
     url: `${backendAddress}/category`,
   })
@@ -157,8 +153,6 @@ export const categoryGet: Callback = () => {
 
 export const categoryRequest: Callback = (obj: { name: string }) => {
   const { name } = obj;
-
-  console.log('categoryRequest', name);
 
   ajax.get({
     url: `${backendAddress}/category/${name}`,

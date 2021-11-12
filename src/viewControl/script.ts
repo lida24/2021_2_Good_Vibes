@@ -11,6 +11,8 @@ const viewMap: {
   }
 } = {};
 
+let currentView: string;
+
 const add: (name: string, view: ViewInterface) => void = (name: string, view: ViewInterface) => {
   viewMap[name] = {
     view,
@@ -33,9 +35,15 @@ const viewGenerate: (name: string) => void = (name: string) => {
 export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Product }) => {
   const { name, context } = obj;
 
-  Object.keys(viewMap).forEach((key) => {
-    viewMap[key].visibility = false;
-  });
+  // Object.keys(viewMap).forEach((key) => {
+  //   viewMap[key].visibility = false;
+  // });
+
+  if (currentView) {
+    Promise.resolve()
+      .then(() => bus.emit(`${currentView} hidden`, undefined))
+      .then(() => { viewMap[currentView].visibility = false; });
+  }
 
   if (!viewMap[name]) {
     viewGenerate(name);
@@ -61,6 +69,8 @@ export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Pr
 
   Promise.resolve()
     .then(() => document.getElementById('layout').replaceWith(view.self))
+    .then(() => { currentView = name; })
+    .then(() => { if (fullName !== name) bus.emit(`${name} shown`, undefined); })
     .then(() => bus.emit(`${fullName} shown`, undefined));
 };
 

@@ -8,8 +8,6 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
     event.preventDefault();
 
     bus.emit('delete button click', context);
-
-    self.remove();
   });
 
   // --------------
