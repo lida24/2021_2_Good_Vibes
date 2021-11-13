@@ -8,7 +8,7 @@ export const addressStateRequest: Callback = () => {
 };
 
 export const productArrayRequest: Callback = () => {
-  const itemsContainer = <HTMLElement>document.getElementsByClassName('cart-list__items')[0];
+  const itemsContainer = <HTMLElement>document.getElementsByClassName('basket__table_body')[0];
   itemsContainer.textContent = '';
   bus.emit('product array request', cart.get());
 };
@@ -37,13 +37,18 @@ export const calculateSubtotal: Callback = () => {
 };
 
 export const showCartItems: Callback = (array: Product[]) => {
-  const itemsContainer = <HTMLElement>document.getElementsByClassName('cart-list__items')[0];
+  const itemsContainer = <HTMLElement>document.getElementsByClassName('basket__table_body')[0];
 
   const viewArray = CartItemList.viewArray(array);
+
+  // console.log(viewArray);
+
   viewArray.forEach((itemView, index) => {
+    // console.log(itemView.self);
+
     itemsContainer.appendChild(itemView.self);
     const { number } = cart.getItem(array[index].id);
-    const numberElem = <HTMLInputElement>itemView.self.getElementsByClassName('cart__qty-select')[0];
+    const numberElem = <HTMLInputElement>itemView.self.getElementsByClassName('spinner__count')[0];
     numberElem.value = number.toString();
   });
   calculateSubtotal(undefined);
