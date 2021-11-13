@@ -7,8 +7,16 @@ export const signOutRequest: Callback = () => {
 };
 
 export const fieldsFill: Callback = () => {
-  const loginInput = <HTMLInputElement>document.getElementsByClassName('form__login')[0];
-  const emailInput = <HTMLInputElement>document.getElementsByClassName('form__email')[0];
+  // const loginInput = <HTMLInputElement>document.getElementsByClassName('form__login')[0];
+  // const emailInput = <HTMLInputElement>document.getElementsByClassName('form__email')[0];
+  // const photo = <HTMLImageElement>document.getElementsByClassName('form__photo')[0];
+
+  // loginInput.value = user.username;
+  // emailInput.value = user.email;
+  // photo.src = user.avatar;
+
+  const loginInput = <HTMLInputElement>document.getElementById('profile-name');
+  const emailInput = <HTMLInputElement>document.getElementById('profile-public_email');
   const photo = <HTMLImageElement>document.getElementsByClassName('form__photo')[0];
 
   loginInput.value = user.username;
@@ -17,11 +25,21 @@ export const fieldsFill: Callback = () => {
 };
 
 export const profileUploadRequest: Callback = () => {
-  const usernameInput = <HTMLInputElement>document.getElementsByClassName('form__login')[0];
-  const emailInput = <HTMLInputElement>document.getElementsByClassName('form__email')[0];
+  // const usernameInput = <HTMLInputElement>document.getElementsByClassName('form__login')[0];
+  // const emailInput = <HTMLInputElement>document.getElementsByClassName('form__email')[0];
+
+  // const obj = {
+  //   username: usernameInput.value.trim(),
+  //   email: emailInput.value.trim(),
+  // };
+
+  // bus.emit('profile upload request', obj);
+
+  const loginInput = <HTMLInputElement>document.getElementById('profile-name');
+  const emailInput = <HTMLInputElement>document.getElementById('profile-public_email');
 
   const obj = {
-    username: usernameInput.value.trim(),
+    username: loginInput.value.trim(),
     email: emailInput.value.trim(),
   };
 

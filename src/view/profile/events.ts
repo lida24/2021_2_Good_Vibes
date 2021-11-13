@@ -51,8 +51,10 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // --------------------------
-  const updateBtn = <HTMLButtonElement>self.getElementsByClassName('form__btn-color')[0];
-  updateBtn.addEventListener('click', (event) => {
+  // const updateBtn = <HTMLButtonElement>self.getElementsByClassName('form__btn-color')[0];
+  // updateBtn.addEventListener('click', (event) => {
+
+  self.addEventListener('submit', (event) => {
     event.preventDefault();
 
     bus.emit('update button click', undefined);
