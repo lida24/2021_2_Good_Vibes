@@ -37,6 +37,7 @@ const connections: Connection[] = [
   },
   {
     event: 'close button click',
+    // callback: signUp.savedState,
     callback: signUp.close,
   },
 ];

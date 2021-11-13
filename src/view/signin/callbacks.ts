@@ -1,6 +1,8 @@
 import bus from '../../init/bus';
 import { Callback } from '../../types';
 import validate from '../../validator/inputData';
+// import redirect from '../../dispatcher/redirect';
+import state from '../../dispatcher/state';
 
 export const SignUpShow: Callback = () => {
   bus.emit('signUp state request', undefined);
@@ -65,4 +67,14 @@ export const handleSignInDenied: Callback = (obj: { 'responseText': string }) =>
 
 export const close: Callback = () => {
   bus.emit('homepage state request', undefined);
+};
+
+export const savedState: Callback = () => {
+  // const state = redirect.popSavedState();
+
+  // bus.emit(`${state} state request`, undefined);
+
+  console.log('saved state', state.get());
+  // bus.emit(`${state.get()} state request`, undefined);
+  bus.emit('saved state request', undefined);
 };

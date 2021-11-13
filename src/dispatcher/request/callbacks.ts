@@ -2,7 +2,8 @@ import bus from '../../init/bus';
 import cart from '../../object/cart/cart';
 import user from '../../object/user/user';
 import { Callback } from '../../types';
-import redirect from '../redirect';
+// import redirect from '../redirect';
+import state from '../state';
 
 export const signIn: Callback = () => {
   if (user.isAutorize()) {
@@ -10,7 +11,7 @@ export const signIn: Callback = () => {
     return;
   }
 
-  bus.emit('signIn state confirmed', { pathname: '/signin' });
+  bus.emit('signIn state confirmed', { state: 'signin', pathname: '/signin' });
 };
 
 export const signUp: Callback = () => {
@@ -19,7 +20,7 @@ export const signUp: Callback = () => {
     return;
   }
 
-  bus.emit('signUp state confirmed', { pathname: '/signup' });
+  bus.emit('signUp state confirmed', { state: 'signUp', pathname: '/signup' });
 };
 
 export const profile: Callback = () => {
@@ -28,7 +29,7 @@ export const profile: Callback = () => {
     return;
   }
 
-  bus.emit('profile state confirmed', { pathname: '/profile' });
+  bus.emit('profile state confirmed', { state: 'profile', pathname: '/profile' });
 };
 
 export const homepage: Callback = () => {
@@ -40,7 +41,7 @@ export const product: Callback = (obj: { 'id': number }) => {
 };
 
 export const cartState: Callback = () => {
-  bus.emit('cart state confirmed', { pathname: '/cart' });
+  bus.emit('cart state confirmed', { state: 'cart', pathname: '/cart' });
 };
 
 export const address: Callback = () => {
@@ -54,7 +55,7 @@ export const address: Callback = () => {
     return;
   }
 
-  bus.emit('address state confirmed', { pathname: '/address' });
+  bus.emit('address state confirmed', { state: 'address', pathname: '/address' });
 };
 
 export const category: Callback = (obj: { name: string }) => {
@@ -72,7 +73,7 @@ export const payment: Callback = () => {
     return;
   }
 
-  bus.emit('payment state confirmed', { pathname: '/payment' });
+  bus.emit('payment state confirmed', { state: 'payment', pathname: '/payment' });
 };
 
 export const confirmation: Callback = () => {
@@ -86,11 +87,13 @@ export const confirmation: Callback = () => {
     return;
   }
 
-  bus.emit('confirmation state confirmed', { pathname: '/confirmation' });
+  bus.emit('confirmation state confirmed', { state: 'confirmation', pathname: '/confirmation' });
 };
 
 export const savedState: Callback = () => {
-  const state = redirect.popSavedState();
+  // const state = redirect.popSavedState();
 
-  bus.emit(`${state} state request`, undefined);
+  console.log(state.get());
+
+  bus.emit(`${state.get()} state request`, undefined);
 };

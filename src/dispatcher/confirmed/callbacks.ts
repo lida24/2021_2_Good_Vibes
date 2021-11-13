@@ -5,6 +5,7 @@ import { addToHistory } from '../../rout/callbacks';
 import {
   AjaxResponse, Callback, Product,
 } from '../../types';
+import state from '../state';
 
 export const showSignIn: Callback = () => {
   bus.emit('show view', { name: 'signin' });
@@ -77,7 +78,7 @@ export const productStateConfirmed: Callback = (obj: { 'responseText': string })
 
   Promise.resolve()
     .then(() => JSON.parse(responseText))
-    .then((parseObj: Product) => bus.emit('product state confirmed', { pathname: `/product?id=${parseObj.id}`, context: parseObj }))
+    .then((parseObj: Product) => bus.emit('product state confirmed', { pathname: `/product?id=${parseObj.id}`, context: parseObj, state: 'product' }))
     .catch((err) => console.error('product page response parse error', err));
 };
 
@@ -114,4 +115,11 @@ export const payment: Callback = () => {
 
 export const confirmation: Callback = () => {
   bus.emit('show view', { name: 'confirmationPage' });
+};
+
+export const saveState: Callback = (obj: { 'state': string }) => {
+  console.log(obj);
+  const currentState = obj.state;
+
+  state.set(currentState);
 };

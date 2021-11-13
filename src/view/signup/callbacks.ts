@@ -1,6 +1,7 @@
 import bus from '../../init/bus';
 import { Callback } from '../../types';
 import validate from '../../validator/inputData';
+// import redirect from '../../dispatcher/redirect';
 
 export const SignInShow: Callback = () => {
   bus.emit('signIn state request', undefined);
@@ -80,4 +81,11 @@ export const cleanInputs: Callback = () => {
 
 export const close: Callback = () => {
   bus.emit('homepage state request', undefined);
+};
+
+export const savedState: Callback = () => {
+  // const state = redirect.popSavedState();
+
+  // bus.emit(`${state} state request`, undefined);
+  bus.emit('saved state request', undefined);
 };
