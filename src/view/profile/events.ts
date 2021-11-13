@@ -1,7 +1,7 @@
 import bus from '../../init/bus';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
-  const signOutBtn = self.getElementsByClassName('form__signout-button')[0];
+  const signOutBtn = self.getElementsByClassName('logout-btn')[0];
   signOutBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -54,7 +54,8 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   // const updateBtn = <HTMLButtonElement>self.getElementsByClassName('form__btn-color')[0];
   // updateBtn.addEventListener('click', (event) => {
 
-  self.addEventListener('submit', (event) => {
+  const updateBtn = <HTMLButtonElement>self.getElementsByClassName('update-btn')[0];
+  updateBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
     bus.emit('update button click', undefined);
