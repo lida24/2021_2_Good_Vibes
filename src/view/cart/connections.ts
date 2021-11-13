@@ -4,12 +4,14 @@ import * as cart from './callbacks';
 const connections: Connection[] = [
   {
     event: 'checkout button click',
-    callback: cart.addressStateRequest,
+    // callback: cart.addressStateRequest,
+    callback: cart.confirmAjaxRequest,
   },
   {
     event: 'cart shown',
     callback: [
       cart.productArrayRequest,
+      cart.showEmail,
       cart.calculateSubtotal,
     ],
   },
