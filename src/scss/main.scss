@@ -181,6 +181,7 @@ body {
   color: rgb(255, 255, 255);
   background-color: $twitter-color;
   outline: none;
+  text-transform: uppercase;
 
   &:hover {
     background-color: $purpleColor;
