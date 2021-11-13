@@ -133,7 +133,7 @@ const connections: Connection[] = [
   },
   {
     event: 'order confirmed',
-    callback: request.profile,
+    callback: request.orders,
   },
   {
     event: 'orders state confirmed',
