@@ -137,6 +137,7 @@
   flex: 0 0 140px;
   padding: 0 15px;
   width: 140px;
+  justify-content: center;
 }
 
 .basket__table_cell.basket__table_cell--sum {
@@ -225,12 +226,12 @@
   display: inline !important;
 }
 
-.basket__table_cell.basket__table_cell--count {
-  -webkit-box-flex: 0;
-  flex: 0 0 140px;
-  padding: 0 15px;
-  width: 140px;
-}
+// .basket__table_cell.basket__table_cell--count {
+//   -webkit-box-flex: 0;
+//   flex: 0 0 140px;
+//   padding: 0 15px;
+//   width: 140px;
+// }
 
 .spinner {
   -webkit-box-align: center;
@@ -265,13 +266,17 @@
 }
 
 .spinner__count {
-  width: 30px;
+  width: 50px;
   height: 30px;
   background-color: #fff;
   border: 1px solid #d1d1d1;
   line-height: 30px;
-  padding: 0 5px;
+  padding: 0;
   text-align: center;
+
+  &::-webkit-inner-spin-button{
+    opacity:1; // magic!
+  } 
 }
 
 .spinner>* {
