@@ -1,4 +1,4 @@
-<div class="profile__content">
+{{!-- <div class="profile__content">
   <div class="profile__info">
     <div class="form">
       <form class="form__container">
@@ -71,4 +71,58 @@
       </tbody>
     </table>
   </div>
+</div> --}}
+
+
+        
+
+<div class="container personal-cab">
+    <h1 class="g-page-title">Профиль</h1>
+    <ul id="w0" class="personal-cab-nav nav">
+<li class="active"><a class="personal-cab-list__link" href="/user/settings/profile">Контактная информация</a></li>
+<li><a class="personal-cab-list__link" href="/user/orders/index">Заказы</a></li></ul></div>
+    </div>
+    <div class="form">
+
+<div class="layout-inner">
+
+ <div class="form__changePhoto">
+            <li>
+              <div class="form__pic">
+                <img class="form__photo" src="" />
+                <label class="form__uploadBtn" for="file">Загрузить фото</label>
+              </div>
+              <input class="form__uploadFile" type="file" />
+            </li>
+          </div>
+  <section>
+    <div class="container">
+        <form id="profile-form" class="form-group" action="/user/settings/profile" method="post">
+<label class="control-label" for="profile-name">Имя</label>
+<input type="text" id="profile-name" class="form-control" name="Profile[name]" value="">
+
+<div class="help-block"></div>
+</div>        <div class="form-group field-profile-public_email">
+<label class="control-label" for="profile-public_email">Email</label>
+<input type="text" id="profile-public_email" class="form-control" name="Profile[public_email]" value="">
+
+<div class="help-block"></div>
+</div>       
+
+        <div class="form-group">
+          <li>
+            <a href="/update">
+                <button type="submit" class="g-btn g-btn--black">Обновить</button>
+                </a>
+          </li>
+          <li>
+            <a href="/logout">
+                <button type="submit" class="g-btn g-btn--black">Выйти</button>  
+                </a>
+          </li>
+        </div>
+
+       </div>
+
+</section>
 </div>
