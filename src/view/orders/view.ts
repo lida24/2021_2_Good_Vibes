@@ -6,12 +6,12 @@ import bus from '../../init/bus';
 import initEvents from './events'; */
 import './orders.scss';
 
-export default class Orders extends Profile implements ViewInterface {
+export default class Orders extends View implements ViewInterface {
   private async renderHTML() {
     const html = compiledTemplate(this.context);
     this.self.innerHTML = html;
-/*     initEvents(this.self); */
-  } 
+    /*     initEvents(this.self); */
+  }
 
   public async render(): Promise<void> {
     await this.renderHTML();
