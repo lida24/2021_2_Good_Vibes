@@ -3,7 +3,7 @@ import user from '../../../object/user/user';
 import { Callback } from '../../../types';
 
 export const signInStateRequest: Callback = () => {
-  bus.emit('signIn state request', undefined);
+  bus.emit('homepage state request', undefined);
 };
 
 const hideSignInContent: Callback = () => {

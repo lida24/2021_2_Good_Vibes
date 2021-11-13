@@ -6,10 +6,10 @@ const connections: Connection[] = [
     event: 'empty cart link click',
     callback: emptyCart.signInStateRequest,
   },
-  {
-    event: 'emptyCart shown',
-    callback: emptyCart.authorizeContentHandle,
-  },
+  // {
+  //   event: 'emptyCart shown',
+  //   callback: emptyCart.authorizeContentHandle,
+  // },
 ];
 
 export default connections;
