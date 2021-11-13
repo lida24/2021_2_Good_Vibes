@@ -149,6 +149,9 @@ td {
 .form {
   width: 500px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &__changePhoto {
     margin-bottom: 16vh;
