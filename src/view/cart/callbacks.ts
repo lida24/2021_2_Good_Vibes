@@ -51,6 +51,10 @@ export const calculateSubtotal: Callback = () => {
 export const showCartItems: Callback = (array: Product[]) => {
   const itemsContainer = <HTMLElement>document.getElementsByClassName('basket__table_body')[0];
 
+  if (!itemsContainer) {
+    return;
+  }
+
   const viewArray = CartItemList.viewArray(array);
 
   // console.log(viewArray);

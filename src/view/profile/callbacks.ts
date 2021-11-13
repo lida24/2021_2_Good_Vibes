@@ -115,3 +115,7 @@ export const showOrderList: Callback = (obj: Order[]) => {
   const table = <HTMLTableElement>document.getElementsByClassName('table')[0];
   table.appendChild(tbody);
 };
+
+export const ordersStateRequest: Callback = () => {
+  bus.emit('orders state request', undefined);
+};

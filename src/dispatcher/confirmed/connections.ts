@@ -135,6 +135,13 @@ const connections: Connection[] = [
     event: 'order confirmed',
     callback: request.profile,
   },
+  {
+    event: 'orders state confirmed',
+    callback: [
+      confirm.orders,
+      addToHistory,
+    ],
+  },
 ];
 
 export default connections;

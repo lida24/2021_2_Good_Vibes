@@ -60,6 +60,24 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
     bus.emit('update button click', undefined);
   });
+
+  // -------------------------
+  const ordersLink = <HTMLAnchorElement>self.getElementsByClassName('orders-link')[0];
+  // console.log(ordersLink);
+  ordersLink.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('orders link click', undefined);
+  });
+
+  // -------------------------
+  const profileLink = <HTMLAnchorElement>self.getElementsByClassName('profile-link')[0];
+  // console.log(ordersLink);
+  profileLink.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('profile link click', undefined);
+  });
 };
 
 export default initEvents;

@@ -99,3 +99,7 @@ export const savedState: Callback = () => {
 
   // bus.emit(`${state.get()} state request`, undefined);
 };
+
+export const orders: Callback = () => {
+  bus.emit('orders state confirmed', { state: 'orders', pathname: '/orders' });
+};
