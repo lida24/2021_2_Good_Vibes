@@ -13,12 +13,14 @@
 
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
 
   &__img {
-    height: 60%;
+    width: 135px;
     object-fit: cover;
+    height: 180px;
   }
 
 
