@@ -10,7 +10,7 @@ const connections: Connection[] = [
     event: 'profile shown',
     callback: [
       profile.fieldsFill,
-      profile.ordersListRequest,
+      // profile.ordersListRequest,
     ],
   },
   {
@@ -20,14 +20,14 @@ const connections: Connection[] = [
       profile.avatarUploadRequest,
     ],
   },
-  {
-    event: 'orders list confirmed',
-    callback: profile.parseResponse,
-  },
-  {
-    event: 'show orders list',
-    callback: profile.showOrderList,
-  },
+  // {
+  //   event: 'orders list confirmed',
+  //   callback: profile.parseResponse,
+  // },
+  // {
+  //   event: 'show orders list',
+  //   callback: profile.showOrderList,
+  // },
 ];
 
 export default connections;

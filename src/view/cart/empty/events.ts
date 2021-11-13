@@ -1,7 +1,7 @@
 import bus from '../../../init/bus';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
-  const emptyCartLink = <HTMLElement>self.getElementsByClassName('empty-cart-link')[0];
+  const emptyCartLink = <HTMLElement>self.getElementsByClassName('basket-empty-text__link')[0];
   emptyCartLink.addEventListener('click', (event) => {
     event.preventDefault();
 

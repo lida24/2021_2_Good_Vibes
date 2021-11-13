@@ -18,9 +18,8 @@ export default class InfoCardBtn extends View {
 
   constructor() {
     super();
-    this.self = <HTMLElement>document.createElement('class');
-    this.self.className = 'layout layout__main';
-    this.self.id = 'layout';
+    this.self = <HTMLElement>document.createElement('div');
+    this.self.className = 'info-card-btn';
     // bus.add(connections);
     this.render();
   }

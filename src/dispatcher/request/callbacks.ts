@@ -2,8 +2,8 @@ import bus from '../../init/bus';
 import cart from '../../object/cart/cart';
 import user from '../../object/user/user';
 import { Callback } from '../../types';
-// import redirect from '../redirect';
-import state from '../state';
+import redirect from '../redirect';
+// import state from '../state';
 
 export const signIn: Callback = () => {
   if (user.isAutorize()) {
@@ -91,9 +91,11 @@ export const confirmation: Callback = () => {
 };
 
 export const savedState: Callback = () => {
-  // const state = redirect.popSavedState();
+  const state = redirect.popSavedState();
 
-  console.log(state.get());
+  bus.emit(`${state} state request`, undefined);
 
-  bus.emit(`${state.get()} state request`, undefined);
+  // console.log(state.get());
+
+  // bus.emit(`${state.get()} state request`, undefined);
 };
