@@ -23,7 +23,7 @@ const connections: Connection[] = [
   {
     event: 'profile state confirmed',
     callback: [
-      confirm.saveState,
+      // confirm.saveState,
       confirm.showProfile,
       addToHistory,
     ],
@@ -31,7 +31,7 @@ const connections: Connection[] = [
   {
     event: 'homepage state confirmed',
     callback: [
-      confirm.saveState,
+      // confirm.saveState,
       confirm.showHomepage,
       addToHistory,
     ],
@@ -76,7 +76,7 @@ const connections: Connection[] = [
   {
     event: 'product state confirmed',
     callback: [
-      confirm.saveState,
+      // confirm.saveState,
       confirm.showProductPage,
       addToHistory,
     ],
@@ -84,7 +84,7 @@ const connections: Connection[] = [
   {
     event: 'cart state confirmed',
     callback: [
-      confirm.saveState,
+      // confirm.saveState,
       confirm.showCart,
       addToHistory,
     ],
@@ -99,7 +99,7 @@ const connections: Connection[] = [
   {
     event: 'category state confirmed',
     callback: [
-      confirm.saveState,
+      // confirm.saveState,
       confirm.showCategoryPage,
     ],
   },
@@ -110,7 +110,7 @@ const connections: Connection[] = [
   {
     event: 'address state confirmed',
     callback: [
-      confirm.saveState,
+      // confirm.saveState,
       confirm.address,
       addToHistory,
     ],
@@ -118,7 +118,7 @@ const connections: Connection[] = [
   {
     event: 'payment state confirmed',
     callback: [
-      confirm.saveState,
+      // confirm.saveState,
       confirm.payment,
       addToHistory,
     ],
@@ -126,7 +126,7 @@ const connections: Connection[] = [
   {
     event: 'confirmation state confirmed',
     callback: [
-      confirm.saveState,
+      // confirm.saveState,
       confirm.confirmation,
       addToHistory,
     ],

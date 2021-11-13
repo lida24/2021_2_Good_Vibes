@@ -5,7 +5,7 @@ import { addToHistory } from '../../rout/callbacks';
 import {
   AjaxResponse, Callback, Product,
 } from '../../types';
-import state from '../state';
+// import state from '../state';
 
 export const showSignIn: Callback = () => {
   bus.emit('show view', { name: 'signin' });
@@ -117,9 +117,9 @@ export const confirmation: Callback = () => {
   bus.emit('show view', { name: 'confirmationPage' });
 };
 
-export const saveState: Callback = (obj: { 'state': string }) => {
-  console.log(obj);
-  const currentState = obj.state;
+// export const saveState: Callback = (obj: { 'state': string }) => {
+//   console.log(obj);
+//   const currentState = obj.state;
 
-  state.set(currentState);
-};
+//   state.set(currentState);
+// };
