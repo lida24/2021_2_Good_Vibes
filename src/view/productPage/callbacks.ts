@@ -10,8 +10,17 @@ export const backToCategoryPage: Callback = () => {
 export const changeBtn: Callback = () => {
   const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__cart')[0];
 
-  const cartBtnElem = new InfoCardBtn();
-  addBtnParent.replaceWith(cartBtnElem.self);
+  const cartBtnElem = <HTMLButtonElement>document.createElement('button');
+  cartBtnElem.className = 'info-card-btn__add-cart';
+  cartBtnElem.innerHTML = 'Перейти в корзину';
+
+  /*  const cartBtnElem = new InfoCardBtn(); */
+  addBtnParent.replaceWith(cartBtnElem);
+  cartBtnElem.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('cart button click', undefined);
+  });
 };
 
 export const scrollToTop: Callback = () => {
