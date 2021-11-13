@@ -1,5 +1,6 @@
 import bus from '../../init/bus';
 import { AjaxResponse, Callback, Category } from '../../types';
+import categoryList from '../../object/category/list';
 
 export const show: Callback = () => {
   const asideObj = <HTMLElement>document.getElementsByClassName('aside-container')[0];
@@ -12,7 +13,7 @@ export const hide: Callback = () => {
 };
 
 export const addLiEvents: (li: HTMLLIElement, obj: Category) => void = (li, obj) => {
-  const { name } = obj;
+  const { name, description } = obj;
 
   li.addEventListener('click', (event) => {
     event.preventDefault();
@@ -20,7 +21,7 @@ export const addLiEvents: (li: HTMLLIElement, obj: Category) => void = (li, obj)
     const target = <HTMLElement>event.target;
 
     if (target.tagName === 'A') {
-      bus.emit('category state request', { name });
+      bus.emit('category state request', { name, description });
       return;
     }
 
@@ -60,7 +61,10 @@ export const addLiEvents: (li: HTMLLIElement, obj: Category) => void = (li, obj)
 };
 
 export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement = (obj, parent) => {
-  const { description } = obj;
+  const { name, description } = obj;
+
+  categoryList[name] = description;
+  // console.log(categoryList);
 
   const child = <HTMLUListElement>document.createElement('ul');
 

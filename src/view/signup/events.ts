@@ -1,7 +1,7 @@
 import bus from '../../init/bus';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
-  const signInBtn = <HTMLElement>self.getElementsByClassName('form__link-signin')[0];
+  const signInBtn = <HTMLElement>self.getElementsByClassName('auth-content-form-signin__link')[0];
   signInBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -13,6 +13,13 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
 
     bus.emit('signUp submit', undefined);
+  });
+
+  const closeBtn = <HTMLElement>self.getElementsByClassName('auth-content-inner__close')[0];
+  closeBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('close button click', undefined);
   });
 };
 

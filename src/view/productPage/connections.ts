@@ -12,12 +12,11 @@ const connections: Connection[] = [
 
   },
   {
-    event: 'cart button click',
-    callback: productPage.cartStateRequest,
-  },
-  {
     event: 'productPage shown',
-    callback: productPage.scrollToTop,
+    callback: [
+      productPage.productCheckInCart,
+      productPage.scrollToTop,
+    ],
   },
 ];
 

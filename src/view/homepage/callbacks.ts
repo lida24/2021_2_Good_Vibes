@@ -4,14 +4,10 @@ import ProductCatdList from '../productCard/list';
 let pageYOffset: number;
 
 export const addProductArray: Callback = (array: Product[]) => {
-  // const productContainer = document.getElementsByClassName('layout-inner')[0];
-
   const productContainer = document.getElementsByClassName('product-table-body')[0];
-
-
-  // console.log(productContainer);
-
   productContainer.textContent = '';
+
+  array.sort((a, b) => a.id - b.id);
 
   const viewArray = ProductCatdList.viewArray(array);
   viewArray.forEach((cardView) => {
@@ -25,4 +21,4 @@ export const savePageYOffset: Callback = () => {
 
 export const scrollToPageYOffset: Callback = () => {
   document.documentElement.scrollTop = pageYOffset || 0;
-}
+};

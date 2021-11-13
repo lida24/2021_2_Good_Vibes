@@ -3,7 +3,7 @@ import { Product } from '../../../types';
 
 const initEvents: (self: HTMLElement, context: Product) => void = (self, context) => {
   // ----------------
-  const deleteBtn = <HTMLButtonElement>self.getElementsByClassName('cart__delete')[0];
+  const deleteBtn = <HTMLButtonElement>self.getElementsByClassName('basket__table_remove')[0];
   deleteBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -11,7 +11,7 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
   });
 
   // --------------
-  const nameHref = <HTMLAnchorElement>self.getElementsByClassName('link')[0];
+  const nameHref = <HTMLAnchorElement>self.getElementsByClassName('basket__table_position-link')[0];
 
   nameHref.addEventListener('click', (event) => {
     event.preventDefault();
@@ -20,7 +20,7 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
   });
 
   // ----------------
-  const numberInput = <HTMLInputElement>self.getElementsByClassName('cart__qty-select')[0];
+  const numberInput = <HTMLInputElement>self.getElementsByClassName('spinner__count')[0];
   numberInput.addEventListener('change', (event) => {
     event.preventDefault();
 

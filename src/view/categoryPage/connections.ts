@@ -15,6 +15,8 @@ const connections: Connection[] = [
     callback: [
       categoryPage.saveCurrentCategoryName,
       categoryPage.scrollToPageYOffset,
+      // categoryPage.changeCategoryName,
+      categoryPage.changeCategoryName,
     ],
   },
 ];

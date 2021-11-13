@@ -2,7 +2,7 @@ import bus from '../../init/bus';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
   // ------------------
-  const logoBtn = <HTMLAnchorElement>self.getElementsByClassName('header-left__brand')[0];
+  const logoBtn = <HTMLAnchorElement>self.getElementsByClassName('header-left__link')[0];
   logoBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
