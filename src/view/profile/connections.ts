@@ -28,6 +28,14 @@ const connections: Connection[] = [
   //   event: 'show orders list',
   //   callback: profile.showOrderList,
   // },
+  {
+    event: 'orders link click',
+    callback: profile.ordersStateRequest,
+  },
+  // {
+  //   event: 'profile link click',
+  //   callback: profile.
+  // }
 ];
 
 export default connections;

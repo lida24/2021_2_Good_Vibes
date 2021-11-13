@@ -117,6 +117,10 @@ export const confirmation: Callback = () => {
   bus.emit('show view', { name: 'confirmationPage' });
 };
 
+export const orders: Callback = () => {
+  bus.emit('show view', { name: 'orders' });
+};
+
 // export const saveState: Callback = (obj: { 'state': string }) => {
 //   console.log(obj);
 //   const currentState = obj.state;

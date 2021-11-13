@@ -46,6 +46,10 @@ const connections: Connection[] = [
   //   event: 'saved state request',
   //   callback: request.savedState,
   // },
+  {
+    event: 'orders state request',
+    callback: request.orders,
+  },
 ];
 
 export default connections;
