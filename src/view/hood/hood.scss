@@ -16,8 +16,9 @@
   &-inner {
     margin: 0 10vw;
     margin-top: 7vh;
+    min-height: calc(100vh - 44px);
     // height: 34.9vw;
-    @include set-size(100%, 100%);
+    @include set-size(80%, 100%);
   }
 }
 
