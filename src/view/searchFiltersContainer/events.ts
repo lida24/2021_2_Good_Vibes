@@ -6,7 +6,6 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   const maxPrice = <HTMLInputElement>self.getElementsByClassName('max-price-input')[0];
   const minRating = <HTMLInputElement>self.getElementsByClassName('min-rating-input')[0];
   const maxRating = <HTMLInputElement>self.getElementsByClassName('max-rating-input')[0];
-  const radioArray = <HTMLInputElement>self.getElementsByClassName('order-radio')[0];
 
   const input: {
     minPrice: HTMLInputElement,
@@ -19,8 +18,6 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     minRating,
     maxRating,
   };
-
-  radioArray.checked = true;
 
   // ----------------
   Object.values(input).forEach((inputElement) => {
@@ -57,6 +54,24 @@ const initEvents: (self: HTMLElement) => void = (self) => {
       searchParams[key] = +inputElement.value;
     });
   });
+
+  // ------------------
+  const radioArray = self.getElementsByClassName('order-radio');
+  const firstRadio = <HTMLInputElement>radioArray[0];
+  firstRadio.checked = true;
+
+  Array.from(radioArray).forEach((element: HTMLInputElement) => {
+    element.addEventListener('change', () => {
+      if (element.checked) {
+        const type = <'asc' | 'desc'>element.value.toString();
+        searchParams.type = type;
+        return false;
+      }
+      return true;
+    });
+  });
+
+  console.log(searchParams.type);
 };
 
 export default initEvents;

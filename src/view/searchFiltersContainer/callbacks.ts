@@ -14,18 +14,6 @@ export const getParams: Callback = (array: Product[]) => {
   }
 
   // ------------------
-  Array.from(orderInput).forEach((element: HTMLInputElement) => {
-    if (element.checked) {
-      const type = <'asc' | 'desc'>element.value.toString();
-      searchParams.type = type;
-      return false;
-    }
-    return true;
-  });
-
-  console.log(searchParams.type);
-
-  // ------------------
   const priceList = array.map((item) => item.price).sort((a, b) => a - b);
   const ratingList = array.map((item) => item.rating).sort((a, b) => a - b);
 
