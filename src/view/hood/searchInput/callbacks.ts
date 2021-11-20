@@ -54,4 +54,9 @@ export const showSuggests: Callback = (suggests: Suggests) => {
   });
 };
 
-export const a = 0;
+export const deleteSuggests: Callback = () => {
+  Object.keys(suggestList).forEach((key) => {
+    suggestList[key].erase();
+    delete suggestList[key];
+  });
+};
