@@ -6,6 +6,7 @@ import {
   Callback,
   CartItem,
   OrderRequest,
+  Suggests,
 } from '../types';
 
 const backendAddress = 'https://ozonback.herokuapp.com';
@@ -215,4 +216,72 @@ export const orderList: Callback = () => {
 
     .then((response: AjaxResponse) => bus.emit('orders list confirmed', response))
     .catch((response: AjaxResponse) => bus.emit('orders list denied', response));
+};
+
+// =======================
+export const comments: Callback = (obj: { 'id': number }) => {
+  const { id } = obj;
+
+  console.log('ajax comments request', id);
+
+  const fakeAfComments = [
+    {
+      username: 'user1',
+      rating: 4,
+      text: 'user1 fakeaf comment text',
+    },
+    {
+      username: 'user2',
+      rating: 2,
+      text: 'user2 fakeaf comment text',
+    },
+  ];
+
+  ajax.get({
+    url: `${backendAddress}/comments?product_id=${id}`,
+  })
+
+    .then((response: Response) => console.log('comments request confirmed', response))
+    .catch((response: Response) => console.log('comments request denied', response))
+
+    .then(() => bus.emit('comments request confirmed', fakeAfComments));
+};
+
+const fakeafSuggests: Suggests = {
+  products: [
+    {
+      name: 'product 1',
+      id: 863,
+      image: 'empty',
+    },
+    {
+      name: 'product 2',
+      id: 876,
+      image: 'empty',
+    },
+  ],
+  categories: [
+    {
+      name: 'CLOTHES_MEN',
+      description: 'category 1',
+    },
+    {
+      name: 'WATCHES',
+      description: 'category 2',
+    },
+  ],
+};
+
+export const suggests: Callback = (obj: { 'str': string }) => {
+  const { str } = obj;
+  console.log(str);
+
+  ajax.get({
+    url: `${backendAddress}/search/suggest?str=${str}`,
+  })
+    .then((response: Response) => console.log('suggests get confirmed', response))
+    .catch((response: Response) => console.log('suggests get denied', response))
+
+    .then(() => bus.emit('suggest request confirmed', fakeafSuggests))
+  // .then(() => fakeafSuggests.categories.pop());
 };

@@ -1,3 +1,4 @@
+import { product } from '../../ajax/callbacks';
 import { Connection } from '../../types';
 import * as productPage from './callbacks';
 
@@ -16,6 +17,13 @@ const connections: Connection[] = [
     callback: [
       productPage.productCheckInCart,
       productPage.scrollToTop,
+      productPage.commentsRequest,
+    ],
+  },
+  {
+    event: 'comments request confirmed',
+    callback: [
+      productPage.generateCommentsArray,
     ],
   },
 ];
