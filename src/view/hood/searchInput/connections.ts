@@ -7,7 +7,7 @@ const connections: Connection[] = [
     callback: searchInput.showSuggests,
   },
   {
-    event: 'logo button click',
+    event: 'delete suggests list',
     callback: searchInput.deleteSuggests,
   },
 ];
