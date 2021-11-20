@@ -1,10 +1,14 @@
-import { Connection } from '../../types';
+import bus from '../../init/bus';
+import { Connection, Product } from '../../types';
 import * as categoryPage from './callbacks';
 
 const connections: Connection[] = [
   {
     event: 'add product array to category page',
-    callback: categoryPage.addProductArray,
+    callback: [
+      categoryPage.addProductArray,
+      (array: Product[]): void => { bus.emit('fill search filters inputs', array); },
+    ],
   },
   {
     event: 'categoryPage hidden',

@@ -23,7 +23,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
   // ----------------------
   document.addEventListener('click', (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     const targetNode = <Node>event.target;
     const searchInputNode = <Node>self.getElementsByTagName('input')[0];
