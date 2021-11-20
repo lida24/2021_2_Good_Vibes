@@ -7,7 +7,7 @@ const connections: Connection[] = [
     event: 'add product array to category page',
     callback: [
       categoryPage.addProductArray,
-      (array: Product[]): void => { bus.emit('fill search filters inputs', array); },
+      (array: Product[]): void => { bus.emit('get search filter params', array); },
     ],
   },
   {

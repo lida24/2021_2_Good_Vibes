@@ -1,9 +1,12 @@
+import searchParams from '../../object/search/params';
+
 /* eslint-disable max-len */
 const initEvents: (self: HTMLElement) => void = (self) => {
   const minPrice = <HTMLInputElement>self.getElementsByClassName('min-price-input')[0];
   const maxPrice = <HTMLInputElement>self.getElementsByClassName('max-price-input')[0];
   const minRating = <HTMLInputElement>self.getElementsByClassName('min-rating-input')[0];
   const maxRating = <HTMLInputElement>self.getElementsByClassName('max-rating-input')[0];
+  const radioArray = <HTMLInputElement>self.getElementsByClassName('order-radio')[0];
 
   const input: {
     minPrice: HTMLInputElement,
@@ -17,7 +20,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     maxRating,
   };
 
-  // console.log(input);
+  radioArray.checked = true;
 
   // ----------------
   Object.values(input).forEach((inputElement) => {
@@ -46,6 +49,13 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
   input.maxRating.addEventListener('change', () => {
     if (input.maxRating.value < input.minRating.value) input.maxRating.value = input.minRating.value;
+  });
+
+  Object.entries(input).forEach(([key, inputElement]) => {
+    inputElement.addEventListener('change', (event) => {
+      event.preventDefault();
+      searchParams[key] = +inputElement.value;
+    });
   });
 };
 
