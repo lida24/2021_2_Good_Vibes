@@ -110,6 +110,14 @@ const ajaxConnections: Connection[] = [
     event: 'suggests ajax request',
     callback: ajax.suggests,
   },
+  {
+    event: 'search ajax request',
+    callback: ajax.search,
+  },
+  {
+    event: 'add comment request',
+    callback: ajax.addComment,
+  },
 ];
 
 export default ajaxConnections;

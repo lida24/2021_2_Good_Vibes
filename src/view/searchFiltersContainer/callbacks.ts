@@ -17,6 +17,7 @@ export const getParams: Callback = (array: Product[]) => {
     || !maxPriceInput
     || !orderInput
     || !orderTypeInput
+    || array.length === 0
   ) {
     return;
   }

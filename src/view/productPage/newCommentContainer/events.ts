@@ -1,4 +1,5 @@
 import bus from '../../../init/bus';
+import { Product } from '../../../types';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
   // ---------------------------

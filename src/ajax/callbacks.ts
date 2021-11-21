@@ -5,6 +5,7 @@ import {
   AjaxResponse,
   Callback,
   CartItem,
+  NewComment,
   OrderRequest,
   Suggests,
 } from '../types';
@@ -235,29 +236,32 @@ export const orderList: Callback = () => {
 export const comments: Callback = (obj: { 'id': number }) => {
   const { id } = obj;
 
-  console.log('ajax comments request', id);
+  // console.log('ajax comments request', id);
 
-  const fakeAfComments = [
-    {
-      username: 'user1',
-      rating: 4,
-      text: 'user1 fakeaf comment text',
-    },
-    {
-      username: 'user2',
-      rating: 2,
-      text: 'user2 fakeaf comment text',
-    },
-  ];
+  // const fakeAfComments = [
+  //   {
+  //     username: 'user1',
+  //     rating: 4,
+  //     text: 'user1 fakeaf comment text',
+  //   },
+  //   {
+  //     username: 'user2',
+  //     rating: 2,
+  //     text: 'user2 fakeaf comment text',
+  //   },
+  // ];
 
   ajax.get({
     url: `${backendAddress}/reviews?product_id=${id}`,
   })
 
-    .then((response: AjaxResponse) => console.log('comments request confirmed', response))
-    .catch((response: AjaxResponse) => console.log('comments request denied', response))
+    // .then((response: AjaxResponse) => console.log('comments request confirmed', response))
+    // .catch((response: AjaxResponse) => console.log('comments request denied', response))
 
-    .then(() => bus.emit('comments request confirmed', fakeAfComments));
+    .then((response: AjaxResponse) => bus.emit('comments request confirmed', response))
+    .catch((response: AjaxResponse) => bus.emit('comments request denied', response))
+
+  // .then(() => bus.emit('comments request confirmed', fakeAfComments));
 };
 
 const fakeafSuggests: Suggests = {
@@ -287,17 +291,31 @@ const fakeafSuggests: Suggests = {
 
 export const suggests: Callback = (obj: { 'str': string }) => {
   const { str } = obj;
-  console.log(str);
+  // console.log(str);
 
   ajax.get({
     url: `${backendAddress}/search/suggest?str=${str}`,
   })
-    // .then((response: Response) => console.log('suggests get confirmed', response))
-    // .catch((response: Response) => console.log('suggests get denied', response))
-
     .then((response: AjaxResponse) => bus.emit('suggest request confirmed', response))
     .catch((response: AjaxResponse) => bus.emit('suggest request denied', response));
+};
 
-  // .then(() => bus.emit('suggest request confirmed', fakeafSuggests))
-  // .then(() => fakeafSuggests.categories.pop());
+export const search: Callback = (obj: { 'str': string }) => {
+  const { str } = obj;
+  ajax.get({
+    url: `${backendAddress}/search?str=${str}`,
+  })
+    .then((response: AjaxResponse) => bus.emit('search state confirmed', response))
+    .catch((response: AjaxResponse) => bus.emit('search state denied', response));
+};
+
+export const addComment: Callback = (obj: NewComment) => {
+  // console.log('add comment ajax request', obj);
+
+  ajax.post({
+    url: `${backendAddress}/review/add`,
+    body: obj,
+  })
+    .then((response: AjaxResponse) => bus.emit('add comment request confirmed', response))
+    .catch((response: AjaxResponse) => bus.emit('add comment request denied', response));
 };

@@ -24,7 +24,7 @@ class Router {
   public add(obj: { 'pathname': string }): void {
     const { pathname } = obj;
 
-    console.log('rout add', pathname);
+    // console.log('rout add', pathname);
 
     let uri = pathname;
     const reg = pathname.match(/(\/.*)\?/);

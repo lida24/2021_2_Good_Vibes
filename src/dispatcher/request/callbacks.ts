@@ -103,3 +103,7 @@ export const savedState: Callback = () => {
 export const orders: Callback = () => {
   bus.emit('orders state confirmed', { state: 'orders', pathname: '/orders' });
 };
+
+export const search: Callback = (obj: { str: string }) => {
+  bus.emit('search ajax request', obj);
+};

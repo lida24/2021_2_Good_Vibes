@@ -3,10 +3,14 @@
 
 <br>
 <label for="new-comment-rating">Ваша оценка</label>
-<input type="number" name="new-comment-rating" id="new-comment-rating" min="0" , max="5" , step="1">
+<input type="number" name="new-comment-rating" id="new-comment-rating" min="0" , max="5" , step="1" value="5"
+  class="new-comment-rating">
 
 <br>
-<input type="text" name="add-comment-text" id="add-comment-text">
+<input type="text" name="add-comment-text" id="add-comment-text" class="add-comment-text">
 
 <br>
 <button class="add-comment-btn">добавить</button>
+
+<br>
+<label class="new-comment-alert-label" style="visibility:hidden">ошибка добавления комментария</label>

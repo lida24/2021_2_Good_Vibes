@@ -1,14 +1,14 @@
 import * as compiledTemplate from './template.handlebars';
-// import bus from '../../../init/bus';
+import bus from '../../../init/bus';
 import initEvents from './events';
-// import connections from './connections';
-import { Comment } from '../../../types';
+import connections from './connections';
+import { Comment, Product } from '../../../types';
 
 // export default class NewCommentContainer {
 class NewCommentContainer {
   public self: HTMLElement;
 
-  public context: any;
+  public context: Product;
 
   private async renderHTML() {
     const html = compiledTemplate(this.context);
@@ -25,11 +25,11 @@ class NewCommentContainer {
     // this.setContext(context);
     this.self = <HTMLElement>document.createElement('div');
     this.self.className = 'new-comment-container';
-    // bus.add(connections);
+    bus.add(connections);
     this.render();
   }
 
-  public setContext(context: any): void {
+  public setContext(context: Product): void {
     this.context = context;
   }
 
@@ -41,6 +41,11 @@ class NewCommentContainer {
   public show(): void {
     this.self.style.visibility = 'visible';
     this.self.hidden = false;
+  }
+
+  public cleanInput(): void {
+    const textInput = <HTMLInputElement>this.self.getElementsByClassName('add-comment-text')[0];
+    textInput.value = '';
   }
 }
 

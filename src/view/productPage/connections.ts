@@ -1,6 +1,7 @@
 import { product } from '../../ajax/callbacks';
-import { Connection } from '../../types';
+import { AjaxResponse, Connection } from '../../types';
 import * as productPage from './callbacks';
+import newCommentContainer from './newCommentContainer/view';
 
 const connections: Connection[] = [
   {
@@ -19,12 +20,25 @@ const connections: Connection[] = [
       productPage.newCommentContainerShow,
       productPage.scrollToTop,
       productPage.commentsRequest,
+      () => { newCommentContainer.cleanInput.call(newCommentContainer); },
+      productPage.hideError,
     ],
   },
   {
     event: 'comments request confirmed',
     callback: [
       productPage.generateCommentsArray,
+    ],
+  },
+  {
+    event: 'add comment ajax request',
+    callback: productPage.addCommentRequest,
+  },
+  {
+    event: 'add comment request confirmed',
+    callback: [
+      // (response: AjaxResponse) => { console.log('add comment request confirmed', response); },
+      productPage.handleResponse,
     ],
   },
 ];

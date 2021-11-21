@@ -15,6 +15,17 @@ const connections: Connection[] = [
     event: 'delete suggests list',
     callback: searchInput.deleteSuggests,
   },
+  // {
+  //   event: 'search request confirmed',
+  //   callback: searchInput.parseSearchResponse,
+  // },
+  {
+    event: 'show search results',
+    callback: [
+      searchInput.changeCategoryLabel,
+      searchInput.showSearchResults,
+    ],
+  },
 ];
 
 export default connections;
