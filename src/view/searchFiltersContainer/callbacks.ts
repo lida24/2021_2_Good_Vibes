@@ -8,8 +8,16 @@ export const getParams: Callback = (array: Product[]) => {
   const minRatingInput = <HTMLInputElement>document.getElementsByClassName('min-rating-input')[0];
   const maxRatingInput = <HTMLInputElement>document.getElementsByClassName('max-rating-input')[0];
   const orderInput = document.getElementsByClassName('order-radio');
+  const orderTypeInput = document.getElementsByClassName('order-type-radio');
 
-  if (!minRatingInput || !maxRatingInput || !minPriceInput || !maxPriceInput || !orderInput) {
+  if (
+    !minRatingInput
+    || !maxRatingInput
+    || !minPriceInput
+    || !maxPriceInput
+    || !orderInput
+    || !orderTypeInput
+  ) {
     return;
   }
 

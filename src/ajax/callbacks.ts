@@ -8,6 +8,7 @@ import {
   OrderRequest,
   Suggests,
 } from '../types';
+import searchParams from '../object/search/params';
 
 const backendAddress = 'https://ozonback.herokuapp.com';
 // const backendAddress = 'http://37.139.33.76';
@@ -157,8 +158,18 @@ export const categoryGet: Callback = () => {
 export const categoryRequest: Callback = (obj: { name: string }) => {
   const { name } = obj;
 
+  const {
+    minPrice,
+    maxPrice,
+    maxRating,
+    minRating,
+    type,
+    orderType,
+  } = searchParams;
+
   ajax.get({
-    url: `${backendAddress}/category/${name}`,
+    // url: `${backendAddress}/category/${name}`,
+    url: `${backendAddress}/category/${name}?price_min=${minPrice}&price_max=${maxPrice}&rating_min=${minRating}&rating_max=${maxRating}&order=${type}&order_type=${orderType}`,
   })
 
     .then((response: AjaxResponse) => bus.emit('category ajax confirmed', response))

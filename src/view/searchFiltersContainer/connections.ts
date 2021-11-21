@@ -9,10 +9,10 @@ const connections: Connection[] = [
       searchFiltersContainer.getParams,
     ],
   },
-  {
-    event: 'logo button click',
-    callback: (): void => console.log(searchParams),
-  },
+  // {
+  //   event: 'logo button click',
+  //   callback: (): void => console.log(searchParams),
+  // },
 ];
 
 export default connections;

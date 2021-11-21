@@ -1,3 +1,4 @@
+import bus from '../../init/bus';
 import searchParams from '../../object/search/params';
 
 /* eslint-disable max-len */
@@ -52,6 +53,9 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     inputElement.addEventListener('change', (event) => {
       event.preventDefault();
       searchParams[key] = +inputElement.value;
+
+      const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+      bus.emit('category ajax request', { name: currentCategory });
     });
   });
 
@@ -65,13 +69,33 @@ const initEvents: (self: HTMLElement) => void = (self) => {
       if (element.checked) {
         const type = <'asc' | 'desc'>element.value.toString();
         searchParams.type = type;
+
+        const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+        bus.emit('category ajax request', { name: currentCategory });
         return false;
       }
       return true;
     });
   });
 
-  console.log(searchParams.type);
+  // ------------------
+  const orderTypeInputArray = self.getElementsByClassName('order-type-radio');
+  const firstOrderTypeInputArray = <HTMLInputElement>radioArray[0];
+  firstOrderTypeInputArray.checked = true;
+
+  Array.from(orderTypeInputArray).forEach((element: HTMLInputElement) => {
+    element.addEventListener('change', () => {
+      if (element.checked) {
+        const type = <'price' | 'rating'>element.value.toString();
+        searchParams.orderType = type;
+
+        const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+        bus.emit('category ajax request', { name: currentCategory });
+        return false;
+      }
+      return true;
+    });
+  });
 };
 
 export default initEvents;
