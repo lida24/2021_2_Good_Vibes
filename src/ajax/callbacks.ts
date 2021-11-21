@@ -295,9 +295,8 @@ export const suggests: Callback = (obj: { 'str': string }) => {
     // .then((response: Response) => console.log('suggests get confirmed', response))
     // .catch((response: Response) => console.log('suggests get denied', response))
 
-    .then((response: AjaxResponse) => JSON.parse(response.responseText))
-    .then((responseObj: Suggests) => bus.emit('suggest request confirmed', responseObj))
-    .catch((response: AjaxResponse) => console.log('suggests get denied', response));
+    .then((response: AjaxResponse) => bus.emit('suggest request confirmed', response))
+    .catch((response: AjaxResponse) => bus.emit('suggest request denied', response));
 
   // .then(() => bus.emit('suggest request confirmed', fakeafSuggests))
   // .then(() => fakeafSuggests.categories.pop());

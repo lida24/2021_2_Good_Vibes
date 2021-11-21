@@ -1,6 +1,7 @@
 import { Callback, Suggests } from '../../../types';
 import ProductSuggestItem from './productItem/view';
 import CategorySuggestItem from './categoryItem/view';
+import bus from '../../../init/bus';
 
 const suggestList: {
   [name: string]: ProductSuggestItem | CategorySuggestItem,
@@ -9,8 +10,17 @@ const suggestList: {
 const eraseSuggestList: (suggests: Suggests) => void = (suggests) => {
   const { products, categories } = suggests;
   const list = [];
-  products.forEach((product) => list.push(product.name));
-  categories.forEach((category) => list.push(category.name));
+  products?.forEach((product) => list.push(product.name));
+  categories?.forEach((category) => list.push(category.name));
+
+  // if (list.length === 0) {
+  //   Object.keys(suggestList).forEach((key) => {
+  //     suggestList[key].erase();
+  //     delete suggestList[key];
+  //   });
+
+  //   return;
+  // }
 
   Object.keys(suggestList).forEach((key) => {
     if (!list.includes(key)) {
@@ -59,4 +69,12 @@ export const deleteSuggests: Callback = () => {
     suggestList[key].erase();
     delete suggestList[key];
   });
+};
+
+export const parseResponse: Callback = (obj: { 'responseText': string }) => {
+  const { responseText } = obj;
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((parsedObj: Suggests) => bus.emit('show suggests', parsedObj))
+    .catch((err) => console.error(err));
 };
