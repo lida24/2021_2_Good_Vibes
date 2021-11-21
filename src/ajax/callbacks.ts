@@ -10,9 +10,9 @@ import {
 } from '../types';
 import searchParams from '../object/search/params';
 
-const backendAddress = 'https://ozonback.herokuapp.com';
+// const backendAddress = 'https://ozonback.herokuapp.com';
 // const backendAddress = 'http://37.139.33.76';
-
+const backendAddress = 'https://goodvibesazot.tk';
 
 export const signin = (data) => {
   ajax.post({
@@ -169,7 +169,7 @@ export const categoryRequest: Callback = (obj: { name: string }) => {
 
   ajax.get({
     // url: `${backendAddress}/category/${name}`,
-    url: `${backendAddress}/category/${name}?price_min=${minPrice}&price_max=${maxPrice}&rating_min=${minRating}&rating_max=${maxRating}&order=${type}&order_type=${orderType}`,
+    url: `${backendAddress}/category/${name}?price_min=${minPrice}&price_max=${maxPrice}&rating_min=${minRating}&rating_max=${maxRating}&order=${orderType}&order_type=${type}`,
   })
 
     .then((response: AjaxResponse) => bus.emit('category ajax confirmed', response))
@@ -251,11 +251,11 @@ export const comments: Callback = (obj: { 'id': number }) => {
   ];
 
   ajax.get({
-    url: `${backendAddress}/comments?product_id=${id}`,
+    url: `${backendAddress}/reviews?product_id=${id}`,
   })
 
-    .then((response: Response) => console.log('comments request confirmed', response))
-    .catch((response: Response) => console.log('comments request denied', response))
+    .then((response: AjaxResponse) => console.log('comments request confirmed', response))
+    .catch((response: AjaxResponse) => console.log('comments request denied', response))
 
     .then(() => bus.emit('comments request confirmed', fakeAfComments));
 };
@@ -292,9 +292,13 @@ export const suggests: Callback = (obj: { 'str': string }) => {
   ajax.get({
     url: `${backendAddress}/search/suggest?str=${str}`,
   })
-    .then((response: Response) => console.log('suggests get confirmed', response))
-    .catch((response: Response) => console.log('suggests get denied', response))
+    // .then((response: Response) => console.log('suggests get confirmed', response))
+    // .catch((response: Response) => console.log('suggests get denied', response))
 
-    .then(() => bus.emit('suggest request confirmed', fakeafSuggests))
+    .then((response: AjaxResponse) => JSON.parse(response.responseText))
+    .then((responseObj: Suggests) => bus.emit('suggest request confirmed', responseObj))
+    .catch((response: AjaxResponse) => console.log('suggests get denied', response));
+
+  // .then(() => bus.emit('suggest request confirmed', fakeafSuggests))
   // .then(() => fakeafSuggests.categories.pop());
 };

@@ -1,8 +1,10 @@
 import bus from '../../init/bus';
 import cart from '../../object/cart/cart';
+import user from '../../object/user/user';
 import { Callback, Comment, Product } from '../../types';
 import InfoCardBtn from './button/view';
-import CommentContainer from './commentContainer/view';
+import CommentsContainer from './commentsContainer/view';
+import newCommentContainer from './newCommentContainer/view';
 
 export const backToCategoryPage: Callback = () => {
   bus.emit('homepage state request', undefined);
@@ -45,7 +47,7 @@ export const commentsRequest: Callback = (context: Product) => {
 export const renderCommentContainer: Callback = (comment: Comment) => {
   console.log('render single comment block', comment);
 
-  const commentContainer = new CommentContainer(comment);
+  const commentContainer = new CommentsContainer(comment);
   document.getElementsByClassName('board-bottom')[0].appendChild(commentContainer.self);
 };
 
@@ -55,4 +57,14 @@ export const generateCommentsArray: Callback = (array: Comment[]) => {
   array.forEach((comment) => {
     renderCommentContainer(comment);
   });
+};
+
+export const newCommentContainerShow: Callback = (context: Product) => {
+  if (!user.isAutorize()) {
+    newCommentContainer.hide();
+    return;
+  }
+
+  console.log('new comment block add callback');
+  newCommentContainer.show();
 };

@@ -4,7 +4,7 @@ import * as compiledTemplate from './template.handlebars';
 // import connections from './connections';
 import { Comment } from '../../../types';
 
-export default class CommentContainer {
+export default class CommentsContainer {
   public self: HTMLElement;
 
   public context: Comment;
@@ -12,7 +12,7 @@ export default class CommentContainer {
   private async renderHTML() {
     const html = compiledTemplate(this.context);
     this.self.innerHTML = html;
-    // initEvents(this.self, this.context);
+    // initEvents(this.self);
   }
 
   public async render(): Promise<void> {
@@ -23,7 +23,7 @@ export default class CommentContainer {
   constructor(context: Comment) {
     this.setContext(context);
     this.self = <HTMLElement>document.createElement('div');
-    this.self.className = 'comment-container';
+    this.self.className = 'comments-container';
     // bus.add(connections);
     this.render();
   }

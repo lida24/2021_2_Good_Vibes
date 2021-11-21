@@ -16,6 +16,7 @@ const connections: Connection[] = [
     event: 'productPage shown',
     callback: [
       productPage.productCheckInCart,
+      productPage.newCommentContainerShow,
       productPage.scrollToTop,
       productPage.commentsRequest,
     ],

@@ -92,3 +92,9 @@ export type Suggests = {
   'products': ProductSuggest[],
   'categories': CategorySuggest[],
 };
+
+export type NewComment = {
+  product_id: number,
+  rating: number,
+  text: string,
+};
