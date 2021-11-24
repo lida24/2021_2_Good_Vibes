@@ -121,6 +121,20 @@ export const orders: Callback = () => {
   bus.emit('show view', { name: 'orders' });
 };
 
+export const search: Callback = (response: { 'responseText': string }) => {
+  // bus.emit('show view', { name: 'search' });
+
+  const { responseText } = response;
+
+  Promise.resolve()
+    .then(() => bus.emit('show view', { name: 'search' }))
+    // .then(() => console.log('asdfadsf'))
+    .then(() => JSON.parse(responseText))
+    // .then((obj: Product[]) => bus.emit('add product array to category page', obj))
+    .then((obj: Product[]) => bus.emit('show search results', obj))
+    .catch((err) => console.error(err))
+};
+
 // export const saveState: Callback = (obj: { 'state': string }) => {
 //   console.log(obj);
 //   const currentState = obj.state;

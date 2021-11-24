@@ -74,7 +74,7 @@ export const savedState: Callback = () => {
 
   // bus.emit(`${state} state request`, undefined);
 
-  console.log('saved state', state.get());
+  // console.log('saved state', state.get());
   // bus.emit(`${state.get()} state request`, undefined);
   bus.emit('saved state request', undefined);
 };

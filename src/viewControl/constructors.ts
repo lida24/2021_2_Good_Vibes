@@ -25,6 +25,7 @@ const constructor: { [name: string]: ConstructorInterface } = {
   confirmationPage: ConfirmationPage,
   emptyCart: EmptyCart,
   orders: Orders,
+  search: CategoryPage,
 };
 
 export default constructor;
