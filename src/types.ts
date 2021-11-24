@@ -70,3 +70,31 @@ export type Category = {
   'description'?: string
   'children'?: Category[],
 };
+
+export type Comment = {
+  'username': string,
+  'rating': number,
+  'text': string,
+};
+
+export type ProductSuggest = {
+  'id': number,
+  'name': string,
+  'image': string,
+};
+
+export type CategorySuggest = {
+  'name': string,
+  'description': string,
+};
+
+export type Suggests = {
+  'products': ProductSuggest[],
+  'categories': CategorySuggest[],
+};
+
+export type NewComment = {
+  product_id: number,
+  rating: number,
+  text: string,
+};

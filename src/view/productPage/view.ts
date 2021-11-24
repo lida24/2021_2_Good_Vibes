@@ -6,6 +6,8 @@ import initEvents from './events';
 import connections from './connections';
 import './productPage.scss';
 
+import newCommentContainer from './newCommentContainer/view';
+
 export default class ProductPage extends View implements ViewInterface {
   private async renderHTML() {
     const html = compiledTemplate(this.context);
@@ -15,6 +17,11 @@ export default class ProductPage extends View implements ViewInterface {
 
   public async render(): Promise<void> {
     await this.renderHTML();
+
+    // -----------------------
+    this.self.getElementsByClassName('board-bottom')[0].appendChild(newCommentContainer.self);
+    // ----------------------
+
     return this.show();
   }
 

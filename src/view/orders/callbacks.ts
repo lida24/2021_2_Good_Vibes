@@ -17,7 +17,7 @@ export const parseResponse: Callback = (obj: { 'responseText': string }) => {
 };
 
 export const showOrderList: Callback = (obj: Order[]) => {
-  console.log(obj);
+  // console.log(obj);
 
   const table = <HTMLElement>document.getElementsByClassName('orders__table_body')[0];
   table.textContent = '';

@@ -20,7 +20,7 @@ export const addProductArray: Callback = (array: Product[]) => {
     return;
   }
 
-  array.sort((a, b) => a.id - b.id);
+  // array.sort((a, b) => a.id - b.id);
 
   const viewArray = ProductCatdList.viewArray(array);
   viewArray.forEach((cardView) => {

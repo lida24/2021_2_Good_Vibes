@@ -2,6 +2,7 @@ import { addToHistory } from '../../rout/callbacks';
 import { Connection } from '../../types';
 import * as confirm from './callbacks';
 import * as request from '../request/callbacks';
+import searchParams from '../../object/search/params';
 
 const connections: Connection[] = [
   {
@@ -140,6 +141,13 @@ const connections: Connection[] = [
     callback: [
       confirm.orders,
       addToHistory,
+    ],
+  },
+  {
+    event: 'search state confirmed',
+    callback: [
+      confirm.search,
+      // addToHistory,
     ],
   },
 ];
