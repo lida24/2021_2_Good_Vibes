@@ -280,16 +280,16 @@ a {
   color: $text-color-1;
   text-decoration: none;
 
-  /* &:hover {
+  &:hover {
     color: $twitter-color;
-  } */
+  }
 }
 
-button {
-  cursor: pointer;
-}
+  button {
+    cursor: pointer;
+  }
 
-/* select,
+  /* select,
 input{
   font-size: 1.6rem;
   padding: 1rem;
@@ -298,13 +298,13 @@ input{
   cursor: pointer;
 } */
 
-* {
-  box-sizing: border-box;
-  /*   margin: 0; */
-}
+  * {
+    box-sizing: border-box;
+    /*   margin: 0; */
+  }
 
 
-/* button {
+  /* button {
   cursor: pointer;
 }
 
@@ -323,7 +323,7 @@ button:hover {
   border: 0.1rem #404040 solid;
 } */
 
-/* 
+  /* 
 @mixin overflow-text-width {
   white-space: nowrap;
   overflow: hidden;

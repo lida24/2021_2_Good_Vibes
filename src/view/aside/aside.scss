@@ -9,6 +9,7 @@
   transform: translateX(-30.1rem);
   transition: all 0.5s;
   border-right: 0.1rem $dirty-gray-color solid;
+  padding: 40px;
 
   &.open {
     transform: translateX(0);
@@ -18,16 +19,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 0.5rem 1rem 2rem;
+    padding: 4rem 0.5rem 1rem 0rem;
     color: $dirty-gray-color;
+    font-size: 1vw;
   }
 
-  &_close-button {
-    width: 3rem;
-    height: 3rem;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 0;
+  &__body {
+    font-size: 1vw;
   }
 }
 

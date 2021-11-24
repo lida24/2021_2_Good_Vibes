@@ -8,7 +8,7 @@ import {
   OrderRequest,
 } from '../types';
 
-const backendAddress = 'https://ozonback.herokuapp.com';
+const backendAddress = 'http://37.139.33.76';
 
 export const signin = (data) => {
   ajax.post({

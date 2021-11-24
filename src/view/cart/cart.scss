@@ -273,10 +273,11 @@
   width: 50px;
   height: 30px;
   background-color: #fff;
-  border: 1px solid #d1d1d1;
+  border: 1px solid $purpleColor;
   line-height: 30px;
   padding: 0;
   text-align: center;
+  outline: none;
 
   &::-webkit-inner-spin-button {
     opacity: 1; // magic!
