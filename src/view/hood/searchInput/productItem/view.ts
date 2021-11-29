@@ -3,6 +3,7 @@ import bus from '../../../../init/bus';
 import initEvents from './events';
 // import connections from './connections';
 import { ProductSuggest } from '../../../../types';
+import list from '../../../productCard/list';
 // import { Comment } from '../../../types';
 
 export default class ProductSuggestItem {
@@ -24,10 +25,12 @@ export default class ProductSuggestItem {
 
   constructor(context: ProductSuggest) {
     this.setContext(context);
-    /* li.className = 'search-suggest'; */
+    const li = <HTMLLIElement>document.createElement('li');
+    li.className = 'search-suggest';
     this.self = <HTMLAnchorElement>document.createElement('a');
     console.log(this.self)
-    /* this.self.appendChild(<HTMLLIElement>document.createElement('li')); */
+    /*this.self.appendChild(<HTMLLIElement>document.createElement('li'));*/
+    li.appendChild(this.self);
     // this.self.className = 'product-item';
     // bus.add(connections);
     this.render()
