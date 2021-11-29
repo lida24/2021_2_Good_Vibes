@@ -2,8 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  // entry: './src/main.ts',
-  entry: './reworking/main.ts',
+  entry: './src/main.ts',
+  // entry: './reworking/main.ts',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.handlebars', '.scss'],
   },
@@ -20,11 +20,11 @@ module.exports = {
     ],
   },
   output: {
-    // path: path.resolve(__dirname, './dist'),
-    // filename: 'main_bundle.js',
-
-    path: path.resolve(__dirname, './reworking'),
+    path: path.resolve(__dirname, './dist'),
     filename: 'main_bundle.js',
+
+    // path: path.resolve(__dirname, './reworking'),
+    // filename: 'main_bundle.js',
   },
   mode: 'production',
 };

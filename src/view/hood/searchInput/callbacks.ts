@@ -2,7 +2,7 @@ import { Callback, Product, Suggests } from '../../../types';
 import ProductSuggestItem from './productItem/view';
 import CategorySuggestItem from './categoryItem/view';
 import bus from '../../../init/bus';
-import list from '../../productCard/list';
+// import list from '../../productCard/list';
 
 const suggestList: {
   [name: string]: ProductSuggestItem | CategorySuggestItem,
@@ -30,11 +30,23 @@ const eraseSuggestList: (suggests: Suggests) => void = (suggests) => {
     }
   });
 
+  const searchContainer = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
+
+  const { children } = searchContainer;
+
+  // console.log('searchContainer', searchContainer);
+
+  Array.from(children).forEach((child) => {
+    if (child.textContent === '') {
+      child.remove();
+    }
+  });
+
   // console.log('list', list);
 };
 
 export const showSuggests: Callback = (suggests: Suggests) => {
-  // console.log('show suggests', suggests);
+  console.log('show suggests', suggests);
 
   const searchContainer = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
 
@@ -50,9 +62,9 @@ export const showSuggests: Callback = (suggests: Suggests) => {
     const productSuggest = new ProductSuggestItem(product);
     const li = <HTMLLIElement>document.createElement('li');
     li.className = 'search-suggest';
-    li.appendChild(productSuggest.self)
+    li.appendChild(productSuggest.self);
     searchContainer.appendChild(li);
-    console.log(productSuggest.self);
+    // console.log(productSuggest.self);
 
     suggestList[product.name] = productSuggest;
   });
@@ -65,7 +77,7 @@ export const showSuggests: Callback = (suggests: Suggests) => {
     const categorySuggest = new CategorySuggestItem(category);
     const li = <HTMLLIElement>document.createElement('li');
     li.className = 'search-suggest';
-    li.appendChild(categorySuggest.self)
+    li.appendChild(categorySuggest.self);
     searchContainer.appendChild(li);
 
     suggestList[category.name] = categorySuggest;
@@ -75,9 +87,9 @@ export const showSuggests: Callback = (suggests: Suggests) => {
 export const deleteSuggests: Callback = () => {
   Object.keys(suggestList).forEach((key) => {
     suggestList[key].self.remove();
-    console.log(suggestList.self);
+    // console.log(suggestList.self);
     suggestList[key].erase();
-    console.log(suggestList[key]);
+    // console.log(suggestList[key]);
     delete suggestList[key];
   });
 };
