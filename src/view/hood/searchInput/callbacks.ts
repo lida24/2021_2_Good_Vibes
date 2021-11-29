@@ -74,6 +74,7 @@ export const showSuggests: Callback = (suggests: Suggests) => {
 
 export const deleteSuggests: Callback = () => {
   Object.keys(suggestList).forEach((key) => {
+    suggestList[key].self.remove();
     console.log(suggestList.self);
     suggestList[key].erase();
     console.log(suggestList[key]);
