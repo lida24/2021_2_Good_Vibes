@@ -28,9 +28,8 @@ export default class ProductSuggestItem {
     const li = <HTMLLIElement>document.createElement('li');
     li.className = 'search-suggest';
     this.self = <HTMLAnchorElement>document.createElement('a');
-    console.log(this.self)
-    /*this.self.appendChild(<HTMLLIElement>document.createElement('li'));*/
-    li.appendChild(this.self);
+    // console.log(this.self)
+    /* this.self.appendChild(<HTMLLIElement>document.createElement('li')); */
     // this.self.className = 'product-item';
     // bus.add(connections);
     this.render()

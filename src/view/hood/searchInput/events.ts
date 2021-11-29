@@ -47,6 +47,13 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     if (searchInputNode.contains(targetNode)) return;
     bus.emit('delete suggests list', undefined);
   });
+
+  // ----------------------
+  document.addEventListener('blur', (event) => {
+    event.preventDefault();
+
+    console.log('blur');
+  });
 };
 
 export default initEvents;
