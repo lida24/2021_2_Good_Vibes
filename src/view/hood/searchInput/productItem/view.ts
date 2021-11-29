@@ -25,7 +25,7 @@ export default class ProductSuggestItem {
   constructor(context: ProductSuggest) {
     this.setContext(context);
     this.self = <HTMLAnchorElement>document.createElement('a');
-    // this.self.className = 'product-item';
+    this.self.className = 'product-item';
     // bus.add(connections);
     this.render()
       .then(() => { this.self.href = `/product?id=${this.context.id}`; });

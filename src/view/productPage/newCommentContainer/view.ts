@@ -3,6 +3,7 @@ import bus from '../../../init/bus';
 import initEvents from './events';
 import connections from './connections';
 import { Comment, Product } from '../../../types';
+import './newCommentContainer.scss';
 
 // export default class NewCommentContainer {
 class NewCommentContainer {

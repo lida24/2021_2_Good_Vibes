@@ -3,6 +3,7 @@ import bus from '../../../init/bus';
 import initEvents from './events';
 import connections from './connections';
 // import { Comment } from '../../../types';
+import './searchInput.scss';
 
 export default class SearchInput {
   public self: HTMLElement;
@@ -24,7 +25,7 @@ export default class SearchInput {
   constructor(context: any) {
     this.setContext(context);
     this.self = <HTMLElement>document.createElement('div');
-    this.self.className = 'search-container';
+    /* this.self.className = 'search-container'; */
     bus.add(connections);
     this.render();
   }

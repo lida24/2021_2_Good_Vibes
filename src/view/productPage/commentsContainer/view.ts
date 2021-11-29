@@ -3,6 +3,7 @@ import * as compiledTemplate from './template.handlebars';
 // import initEvents from './events';
 // import connections from './connections';
 import { Comment } from '../../../types';
+import './commentsContainer.scss';
 
 export default class CommentsContainer {
   public self: HTMLElement;
