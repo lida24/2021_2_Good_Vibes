@@ -13,17 +13,6 @@ const eraseSuggestList: (suggests: Suggests) => void = (suggests) => {
   const list = [];
   products?.forEach((product) => list.push(product.name));
   categories?.forEach((category) => list.push(category.name));
-  const searchContainer = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
-
-  const { children } = searchContainer;
-
-  console.log('searchContainer', searchContainer);
-
-  Array.from(children).forEach((child) => {
-    if (child.children.length === 0) {
-      child.remove();
-    }
-  });
 
   // if (list.length === 0) {
   //   Object.keys(suggestList).forEach((key) => {
@@ -41,11 +30,19 @@ const eraseSuggestList: (suggests: Suggests) => void = (suggests) => {
     }
   });
 
+  const searchContainer = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
+
+  const { children } = searchContainer;
+
+  // console.log('searchContainer', searchContainer);
+
   Array.from(children).forEach((child) => {
     if (child.textContent === '') {
       child.remove();
     }
   });
+
+  // console.log('list', list);
 };
 
 export const showSuggests: Callback = (suggests: Suggests) => {
@@ -63,7 +60,12 @@ export const showSuggests: Callback = (suggests: Suggests) => {
     }
 
     const productSuggest = new ProductSuggestItem(product);
-  
+    const li = <HTMLLIElement>document.createElement('li');
+    li.className = 'search-suggest';
+    li.appendChild(productSuggest.self);
+    searchContainer.appendChild(li);
+    // console.log(productSuggest.self);
+
     suggestList[product.name] = productSuggest;
   });
 
@@ -73,16 +75,21 @@ export const showSuggests: Callback = (suggests: Suggests) => {
     }
 
     const categorySuggest = new CategorySuggestItem(category);
+    const li = <HTMLLIElement>document.createElement('li');
+    li.className = 'search-suggest';
+    li.appendChild(categorySuggest.self);
+    searchContainer.appendChild(li);
 
     suggestList[category.name] = categorySuggest;
   });
 };
 
 export const deleteSuggests: Callback = () => {
-  console.log('asdf');
   Object.keys(suggestList).forEach((key) => {
     suggestList[key].self.remove();
+    // console.log(suggestList.self);
     suggestList[key].erase();
+    // console.log(suggestList[key]);
     delete suggestList[key];
   });
 
