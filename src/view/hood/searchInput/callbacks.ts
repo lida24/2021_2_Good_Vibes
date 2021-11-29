@@ -92,6 +92,18 @@ export const deleteSuggests: Callback = () => {
     // console.log(suggestList[key]);
     delete suggestList[key];
   });
+
+  const searchContainer = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
+
+  const { children } = searchContainer;
+
+  // console.log('searchContainer', searchContainer);
+
+  Array.from(children).forEach((child) => {
+    if (child.textContent === '') {
+      child.remove();
+    }
+  });
 };
 
 export const parseResponse: Callback = (obj: { 'responseText': string }) => {
