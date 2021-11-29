@@ -24,7 +24,15 @@ export default class CategorySuggestItem {
 
   constructor(context: CategorySuggest) {
     this.setContext(context);
+    console.log(this.self)
+    /* const li = <HTMLLIElement>document.createElement('li');
+    li.className = 'search-suggest'; */
+    /* const li = <HTMLLIElement>document.createElement('li');
+    li.className = 'search-suggest'; */
     this.self = <HTMLAnchorElement>document.createElement('a');
+    console.log(this.self)
+    /* this.self.appendChild(<HTMLLIElement>document.createElement('li')); */
+    /* li.appendChild(this.self); */
     // this.self.className = 'product-item';
     // bus.add(connections);
     this.render()

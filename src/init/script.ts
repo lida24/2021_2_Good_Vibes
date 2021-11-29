@@ -37,6 +37,12 @@ const init: () => void = () => {
 
   header.style.visibility = 'hidden';
   footer.style.visibility = 'hidden';
+
+  // ----------------
+  const searchInput = new SearchInput(undefined);
+  document.getElementsByClassName('nav')[0].appendChild(searchInput.self);
+  const search = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
+  search.style.visibility = 'visible';
 };
 
 export default init;

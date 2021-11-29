@@ -20,7 +20,7 @@ export default class SignIn extends View implements ViewInterface {
 
   constructor(classId: string) {
     super();
-    this.self = <HTMLElement>document.createElement('class');
+    this.self = <HTMLElement>document.createElement('div');
     this.self.id = 'layout';
     bus.add(connections);
     this.render();

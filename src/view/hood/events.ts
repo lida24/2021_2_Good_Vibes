@@ -2,7 +2,7 @@ import bus from '../../init/bus';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
   // ------------------
-  const logoBtn = <HTMLAnchorElement>self.getElementsByClassName('header-left__link')[0];
+  const logoBtn = <HTMLAnchorElement>self.getElementsByClassName('header__logo')[0];
   logoBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -10,7 +10,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // ------------------
-  const profileBtn = <HTMLAnchorElement>self.getElementsByClassName('header-right-avatar')[0];
+  const profileBtn = <HTMLAnchorElement>self.getElementsByClassName('icons__link-avatar')[0];
   profileBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -18,7 +18,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // ------------------
-  const cartBtn = <HTMLAnchorElement>self.getElementsByClassName('header-right-cart')[0];
+  const cartBtn = <HTMLAnchorElement>self.getElementsByClassName('icons__link-cart')[0];
   cartBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -26,7 +26,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // ---------------------
-  const asideBtn = <HTMLElement>self.getElementsByClassName('header-left__aside')[0];
+  const asideBtn = <HTMLElement>self.getElementsByClassName('header__aside')[0];
   asideBtn.addEventListener('click', (event) => {
     event.preventDefault();
 

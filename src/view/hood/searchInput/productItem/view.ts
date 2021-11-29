@@ -24,7 +24,10 @@ export default class ProductSuggestItem {
 
   constructor(context: ProductSuggest) {
     this.setContext(context);
+    /* li.className = 'search-suggest'; */
     this.self = <HTMLAnchorElement>document.createElement('a');
+    console.log(this.self)
+    /* this.self.appendChild(<HTMLLIElement>document.createElement('li')); */
     // this.self.className = 'product-item';
     // bus.add(connections);
     this.render()

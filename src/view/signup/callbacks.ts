@@ -8,10 +8,10 @@ export const SignInShow: Callback = () => {
 };
 
 export const inputDataValidate: Callback = () => {
-  const usernameInput = <HTMLInputElement>document.getElementsByClassName('auth-content-form__login')[0];
-  const emailInput = <HTMLInputElement>document.getElementsByClassName('auth-content-form__email')[0];
-  const passwordInput = <HTMLInputElement>document.getElementsByClassName('auth-content-form__password')[0];
-  const repasswordInput = <HTMLInputElement>document.getElementsByClassName('auth-content-form__confirm-password')[0];
+  const usernameInput = <HTMLInputElement>document.getElementsByClassName('user-box__login')[0];
+  const emailInput = <HTMLInputElement>document.getElementsByClassName('user-box__email')[0];
+  const passwordInput = <HTMLInputElement>document.getElementsByClassName('user-box__password')[0];
+  const repasswordInput = <HTMLInputElement>document.getElementsByClassName('user-box__confirm-password')[0];
 
   const username = usernameInput.value.trim();
   const email = emailInput.value.trim();
@@ -68,10 +68,10 @@ export const handleSignUpDenied: Callback = (obj: { 'responseText': string }) =>
 };
 
 export const cleanInputs: Callback = () => {
-  const usernameInput = <HTMLInputElement>document.getElementsByClassName('auth-content-form__login')[0];
-  const emailInput = <HTMLInputElement>document.getElementsByClassName('auth-content-form__email')[0];
-  const passwordInput = <HTMLInputElement>document.getElementsByClassName('auth-content-form__password')[0];
-  const repasswordInput = <HTMLInputElement>document.getElementsByClassName('auth-content-form__confirm-password')[0];
+  const usernameInput = <HTMLInputElement>document.getElementsByClassName('user-box__login')[0];
+  const emailInput = <HTMLInputElement>document.getElementsByClassName('user-box__email')[0];
+  const passwordInput = <HTMLInputElement>document.getElementsByClassName('user-box__password')[0];
+  const repasswordInput = <HTMLInputElement>document.getElementsByClassName('user-box__confirm-password')[0];
 
   usernameInput.value = '';
   emailInput.value = '';

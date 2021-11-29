@@ -24,7 +24,7 @@ export default class SearchInput {
   constructor(context: any) {
     this.setContext(context);
     this.self = <HTMLElement>document.createElement('div');
-    this.self.className = 'search-container';
+    this.self.className = 'wiki-viewer';
     bus.add(connections);
     this.render();
   }
