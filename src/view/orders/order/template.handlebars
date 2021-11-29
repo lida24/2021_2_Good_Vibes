@@ -1,7 +1,7 @@
 <div class="orders__table_row orders__table_row--top">
   <div class="orders__table_cell orders__table_cell--info">
     <div class="orders__order_info">
-      <a class="orders__order_number" href="/user/orders/view?id=4337896">{{order_id}}</a>
+      <span>{{order_id}}</span>
       <div class="orders__order_date">
         <svg class="svg-sprite-icon icon-calendar">
           <use xlink:href="#calendar"></use>
@@ -11,8 +11,7 @@
     </div>
   </div>
   <div class="orders__table_cell orders__table_cell--cost">
-    <span class="orders__order_cost-total">{{cost}}
-      <span class="currency">₽</span></span>
+    <span class="orders__order_cost-total">{{cost}} ₽</span>
   </div>
   <div class="orders__table_cell orders__table_cell--cost">
     <span class="orders__order_cost-total">{{status}}

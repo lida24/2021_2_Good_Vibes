@@ -25,13 +25,16 @@
     padding: 5px 10px;
     text-transform: uppercase;
     font-size: 16px;
-    line-height: auto;
-    text-decoration: underline;
 }
 
 .nav>li>a {
     display: block;
     padding: 10px 15px;
+}
+
+.orders__table {
+    font-size: 1vw;
+    font-family: Open Sans, sans-serif;
 }
 
 .orders__table_header {
@@ -54,14 +57,13 @@
 }
 
 .orders__table_label {
-    color: #d09f74;
+    color: #909090;
     font-size: 15px;
 }
 
 .orders__table_cell.orders__table_cell--cost {
     -webkit-box-flex: 0;
     flex: 0 0 100px;
-    padding-right: 20px;
     text-align: right;
     width: 100px;
 }
@@ -91,7 +93,7 @@
 .orders__order_date {
     -webkit-box-align: center;
     align-items: center;
-    color: #d09f74;
+    color: #909090;;
     display: flex;
     font-size: 15px;
     margin-left: 15px;
@@ -140,7 +142,7 @@
 }
 
 .orders__order_position-count {
-    color: #d09f74;
+    color: #909090;
 }
 
 .orders__table_cell.orders__table_cell--cost {

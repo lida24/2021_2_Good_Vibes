@@ -13,6 +13,7 @@ import searchParams from '../object/search/params';
 
 // const backendAddress = 'https://ozonback.herokuapp.com';
 // const backendAddress = 'http://37.139.33.76';
+/*const backendAddress = 'https://goodvibesazot.tk/backend/api';*/
 const backendAddress = 'https://goodvibesazot.tk';
 
 export const signin = (data) => {
