@@ -20,7 +20,7 @@ export default class SignUp extends View implements ViewInterface {
 
   constructor(classId: string) {
     super();
-    this.self = <HTMLElement>document.createElement('class');
+    this.self = <HTMLElement>document.createElement('div');
     this.self.id = 'layout';
     bus.add(connections);
     this.render();

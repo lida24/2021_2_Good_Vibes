@@ -42,6 +42,8 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     const targetNode = <Node>event.target;
     const searchInputNode = <Node>self.getElementsByTagName('input')[0];
 
+    console.log(targetNode);
+
     if (searchInputNode.contains(targetNode)) return;
     bus.emit('delete suggests list', undefined);
   });

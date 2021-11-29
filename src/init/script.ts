@@ -40,9 +40,9 @@ const init: () => void = () => {
 
   // ----------------
   const searchInput = new SearchInput(undefined);
-  document.getElementsByClassName('header-right')[0].appendChild(searchInput.self);
-  const search = <HTMLElement>document.getElementsByClassName('search-container')[0];
-  search.style.visibility = 'hidden';
+  document.getElementsByClassName('nav')[0].appendChild(searchInput.self);
+  const search = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
+  search.style.visibility = 'visible';
 };
 
 export default init;

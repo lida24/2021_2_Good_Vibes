@@ -2,6 +2,7 @@ import { Callback, Product, Suggests } from '../../../types';
 import ProductSuggestItem from './productItem/view';
 import CategorySuggestItem from './categoryItem/view';
 import bus from '../../../init/bus';
+import list from '../../productCard/list';
 
 const suggestList: {
   [name: string]: ProductSuggestItem | CategorySuggestItem,
@@ -35,7 +36,7 @@ const eraseSuggestList: (suggests: Suggests) => void = (suggests) => {
 export const showSuggests: Callback = (suggests: Suggests) => {
   // console.log('show suggests', suggests);
 
-  const searchContainer = <HTMLElement>document.getElementsByClassName('search-container')[0];
+  const searchContainer = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
 
   const { products, categories } = suggests;
 
@@ -47,7 +48,11 @@ export const showSuggests: Callback = (suggests: Suggests) => {
     }
 
     const productSuggest = new ProductSuggestItem(product);
-    searchContainer.appendChild(productSuggest.self);
+    const li = <HTMLLIElement>document.createElement('li');
+    li.className = 'search-suggest';
+    li.appendChild(productSuggest.self)
+    searchContainer.appendChild(li);
+    console.log(productSuggest.self);
 
     suggestList[product.name] = productSuggest;
   });
@@ -58,7 +63,10 @@ export const showSuggests: Callback = (suggests: Suggests) => {
     }
 
     const categorySuggest = new CategorySuggestItem(category);
-    searchContainer.appendChild(categorySuggest.self);
+    const li = <HTMLLIElement>document.createElement('li');
+    li.className = 'search-suggest';
+    li.appendChild(categorySuggest.self)
+    searchContainer.appendChild(li);
 
     suggestList[category.name] = categorySuggest;
   });
@@ -66,7 +74,9 @@ export const showSuggests: Callback = (suggests: Suggests) => {
 
 export const deleteSuggests: Callback = () => {
   Object.keys(suggestList).forEach((key) => {
+    console.log(suggestList.self);
     suggestList[key].erase();
+    console.log(suggestList[key]);
     delete suggestList[key];
   });
 };
