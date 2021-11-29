@@ -69,6 +69,7 @@ export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement = 
   const child = <HTMLUListElement>document.createElement('ul');
 
   child.style.paddingLeft = '0';
+  child.style.listStyleType = 'none';
 
   const li = <HTMLLIElement>document.createElement('li');
   addLiEvents(li, obj);
@@ -79,13 +80,13 @@ export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement = 
   link.className = 'categories__span-fa';
   li.appendChild(link);
 
-  if (obj.children) {
+/*   if (obj.children) {
     const span = <HTMLAnchorElement>document.createElement('span');
     li.appendChild(span);
     const i = <HTMLElement>document.createElement('i');
     i.className = 'fa fa-chevron-right';
     span.appendChild(i);
-  }
+  } */
 
   parent.appendChild(child);
   return child;

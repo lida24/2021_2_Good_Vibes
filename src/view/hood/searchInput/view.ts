@@ -3,6 +3,7 @@ import bus from '../../../init/bus';
 import initEvents from './events';
 import connections from './connections';
 // import { Comment } from '../../../types';
+import './searchInput.scss';
 
 export default class SearchInput {
   public self: HTMLElement;
