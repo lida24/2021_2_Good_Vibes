@@ -1,23 +1,25 @@
-<form class="search">
-  <div class="search-box">
-    <input
-      class="search-input"
-      id="input"
-      type="search"
-      placeholder="Искать на Azot"
-    />
-    {{! <button class="search-btn" type="submit"><i
-        class="fas fa-search"
-      ></i></button> }}
-    <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
-  </div>
-  {{! <buttonclass="search-btn" type="submit" >Искать!</button> }}
-  <div>
-  <div class="f9k0">
-    <div class="f9k2"></div>
-    <div class="menu">
-      <div class="search-container"></div>
-    </div>
-  </div>
-</div> 
+{{! <form>
+  <input id="input" type="search" autocomplete="off" spellcheck="false" placeholder="Искать на Azot"
+    class="search-input">
+
+  <button type="submit" class="search-btn">поиск</button>
+</form> }}
+
+<form class="search-form">
+  <input
+    type="search"
+    class="search-input"
+    placeholder="Искать товары"
+  /><!-- <button class="search-submit" data-reactid=".0.1.1">
+                  Search
+                </button> -->
+  <ul class="search-suggests">
+{{!--     <li class="search-suggest">
+      
+    </li> --}}
+    {{!-- 
+    <li class="search-suggest" data-reactid=".0.1.2.$Diana, Princess of Wales">
+      Diana, Princess of Wales
+    </li> --}}
+  </ul>
 </form>

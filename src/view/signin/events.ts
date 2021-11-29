@@ -8,7 +8,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit('signUp toggle button click', undefined);
   });
 
-  const signInBtn = <HTMLButtonElement>self.getElementsByClassName('form__btn-color')[0];
+  const signInBtn = <HTMLButtonElement>self.getElementsByClassName('auth-btn')[0];
   self.addEventListener('submit', (event) => {
     event.preventDefault();
 

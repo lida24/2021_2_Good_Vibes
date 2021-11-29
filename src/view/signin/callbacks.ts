@@ -22,8 +22,8 @@ export const hideAlert: Callback = () => {
 };
 
 export const inputDataValidate: Callback = () => {
-  const usernameInput = <HTMLInputElement>document.getElementsByClassName('auth-content-form__login')[0];
-  const passwordInput = <HTMLInputElement>document.getElementsByClassName('auth-content-form__password')[0];
+  const usernameInput = <HTMLInputElement>document.getElementsByClassName('user-box__login')[0];
+  const passwordInput = <HTMLInputElement>document.getElementsByClassName('user-box__password')[0];
 
   const username = usernameInput.value.trim();
   const password = passwordInput.value.trim();
@@ -50,8 +50,8 @@ export const ajaxRequest: Callback = (obj: {
 };
 
 export const cleanInputs: Callback = () => {
-  const usernameInput = <HTMLInputElement>document.getElementsByClassName('auth-content-form__login')[0];
-  const passwordInput = <HTMLInputElement>document.getElementsByClassName('auth-content-form__password')[0];
+  const usernameInput = <HTMLInputElement>document.getElementsByClassName('user-box__login')[0];
+  const passwordInput = <HTMLInputElement>document.getElementsByClassName('user-box__password')[0];
 
   usernameInput.value = '';
   passwordInput.value = '';

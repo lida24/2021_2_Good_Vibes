@@ -119,7 +119,7 @@ export const parse: Callback = (response: AjaxResponse) => {
 
 export const hideHandle: Callback = () => {
   const asideContainerNode = <Node>document.getElementsByClassName('aside-container')[0];
-  const asideBtnNone = <Node>document.getElementsByClassName('header-left__aside')[0];
+  const asideBtnNone = <Node>document.getElementsByClassName('header__aside')[0];
 
   document.addEventListener('click', (event) => {
     const targetNode = <Node>event.target;

@@ -38,13 +38,16 @@ export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Pr
 
   const header = <HTMLElement>document.getElementsByClassName('header')[0];
   const footer = <HTMLElement>document.getElementsByClassName('footer')[0];
+  const viewer = <HTMLElement>document.getElementsByClassName('wiki-viewer')[0];
 
   header.style.visibility = 'visible';
   footer.style.visibility = 'visible';
+  viewer.style.visibility = 'visible';
 
   if (name === 'signin' || name === 'signup') {
     header.style.visibility = 'hidden';
     footer.style.visibility = 'hidden';
+    viewer.style.visibility = 'hidden';
   }
 
   // Object.keys(viewMap).forEach((key) => {
