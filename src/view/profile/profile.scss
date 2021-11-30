@@ -192,6 +192,11 @@ span {
   overflow: hidden;
 }
 
+.form__photo {
+  height: 100%;
+  width: 100%;
+}
+
 .form__photo:hover {
   cursor: pointer;
 }
@@ -219,10 +224,10 @@ span {
   @include light-button();
   margin-top: 40px;
 }
- 
+
 .form__uploadFile {
   display: none;
-} 
+}
 
 .form__uploadBtn {
   height: 40px;
@@ -238,10 +243,10 @@ span {
   font-size: 10px;
   cursor: pointer;
   display: none;
-  pointer-events:none;
+  pointer-events: none;
 }
 
-.auth-box-form {
+.auth-box-form-profile {
   margin-bottom: 20px;
   width: 400px;
 }

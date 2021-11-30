@@ -52,6 +52,8 @@ export const avatarUploadRequest: Callback = () => {
   const file = <HTMLInputElement>document.getElementsByClassName('form__uploadFile')[0];
   const choosedFile = file.files[0];
 
+  console.log('update img');
+
   if (choosedFile) {
     bus.emit('avatar upload request', choosedFile);
   }

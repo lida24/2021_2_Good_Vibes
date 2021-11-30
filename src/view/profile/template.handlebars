@@ -8,8 +8,7 @@
           class="form__photo"
           id="photo"
           width="150px"
-          alt="Anne Hathaway picture"
-          src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Anne_Hathaway_Face.jpg"
+          src=""
         />
         <label class="form__uploadBtn" id="uploadBtn" for="file">Загрузить фото</label>
       </div>
@@ -28,9 +27,9 @@
 
     <div class="profile-block-info">
       <h2>Информация</h2>
-      <form class="auth-box-form" id="auth-form">
+      <form class="auth-box-form-profile" id="auth-form">
         <div class="user-box">
-          <input class="user-box__login" type="text" />
+          <input class="user-box__login" type="login" name="login"/>
           <label>Имя пользователя</label>
         </div>
         <div class="user-box">
@@ -42,7 +41,7 @@
           <label>Фамилия</label>
         </div>
         <div class="user-box">
-          <input class="user-box__email" type="email" />
+          <input class="user-box__email" type="email" name="email"/>
           <label>Почта</label>
         </div>
         <button class="update-btn" type="submit">

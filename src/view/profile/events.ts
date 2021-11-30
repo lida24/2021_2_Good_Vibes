@@ -1,12 +1,12 @@
 import bus from '../../init/bus';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
-  /* const signOutBtn = self.getElementsByClassName('logout-btn')[0];
+  const signOutBtn = self.getElementsByClassName('logout-btn')[0];
   signOutBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
     bus.emit('signOut button click', undefined);
-  });  */
+  });  
 
   // ---------------------
   const profilePic = <HTMLImageElement>self.getElementsByClassName('form__photo')[0];
