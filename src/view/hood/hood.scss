@@ -233,32 +233,25 @@ ul {
   z-index: 100;
   top: 0;
   position: fixed;
-
   display: flex;
   @include shadow-block(#333);
   border-radius: 0;
-
   &-inner {
     height: 100%;
     width: 100%;
-
     padding-left: 10vw;
     padding-right: 10vw;
-
     display: flex;
     justify-content: space-between;
   }
-
   &-left {
     display: flex;
     align-items: center;
-
     &__brand {
       font-size: 2.5rem;
       margin-right: 1vw;
       cursor: pointer;
     }
-
     &__aside {
       font-size: 2.5rem;
       padding: 0.5rem;
@@ -267,34 +260,27 @@ ul {
       color: $bg-color-1;
       cursor: pointer;
     }
-
     &__link {
       font-size: 2.5rem;
       font-weight: bolder;
       color: $bg-color-1;
       text-transform: uppercase;
-
       span {
         color: $twitter-color;
       }
     }
   }
-
   &-right {
     display: flex;
     align-items: center;
-
-
     &-avatar {
       display: flex;
       position: relative;
     }
-
     &-cart {
       display: flex;
       position: relative;
     }
-
     i {
       font-size: 2.5rem;
       color: $bg-color-1;

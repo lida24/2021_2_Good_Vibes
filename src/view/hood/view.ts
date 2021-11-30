@@ -25,18 +25,6 @@ export default class Hood extends View implements ViewInterface {
     this.self = <HTMLElement>document.createElement('div');
     this.self.className = className;
     bus.add(connections);
-    this.render()
-      .then(() => {
-        // ----------------
-        const searchInput = new SearchInput(undefined);
-        document.getElementsByClassName('header-right')[0].appendChild(searchInput.self);
-        const search = <HTMLElement>document.getElementsByClassName('search-container')[0];
-        search.style.visibility = 'hidden';
-
-        // ----------------
-        const suggestDiv = <HTMLElement>document.createElement('div');
-        suggestDiv.className = 'suggests-container';
-        document.getElementsByClassName('header-right')[0].appendChild(suggestDiv);
-      });
+    this.render();
   }
 }

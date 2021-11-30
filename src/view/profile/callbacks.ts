@@ -15,16 +15,16 @@ export const fieldsFill: Callback = () => {
   // emailInput.value = user.email;
   // photo.src = user.avatar;
 
-  const loginInput = <HTMLInputElement>document.getElementById('profile-name');
-  const emailInput = <HTMLInputElement>document.getElementById('profile-public_email');
+  const loginInput = <HTMLInputElement>document.getElementsByClassName('user-box__login')[0];
+  const emailInput = <HTMLInputElement>document.getElementsByClassName('user-box__email')[0];
   const photo = <HTMLImageElement>document.getElementsByClassName('form__photo')[0];
 
   loginInput.value = user.username;
   emailInput.value = user.email;
   photo.src = user.avatar;
 
-  const file = <HTMLInputElement>document.getElementsByClassName('form__uploadFile')[0];
-  file.style.display = 'none';
+  /* const file = <HTMLInputElement>document.getElementsByClassName('form__uploadFile')[0];
+  file.style.display = 'none';  */
 };
 
 export const profileUploadRequest: Callback = () => {
@@ -38,9 +38,8 @@ export const profileUploadRequest: Callback = () => {
 
   // bus.emit('profile upload request', obj);
 
-  const loginInput = <HTMLInputElement>document.getElementById('profile-name');
-  const emailInput = <HTMLInputElement>document.getElementById('profile-public_email');
-
+  const loginInput = <HTMLInputElement>document.getElementsByClassName('user-box__login')[0];
+  const emailInput = <HTMLInputElement>document.getElementsByClassName('user-box__email')[0];
   const obj = {
     username: loginInput.value.trim(),
     email: emailInput.value.trim(),
@@ -86,6 +85,18 @@ export const showOrderList: Callback = (obj: Order[]) => {
     orderIdCell.textContent = item.order_id.toString();
     tr.appendChild(orderIdCell);
 
+    const costCell = <HTMLTableCellElement>document.createElement('td');
+    costCell.textContent = item.cost.toString();
+    tr.appendChild(costCell);
+
+    /* const payStatusCell = <HTMLTableCellElement>document.createElement('td');
+    payStatusCell.textContent = '[тут пока пусто]';
+    tr.appendChild(payStatusCell); */
+
+ /*    const deliveryStatusCell = <HTMLTableCellElement>document.createElement('td');
+    deliveryStatusCell.textContent = item.status;
+    tr.appendChild(deliveryStatusCell); */
+
     const dateCell = <HTMLTableCellElement>document.createElement('td');
     const date = new Date(item.date);
     // console.log(a.toLocaleDateString(), a.toLocaleTimeString());
@@ -93,26 +104,20 @@ export const showOrderList: Callback = (obj: Order[]) => {
 
     tr.appendChild(dateCell);
 
-    const costCell = <HTMLTableCellElement>document.createElement('td');
-    costCell.textContent = item.cost.toString();
-    tr.appendChild(costCell);
 
-    const payStatusCell = <HTMLTableCellElement>document.createElement('td');
-    payStatusCell.textContent = '[тут пока пусто]';
-    tr.appendChild(payStatusCell);
+   
 
-    const deliveryStatusCell = <HTMLTableCellElement>document.createElement('td');
-    deliveryStatusCell.textContent = item.status;
-    tr.appendChild(deliveryStatusCell);
+  
 
-    const detalesCell = <HTMLTableCellElement>document.createElement('td');
+   /*  const detalesCell = <HTMLTableCellElement>document.createElement('td');
     detalesCell.innerHTML = '<a href="/#/order/"> Детали </a>';
     tr.appendChild(detalesCell);
+    */
 
-    tbody.appendChild(tr);
+    tbody.appendChild(tr); 
   });
 
-  const table = <HTMLTableElement>document.getElementsByClassName('table')[0];
+  const table = <HTMLTableElement>document.getElementsByClassName('my_account_orders')[0];
   table.appendChild(tbody);
 };
 
