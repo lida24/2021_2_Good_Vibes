@@ -99,9 +99,16 @@ export const showCategoryPage: Callback = () => {
   bus.emit('show view', { name: 'categoryPage' });
 };
 
-export const categoryAddToHistory: Callback = (obj: { name: string }) => {
+export const categoryAddToHistory: Callback = (obj: { name: string, pathname: string }) => {
+
+  console.log('categoryAddToHistory', obj);
+
   addToHistory({
-    pathname: `/category?name=${obj.name}`,
+    // pathname: `/category?name=${obj.name}`,
+
+    pathname: `/category/${obj.name}`,
+
+    // pathname: `${obj.pathname}`,
   });
 };
 

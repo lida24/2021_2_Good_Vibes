@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: { 
+  entry: {
     app: './src/main.ts'
   },
   // entry: './reworking/main.ts',
@@ -23,9 +23,9 @@ module.exports = {
       {
         test: /\.(html)$/,
         use: {
-         loader: 'html-loader'
+          loader: 'html-loader'
         }
-       },
+      },
     ],
   },
   output: {
@@ -39,8 +39,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-     title: 'Caching',
-     template: "./src/index.html"
+      title: 'Caching',
+      template: "./src/index.html"
     }),
   ],
   devServer: {
@@ -56,5 +56,5 @@ module.exports = {
     compress: true,
     port: 9000,
     open: true
-   },
+  },
 };
