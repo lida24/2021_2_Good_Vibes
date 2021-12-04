@@ -30,7 +30,11 @@ export const addProductArray: Callback = (array: Product[]) => {
 
 export const saveCurrentCategoryName: Callback = () => {
   const { search } = window.location;
-  [, categoryName] = search.match(/.*name=(\w+)/u);
+
+  console.log('saveCurrentCategoryName', search, window.location.pathname);
+  // [, categoryName] = search.match(/.*name=(\w+)/u);
+
+  [, categoryName] = window.location.pathname.match(/\/category\/(.+)/u);
 };
 
 export const savePageYOffset: Callback = () => {

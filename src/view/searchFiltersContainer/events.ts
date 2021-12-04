@@ -54,7 +54,10 @@ const initEvents: (self: HTMLElement) => void = (self) => {
       event.preventDefault();
       searchParams[key] = +inputElement.value;
 
-      const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+      // const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+
+      const currentCategory = window.location.pathname.match(/\/category\/(.+)/u)[1];
+
       bus.emit('category ajax request', { name: currentCategory });
     });
   });
@@ -70,7 +73,10 @@ const initEvents: (self: HTMLElement) => void = (self) => {
         const type = <'asc' | 'desc'>element.value.toString();
         searchParams.type = type;
 
-        const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+        // const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+
+        const currentCategory = window.location.pathname.match(/\/category\/(.+)/u)[1];
+
         bus.emit('category ajax request', { name: currentCategory });
         return false;
       }
@@ -89,7 +95,10 @@ const initEvents: (self: HTMLElement) => void = (self) => {
         const type = <'price' | 'rating'>element.value.toString();
         searchParams.orderType = type;
 
-        const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+        // const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+
+        const currentCategory = window.location.pathname.match(/\/category\/(.+)/u)[1];
+
         bus.emit('category ajax request', { name: currentCategory });
         return false;
       }
