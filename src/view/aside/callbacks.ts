@@ -7,9 +7,40 @@ export const show: Callback = () => {
   asideObj.classList.add('open');
 };
 
+export const showCategories: Callback = (obj: HTMLElement) => {
+
+  const allProductUlCollection = obj.getElementsByClassName('categories')[0].getElementsByTagName('ul');
+  Array.from(allProductUlCollection).forEach((el) => {
+    el.hidden = true;
+  });
+
+  const b = allProductUlCollection[0].childNodes;
+  Array.from(b).forEach((el: HTMLElement) => {
+    el.hidden = false;
+    const c = <HTMLElement>el.getElementsByClassName('fa')[0];
+    c.style.transform = 'rotate(90deg)';
+  });
+
+  allProductUlCollection[0].hidden = false;
+  const a = <HTMLElement>allProductUlCollection[0].getElementsByClassName('fa')[0];
+  a.style.transform = 'rotate(270deg)';
+};
+
 export const hide: Callback = () => {
   const asideObj = <HTMLElement>document.getElementsByClassName('aside-container')[0];
   asideObj.classList.remove('open');
+
+  showCategories(asideObj);
+};
+
+const rotateChevron: (el: HTMLElement) => void = (el) => {
+  let rotateReg = el.style.transform;
+  let rotate = 90;
+  if (rotateReg) {
+    rotate = +rotateReg.match(/.*rotate\((\d+)deg\)/)[1];
+  }
+  rotate = (rotate + 180) % 360;
+  el.style.transform = `rotate(${rotate}deg)`;
 };
 
 export const addLiEvents: (li: HTMLLIElement, obj: Category) => void = (li, obj) => {
@@ -25,38 +56,30 @@ export const addLiEvents: (li: HTMLLIElement, obj: Category) => void = (li, obj)
       return;
     }
 
+    // console.log(li.getElementsByClassName('fa'));
+    rotateChevron(<HTMLElement>li.getElementsByClassName('fa')[0]);
+
     // if (target.tagName !== 'SPAN') return;
 
-    const ulCollection = li.parentElement.getElementsByTagName('ul');
+    // const ulCollection = li.parentElement.getElementsByTagName('ul');
+
+    const ulCollection = li.parentElement.childNodes;
+
 
     // const ulCollection = li.parentNode.querySelector('ul');
 
     if (!ulCollection) return;
 
-    // ulCollection.hidden = !ulCollection.hidden;
 
-    // if (ulCollection.hidden) {
-    //   target.classList.add('hide');
-    //   target.classList.remove('show');
-    // } else {
-    //   target.classList.add('show');
-    //   target.classList.remove('hide');
-    // }
 
-    Array.from(ulCollection).forEach((child) => {
+    Array.from(ulCollection).forEach((child: HTMLElement) => {
       // eslint-disable-next-line no-param-reassign
-
-      child.hidden = !child.hidden;
-
-      // child.hidden = true;
+      if (child.tagName === 'UL') {
+        child.hidden = !child.hidden;
+      }
     });
 
-    // const ul = li.parentNode.querySelector('ul');
-    // ul.hidden = false;
-    // let nextSubling = ul.nextSibling;
-    // while (nextSubling) {
-    //   nextSubling
-    // }
+
   });
 };
 
@@ -64,12 +87,11 @@ export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement = 
   const { name, description } = obj;
 
   categoryList[name] = description;
-  // console.log(categoryList);
-
   const child = <HTMLUListElement>document.createElement('ul');
 
-  child.style.paddingLeft = '0';
+  child.style.paddingLeft = '15px';
   child.style.listStyleType = 'none';
+  child.hidden = true;
 
   const li = <HTMLLIElement>document.createElement('li');
   addLiEvents(li, obj);
@@ -80,13 +102,13 @@ export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement = 
   link.className = 'categories__span-fa';
   li.appendChild(link);
 
-/*   if (obj.children) {
+  if (obj.children) {
     const span = <HTMLAnchorElement>document.createElement('span');
     li.appendChild(span);
     const i = <HTMLElement>document.createElement('i');
     i.className = 'fa fa-chevron-right';
     span.appendChild(i);
-  } */
+  }
 
   parent.appendChild(child);
   return child;
@@ -106,6 +128,8 @@ export const parseCategoryObject: Callback = (obj: Category) => {
   const parent = <HTMLElement>document.getElementsByClassName('categories')[0];
 
   handleObj(obj, parent);
+
+  showCategories(document.getElementsByClassName('aside-container')[0]);
 };
 
 export const parse: Callback = (response: AjaxResponse) => {
