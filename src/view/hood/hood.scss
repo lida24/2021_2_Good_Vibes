@@ -330,7 +330,11 @@ ul {
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   position: relative;
+  /* position: absolute; */
   margin: 32px 0 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
   &-inner {
     margin: 0 10vw;
