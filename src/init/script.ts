@@ -11,6 +11,7 @@ import cartConnections from '../object/cart/connections';
 import Aside from '../view/aside/view';
 
 import SearchInput from '../view/hood/searchInput/view';
+import PopupSearch from '../view/hood/popupSearch/view';
 
 const init: () => void = () => {
   bus.add(userConnections);
@@ -26,8 +27,8 @@ const init: () => void = () => {
   bus.emit('cart get request', undefined);
   bus.emit('category get request', undefined);
 
-  const hood = new Hood('grid-container');
-  document.getElementsByClassName('grid-container')[0].replaceWith(hood.self);
+  const hood = new Hood('wrapper');
+  document.getElementsByClassName('wrapper')[0].replaceWith(hood.self);
 
   const aside = new Aside();
   document.getElementsByClassName('aside-container')[0].replaceWith(aside.self);
@@ -41,9 +42,15 @@ const init: () => void = () => {
   // ----------------
   const searchInput = new SearchInput(undefined);
 
-  document.getElementsByClassName('nav')[0].appendChild(searchInput.self);
+  document.getElementsByClassName('header__inner')[0].appendChild(searchInput.self);
   const search = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
   search.style.visibility = 'visible';
+
+  const popupSearch = new PopupSearch(undefined);
+
+  document.getElementsByClassName('body')[0].appendChild(popupSearch.self);
+  const popup = <HTMLElement>document.getElementsByClassName('search-suggests-popup')[0];
+  popup.style.visibility = 'visible';
 };
 
 export default init;

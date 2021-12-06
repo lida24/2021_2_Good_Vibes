@@ -17,10 +17,28 @@
   </ul>
 </form> }}
 
-<div class="search-catalog">
+<div class="popup__content">
+  <div class="popup-search__header">
+    <div class="popup-search__input">
+      <form class="search-form">
+        <input
+          type="search"
+          class="search-input-popup"
+          placeholder="Искать товары"
+        />
+      </form>
+    </div>
+    <button class="popup-search__cancel">Отмена</button>
+  </div>
+  <div class="popup-search__hints">
+    <ul class="search-suggests-popup">
+    </ul>
+  </div>
+</div>
+{{! <div class="search-catalog">
   <form class="search-form">
     <input type="search" class="search-input" placeholder="Искать товары" />
     <ul class="search-suggests">
     </ul>
   </form>
-</div>
+</div> }}
