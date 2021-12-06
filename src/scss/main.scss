@@ -57,6 +57,12 @@ button:hover {
   vertical-align: baseline;
 } */
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 $textColorDefault: #000000;
 $textGrayColor: rgb(122, 122, 122);
 $purpleColor: rgb(112, 146, 254);

@@ -33,12 +33,19 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit('aside button click', undefined);
   });
   const closeBtn = <HTMLElement>self.getElementsByClassName('burger-close')[0];
-   console.log('close', closeBtn);
     closeBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
     bus.emit('aside button click hide', undefined);
-  }); 
+  });
+
+  const searchBtn = <HTMLElement>self.getElementsByClassName('nav-element__search')[0];
+    searchBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('search button click', undefined);
+  });
 };
+
 
 export default initEvents;

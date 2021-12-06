@@ -11,6 +11,7 @@ import cartConnections from '../object/cart/connections';
 import Aside from '../view/aside/view';
 
 import SearchInput from '../view/hood/searchInput/view';
+import PopupSearch from '../view/hood/popupSearch/view';
 
 const init: () => void = () => {
   bus.add(userConnections);
@@ -44,6 +45,12 @@ const init: () => void = () => {
   document.getElementsByClassName('header__inner')[0].appendChild(searchInput.self);
   const search = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
   search.style.visibility = 'visible';
+
+  const popupSearch = new PopupSearch(undefined);
+
+  document.getElementsByClassName('body')[0].appendChild(popupSearch.self);
+  const popup = <HTMLElement>document.getElementsByClassName('search-suggests-popup')[0];
+  popup.style.visibility = 'visible';
 };
 
 export default init;
