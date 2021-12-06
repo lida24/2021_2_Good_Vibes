@@ -17,6 +17,13 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
     bus.emit('show subcategory', undefined);
   });
+
+  const closeBtn = <HTMLElement>self.getElementsByClassName('menu-burger__close')[0];
+  closeBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  bus.emit('hide aside by button', undefined);
+});
 };
 
 export default initEvents;

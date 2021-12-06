@@ -27,6 +27,9 @@ const init: () => void = () => {
   bus.emit('cart get request', undefined);
   bus.emit('category get request', undefined);
 
+  const overlayElem = document.createElement('div');
+  overlayElem.className = 'overlay';
+  document.getElementsByClassName('body')[0].appendChild(overlayElem);
   const hood = new Hood('wrapper');
   document.getElementsByClassName('wrapper')[0].replaceWith(hood.self);
 
