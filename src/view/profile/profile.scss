@@ -127,9 +127,8 @@ overflow: hidden;
 .layout-inner {
   margin: 0 10vw;
   margin-top: 10vh;
-  min-height: calc(145vh - 44px);  /* 100 */
+  /* min-height: calc(145vh - 44px);  */ /* 100 */
   width: 80%;
-  /* height: 100%; */
   @media screen and (max-width: $breakTablet) {
     margin: 0 5vw;
     width: 80%;
@@ -150,7 +149,7 @@ overflow: hidden;
   display: flex;
   @media screen and (max-width: $breakTablet) {
     width: 700px;
-    margin: 42px 20px;
+    margin: 42px 0px;
   }
 }
 
@@ -212,7 +211,8 @@ span {
 
 .form__photo {
   height: 100%;
-  width: 100%;
+  width: auto;
+  margin: 0 auto;
 }
 
 .form__photo:hover {

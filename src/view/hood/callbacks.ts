@@ -18,6 +18,10 @@ export const showAside: Callback = () => {
   bus.emit('show aside', undefined);
 };
 
+export const hideAsideByBtn: Callback = () => {
+  bus.emit('hide aside by button', undefined);
+};
+
 export const saveState: Callback = (obj: { 'state': string }) => {
   redirect.saveState(obj);
 };

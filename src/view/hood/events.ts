@@ -32,6 +32,13 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
     bus.emit('aside button click', undefined);
   });
+  const closeBtn = <HTMLElement>self.getElementsByClassName('burger-close')[0];
+   console.log('close', closeBtn);
+    closeBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('aside button click hide', undefined);
+  }); 
 };
 
 export default initEvents;

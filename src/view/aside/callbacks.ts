@@ -5,11 +5,59 @@ import categoryList from '../../object/category/list';
 export const show: Callback = () => {
   const asideObj = <HTMLElement>document.getElementsByClassName('aside-container')[0];
   asideObj.classList.add('open');
+  const headerObj = <HTMLElement>document.getElementsByClassName('header')[0];
+  headerObj.classList.add('aside-header');
+  const bodyObj = <HTMLElement>document.getElementsByTagName('body')[0];
+  bodyObj.classList.add('body-overflow');
+  const openObj = <HTMLElement>document.getElementsByClassName('header__aside')[0];
+  openObj.style.display = 'none';
+  const closeObj = <HTMLElement>document.getElementsByClassName('burger-close')[0];
+  closeObj.style.display = 'block';
+  /* const closeBtn = document.getElementsByClassName('burger-close')[0];
+  console.log('close', closeBtn);
+   closeBtn.addEventListener('click', (event) => {
+   event.preventDefault();
+   bus.emit('hide aside by button', undefined);
+ }); */
+/*  const asideBtn = document.getElementsByClassName('header__aside')[0];
+ asideBtn.addEventListener('click', (event) => {
+   event.preventDefault();
+
+   bus.emit('show aside', undefined);
+ }); */
 };
 
-export const hide: Callback = () => {
+/* export const hide: Callback = () => {
   const asideObj = <HTMLElement>document.getElementsByClassName('aside-container')[0];
   asideObj.classList.remove('open');
+  const headerObj = <HTMLElement>document.getElementsByClassName('header')[0];
+  headerObj.classList.remove('aside-header');
+  const bodyObj = <HTMLElement>document.getElementsByTagName('body')[0];
+  bodyObj.classList.remove('body-overflow');
+  /* const btnObj = <HTMLElement>document.getElementsByClassName('header__aside')[0];
+  btnObj.classList.remove('burger-close'); 
+}; */
+
+export const hideByBtn: Callback = () => {
+  console.log('hidebybtn');
+  const asideObj = <HTMLElement>document.getElementsByClassName('aside-container')[0];
+  asideObj.classList.remove('open');
+  const headerObj = <HTMLElement>document.getElementsByClassName('header')[0];
+  headerObj.classList.remove('aside-header');
+  const bodyObj = <HTMLElement>document.getElementsByTagName('body')[0];
+  bodyObj.classList.remove('body-overflow');
+  const openObj = <HTMLElement>document.getElementsByClassName('header__aside')[0];
+  openObj.style.display = 'block';
+  const closeObj = <HTMLElement>document.getElementsByClassName('burger-close')[0];
+  closeObj.style.display = 'none';
+  /* const btnObj = <HTMLElement>document.getElementsByClassName('header__aside')[0];
+  btnObj.classList.remove('burger-close'); */
+  /* const asideBtn = document.getElementsByClassName('header__aside')[0];
+ asideBtn.addEventListener('click', (event) => {
+   event.preventDefault();
+
+   bus.emit('show aside', undefined);
+ });   */
 };
 
 export const addLiEvents: (li: HTMLLIElement, obj: Category) => void = (li, obj) => {
@@ -126,11 +174,11 @@ export const hideHandle: Callback = () => {
     const targetElement = <HTMLElement>event.target;
 
     if (targetElement.tagName === 'A') {
-      hide(undefined);
+     /*  hide(undefined); */
       return;
     }
 
     if (asideContainerNode.contains(targetNode) || asideBtnNone.contains(targetNode)) return;
-    hide(undefined);
+    /* hide(undefined); */
   });
 };
