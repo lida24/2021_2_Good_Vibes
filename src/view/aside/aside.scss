@@ -10,6 +10,8 @@
   transition: all 0.5s;
   border-right: 0.1rem $dirty-gray-color solid;
   padding: 40px; */
+  padding: 40px;
+  padding-left: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,7 +87,17 @@
   &__span-fa {
     font-size: 1.4rem;
     color: $dirty-gray-color;
+    cursor: pointer;
   }
+  
+  .fa {
+    font-size: medium;
+    position: absolute;
+    right: 10px;
+    transform: rotate(90deg);
+    color: gray;
+  }
+}
 }
 
 .body-overflow {

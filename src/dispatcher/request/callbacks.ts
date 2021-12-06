@@ -11,7 +11,11 @@ export const signIn: Callback = () => {
     return;
   }
 
+  // console.log(window.location.pathname);
+  // const { pathname } = window.location;
+
   bus.emit('signIn state confirmed', { state: 'signin', pathname: '/signin' });
+  // bus.emit('signIn state confirmed', { state: 'signin', pathname });
 };
 
 export const signUp: Callback = () => {
@@ -21,6 +25,9 @@ export const signUp: Callback = () => {
   }
 
   bus.emit('signUp state confirmed', { state: 'signUp', pathname: '/signup' });
+
+  // const { pathname } = window.location;
+  // bus.emit('signUp state confirmed', { state: 'signUp', pathname });
 };
 
 export const profile: Callback = () => {
@@ -30,6 +37,9 @@ export const profile: Callback = () => {
   }
 
   bus.emit('profile state confirmed', { state: 'profile', pathname: '/profile' });
+
+  // const { pathname } = window.location;
+  // bus.emit('profile state confirmed', { state: 'profile', pathname });
 };
 
 export const homepage: Callback = () => {
@@ -58,7 +68,8 @@ export const address: Callback = () => {
   bus.emit('address state confirmed', { state: 'address', pathname: '/address' });
 };
 
-export const category: Callback = (obj: { name: string }) => {
+// export const category: Callback = (obj: { name: string }) => {
+export const category: Callback = (obj: { name: string, pathname: string }) => {
   bus.emit('category ajax request', obj);
 };
 
