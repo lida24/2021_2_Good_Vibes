@@ -1,9 +1,8 @@
 import bus from '../../init/bus';
 import cart from '../../object/cart/cart';
 import user from '../../object/user/user';
-import { Callback } from '../../types';
+import { Callback, OrderRequest } from '../../types';
 import redirect from '../redirect';
-// import state from '../state';
 
 export const signIn: Callback = () => {
   if (user.isAutorize()) {
@@ -117,4 +116,15 @@ export const orders: Callback = () => {
 
 export const search: Callback = (obj: { str: string }) => {
   bus.emit('search ajax request', obj);
+};
+
+export const cartConfirm: Callback = (obj: OrderRequest) => {
+  console.warn('cartConfirm', obj);
+
+  if (!user.isAutorize()) {
+    bus.emit('signIn state request', undefined);
+    return;
+  }
+
+  bus.emit('cart confirm confirmed', obj);
 };
