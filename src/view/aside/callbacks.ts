@@ -19,7 +19,9 @@ export const show: Callback = () => {
     document.getElementsByClassName("burger-close")[0]
   );
   closeObj.style.display = "block";
-  const overlayElem = <HTMLElement>document.getElementsByClassName("overlay")[0];
+  const overlayElem = <HTMLElement>(
+    document.getElementsByClassName("overlay")[0]
+  );
   overlayElem.style.display = "block";
   /* const closeBtn = document.getElementsByClassName('burger-close')[0];
   console.log('close', closeBtn);
@@ -106,7 +108,9 @@ export const hideByBtn: Callback = () => {
     document.getElementsByClassName("burger-close")[0]
   );
   closeObj.style.display = "none";
-  const overlayElem = <HTMLElement>document.getElementsByClassName("overlay")[0];
+  const overlayElem = <HTMLElement>(
+    document.getElementsByClassName("overlay")[0]
+  );
   overlayElem.style.display = "none";
   /* const btnObj = <HTMLElement>document.getElementsByClassName('header__aside')[0];
   btnObj.classList.remove('burger-close'); */

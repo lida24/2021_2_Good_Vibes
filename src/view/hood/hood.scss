@@ -10,26 +10,60 @@
   padding-top: env(safe-area-inset-top);
 }
 
+#layout {
+  flex: 1 0 auto;
+}
+
 .layout {
   @include set-size(100%, 100%);
+  flex: 1 0 auto;
 
   &__main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex: 1 0 auto;
+    /* @media screen and (max-width: $breakDesktop) {
+      max-width: 1024px;
+    }
+  
+    @media screen and (max-width: $breakTablet) {
+      max-width: 768px;
+    }
+  
+    @media screen and (max-width: $breakMobile) {
+      max-width: 320px;
+    } */
   }
 
   &-inner {
-    margin: 0 10vw;
-    margin-top: 7vh;
+    margin: 0 15vw;
+    margin-top: 5vh;
+    flex: 1 0 auto;
     /* min-height: calc(145vh - 44px); */
     /* @include set-size(80%, 100%); */
-    @media screen and (max-width: $breakTablet) {
+    /* @media screen and (max-width: $breakTablet) {
       margin: 0 5vw;
       margin-top: 10vh;
-      /* min-height: calc(100vh - 44px); */
+      /* min-height: calc(100vh - 44px); 
       width: 80%;
+    } */
+    @media screen and (max-width: 1400px) {
+      margin: 5vw 10vw;
     }
+
+    @media screen and (max-width: $breakDesktop) {
+      margin: 5vw 10vw;
+    }
+
+    @media screen and (max-width: $breakTablet) {
+      margin: 0 5vw;
+    }
+
+    @media screen and (max-width: $breakMobile) {
+      margin: 5vw 0;
+    }
+
   }
 }
 
@@ -458,6 +492,12 @@ ul {
   }
 }
 
+@media screen and (min-width: $breakDesktop) {
+  .desktop-hide {
+    display: none;
+  }
+}
+
 @media screen and (max-width: $breakDesktop) {
   .header {
     padding: 10px 0 10px;
@@ -532,5 +572,44 @@ ul {
     width: 28px;
     position: relative;
     border-radius: 4px;
+  }
+
+  .desktop-hide {
+    display: block;
+  }
+
+  .navbar-mobile {
+    padding: 0 16px;
+  }
+
+  .navbar-mobile__link {
+    padding: 12px 0;
+  }
+
+  .navbar-mobile__icon {
+    height: 28px;
+  }
+
+  .navbar-mobile__icon--home {
+    width: 30px;
+    background-size: 58px;
+  }
+
+  .navbar-mobile__icon--catalog {
+    width: 30px;
+    background-size: 64px;
+  }
+  .navbar-mobile__icon--basket {
+    width: 30px;
+    background-size: 67px;
+  }
+  .navbar-mobile__icon--favorites {
+    width: 30px;
+    background-size: 55px;
+  }
+
+  .navbar-mobile__icon--profile {
+    width: 30px;
+    background-size: 60px;
   }
 }

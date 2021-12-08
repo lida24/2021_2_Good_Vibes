@@ -12,6 +12,7 @@ import Aside from '../view/aside/view';
 
 import SearchInput from '../view/hood/searchInput/view';
 import PopupSearch from '../view/hood/popupSearch/view';
+import Navbar from '../view/hood/navbar-mobile/view';
 
 const init: () => void = () => {
   bus.add(userConnections);
@@ -30,6 +31,7 @@ const init: () => void = () => {
   const overlayElem = document.createElement('div');
   overlayElem.className = 'overlay';
   document.getElementsByClassName('body')[0].appendChild(overlayElem);
+
   const hood = new Hood('wrapper');
   document.getElementsByClassName('wrapper')[0].replaceWith(hood.self);
 
@@ -54,6 +56,12 @@ const init: () => void = () => {
   document.getElementsByClassName('body')[0].appendChild(popupSearch.self);
   const popup = <HTMLElement>document.getElementsByClassName('search-suggests-popup')[0];
   popup.style.visibility = 'visible';
+
+  const navbar = new Navbar(undefined);
+
+  document.getElementsByClassName('body')[0].appendChild(navbar.self);
+  const navbarMobile = <HTMLElement>document.getElementsByClassName('navbar-mobile')[0];
+  navbarMobile.style.visibility = 'visible';
 };
 
 export default init;

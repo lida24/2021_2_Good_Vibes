@@ -45,6 +45,34 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
     bus.emit('search button click', undefined);
   });
+
+  const homeBtn = <HTMLElement>self.getElementsByClassName('navbar-mobile__icon--home')[0];
+  homeBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('logo button click', undefined);
+  });
+
+  const asideMobileBtn = <HTMLElement>self.getElementsByClassName('navbar-mobile__icon--catalog')[0];
+  asideMobileBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('aside button click', undefined);
+  });
+
+  const cartMobileBtn = <HTMLElement>self.getElementsByClassName('navbar-mobile__icon--basket')[0];
+  cartMobileBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('cart button click', undefined);
+  });
+
+  const profileMobileBtn = <HTMLAnchorElement>self.getElementsByClassName('navbar-mobile__icon--profile')[0];
+  profileMobileBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('profile button click', undefined);
+  });
 };
 
 

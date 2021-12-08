@@ -120,8 +120,20 @@ html {
   min-height: -webkit-fill-available;
   min-width: 994px;
 }
- html.adaptive,
+html.adaptive,
 html.adaptive body {
+  /* 
+  @media screen and (max-width: $breakDesktop) {
+    min-width: 1024px;
+  }
+
+  @media screen and (max-width: $breakTablet) {
+    min-width: 768px;
+  }
+
+  @media screen and (max-width: $breakMobile) {
+    min-width: 320px;
+  } */
   min-width: 320px;
 }
 
@@ -245,9 +257,19 @@ body {
     outline: none;
   }
 
+  /* @media screen and (max-width: $breakMobile) {
+    /* font-size: 2vh; 
+    height: 4.5vh;
+  } */
+}
+
+@mixin description-label() {
+  display: flex;
+  font-size: 1.8vh;
+  color: #000000;
+  opacity: 0.5;
   @media screen and (max-width: $breakMobile) {
     font-size: 2vh;
-    height: 4.5vh;
   }
 }
 

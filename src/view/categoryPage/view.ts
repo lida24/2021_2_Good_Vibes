@@ -18,7 +18,7 @@ export default class CategoryPage extends View implements ViewInterface {
 
     // ---------------------------
     const searchFiltersContainer = new SearchFiltersContainer(undefined);
-    this.self.getElementsByClassName('search-filter')[0].prepend(searchFiltersContainer.self);
+    this.self.getElementsByClassName('search-left')[0].prepend(searchFiltersContainer.self);
     // ---------------------------
 
     return this.show();

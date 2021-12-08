@@ -24,23 +24,50 @@
   &-block {
     display: flex;
     flex-direction: row;
+    @media screen and (max-width: $breakMobile) {
+      flex-direction: column;
+    }
   }
 
   &-left {
+    /* display: flex;
+    flex-direction: column;
+    margin-right: 2vh; */
+    /* height: 900px; */
     display: flex;
     flex-direction: column;
-    margin-right: 2vh;
-    /* height: 900px; */
+
+    @media screen and (max-width: $breakMobile) {
+      flex-direction: column;
+    }
   }
 
   &-filter {
+    @media screen and (max-width: $breakMobile) {
+      @include shadow-block;
+
+      padding: 0 2vh 1vh;
+      margin-bottom: 2vh;
+    }
 
     &__title {
       margin-top: 0;
+
+      @media screen and (max-width: $breakMobile) {
+        margin-top: revert;
+      }
     }
 
     &-elem {
       margin-bottom: 1vh;
+
+      @media screen and (max-width: $breakMobile) {
+        width: 100%;
+        margin-bottom: 1.5vh;
+
+        display: flex;
+        justify-content: center;
+      }
     }
 
     &-amount {
@@ -54,6 +81,9 @@
 
         border-radius: 0.5vh 0 0 0.5vh;
         background-color: whitesmoke;
+        @media screen and (max-width: $breakMobile) {
+          @include set-size(50%, 5vh);
+        }
       }
 
       &__to {
@@ -63,6 +93,9 @@
 
         border-radius: 0 0.5vh 0.5vh 0;
         background-color: whitesmoke;
+        @media screen and (max-width: $breakMobile) {
+          @include set-size(50%, 5vh);
+        }
       }
     }
 
@@ -77,6 +110,9 @@
 
         border-radius: 0.5vh 0 0 0.5vh;
         background-color: whitesmoke;
+        @media screen and (max-width: $breakMobile) {
+          @include set-size(50%, 5vh);
+        }
       }
 
       &__to {
@@ -86,6 +122,9 @@
 
         border-radius: 0 0.5vh 0.5vh 0;
         background-color: whitesmoke;
+        @media screen and (max-width: $breakMobile) {
+          @include set-size(50%, 5vh);
+        }
       }
     }
   }
