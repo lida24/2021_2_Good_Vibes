@@ -102,6 +102,8 @@ export const confirmAjaxRequest: Callback = () => {
   const houseInput = <HTMLInputElement>document.getElementById('orderform-house');
   const apartmentInput = <HTMLInputElement>document.getElementById('orderform-apartment');
 
+  console.log('cityInput', cityInput);
+
   // orderData.address.city = cityInput.value.trim();
   // orderData.address.street = streetInput.value.trim();
   // orderData.address.house = houseInput.value.trim();
@@ -116,6 +118,8 @@ export const confirmAjaxRequest: Callback = () => {
     country: 'country',
     index: 'index',
   };
+
+  // console.log("addess", addr);
 
   orderData.setAddress(addr);
 
