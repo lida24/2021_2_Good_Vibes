@@ -14,7 +14,10 @@
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-.navbar-mobile__link {
+.navbar-mobile__link--home, 
+.navbar-mobile__link--basket,
+.navbar-mobile__link--favorites,
+.navbar-mobile__link--profile {
   display: block;
   -webkit-box-flex: 1;
   flex-grow: 1;

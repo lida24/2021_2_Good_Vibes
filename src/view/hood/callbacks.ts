@@ -22,9 +22,9 @@ export const hideAsideByBtn: Callback = () => {
   bus.emit("hide aside by button", undefined);
 };
 
-export const saveState: Callback = (obj: { state: string }) => {
-  redirect.saveState(obj);
-};
+// export const saveState: Callback = (obj: { state: string }) => {
+//   redirect.saveState(obj);
+// };
 
 export const showSearch: Callback = () => {
   /* console.log('booody');

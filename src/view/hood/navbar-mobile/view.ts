@@ -1,7 +1,7 @@
 import * as compiledTemplate from './template.handlebars';
 import bus from '../../../init/bus';
-/* import initEvents from './events';
-import connections from './connections'; */
+import initEvents from './events';
+// import connections from './connections';
 import './navbar.scss';
 
 export default class Navbar {
@@ -13,7 +13,7 @@ export default class Navbar {
   private async renderHTML() {
     const html = compiledTemplate(this.context);
     this.self.innerHTML = html;
-    /* initEvents(this.self); */
+    initEvents(this.self);
   }
 
   public async render(): Promise<void> {
