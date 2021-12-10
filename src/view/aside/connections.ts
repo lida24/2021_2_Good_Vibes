@@ -2,10 +2,10 @@ import { Connection } from '../../types';
 import * as aside from './callbacks';
 
 const connections: Connection[] = [
-  /*  {
+    {
      event: 'hide aside',
      callback: aside.hide,
-   }, */
+   }, 
   {
     event: 'hide aside by button',
     callback: aside.hideByBtn,
@@ -20,7 +20,7 @@ const connections: Connection[] = [
       aside.parse,
       aside.hideHandle,
 
-      // aside.hideByBtn,
+     /*  aside.hideByBtn, */
     ],
   },
 

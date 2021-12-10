@@ -144,3 +144,19 @@ export const closeInput: Callback = () => {
   const search = document.getElementsByClassName('popup-search')[0];
   search.classList.remove('shown');
 }
+
+export const hideHandle: Callback = () => {
+  const popupSearchNode = <Node>(
+    document.getElementsByClassName("popup-search")[0]
+  );
+
+  document.addEventListener("click", (event) => {
+    const targetNode = <Node>event.target;
+    const targetElement = <HTMLElement>event.target;
+
+    if (targetElement.tagName === "A") {
+      closeInput(undefined);
+      return;
+    }
+  });
+}; 

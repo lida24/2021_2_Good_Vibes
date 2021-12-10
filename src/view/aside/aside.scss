@@ -52,7 +52,7 @@
     height: 100%;
     flex-shrink: 0;
     background: #fff;
-    padding: 20px 0 20px 30px;
+    padding: 20px 0 20px 15px;
     overflow: auto;
   }
 
@@ -66,8 +66,8 @@
   position: fixed;
   right: 0;
   left: 0;
-  -webkit-transition: top 0.3s ease 0s;
-  transition: top 0.3s ease 0s;
+  /* -webkit-transition: top 0.3s ease 0s; */
+  /* transition: top 0.3s ease 0s; */
 }
 
 .categories {
@@ -93,9 +93,11 @@
   .fa {
     font-size: medium;
     position: absolute;
-    right: 10px;
+    right: 25px;
     transform: rotate(90deg);
     color: gray;
+    /* padding-top: 30px; */
+    /* transition: all 1s linear; */
   }
 }
 

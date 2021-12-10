@@ -1,11 +1,15 @@
 import { Connection } from '../../../types';
+import SearchInput from '../searchInput/view';
 import * as searchInput from './callbacks';
 
 const connections: Connection[] = [
   {
     event: 'suggest request confirmed',
     // callback: searchInput.showSuggests,
-    callback: searchInput.parseResponse,
+    callback: [
+      searchInput.parseResponse,
+      searchInput.hideHandle,
+    ]
   },
   {
     event: 'show suggests',
