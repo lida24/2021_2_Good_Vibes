@@ -170,7 +170,10 @@ overflow: hidden;
 .g-page-title {
   /* margin: 90px 0 30px; */
   font-size: 3vh;
-  margin-bottom: 1vh;
+  @media screen and (max-width: $breakMobile) {
+    margin: 5vw 5vw;
+  }
+  /* margin-bottom: 1vh; */
 }
 
 .middle-container {
@@ -188,6 +191,7 @@ overflow: hidden;
   -ms-flex-pack: center;
   justify-content: center;
   margin-top: 3vh;
+  margin-bottom: 4vh;
   @media screen and (max-width: $breakDesktop) {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -208,6 +212,7 @@ overflow: hidden;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
+    margin: 5vw 5vw;
   }
 }
 
@@ -304,6 +309,17 @@ overflow: hidden;
 
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: $breakDesktop) {
+    box-shadow: none;
+  }
+  @media screen and (max-width: $breakTablet) {
+    box-shadow: none;
+  }
+  @media screen and (max-width: $breakMobile) {
+    box-shadow: none;
+  }
+
   &-inner {
     margin: 2vh;
   }
@@ -376,7 +392,8 @@ span {
   @media screen and (max-width: $breakTablet) {
     width: 15vh;
   } */
-  @include blue-button(20vw, 4vh);
+  /* @include blue-button(20vw, 4vh); */
+  @include blue-button(80%, 4vh);
   /* font-size: 0.7vh; */
   /* margin-top: 40px; */
   /*  @media screen and (max-width: $breakTablet) {
@@ -405,21 +422,21 @@ span {
     font-size: 1vh;
   }
   @media screen and (max-width: $breakDesktop) {
-    @include blue-button(20vw, 2vh);
-    font-size: 0.5vh;
+    @include blue-button(45vw, 4vh);
+    font-size: 1.4vh;
   }
   @media screen and (max-width: $breakTablet) {
     @include blue-button(45vw, 2vh);
-    font-size: 0.5vh;
+    font-size: 1.1vh;
   }
   @media screen and (max-width: $breakMobile) {
-    @include blue-button(45vw, 2vh);
-    font-size: 0.5vh;
+    @include blue-button(60vw, 3vh);
+    font-size: 1.1vh;
   }
 }
 
 .logout-btn {
-  @include blue-button(20vw, 4vh);
+  @include blue-button(80%, 4vh);
   /* font-size: 0.7vh; */
   /* margin-top: 40px; */
   /*  @media screen and (max-width: $breakTablet) {
@@ -444,20 +461,20 @@ span {
   font-size: 1.6vh;
   justify-content: center;
   @media screen and (max-width: 1920px) {
-    @include blue-button(12vw, 3vh);
+    @include blue-button(15vw, 3vh);
     font-size: 1vh;
   }
   @media screen and (max-width: $breakDesktop) {
-    @include blue-button(20vw, 2vh);
-    font-size: 0.5vh;
+    @include blue-button(45vw, 4vh);
+    font-size: 1.4vh;
   }
   @media screen and (max-width: $breakTablet) {
     @include blue-button(45vw, 2vh);
-    font-size: 0.5vh;
+    font-size: 1.1vh;
   }
   @media screen and (max-width: $breakMobile) {
-    @include blue-button(45vw, 2vh);
-    font-size: 0.5vh;
+    @include blue-button(52vw, 4vh);
+    font-size: 1.1vh;
   }
 }
 
@@ -499,6 +516,16 @@ span {
   flex-direction: column;
   padding: 1vh 2.5vh;
   height: 100%;
+
+  @media screen and (max-width: $breakDesktop) {
+    box-shadow: none;
+  }
+  @media screen and (max-width: $breakTablet) {
+    box-shadow: none;
+  }
+  @media screen and (max-width: $breakMobile) {
+    box-shadow: none;
+  }
 }
 .user-box {
   position: relative;
@@ -543,7 +570,13 @@ span {
   /* max-width: 600px;
   width: 100%; */
   width: 20vw;
-  margin: 42px 20px;
+  @media screen and (max-width: $breakTablet) {
+    margin: 5vw 5vw;
+  }
+  @media screen and (max-width: $breakMobile) {
+    margin: 5vw 15vw;
+  }
+  /* margin: 42px 20px; */
   th {
     text-align: left;
   }

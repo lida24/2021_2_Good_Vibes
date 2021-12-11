@@ -130,15 +130,16 @@
 } */
 
 .header__aside {
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  /* border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 8px;
-  padding: 16px 9px;
+  padding: 16px 9px; */
+  border: none;
   background: 0 0;
   /* margin-right: 20px; */
 }
 
 .header__aside .burger-line {
-  width: 22px;
+  width: 30px;
   height: 3px;
   position: relative;
   display: block;
