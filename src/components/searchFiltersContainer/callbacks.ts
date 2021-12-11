@@ -3,6 +3,7 @@ import searchParams from '../../services/search/params';
 import { Callback, Product } from '../../types';
 
 export const getParams: Callback = (array: Product[]) => {
+  console.log("getParams");
   const minPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__from')[0];
   const maxPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__to')[0];
   const minRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__from')[0];
@@ -32,11 +33,21 @@ export const getParams: Callback = (array: Product[]) => {
   searchParams.minRating = ratingList[0];
   searchParams.maxRating = ratingList[ratingList.length - 1];
 
-  maxPriceInput.value = searchParams.maxPrice.toString();
-  minPriceInput.value = searchParams.minPrice.toString();
+  if (!minPriceInput.value) {
+    minPriceInput.value = searchParams.minPrice.toString();
+  }
 
-  maxRatingInput.value = searchParams.maxRating.toString();
-  minRatingInput.value = searchParams.minRating.toString();
+  if (!maxPriceInput.value) {
+    maxPriceInput.value = searchParams.maxPrice.toString();
+  }
+
+  if (!minRatingInput.value) {
+    minRatingInput.value = searchParams.minRating.toString();
+  }
+
+  if (!maxRatingInput.value) {
+    maxRatingInput.value = searchParams.maxRating.toString();
+  }
 };
 
 export const b = 0;

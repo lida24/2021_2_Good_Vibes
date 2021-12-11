@@ -6,7 +6,7 @@ const connections: Connection[] = [
   {
     event: 'get search filter params',
     callback: [
-      searchFiltersContainer.getParams,
+        searchFiltersContainer.getParams,
     ],
   },
   // {
