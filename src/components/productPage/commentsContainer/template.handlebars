@@ -1,4 +1,4 @@
-<br>
+{{!-- <br>
 <div class="user-container">
    <img class="user-avatar" src="{{avatar}}"> 
   <span>{{username}}</span>
@@ -10,7 +10,26 @@
 
   </div>
 </div>
-<div class="comment-text">{{text}}</div> 
+<div class="comment-text">{{text}}</div>  --}}
+
+<div class="feedback__info">
+  <a
+    class="feedback__header"
+    data-link="{on ~ctx.goToProfile lastComment.wbUserId}"
+    href="/profile/"
+    data-jsv="#945^/945^"
+  >{{username}}</a>
+  <div class="info-card-rating">
+    <div class="info-card-rating__rate">
+      <span class="star"></span>
+    </div>
+    <div class="info-card-rating__text">{{rating}}</div>
+
+  </div>
+</div>
+<div class="feedback__content">
+  <p class="feedback__text" itemprop="reviewBody">{{text}}
+  </p>
 
 {{!-- <div class="reviews" id="reviews-seller">
   <div class="reviews-inner">

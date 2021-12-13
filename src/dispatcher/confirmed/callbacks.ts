@@ -3,9 +3,10 @@ import cart from '../../services/cart/cart';
 import user from '../../services/user/user';
 import { addToHistory } from '../../rout/callbacks';
 import {
-  AjaxResponse, Callback, Product,
+  AjaxResponse, Callback, CategoryResponseObject, Product,
 } from '../../types';
 import redirect from '../redirect';
+import searchParams from '../../services/search/params';
 // import state from '../state';
 
 export const showSignIn: Callback = () => {
@@ -92,7 +93,11 @@ export const categoryArrayParse: Callback = (response: AjaxResponse) => {
 
   Promise.resolve()
     .then(() => JSON.parse(responseText))
-    .then((obj: Product[]) => bus.emit('add product array to category page', obj))
+    .then((obj: CategoryResponseObject) => {
+      searchParams.minPrice = obj.min_price;
+      searchParams.maxPrice = obj.max_price;
+      bus.emit('add product array to category page', obj.products);
+    })
     .catch((err) => console.error(err));
 };
 
@@ -138,6 +143,7 @@ export const search: Callback = (response: { 'responseText': string }) => {
     .then(() => bus.emit('show view', { name: 'search' }))
     // .then(() => console.log('asdfadsf'))
     .then(() => JSON.parse(responseText))
+
     // .then((obj: Product[]) => bus.emit('add product array to category page', obj))
     .then((obj: Product[]) => bus.emit('show search results', obj))
     .catch((err) => console.error(err));

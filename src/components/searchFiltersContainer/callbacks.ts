@@ -8,38 +8,47 @@ export const getParams: Callback = (array: Product[]) => {
   const maxPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__to')[0];
   const minRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__from')[0];
   const maxRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__to')[0];
-  const orderInput = document.getElementsByClassName('order-radio');
-  const orderTypeInput = document.getElementsByClassName('order-type-radio');
+/*   const orderInput = document.getElementsByClassName('order-radio');
+  const orderTypeInput = document.getElementsByClassName('order-type-radio'); */
 
   if (
     !minRatingInput
     || !maxRatingInput
     || !minPriceInput
     || !maxPriceInput
-    || !orderInput
-    || !orderTypeInput
+/*     || !orderInput
+    || !orderTypeInput */
     || array.length === 0
   ) {
     return;
   }
 
   // ------------------
-  const priceList = array.map((item) => item.price).sort((a, b) => a - b);
+
+  console.warn(searchParams);
+
+  /* const priceList = array.map((item) => item.price).sort((a, b) => a - b);
   const ratingList = array.map((item) => item.rating).sort((a, b) => a - b);
 
   searchParams.minPrice = priceList[0];
   searchParams.maxPrice = priceList[priceList.length - 1];
 
   searchParams.minRating = ratingList[0];
-  searchParams.maxRating = ratingList[ratingList.length - 1];
+  searchParams.maxRating = ratingList[ratingList.length - 1]; */
+/* 
+  searchParams.minPrice = priceList[0];
+  searchParams.maxPrice = priceList[priceList.length - 1]; */
 
-  if (!minPriceInput.value) {
+
+  // TODO эта фигня не будет работать с пагинацией: нужно получать мин и макс значения с бэка
+
+/*   if (!minPriceInput.value) {  */
     minPriceInput.value = searchParams.minPrice.toString();
-  }
+/*   } */
 
-  if (!maxPriceInput.value) {
+/*   if (!maxPriceInput.value) { */
     maxPriceInput.value = searchParams.maxPrice.toString();
-  }
+/*   } */
 
   if (!minRatingInput.value) {
     minRatingInput.value = searchParams.minRating.toString();

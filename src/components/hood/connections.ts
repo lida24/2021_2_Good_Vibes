@@ -7,6 +7,20 @@ const connections: Connection[] = [
     callback: hood.homepageStateRequest,
   },
   {
+    event: 'profile button click menu',
+    callback: [
+      // hood.saveState,
+      hood.showProfileMenu,
+    ],
+  },
+  {
+    event: 'hide handle profile',
+    callback: [
+      // hood.saveState,
+      hood.hideProfileMenu,
+    ],
+  },
+  {
     event: 'profile button click',
     callback: [
       // hood.saveState,

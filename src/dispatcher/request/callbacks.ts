@@ -45,7 +45,7 @@ export const homepage: Callback = () => {
   bus.emit('homepage ajax request', undefined);
 };
 
-export const product: Callback = (obj: { 'id': number }) => {
+export const product: Callback = (obj: { 'id': number, 'search'?: boolean }) => {
   bus.emit('product ajax request', obj);
 };
 
@@ -68,7 +68,7 @@ export const address: Callback = () => {
 };
 
 // export const category: Callback = (obj: { name: string }) => {
-export const category: Callback = (obj: { name: string, pathname: string }) => {
+export const category: Callback = (obj: { name: string, pathname: string, search?: boolean }) => {
   bus.emit('category ajax request', obj);
 };
 

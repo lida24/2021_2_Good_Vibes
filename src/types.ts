@@ -71,6 +71,12 @@ export type Category = {
   'children'?: Category[],
 };
 
+export type CategoryResponseObject = {
+  'products': Product[],
+  'min_price': number
+  'max_price': number,
+};
+
 export type Comment = {
   'username': string,
   'rating': number,

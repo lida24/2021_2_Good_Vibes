@@ -179,8 +179,10 @@ export const categoryGet: Callback = () => {
 //     .catch((response: AjaxResponse) => bus.emit('category ajax denied', response));
 // };
 
-export const categoryRequest: Callback = (obj: { name: string, pathname: string }) => {
+export const categoryRequest: Callback = (obj: { name: string, pathname: string, search?: boolean}) => {
   const { name, pathname } = obj;
+  let { search } = obj;
+  if (!search) search = false;
   console.log(obj);
 
   const {
@@ -197,7 +199,7 @@ export const categoryRequest: Callback = (obj: { name: string, pathname: string 
   ajax.get({
     // url: `${backendAddress}/category/${name}`,
 
-    url: `${backendAddress}/category/${name}?price_min=${minPrice}&price_max=${maxPrice}&rating_min=${minRating}&rating_max=${maxRating}&order=${orderType}&order_type=${type}`,
+    url: `${backendAddress}/category/${name}?price_min=${minPrice}&price_max=${maxPrice}&rating_min=${minRating}&rating_max=${maxRating}&order=${orderType}&order_type=${type}&search=${search}`,
 
     // url: `${backendAddress}${pathname}?price_min=${minPrice}&price_max=${maxPrice}&rating_min=${minRating}&rating_max=${maxRating}&order=${orderType}&order_type=${type}`,
   })
