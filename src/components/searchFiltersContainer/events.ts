@@ -64,18 +64,18 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
 
   const priceToggle = self.querySelector("#sort-price-toggle");
-  priceToggle?.addEventListener("click", (event) => {   
+  priceToggle?.addEventListener("click", (event) => {
     const target = event.target as HTMLSpanElement;
     let status = target.getAttribute("data-status");
     switch (true) {
-      case status === "asc": 
+      case status === "asc":
         status = "desc";
         break;
-      case status === "desc": 
+      case status === "desc":
         status = "asc";
         break;
       case status === "off":
-      default: 
+      default:
         status = "desc";
     }
     target.setAttribute("data-status", status);
@@ -90,18 +90,18 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   })
 
   const ratingToggle = self.querySelector("#sort-rating-toggle");
-  ratingToggle?.addEventListener("click", (event) => {   
+  ratingToggle?.addEventListener("click", (event) => {
     const target = event.target as HTMLSpanElement;
     let status = target.getAttribute("data-status");
     switch (true) {
-      case status === "asc": 
+      case status === "asc":
         status = "desc";
         break;
-      case status === "desc": 
+      case status === "desc":
         status = "asc";
         break;
       case status === "off":
-      default: 
+      default:
         status = "desc";
     }
     target.setAttribute("data-status", status);
@@ -116,32 +116,32 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   })
 
   // ------------------
- /*  const radioArray = self.getElementsByClassName('sort-price-toggle');
-  const firstRadio = <HTMLInputElement>radioArray[0];
-  firstRadio.checked = true;
-
-   Array.from(radioArray).forEach((element: HTMLInputElement) => {
-    element.addEventListener('change', () => {
-      if (element.checked) {
-        const type = <'asc' | 'desc'>element.value.toString();
-        searchParams.type = type;
-
-        // const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
-
-        const currentCategory = window.location.pathname.match(/\/category\/(.+)/u)[1];
-
-        bus.emit('category ajax request', { name: currentCategory });
-        return false;
-      }
-      return true;
-    });
-  });  */
+  /*  const radioArray = self.getElementsByClassName('sort-price-toggle');
+   const firstRadio = <HTMLInputElement>radioArray[0];
+   firstRadio.checked = true;
+ 
+    Array.from(radioArray).forEach((element: HTMLInputElement) => {
+     element.addEventListener('change', () => {
+       if (element.checked) {
+         const type = <'asc' | 'desc'>element.value.toString();
+         searchParams.type = type;
+ 
+         // const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+ 
+         const currentCategory = window.location.pathname.match(/\/category\/(.+)/u)[1];
+ 
+         bus.emit('category ajax request', { name: currentCategory });
+         return false;
+       }
+       return true;
+     });
+   });  */
 
   // ------------------
-/*   const orderTypeInputArray = self.getElementsByClassName('order-type-radio');
-  const firstOrderTypeInputArray = <HTMLInputElement>radioArray[0];
-  firstOrderTypeInputArray.checked = true;
- */
+  /*   const orderTypeInputArray = self.getElementsByClassName('order-type-radio');
+    const firstOrderTypeInputArray = <HTMLInputElement>radioArray[0];
+    firstOrderTypeInputArray.checked = true;
+   */
   /* Array.from(orderTypeInputArray).forEach((element: HTMLInputElement) => {
     element.addEventListener('change', () => {
       if (element.checked) {

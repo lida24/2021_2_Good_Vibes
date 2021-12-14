@@ -8,6 +8,8 @@ const initEvents: (self: HTMLElement, context: CategorySuggest) => void = (self,
   self.addEventListener('click', (event) => {
     event.preventDefault();
 
+    // console.log('bruh');
+
     bus.emit('category state request', { name, search: true });
   });
 };

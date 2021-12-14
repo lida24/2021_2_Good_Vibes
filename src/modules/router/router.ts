@@ -25,7 +25,7 @@ class Router {
   }
 
   public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType }): void {
-    console.warn(obj?.searchParams);
+    // console.warn(obj?.searchParams);
 
 
 
@@ -39,26 +39,29 @@ class Router {
       [, uri] = reg;
     }
 
-    // if (pathname === `${window.location.pathname}${window.location.search}`) {
-    //   return;
-    // }
-
-    if (pathname === `${window.location.pathname}`) {
-      return;
-    }
-
     let path = pathname;
 
     // console.warn(path);
 
+    // console.warn(searchParams);
     if (searchParams) {
       path = path.concat('?');
       Object.keys(searchParams).forEach((key) => {
         path = path.concat(`${key}=${searchParams[key]}&`);
+        // console.log(path);
       });
       path = path.slice(0, path.length - 1);
+    }
 
-      // console.warn(path);
+    // if (pathname === `${window.location.pathname}${window.location.search}`) {
+    //   return;
+    // }
+
+    // console.warn('1', path);
+    // console.warn('2', `${window.location.pathname}${window.location.search}`);
+
+    if (path === `${window.location.pathname}${window.location.search}`) {
+      return;
     }
 
 
@@ -77,7 +80,7 @@ class Router {
         state: this.list[uri],
         searchParams,
       },
-      pathname,
+      path,
       path,
     );
 
@@ -115,17 +118,10 @@ class Router {
 
     const a = new URL(window.location.href);
     a.searchParams.forEach((key, value) => {
-      // console.log(a.searchParams.getAll('minPrice'), item);
-      console.log(value, key);
       SearchParams[value] = key;
     });
 
-    // SearchParams.minPrice = 666;
-
-    console.warn({ id, name, pathname, search });
-    console.warn(SearchParams);
-
-    bus.emit(`${state} state request`, { id, name, pathname, search });
+    bus.emit(`${state} state request`, { id, name, pathname, search: false });
   };
 
   public start(): void {

@@ -194,6 +194,8 @@ export const categoryRequest: Callback = (obj: {
 }) => {
   const { name, pathname } = obj;
   let { search } = obj;
+
+  // console.log(search);
   if (!search) search = false;
   // console.log(obj);
 
@@ -207,6 +209,8 @@ export const categoryRequest: Callback = (obj: {
   } = searchParams;
 
   searchParams.search = search;
+
+
 
   // console.log('pathname', pathname);
 
