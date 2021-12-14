@@ -107,12 +107,14 @@ export const showCategoryPage: Callback = () => {
 
 export const categoryAddToHistory: Callback = (obj: { name: string, pathname: string }) => {
 
-  console.log('categoryAddToHistory', obj);
+  // console.warn('categoryAddToHistory', obj);
 
   addToHistory({
     // pathname: `/category?name=${obj.name}`,
 
     pathname: `/category/${obj.name}`,
+
+    searchParams,
 
     // pathname: `${obj.pathname}`,
   });
@@ -150,7 +152,7 @@ export const search: Callback = (response: { 'responseText': string }) => {
 };
 
 export const saveState: Callback = (obj: { 'state': string }) => {
-  console.log(obj);
+  // console.log(obj);
 
   redirect.saveState(obj);
 };

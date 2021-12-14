@@ -119,7 +119,7 @@ export const search: Callback = (obj: { str: string }) => {
 };
 
 export const cartConfirm: Callback = (obj: OrderRequest) => {
-  console.warn('cartConfirm', obj);
+  // console.warn('cartConfirm', obj);
 
   if (!user.isAutorize()) {
     bus.emit('signIn state request', undefined);

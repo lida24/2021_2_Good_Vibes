@@ -179,11 +179,23 @@ export const categoryGet: Callback = () => {
 //     .catch((response: AjaxResponse) => bus.emit('category ajax denied', response));
 // };
 
-export const categoryRequest: Callback = (obj: { name: string, pathname: string, search?: boolean}) => {
+export const categoryRequest: Callback = (obj: {
+  name: string,
+  pathname: string,
+  search?: boolean,
+  params?: {
+    minPrice: number,
+    maxPrice: number,
+    minRating: number,
+    maxRating: number,
+    type: 'asc' | 'desc',
+    orderType: 'rating' | 'price',
+  }
+}) => {
   const { name, pathname } = obj;
   let { search } = obj;
   if (!search) search = false;
-  console.log(obj);
+  // console.log(obj);
 
   const {
     minPrice,
@@ -194,7 +206,9 @@ export const categoryRequest: Callback = (obj: { name: string, pathname: string,
     orderType,
   } = searchParams;
 
-  console.log('pathname', pathname);
+  searchParams.search = search;
+
+  // console.log('pathname', pathname);
 
   ajax.get({
     // url: `${backendAddress}/category/${name}`,
@@ -205,7 +219,7 @@ export const categoryRequest: Callback = (obj: { name: string, pathname: string,
   })
 
     .then((response: AjaxResponse) => bus.emit('category ajax confirmed', response))
-    .then(() => bus.emit('category ajax name', obj))
+    .then(() => bus.emit('category ajax name', { ...obj, searchParams }))
     .catch((response: AjaxResponse) => bus.emit('category ajax denied', response));
 };
 

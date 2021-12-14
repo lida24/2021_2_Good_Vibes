@@ -36,7 +36,7 @@ export const renderArray: Callback = (products: Product[]) => {
   const productContainer = document.getElementsByClassName('product-table-body')[0];
   productContainer.textContent = '';
 
-  if (!products?.length) {    
+  if (!products?.length) {
     productContainer.appendChild(document.createTextNode('Нет товаров в этой категории'));
     return;
   }
@@ -64,7 +64,7 @@ export const renderArray: Callback = (products: Product[]) => {
 export const saveCurrentCategoryName: Callback = () => {
   const { search } = window.location;
 
-  console.log('saveCurrentCategoryName', search, window.location.pathname);
+  // console.log('saveCurrentCategoryName', search, window.location.pathname);
   // [, categoryName] = search.match(/.*name=(\w+)/u);
 
   [, categoryName] = window.location.pathname.match(/\/category\/(.+)/u);

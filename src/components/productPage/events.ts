@@ -28,7 +28,7 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
 
     bus.emit('add product to cart mobile', { id, number: 1 });
 
-    console.warn('asdfad');
+    // console.warn('asdfad');
   });
 };
 

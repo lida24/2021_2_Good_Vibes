@@ -104,3 +104,12 @@ export type NewComment = {
   rating: number,
   text: string,
 };
+
+export type SearchParamsType = {
+  minPrice: number,
+  maxPrice: number,
+  minRating: number,
+  maxRating: number,
+  type: 'asc' | 'desc',
+  orderType: 'rating' | 'price',
+};

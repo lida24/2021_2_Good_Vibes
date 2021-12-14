@@ -153,7 +153,7 @@ export const confirmMobileAjaxRequest: Callback = () => {
   const houseInput = <HTMLInputElement>document.getElementById('mobile-house');
   const apartmentInput = <HTMLInputElement>document.getElementById('mobile-apartment');
 
-  console.log('cityInput', cityInput);
+  // console.log('cityInput', cityInput);
 
   // orderData.address.city = cityInput.value.trim();
   // orderData.address.street = streetInput.value.trim();
