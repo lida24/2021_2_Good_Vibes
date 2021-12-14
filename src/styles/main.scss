@@ -63,6 +63,10 @@ ul {
   padding: 0;
 }
 
+li {
+  list-style: none;
+}
+
 $textColorDefault: #000000;
 $textGrayColor: rgb(122, 122, 122);
 $purpleColor: rgb(112, 146, 254);

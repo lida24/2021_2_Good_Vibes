@@ -42,21 +42,21 @@ export const getParams: Callback = (array: Product[]) => {
 
   // TODO эта фигня не будет работать с пагинацией: нужно получать мин и макс значения с бэка
 
-/*   if (!minPriceInput.value) {  */
+   if (minPriceInput.value < searchParams.minPrice.toString()) { 
     minPriceInput.value = searchParams.minPrice.toString();
-/*   } */
+   } 
 
-/*   if (!maxPriceInput.value) { */
+   if (maxPriceInput.value > searchParams.maxPrice.toString()) {
     maxPriceInput.value = searchParams.maxPrice.toString();
-/*   } */
+   } 
 
-  if (!minRatingInput.value) {
+ /*  if (!minRatingInput.value) {
     minRatingInput.value = searchParams.minRating.toString();
   }
 
   if (!maxRatingInput.value) {
     maxRatingInput.value = searchParams.maxRating.toString();
-  }
+  } */
 };
 
 export const b = 0;
