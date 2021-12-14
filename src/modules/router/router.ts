@@ -25,13 +25,7 @@ class Router {
   }
 
   public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType }): void {
-    // console.warn(obj?.searchParams);
-
-
-
     const { pathname, searchParams } = obj;
-
-
 
     let uri = pathname;
     const reg = pathname.match(/(\/.*)\?/);
@@ -41,39 +35,17 @@ class Router {
 
     let path = pathname;
 
-    // console.warn(path);
-
-    // console.warn(searchParams);
     if (searchParams) {
       path = path.concat('?');
       Object.keys(searchParams).forEach((key) => {
         path = path.concat(`${key}=${searchParams[key]}&`);
-        // console.log(path);
       });
       path = path.slice(0, path.length - 1);
     }
 
-    // if (pathname === `${window.location.pathname}${window.location.search}`) {
-    //   return;
-    // }
-
-    // console.warn('1', path);
-    // console.warn('2', `${window.location.pathname}${window.location.search}`);
-
     if (path === `${window.location.pathname}${window.location.search}`) {
       return;
     }
-
-
-
-    // window.history.pushState(
-    //   {
-    //     state: this.list[uri],
-    //     searchParams,
-    //   },
-    //   pathname,
-    //   pathname,
-    // );
 
     window.history.pushState(
       {
@@ -83,7 +55,6 @@ class Router {
       path,
       path,
     );
-
   }
 
   private handlePathname(pathname: string): string {
