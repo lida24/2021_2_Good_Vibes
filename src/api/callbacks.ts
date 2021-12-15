@@ -373,8 +373,21 @@ export const addComment: Callback = (obj: NewComment) => {
 
 // ===============================
 
+// =========================================
+// |||||||||||||||||||||||||||||||||||||||||
+// |||||||||||||||||||||||||||||||||||||||||
+// |||||||||||||||||||||||||||||||||||||||||
+// |||||||||||||||||||||||||||||||||||||||||
+// |||||||||||||||||||||||||||||||||||||||||
+// |||||||||||||||||||||||||||||||||||||||||
+//            Лида, сюда смотри))
+
+// Важно!!! Вызов апи происходит при нажатии на лого.
+// Закомментил колбэк на лого в файле components/hood/connections
+// Добавил колбек в конце файла api/connections
+
 // Эта функция парса положительного ответа с сервера
-// Вставил по пути dispatcher/confirmed/callbacks
+// Можно добавить в dispatcher/confirmed/callbacks
 const handleAjaxRecommendationConfirmed: Callback = (response: string) => {
   Promise.resolve()
     .then(() => JSON.parse(response))
@@ -383,12 +396,13 @@ const handleAjaxRecommendationConfirmed: Callback = (response: string) => {
     // Продуктовый массив вываливается в событие 'recommendations product array parsed'
     // Можно отловить это событие в том модуле, где ты решить отрисовывать рекомендации
     // на главной, либо же на отдельной странице
+    // По идее, ответ должен быть с типом Product[]
     .then((responseObj: AjaxResponse) => bus.emit('recommendations product array parsed', responseObj.responseText))
     .catch((err) => console.error('JSON parse error', err));
 };
 
 // Эта функция парса отрицательного ответа с сервера
-// Вставил по пути dispatcher/denied/callbacks
+// Можно добавить в dispatcher/denied/callbacks
 const handleAjaxRecommendationDenied: Callback = (response: string) => {
   // const { responseText } = response;
   Promise.resolve()
