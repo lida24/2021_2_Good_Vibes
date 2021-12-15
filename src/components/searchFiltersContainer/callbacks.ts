@@ -42,13 +42,13 @@ export const getParams: Callback = (array: Product[]) => {
 
   // TODO эта фигня не будет работать с пагинацией: нужно получать мин и макс значения с бэка
 
-  if (minPriceInput.value < searchParams.minPrice.toString()) {
-    minPriceInput.value = searchParams.minPrice.toString();
-  }
+  // if (minPriceInput.value < searchParams.minPrice.toString()) {
+  //   minPriceInput.value = searchParams.minPrice.toString();
+  // }
 
-  if (maxPriceInput.value > searchParams.maxPrice.toString()) {
-    maxPriceInput.value = searchParams.maxPrice.toString();
-  }
+  // if (maxPriceInput.value > searchParams.maxPrice.toString()) {
+  //   maxPriceInput.value = searchParams.maxPrice.toString();
+  // }
 
   /*  if (!minRatingInput.value) {
      minRatingInput.value = searchParams.minRating.toString();
@@ -59,4 +59,17 @@ export const getParams: Callback = (array: Product[]) => {
    } */
 };
 
-export const b = 0;
+export const setFiltersParams: Callback = () => {
+  console.log('setFiltersParams');
+
+  const minPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__from')[0];
+  const maxPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__to')[0];
+  const minRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__from')[0];
+  const maxRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__to')[0];
+
+
+  minPriceInput.value = searchParams.minPrice.toString();
+  maxPriceInput.value = searchParams.maxPrice.toString();
+  minRatingInput.value = searchParams.minRating.toString();
+  maxRatingInput.value = searchParams.maxRating.toString();
+};

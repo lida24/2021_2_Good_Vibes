@@ -63,11 +63,6 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
       const currentCategory = window.location.pathname.match(/\/category\/(.+)/u)[1];
 
-      minPrice.value = searchParams.minPrice.toString();
-      maxPrice.value = searchParams.maxPrice.toString();
-      minRating.value = searchParams.minRating.toString();
-      maxRating.value = searchParams.maxRating.toString();
-
       bus.emit('category ajax request', { name: currentCategory });
     });
   });
