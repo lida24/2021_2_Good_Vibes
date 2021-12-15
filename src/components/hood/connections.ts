@@ -6,6 +6,7 @@ const connections: Connection[] = [
     event: 'logo button click',
     callback: hood.homepageStateRequest,
   },
+
   {
     event: 'profile button click menu',
     callback: [

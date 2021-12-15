@@ -368,3 +368,13 @@ export const addComment: Callback = (obj: NewComment) => {
     .then((response: AjaxResponse) => bus.emit('add comment request confirmed', response))
     .catch((response: AjaxResponse) => bus.emit('add comment request denied', response));
 };
+
+// ===============================
+export const recommendations: Callback = () => {
+  console.log('ajax recommendations callback');
+
+  ajax.get({
+    url: `${backendAddress}/sales`,
+  })
+    .then((response) => console.log(response))
+};
