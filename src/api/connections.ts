@@ -121,12 +121,11 @@ const ajaxConnections: Connection[] = [
     callback: ajax.addComment,
   },
 
-  // // =========================
-  // {
-  //   event: 'logo button click',
-  //   callback: ajax.recommendations,
-  // },
-
+  // =========================
+  {
+    event: 'logo button click',
+    callback: ajax.recommendations,
+  },
 
 ];
 

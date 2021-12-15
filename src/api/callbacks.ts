@@ -7,14 +7,18 @@ import {
   CartItem,
   NewComment,
   OrderRequest,
+  Product,
   Suggests,
 } from '../types';
 import searchParams from '../services/search/params';
 
 // const backendAddress = 'https://ozonback.herokuapp.com';
 // const backendAddress = 'http://37.139.33.76';
-/*const backendAddress = 'https://goodvibesazot.tk/backend/api';*/
-const backendAddress = 'https://goodvibesazot.tk';
+/* const backendAddress = 'https://goodvibesazot.tk/backend/api'; */
+
+// const backendAddress = 'https://goodvibesazot.tk';
+
+const backendAddress = 'https://goodvibesazot.tk/api';
 
 export const signin = (data) => {
   ajax.post({
@@ -210,8 +214,6 @@ export const categoryRequest: Callback = (obj: {
 
   searchParams.search = search;
 
-
-
   // console.log('pathname', pathname);
 
   ajax.get({
@@ -308,7 +310,7 @@ export const comments: Callback = (obj: { 'id': number }) => {
     // .catch((response: AjaxResponse) => console.log('comments request denied', response))
 
     .then((response: AjaxResponse) => bus.emit('comments request confirmed', response))
-    .catch((response: AjaxResponse) => bus.emit('comments request denied', response))
+    .catch((response: AjaxResponse) => bus.emit('comments request denied', response));
 
   // .then(() => bus.emit('comments request confirmed', fakeAfComments));
 };
@@ -370,11 +372,81 @@ export const addComment: Callback = (obj: NewComment) => {
 };
 
 // ===============================
+
+// Эта функция парса положительного ответа с сервера
+// Вставил по пути dispatcher/confirmed/callbacks
+const handleAjaxRecommendationConfirmed: Callback = (response: string) => {
+  Promise.resolve()
+    .then(() => JSON.parse(response))
+    // .then((responseObj: AjaxResponse) => JSON.parse(responseObj.responseText))
+
+    // Продуктовый массив вываливается в событие 'recommendations product array parsed'
+    // Можно отловить это событие в том модуле, где ты решить отрисовывать рекомендации
+    // на главной, либо же на отдельной странице
+    .then((responseObj: AjaxResponse) => bus.emit('recommendations product array parsed', responseObj.responseText))
+    .catch((err) => console.error('JSON parse error', err));
+};
+
+// Эта функция парса отрицательного ответа с сервера
+// Вставил по пути dispatcher/denied/callbacks
+const handleAjaxRecommendationDenied: Callback = (response: string) => {
+  // const { responseText } = response;
+  Promise.resolve()
+    .then(() => JSON.parse(response))
+
+    // Здесь пишется в консоль ошибка, которая случилась
+    .then((serverError) => console.log(serverError))
+    .catch((err) => console.error('JSON parse error', err))
+
+    // В любом случе в случае, если пришла ошибка от сервера, будет выполнен запрос отрисовки
+    // главной страницы
+    .finally(() => bus.emit('homepage state request', undefined));
+};
+
 export const recommendations: Callback = () => {
   console.log('ajax recommendations callback');
 
-  ajax.get({
-    url: `${backendAddress}/sales`,
-  })
-    .then((response) => console.log(response))
+  // Это добавляет колбек на эвент 'ajax recommendations confirmed'
+  // Можно добавить в dispatcher/confirmed/callbacks
+  bus.on('ajax recommendations confirmed', handleAjaxRecommendationConfirmed);
+
+  // Это добавляет колбек на эвент 'ajax recommendations denied'
+  // Можно добавить в dispatcher/denied/callbacks
+  bus.on('ajax recommendations denied', handleAjaxRecommendationDenied);
+
+  // Тестовый листенер для отображения итогового массива
+  bus.on('recommendations product array parsed', (array) => console.warn(array));
+
+  // ==========================
+  // Раскомментить, когда парни починят апи
+
+  // ajax.get({
+  //   url: `${backendAddress}/reccommend`,
+  // })
+
+  //   .then((response: AjaxResponse) => bus.emit('ajax recommendations confirmed', response))
+  //   .catch((response: AjaxResponse) => bus.emit('ajax recommendations denied', response));
+  // ==========================
+
+  // Имитация работы апи
+  const fishOfMyDream = [
+    {
+      id: 877, image: 'https://products-bucket-ozon-good-vibes.s3.eu-west-1.amazonaws.com/d6b2d8b1-aa40-493d-8d9e-d3e52eacc3c0', name: 'Часы мужские механические Ника', price: 100000, rating: 4.5, category: 'WATCHES', count_in_stock: 1000, description: 'Часы мужские механические Ника, сапфировое стекло, нержавеющая сталь',
+    },
+    {
+      id: 876, image: 'https://products-bucket-ozon-good-vibes.s3.eu-west-1.amazonaws.com/c1a27b7a-e685-4ed4-b453-ed01cdf65bf9', name: 'Часы мужские Rolex S15228', price: 1000000, rating: 5, category: 'WATCHES', count_in_stock: 100, description: 'Часы мужские коллекционные Rolex среднего класса',
+    },
+    {
+      id: 875, image: 'https://products-bucket-ozon-good-vibes.s3.eu-west-1.amazonaws.com/55c1615f-626d-4520-8fe3-0db6e22bb878', name: 'Часы мужские Rolex золотые', price: 3000000, rating: 5, category: 'WATCHES', count_in_stock: 10, description: 'Часы мужские Rolex ультрадорогие для успешных мужчин',
+    },
+  ];
+
+  const responseFakeAF = {
+    status: 200,
+    responseText: fishOfMyDream,
+  };
+
+  Promise.resolve()
+    .then(() => bus.emit('ajax recommendations confirmed', JSON.stringify(responseFakeAF)))
+    .catch(() => bus.emit('ajax recommendations denied', JSON.stringify(responseFakeAF)));
 };
