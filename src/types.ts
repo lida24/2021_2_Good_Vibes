@@ -54,6 +54,7 @@ export type Address = {
 export type OrderRequest = {
   'address': Address,
   'products': CartItem[],
+  'email'?: string,
 };
 
 export type Order = {
@@ -63,6 +64,7 @@ export type Order = {
   'order_id': number,
   'products': Product[],
   'status': string,
+  'email'?: string,
 };
 
 export type Category = {
