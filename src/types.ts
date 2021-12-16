@@ -27,6 +27,7 @@ export type AjaxResponse = {
 export type CartItem = {
   'product_id': number,
   'number': number,
+  'product_price': number,
 };
 
 export type Product = {

@@ -137,6 +137,8 @@ export const confirmAjaxRequest: Callback = () => {
     products: array,
   };
 
+  array.forEach((item) => console.warn(item));
+
   bus.emit('cart confirm request', obj);
 };
 

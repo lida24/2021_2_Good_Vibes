@@ -64,7 +64,7 @@ export const renderCommentContainer: Callback = (comment: Comment) => {
   // console.log('render single comment block', comment);
 
   const commentContainer = new CommentsContainer(comment);
-  document.getElementsByClassName('board-bottom')[0].appendChild(commentContainer.self);
+  document.getElementsByClassName('board-bottom')[0].appendChild(commentContainer?.self);
 };
 
 // export const generateCommentsArray: Callback = (array: Comment[]) => {
