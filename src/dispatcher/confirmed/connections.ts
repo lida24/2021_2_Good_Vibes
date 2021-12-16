@@ -159,6 +159,10 @@ const connections: Connection[] = [
       (obj: OrderRequest): void => { bus.emit('cart ajax confirmed', obj); },
     ],
   },
+  {
+    event: 'ajax recommendations confirmed',
+    callback: confirm.handleAjaxRecommendationConfirmed,
+  },
 ];
 
 export default connections;

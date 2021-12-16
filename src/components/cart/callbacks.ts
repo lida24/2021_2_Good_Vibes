@@ -50,13 +50,10 @@ export const calculateSubtotal: Callback = () => {
 
 export const showCartItems: Callback = (array: Product[]) => {
   const itemsContainer = <HTMLElement>document.getElementsByClassName('basket__table_body')[0];
-
   if (!itemsContainer) {
     return;
   }
-
   const viewArray = CartItemList.viewArray(array);
-
   // console.log(viewArray);
 
   viewArray.forEach((itemView, index) => {
@@ -130,13 +127,14 @@ export const confirmAjaxRequest: Callback = () => {
 
   orderData.payMethod = payMethodSelect.options[payMethodSelect.selectedIndex].text;
 
+  const emailInput = <HTMLSelectElement>document.getElementById('orderform-email');
+
   // console.log(orderData);
 
   const obj: OrderRequest = {
     address: orderData.address,
     products: array,
   };
-
   bus.emit('cart confirm request', obj);
 };
 

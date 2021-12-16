@@ -27,6 +27,7 @@ export type AjaxResponse = {
 export type CartItem = {
   'product_id': number,
   'number': number,
+  'product_price': number,
 };
 
 export type Product = {
@@ -54,6 +55,7 @@ export type Address = {
 export type OrderRequest = {
   'address': Address,
   'products': CartItem[],
+  'email'?: string,
 };
 
 export type Order = {
@@ -63,6 +65,7 @@ export type Order = {
   'order_id': number,
   'products': Product[],
   'status': string,
+  'email'?: string,
 };
 
 export type Category = {
