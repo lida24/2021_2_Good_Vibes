@@ -9,6 +9,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
 
     bus.emit("logo button click", undefined);
+    // window.location.search = '?minPrice=777';
   });
 
   // ------------------
@@ -71,30 +72,30 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
   //----------------------------------------------------
 
-    const profileContainerNode = <Node>(
-      self.getElementsByClassName('header-dropdown')[0]
-    );
-    const profileBtnNode = <Node>(
-      self.getElementsByClassName("icons__link-avatar")[0]
-    );
+  const profileContainerNode = <Node>(
+    self.getElementsByClassName('header-dropdown')[0]
+  );
+  const profileBtnNode = <Node>(
+    self.getElementsByClassName("icons__link-avatar")[0]
+  );
 
-    document.addEventListener("click", (event) => {
-      
-      const targetNode = <Node>event.target;
-      const targetElement = <HTMLElement>event.target;
-  
-      if (targetElement.tagName === "A") {
-        bus.emit("hide handle profile", undefined);
-        return;
-      }
-  
-      if (
-        profileContainerNode.contains(targetNode) ||
-        profileBtnNode.contains(targetNode)
-      )
-        return;
-        bus.emit("hide handle profile", undefined);
-    });
-  }; 
+  document.addEventListener("click", (event) => {
+
+    const targetNode = <Node>event.target;
+    const targetElement = <HTMLElement>event.target;
+
+    if (targetElement.tagName === "A") {
+      bus.emit("hide handle profile", undefined);
+      return;
+    }
+
+    if (
+      profileContainerNode.contains(targetNode) ||
+      profileBtnNode.contains(targetNode)
+    )
+      return;
+    bus.emit("hide handle profile", undefined);
+  });
+};
 
 export default initEvents;

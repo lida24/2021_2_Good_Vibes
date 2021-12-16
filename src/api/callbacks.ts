@@ -472,4 +472,3 @@ export const cartGetPromo = () => {
     .catch(({ responseText }) => bus.emit("cart get denied promo", { responseText }))
     .then(() => bus.emit("cart get finished promo", undefined));
 };
-
