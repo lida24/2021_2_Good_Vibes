@@ -154,3 +154,11 @@ export const saveState: Callback = (obj: { 'state': string }) => {
 
   redirect.saveState(obj);
 };
+
+export const handleAjaxRecommendationConfirmed: Callback = (response: AjaxResponse) => {
+  const { responseText } = response;
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((obj: Product[]) => bus.emit("recommendations product array parsed", obj))
+    .catch((err) => console.error("JSON parse error", err));
+};

@@ -43,6 +43,7 @@ export const profile: Callback = () => {
 
 export const homepage: Callback = () => {
   bus.emit('homepage ajax request', undefined);
+  bus.emit('recommendation ajax request', undefined);
 };
 
 export const product: Callback = (obj: { 'id': number, 'search'?: boolean }) => {
@@ -119,8 +120,6 @@ export const search: Callback = (obj: { str: string }) => {
 };
 
 export const cartConfirm: Callback = (obj: OrderRequest) => {
-  console.warn('cartConfirm', obj);
-
   if (!user.isAutorize()) {
     bus.emit('signIn state request', undefined);
     return;

@@ -33,52 +33,27 @@ export const calculateSubtotal: Callback = () => {
     });
   }
 
+  // const subElem = <HTMLElement>document.getElementsByClassName('cart__subtotal')[0];
+  // if (!subElem) {
+  //   return;
+  // }
+  // subElem.innerHTML = `<h3>Итого (${totalNumber} товаров): $${totalPrice}</h3>`;
+
   const totalNumberSpan = <HTMLSpanElement>document.getElementsByClassName('basket-order-total__number')[0];
   if (!totalNumberSpan) {
     return;
   }
   totalNumberSpan.innerHTML = `${totalPrice}<span class="currency">₽</span></span></div>`;
-
-  const totalNumberSpanMobile = <HTMLSpanElement>document.getElementsByClassName('basket-order-total__number-mobile')[0];
-  if (!totalNumberSpan) {
-    return;
-  }
-  totalNumberSpanMobile.innerHTML = `${totalPrice}<span class="currency">₽</span></span></div>`;
   // totalNumberSpan.innerHTML = totalPrice.toString();
 
 };
 
-/* export const showCartItemsMobile: Callback = (array: Product[]) => {
-  const itemsContainer = <HTMLElement>document.getElementsByClassName('basket__table_body')[0];
-
-  if (!itemsContainer) {
-    return;
-  }
-
-  const viewArray = CartItemList.viewArray(array);
-
-  // console.log(viewArray);
-
-  viewArray.forEach((itemView, index) => {
-    // console.log(itemView.self);
-
-    itemsContainer.appendChild(itemView.self);
-    const { number } = cart.getItem(array[index].id);
-    const numberElem = <HTMLInputElement>itemView.self.getElementsByClassName('spinner__count-mobile')[0];
-    numberElem.value = number.toString();
-  });
-  calculateSubtotal(undefined);
-}; */
-
 export const showCartItems: Callback = (array: Product[]) => {
   const itemsContainer = <HTMLElement>document.getElementsByClassName('basket__table_body')[0];
-
   if (!itemsContainer) {
     return;
   }
-
   const viewArray = CartItemList.viewArray(array);
-
   // console.log(viewArray);
 
   viewArray.forEach((itemView, index) => {
@@ -91,7 +66,6 @@ export const showCartItems: Callback = (array: Product[]) => {
   });
   calculateSubtotal(undefined);
 };
-
 
 export const deleteView: Callback = (obj: { 'id': number }) => {
   const { id } = obj;
@@ -153,20 +127,14 @@ export const confirmAjaxRequest: Callback = () => {
 
   orderData.payMethod = payMethodSelect.options[payMethodSelect.selectedIndex].text;
 
-  const emailInput = <HTMLInputElement>document.getElementById('orderform-email');
-
-  orderData.userEmail = emailInput.value;
+  const emailInput = <HTMLSelectElement>document.getElementById('orderform-email');
 
   // console.log(orderData);
 
   const obj: OrderRequest = {
     address: orderData.address,
     products: array,
-    email: orderData.userEmail,
   };
-
-  array.forEach((item) => console.warn(item));
-
   bus.emit('cart confirm request', obj);
 };
 
@@ -182,7 +150,7 @@ export const confirmMobileAjaxRequest: Callback = () => {
   const streetInput = <HTMLInputElement>document.getElementById('mobile-street');
   const houseInput = <HTMLInputElement>document.getElementById('mobile-house');
   const apartmentInput = <HTMLInputElement>document.getElementById('mobile-apartment');
-  
+
   console.log('cityInput', cityInput);
 
   // orderData.address.city = cityInput.value.trim();
@@ -208,16 +176,11 @@ export const confirmMobileAjaxRequest: Callback = () => {
 
   orderData.payMethod = payMethodSelect.options[payMethodSelect.selectedIndex].text;
 
-  const emailInput = <HTMLInputElement>document.getElementById('orderform-email');
-
-  orderData.userEmail = emailInput.value;
-
   // console.log(orderData);
 
   const obj: OrderRequest = {
     address: orderData.address,
     products: array,
-    email: orderData.userEmail,
   };
 
   bus.emit('cart confirm request', obj);

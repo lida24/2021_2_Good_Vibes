@@ -25,6 +25,28 @@ export const load: Callback = (obj: AjaxResponse) => {
     .catch((err) => console.error('cart get error', err));
 };
 
+export const loadPromo: Callback = (obj: AjaxResponse) => {
+  const { responseText } = obj;
+
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+
+    .then((value: CartItem[]) => {
+      if (value) return value;
+
+      if (cart.isEmpty()) {
+        return null;
+      }
+
+      cart.get().forEach((item) => bus.emit('put product to cart request', { id: item.product_id, number: item.number, price: item.product_price }));
+      return null;
+    })
+
+    .then((value) => cart.load(value))
+    .then(() => cart.get())
+    .catch((err) => console.error('cart get error', err));
+};
+
 export const drop: Callback = () => {
   cart.drop();
 };

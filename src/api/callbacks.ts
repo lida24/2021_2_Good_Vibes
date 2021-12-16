@@ -14,11 +14,7 @@ import searchParams from "../services/search/params";
 // const backendAddress = 'https://ozonback.herokuapp.com';
 // const backendAddress = 'http://37.139.33.76';
 /*const backendAddress = 'https://goodvibesazot.tk/backend/api';*/
-<<<<<<< HEAD
 const backendAddress = "https://goodvibesazot.tk/api";
-=======
-const backendAddress = 'https://goodvibesazot.tk/api';
->>>>>>> dfdd10fc330b2f311b7c15aa69223b455274fbcd
 
 export const signin = (data) => {
   ajax
@@ -95,8 +91,8 @@ export const homepage = () => {
     .catch((error) => console.error(error));
 };
 
-export const product: Callback = (obj: { id: number }) => {
-  const { id } = obj;
+export const product: Callback = (obj: { id: number; price: number }) => {
+  const { id, price } = obj;
 
   ajax
     .get({
@@ -112,25 +108,18 @@ export const product: Callback = (obj: { id: number }) => {
 
 export const productArrayRequest: Callback = (array: CartItem[]) => {
   const result = [];
+  console.log(array);
 
   array.forEach((element) => {
     ajax
       .get({
         url: `${backendAddress}/product?id=${element.product_id}`,
       })
-      .then(({ responseText }) => {
-        JSON.parse(responseText);
-        console.warn(responseText);
-      })
-      .then((obj) => {
-        const tempObj = obj;
-        // tempObj.number = element.number;
-        console.warn(obj);
-        return tempObj;
-      })
+      .then(({ responseText }) => JSON.parse(responseText))
       .then((obj) => result.push(obj))
       .then(() => {
         if (result.length === array.length) {
+          debugger
           bus.emit("product array request confirmed", result);
         }
       })
@@ -446,3 +435,41 @@ export const addComment: Callback = (obj: NewComment) => {
       bus.emit("add comment request denied", response)
     );
 };
+
+export const recommendations: Callback = () => {
+  console.log("ajax recommendations callback");
+  ajax
+    .get({
+      url: `${backendAddress}/profile/recommend`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("ajax recommendations confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("ajax recommendations denied", response)
+    );
+};
+
+
+export const cartConfirmPromo: Callback = (obj: OrderRequest) => {
+  ajax
+    .post({
+      url: `${backendAddress}/cart/check`,
+      body: obj,
+    })
+    .then(({ responseText }) => bus.emit("order confirmed promo", responseText))
+    .catch(({ responseText }) => bus.emit("order denied promo", responseText));
+};
+
+export const cartGetPromo = () => {
+  ajax
+    .get({
+      url: `${backendAddress}/cart/check`,
+    })
+    .then(({ responseText }) =>
+      bus.emit("cart get confirmed promo", { responseText })
+    )
+    .catch(({ responseText }) => bus.emit("cart get denied promo", { responseText }))
+    .then(() => bus.emit("cart get finished promo", undefined));
+};
+
