@@ -56,6 +56,10 @@ export const homepage: Callback = () => {
   bus.emit('homepage state confirmed', { pathname: '/' });
 };
 
+export const favorite: Callback = () => {
+  bus.emit('favorite state confirmed', {pathname: '/favorite'});
+}
+
 export const showCart: Callback = () => {
   // bus.emit('show view', { name: 'cart' });
 
@@ -66,6 +70,10 @@ export const showCart: Callback = () => {
 
   bus.emit('show view', { name: 'cart' });
 };
+
+export const showFavorite: Callback = () => {
+  bus.emit('show view', { name: 'favorite' });
+}
 
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
@@ -167,5 +175,13 @@ export const handleAjaxRecommendationConfirmed: Callback = (response: AjaxRespon
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .then((obj: Product[]) => bus.emit("recommendations product array parsed", obj))
+    .catch((err) => console.error("JSON parse error", err));
+};
+
+export const favoriteArrayParse: Callback = (response: AjaxResponse) => {
+  const { responseText } = response;
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((obj: Product[]) => bus.emit("favorite product array parsed", obj))
     .catch((err) => console.error("JSON parse error", err));
 };

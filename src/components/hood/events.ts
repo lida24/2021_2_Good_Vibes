@@ -47,6 +47,15 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("cart button click", undefined);
   });
 
+  //--------------------
+  const favoriteBtn = <HTMLAnchorElement>(
+    self.getElementsByClassName('icons__link-like')[0]
+  );
+  favoriteBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("favorite button click", undefined);
+  });
+
   // ---------------------
   const asideBtn = <HTMLElement>self.getElementsByClassName('header__aside')[0];
   asideBtn.addEventListener("click", (event) => {

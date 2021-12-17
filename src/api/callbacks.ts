@@ -195,6 +195,8 @@ export const categoryGet: Callback = () => {
     .then(() => bus.emit("category get finished", undefined));
 };
 
+
+
 // export const categoryRequest: Callback = (obj: { name: string }) => {
 //   const { name } = obj;
 
@@ -473,4 +475,18 @@ export const cartGetPromo = () => {
     )
     .catch(({ responseText }) => bus.emit("cart get denied promo", { responseText }))
     .then(() => bus.emit("cart get finished promo", undefined));
+};
+
+export const favorite: Callback = () => {
+  console.log("ajax favoriteProductGet callback");
+  ajax
+    .get({
+      url: `${backendAddress}/product/favorite/get`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("favorite ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("favorite ajax denied", response)
+    );
 };

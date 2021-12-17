@@ -10,6 +10,7 @@ import AddressPage from '../../components/cart/address/view';
 import PaymentPage from '../../components/cart/payment/view';
 import ConfirmationPage from '../../components/cart/confirmation/view';
 import EmptyCart from '../../components/cart/empty/view';
+import Favorites from '../../components/favorites/view';
 /* import Orders from '../view/orders/view'; */
 
 const constructor: { [name: string]: ConstructorInterface } = {
@@ -26,6 +27,7 @@ const constructor: { [name: string]: ConstructorInterface } = {
   emptyCart: EmptyCart,
   /* orders: Orders, */
   search: CategoryPage,
+  favorite: Favorites,
 };
 
 export default constructor;

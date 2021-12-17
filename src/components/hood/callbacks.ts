@@ -14,6 +14,10 @@ export const cartStateRequest: Callback = () => {
   bus.emit("cart state request", undefined);
 };
 
+export const favoriteStateRequest: Callback = () => {
+  bus.emit("favorite state request", undefined);
+;}
+
 export const showAside: Callback = () => {
   bus.emit("show aside", undefined);
 };
