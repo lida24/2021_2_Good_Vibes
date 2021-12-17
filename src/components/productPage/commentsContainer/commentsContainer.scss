@@ -135,13 +135,22 @@
     }
 } */
 
+.comments__item {
+  margin: 20px 0 0;
+}
+
 .comments-container {
   font-size: 2vh;
 }
 
 .feedback {
   padding-bottom: 8px;
-  border-bottom: 1px solid #e8e8e8;
+  @media screen and (max-width: $breakTablet) {
+    border-bottom: 1px solid #e8e8e8;
+  }
+  @media screen and (max-width: $breakMobile) {
+    border-bottom: 1px solid #e8e8e8;
+  }
 }
 
 .feedback__top-wrap {

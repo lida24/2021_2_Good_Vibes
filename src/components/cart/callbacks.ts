@@ -44,7 +44,12 @@ export const calculateSubtotal: Callback = () => {
     return;
   }
   totalNumberSpan.innerHTML = `${totalPrice}<span class="currency">₽</span></span></div>`;
-  // totalNumberSpan.innerHTML = totalPrice.toString();
+
+  const totalNumberSpanMobile = <HTMLSpanElement>document.getElementsByClassName('basket-form__total_number basket-order-total__number-mobile')[0];
+  if (!totalNumberSpanMobile) {
+    return;
+  }
+  totalNumberSpanMobile.innerHTML = `${totalPrice}<span class="currency">₽</span></span></div>`;
 
 };
 

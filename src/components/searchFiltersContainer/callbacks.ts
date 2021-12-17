@@ -43,7 +43,7 @@ export const setFiltersParams: Callback = () => {
     minPriceInput.value = searchParams.minPrice.toString();
   }
 
-  if (+maxPriceInput.value < searchParams.maxPriceStatic) {
+  if (+maxPriceInput.value > searchParams.maxPriceStatic) {
     searchParams.maxPrice = searchParams.maxPriceStatic
     maxPriceInput.value = searchParams.maxPriceStatic.toString();
   } else {

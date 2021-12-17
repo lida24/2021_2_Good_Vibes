@@ -105,7 +105,7 @@ export const addCommentRequest: Callback = () => {
   const ratingInput = <HTMLInputElement>newCommentContainer.self.getElementsByClassName('new-comment-rating')[0];
   const rating = +ratingInput.value;
 
-  const textInput = <HTMLInputElement>newCommentContainer.self.getElementsByClassName('add-comment-text')[0];
+  const textInput = <HTMLTextAreaElement>newCommentContainer.self.getElementsByClassName('add-comment-text')[0];
   const text = textInput.value.trim();
 
   const comment: NewComment = {

@@ -113,8 +113,6 @@ export const showCategoryPage: Callback = () => {
 
 export const categoryAddToHistory: Callback = (obj: { name: string, pathname: string }) => {
 
-  // console.warn('categoryAddToHistory', obj);
-
   addToHistory({
     // pathname: `/category?name=${obj.name}`,
 
@@ -124,6 +122,7 @@ export const categoryAddToHistory: Callback = (obj: { name: string, pathname: st
 
     // pathname: `${obj.pathname}`,
   });
+  
 };
 
 export const address: Callback = () => {
