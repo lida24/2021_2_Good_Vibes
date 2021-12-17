@@ -94,7 +94,6 @@ export const categoryArrayParse: Callback = (response: AjaxResponse) => {
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .then((obj: CategoryResponseObject) => {
-      debugger;
       if (searchParams.minPriceStatic != obj.min_price) {
         searchParams.minPrice = obj.min_price;
       } 
