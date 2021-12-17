@@ -119,7 +119,6 @@ export const productArrayRequest: Callback = (array: CartItem[]) => {
       .then((obj) => result.push(obj))
       .then(() => {
         if (result.length === array.length) {
-          debugger
           bus.emit("product array request confirmed", result);
         }
       })
@@ -227,7 +226,11 @@ export const categoryRequest: Callback = (obj: {
   let { search } = obj;
   if (!search) search = false;
   console.log(obj);
-
+  debugger;
+  if (searchParams.categoryName != name) {
+    searchParams.setDefault();
+  }
+  searchParams.categoryName = name;
   const { minPrice, maxPrice, maxRating, minRating, type, orderType } =
     searchParams;
 

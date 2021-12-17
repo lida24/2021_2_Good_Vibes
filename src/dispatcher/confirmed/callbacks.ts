@@ -90,12 +90,19 @@ export const category: Callback = () => {
 
 export const categoryArrayParse: Callback = (response: AjaxResponse) => {
   const { responseText } = response;
-
+  console.log("categoryarrayParse")
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .then((obj: CategoryResponseObject) => {
-      searchParams.minPrice = obj.min_price;
-      searchParams.maxPrice = obj.max_price;
+      debugger;
+      if (searchParams.minPriceStatic != obj.min_price) {
+        searchParams.minPrice = obj.min_price;
+      } 
+      if (searchParams.maxPriceStatic != obj.max_price) {
+        searchParams.maxPrice = obj.max_price;
+      }
+      searchParams.minPriceStatic = obj.min_price;
+      searchParams.maxPriceStatic = obj.max_price;
       bus.emit('add product array to category page', obj.products);
     })
     .catch((err) => console.error(err));
