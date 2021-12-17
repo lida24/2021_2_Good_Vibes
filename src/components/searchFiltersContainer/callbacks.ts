@@ -3,7 +3,7 @@ import searchParams from "../../services/search/params";
 import { Callback, Product } from "../../types";
 
 export const getParams: Callback = (array: Product[]) => {
-  debugger;
+  
   const minPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__from')[0];
   const maxPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__to')[0];
   const minRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__from')[0];
@@ -29,7 +29,6 @@ export const getParams: Callback = (array: Product[]) => {
 
 export const setFiltersParams: Callback = () => {
   console.log('setFiltersParams');
-  debugger;
 
   const minPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__from')[0];
   const maxPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__to')[0];
