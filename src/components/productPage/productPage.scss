@@ -37,6 +37,12 @@
       display: none;
     }
   }
+
+  &-bottom {
+    @media screen and (max-width: $breakMobile) {
+      margin: 0 4vw;
+    }
+  }
 }
 
 .slides {
@@ -266,7 +272,6 @@
     }
 
     &__rate span {
-
       @media screen and (max-width: $breakMobile) {
         font-size: 2.5vh;
       }

@@ -3,18 +3,6 @@ import searchParams from "../../services/search/params";
 import { Callback, Product } from "../../types";
 
 export const getParams: Callback = (array: Product[]) => {
-  // console.log("getParams");
-  const minPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__from')[0];
-  const maxPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__to')[0];
-  const minRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__from')[0];
-  const maxRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__to')[0];
-
-  if (
-    !minRatingInput
-    || !maxRatingInput
-    || !minPriceInput
-    || !maxPriceInput
-    || array.length === 0
   console.log("getParams");
   const minPriceInput = <HTMLInputElement>(
     document.getElementsByClassName("search-filter-amount__from")[0]
@@ -39,59 +27,49 @@ export const getParams: Callback = (array: Product[]) => {
     return;
   }
 
-  /* const priceList = array.map((item) => item.price).sort((a, b) => a - b);
-  const ratingList = array.map((item) => item.rating).sort((a, b) => a - b);
+  console.log(searchParams);
 
-  searchParams.minPrice = priceList[0];
-  searchParams.maxPrice = priceList[priceList.length - 1];
+  if (minPriceInput.value < searchParams.minPrice.toString()) {
+    minPriceInput.value = searchParams.minPrice.toString();
+  }
 
-  searchParams.minRating = ratingList[0];
-  searchParams.maxRating = ratingList[ratingList.length - 1]; */
-  /* 
-    searchParams.minPrice = priceList[0];
-    searchParams.maxPrice = priceList[priceList.length - 1]; */
-
+  if (maxPriceInput.value > searchParams.maxPrice.toString()) {
+    maxPriceInput.value = searchParams.maxPrice.toString();
+  }
 
   // TODO эта фигня не будет работать с пагинацией: нужно получать мин и макс значения с бэка
-
-  // if (minPriceInput.value < searchParams.minPrice.toString()) {
-  //   minPriceInput.value = searchParams.minPrice.toString();
-  // }
-
-  // if (maxPriceInput.value > searchParams.maxPrice.toString()) {
-  //   maxPriceInput.value = searchParams.maxPrice.toString();
-  // }
-
-  /*  if (!minRatingInput.value) {
-     minRatingInput.value = searchParams.minRating.toString();
-   }
- 
-   if (!maxRatingInput.value) {
-     maxRatingInput.value = searchParams.maxRating.toString();
-   } */
 };
 
 export const setFiltersParams: Callback = () => {
-  console.log('setFiltersParams');
+  console.log("setFiltersParams");
+  console.log(searchParams);
 
-  const minPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__from')[0];
-  const maxPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__to')[0];
-  const minRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__from')[0];
-  const maxRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__to')[0];
+  const minPriceInput = <HTMLInputElement>(
+    document.getElementsByClassName("search-filter-amount__from")[0]
+  );
+  const maxPriceInput = <HTMLInputElement>(
+    document.getElementsByClassName("search-filter-amount__to")[0]
+  );
+  const minRatingInput = <HTMLInputElement>(
+    document.getElementsByClassName("search-filter-rating__from")[0]
+  );
+  const maxRatingInput = <HTMLInputElement>(
+    document.getElementsByClassName("search-filter-rating__to")[0]
+  );
 
-
-  minPriceInput.value = searchParams.minPrice.toString();
-  maxPriceInput.value = searchParams.maxPrice.toString();
-  minRatingInput.value = searchParams.minRating.toString();
-  maxRatingInput.value = searchParams.maxRating.toString();
-};
-  // TODO эта фигня не будет работать с пагинацией: нужно получать мин и макс значения с бэка
-  /* 
-   if (minPriceInput.value < searchParams.minPrice.toString()) { 
+/*   minRatingInput.value = searchParams.minRating.toString();
+  maxRatingInput.value = searchParams.maxRating.toString(); */
+  if (minPriceInput.value < searchParams.minPrice.toString()) {
     minPriceInput.value = searchParams.minPrice.toString();
-   } 
-
-   if (maxPriceInput.value > searchParams.maxPrice.toString()) {
+  }
+  if (maxPriceInput.value > searchParams.maxPrice.toString()) {
     maxPriceInput.value = searchParams.maxPrice.toString();
-   }  */
+  }
+ /*  if (minPriceInput.value < searchParams.minPrice.toString()) {
+    minPriceInput.value = searchParams.minPrice.toString();
+  }
+
+  if (maxPriceInput.value > searchParams.maxPrice.toString()) {
+    maxPriceInput.value = searchParams.maxPrice.toString();
+  } */
 };

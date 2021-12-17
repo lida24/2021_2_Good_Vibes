@@ -70,7 +70,6 @@ export const address: Callback = () => {
 
 // export const category: Callback = (obj: { name: string }) => {
 export const category: Callback = (obj: { name: string, pathname: string, search?: boolean }) => {
-  // console.warn(obj);
 
   bus.emit('category ajax request', obj);
 };
