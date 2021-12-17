@@ -13,6 +13,7 @@ let cacheUrls = [
   '/payment',
   '/confirmation',
   '/favorite',
+  '/orders',
 ];
 
 this.addEventListener('install', (event) => {

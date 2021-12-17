@@ -11,6 +11,8 @@ import PaymentPage from '../../components/cart/payment/view';
 import ConfirmationPage from '../../components/cart/confirmation/view';
 import EmptyCart from '../../components/cart/empty/view';
 import Favorites from '../../components/favorites/view';
+import { order } from '../../api/callbacks';
+import Orders from '../../components/myOrder/view';
 /* import Orders from '../view/orders/view'; */
 
 const constructor: { [name: string]: ConstructorInterface } = {
@@ -28,6 +30,7 @@ const constructor: { [name: string]: ConstructorInterface } = {
   /* orders: Orders, */
   search: CategoryPage,
   favorite: Favorites,
+  orders: Orders,
 };
 
 export default constructor;

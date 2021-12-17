@@ -157,6 +157,7 @@ export const confirmation: Callback = () => {
 };
 
 export const orders: Callback = () => {
+  debugger;
   bus.emit('show view', { name: 'orders' });
 };
 
