@@ -77,7 +77,18 @@ export const showFavorite: Callback = () => {
 
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
+  debugger;
+  obj.context.isFavorite = true;
+  if (obj.context.isFavorite === true ) {
+    obj.context.nameBtn = 'Удалить из избранного'
+    const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__favorite')[0];
 
+    const cartBtnElem = <HTMLButtonElement>document.createElement('button');
+    cartBtnElem.className = 'info-card-btn__add-favorite';
+    cartBtnElem.innerHTML = 'Убрать из избранного';
+  } else { 
+    obj.context.nameBtn = 'Добавить в избранное'
+  }
   // console.log('showProductPage', context);
 
   bus.emit('show view', { name: 'productPage', context });

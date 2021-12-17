@@ -53,6 +53,7 @@ export default class Ajax {
 
     if (body) {
       xhr.setRequestHeader('Content-type', 'application/json; charser=utf8');
+      debugger;
       xhr.send(JSON.stringify(body));
       return;
     }

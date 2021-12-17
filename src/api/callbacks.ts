@@ -7,6 +7,7 @@ import {
   CartItem,
   NewComment,
   OrderRequest,
+  ProductId,
   Suggests,
 } from "../types";
 import searchParams from "../services/search/params";
@@ -490,3 +491,35 @@ export const favorite: Callback = () => {
       bus.emit("favorite ajax denied", response)
     );
 };
+
+export const addProductFavorite: Callback = (obj: {'id': number}) => {
+  console.log("ajax addProductFavorite callback");
+  debugger;
+  ajax
+  .post({
+    url: `${backendAddress}/product/favorite/add`,
+    body: obj,
+  })
+  .then((response: AjaxResponse) =>
+    console.log("add favorite product success")
+  )
+  .catch((response: AjaxResponse) =>
+    console.log("add favorite product bad")
+  )
+}
+
+export const delProductFavorite: Callback = (obj: {'id': number}) => {
+  console.log("ajax delProductFavorite callback");
+  debugger;
+  ajax
+  .post({
+    url: `${backendAddress}/product/favorite/delete`,
+    body: obj,
+  })
+  .then((response: AjaxResponse) =>
+    console.log("del favorite product success")
+  )
+  .catch((response: AjaxResponse) =>
+    console.log("del favorite product bad")
+  )
+}
