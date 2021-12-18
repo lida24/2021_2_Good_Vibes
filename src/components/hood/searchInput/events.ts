@@ -13,18 +13,18 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit('suggests ajax request', { str });
   });
 
-  // -----------------------
-  self.addEventListener('submit', (event) => {
-    event.preventDefault();
+  // // -----------------------
+  // self.addEventListener('submit', (event) => {
+  //   event.preventDefault();
 
-    const str = searchInput.value.trim();
-    if (!str) {
-      return;
-    }
-    // console.log('!!! submit', str);
-    // bus.emit('search ajax request', { str });
-    bus.emit('search state request', { str });
-  });
+  //   const str = searchInput.value.trim();
+  //   if (!str) {
+  //     return;
+  //   }
+  //   console.log('!!! submit', str);
+  //   // bus.emit('search ajax request', { str });
+  //   bus.emit('search state request', { str });
+  // });
 
   // -----------------------
   searchInput.addEventListener('input', (event) => {
