@@ -13,7 +13,9 @@ const connections: Connection[] = [
   },
   {
     event: 'show suggests',
-    callback: searchInput.showSuggests,
+    callback: [
+      searchInput.showSuggests,
+    ]
   },
   {
     event: 'delete suggests list',
