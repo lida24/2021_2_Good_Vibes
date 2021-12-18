@@ -13,6 +13,11 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
     bus.emit('add comment button click', undefined);
   });
+
+  const ratingStar = self.getElementsByClassName('rating__star')[0];
+  ratingStar.addEventListener('click', () => {
+    ratingStar.classList.add('clicked');
+  })
 };
 
 export default initEvents;

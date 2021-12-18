@@ -78,7 +78,7 @@ export const showFavorite: Callback = () => {
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
   debugger;
-  obj.context.isFavorite = true;
+  /* obj.context.isFavorite = true; */
   if (obj.context.isFavorite === true ) {
     obj.context.nameBtn = 'Удалить из избранного'
     const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__favorite')[0];
@@ -189,7 +189,7 @@ export const handleAjaxRecommendationConfirmed: Callback = (response: AjaxRespon
     .catch((err) => console.error("JSON parse error", err));
 };
 
-export const favoriteArrayParse: Callback = (response: AjaxResponse) => {
+export const handleAjaxFavoriteConfirmed: Callback = (response: AjaxResponse) => {
   const { responseText } = response;
   Promise.resolve()
     .then(() => JSON.parse(responseText))
