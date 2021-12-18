@@ -49,7 +49,7 @@ const connections: Connection[] = [
   },
   {
     event: 'ajax favorite denied',
-    callback: denied.handleAjaxRecommendationDenied,
+    callback: denied.handleAjaxFavoriteDenied,
   },
 ];
 
