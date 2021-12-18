@@ -151,8 +151,11 @@ export const confirmation: Callback = () => {
 };
 
 export const orders: Callback = () => {
-  debugger;
   bus.emit('show view', { name: 'orders' });
+};
+
+export const reviews: Callback = () => {
+  bus.emit('show view', {name: 'reviews'});
 };
 
 export const search: Callback = (response: { 'responseText': string }) => {

@@ -38,6 +38,10 @@ const connections: Connection[] = [
   {
     event: 'orders button click', 
     callback: hood.ordersStateRequest,
+  },
+  {
+    event: 'reviews button click',
+    callback: hood.reviewsStateRequest,
   }, 
   {
     event: 'aside button click',

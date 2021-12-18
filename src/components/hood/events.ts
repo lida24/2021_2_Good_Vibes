@@ -42,6 +42,15 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   })
   debugger;
 
+  const reviewsBtnMenu = <HTMLElement> (
+    self.getElementsByClassName('reviews')[0]
+  );
+  reviewsBtnMenu.addEventListener("click", (event) => {
+    event.preventDefault();
+    debugger;
+    bus.emit("reviews button click", undefined);
+  })
+
   const ordersBtnMenu = <HTMLElement> (
     self.getElementsByClassName('orders')[0]
   );

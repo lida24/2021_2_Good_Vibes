@@ -13,6 +13,7 @@ const routMap = {
   '/orders': 'orders',
   '/search': 'search',
   '/favorite': 'favorite',
+  '/reviews': 'reviews',
 };
 
 export default routMap;

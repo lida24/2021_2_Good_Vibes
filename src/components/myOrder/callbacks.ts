@@ -20,7 +20,6 @@ export const showOrderList: Callback = (obj: Order[]) => {
     if (oldTbody) {
       oldTbody.remove();
     }
-    debugger;
     const tbody = <HTMLTableSectionElement>document.createElement("tbody");
     tbody.className = "table-body";
     obj?.forEach((item) => {

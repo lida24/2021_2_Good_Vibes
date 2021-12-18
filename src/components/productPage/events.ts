@@ -19,7 +19,7 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
 
     bus.emit('add product to cart', { id, number: 1 });
   });
-
+  
   const addBtnMobile = <HTMLButtonElement>self.getElementsByClassName('info-card-mobile-btn__cart')[0];
   addBtnMobile.addEventListener('click', (event) => {
     event.preventDefault();
@@ -30,12 +30,10 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
   });
 
   const addBtnAddFavorite = <HTMLButtonElement>self.getElementsByClassName('flagIsFavorite_false')[0];
-  debugger;
   addBtnAddFavorite?.addEventListener('click', (event) => {
     event.preventDefault();
     
     const { id } = context;
-    debugger;
     bus.emit('add product to favorite', { id });
   });
 

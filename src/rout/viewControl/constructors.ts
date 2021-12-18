@@ -13,6 +13,7 @@ import EmptyCart from '../../components/cart/empty/view';
 import Favorites from '../../components/favorites/view';
 import { order } from '../../api/callbacks';
 import Orders from '../../components/myOrder/view';
+import Reviews from '../../components/reviews/view';
 /* import Orders from '../view/orders/view'; */
 
 const constructor: { [name: string]: ConstructorInterface } = {
@@ -31,6 +32,7 @@ const constructor: { [name: string]: ConstructorInterface } = {
   search: CategoryPage,
   favorite: Favorites,
   orders: Orders,
+  reviews: Reviews,
 };
 
 export default constructor;

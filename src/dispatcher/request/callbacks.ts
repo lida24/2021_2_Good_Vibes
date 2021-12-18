@@ -120,6 +120,10 @@ export const orders: Callback = () => {
   bus.emit('orders state confirmed', { state: 'orders', pathname: '/orders' });
 };
 
+export const reviews: Callback = () => {
+  bus.emit('reviews state confirmed', {state: 'request', pathname: '/reviews'});
+};
+
 export const search: Callback = (obj: { str: string }) => {
   bus.emit('search ajax request', obj);
 };

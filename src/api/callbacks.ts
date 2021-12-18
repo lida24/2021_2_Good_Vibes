@@ -11,6 +11,7 @@ import {
   Suggests,
 } from "../types";
 import searchParams from "../services/search/params";
+import { response } from "express";
 
 // const backendAddress = 'https://ozonback.herokuapp.com';
 // const backendAddress = 'http://37.139.33.76';
@@ -319,7 +320,6 @@ export const avatarUpload: Callback = (file: File) => {
 
 export const orderList: Callback = () => {
   // console.log('orderList ajax request');
-  debugger;
   ajax
     .get({
       url: `${backendAddress}/profile/orders`,
@@ -332,6 +332,19 @@ export const orderList: Callback = () => {
       bus.emit("orders list denied", response)
     );
 };
+
+export const reviewsRequestList: Callback = (username: string) => {
+  ajax
+  .get({
+    url: `${backendAddress}/user/reviews?name=${username}`
+  })
+  .then((response: AjaxResponse) => 
+    bus.emit('reviews request confirmed', response)
+  )
+  .catch((response:AjaxResponse) => 
+    console.log(response)
+  );
+}
 
 // =======================
 export const comments: Callback = (obj: { id: number }) => {
@@ -494,7 +507,6 @@ export const favorite: Callback = () => {
 
 export const addProductFavorite: Callback = (obj: {'id': number}) => {
   console.log("ajax addProductFavorite callback");
-  debugger;
   ajax
   .post({
     url: `${backendAddress}/product/favorite/add`,
@@ -510,7 +522,6 @@ export const addProductFavorite: Callback = (obj: {'id': number}) => {
 
 export const delProductFavorite: Callback = (obj: {'id': number}) => {
   console.log("ajax delProductFavorite callback");
-  debugger;
   ajax
   .post({
     url: `${backendAddress}/product/favorite/delete`,

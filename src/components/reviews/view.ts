@@ -4,9 +4,9 @@ import { ViewInterface } from '../../types';
 import bus from '../../modules/bus/bus';
 import connections from './connections';
 //import initEvents from './events';
-import './orders.scss';
+import './reviews.scss';
 
-export default class Orders extends View implements ViewInterface {
+export default class Reviews extends View implements ViewInterface {
   private async renderHTML() {
     const html = compiledTemplate(this.context);
     this.self.innerHTML = html;

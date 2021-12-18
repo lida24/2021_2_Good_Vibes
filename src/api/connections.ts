@@ -105,6 +105,10 @@ const ajaxConnections: Connection[] = [
     callback: ajax.orderList,
   },
   {
+    event: 'reviews list request', 
+    callback: ajax.reviewsRequestList,
+  },
+  {
     event: 'comments ajax request',
     callback: ajax.comments,
   },
