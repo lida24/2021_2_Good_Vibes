@@ -29,6 +29,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   // -----------------------
   searchInput.addEventListener('input', (event) => {
     event.preventDefault();
+    console.log('input');
 
     const str = searchInput.value;
     // console.log('search input value', str);
