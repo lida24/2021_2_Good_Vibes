@@ -121,3 +121,120 @@
   width: 50vw;
   border: 1px solid #d1d1d1;
 }
+
+.f9z8 {
+  margin-bottom: 48px;
+}
+
+.ga0 {
+  width: 576px;
+}
+.f9y9 {
+  color: #001a34;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.f9z {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.ga0 {
+  width: 576px;
+}
+
+.ui-p2,
+.ui-p3 {
+  display: block;
+}
+
+.ui-ac {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.ui-ac.ui-b9a.ui-ac1 > :first-child {
+  margin-left: -4px;
+}
+.ui-b8a.ui-b9a {
+  width: 220px;
+}
+
+.ui-b8a {
+  overflow: hidden;
+  position: relative;
+}
+
+.ui-b1 {
+  display: inline-flex;
+}
+
+.ui-b1 > .ui-b3 {
+  -webkit-touch-callout: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-decoration: none;
+  white-space: normal;
+}
+
+.ui-b1 > .ui-b3 > .ui-b4.ui-e4 {
+  min-width: 0;
+  padding: 4px;
+}
+.ui-b1 > .ui-b3 > .ui-b4.ui-d7,
+.ui-b1 > .ui-b3 > .ui-b4.ui-d7.ui-c8 {
+  background: hsla(0, 0%, 100%, 0);
+}
+.ui-b1 > .ui-b3 > .ui-b4.ui-d7 {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  min-height: auto;
+  min-width: auto !important;
+  padding: 0 !important;
+  width: auto;
+}
+.ui-b1 > .ui-b3 > .ui-b4 {
+  align-items: center;
+  background-color: #005bff;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-flex;
+  font-family: GTEestiPro, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.29;
+  min-height: 32px;
+  min-width: 96px;
+  padding: 0 12px;
+  text-align: center;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    opacity 0.3s ease-in-out;
+}
+
+.ui-ac.ui-b9a .ui-c0a {
+  margin: 0 2px;
+  color: rgb(179, 188, 197);
+  &:hover {
+    color: gold;
+  }
+}

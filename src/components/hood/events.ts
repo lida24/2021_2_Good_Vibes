@@ -73,7 +73,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   //----------------------------------------------------
 
   const profileContainerNode = <Node>(
-    self.getElementsByClassName('header-dropdown')[0]
+    self.getElementsByClassName('header-dropdown-content')[0]
   );
   const profileBtnNode = <Node>(
     self.getElementsByClassName("icons__link-avatar")[0]
