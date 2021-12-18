@@ -7,6 +7,7 @@ import {
   CartItem,
   NewComment,
   OrderRequest,
+  ProductId,
   Suggests,
 } from "../types";
 import searchParams from "../services/search/params";
@@ -194,6 +195,8 @@ export const categoryGet: Callback = () => {
     .catch((response: Response) => bus.emit("category get denied", response))
     .then(() => bus.emit("category get finished", undefined));
 };
+
+
 
 // export const categoryRequest: Callback = (obj: { name: string }) => {
 //   const { name } = obj;
@@ -474,3 +477,49 @@ export const cartGetPromo = () => {
     .catch(({ responseText }) => bus.emit("cart get denied promo", { responseText }))
     .then(() => bus.emit("cart get finished promo", undefined));
 };
+
+export const favorite: Callback = () => {
+  console.log("ajax favoriteProductGet callback");
+  ajax
+    .get({
+      url: `${backendAddress}/product/favorite/get`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("favorite ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("favorite ajax denied", response)
+    );
+};
+
+export const addProductFavorite: Callback = (obj: {'id': number}) => {
+  console.log("ajax addProductFavorite callback");
+  debugger;
+  ajax
+  .post({
+    url: `${backendAddress}/product/favorite/add`,
+    body: obj,
+  })
+  .then((response: AjaxResponse) =>
+    console.log("add favorite product success")
+  )
+  .catch((response: AjaxResponse) =>
+    console.log("add favorite product bad")
+  )
+}
+
+export const delProductFavorite: Callback = (obj: {'id': number}) => {
+  console.log("ajax delProductFavorite callback");
+  debugger;
+  ajax
+  .post({
+    url: `${backendAddress}/product/favorite/delete`,
+    body: obj,
+  })
+  .then((response: AjaxResponse) =>
+    console.log("del favorite product success")
+  )
+  .catch((response: AjaxResponse) =>
+    console.log("del favorite product bad")
+  )
+}

@@ -126,6 +126,12 @@ const ajaxConnections: Connection[] = [
       ajax.recommendations,
     ]
   },
+  {
+    event: 'favorite ajax request', 
+    callback: [
+      ajax.favorite,
+    ]
+  },
 ];
 
 export default ajaxConnections;

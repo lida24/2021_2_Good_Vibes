@@ -39,7 +39,13 @@ export type Product = {
   name: string,
   price: number,
   rating: number,
+  isFavorite: boolean,
+  nameBtn: string,
 };
+
+export type ProductId = {
+  id: number,
+}
 
 export type Address = {
   'country': string,

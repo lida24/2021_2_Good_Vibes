@@ -31,6 +31,16 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("profile button click", undefined);
   });
 
+  const favoriteBtnMenu = <HTMLElement> (
+    self.getElementsByClassName('favorite')[0]
+  );
+  favoriteBtnMenu.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    bus.emit("favorite button click", undefined);
+  })
+
+
   const signOutBtn = self.getElementsByClassName('logout')[0];
   signOutBtn.addEventListener("click", (event) => {
     event.preventDefault();
@@ -45,6 +55,15 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
 
     bus.emit("cart button click", undefined);
+  });
+
+  //--------------------
+  const favoriteBtn = <HTMLAnchorElement>(
+    self.getElementsByClassName('icons__link-like')[0]
+  );
+  favoriteBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("favorite button click", undefined);
   });
 
   // ---------------------

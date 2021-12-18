@@ -54,6 +54,10 @@ export const cartState: Callback = () => {
   bus.emit('cart state confirmed', { state: 'cart', pathname: '/cart' });
 };
 
+export const favorite: Callback = () => {
+  bus.emit('favorite ajax request', undefined);
+}
+
 export const address: Callback = () => {
   if (!user.isAutorize()) {
     bus.emit('address state denied', { state: 'address' });

@@ -28,6 +28,10 @@ const connections: Connection[] = [
     callback: request.cartState,
   },
   {
+    event: 'favorite state request',
+    callback: request.favorite,
+  },
+  {
     event: 'category state request',
     callback: [
       // searchParams.setDefault,
