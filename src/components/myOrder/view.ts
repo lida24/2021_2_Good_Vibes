@@ -20,6 +20,7 @@ export default class Orders extends View implements ViewInterface {
 
   constructor(classId: string) {
     super();
+    debugger;
     this.self = <HTMLElement>document.createElement('class');
     this.self.id = 'layout';
     bus.add(connections);
