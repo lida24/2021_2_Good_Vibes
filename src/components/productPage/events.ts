@@ -30,16 +30,17 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
   });
 
   const addBtnAddFavorite = <HTMLButtonElement>self.getElementsByClassName('flagIsFavorite_false')[0];
+  debugger;
   addBtnAddFavorite?.addEventListener('click', (event) => {
     event.preventDefault();
     
     const { id } = context;
-
+    debugger;
     bus.emit('add product to favorite', { id });
   });
 
   const addBtnDelFavorite = <HTMLButtonElement>self.getElementsByClassName('flagIsFavorite_true')[0];
-  addBtnDelFavorite.addEventListener('click', (event) => {
+  addBtnDelFavorite?.addEventListener('click', (event) => {
     event.preventDefault();
     
     const { id } = context;
@@ -47,15 +48,23 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
     bus.emit('del product from favorite', { id });
   });
 
-  const addBtnFavoriteMobile = <HTMLButtonElement>self.getElementsByClassName('info-card-mobile-btn__favorite')[0];
-  addBtnFavoriteMobile.addEventListener('click', (event) => {
+  const addBtnFavoriteMobile = <HTMLButtonElement>self.getElementsByClassName('flagIsFavorite_mobile_false')[0];
+  addBtnFavoriteMobile?.addEventListener('click', (event) => {
     event.preventDefault();
 
     const { id } = context;
 
-    bus.emit('add product to favorite mobile', { id });
+    bus.emit('add product to favorite', { id });
   });
 
+  const addBtnDelFavoriteMobile = <HTMLButtonElement>self.getElementsByClassName('flagIsFavorite_mobile_true')[0];
+  addBtnDelFavoriteMobile?.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const { id } = context;
+
+    bus.emit('del product from favorite', { id });
+  }); 
 };
 
 export default initEvents;

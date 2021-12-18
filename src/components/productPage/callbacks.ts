@@ -37,7 +37,7 @@ export const changeBtnMobile: Callback = () => {
   addBtnParent.replaceWith(cartBtnElem);
   cartBtnElem.addEventListener('click', (event) => {
     event.preventDefault();
-
+    
     bus.emit('cart button click', undefined);
   });
 };
@@ -143,12 +143,10 @@ export const handleResponse: Callback = (obj: { 'responseText': string }) => {
 };
 
 export const changeBtnOnDelFavorite: Callback = (obj: {'id': number}) => {
-  const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__favorite')[0];
-
+  let addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-favorite-btn__favorite')[0];
   const favoriteBtnElem = <HTMLButtonElement>document.createElement('button');
-  favoriteBtnElem.className = 'info-card-btn__favorite flagIsFavorite_true'
   favoriteBtnElem.innerHTML = 'Удалить из избранного'
-
+  favoriteBtnElem.className = 'info-favorite-btn__favorite flagIsFavorite_true'
   /*  const cartBtnElem = new InfoCardBtn(); */
   addBtnParent.replaceWith(favoriteBtnElem);
   favoriteBtnElem.addEventListener('click', (event) => {
@@ -159,11 +157,12 @@ export const changeBtnOnDelFavorite: Callback = (obj: {'id': number}) => {
 };
 
 export const changeBtnToAddFavorite: Callback = (obj: {'id': number}) => {
-  const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__favorite')[0];
-
+  let addBtnParent = <HTMLButtonElement>document.querySelector('.info-favorite-btn__favorite');
   const favoriteBtnElem = <HTMLButtonElement>document.createElement('button');
-  favoriteBtnElem.className = 'info-card-btn__favorite flagIsFavorite_false'
   favoriteBtnElem.innerHTML = 'Добавить в избранное'
+  console.log(addBtnParent);
+  favoriteBtnElem.className = 'info-favorite-btn__favorite flagIsFavorite_false'
+
 
   /*  const cartBtnElem = new InfoCardBtn(); */
   addBtnParent.replaceWith(favoriteBtnElem);
