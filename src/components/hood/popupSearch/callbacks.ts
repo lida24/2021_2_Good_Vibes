@@ -134,10 +134,20 @@ export const changeCategoryLabel: Callback = () => {
   console.log('change category label');
 
   const searchInput = <HTMLInputElement>document.getElementsByClassName('search-input')[0];
-  const value = searchInput.value.trim();
+  // const value = searchInput.value.trim();
 
   const label = <HTMLSpanElement>document.getElementsByClassName('product-table__title')[0];
+
+  const a = decodeURI(window.location.search);
+  const reg = a.match(/.*str=([\w|а-яА-Я]+).*/);
+  let value = '';
+  if (reg) {
+    value = reg[1];
+  }
+
   label.textContent = `Поиск по результату '${value}'`;
+
+  // debugger;
 };
 
 export const closeInput: Callback = () => {
