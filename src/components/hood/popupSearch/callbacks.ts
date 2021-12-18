@@ -139,7 +139,7 @@ export const changeCategoryLabel: Callback = () => {
   const label = <HTMLSpanElement>document.getElementsByClassName('product-table__title')[0];
 
   const a = decodeURI(window.location.search);
-  const reg = a.match(/.*str=([\w|а-яА-Я]+).*/);
+  const reg = a.match(/.*str=([\w|а-яА-Я|\s]+).*/);
   let value = '';
   if (reg) {
     value = reg[1];

@@ -51,7 +51,7 @@ class Router {
       return;
     }
 
-    debugger;
+    // debugger;
 
     window.history.pushState(
       {
@@ -99,7 +99,7 @@ class Router {
     });
 
     let str = '';
-    const strReg = decodeURI(search).match(/.*str=([а-яА-Я|\w]+).*/);
+    const strReg = decodeURI(search).match(/.*str=([а-яА-Я|\w|\s]+).*/);
     if (strReg) {
       str = strReg[1];
     }

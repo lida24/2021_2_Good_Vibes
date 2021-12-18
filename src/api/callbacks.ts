@@ -494,7 +494,7 @@ export const favorite: Callback = () => {
 
 export const addProductFavorite: Callback = (obj: { 'id': number }) => {
   console.log("ajax addProductFavorite callback");
-  debugger;
+  // debugger;
   ajax
     .post({
       url: `${backendAddress}/product/favorite/add`,
@@ -510,7 +510,7 @@ export const addProductFavorite: Callback = (obj: { 'id': number }) => {
 
 export const delProductFavorite: Callback = (obj: { 'id': number }) => {
   console.log("ajax delProductFavorite callback");
-  debugger;
+  // debugger;
   ajax
     .post({
       url: `${backendAddress}/product/favorite/delete`,

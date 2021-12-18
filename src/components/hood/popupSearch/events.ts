@@ -28,6 +28,8 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit('close button click', undefined);
   });
 
+
+
   // ----------------------
   document.addEventListener('click', (event) => {
     // event.preventDefault();

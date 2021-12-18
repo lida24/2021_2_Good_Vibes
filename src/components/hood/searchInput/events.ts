@@ -1,4 +1,5 @@
 import bus from '../../../modules/bus/bus';
+import debounce from '../../../modules/debounce/debounce';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
   const searchInput = <HTMLInputElement>self.getElementsByTagName('input')[0];
@@ -13,26 +14,32 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit('suggests ajax request', { str });
   });
 
-  // // -----------------------
-  // self.addEventListener('submit', (event) => {
-  //   event.preventDefault();
+  // -----------------------
+  self.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-  //   const str = searchInput.value.trim();
-  //   if (!str) {
-  //     return;
-  //   }
-  //   console.log('!!! submit', str);
-  //   // bus.emit('search ajax request', { str });
-  //   bus.emit('search state request', { str });
-  // });
+    const str = searchInput.value.trim();
+    if (!str) {
+      return;
+    }
+    // console.log('!!! submit', str);
+    // bus.emit('search ajax request', { str });
+    bus.emit('delete suggests list', undefined);
+
+    bus.emit('search state request', { str });
+  });
 
   // -----------------------
+
+  const debouncedBusEmit = debounce(bus.emit, bus, 500);
   searchInput.addEventListener('input', (event) => {
     event.preventDefault();
 
+
+
     const str = searchInput.value;
     // console.log('search input value', str);
-    bus.emit('suggests ajax request', { str });
+    debouncedBusEmit('suggests ajax request', { str });
   });
 
   // ----------------------
