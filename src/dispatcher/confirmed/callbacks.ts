@@ -57,7 +57,7 @@ export const homepage: Callback = () => {
 };
 
 export const favorite: Callback = () => {
-  bus.emit('favorite state confirmed', {pathname: '/favorite'});
+  bus.emit('favorite state confirmed', { pathname: '/favorite' });
 }
 
 export const showCart: Callback = () => {
@@ -79,14 +79,14 @@ export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
   debugger;
   obj.context.isFavorite = true;
-  if (obj.context.isFavorite === true ) {
+  if (obj.context.isFavorite === true) {
     obj.context.nameBtn = 'Удалить из избранного'
     const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__favorite')[0];
 
     const cartBtnElem = <HTMLButtonElement>document.createElement('button');
     cartBtnElem.className = 'info-card-btn__add-favorite';
     cartBtnElem.innerHTML = 'Убрать из избранного';
-  } else { 
+  } else {
     obj.context.nameBtn = 'Добавить в избранное'
   }
   // console.log('showProductPage', context);
@@ -115,7 +115,7 @@ export const categoryArrayParse: Callback = (response: AjaxResponse) => {
     .then((obj: CategoryResponseObject) => {
       if (searchParams.minPriceStatic != obj.min_price) {
         searchParams.minPrice = obj.min_price;
-      } 
+      }
       if (searchParams.maxPriceStatic != obj.max_price) {
         searchParams.maxPrice = obj.max_price;
       }
@@ -141,7 +141,7 @@ export const categoryAddToHistory: Callback = (obj: { name: string, pathname: st
 
     // pathname: `${obj.pathname}`,
   });
-  
+
 };
 
 export const address: Callback = () => {
@@ -160,8 +160,14 @@ export const orders: Callback = () => {
   bus.emit('show view', { name: 'orders' });
 };
 
-export const search: Callback = (response: { 'responseText': string }) => {
+export const search: Callback = (response: { 'responseText': string, 'pathname': string, 'str': string }) => {
   // bus.emit('show view', { name: 'search' });
+
+  console.warn(response);
+  addToHistory({
+    pathname: response.pathname,
+    str: response.str,
+  });
 
   const { responseText } = response;
 

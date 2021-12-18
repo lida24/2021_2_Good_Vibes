@@ -24,8 +24,8 @@ class Router {
     Object.keys(routMap).forEach((key) => this.addToList(key, routMap[key]));
   }
 
-  public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType }): void {
-    const { pathname, searchParams } = obj;
+  public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType, 'str'?: string }): void {
+    const { pathname, searchParams, str } = obj;
 
     let uri = pathname;
     const reg = pathname.match(/(\/.*)\?/);
@@ -41,6 +41,10 @@ class Router {
         path = path.concat(`${key}=${searchParams[key]}&`);
       });
       path = path.slice(0, path.length - 1);
+    }
+
+    if (str) {
+      path = path.concat(`?str=${str}`);
     }
 
     if (path === `${window.location.pathname}${window.location.search}`) {
@@ -92,7 +96,20 @@ class Router {
       SearchParams[value] = key;
     });
 
-    bus.emit(`${state} state request`, { id, name, pathname, search: false });
+    let str = '';
+    const strReg = search.match(/.*str=(\w+).*/);
+    if (strReg) {
+      str = search.match(/.*str=(\w+).*/)[1];
+    }
+
+    // const str = search.match(/.*str=(\w+).*/)[1];
+
+    debugger;
+
+    bus.emit(`${state} state request`, {
+      id, name, pathname, search: false,
+      str,
+    });
   };
 
   public start(): void {
