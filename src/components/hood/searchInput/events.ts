@@ -12,11 +12,8 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
 
     const str = searchInput.value.trim();
-    // console.log('search input value', str);
 
     bus.emit('suggests ajax request', { str });
-
-    // debouncedBusEmit('suggests ajax request', { str });
   });
 
   // -----------------------
@@ -27,13 +24,11 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     if (!str) {
       return;
     }
-    // console.log('!!! submit', str);
-    // bus.emit('search ajax request', { str });
-
 
     bus.emit('search state request', { str });
 
-    bus.emit('delete suggests list', undefined);
+    // bus.emit('delete suggests list', undefined);
+    debouncedBusEmit('delete suggests list', undefined);
 
     searchInput.blur();
   });
@@ -43,15 +38,9 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
   searchInput.addEventListener('input', (event) => {
     event.preventDefault();
-
-
-
     const str = searchInput.value;
-    // console.log('search input value', str);
 
     debouncedBusEmit('suggests ajax request', { str });
-
-    // debouncedBusEmit('suggests ajax request', { str: searchInput.value });
   });
 
   // ----------------------
