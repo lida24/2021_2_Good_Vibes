@@ -25,7 +25,10 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     // console.log('!!! submit', str);
     // bus.emit('search ajax request', { str });
     bus.emit('search state request', { str });
+    bus.emit('close button click', undefined);
   });
+
+
 
   // ----------------------
   document.addEventListener('click', (event) => {

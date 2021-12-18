@@ -19,7 +19,9 @@ const connections: Connection[] = [
   },
   {
     event: 'delete suggests list',
-    callback: searchInput.deleteSuggests,
+    callback: [
+      searchInput.deleteSuggests,
+    ]
   },
   // {
   //   event: 'search request confirmed',
@@ -30,6 +32,7 @@ const connections: Connection[] = [
     callback: [
       searchInput.changeCategoryLabel,
       searchInput.showSearchResults,
+      searchInput.cleanInput,
     ],
   },
   {

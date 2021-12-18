@@ -418,7 +418,7 @@ export const search: Callback = (obj: { str: string }) => {
       url: `${backendAddress}/search?str=${str}`,
     })
     .then((response: AjaxResponse) =>
-      bus.emit("search state confirmed", response)
+      bus.emit("search state confirmed", { pathname: '/search', str, ...response })
     )
     .catch((response: AjaxResponse) =>
       bus.emit("search state denied", response)
@@ -492,34 +492,34 @@ export const favorite: Callback = () => {
     );
 };
 
-export const addProductFavorite: Callback = (obj: {'id': number}) => {
+export const addProductFavorite: Callback = (obj: { 'id': number }) => {
   console.log("ajax addProductFavorite callback");
-  debugger;
+  // debugger;
   ajax
-  .post({
-    url: `${backendAddress}/product/favorite/add`,
-    body: obj,
-  })
-  .then((response: AjaxResponse) =>
-    console.log("add favorite product success")
-  )
-  .catch((response: AjaxResponse) =>
-    console.log("add favorite product bad")
-  )
+    .post({
+      url: `${backendAddress}/product/favorite/add`,
+      body: obj,
+    })
+    .then((response: AjaxResponse) =>
+      console.log("add favorite product success")
+    )
+    .catch((response: AjaxResponse) =>
+      console.log("add favorite product bad")
+    )
 }
 
-export const delProductFavorite: Callback = (obj: {'id': number}) => {
+export const delProductFavorite: Callback = (obj: { 'id': number }) => {
   console.log("ajax delProductFavorite callback");
-  debugger;
+  // debugger;
   ajax
-  .post({
-    url: `${backendAddress}/product/favorite/delete`,
-    body: obj,
-  })
-  .then((response: AjaxResponse) =>
-    console.log("del favorite product success")
-  )
-  .catch((response: AjaxResponse) =>
-    console.log("del favorite product bad")
-  )
+    .post({
+      url: `${backendAddress}/product/favorite/delete`,
+      body: obj,
+    })
+    .then((response: AjaxResponse) =>
+      console.log("del favorite product success")
+    )
+    .catch((response: AjaxResponse) =>
+      console.log("del favorite product bad")
+    )
 }
