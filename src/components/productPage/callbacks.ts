@@ -141,3 +141,37 @@ export const handleResponse: Callback = (obj: { 'responseText': string }) => {
     })
     .catch((err) => console.error(err))
 };
+
+export const changeBtnOnDelFavorite: Callback = (obj: {'id': number}) => {
+  const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__favorite')[0];
+
+  const favoriteBtnElem = <HTMLButtonElement>document.createElement('button');
+  favoriteBtnElem.className = 'info-card-btn__favorite flagIsFavorite_true'
+  favoriteBtnElem.innerHTML = 'Удалить из избранного'
+
+  /*  const cartBtnElem = new InfoCardBtn(); */
+  addBtnParent.replaceWith(favoriteBtnElem);
+  favoriteBtnElem.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('del product from favorite', obj);
+  });
+};
+
+export const changeBtnToAddFavorite: Callback = (obj: {'id': number}) => {
+  const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__favorite')[0];
+
+  const favoriteBtnElem = <HTMLButtonElement>document.createElement('button');
+  favoriteBtnElem.className = 'info-card-btn__favorite flagIsFavorite_false'
+  favoriteBtnElem.innerHTML = 'Добавить в избранное'
+
+  /*  const cartBtnElem = new InfoCardBtn(); */
+  addBtnParent.replaceWith(favoriteBtnElem);
+  favoriteBtnElem.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('add product to favorite', obj);
+  });
+};
+
+changeBtnToAddFavorite

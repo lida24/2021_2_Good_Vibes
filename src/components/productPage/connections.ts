@@ -21,7 +21,14 @@ const connections: Connection[] = [
   {
     event: 'add product to favorite',
     callback: addProductFavorite,
-
+  },
+  {
+    event: 'add favorite ajax confirmed',
+    callback: productPage.changeBtnOnDelFavorite,
+  },
+  {
+    event: 'del favorite ajax confirmed',
+    callback: productPage.changeBtnToAddFavorite,
   },
   {
     event: 'add product to favorite mobile',

@@ -501,7 +501,7 @@ export const addProductFavorite: Callback = (obj: {'id': number}) => {
     body: obj,
   })
   .then((response: AjaxResponse) =>
-    console.log("add favorite product success")
+    bus.emit("add favorite ajax confirmed", response)
   )
   .catch((response: AjaxResponse) =>
     console.log("add favorite product bad")
@@ -517,7 +517,7 @@ export const delProductFavorite: Callback = (obj: {'id': number}) => {
     body: obj,
   })
   .then((response: AjaxResponse) =>
-    console.log("del favorite product success")
+    bus.emit("del favorite ajax confirmed", response)
   )
   .catch((response: AjaxResponse) =>
     console.log("del favorite product bad")
