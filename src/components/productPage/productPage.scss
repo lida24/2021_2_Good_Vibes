@@ -163,6 +163,19 @@
       }
     }
 
+    &__favorite,
+    &__add-cart {
+      @include blue-button(80%, 4vh);
+      margin-top: 2vh;
+      background-color: $twitter-color;
+      @media screen and (max-width: $breakDesktop) {
+        font-size: 1.4vh;
+      }
+      @media screen and (max-width: $breakTablet) {
+        font-size: 1.4vh;
+      }
+    }
+
     &__like {
       @include white-button(20%, 4vh);
       margin-top: 2vh;

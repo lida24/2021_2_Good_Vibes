@@ -2,6 +2,7 @@ import { Callback, Product, Suggests } from '../../../types';
 import ProductSuggestItem from './productItem/view';
 import CategorySuggestItem from './categoryItem/view';
 import bus from '../../../modules/bus/bus';
+import SearchInput from './view';
 // import list from '../../productCard/list';
 
 const suggestList: {
@@ -138,4 +139,14 @@ export const changeCategoryLabel: Callback = () => {
 
   const label = <HTMLSpanElement>document.getElementsByClassName('product-table__title')[0];
   label.textContent = `Поиск по результату '${value}'`;
+};
+
+export const changeInputStyleOpen: Callback = () => {
+  const inputSuggests = document.getElementsByClassName('search-input')[0];
+  inputSuggests.classList.add('openSuggests');
+};
+
+export const changeInputStyleDelete: Callback = () => {
+  const inputSuggests = document.getElementsByClassName('search-input')[0];
+  inputSuggests.classList.remove('openSuggests');
 };

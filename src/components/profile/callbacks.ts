@@ -7,14 +7,6 @@ export const signOutRequest: Callback = () => {
 };
 
 export const fieldsFill: Callback = () => {
-  // const loginInput = <HTMLInputElement>document.getElementsByClassName('form__login')[0];
-  // const emailInput = <HTMLInputElement>document.getElementsByClassName('form__email')[0];
-  // const photo = <HTMLImageElement>document.getElementsByClassName('form__photo')[0];
-
-  // loginInput.value = user.username;
-  // emailInput.value = user.email;
-  // photo.src = user.avatar;
-
   const loginInput = <HTMLInputElement>(
     document.getElementsByClassName("user-box__login")[0]
   );
@@ -34,15 +26,6 @@ export const fieldsFill: Callback = () => {
 };
 
 export const profileUploadRequest: Callback = () => {
-  // const usernameInput = <HTMLInputElement>document.getElementsByClassName('form__login')[0];
-  // const emailInput = <HTMLInputElement>document.getElementsByClassName('form__email')[0];
-
-  // const obj = {
-  //   username: usernameInput.value.trim(),
-  //   email: emailInput.value.trim(),
-  // };
-
-  // bus.emit('profile upload request', obj);
 
   const loginInput = <HTMLInputElement>(
     document.getElementsByClassName("user-box__login")[0]
@@ -93,7 +76,6 @@ export const showOrderList: Callback = (obj: Order[]) => {
 
   const tbody = <HTMLTableSectionElement>document.createElement("tbody");
   tbody.className = "table-body";
-
   obj?.forEach((item) => {
     const tr = <HTMLTableRowElement>document.createElement("tr");
 
