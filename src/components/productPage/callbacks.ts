@@ -62,9 +62,10 @@ export const commentsRequest: Callback = (context: Product) => {
 
 export const renderCommentContainer: Callback = (comment: Comment) => {
   // console.log('render single comment block', comment);
-
+  debugger;
   const commentContainer = new CommentsContainer(comment);
   document.getElementsByClassName('board-bottom')[0].appendChild(commentContainer?.self);
+  debugger;
 };
 
 // export const generateCommentsArray: Callback = (array: Comment[]) => {
@@ -79,7 +80,7 @@ export const generateCommentsArray: Callback = (obj: { 'responseText': string })
   // console.log('generate commenst array', array);
 
   const { responseText } = obj;
-
+  debugger;
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .catch((err) => console.error(err))
