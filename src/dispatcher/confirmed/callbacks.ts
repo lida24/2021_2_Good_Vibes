@@ -122,6 +122,8 @@ export const categoryArrayParse: Callback = (response: AjaxResponse) => {
       searchParams.minPriceStatic = obj.min_price;
       searchParams.maxPriceStatic = obj.max_price;
       bus.emit('add product array to category page', obj.products);
+
+      // bus.emit('add product array to category page', obj.products);
     })
     .catch((err) => console.error(err));
 };

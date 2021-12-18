@@ -10,27 +10,27 @@ export const getParams: Callback = (array: Product[]) => {
   const maxRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__to')[0];
 
 
-  // if (+minPriceInput.value <= searchParams.minPriceStatic
-  //   && minPriceInput.value != "") {
-  //   minPriceInput.value = searchParams.minPriceStatic.toString();
-  // } else {
-  //   minPriceInput.value = searchParams.minPrice.toString();
-  // }
+  if (+minPriceInput.value <= searchParams.minPriceStatic
+    && minPriceInput.value != "") {
+    minPriceInput.value = searchParams.minPriceStatic.toString();
+  } else {
+    minPriceInput.value = searchParams.minPrice.toString();
+  }
 
-  // if (+maxPriceInput.value >= searchParams.maxPriceStatic
-  //   && minPriceInput.value != "") {
-  //   maxPriceInput.value = searchParams.maxPriceStatic.toString();
-  // } else {
-  //   maxPriceInput.value = searchParams.maxPrice.toString();
-  // }
-  // minRatingInput.value = searchParams.minRating.toString();
-  // maxRatingInput.value = searchParams.maxRating.toString();
-
-  minPriceInput.value = searchParams.minPrice.toString();
-  maxPriceInput.value = searchParams.maxPrice.toString();
-
+  if (+maxPriceInput.value >= searchParams.maxPriceStatic
+    && minPriceInput.value != "") {
+    maxPriceInput.value = searchParams.maxPriceStatic.toString();
+  } else {
+    maxPriceInput.value = searchParams.maxPrice.toString();
+  }
   minRatingInput.value = searchParams.minRating.toString();
   maxRatingInput.value = searchParams.maxRating.toString();
+
+  // minPriceInput.value = searchParams.minPrice.toString();
+  // maxPriceInput.value = searchParams.maxPrice.toString();
+
+  // minRatingInput.value = searchParams.minRating.toString();
+  // maxRatingInput.value = searchParams.maxRating.toString();
 };
 
 export const setFiltersParams: Callback = () => {
@@ -42,26 +42,28 @@ export const setFiltersParams: Callback = () => {
   const maxRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__to')[0];
 
 
-  // if (+minPriceInput.value < searchParams.minPriceStatic) {
-  //   searchParams.minPrice = searchParams.minPriceStatic
-  //   minPriceInput.value = searchParams.minPriceStatic.toString();
-  // } else {
-  //   minPriceInput.value = searchParams.minPrice.toString();
-  // }
+  if (+minPriceInput.value < searchParams.minPriceStatic) {
+    searchParams.minPrice = searchParams.minPriceStatic
+    minPriceInput.value = searchParams.minPriceStatic.toString();
+  } else {
+    minPriceInput.value = searchParams.minPrice.toString();
+  }
 
-  // if (+maxPriceInput.value > searchParams.maxPriceStatic) {
-  //   searchParams.maxPrice = searchParams.maxPriceStatic
-  //   maxPriceInput.value = searchParams.maxPriceStatic.toString();
-  // } else {
-  //   maxPriceInput.value = searchParams.maxPrice.toString();
-  // }
+  if (+maxPriceInput.value > searchParams.maxPriceStatic) {
+    searchParams.maxPrice = searchParams.maxPriceStatic
+    maxPriceInput.value = searchParams.maxPriceStatic.toString();
+  } else {
+    maxPriceInput.value = searchParams.maxPrice.toString();
+  }
+  minRatingInput.value = searchParams.minRating.toString();
+  maxRatingInput.value = searchParams.maxRating.toString();
+
+  // minPriceInput.value = searchParams.minPrice.toString();
+  // maxPriceInput.value = searchParams.maxPrice.toString();
+
   // minRatingInput.value = searchParams.minRating.toString();
   // maxRatingInput.value = searchParams.maxRating.toString();
 
-  minPriceInput.value = searchParams.minPrice.toString();
-  maxPriceInput.value = searchParams.maxPrice.toString();
-
-  minRatingInput.value = searchParams.minRating.toString();
-  maxRatingInput.value = searchParams.maxRating.toString();
+  // debugger;
 
 };
