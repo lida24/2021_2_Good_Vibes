@@ -22,7 +22,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     if (!str) {
       return;
     }
-    console.log('!!! submit', str);
+    // console.log('!!! submit', str);
     // bus.emit('search ajax request', { str });
     bus.emit('search state request', { str });
     bus.emit('close button click', undefined);
