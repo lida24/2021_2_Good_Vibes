@@ -31,14 +31,14 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("profile button click", undefined);
   });
 
-  const favoriteBtnMenu = <HTMLElement> (
+/*   const favoriteBtnMenu = <HTMLElement> (
     self.getElementsByClassName('favorite')[0]
   );
   favoriteBtnMenu.addEventListener("click", (event) => {
     event.preventDefault();
 
     bus.emit("favorite button click", undefined);
-  })
+  }) */
 
 
   const signOutBtn = self.getElementsByClassName('logout')[0];
