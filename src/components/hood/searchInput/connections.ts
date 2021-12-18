@@ -30,6 +30,7 @@ const connections: Connection[] = [
     callback: [
       searchInput.changeCategoryLabel,
       searchInput.showSearchResults,
+      searchInput.cleanInput,
     ],
   },
 ];

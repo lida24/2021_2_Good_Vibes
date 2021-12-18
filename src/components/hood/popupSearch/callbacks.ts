@@ -106,6 +106,17 @@ export const deleteSuggests: Callback = () => {
   });
 };
 
+export const cleanInput: Callback = () => {
+  // console.warn('ckasdfs');  // console.warn('123123');
+  const input = <HTMLInputElement>document.getElementsByClassName('search-input-popup')[0];
+
+  // debugger;
+
+  if (input) {
+    input.value = '';
+  }
+};
+
 export const parseResponse: Callback = (obj: { 'responseText': string }) => {
   const { responseText } = obj;
   Promise.resolve()
