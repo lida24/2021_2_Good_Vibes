@@ -8,8 +8,12 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   //   bus.emit('add comment button click', undefined);
   // });
 
-  self.addEventListener('submit', (event) => {
+  // self.addEventListener('submit', (event) => {
+
+  addCommentBtn.addEventListener('click', (event) => {
     event.preventDefault();
+
+    console.warn('asdfasdf');
 
     bus.emit('add comment button click', undefined);
   });
