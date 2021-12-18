@@ -56,6 +56,10 @@ export const homepage: Callback = () => {
   bus.emit('homepage state confirmed', { pathname: '/' });
 };
 
+export const favorite: Callback = () => {
+  bus.emit('favorite state confirmed', {pathname: '/favorite'});
+}
+
 export const showCart: Callback = () => {
   // bus.emit('show view', { name: 'cart' });
 
@@ -67,9 +71,24 @@ export const showCart: Callback = () => {
   bus.emit('show view', { name: 'cart' });
 };
 
+export const showFavorite: Callback = () => {
+  bus.emit('show view', { name: 'favorite' });
+}
+
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
+  debugger;
+  obj.context.isFavorite = true;
+  if (obj.context.isFavorite === true ) {
+    obj.context.nameBtn = 'Удалить из избранного'
+    const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__favorite')[0];
 
+    const cartBtnElem = <HTMLButtonElement>document.createElement('button');
+    cartBtnElem.className = 'info-card-btn__add-favorite';
+    cartBtnElem.innerHTML = 'Убрать из избранного';
+  } else { 
+    obj.context.nameBtn = 'Добавить в избранное'
+  }
   // console.log('showProductPage', context);
 
   bus.emit('show view', { name: 'productPage', context });
@@ -167,5 +186,13 @@ export const handleAjaxRecommendationConfirmed: Callback = (response: AjaxRespon
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .then((obj: Product[]) => bus.emit("recommendations product array parsed", obj))
+    .catch((err) => console.error("JSON parse error", err));
+};
+
+export const favoriteArrayParse: Callback = (response: AjaxResponse) => {
+  const { responseText } = response;
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((obj: Product[]) => bus.emit("favorite product array parsed", obj))
     .catch((err) => console.error("JSON parse error", err));
 };

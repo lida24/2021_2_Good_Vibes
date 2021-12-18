@@ -1,4 +1,4 @@
-import { product } from '../../api/callbacks';
+import { product, addProductFavorite, delProductFavorite } from '../../api/callbacks';
 import { AjaxResponse, Connection } from '../../types';
 import * as productPage from './callbacks';
 import newCommentContainer from './newCommentContainer/view';
@@ -16,6 +16,21 @@ const connections: Connection[] = [
   {
     event: 'add product to cart mobile',
     callback: productPage.changeBtnMobile,
+
+  },
+  {
+    event: 'add product to favorite',
+    callback: addProductFavorite,
+
+  },
+  {
+    event: 'add product to favorite mobile',
+    callback: addProductFavorite,
+
+  },
+  {
+    event: 'del product from favorite',
+    callback: delProductFavorite,
 
   },
   {

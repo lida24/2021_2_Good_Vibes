@@ -95,11 +95,26 @@ const connections: Connection[] = [
     ],
   },
   {
+    event: 'favorite state confirmed',
+    callback: [
+      confirm.saveState,
+      confirm.showFavorite,
+      addToHistory,
+    ],
+  },
+  {
     event: 'category ajax confirmed',
     callback: [
       confirm.categoryArrayParse,
       confirm.category,
       //searchFiltersContainer.setFiltersParams,
+    ],
+  },
+  {
+    event: 'favorite ajax confirmed', 
+    callback: [
+      confirm.favoriteArrayParse,
+      confirm.favorite,
     ],
   },
   {
