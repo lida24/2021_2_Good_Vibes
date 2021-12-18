@@ -44,12 +44,14 @@ class Router {
     }
 
     if (str) {
-      path = path.concat(`?str=${str}`);
+      path = path.concat(`?str=${decodeURI(str)}`);
     }
 
-    if (path === `${window.location.pathname}${window.location.search}`) {
+    if (path === `${window.location.pathname}${decodeURI(window.location.search)}`) {
       return;
     }
+
+    debugger;
 
     window.history.pushState(
       {
@@ -97,14 +99,13 @@ class Router {
     });
 
     let str = '';
-    const strReg = search.match(/.*str=(\w+).*/);
+    const strReg = decodeURI(search).match(/.*str=([а-яА-Я|\w]+).*/);
     if (strReg) {
-      str = search.match(/.*str=(\w+).*/)[1];
+      str = strReg[1];
     }
 
-    // const str = search.match(/.*str=(\w+).*/)[1];
 
-    debugger;
+    // debugger;
 
     bus.emit(`${state} state request`, {
       id, name, pathname, search: false,
