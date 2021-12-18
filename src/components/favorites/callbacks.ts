@@ -10,7 +10,7 @@ export const addProductArrayFavorite: Callback = (array: Product[]) => {
   
     const viewArray = ProductCatdList.viewArray(array);
     viewArray?.forEach((cardView) => {
-      productContainer.appendChild(cardView.self);
+      productContainer.appendChild(cardView?.self);
     });
   };
   

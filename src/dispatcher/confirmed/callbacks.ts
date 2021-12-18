@@ -77,7 +77,6 @@ export const showFavorite: Callback = () => {
 
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
-  debugger;
   /* obj.context.isFavorite = true; */
   if (obj.context.isFavorite === true ) {
     obj.context.nameBtn = 'Удалить из избранного'

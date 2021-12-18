@@ -102,8 +102,8 @@ export const newCommentContainerShow: Callback = (context: Product) => {
 export const addCommentRequest: Callback = () => {
   const { id } = newCommentContainer.context;
 
-  const ratingInput = <HTMLInputElement>newCommentContainer.self.getElementsByClassName('clicked')[0];
-  const rating = +ratingInput.value;
+  const ratingNumber = <HTMLElement>newCommentContainer.self.getElementsByClassName('rating__value')[0];
+  const rating = +ratingNumber.textContent;
   /* const estimate = ratingInput.ariaLabel; */
 
   const textInput = <HTMLTextAreaElement>newCommentContainer.self.getElementsByClassName('add-comment-text')[0];
