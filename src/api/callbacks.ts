@@ -9,6 +9,7 @@ import {
   OrderRequest,
   ProductId,
   Suggests,
+  Comment,
 } from "../types";
 import searchParams from "../services/search/params";
 import { response } from "express";
@@ -107,6 +108,21 @@ export const product: Callback = (obj: { id: number; price: number }) => {
       bus.emit("product request denied", { responseText })
     );
 };
+
+export const productInfoByIdForReview: Callback = (obj: Comment ) => {
+
+  ajax
+    .get({
+      url: `${backendAddress}/product?id=${obj.product_id}`,
+    })
+    .then(({ responseText }) =>
+      bus.emit("product info review request success", { product: JSON.parse(responseText), comment: obj })
+    )
+    .catch(({ responseText }) =>
+      bus.emit("product request denied", { responseText })
+    );
+};
+
 
 export const productArrayRequest: Callback = (array: CartItem[]) => {
   const result = [];

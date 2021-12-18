@@ -19,7 +19,6 @@ export const favoriteStateRequest: Callback = () => {
 };
 
 export const ordersStateRequest: Callback = () => {
-  debugger;
   bus.emit("orders state request", undefined);
 }
 

@@ -11,6 +11,10 @@ const connections: Connection[] = [
         event: "reviews request confirmed",
         callback: reviews.generateCommentsArray,
     },
+    {
+        event: "product info review request success",
+        callback: reviews.renderCommentContainer,
+    }
 ];
 
 export default connections;
