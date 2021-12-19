@@ -64,8 +64,9 @@ export type Address = {
 };
 
 export type OrderRequest = {
-  'address': Address,
+  'address'?: Address,
   'products': CartItem[],
+  'promocode'?: string,
   'email'?: string,
 };
 
@@ -77,6 +78,8 @@ export type Order = {
   'products': Product[],
   'status': string,
   'email'?: string,
+  'cost_with_promo'?: number,
+  'promocode'?: string;
 };
 
 export type Category = {

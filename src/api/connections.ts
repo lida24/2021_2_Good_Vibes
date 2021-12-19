@@ -112,7 +112,7 @@ const ajaxConnections: Connection[] = [
     callback: ajax.orderList,
   },
   {
-    event: 'reviews list request', 
+    event: 'reviews list request',
     callback: ajax.reviewsRequestList,
   },
   {
@@ -138,7 +138,7 @@ const ajaxConnections: Connection[] = [
     ]
   },
   {
-    event: 'favorite ajax request', 
+    event: 'favorite ajax request',
     callback: [
       ajax.favorite,
     ]
@@ -160,6 +160,10 @@ const ajaxConnections: Connection[] = [
     callback: [
       ajax.sales,
     ]
+  },
+  {
+    event: 'cart check request',
+    callback: ajax.cartCheck,
   },
 ];
 
