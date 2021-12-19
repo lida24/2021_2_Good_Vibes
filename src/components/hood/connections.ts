@@ -47,6 +47,10 @@ const connections: Connection[] = [
     callback: hood.newestStateRequest,
   },
   {
+    event: 'sales button click',
+    callback: hood.salesStateRequest,
+  },
+  {
     event: 'orders button click', 
     callback: hood.ordersStateRequest,
   },

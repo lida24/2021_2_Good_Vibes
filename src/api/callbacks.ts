@@ -528,6 +528,20 @@ export const favorite: Callback = () => {
     );
 };
 
+export const brands: Callback = () => {
+  console.log("ajax brands callback");
+  ajax
+    .get({
+      url: `${backendAddress}/brands/get`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("brands ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("brands ajax denied", response)
+    );
+};
+
 export const newest: Callback = () => {
   console.log("ajax newestProductGet callback");
   ajax
@@ -541,6 +555,37 @@ export const newest: Callback = () => {
       bus.emit("newest ajax denied", response)
     );
 };
+
+export const brandProducts: Callback = (obj: { name: string }) => {
+  const { name } = obj;
+  console.log("ajax newestProductGet callback");
+  ajax
+    .get({
+      url: `${backendAddress}/brand/products?name=${name}`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("brands product ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("brands product ajax denied", response)
+    );
+};
+
+
+export const sales: Callback = () => {
+  console.log("ajax sales callback");
+  ajax
+    .get({
+      url: `${backendAddress}/sales`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("sales ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("sales ajax denied", response)
+    );
+};
+
 
 export const addProductFavorite: Callback = (obj: { 'id': number }) => {
   console.log("ajax addProductFavorite callback");

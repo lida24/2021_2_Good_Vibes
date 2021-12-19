@@ -27,6 +27,10 @@ const ajaxConnections: Connection[] = [
     event: 'product ajax request',
     callback: ajax.product,
   },
+  {
+    event: 'brand products ajax request',
+    callback: ajax.brandProducts,
+  },
   // {
   //   event: 'cart ajax request',
   //   callback: ajax.cart
@@ -140,14 +144,23 @@ const ajaxConnections: Connection[] = [
     ]
   },
   {
-    event: 'newest ajax request',
+    event: 'brands ajax request', 
+    callback: [
+      ajax.brands,
+    ]
+  },
+  {
+    event: 'newest ajax request', 
     callback: [
       ajax.newest,
     ]
   },
-
-
-  // ============================
+  {
+    event: 'sales ajax request', 
+    callback: [
+      ajax.sales,
+    ]
+  },
   {
     event: 'cart check request',
     callback: ajax.cartCheck,

@@ -3,7 +3,7 @@ import cart from '../../services/cart/cart';
 import user from '../../services/user/user';
 import { addToHistory } from '../../rout/callbacks';
 import {
-  AjaxResponse, Callback, CategoryResponseObject, Product,
+  AjaxResponse, Callback, CategoryResponseObject, Product, Brand,
 } from '../../types';
 import redirect from '../redirect';
 import searchParams from '../../services/search/params';
@@ -60,8 +60,16 @@ export const favorite: Callback = () => {
   bus.emit('favorite state confirmed', { pathname: '/favorite' });
 };
 
+export const brands: Callback = () => {
+  bus.emit('brands state confirmed', { pathname: '/brands' });
+};
+
 export const newest: Callback = () => {
   bus.emit('newest state confirmed', { pathname: '/new' });
+};
+
+export const sales: Callback = () => {
+  bus.emit('sales state confirmed', { pathname: '/sales' });
 };
 
 export const showCart: Callback = () => {
@@ -79,8 +87,16 @@ export const showFavorite: Callback = () => {
   bus.emit('show view', { name: 'favorite' });
 }
 
+export const showBrands: Callback = () => {
+  bus.emit('show view', { name: 'brands' });
+}
+
 export const showNewest: Callback = () => {
   bus.emit('show view', { name: 'newest' });
+}
+
+export const showSales: Callback = () => {
+  bus.emit('show view', { name: 'sales' });
 }
 
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
@@ -110,6 +126,10 @@ export const productStateConfirmed: Callback = (obj: { 'responseText': string })
     .then(() => JSON.parse(responseText))
     .then((parseObj: Product) => bus.emit('product state confirmed', { pathname: `/product?id=${parseObj.id}`, context: parseObj, state: 'product' }))
     .catch((err) => console.error('product page response parse error', err));
+};
+
+export const brandProducts: Callback = () => {
+  bus.emit('brands products state confirmed', { pathname: '/brand/products' });
 };
 
 export const category: Callback = () => {
@@ -225,5 +245,30 @@ export const handleAjaxNewestConfirmed: Callback = (response: AjaxResponse) => {
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .then((obj: Product[]) => bus.emit("newest product array parsed", obj))
+    .catch((err) => console.error("JSON parse error", err));
+};
+
+
+export const handleAjaxSalesConfirmed: Callback = (response: AjaxResponse) => {
+  const { responseText } = response;
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((obj: Product[]) => bus.emit("sales product array parsed", obj))
+    .catch((err) => console.error("JSON parse error", err));
+};
+
+export const handleAjaxBrandsConfirmed: Callback = (response: AjaxResponse) => {
+  const { responseText } = response;
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((obj: Brand[]) => bus.emit("brands array parsed", obj))
+    .catch((err) => console.error("JSON parse error", err));
+};
+
+export const handleAjaxBrandsProductsConfirmed: Callback = (response: AjaxResponse) => {
+  const { responseText } = response;
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((obj: Brand[]) => bus.emit("brands products array parsed", obj))
     .catch((err) => console.error("JSON parse error", err));
 };

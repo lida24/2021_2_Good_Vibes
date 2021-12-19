@@ -131,7 +131,6 @@ export const confirmAjaxRequest: Callback = () => {
   const payMethodSelect = <HTMLSelectElement>document.getElementById('orderform-payment_type');
 
   orderData.payMethod = payMethodSelect.options[payMethodSelect.selectedIndex].text;
-
   const emailInput = <HTMLSelectElement>document.getElementById('orderform-email');
 
   // console.log(orderData);
@@ -139,6 +138,7 @@ export const confirmAjaxRequest: Callback = () => {
   const obj: OrderRequest = {
     address: orderData.address,
     products: array,
+    email: emailInput.value.trim(),
   };
   bus.emit('cart confirm request', obj);
 };

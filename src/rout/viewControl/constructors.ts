@@ -15,6 +15,9 @@ import { order } from '../../api/callbacks';
 import Orders from '../../components/myOrder/view';
 import Reviews from '../../components/reviews/view';
 import Newest from '../../components/news/view';
+import Sales from '../../components/sales/view';
+import Brands from '../../components/brands/view';
+import BrandProductPage from '../../components/brandProductsPage/view';
 /* import Orders from '../view/orders/view'; */
 
 const constructor: { [name: string]: ConstructorInterface } = {
@@ -35,6 +38,9 @@ const constructor: { [name: string]: ConstructorInterface } = {
   orders: Orders,
   reviews: Reviews,
   newest: Newest,
+  sales: Sales,
+  brands: Brands,
+  brandsProductPage: BrandProductPage,
 };
 
 export default constructor;
