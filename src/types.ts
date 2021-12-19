@@ -39,13 +39,18 @@ export type Product = {
   name: string,
   price: number,
   rating: number,
-  isFavorite: boolean,
+  is_favourite: boolean,
   nameBtn: string,
+};
+
+export type Brand = {
+  name: string, 
+  image: string,
 };
 
 export type ProductId = {
   id: number,
-}
+};
 
 export type Address = {
   'country': string,
@@ -59,8 +64,9 @@ export type Address = {
 };
 
 export type OrderRequest = {
-  'address': Address,
+  'address'?: Address,
   'products': CartItem[],
+  'promocode'?: string,
   'email'?: string,
 };
 
@@ -72,6 +78,8 @@ export type Order = {
   'products': Product[],
   'status': string,
   'email'?: string,
+  'cost_with_promo'?: number,
+  'promocode'?: string;
 };
 
 export type Category = {

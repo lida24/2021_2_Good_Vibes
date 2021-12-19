@@ -103,6 +103,30 @@ const connections: Connection[] = [
     ],
   },
   {
+    event: 'brands state confirmed',
+    callback: [
+      confirm.saveState,
+      confirm.showBrands,
+      addToHistory,
+    ],
+  },
+  {
+    event: 'newest state confirmed',
+    callback: [
+      confirm.saveState,
+      confirm.showNewest,
+      addToHistory,
+    ],
+  },
+  {
+    event: 'sales state confirmed',
+    callback: [
+      confirm.saveState,
+      confirm.showSales,
+      addToHistory,
+    ],
+  },
+  {
     event: 'category ajax confirmed',
     callback: [
       confirm.categoryArrayParse,
@@ -118,10 +142,44 @@ const connections: Connection[] = [
     ],
   },
   {
+    event: 'brands ajax confirmed', 
+    callback: [
+      confirm.handleAjaxBrandsConfirmed,
+      confirm.brands,
+    ]
+  },
+  {
+    event: 'newest ajax confirmed',
+    callback: [
+      confirm.handleAjaxNewestConfirmed,
+      confirm.newest,
+    ],
+  },
+  {
+    event: 'brands product ajax confirmed',
+    callback: [
+      confirm.handleAjaxBrandsProductsConfirmed,
+      confirm.brandProducts,
+    ],
+  },
+  {
+    event: 'sales ajax confirmed', 
+    callback: [
+      confirm.handleAjaxSalesConfirmed,
+      confirm.sales,
+    ],
+  },
+  {
     event: 'category state confirmed',
     callback: [
       // confirm.saveState,
       confirm.showCategoryPage,
+    ],
+  },
+  {
+    event: 'brands products state confirmed',
+    callback: [
+      confirm.brandProducts,
     ],
   },
   {

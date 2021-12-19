@@ -27,6 +27,10 @@ const ajaxConnections: Connection[] = [
     event: 'product ajax request',
     callback: ajax.product,
   },
+  {
+    event: 'brand products ajax request',
+    callback: ajax.brandProducts,
+  },
   // {
   //   event: 'cart ajax request',
   //   callback: ajax.cart
@@ -108,7 +112,7 @@ const ajaxConnections: Connection[] = [
     callback: ajax.orderList,
   },
   {
-    event: 'reviews list request', 
+    event: 'reviews list request',
     callback: ajax.reviewsRequestList,
   },
   {
@@ -134,10 +138,32 @@ const ajaxConnections: Connection[] = [
     ]
   },
   {
-    event: 'favorite ajax request', 
+    event: 'favorite ajax request',
     callback: [
       ajax.favorite,
     ]
+  },
+  {
+    event: 'brands ajax request', 
+    callback: [
+      ajax.brands,
+    ]
+  },
+  {
+    event: 'newest ajax request', 
+    callback: [
+      ajax.newest,
+    ]
+  },
+  {
+    event: 'sales ajax request', 
+    callback: [
+      ajax.sales,
+    ]
+  },
+  {
+    event: 'cart check request',
+    callback: ajax.cartCheck,
   },
 ];
 

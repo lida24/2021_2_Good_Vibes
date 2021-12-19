@@ -1,3 +1,5 @@
+import bus from '../../modules/bus/bus';
+import user from '../../services/user/user';
 import { Connection } from '../../types';
 import * as hood from './callbacks';
 
@@ -9,8 +11,13 @@ const connections: Connection[] = [
   {
     event: 'profile button click menu',
     callback: [
-      // hood.saveState,
-      hood.showProfileMenu,
+      (...args) => {
+          if (!user.isAutorize()) {
+            bus.emit('signIn state request', undefined);
+            return;
+          }
+          hood.showProfileMenu(args);
+      }
     ],
   },
   {
@@ -34,6 +41,14 @@ const connections: Connection[] = [
   {
     event: 'favorite button click', 
     callback: hood.favoriteStateRequest,
+  },
+  {
+    event: 'newest button click', 
+    callback: hood.newestStateRequest,
+  },
+  {
+    event: 'sales button click',
+    callback: hood.salesStateRequest,
   },
   {
     event: 'orders button click', 

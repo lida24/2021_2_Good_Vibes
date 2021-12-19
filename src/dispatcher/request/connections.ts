@@ -24,12 +24,28 @@ const connections: Connection[] = [
     callback: request.product,
   },
   {
+    event: 'brand product state request',
+    callback: request.brandProductStateRequest,
+  },
+  {
     event: 'cart state request',
     callback: request.cartState,
   },
   {
     event: 'favorite state request',
     callback: request.favorite,
+  },
+  {
+    event: 'brands state request', 
+    callback: request.brands,
+  },
+  {
+    event: 'newest state request',
+    callback: request.newest,
+  },
+  {
+    event: 'sales state request', 
+    callback: request.sales,
   },
   {
     event: 'category state request',

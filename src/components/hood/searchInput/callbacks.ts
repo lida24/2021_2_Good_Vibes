@@ -111,7 +111,6 @@ export const cleanInput: Callback = () => {
   // console.warn('123123');
   const input = <HTMLInputElement>document.getElementsByClassName('search-input')[0];
 
-  // debugger;
 
   if (input) {
     input.value = '';
@@ -159,7 +158,6 @@ export const changeCategoryLabel: Callback = () => {
 
   label.textContent = `Поиск по результату '${value}'`;
 
-  // debugger;
 };
 
 export const changeInputStyleOpen: Callback = () => {

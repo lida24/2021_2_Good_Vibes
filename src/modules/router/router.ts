@@ -62,7 +62,6 @@ class Router {
       return;
     }
 
-    // debugger;
 
     window.history.pushState(
       {
@@ -123,8 +122,6 @@ class Router {
     if (strReg) {
       str = strReg[1];
     }
-
-
 
 
     bus.emit(`${state} state request`, {

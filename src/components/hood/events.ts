@@ -32,15 +32,6 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("profile button click", undefined);
   });
 
-  /*   const favoriteBtnMenu = <HTMLElement> (
-      self.getElementsByClassName('favorite')[0]
-    );
-    favoriteBtnMenu.addEventListener("click", (event) => {
-      event.preventDefault();
-  
-      bus.emit("favorite button click", undefined);
-    }) */
-
   const reviewsBtnMenu = <HTMLElement> (
     self.getElementsByClassName('reviews')[0]
   );
@@ -60,7 +51,6 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   const signOutBtn = self.getElementsByClassName('logout')[0];
   signOutBtn.addEventListener("click", (event) => {
     event.preventDefault();
-
     bus.emit("signOut button click", undefined);
   });
   // ------------------
@@ -77,11 +67,26 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   const favoriteBtn = <HTMLAnchorElement>(
     self.getElementsByClassName('icons__link-like')[0]
   );
-  favoriteBtn.addEventListener("click", (event) => {
+  favoriteBtn?.addEventListener("click", (event) => {
     event.preventDefault();
     bus.emit("favorite button click", undefined);
   });
+  //----------------------
+  const newestBtn = <HTMLElement>(
+    self.getElementsByClassName('new')[0]
+  );
+  newestBtn?.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("newest button click", undefined);
+  })
 
+  const salesBtn = <HTMLElement>(
+    self.getElementsByClassName('sales')[0]
+  );
+  salesBtn?.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("sales button click", undefined);
+  })
   // ---------------------
   const asideBtn = <HTMLElement>self.getElementsByClassName('header__aside')[0];
   asideBtn.addEventListener("click", (event) => {
@@ -137,7 +142,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   const favoriteBtnMenu = <HTMLElement>(
     self.getElementsByClassName('favorite')[0]
   );
-  favoriteBtnMenu.addEventListener("click", (event) => {
+  favoriteBtnMenu?.addEventListener("click", (event) => {
     event.preventDefault();
 
     bus.emit("favorite button click", undefined);
