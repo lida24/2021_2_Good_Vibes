@@ -111,9 +111,9 @@ const connections: Connection[] = [
     ],
   },
   {
-    event: 'favorite ajax confirmed', 
+    event: 'favorite ajax confirmed',
     callback: [
-      confirm.favoriteArrayParse,
+      confirm.handleAjaxFavoriteConfirmed,
       confirm.favorite,
     ],
   },

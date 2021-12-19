@@ -5,13 +5,35 @@
     <div class="profile-block">
       <div class="profile-menu">
         <div class="profile-menu-inner">
-          <div class="profile-picture">
+          {{! <div class="profile-picture">
             <img class="form__photo" id="photo" width="150px" src="" />
             <label class="form__uploadBtn" id="uploadBtn" for="file">Загрузить
-              фото</label>
-          </div>
-          <h1 class="user-name">
-            <input class="form__uploadFile" type="file" id="file" /></h1>
+              фото
+              <input class="form__uploadFile" type="file" id="file" /></label>
+          </div> }}
+          <div class="b2m4"><div
+              class="b2m5 ui-ba4 ui-b5a"
+              style="background-color: rgb(229, 239, 255);"
+            >LL</div>
+            <div title="Загрузить фотографию" class="b2m6"><svg
+                width="24"
+                height="24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="b2m8"
+              ><path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M20 6H7v14H1V7a3 3 0 013-3h16a3 3 0 013 3v10a3 3 0 01-3 3H10a1 1 0 110-2h10a1 1 0 001-1V7a1 1 0 00-1-1zm0 6a5 5 0 11-10 0 5 5 0 0110 0zm-5 3a3 3 0 110-6 3 3 0 010 6zM3 18h2V6H4a1 1 0 00-1 1v11z"
+                  fill="currentColor"
+                ></path></svg>
+              <input
+                accept=".jpg, .jpeg, .png"
+                name="Photo"
+                type="file"
+                style="display: none;"
+              /></div></div>
+          <h1 class="user-name"></h1>
           <div class="profile-description">
             <div class="profile-description-inner">
               <button class="logout-btn" type="submit">
@@ -26,7 +48,7 @@
     <div class="profile-block-info">
       <div class="profile-block-settings">
         <form class="auth-box-form-profile" id="auth-form">
-           <h2>Информация</h2>
+          <h2>Информация</h2>
           <div class="user-box">
             <input class="user-box__login" type="login" name="login" />
             <label>Имя пользователя</label>

@@ -57,7 +57,7 @@ export const homepage: Callback = () => {
 };
 
 export const favorite: Callback = () => {
-  bus.emit('favorite state confirmed', {pathname: '/favorite'});
+  bus.emit('favorite state confirmed', { pathname: '/favorite' });
 }
 
 export const showCart: Callback = () => {
@@ -77,10 +77,15 @@ export const showFavorite: Callback = () => {
 
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
-  obj.context.isFavorite = true;
-  if (obj.context.isFavorite === true) {
+  /* obj.context.isFavorite = true; */
+  if (obj.context.isFavorite === true ) {
     obj.context.nameBtn = 'Удалить из избранного'
-  } else { 
+    const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__favorite')[0];
+
+    const cartBtnElem = <HTMLButtonElement>document.createElement('button');
+    cartBtnElem.className = 'info-card-btn__add-favorite';
+    cartBtnElem.innerHTML = 'Убрать из избранного';
+  } else {
     obj.context.nameBtn = 'Добавить в избранное'
   }
   // console.log('showProductPage', context);
@@ -109,13 +114,15 @@ export const categoryArrayParse: Callback = (response: AjaxResponse) => {
     .then((obj: CategoryResponseObject) => {
       if (searchParams.minPriceStatic != obj.min_price) {
         searchParams.minPrice = obj.min_price;
-      } 
+      }
       if (searchParams.maxPriceStatic != obj.max_price) {
         searchParams.maxPrice = obj.max_price;
       }
       searchParams.minPriceStatic = obj.min_price;
       searchParams.maxPriceStatic = obj.max_price;
       bus.emit('add product array to category page', obj.products);
+
+      // bus.emit('add product array to category page', obj.products);
     })
     .catch((err) => console.error(err));
 };
@@ -135,7 +142,7 @@ export const categoryAddToHistory: Callback = (obj: { name: string, pathname: st
 
     // pathname: `${obj.pathname}`,
   });
-  
+
 };
 
 export const address: Callback = () => {
@@ -154,12 +161,20 @@ export const orders: Callback = () => {
   bus.emit('show view', { name: 'orders' });
 };
 
+
 export const reviews: Callback = () => {
   bus.emit('show view', {name: 'reviews'});
 };
 
-export const search: Callback = (response: { 'responseText': string }) => {
+
+export const search: Callback = (response: { 'responseText': string, 'pathname': string, 'str': string }) => {
   // bus.emit('show view', { name: 'search' });
+
+  console.warn(response);
+  addToHistory({
+    pathname: response.pathname,
+    str: response.str,
+  });
 
   const { responseText } = response;
 
@@ -187,7 +202,7 @@ export const handleAjaxRecommendationConfirmed: Callback = (response: AjaxRespon
     .catch((err) => console.error("JSON parse error", err));
 };
 
-export const favoriteArrayParse: Callback = (response: AjaxResponse) => {
+export const handleAjaxFavoriteConfirmed: Callback = (response: AjaxResponse) => {
   const { responseText } = response;
   Promise.resolve()
     .then(() => JSON.parse(responseText))

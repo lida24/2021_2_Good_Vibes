@@ -32,14 +32,14 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("profile button click", undefined);
   });
 
-  const favoriteBtnMenu = <HTMLElement> (
-    self.getElementsByClassName('favorite')[0]
-  );
-  favoriteBtnMenu.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    bus.emit("favorite button click", undefined);
-  })
+  /*   const favoriteBtnMenu = <HTMLElement> (
+      self.getElementsByClassName('favorite')[0]
+    );
+    favoriteBtnMenu.addEventListener("click", (event) => {
+      event.preventDefault();
+  
+      bus.emit("favorite button click", undefined);
+    }) */
 
   const reviewsBtnMenu = <HTMLElement> (
     self.getElementsByClassName('reviews')[0]
@@ -96,19 +96,10 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("aside button click hide", undefined);
   });
 
-  const searchBtn = <HTMLElement>(
-    self.getElementsByClassName('nav-element__search')[0]
-  );
-  searchBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    bus.emit("search button click", undefined);
-  });
-
   //----------------------------------------------------
 
   const profileContainerNode = <Node>(
-    self.getElementsByClassName('header-dropdown')[0]
+    self.getElementsByClassName('header-dropdown-content')[0]
   );
   const profileBtnNode = <Node>(
     self.getElementsByClassName("icons__link-avatar")[0]
@@ -131,6 +122,26 @@ const initEvents: (self: HTMLElement) => void = (self) => {
       return;
     bus.emit("hide handle profile", undefined);
   });
+
+  //----------------------------------------------------
+  const searchBtn = <HTMLElement>(
+    self.getElementsByClassName('nav-element__search')[0]
+  );
+  searchBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    bus.emit("search button click", undefined);
+  });
+
+  // -----------------------------
+  const favoriteBtnMenu = <HTMLElement>(
+    self.getElementsByClassName('favorite')[0]
+  );
+  favoriteBtnMenu.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    bus.emit("favorite button click", undefined);
+  })
 };
 
 export default initEvents;

@@ -447,7 +447,7 @@ export const search: Callback = (obj: { str: string }) => {
       url: `${backendAddress}/search?str=${str}`,
     })
     .then((response: AjaxResponse) =>
-      bus.emit("search state confirmed", response)
+      bus.emit("search state confirmed", { pathname: '/search', str, ...response })
     )
     .catch((response: AjaxResponse) =>
       bus.emit("search state denied", response)
@@ -521,7 +521,7 @@ export const favorite: Callback = () => {
     );
 };
 
-export const addProductFavorite: Callback = (obj: {'id': number}) => {
+export const addProductFavorite: Callback = (obj: { 'id': number }) => {
   console.log("ajax addProductFavorite callback");
   ajax
   .post({
@@ -536,7 +536,7 @@ export const addProductFavorite: Callback = (obj: {'id': number}) => {
   )
 }
 
-export const delProductFavorite: Callback = (obj: {'id': number}) => {
+export const delProductFavorite: Callback = (obj: { 'id': number }) => {
   console.log("ajax delProductFavorite callback");
   ajax
   .post({

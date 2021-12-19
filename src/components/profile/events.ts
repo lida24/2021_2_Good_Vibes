@@ -9,10 +9,10 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // ---------------------
-  const profilePic = <HTMLImageElement>self.getElementsByClassName('form__photo')[0];
+ /*  const profilePic = <HTMLImageElement>self.getElementsByClassName('form__photo')[0]; */
 
   const mouseEventHandler = (event: MouseEvent) => {
-    const uploadBtn = <HTMLButtonElement>self.getElementsByClassName('form__uploadBtn')[0];
+    const uploadBtn = <HTMLButtonElement>self.getElementsByClassName('b2m6')[0];
     if (event.type === 'mouseover') {
       uploadBtn.style.display = 'block';
     }
@@ -21,11 +21,11 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     }
   };
 
-  profilePic.onmouseover = mouseEventHandler;
-  profilePic.onmouseout = mouseEventHandler;
+ /*  profilePic.onmouseover = mouseEventHandler;
+  profilePic.onmouseout = mouseEventHandler; */
 
   // ---------------------
-  const uploadBtn = <HTMLImageElement>self.getElementsByClassName('form__photo')[0];
+  /* const uploadBtn = <HTMLImageElement>self.getElementsByClassName('form__photo')[0];
 
   uploadBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -47,19 +47,19 @@ const initEvents: (self: HTMLElement) => void = (self) => {
         img.setAttribute('src', <string>reader.result);
       });
       reader.readAsDataURL(choosedFile);
-    }
-  });
+    } */
+/*   }); */
 
   // --------------------------
   // const updateBtn = <HTMLButtonElement>self.getElementsByClassName('form__btn-color')[0];
   // updateBtn.addEventListener('click', (event) => {
 
-  const updateBtn = <HTMLButtonElement>self.getElementsByClassName('update-btn')[0];
+/*   const updateBtn = <HTMLButtonElement>self.getElementsByClassName('update-btn')[0];
   updateBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
     bus.emit('update button click', undefined);
-  });
+  }); */
 
   // -------------------------
   /*  const ordersLink = <HTMLAnchorElement>self.getElementsByClassName('orders-link')[0];

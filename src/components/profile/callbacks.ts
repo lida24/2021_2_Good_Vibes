@@ -19,8 +19,8 @@ export const fieldsFill: Callback = () => {
 
   loginInput.value = user.username;
   emailInput.value = user.email;
-  photo.src = user.avatar;
-
+  /* photo.src = user.avatar;
+ */
   /* const file = <HTMLInputElement>document.getElementsByClassName('form__uploadFile')[0];
   file.style.display = 'none';  */
 };
