@@ -27,8 +27,6 @@ class Router {
   public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType, 'str'?: string }): void {
     const { pathname, searchParams, str } = obj;
 
-    debugger;
-
     let uri = pathname;
     const reg = pathname.match(/(\/.*)\?/);
     if (reg) {
