@@ -42,11 +42,19 @@ export const profileUploadRequest: Callback = () => {
   const realSurnameInput = <HTMLInputElement>(
     document.getElementsByClassName("user-box__secondname")[0]
   );
+  const birthdayInput = <HTMLInputElement>(
+    document.getElementsByClassName("user-box__sex")[0]
+  );
+  const sexInput = <HTMLInputElement>(
+    document.getElementsByClassName("user-box__sex")[0]
+  );
   const obj = {
     username: loginInput.value.trim(),
     email: emailInput.value.trim(),
-    realName: realNameInput.value.trim(),
-    realSurnameInput: realSurnameInput.value.trim(),
+    real_name: realNameInput.value.trim(),
+    real_surname: realSurnameInput.value.trim(),
+    sex: sexInput.value.trim(),
+    birthday: birthdayInput.value.trim(),
   };
 
   bus.emit("profile upload request", obj);
