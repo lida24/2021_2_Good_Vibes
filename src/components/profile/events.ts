@@ -9,13 +9,12 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // ---------------------
- const profilePic = <HTMLElement>self.getElementsByClassName('b2m5 ui-ba4 ui-b5a')[0];
+ const profilePic = <HTMLElement>self.getElementsByClassName('b2m4')[0];
  const uploadBtn = <HTMLElement>self.getElementsByClassName('b2m6')[0];
 
  console.log(profilePic);
 
   const mouseEventHandler = (event: MouseEvent) => {
-    debugger
     if (event.type === 'mouseover') {
       console.log(event.type);
       uploadBtn.style.opacity = '1';
