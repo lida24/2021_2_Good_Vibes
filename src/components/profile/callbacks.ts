@@ -34,9 +34,17 @@ export const profileUploadRequest: Callback = () => {
   const emailInput = <HTMLInputElement>(
     document.getElementsByClassName("user-box__email")[0]
   );
+  const realNameInput = <HTMLInputElement>(
+    document.getElementsByClassName("user-box__firstname")[0]
+  );
+  const realSurnameInput = <HTMLInputElement>(
+    document.getElementsByClassName("user-box__secondname")[0]
+  );
   const obj = {
     username: loginInput.value.trim(),
     email: emailInput.value.trim(),
+    realName: realNameInput.value.trim(),
+    realSurnameInput: realSurnameInput.value.trim(),
   };
 
   bus.emit("profile upload request", obj);
