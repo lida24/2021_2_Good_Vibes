@@ -9,20 +9,25 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // ---------------------
- /*  const profilePic = <HTMLImageElement>self.getElementsByClassName('form__photo')[0]; */
+ const profilePic = <HTMLElement>self.getElementsByClassName('b2m5 ui-ba4 ui-b5a')[0];
+ const uploadBtn = <HTMLElement>self.getElementsByClassName('b2m6')[0];
+
+ console.log(profilePic);
 
   const mouseEventHandler = (event: MouseEvent) => {
-    const uploadBtn = <HTMLButtonElement>self.getElementsByClassName('b2m6')[0];
+    debugger
     if (event.type === 'mouseover') {
-      uploadBtn.style.display = 'block';
+      console.log(event.type);
+      uploadBtn.style.opacity = '1';
     }
     if (event.type === 'mouseout') {
-      uploadBtn.style.display = 'none';
+      console.log(event.type);
+      uploadBtn.style.opacity = '0';
     }
   };
 
- /*  profilePic.onmouseover = mouseEventHandler;
-  profilePic.onmouseout = mouseEventHandler; */
+  profilePic.onmouseover = mouseEventHandler;
+  profilePic.onmouseout = mouseEventHandler;
 
   // ---------------------
   /* const uploadBtn = <HTMLImageElement>self.getElementsByClassName('form__photo')[0];

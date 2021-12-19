@@ -30,8 +30,9 @@
             <div class="info-card-mobile-btn__wrap">
               <button class="info-card-mobile-btn__cart">Добавить в корзину</button>
             </div>
-{{!--             <div class="info-card-mobile-btn__wrap">
-              <button class="info-favorite-mobile-btn__favorite flagIsFavorite_mobile_{{isFavorite}}">{{ nameBtn }}</button>
+            {{!-- <div class="info-card-mobile-btn__wrap">
+              <button class="info-favorite-mobile-btn__favorite flagIsFavorite_mobile_{{isFavorite}}">{{ nameBtn
+                }}</button>
             </div> --}}
           </div>
           <div class="info-card-mobile__separator"></div>
@@ -70,11 +71,14 @@
           </div>
 
         </div>
+        <div class="info-card-btn__wrap">
+          <button class="info-card-btn__favorite flagIsFavorite_{{is_favourite}}">{{ nameBtn }}</button>
+        </div>
       </div>
     </div>
-      <div class="board-bottom" id="board-bottom-side">
-    <button class="info-favorite-btn__favorite flagIsFavorite_{{isFavorite}}">{{ nameBtn }}</button>
-  </div>
+    <div class="board-bottom" id="board-bottom-side">
+      <button class="info-favorite-btn__favorite flagIsFavorite_{{isFavorite}}">{{ nameBtn }}</button>
+    </div>
   </div>
 
 
