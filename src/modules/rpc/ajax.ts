@@ -102,6 +102,10 @@ export default class Ajax {
 
     formData.append('file', file);
 
+    // debugger;
+
+    // console.warn(formData);
+
     const xhr = new XMLHttpRequest();
     xhr.open(method, url, true);
     xhr.withCredentials = true;
