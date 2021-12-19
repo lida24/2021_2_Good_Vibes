@@ -18,12 +18,14 @@ export const fieldsFill: Callback = () => {
     document.getElementsByClassName("b2m5")[0]
   );
 
+  const userName = <HTMLImageElement>(
+    document.getElementsByClassName("b2n")[0]
+  );
+
+  userName.textContent = user.username;
   loginInput.value = user.username;
   emailInput.value = user.email;
   photo.style.backgroundImage = `url(${user.avatar})`;
-  
-  /* const file = <HTMLInputElement>document.getElementsByClassName('form__uploadFile')[0];
-  file.style.display = 'none';  */
 };
 
 export const profileUploadRequest: Callback = () => {
@@ -62,3 +64,23 @@ export const ordersListRequest: Callback = () => {
 export const ordersStateRequest: Callback = () => {
   bus.emit("orders state request", undefined);
 };
+
+export const changeInfo: Callback = () => {
+  const input = document.querySelectorAll('.user-box__input');
+  input.forEach((item) => {
+    item.removeAttribute('readonly');
+    item.removeAttribute('disabled');
+  })
+  const updateBtn = <HTMLElement>(document.getElementsByClassName('update-btn')[0]);
+  updateBtn.style.display = 'block';
+}
+
+export const changeInfoDisabled: Callback = () => {
+  const input = document.querySelectorAll('.user-box__input');
+  input.forEach((item) => {
+    item.setAttribute('readonly', 'true');
+    item.setAttribute('disabled', 'true');
+  })
+  const updateBtn = <HTMLElement>(document.getElementsByClassName('update-btn')[0]);
+  updateBtn.style.display = 'none';
+}

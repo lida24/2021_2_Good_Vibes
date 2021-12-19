@@ -32,4 +32,10 @@ export const renderCommentContainer: Callback = (myReview :myReview) => {
     const reviewContainer = new ReviewContainer(myReview)
     document.getElementsByClassName('comments-container')[0].appendChild(reviewContainer?.self);
 };
-  
+
+export const showAvatar: Callback = () => {
+    const photo = <HTMLImageElement>(
+        document.getElementsByClassName("b2m5")[0]
+      );
+      photo.style.backgroundImage = `url(${user.avatar})`;
+  };

@@ -32,15 +32,6 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("profile button click", undefined);
   });
 
-  /*   const favoriteBtnMenu = <HTMLElement> (
-      self.getElementsByClassName('favorite')[0]
-    );
-    favoriteBtnMenu.addEventListener("click", (event) => {
-      event.preventDefault();
-  
-      bus.emit("favorite button click", undefined);
-    }) */
-
   const reviewsBtnMenu = <HTMLElement> (
     self.getElementsByClassName('reviews')[0]
   );
