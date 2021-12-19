@@ -11,12 +11,7 @@ export default class ReviewsContainer {
   public context: myReview;
 
   private async renderHTML() {
-<<<<<<< HEAD
     const html = compiledTemplate({ ...this.context.comment, ...this.context.product });
-    // debugger;
-=======
-    const html = compiledTemplate({...this.context.comment, ...this.context.product});
->>>>>>> reworking
     this.self.innerHTML = html;
     // initEvents(this.self);
   }
