@@ -43,7 +43,7 @@ export const profileUploadRequest: Callback = () => {
 
 export const avatarUploadRequest: Callback = () => {
   const file = <HTMLInputElement>(
-    document.getElementsByClassName("form__uploadFile")[0]
+    document.getElementsByClassName("b2m6")[0]
   );
   const choosedFile = file.files[0];
 

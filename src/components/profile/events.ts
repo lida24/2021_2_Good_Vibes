@@ -29,7 +29,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   profilePic.onmouseout = mouseEventHandler;
 
   // ---------------------
-  /* const uploadBtn = <HTMLImageElement>self.getElementsByClassName('form__photo')[0];
+/*   const uploadBtn = <HTMLImageElement>self.getElementsByClassName('b2m6')[0]; */
 
   uploadBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -51,8 +51,8 @@ const initEvents: (self: HTMLElement) => void = (self) => {
         img.setAttribute('src', <string>reader.result);
       });
       reader.readAsDataURL(choosedFile);
-    } */
-/*   }); */
+    } 
+  });
 
   // --------------------------
   // const updateBtn = <HTMLButtonElement>self.getElementsByClassName('form__btn-color')[0];
