@@ -156,6 +156,13 @@ const connections: Connection[] = [
     ],
   },
   {
+    event: 'brands product ajax confirmed',
+    callback: [
+      confirm.handleAjaxBrandsProductsConfirmed,
+      confirm.brandProducts,
+    ],
+  },
+  {
     event: 'sales ajax confirmed', 
     callback: [
       confirm.handleAjaxSalesConfirmed,
@@ -167,6 +174,12 @@ const connections: Connection[] = [
     callback: [
       // confirm.saveState,
       confirm.showCategoryPage,
+    ],
+  },
+  {
+    event: 'brands products state confirmed',
+    callback: [
+      confirm.brandProducts,
     ],
   },
   {

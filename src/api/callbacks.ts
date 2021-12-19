@@ -531,7 +531,7 @@ export const brands: Callback = () => {
       bus.emit("brands ajax confirmed", response)
     )
     .catch((response: AjaxResponse) =>
-      bus.emit("favorite ajax denied", response)
+      bus.emit("brands ajax denied", response)
     );
 };
 
@@ -548,6 +548,22 @@ export const newest: Callback = () => {
       bus.emit("newest ajax denied", response)
     );
 };
+
+export const brandProducts: Callback = (obj: { name: string }) => {
+  const { name } = obj;
+  console.log("ajax newestProductGet callback");
+  ajax
+    .get({
+      url: `${backendAddress}/brand/products?name=${name}`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("brands product ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("brands product ajax denied", response)
+    );
+};
+
 
 export const sales: Callback = () => {
   console.log("ajax sales callback");

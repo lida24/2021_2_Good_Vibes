@@ -24,6 +24,10 @@ const connections: Connection[] = [
     callback: request.product,
   },
   {
+    event: 'brand product state request',
+    callback: request.brandProductStateRequest,
+  },
+  {
     event: 'cart state request',
     callback: request.cartState,
   },

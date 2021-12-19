@@ -128,6 +128,10 @@ export const productStateConfirmed: Callback = (obj: { 'responseText': string })
     .catch((err) => console.error('product page response parse error', err));
 };
 
+export const brandProducts: Callback = () => {
+  bus.emit('brands products state confirmed', { pathname: '/brand/products' });
+};
+
 export const category: Callback = () => {
   bus.emit('category state confirmed', { pathname: '/category' });
 };
@@ -258,5 +262,13 @@ export const handleAjaxBrandsConfirmed: Callback = (response: AjaxResponse) => {
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .then((obj: Brand[]) => bus.emit("brands array parsed", obj))
+    .catch((err) => console.error("JSON parse error", err));
+};
+
+export const handleAjaxBrandsProductsConfirmed: Callback = (response: AjaxResponse) => {
+  const { responseText } = response;
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((obj: Brand[]) => bus.emit("brands products array parsed", obj))
     .catch((err) => console.error("JSON parse error", err));
 };

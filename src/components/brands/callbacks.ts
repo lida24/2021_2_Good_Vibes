@@ -4,7 +4,6 @@ import BrandCardList from '../brandCard/list';
 import Brands from './view';
 
 export const addProductBrandNew: Callback = (array: Brand[]) => {
-    debugger;
     const productContainer = document.getElementsByClassName('product-table-body')[0];
     /* productContainer.textContent = '';
   

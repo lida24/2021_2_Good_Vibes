@@ -50,6 +50,10 @@ export const product: Callback = (obj: { 'id': number, 'search'?: boolean }) => 
   bus.emit('product ajax request', obj);
 };
 
+export const brandProductStateRequest: Callback = (obj: { 'name': string }) => {
+  bus.emit('brand products ajax request', obj);
+};
+
 export const cartState: Callback = () => {
   bus.emit('cart state confirmed', { state: 'cart', pathname: '/cart' });
 };

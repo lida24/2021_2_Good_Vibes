@@ -44,7 +44,6 @@ class BrandCardList {
 
   public viewArray(array: Brand[]): BrandCard[] {
     const result: BrandCard[] = [];
-    debugger;
     this.addArray(array);
     array.forEach((brandContext) => {
       result.push(this.list[brandContext.name].view);
