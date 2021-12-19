@@ -22,6 +22,12 @@ export const fieldsFill: Callback = () => {
     document.getElementsByClassName("b2n")[0]
   );
 
+  const birthdayInput = <HTMLInputElement>(
+    document.getElementsByClassName("user-box__birthday")[0]
+  );
+
+  birthdayInput.valueAsDate = new Date(user.birth_day);
+
   userName.textContent = user.username;
   loginInput.value = user.username;
   emailInput.value = user.email;

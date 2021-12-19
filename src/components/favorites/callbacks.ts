@@ -10,9 +10,9 @@ export const addProductArrayFavorite: Callback = (array: Product[]) => {
 
   productContainer.textContent = '';
 
-  debugger;
+  // debugger;
   const viewArray = ProductCatdList.viewArray(array);
-  debugger;
+  // debugger;
   viewArray?.forEach((cardView) => {
     productContainer.appendChild(cardView?.self);
   });
