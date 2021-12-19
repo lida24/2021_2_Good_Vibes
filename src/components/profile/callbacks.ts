@@ -1,3 +1,4 @@
+import { debug } from "console";
 import bus from "../../modules/bus/bus";
 import user from "../../services/user/user";
 import { Callback, Order } from "../../types";
@@ -14,13 +15,13 @@ export const fieldsFill: Callback = () => {
     document.getElementsByClassName("user-box__email")[0]
   );
   const photo = <HTMLImageElement>(
-    document.getElementsByClassName("form__photo")[0]
+    document.getElementsByClassName("b2m5")[0]
   );
 
   loginInput.value = user.username;
   emailInput.value = user.email;
-  /* photo.src = user.avatar;
- */
+  photo.style.backgroundImage = `url(${user.avatar})`;
+  
   /* const file = <HTMLInputElement>document.getElementsByClassName('form__uploadFile')[0];
   file.style.display = 'none';  */
 };
@@ -43,7 +44,7 @@ export const profileUploadRequest: Callback = () => {
 
 export const avatarUploadRequest: Callback = () => {
   const file = <HTMLInputElement>(
-    document.getElementsByClassName("form__uploadFile")[0]
+    document.getElementsByClassName("uploadFile")[0]
   );
   const choosedFile = file.files[0];
 
