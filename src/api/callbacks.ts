@@ -528,9 +528,10 @@ export const addProductFavorite: Callback = (obj: { 'id': number }) => {
     url: `${backendAddress}/product/favorite/add`,
     body: obj,
   })
-  .then((response: AjaxResponse) =>
-    bus.emit("add favorite ajax confirmed", response)
-  )
+  .then((response: AjaxResponse) => {
+    const obj = JSON.parse(response.responseText);
+    bus.emit("add favorite ajax confirmed", { id: obj.id })
+  })
   .catch((response: AjaxResponse) =>
     console.log("add favorite product bad")
   )
@@ -543,9 +544,12 @@ export const delProductFavorite: Callback = (obj: { 'id': number }) => {
     url: `${backendAddress}/product/favorite/delete`,
     body: obj,
   })
-  .then((response: AjaxResponse) =>
-    bus.emit("del favorite ajax confirmed", response)
-  )
+
+  .then((response: AjaxResponse) => {
+    const obj = JSON.parse(response.responseText);
+    bus.emit("del favorite ajax confirmed", { id: obj.id })
+  })
+  
   .catch((response: AjaxResponse) =>
     console.log("del favorite product bad")
   )

@@ -39,7 +39,7 @@ export type Product = {
   name: string,
   price: number,
   rating: number,
-  isFavorite: boolean,
+  is_favourite: boolean,
   nameBtn: string,
 };
 
