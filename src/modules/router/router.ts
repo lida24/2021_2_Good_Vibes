@@ -24,10 +24,15 @@ class Router {
     Object.keys(routMap).forEach((key) => this.addToList(key, routMap[key]));
   }
 
-  public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType, 'str'?: string }): void {
-    const { pathname, searchParams, str } = obj;
+  public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType, 'str'?: string, 'id'?: number }): void {
+    const { pathname, searchParams, str, id } = obj;
 
-    debugger;
+    console.warn(obj);
+    // debugger;
+
+    // if (id) {
+
+    // }
 
     let uri = pathname;
     const reg = pathname.match(/(\/.*)\?/);
@@ -37,7 +42,12 @@ class Router {
 
     let path = pathname;
 
-    if (searchParams || str) {
+    // if (searchParams || str) {
+    //   path = path.concat('?');
+    // }
+
+
+    if (searchParams || str || id) {
       path = path.concat('?');
     }
 
@@ -45,7 +55,20 @@ class Router {
       path = path.concat(`str=${decodeURI(str)}&`);
     }
 
-    if (searchParams) {
+    if (str) {
+      path = path.concat(`id=${id}&`);
+    }
+
+    // if (searchParams) {
+    //   Object.keys(searchParams).forEach((key) => {
+    //     if (key === 'str')
+    //       return true;
+
+    //     path = path.concat(`${key}=${searchParams[key]}&`);
+    //   });
+    // }
+
+    if (searchParams && !id) {
       Object.keys(searchParams).forEach((key) => {
         if (key === 'str')
           return true;
@@ -54,7 +77,7 @@ class Router {
       });
     }
 
-    if (searchParams || str) {
+    if (searchParams || str || id) {
       path = path.slice(0, path.length - 1);
     }
 

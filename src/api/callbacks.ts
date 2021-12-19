@@ -569,15 +569,16 @@ export const newest: Callback = () => {
     );
 };
 
-export const brandProducts: Callback = (obj: { name: string }) => {
-  const { name } = obj;
+export const brandProducts: Callback = (obj: { name: string, id: number }) => {
+  const { name, id } = obj;
   console.log("ajax newestProductGet callback");
   ajax
     .get({
-      url: `${backendAddress}/brand/products?name=${name}`,
+      // url: `${backendAddress}/brand/products?name=${name}`,
+      url: `${backendAddress}/brand/products?id=${id}`,
     })
     .then((response: AjaxResponse) =>
-      bus.emit("brands product ajax confirmed", response)
+      bus.emit("brands product ajax confirmed", { ...response, id })
     )
     .catch((response: AjaxResponse) =>
       bus.emit("brands product ajax denied", response)

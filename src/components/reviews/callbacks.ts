@@ -10,23 +10,26 @@ export const reviewsListRequest: Callback = () => {
 
 export const generateCommentsArray: Callback = (obj: { 'responseText': string }) => {
     // console.log('generate commenst array', array);
-  
+
     const { responseText } = obj;
     Promise.resolve()
-      .then(() => JSON.parse(responseText))
-      .catch((err) => console.error(err))
-      .then((parsedObj: Comment[]) => {
-        if (parsedObj.length === 0) {
-            
-            return;
-        }   
-        return parsedObj.forEach((comment) => {
-            bus.emit('product info by id for reviews', comment)
-          })
-      });
-  };
+        .then(() => JSON.parse(responseText))
+        .catch((err) => console.error(err))
+        .then((parsedObj: Comment[]) => {
+            if (parsedObj.length === 0) {
 
-export const renderCommentContainer: Callback = (myReview :myReview) => {
+                return;
+            }
+            return parsedObj.forEach((comment) => {
+
+
+
+                bus.emit('product info by id for reviews', comment)
+            })
+        });
+};
+
+export const renderCommentContainer: Callback = (myReview: myReview) => {
 
     //const commentContainer = new CommentsContainer(comment);
     const reviewContainer = new ReviewContainer(myReview)
@@ -36,6 +39,6 @@ export const renderCommentContainer: Callback = (myReview :myReview) => {
 export const showAvatar: Callback = () => {
     const photo = <HTMLImageElement>(
         document.getElementsByClassName("b2m5")[0]
-      );
-      photo.style.backgroundImage = `url(${user.avatar})`;
-  };
+    );
+    photo.style.backgroundImage = `url(${user.avatar})`;
+};

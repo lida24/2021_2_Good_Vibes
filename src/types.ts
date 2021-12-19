@@ -44,8 +44,9 @@ export type Product = {
 };
 
 export type Brand = {
-  name: string, 
+  name: string,
   image: string,
+  id: number,
 };
 
 export type ProductId = {
