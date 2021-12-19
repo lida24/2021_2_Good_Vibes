@@ -1,3 +1,4 @@
+import { order } from "../../api/callbacks";
 import bus from "../../modules/bus/bus";
 
 const initEvents: (self: HTMLElement) => void = (self) => {
@@ -40,6 +41,21 @@ const initEvents: (self: HTMLElement) => void = (self) => {
       bus.emit("favorite button click", undefined);
     }) */
 
+  const reviewsBtnMenu = <HTMLElement> (
+    self.getElementsByClassName('reviews')[0]
+  );
+  reviewsBtnMenu.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("reviews button click", undefined);
+  })
+
+  const ordersBtnMenu = <HTMLElement> (
+    self.getElementsByClassName('orders')[0]
+  );
+  ordersBtnMenu.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("orders button click", undefined);
+  })
 
   const signOutBtn = self.getElementsByClassName('logout')[0];
   signOutBtn.addEventListener("click", (event) => {

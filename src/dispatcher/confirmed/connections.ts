@@ -113,7 +113,7 @@ const connections: Connection[] = [
   {
     event: 'favorite ajax confirmed',
     callback: [
-      confirm.favoriteArrayParse,
+      confirm.handleAjaxFavoriteConfirmed,
       confirm.favorite,
     ],
   },
@@ -164,6 +164,13 @@ const connections: Connection[] = [
       confirm.orders,
       addToHistory,
     ],
+  },
+  {
+    event: 'reviews state confirmed',
+    callback: [
+      confirm.reviews,
+      addToHistory,
+    ]
   },
   {
     event: 'search state confirmed',

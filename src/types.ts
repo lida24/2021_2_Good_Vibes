@@ -90,6 +90,12 @@ export type Comment = {
   'username': string,
   'rating': number,
   'text': string,
+  'product_id': number,
+};
+
+export type myReview = {
+  comment: Comment,
+  product: Product,
 };
 
 export type ProductSuggest = {

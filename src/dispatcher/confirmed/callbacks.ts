@@ -77,9 +77,8 @@ export const showFavorite: Callback = () => {
 
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
-  // debugger;
-  obj.context.isFavorite = true;
-  if (obj.context.isFavorite === true) {
+  /* obj.context.isFavorite = true; */
+  if (obj.context.isFavorite === true ) {
     obj.context.nameBtn = 'Удалить из избранного'
     const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__favorite')[0];
 
@@ -162,6 +161,12 @@ export const orders: Callback = () => {
   bus.emit('show view', { name: 'orders' });
 };
 
+
+export const reviews: Callback = () => {
+  bus.emit('show view', {name: 'reviews'});
+};
+
+
 export const search: Callback = (response: { 'responseText': string, 'pathname': string, 'str': string }) => {
   // bus.emit('show view', { name: 'search' });
 
@@ -197,7 +202,7 @@ export const handleAjaxRecommendationConfirmed: Callback = (response: AjaxRespon
     .catch((err) => console.error("JSON parse error", err));
 };
 
-export const favoriteArrayParse: Callback = (response: AjaxResponse) => {
+export const handleAjaxFavoriteConfirmed: Callback = (response: AjaxResponse) => {
   const { responseText } = response;
   Promise.resolve()
     .then(() => JSON.parse(responseText))

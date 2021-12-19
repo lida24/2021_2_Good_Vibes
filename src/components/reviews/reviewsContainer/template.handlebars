@@ -1,0 +1,33 @@
+<li class="comments__item feedback">
+    <div class="feedback__top-wrap">
+        <div class="feedback__img-block">
+            <a class="feedback__img-wrap img-plug" href="/profile/">
+                <img class="feedback__img" src="{{avatar}}" width="40" height="40" alt="User avatar" />
+            </a>
+        </div>
+        <div class="feedback__info">
+            <a class="feedback__header" href="/profile/">{{username}}</a>
+            <span class="feedback__date hide-mobile">{{date}}</span>
+
+            <div class="feedback__wrap">
+                <div class="info-card-comment__rate">
+                    <div class="info-card-rating__comment">{{rating}}</div>
+                    <span class="star__comment"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="feedback__content">
+        <p class="feedback__text">{{text}}
+        </p>
+    </div>
+    <div class="basket__table_cell basket__table_cell--name">
+        <div class="basket__table_cell-row">
+            <div class="basket__table_position-img">
+                <img class="basket__table__img" src="{{image}}" alt="${{name}}" />
+            </div>
+            <div class="basket__table_position-body">
+                <a class="basket__table_position-link" href="/product?id={{id}}">{{name}}</a>
+            </div>
+        </div>
+</li>
