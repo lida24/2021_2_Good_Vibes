@@ -47,6 +47,9 @@ class Router {
 
     if (searchParams) {
       Object.keys(searchParams).forEach((key) => {
+        if (key === 'str')
+          return true;
+
         path = path.concat(`${key}=${searchParams[key]}&`);
       });
     }
@@ -111,7 +114,7 @@ class Router {
       SearchParams[value] = key;
     });
 
-    debugger;
+    // debugger;
 
     let str = '';
     const strReg = decodeURI(search).match(/.*str=([а-яА-Я|\w|\s]+).*/);

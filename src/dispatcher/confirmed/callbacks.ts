@@ -183,17 +183,50 @@ export const search: Callback = (response: { 'responseText': string, 'pathname':
     .then(() => bus.emit('show view', { name: 'search' }))
     // .then(() => console.log('asdfadsf'))
     .then(() => JSON.parse(responseText))
+    .then((obj: Product[]) => {
 
-    // .then((obj: Product[]) => bus.emit('add product array to category page', obj))
-    .then((obj: Product[]) => bus.emit('show search results', obj))
+      const a = obj.sort((a, b) => a.price - b.price);
+
+      // debugger;
+
+      searchParams.minPrice = a[0].price;
+      searchParams.maxPrice = a[a.length - 1].price;
+
+      debugger;
+
+      bus.emit('show search results', obj);
+    })
     .catch((err) => console.error(err));
 };
+
+// export const categoryArrayParse: Callback = (response: AjaxResponse) => {
+//   const { responseText } = response;
+//   console.log("categoryarrayParse")
+//   Promise.resolve()
+//     .then(() => JSON.parse(responseText))
+//     .then((obj: CategoryResponseObject) => {
+//       if (searchParams.minPriceStatic != obj.min_price) {
+//         searchParams.minPrice = obj.min_price;
+//       }
+//       if (searchParams.maxPriceStatic != obj.max_price) {
+//         searchParams.maxPrice = obj.max_price;
+//       }
+//       searchParams.minPriceStatic = obj.min_price;
+//       searchParams.maxPriceStatic = obj.max_price;
+//       bus.emit('add product array to category page', obj.products);
+
+//       // bus.emit('add product array to category page', obj.products);
+//     })
+//     .catch((err) => console.error(err));
+// };
+
 
 export const saveState: Callback = (obj: { 'state': string }) => {
   // console.log(obj);
 
   redirect.saveState(obj);
 };
+
 
 export const handleAjaxRecommendationConfirmed: Callback = (response: AjaxResponse) => {
   const { responseText } = response;
