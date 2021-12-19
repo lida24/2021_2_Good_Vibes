@@ -61,7 +61,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   const favoriteBtn = <HTMLAnchorElement>(
     self.getElementsByClassName('icons__link-like')[0]
   );
-  favoriteBtn.addEventListener("click", (event) => {
+  favoriteBtn?.addEventListener("click", (event) => {
     event.preventDefault();
     bus.emit("favorite button click", undefined);
   });
@@ -121,7 +121,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   const favoriteBtnMenu = <HTMLElement>(
     self.getElementsByClassName('favorite')[0]
   );
-  favoriteBtnMenu.addEventListener("click", (event) => {
+  favoriteBtnMenu?.addEventListener("click", (event) => {
     event.preventDefault();
 
     bus.emit("favorite button click", undefined);
