@@ -4,6 +4,12 @@ import CommentsContainer from '../productPage/commentsContainer/view';
 import ReviewContainer from './reviewsContainer/view'
 import { Callback, Order, Comment, myReview, Product } from "../../types";
 
+const commentMap: {
+    [commentid: number]: {
+      'productId': number,
+    }
+  } = {};
+
 export const reviewsListRequest: Callback = () => {
     bus.emit("reviews list request", user.username);
 };
@@ -31,9 +37,13 @@ export const generateCommentsArray: Callback = (obj: { 'responseText': string })
 
 export const renderCommentContainer: Callback = (myReview: myReview) => {
 
-    //const commentContainer = new CommentsContainer(comment);
-    const reviewContainer = new ReviewContainer(myReview)
-    document.getElementsByClassName('comments-container')[0].appendChild(reviewContainer?.self);
+    if (!commentMap[myReview.comment.product_id]) {
+        const reviewContainer = new ReviewContainer(myReview)
+        document.getElementsByClassName('comments-container')[0].appendChild(reviewContainer?.self);    
+        commentMap[myReview.comment.product_id] = {'productId' : myReview.product.id}
+    }
+    //const reviewContainer = new ReviewContainer(myReview)
+    //document.getElementsByClassName('comments-container')[0].appendChild(reviewContainer?.self);
 };
 
 export const showAvatar: Callback = () => {
