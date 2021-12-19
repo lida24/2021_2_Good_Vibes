@@ -9,13 +9,13 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // ---------------------
- const profilePic = <HTMLElement>self.getElementsByClassName('b2m5 ui-ba4 ui-b5a')[0];
- const uploadBtn = <HTMLElement>self.getElementsByClassName('b2m6')[0];
+  const profilePic = <HTMLElement>self.getElementsByClassName('b2m5 ui-ba4 ui-b5a')[0];
+  const uploadBtn = <HTMLElement>self.getElementsByClassName('b2m6')[0];
 
- console.log(profilePic);
+  console.log(profilePic);
 
   const mouseEventHandler = (event: MouseEvent) => {
-    debugger
+    // debugger
     if (event.type === 'mouseover') {
       console.log(event.type);
       uploadBtn.style.opacity = '1';
@@ -53,18 +53,18 @@ const initEvents: (self: HTMLElement) => void = (self) => {
       });
       reader.readAsDataURL(choosedFile);
     } */
-/*   }); */
+  /*   }); */
 
   // --------------------------
   // const updateBtn = <HTMLButtonElement>self.getElementsByClassName('form__btn-color')[0];
   // updateBtn.addEventListener('click', (event) => {
 
-/*   const updateBtn = <HTMLButtonElement>self.getElementsByClassName('update-btn')[0];
-  updateBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    bus.emit('update button click', undefined);
-  }); */
+  /*   const updateBtn = <HTMLButtonElement>self.getElementsByClassName('update-btn')[0];
+    updateBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+  
+      bus.emit('update button click', undefined);
+    }); */
 
   // -------------------------
   /*  const ordersLink = <HTMLAnchorElement>self.getElementsByClassName('orders-link')[0];

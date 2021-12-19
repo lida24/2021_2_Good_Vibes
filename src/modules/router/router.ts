@@ -27,6 +27,8 @@ class Router {
   public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType, 'str'?: string }): void {
     const { pathname, searchParams, str } = obj;
 
+    // debugger;
+
     let uri = pathname;
     const reg = pathname.match(/(\/.*)\?/);
     if (reg) {
@@ -35,15 +37,21 @@ class Router {
 
     let path = pathname;
 
+    if (searchParams || str) {
+      path = path.concat('?');
+    }
+
     if (str) {
-      path = path.concat(`?str=${decodeURI(str)}`);
+      path = path.concat(`str=${decodeURI(str)}&`);
     }
 
     if (searchParams) {
-      path = path.concat('?');
       Object.keys(searchParams).forEach((key) => {
         path = path.concat(`${key}=${searchParams[key]}&`);
       });
+    }
+
+    if (searchParams || str) {
       path = path.slice(0, path.length - 1);
     }
 
@@ -95,8 +103,15 @@ class Router {
 
     const a = new URL(window.location.href);
     a.searchParams.forEach((key, value) => {
+      // if (key === 'str') {
+      //   console.warn('asdfa');
+      //   return true;
+      // }
+
       SearchParams[value] = key;
     });
+
+    debugger;
 
     let str = '';
     const strReg = decodeURI(search).match(/.*str=([а-яА-Я|\w|\s]+).*/);
@@ -105,11 +120,12 @@ class Router {
     }
 
 
-    // debugger;
+
 
     bus.emit(`${state} state request`, {
       id, name, pathname, search: false,
       str,
+      // str: search
     });
   };
 

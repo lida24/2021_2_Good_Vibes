@@ -78,7 +78,7 @@ export const showFavorite: Callback = () => {
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
   /* obj.context.isFavorite = true; */
-  if (obj.context.isFavorite === true ) {
+  if (obj.context.isFavorite === true) {
     obj.context.nameBtn = 'Удалить из избранного'
     const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__favorite')[0];
 
@@ -163,7 +163,7 @@ export const orders: Callback = () => {
 
 
 export const reviews: Callback = () => {
-  bus.emit('show view', {name: 'reviews'});
+  bus.emit('show view', { name: 'reviews' });
 };
 
 
@@ -174,6 +174,7 @@ export const search: Callback = (response: { 'responseText': string, 'pathname':
   addToHistory({
     pathname: response.pathname,
     str: response.str,
+    searchParams,
   });
 
   const { responseText } = response;

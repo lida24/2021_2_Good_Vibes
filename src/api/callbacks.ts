@@ -449,7 +449,7 @@ export const search: Callback = (obj: { str: string, search?: boolean }) => {
   let { search } = obj;
   if (!search) search = false;
 
-  debugger;
+  // debugger;
 
   ajax
     .get({
