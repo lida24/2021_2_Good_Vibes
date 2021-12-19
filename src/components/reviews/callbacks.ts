@@ -15,9 +15,15 @@ export const generateCommentsArray: Callback = (obj: { 'responseText': string })
     Promise.resolve()
       .then(() => JSON.parse(responseText))
       .catch((err) => console.error(err))
-      .then((parsedObj: Comment[]) => parsedObj.forEach((comment) => {
-        bus.emit('product info by id for reviews', comment)
-      }));
+      .then((parsedObj: Comment[]) => {
+        if (parsedObj.length === 0) {
+            
+            return;
+        }   
+        return parsedObj.forEach((comment) => {
+            bus.emit('product info by id for reviews', comment)
+          })
+      });
   };
 
 export const renderCommentContainer: Callback = (myReview :myReview) => {
