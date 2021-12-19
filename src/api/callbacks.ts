@@ -109,7 +109,7 @@ export const product: Callback = (obj: { id: number; price: number }) => {
     );
 };
 
-export const productInfoByIdForReview: Callback = (obj: Comment ) => {
+export const productInfoByIdForReview: Callback = (obj: Comment) => {
 
   ajax
     .get({
@@ -351,15 +351,15 @@ export const orderList: Callback = () => {
 
 export const reviewsRequestList: Callback = (username: string) => {
   ajax
-  .get({
-    url: `${backendAddress}/user/reviews?name=${username}`
-  })
-  .then((response: AjaxResponse) => 
-    bus.emit('reviews request confirmed', response)
-  )
-  .catch((response:AjaxResponse) => 
-    console.log(response)
-  );
+    .get({
+      url: `${backendAddress}/user/reviews?name=${username}`
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit('reviews request confirmed', response)
+    )
+    .catch((response: AjaxResponse) =>
+      console.log(response)
+    );
 }
 
 // =======================
@@ -440,11 +440,22 @@ export const suggests: Callback = (obj: { str: string }) => {
     );
 };
 
-export const search: Callback = (obj: { str: string }) => {
+export const search: Callback = (obj: { str: string, search?: boolean }) => {
   const { str } = obj;
+
+  const { minPrice, maxPrice, maxRating, minRating, type, orderType } =
+    searchParams;
+
+  let { search } = obj;
+  if (!search) search = false;
+
+  debugger;
+
   ajax
     .get({
-      url: `${backendAddress}/search?str=${str}`,
+      // url: `${backendAddress}/search?str=${str}`,
+      url: `${backendAddress}/search?str=${str}&price_min=${minPrice}&price_max=${maxPrice}&rating_min=${minRating}&rating_max=${maxRating}&order=${orderType}&order_type=${type}&search=${search}`,
+
     })
     .then((response: AjaxResponse) =>
       bus.emit("search state confirmed", { pathname: '/search', str, ...response })
@@ -524,29 +535,29 @@ export const favorite: Callback = () => {
 export const addProductFavorite: Callback = (obj: { 'id': number }) => {
   console.log("ajax addProductFavorite callback");
   ajax
-  .post({
-    url: `${backendAddress}/product/favorite/add`,
-    body: obj,
-  })
-  .then((response: AjaxResponse) =>
-    bus.emit("add favorite ajax confirmed", response)
-  )
-  .catch((response: AjaxResponse) =>
-    console.log("add favorite product bad")
-  )
+    .post({
+      url: `${backendAddress}/product/favorite/add`,
+      body: obj,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("add favorite ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      console.log("add favorite product bad")
+    )
 }
 
 export const delProductFavorite: Callback = (obj: { 'id': number }) => {
   console.log("ajax delProductFavorite callback");
   ajax
-  .post({
-    url: `${backendAddress}/product/favorite/delete`,
-    body: obj,
-  })
-  .then((response: AjaxResponse) =>
-    bus.emit("del favorite ajax confirmed", response)
-  )
-  .catch((response: AjaxResponse) =>
-    console.log("del favorite product bad")
-  )
+    .post({
+      url: `${backendAddress}/product/favorite/delete`,
+      body: obj,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("del favorite ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      console.log("del favorite product bad")
+    )
 }

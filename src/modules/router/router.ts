@@ -35,16 +35,16 @@ class Router {
 
     let path = pathname;
 
+    if (str) {
+      path = path.concat(`?str=${decodeURI(str)}`);
+    }
+
     if (searchParams) {
       path = path.concat('?');
       Object.keys(searchParams).forEach((key) => {
         path = path.concat(`${key}=${searchParams[key]}&`);
       });
       path = path.slice(0, path.length - 1);
-    }
-
-    if (str) {
-      path = path.concat(`?str=${decodeURI(str)}`);
     }
 
     if (path === `${window.location.pathname}${decodeURI(window.location.search)}`) {
