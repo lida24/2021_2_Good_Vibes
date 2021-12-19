@@ -558,6 +558,7 @@ export const newest: Callback = () => {
 
 export const brandProducts: Callback = (obj: { name: string }) => {
   const { name } = obj;
+  debugger;
   console.log("ajax newestProductGet callback");
   ajax
     .get({
