@@ -81,7 +81,7 @@ const connections: Connection[] = [
   {
     event: 'search state request',
     callback: [
-      searchParams.setDefault,
+      // searchParams.setDefault,
       request.search,
     ],
   },

@@ -19,7 +19,7 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
 
     bus.emit('add product to cart', { id, number: 1 });
   });
-  
+
   const addBtnMobile = <HTMLButtonElement>self.getElementsByClassName('info-card-mobile-btn__cart')[0];
   addBtnMobile.addEventListener('click', (event) => {
     event.preventDefault();
@@ -29,10 +29,10 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
     bus.emit('add product to cart mobile', { id, number: 1 });
   });
 
-const addBtnAddFavorite = <HTMLButtonElement>self.getElementsByClassName('flagIsFavorite_false')[0];
+  const addBtnAddFavorite = <HTMLButtonElement>self.getElementsByClassName('flagIsFavorite_false')[0];
   addBtnAddFavorite?.addEventListener('click', (event) => {
     event.preventDefault();
-    
+
     const { id } = context;
     bus.emit('add product to favorite', { id });
   });
@@ -40,7 +40,7 @@ const addBtnAddFavorite = <HTMLButtonElement>self.getElementsByClassName('flagIs
   const addBtnDelFavorite = <HTMLButtonElement>self.getElementsByClassName('flagIsFavorite_true')[0];
   addBtnDelFavorite?.addEventListener('click', (event) => {
     event.preventDefault();
-    
+
     const { id } = context;
 
     bus.emit('del product from favorite', { id });

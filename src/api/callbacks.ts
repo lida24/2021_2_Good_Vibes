@@ -447,11 +447,24 @@ export const suggests: Callback = (obj: { str: string }) => {
     );
 };
 
-export const search: Callback = (obj: { str: string }) => {
+export const search: Callback = (obj: { str: string, search?: boolean }) => {
   const { str } = obj;
+
+  // debugger;
+
+
+  const { minPrice, maxPrice, maxRating, minRating, type, orderType } =
+    searchParams;
+
+  let { search } = obj;
+  if (!search) search = false;
+
+
   ajax
     .get({
-      url: `${backendAddress}/search?str=${str}`,
+      // url: `${backendAddress}/search?str=${str}`,
+      url: `${backendAddress}/search?str=${str}&price_min=${minPrice}&price_max=${maxPrice}&rating_min=${minRating}&rating_max=${maxRating}&order=${orderType}&order_type=${type}&search=${search}`,
+
     })
     .then((response: AjaxResponse) =>
       bus.emit("search state confirmed", { pathname: '/search', str, ...response })

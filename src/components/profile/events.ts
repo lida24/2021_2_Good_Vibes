@@ -29,7 +29,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     file.click();
   });
 
-  
+
 
   file.addEventListener("change", (event) => {
     event.preventDefault();
@@ -51,7 +51,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
 
     bus.emit('update button click', undefined);
-  }); 
+  });
 
   // --------------------------
 
@@ -71,7 +71,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("profile button click", undefined);
   });
 
-  const reviewsBtnMenu = <HTMLElement> (
+  const reviewsBtnMenu = <HTMLElement>(
     self.getElementsByClassName('reviews')[0]
   );
   reviewsBtnMenu.addEventListener("click", (event) => {
@@ -79,7 +79,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("reviews button click", undefined);
   });
 
-  const ordersBtnMenu = <HTMLElement> (
+  const ordersBtnMenu = <HTMLElement>(
     self.getElementsByClassName('orders')[0]
   );
   ordersBtnMenu.addEventListener("click", (event) => {

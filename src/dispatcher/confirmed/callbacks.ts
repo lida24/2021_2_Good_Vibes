@@ -103,7 +103,7 @@ export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
   /* obj.context.isFavorite = true; */
   console.log(context);
-  if (context.is_favourite === true ) {
+  if (context.is_favourite === true) {
     context.nameBtn = 'Удалить из избранного';
     console.log(context.nameBtn);
     const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__favorite')[0];
@@ -193,7 +193,7 @@ export const orders: Callback = () => {
 
 
 export const reviews: Callback = () => {
-  bus.emit('show view', {name: 'reviews'});
+  bus.emit('show view', { name: 'reviews' });
 };
 
 
@@ -204,6 +204,7 @@ export const search: Callback = (response: { 'responseText': string, 'pathname':
   addToHistory({
     pathname: response.pathname,
     str: response.str,
+    searchParams,
   });
 
   const { responseText } = response;
@@ -212,17 +213,69 @@ export const search: Callback = (response: { 'responseText': string, 'pathname':
     .then(() => bus.emit('show view', { name: 'search' }))
     // .then(() => console.log('asdfadsf'))
     .then(() => JSON.parse(responseText))
+    .then((obj: Product[]) => {
 
-    // .then((obj: Product[]) => bus.emit('add product array to category page', obj))
-    .then((obj: Product[]) => bus.emit('show search results', obj))
+      const a = obj.sort((a, b) => a.price - b.price);
+
+      // debugger;
+
+      // searchParams.minPrice = a[0].price;
+      // searchParams.maxPrice = a[a.length - 1].price;
+
+      // searchParams.minPriceStatic = a[0].price;
+      // searchParams.maxPriceStatic = a[a.length - 1].price;
+
+      // searchParams.minPrice = a[0].price;
+      // searchParams.maxPrice = a[a.length - 1].price;
+
+      searchParams.minPriceStatic = a[0].price;
+      searchParams.maxPriceStatic = a[a.length - 1].price;
+
+
+      // if (searchParams.minPriceStatic != a[0].price) {
+      //   searchParams.minPrice = a[0].price;
+      // }
+      // if (searchParams.maxPriceStatic != a[a.length - 1].price) {
+      //   searchParams.maxPrice = a[a.length - 1].price;
+      // }
+      // searchParams.minPriceStatic = a[0].price;
+      // searchParams.maxPriceStatic = a[a.length - 1].price;
+
+      // debugger;
+
+      bus.emit('show search results', obj);
+    })
     .catch((err) => console.error(err));
 };
+
+// export const categoryArrayParse: Callback = (response: AjaxResponse) => {
+//   const { responseText } = response;
+//   console.log("categoryarrayParse")
+//   Promise.resolve()
+//     .then(() => JSON.parse(responseText))
+//     .then((obj: CategoryResponseObject) => {
+//       if (searchParams.minPriceStatic != obj.min_price) {
+//         searchParams.minPrice = obj.min_price;
+//       }
+//       if (searchParams.maxPriceStatic != obj.max_price) {
+//         searchParams.maxPrice = obj.max_price;
+//       }
+//       searchParams.minPriceStatic = obj.min_price;
+//       searchParams.maxPriceStatic = obj.max_price;
+//       bus.emit('add product array to category page', obj.products);
+
+//       // bus.emit('add product array to category page', obj.products);
+//     })
+//     .catch((err) => console.error(err));
+// };
+
 
 export const saveState: Callback = (obj: { 'state': string }) => {
   // console.log(obj);
 
   redirect.saveState(obj);
 };
+
 
 export const handleAjaxRecommendationConfirmed: Callback = (response: AjaxResponse) => {
   const { responseText } = response;
