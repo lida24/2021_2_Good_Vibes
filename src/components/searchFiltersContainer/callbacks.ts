@@ -19,7 +19,18 @@ export const getParams: Callback = (array: Product[]) => {
     minPriceInput.value = searchParams.minPrice.toString();
   }
 
-  if (+maxPriceInput.value >= searchParams.maxPriceStatic
+  // if (+maxPriceInput.value >= searchParams.maxPriceStatic
+  //   && minPriceInput.value != "") {
+  //   maxPriceInput.value = searchParams.maxPriceStatic.toString();
+  // } else {
+  //   maxPriceInput.value = searchParams.maxPrice.toString();
+  // }
+  // minRatingInput.value = searchParams.minRating.toString();
+  // maxRatingInput.value = searchParams.maxRating.toString();
+
+
+
+  if (+maxPriceInput.value > searchParams.maxPriceStatic
     && minPriceInput.value != "") {
     maxPriceInput.value = searchParams.maxPriceStatic.toString();
   } else {
@@ -27,6 +38,8 @@ export const getParams: Callback = (array: Product[]) => {
   }
   minRatingInput.value = searchParams.minRating.toString();
   maxRatingInput.value = searchParams.maxRating.toString();
+
+
 
   // minPriceInput.value = searchParams.minPrice.toString();
   // maxPriceInput.value = searchParams.maxPrice.toString();
@@ -36,7 +49,9 @@ export const getParams: Callback = (array: Product[]) => {
 };
 
 export const setFiltersParams: Callback = () => {
-  console.log('setFiltersParams');
+  // console.log('setFiltersParams');
+
+  // debugger;
 
   const minPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__from')[0];
   const maxPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__to')[0];
@@ -59,6 +74,11 @@ export const setFiltersParams: Callback = () => {
   }
   minRatingInput.value = searchParams.minRating.toString();
   maxRatingInput.value = searchParams.maxRating.toString();
+
+
+
+
+
 
   // minPriceInput.value = searchParams.minPrice.toString();
   // maxPriceInput.value = searchParams.maxPrice.toString();

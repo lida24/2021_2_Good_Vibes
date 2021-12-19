@@ -27,7 +27,7 @@ class Router {
   public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType, 'str'?: string }): void {
     const { pathname, searchParams, str } = obj;
 
-    // debugger;
+    debugger;
 
     let uri = pathname;
     const reg = pathname.match(/(\/.*)\?/);
@@ -103,6 +103,8 @@ class Router {
     if (nameReg) {
       name = name.concat(nameReg[1]);
     }
+
+    // debugger;
 
     const a = new URL(window.location.href);
     a.searchParams.forEach((key, value) => {

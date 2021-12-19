@@ -443,13 +443,15 @@ export const suggests: Callback = (obj: { str: string }) => {
 export const search: Callback = (obj: { str: string, search?: boolean }) => {
   const { str } = obj;
 
+  // debugger;
+
+
   const { minPrice, maxPrice, maxRating, minRating, type, orderType } =
     searchParams;
 
   let { search } = obj;
   if (!search) search = false;
 
-  // debugger;
 
   ajax
     .get({

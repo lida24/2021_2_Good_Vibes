@@ -189,10 +189,29 @@ export const search: Callback = (response: { 'responseText': string, 'pathname':
 
       // debugger;
 
-      searchParams.minPrice = a[0].price;
-      searchParams.maxPrice = a[a.length - 1].price;
+      // searchParams.minPrice = a[0].price;
+      // searchParams.maxPrice = a[a.length - 1].price;
 
-      debugger;
+      // searchParams.minPriceStatic = a[0].price;
+      // searchParams.maxPriceStatic = a[a.length - 1].price;
+
+      // searchParams.minPrice = a[0].price;
+      // searchParams.maxPrice = a[a.length - 1].price;
+
+      searchParams.minPriceStatic = a[0].price;
+      searchParams.maxPriceStatic = a[a.length - 1].price;
+
+
+      // if (searchParams.minPriceStatic != a[0].price) {
+      //   searchParams.minPrice = a[0].price;
+      // }
+      // if (searchParams.maxPriceStatic != a[a.length - 1].price) {
+      //   searchParams.maxPrice = a[a.length - 1].price;
+      // }
+      // searchParams.minPriceStatic = a[0].price;
+      // searchParams.maxPriceStatic = a[a.length - 1].price;
+
+      // debugger;
 
       bus.emit('show search results', obj);
     })

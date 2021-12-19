@@ -136,7 +136,7 @@ export const parseSearchResponse: Callback = (obj: { 'responseText': string }) =
 export const showSearchResults: Callback = (obj: Product[]) => {
   // console.log('show search result', obj);
 
-  bus.emit('add product array to category page', obj);
+  bus.emit('add product array to search page', obj);
 
   // bus.emit('search state request', undefined);
 };
