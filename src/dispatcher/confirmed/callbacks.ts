@@ -77,6 +77,7 @@ export const showFavorite: Callback = () => {
 
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
+  debugger;
   /* obj.context.isFavorite = true; */
   console.log(context);
   if (context.is_favourite === true ) {
