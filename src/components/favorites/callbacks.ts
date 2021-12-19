@@ -8,8 +8,9 @@ export const addProductArrayFavorite: Callback = (array: Product[]) => {
     /* productContainer.textContent = '';
   
     array.sort((a, b) => a.id - b.id); */
-  
+    debugger;
     const viewArray = ProductCatdList.viewArray(array);
+    debugger;
     viewArray?.forEach((cardView) => {
       productContainer.appendChild(cardView?.self);
     });
