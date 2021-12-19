@@ -7,16 +7,16 @@ const connections: Connection[] = [
   {
     event: 'logo button click',
     callback: hood.homepageStateRequest,
-   },
+  },
   {
     event: 'profile button click menu',
     callback: [
       (...args) => {
-          if (!user.isAutorize()) {
-            bus.emit('signIn state request', undefined);
-            return;
-          }
-          hood.showProfileMenu(args);
+        if (!user.isAutorize()) {
+          bus.emit('signIn state request', undefined);
+          return;
+        }
+        hood.showProfileMenu(args);
       }
     ],
   },
@@ -39,11 +39,11 @@ const connections: Connection[] = [
     callback: hood.cartStateRequest,
   },
   {
-    event: 'favorite button click', 
+    event: 'favorite button click',
     callback: hood.favoriteStateRequest,
   },
   {
-    event: 'newest button click', 
+    event: 'newest button click',
     callback: hood.newestStateRequest,
   },
   {
@@ -51,13 +51,13 @@ const connections: Connection[] = [
     callback: hood.salesStateRequest,
   },
   {
-    event: 'orders button click', 
+    event: 'orders button click',
     callback: hood.ordersStateRequest,
   },
   {
     event: 'reviews button click',
     callback: hood.reviewsStateRequest,
-  }, 
+  },
   {
     event: 'aside button click',
     callback: hood.showAside,
@@ -69,6 +69,11 @@ const connections: Connection[] = [
   {
     event: 'search button click',
     callback: hood.showSearch,
+  },
+
+  {
+    event: 'brands button click',
+    callback: hood.brandsStateRequest,
   }
 ];
 
