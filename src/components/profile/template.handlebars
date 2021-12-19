@@ -13,8 +13,8 @@
           </div> }}
           <div class="b2m4"><div
               class="b2m5 ui-ba4 ui-b5a"
-              style="background-color: rgb(229, 239, 255);"
-            >LL</div>
+              {{!-- style="background-color: rgb(229, 239, 255);" --}}
+            ></div>
             <div title="Загрузить фотографию" class="b2m6"><svg
                 width="24"
                 height="24"
@@ -27,12 +27,15 @@
                   d="M20 6H7v14H1V7a3 3 0 013-3h16a3 3 0 013 3v10a3 3 0 01-3 3H10a1 1 0 110-2h10a1 1 0 001-1V7a1 1 0 00-1-1zm0 6a5 5 0 11-10 0 5 5 0 0110 0zm-5 3a3 3 0 110-6 3 3 0 010 6zM3 18h2V6H4a1 1 0 00-1 1v11z"
                   fill="currentColor"
                 ></path></svg>
-              <input
-                accept=".jpg, .jpeg, .png"
-                name="Photo"
-                type="file"
-                style="display: none;"
-              /></div></div>
+            </div></div>
+          <input
+            accept=".jpg, .jpeg, .png"
+            name="Photo"
+            type="file"
+            for="file"
+            style="display: none;"
+            class="uploadFile"
+          />
           <h1 class="user-name"></h1>
           <div class="profile-description">
             <div class="profile-description-inner">
