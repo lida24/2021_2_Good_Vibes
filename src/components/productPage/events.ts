@@ -45,28 +45,6 @@ const addBtnAddFavorite = <HTMLButtonElement>self.getElementsByClassName('flagIs
 
     bus.emit('del product from favorite', { id });
   });
-
-<<<<<<< HEAD
-  const addBtnFavoriteMobile = <HTMLButtonElement>self.getElementsByClassName('flagIsFavorite_mobile_false')[0];
-=======
-  const addBtnFavoriteMobile = <HTMLButtonElement>self.getElementsByClassName('info-card-mobile-btn__favorite')[0];
->>>>>>> 66122a0b1d18bbaa88dbf42dbf7d410d97a8f28c
-  addBtnFavoriteMobile?.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    const { id } = context;
-
-    bus.emit('add product to favorite', { id });
-  });
-
-  const addBtnDelFavoriteMobile = <HTMLButtonElement>self.getElementsByClassName('flagIsFavorite_mobile_true')[0];
-  addBtnDelFavoriteMobile?.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    const { id } = context;
-
-    bus.emit('del product from favorite', { id });
-  }); 
 };
 
 export default initEvents;
