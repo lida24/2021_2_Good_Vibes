@@ -16,7 +16,7 @@ const routMap = {
   '/reviews': 'reviews',
   '/brands': 'brands',
 
-  '/brands/products': 'brands products'
+  '/brand/products': 'brand product'
 };
 
 export default routMap;
