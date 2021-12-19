@@ -50,7 +50,7 @@ export const product: Callback = (obj: { 'id': number, 'search'?: boolean }) => 
   bus.emit('product ajax request', obj);
 };
 
-export const brandProductStateRequest: Callback = (obj: { 'name': string }) => {
+export const brandProductStateRequest: Callback = (obj: { 'name': string, id: number }) => {
   bus.emit('brand products ajax request', obj);
 };
 
@@ -137,7 +137,7 @@ export const orders: Callback = () => {
 };
 
 export const reviews: Callback = () => {
-  bus.emit('reviews state confirmed', {state: 'request', pathname: '/reviews'});
+  bus.emit('reviews state confirmed', { state: 'request', pathname: '/reviews' });
 };
 
 export const search: Callback = (obj: { str: string }) => {

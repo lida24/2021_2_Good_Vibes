@@ -24,8 +24,8 @@ class Router {
     Object.keys(routMap).forEach((key) => this.addToList(key, routMap[key]));
   }
 
-  public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType, 'str'?: string }): void {
-    const { pathname, searchParams, str } = obj;
+  public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType, 'str'?: string, 'id'?: number }): void {
+    const { pathname, searchParams, str, id } = obj;
 
     let uri = pathname;
     const reg = pathname.match(/(\/.*)\?/);
@@ -35,7 +35,12 @@ class Router {
 
     let path = pathname;
 
-    if (searchParams || str) {
+    // if (searchParams || str) {
+    //   path = path.concat('?');
+    // }
+
+
+    if (searchParams || str || id) {
       path = path.concat('?');
     }
 
@@ -43,7 +48,20 @@ class Router {
       path = path.concat(`str=${decodeURI(str)}&`);
     }
 
-    if (searchParams) {
+    if (id) {
+      path = path.concat(`id=${id}&`);
+    }
+
+    // if (searchParams) {
+    //   Object.keys(searchParams).forEach((key) => {
+    //     if (key === 'str')
+    //       return true;
+
+    //     path = path.concat(`${key}=${searchParams[key]}&`);
+    //   });
+    // }
+
+    if (searchParams && !id) {
       Object.keys(searchParams).forEach((key) => {
         if (key === 'str')
           return true;
@@ -52,7 +70,7 @@ class Router {
       });
     }
 
-    if (searchParams || str) {
+    if (searchParams || str || id) {
       path = path.slice(0, path.length - 1);
     }
 
@@ -60,6 +78,7 @@ class Router {
       return;
     }
 
+    // console.warn(path);
 
     window.history.pushState(
       {
@@ -73,6 +92,8 @@ class Router {
 
   private handlePathname(pathname: string): string {
     const temp = pathname.match(/\/category\/(.+)/);
+
+    // console.warn(this.list, pathname);
 
     if (temp !== null) {
       return 'category';
@@ -89,7 +110,7 @@ class Router {
     const { pathname, search } = window.location;
     const state = this.handlePathname(pathname);
 
-    const idReg = search.match(/.*id=(\d+)/);
+    const idReg = search.match(/.*id=(\d+).*/);
     let id: number;
     if (idReg) {
       id = +idReg[1];
@@ -113,13 +134,27 @@ class Router {
       SearchParams[value] = key;
     });
 
-    // debugger;
+
+
 
     let str = '';
     const strReg = decodeURI(search).match(/.*str=([а-яА-Я|\w|\s]+).*/);
     if (strReg) {
       str = strReg[1];
     }
+
+    // console.warn({
+    //   id, name, pathname, search: false,
+    //   str,
+    //   state
+    //   // str: search
+    // })
+
+    // debugger;
+
+    // export const brandProductStateRequest: Callback = (obj: { 'name': string, id: number }) => {
+    //   bus.emit('brand products ajax request', obj);
+    // };
 
 
     bus.emit(`${state} state request`, {

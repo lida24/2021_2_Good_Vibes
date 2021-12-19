@@ -128,8 +128,25 @@ export const productStateConfirmed: Callback = (obj: { 'responseText': string })
     .catch((err) => console.error('product page response parse error', err));
 };
 
-export const brandProducts: Callback = () => {
-  bus.emit('brands products state confirmed', { pathname: '/brand/products' });
+export const brandProducts: Callback = ({ id }: { id: number }) => {
+
+  addToHistory({
+    // pathname: `/category?name=${obj.name}`,
+
+    pathname: `/brand/products`,
+
+    searchParams,
+
+    id,
+    // pathname: `${obj.pathname}`,
+  });
+
+  // bus.emit('brands products state confirmed', { pathname: '/brand/products' });
+  // bus.emit('show view', { name: 'brandsProductPage', pathname: 'brand/products' });
+  bus.emit('show view', { name: 'brandsProductPage', pathname: '/brand/products' });
+
+
+
 };
 
 export const category: Callback = () => {
@@ -200,7 +217,7 @@ export const reviews: Callback = () => {
 export const search: Callback = (response: { 'responseText': string, 'pathname': string, 'str': string }) => {
   // bus.emit('show view', { name: 'search' });
 
-  console.warn(response);
+  // console.warn(response);
   addToHistory({
     pathname: response.pathname,
     str: response.str,

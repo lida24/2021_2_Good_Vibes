@@ -32,7 +32,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("profile button click", undefined);
   });
 
-  const reviewsBtnMenu = <HTMLElement> (
+  const reviewsBtnMenu = <HTMLElement>(
     self.getElementsByClassName('reviews')[0]
   );
   reviewsBtnMenu.addEventListener("click", (event) => {
@@ -40,7 +40,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("reviews button click", undefined);
   })
 
-  const ordersBtnMenu = <HTMLElement> (
+  const ordersBtnMenu = <HTMLElement>(
     self.getElementsByClassName('orders')[0]
   );
   ordersBtnMenu.addEventListener("click", (event) => {
@@ -146,6 +146,17 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
 
     bus.emit("favorite button click", undefined);
+  })
+
+
+  // -----------------------------
+  const brandsBtnMenu = <HTMLElement>(
+    self.getElementsByClassName('nav__link brands')[0]
+  );
+  brandsBtnMenu?.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    bus.emit("brands button click", undefined);
   })
 };
 

@@ -137,12 +137,12 @@ const connections: Connection[] = [
   {
     event: 'favorite ajax confirmed',
     callback: [
-      confirm.handleAjaxFavoriteConfirmed,
       confirm.favorite,
+      confirm.handleAjaxFavoriteConfirmed,
     ],
   },
   {
-    event: 'brands ajax confirmed', 
+    event: 'brands ajax confirmed',
     callback: [
       confirm.handleAjaxBrandsConfirmed,
       confirm.brands,
@@ -163,7 +163,7 @@ const connections: Connection[] = [
     ],
   },
   {
-    event: 'sales ajax confirmed', 
+    event: 'sales ajax confirmed',
     callback: [
       confirm.handleAjaxSalesConfirmed,
       confirm.sales,
@@ -214,7 +214,8 @@ const connections: Connection[] = [
   },
   {
     event: 'order confirmed',
-    callback: request.profile,
+    // callback: request.profile,
+    callback: request.orders,
   },
   {
     event: 'orders state confirmed',
