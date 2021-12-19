@@ -234,8 +234,46 @@
           </form>
         </div>
       </div>
+      <div class="profile-block-info">
+        <div class="profile-block-settings">
+          <form class="auth-box-form-profile" id="auth-form">
+            <h2>Учётные данные </h2>
+            <div class="user-box">
+              <input class="user-box__login user-box__input" type="login" name="login" readonly="true" />
+              <label>Имя пользователя</label>
+            </div>
+            <div class="user-box">
+              <input class="user-box__firstname user-box__input" type="text" readonly="true" />
+              <label>Имя</label>
+            </div>
+            <div class="user-box">
+              <input class="user-box__secondname user-box__input" type="text" readonly="true" />
+              <label>Фамилия</label>
+            </div>
+            <div class="user-box sex">
+              <select class="user-box__sex user-box__input" readonly="true" disabled="true">
+                <option value="notstated" name="notstated">Не указано</option>
+                <option value="female" name="female" selected="true">Женский</option>
+                <option value="male" name="male">Мужской</option>
+              </select>
+              <label>Пол</label>
+            </div>
+            <div class="user-box">
+              <input class="user-box__birthday user-box__input" type="date" min="1900-01-01" max="2021-01-01"
+                readonly="true" />
+              <label>Дата рождения</label>
+            </div>
+            <div class="user-box">
+              <input class="user-box__email user-box__input" type="email" name="email" readonly="true" />
+              <label>Почта</label>
+            </div>
+            <button class="update-btn" type="submit">
+              Обновить
+            </button>
+          </form>
+        </div>
 
+      </div>
     </div>
   </div>
-</div>
 </div>
