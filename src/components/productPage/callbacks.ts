@@ -142,20 +142,21 @@ export const handleResponse: Callback = (obj: { 'responseText': string }) => {
 };
 
 export const changeBtnOnDelFavorite: Callback = (obj: {'id': number}) => {
+  const { id } = obj;
   let addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-favorite-btn__favorite')[0];
   const favoriteBtnElem = <HTMLButtonElement>document.createElement('button');
   favoriteBtnElem.innerHTML = 'Удалить из избранного'
   favoriteBtnElem.className = 'info-favorite-btn__favorite flagIsFavorite_true'
-  /*  const cartBtnElem = new InfoCardBtn(); */
   addBtnParent.replaceWith(favoriteBtnElem);
   favoriteBtnElem.addEventListener('click', (event) => {
     event.preventDefault();
 
-    bus.emit('del product from favorite', obj);
+    bus.emit('del product from favorite', { id });
   });
 };
 
 export const changeBtnToAddFavorite: Callback = (obj: {'id': number}) => {
+  const { id } = obj;
   let addBtnParent = <HTMLButtonElement>document.querySelector('.info-favorite-btn__favorite');
   const favoriteBtnElem = <HTMLButtonElement>document.createElement('button');
   favoriteBtnElem.innerHTML = 'Добавить в избранное'
@@ -168,7 +169,7 @@ export const changeBtnToAddFavorite: Callback = (obj: {'id': number}) => {
   favoriteBtnElem.addEventListener('click', (event) => {
     event.preventDefault();
 
-    bus.emit('add product to favorite', obj);
+    bus.emit('add product to favorite', { id });
   });
 };
 
