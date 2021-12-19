@@ -133,7 +133,7 @@ export const brandProducts: Callback = ({ id }: { id: number }) => {
   addToHistory({
     // pathname: `/category?name=${obj.name}`,
 
-    pathname: `brand/products`,
+    pathname: `/brand/products`,
 
     searchParams,
 
@@ -142,7 +142,8 @@ export const brandProducts: Callback = ({ id }: { id: number }) => {
   });
 
   // bus.emit('brands products state confirmed', { pathname: '/brand/products' });
-  bus.emit('show view', { name: 'brandsProductPage', pathname: 'brand/products' });
+  // bus.emit('show view', { name: 'brandsProductPage', pathname: 'brand/products' });
+  bus.emit('show view', { name: 'brandsProductPage', pathname: '/brand/products' });
 
 
 
