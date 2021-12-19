@@ -7,7 +7,6 @@ export const addProductArrayNew: Callback = (array: Product[]) => {
     /* productContainer.textContent = '';
   
     array.sort((a, b) => a.id - b.id); */
-    debugger;
     const viewArray = ProductCatdList.viewArray(array);
     viewArray?.forEach((cardView) => {
       productContainer.appendChild(cardView?.self);

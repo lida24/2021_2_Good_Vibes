@@ -80,13 +80,11 @@ export const showFavorite: Callback = () => {
 }
 
 export const showNewest: Callback = () => {
-  debugger;
   bus.emit('show view', { name: 'newest' });
 }
 
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
-  debugger;
   /* obj.context.isFavorite = true; */
   console.log(context);
   if (context.is_favourite === true ) {

@@ -522,7 +522,6 @@ export const favorite: Callback = () => {
 };
 
 export const newest: Callback = () => {
-  debugger;
   console.log("ajax newestProductGet callback");
   ajax
     .get({

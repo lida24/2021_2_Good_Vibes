@@ -4,7 +4,10 @@ import * as favorites from './callbacks';
 const connections: Connection[] = [
     {
         event: 'favorite product array parsed',
-        callback: favorites.addProductArrayFavorite,
+        callback: [
+            favorites.addProductArrayFavorite,
+            favorites.showAvatar,
+        ]
     },
 ];
 

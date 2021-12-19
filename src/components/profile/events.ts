@@ -1,13 +1,6 @@
 import bus from "../../modules/bus/bus";
 
 const initEvents: (self: HTMLElement) => void = (self) => {
-  const signOutBtn = self.getElementsByClassName("logout-btn")[0];
-  signOutBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    bus.emit("signOut button click", undefined);
-  });
-
   // ---------------------
   const profilePic = <HTMLElement>self.getElementsByClassName("b2m4")[0];
   const uploadBtn = <HTMLElement>self.getElementsByClassName("b2m6")[0];
@@ -53,10 +46,6 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     }
   });
 
-  // --------------------------
-  // const updateBtn = <HTMLButtonElement>self.getElementsByClassName('form__btn-color')[0];
-  // updateBtn.addEventListener('click', (event) => {
-
   const updateBtn = <HTMLButtonElement>self.getElementsByClassName('update-btn')[0];
   updateBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -64,23 +53,47 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit('update button click', undefined);
   }); 
 
-  // -------------------------
-  /*  const ordersLink = <HTMLAnchorElement>self.getElementsByClassName('orders-link')[0];
-   // console.log(ordersLink);
-   ordersLink.addEventListener('click', (event) => {
-     event.preventDefault();
- 
-     bus.emit('orders link click', undefined);
-   });
- 
-   // -------------------------
-   const profileLink = <HTMLAnchorElement>self.getElementsByClassName('profile-link')[0];
-   // console.log(ordersLink);
-   profileLink.addEventListener('click', (event) => {
-     event.preventDefault();
- 
-     bus.emit('profile link click', undefined);
-   }); */
+  // --------------------------
+
+  const changeBtn = <HTMLButtonElement>self.getElementsByClassName('change-btn')[0];
+  changeBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('change button click', undefined);
+  });
+
+  const profileBtnMenu = <HTMLElement>(
+    self.getElementsByClassName('profile')[0]
+  );
+  profileBtnMenu.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    bus.emit("profile button click", undefined);
+  });
+
+  const reviewsBtnMenu = <HTMLElement> (
+    self.getElementsByClassName('reviews')[0]
+  );
+  reviewsBtnMenu.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("reviews button click", undefined);
+  });
+
+  const ordersBtnMenu = <HTMLElement> (
+    self.getElementsByClassName('orders')[0]
+  );
+  ordersBtnMenu.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("orders button click", undefined);
+  });
+
+  const favoriteBtn = <HTMLAnchorElement>(
+    self.getElementsByClassName('favorite')[0]
+  );
+  favoriteBtn?.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("favorite button click", undefined);
+  });
 };
 
 export default initEvents;
