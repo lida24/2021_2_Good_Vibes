@@ -62,6 +62,10 @@ export const newest: Callback = () => {
   bus.emit('newest ajax request', undefined);
 };
 
+export const sales: Callback = () => {
+  bus.emit('sales ajax request', undefined);
+};
+
 export const address: Callback = () => {
   if (!user.isAutorize()) {
     bus.emit('address state denied', { state: 'address' });

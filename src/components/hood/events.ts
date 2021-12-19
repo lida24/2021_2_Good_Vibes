@@ -81,7 +81,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
     bus.emit("favorite button click", undefined);
   });
-
+  //----------------------
   const newestBtn = <HTMLElement>(
     self.getElementsByClassName('new')[0]
   );
@@ -89,6 +89,15 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
     debugger;
     bus.emit("newest button click", undefined);
+  })
+
+  const salesBtn = <HTMLElement>(
+    self.getElementsByClassName('sales')[0]
+  );
+  salesBtn?.addEventListener("click", (event) => {
+    debugger;
+    event.preventDefault();
+    bus.emit("sales button click", undefined);
   })
   // ---------------------
   const asideBtn = <HTMLElement>self.getElementsByClassName('header__aside')[0];

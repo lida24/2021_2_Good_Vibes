@@ -111,6 +111,14 @@ const connections: Connection[] = [
     ],
   },
   {
+    event: 'sales state confirmed',
+    callback: [
+      confirm.saveState,
+      confirm.showSales,
+      addToHistory,
+    ],
+  },
+  {
     event: 'category ajax confirmed',
     callback: [
       confirm.categoryArrayParse,
@@ -130,6 +138,13 @@ const connections: Connection[] = [
     callback: [
       confirm.handleAjaxNewestConfirmed,
       confirm.newest,
+    ],
+  },
+  {
+    event: 'sales ajax confirmed', 
+    callback: [
+      confirm.handleAjaxSalesConfirmed,
+      confirm.sales,
     ],
   },
   {

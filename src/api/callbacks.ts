@@ -536,6 +536,22 @@ export const newest: Callback = () => {
     );
 };
 
+export const sales: Callback = () => {
+  debugger;
+  console.log("ajax sales callback");
+  ajax
+    .get({
+      url: `${backendAddress}/sales`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("sales ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("sales ajax denied", response)
+    );
+};
+
+
 export const addProductFavorite: Callback = (obj: { 'id': number }) => {
   console.log("ajax addProductFavorite callback");
   ajax

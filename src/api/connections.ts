@@ -145,6 +145,12 @@ const ajaxConnections: Connection[] = [
       ajax.newest,
     ]
   },
+  {
+    event: 'sales ajax request', 
+    callback: [
+      ajax.sales,
+    ]
+  },
 ];
 
 export default ajaxConnections;

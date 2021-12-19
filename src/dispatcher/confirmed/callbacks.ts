@@ -64,6 +64,10 @@ export const newest: Callback = () => {
   bus.emit('newest state confirmed', { pathname: '/new' });
 };
 
+export const sales: Callback = () => {
+  bus.emit('sales state confirmed', { pathname: '/sales' });
+};
+
 export const showCart: Callback = () => {
   // bus.emit('show view', { name: 'cart' });
 
@@ -82,6 +86,11 @@ export const showFavorite: Callback = () => {
 export const showNewest: Callback = () => {
   debugger;
   bus.emit('show view', { name: 'newest' });
+}
+
+export const showSales: Callback = () => {
+  debugger;
+  bus.emit('show view', { name: 'sales' });
 }
 
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
@@ -227,5 +236,14 @@ export const handleAjaxNewestConfirmed: Callback = (response: AjaxResponse) => {
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .then((obj: Product[]) => bus.emit("newest product array parsed", obj))
+    .catch((err) => console.error("JSON parse error", err));
+};
+
+
+export const handleAjaxSalesConfirmed: Callback = (response: AjaxResponse) => {
+  const { responseText } = response;
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((obj: Product[]) => bus.emit("sales product array parsed", obj))
     .catch((err) => console.error("JSON parse error", err));
 };

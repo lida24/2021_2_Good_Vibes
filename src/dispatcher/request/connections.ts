@@ -36,6 +36,10 @@ const connections: Connection[] = [
     callback: request.newest,
   },
   {
+    event: 'sales state request', 
+    callback: request.sales,
+  },
+  {
     event: 'category state request',
     callback: [
       // searchParams.setDefault,
