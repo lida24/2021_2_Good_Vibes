@@ -161,6 +161,12 @@ export const orders: Callback = () => {
   bus.emit('show view', { name: 'orders' });
 };
 
+
+export const reviews: Callback = () => {
+  bus.emit('show view', {name: 'reviews'});
+};
+
+
 export const search: Callback = (response: { 'responseText': string, 'pathname': string, 'str': string }) => {
   // bus.emit('show view', { name: 'search' });
 

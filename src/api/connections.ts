@@ -49,7 +49,10 @@ const ajaxConnections: Connection[] = [
     event: 'cart get request',
     callback: ajax.cartGet,
   },
-
+  {
+    event: 'product info by id for reviews',
+    callback: ajax.productInfoByIdForReview,
+  },
   {
     event: 'cart ajax confirmed',
     callback: ajax.cartConfirm,
@@ -103,6 +106,10 @@ const ajaxConnections: Connection[] = [
   {
     event: 'orders list request',
     callback: ajax.orderList,
+  },
+  {
+    event: 'reviews list request', 
+    callback: ajax.reviewsRequestList,
   },
   {
     event: 'comments ajax request',

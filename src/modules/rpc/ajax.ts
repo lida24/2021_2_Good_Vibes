@@ -53,7 +53,10 @@ export default class Ajax {
 
     if (body) {
       xhr.setRequestHeader('Content-type', 'application/json; charser=utf8');
+<<<<<<< HEAD
+=======
       // debugger;
+>>>>>>> 66122a0b1d18bbaa88dbf42dbf7d410d97a8f28c
       xhr.send(JSON.stringify(body));
       return;
     }
@@ -101,6 +104,10 @@ export default class Ajax {
     const formData = new FormData();
 
     formData.append('file', file);
+
+    // debugger;
+
+    // console.warn(formData);
 
     const xhr = new XMLHttpRequest();
     xhr.open(method, url, true);

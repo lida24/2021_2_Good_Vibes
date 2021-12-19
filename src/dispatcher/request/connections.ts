@@ -59,6 +59,10 @@ const connections: Connection[] = [
     callback: request.orders,
   },
   {
+    event: 'reviews state request',
+    callback: request.reviews,
+  },
+  {
     event: 'search state request',
     callback: [
       searchParams.setDefault,

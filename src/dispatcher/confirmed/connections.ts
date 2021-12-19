@@ -166,6 +166,13 @@ const connections: Connection[] = [
     ],
   },
   {
+    event: 'reviews state confirmed',
+    callback: [
+      confirm.reviews,
+      addToHistory,
+    ]
+  },
+  {
     event: 'search state confirmed',
     callback: [
       confirm.search,

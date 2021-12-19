@@ -9,8 +9,10 @@ import {
   OrderRequest,
   ProductId,
   Suggests,
+  Comment,
 } from "../types";
 import searchParams from "../services/search/params";
+import { response } from "express";
 
 // const backendAddress = 'https://ozonback.herokuapp.com';
 // const backendAddress = 'http://37.139.33.76';
@@ -106,6 +108,21 @@ export const product: Callback = (obj: { id: number; price: number }) => {
       bus.emit("product request denied", { responseText })
     );
 };
+
+export const productInfoByIdForReview: Callback = (obj: Comment ) => {
+
+  ajax
+    .get({
+      url: `${backendAddress}/product?id=${obj.product_id}`,
+    })
+    .then(({ responseText }) =>
+      bus.emit("product info review request success", { product: JSON.parse(responseText), comment: obj })
+    )
+    .catch(({ responseText }) =>
+      bus.emit("product request denied", { responseText })
+    );
+};
+
 
 export const productArrayRequest: Callback = (array: CartItem[]) => {
   const result = [];
@@ -319,7 +336,6 @@ export const avatarUpload: Callback = (file: File) => {
 
 export const orderList: Callback = () => {
   // console.log('orderList ajax request');
-
   ajax
     .get({
       url: `${backendAddress}/profile/orders`,
@@ -332,6 +348,19 @@ export const orderList: Callback = () => {
       bus.emit("orders list denied", response)
     );
 };
+
+export const reviewsRequestList: Callback = (username: string) => {
+  ajax
+  .get({
+    url: `${backendAddress}/user/reviews?name=${username}`
+  })
+  .then((response: AjaxResponse) => 
+    bus.emit('reviews request confirmed', response)
+  )
+  .catch((response:AjaxResponse) => 
+    console.log(response)
+  );
+}
 
 // =======================
 export const comments: Callback = (obj: { id: number }) => {
@@ -495,29 +524,29 @@ export const favorite: Callback = () => {
 export const addProductFavorite: Callback = (obj: { 'id': number }) => {
   console.log("ajax addProductFavorite callback");
   ajax
-    .post({
-      url: `${backendAddress}/product/favorite/add`,
-      body: obj,
-    })
-    .then((response: AjaxResponse) =>
-      console.log("add favorite product success")
-    )
-    .catch((response: AjaxResponse) =>
-      console.log("add favorite product bad")
-    )
+  .post({
+    url: `${backendAddress}/product/favorite/add`,
+    body: obj,
+  })
+  .then((response: AjaxResponse) =>
+    bus.emit("add favorite ajax confirmed", response)
+  )
+  .catch((response: AjaxResponse) =>
+    console.log("add favorite product bad")
+  )
 }
 
 export const delProductFavorite: Callback = (obj: { 'id': number }) => {
   console.log("ajax delProductFavorite callback");
   ajax
-    .post({
-      url: `${backendAddress}/product/favorite/delete`,
-      body: obj,
-    })
-    .then((response: AjaxResponse) =>
-      console.log("del favorite product success")
-    )
-    .catch((response: AjaxResponse) =>
-      console.log("del favorite product bad")
-    )
+  .post({
+    url: `${backendAddress}/product/favorite/delete`,
+    body: obj,
+  })
+  .then((response: AjaxResponse) =>
+    bus.emit("del favorite ajax confirmed", response)
+  )
+  .catch((response: AjaxResponse) =>
+    console.log("del favorite product bad")
+  )
 }

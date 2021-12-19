@@ -34,6 +34,14 @@ const connections: Connection[] = [
   {
     event: 'favorite button click', 
     callback: hood.favoriteStateRequest,
+  },
+  {
+    event: 'orders button click', 
+    callback: hood.ordersStateRequest,
+  },
+  {
+    event: 'reviews button click',
+    callback: hood.reviewsStateRequest,
   }, 
   {
     event: 'aside button click',

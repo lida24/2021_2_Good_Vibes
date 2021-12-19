@@ -77,9 +77,7 @@ export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Pr
   }
 
   // --------------------
-
   viewMap[name].visibility = true;
-
   let fullName = name;
   if (context) {
     fullName += ` ${context.id}`;
