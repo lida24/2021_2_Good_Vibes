@@ -217,7 +217,7 @@ export const reviews: Callback = () => {
 export const search: Callback = (response: { 'responseText': string, 'pathname': string, 'str': string }) => {
   // bus.emit('show view', { name: 'search' });
 
-  console.warn(response);
+  // console.warn(response);
   addToHistory({
     pathname: response.pathname,
     str: response.str,

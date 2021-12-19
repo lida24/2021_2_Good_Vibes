@@ -13,7 +13,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
   const priceToggle = self.querySelector("#sort-price-toggle");
 
-  console.warn(priceToggle);
+  // console.warn(priceToggle);
 
 
   priceToggle.addEventListener("click", (event) => {
@@ -86,7 +86,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
   })
 
-  console.warn('asdfasdf');
+  // console.warn('asdfasdf');
   // debugger
 
 

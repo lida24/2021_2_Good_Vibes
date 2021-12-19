@@ -193,7 +193,7 @@ export const confirmMobileAjaxRequest: Callback = () => {
 
 // ---------------------
 export const promoAlert: Callback = () => {
-  console.warn('promo alert', undefined);
+  // console.warn('promo alert', undefined);
 
   const inputAlertLabel = <HTMLLabelElement>document.getElementsByClassName('promo-alert-label')[0];
   inputAlertLabel.style.visibility = 'visible';
@@ -204,7 +204,7 @@ export const promoAlert: Callback = () => {
 };
 
 export const promoHandle: Callback = (obj: Order) => {
-  console.warn('promo valid', obj)
+  // console.warn('promo valid', obj)
 
   cart.setPromo = obj.promocode;
 

@@ -27,7 +27,7 @@ class Router {
   public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType, 'str'?: string, 'id'?: number }): void {
     const { pathname, searchParams, str, id } = obj;
 
-    console.warn(obj);
+    // console.warn(obj);
     // debugger;
 
     // if (id) {
@@ -85,7 +85,7 @@ class Router {
       return;
     }
 
-    console.warn(path);
+    // console.warn(path);
 
     window.history.pushState(
       {
@@ -150,12 +150,12 @@ class Router {
       str = strReg[1];
     }
 
-    console.warn({
-      id, name, pathname, search: false,
-      str,
-      state
-      // str: search
-    })
+    // console.warn({
+    //   id, name, pathname, search: false,
+    //   str,
+    //   state
+    //   // str: search
+    // })
 
     // debugger;
 

@@ -4,23 +4,24 @@ import ProductCatdList from '../productCard/list';
 import user from "../../services/user/user";
 
 export const addProductArrayFavorite: Callback = (array: Product[]) => {
-    const productContainer = document.getElementById('product-table-body');
-    /* productContainer.textContent = '';
-  
-    array.sort((a, b) => a.id - b.id); */
-    debugger;
-    const viewArray = ProductCatdList.viewArray(array);
-    debugger;
-    viewArray?.forEach((cardView) => {
-      productContainer.appendChild(cardView?.self);
-    });
-  };
+  const productContainer = document.getElementById('product-table-body');
+  /* productContainer.textContent = '';
+  array.sort((a, b) => a.id - b.id); */
 
-  export const showAvatar: Callback = () => {
-    const photo = <HTMLImageElement>(
-        document.getElementsByClassName("b2m5")[0]
-      );
-      photo.style.backgroundImage = `url(${user.avatar})`;
-  };
-  
- 
+  productContainer.textContent = '';
+
+  debugger;
+  const viewArray = ProductCatdList.viewArray(array);
+  debugger;
+  viewArray?.forEach((cardView) => {
+    productContainer.appendChild(cardView?.self);
+  });
+};
+
+export const showAvatar: Callback = () => {
+  const photo = <HTMLImageElement>(
+    document.getElementsByClassName("b2m5")[0]
+  );
+  photo.style.backgroundImage = `url(${user.avatar})`;
+};
+
