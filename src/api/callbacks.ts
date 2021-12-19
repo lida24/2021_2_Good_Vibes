@@ -521,8 +521,21 @@ export const favorite: Callback = () => {
     );
 };
 
+export const brands: Callback = () => {
+  console.log("ajax brands callback");
+  ajax
+    .get({
+      url: `${backendAddress}/brands/get`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("brands ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("favorite ajax denied", response)
+    );
+};
+
 export const newest: Callback = () => {
-  debugger;
   console.log("ajax newestProductGet callback");
   ajax
     .get({
@@ -537,7 +550,6 @@ export const newest: Callback = () => {
 };
 
 export const sales: Callback = () => {
-  debugger;
   console.log("ajax sales callback");
   ajax
     .get({

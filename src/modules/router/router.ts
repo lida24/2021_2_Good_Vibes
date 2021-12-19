@@ -51,7 +51,6 @@ class Router {
       return;
     }
 
-    // debugger;
 
     window.history.pushState(
       {
@@ -104,8 +103,6 @@ class Router {
       str = strReg[1];
     }
 
-
-    // debugger;
 
     bus.emit(`${state} state request`, {
       id, name, pathname, search: false,

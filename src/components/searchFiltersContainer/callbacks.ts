@@ -64,6 +64,5 @@ export const setFiltersParams: Callback = () => {
   // minRatingInput.value = searchParams.minRating.toString();
   // maxRatingInput.value = searchParams.maxRating.toString();
 
-  // debugger;
 
 };

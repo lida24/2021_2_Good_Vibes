@@ -3,7 +3,7 @@ import cart from '../../services/cart/cart';
 import user from '../../services/user/user';
 import { addToHistory } from '../../rout/callbacks';
 import {
-  AjaxResponse, Callback, CategoryResponseObject, Product,
+  AjaxResponse, Callback, CategoryResponseObject, Product, Brand,
 } from '../../types';
 import redirect from '../redirect';
 import searchParams from '../../services/search/params';
@@ -60,6 +60,10 @@ export const favorite: Callback = () => {
   bus.emit('favorite state confirmed', { pathname: '/favorite' });
 };
 
+export const brands: Callback = () => {
+  bus.emit('brands state confirmed', { pathname: '/brands' });
+};
+
 export const newest: Callback = () => {
   bus.emit('newest state confirmed', { pathname: '/new' });
 };
@@ -83,19 +87,20 @@ export const showFavorite: Callback = () => {
   bus.emit('show view', { name: 'favorite' });
 }
 
+export const showBrands: Callback = () => {
+  bus.emit('show view', { name: 'brands' });
+}
+
 export const showNewest: Callback = () => {
-  debugger;
   bus.emit('show view', { name: 'newest' });
 }
 
 export const showSales: Callback = () => {
-  debugger;
   bus.emit('show view', { name: 'sales' });
 }
 
 export const showProductPage: Callback = (obj: { 'context': Product }) => {
   const { context } = obj;
-  debugger;
   /* obj.context.isFavorite = true; */
   console.log(context);
   if (context.is_favourite === true ) {
@@ -245,5 +250,13 @@ export const handleAjaxSalesConfirmed: Callback = (response: AjaxResponse) => {
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .then((obj: Product[]) => bus.emit("sales product array parsed", obj))
+    .catch((err) => console.error("JSON parse error", err));
+};
+
+export const handleAjaxBrandsConfirmed: Callback = (response: AjaxResponse) => {
+  const { responseText } = response;
+  Promise.resolve()
+    .then(() => JSON.parse(responseText))
+    .then((obj: Brand[]) => bus.emit("brands array parsed", obj))
     .catch((err) => console.error("JSON parse error", err));
 };

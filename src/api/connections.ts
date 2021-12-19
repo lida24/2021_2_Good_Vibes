@@ -140,6 +140,12 @@ const ajaxConnections: Connection[] = [
     ]
   },
   {
+    event: 'brands ajax request', 
+    callback: [
+      ajax.brands,
+    ]
+  },
+  {
     event: 'newest ajax request', 
     callback: [
       ajax.newest,

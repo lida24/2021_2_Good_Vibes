@@ -32,6 +32,10 @@ const connections: Connection[] = [
     callback: request.favorite,
   },
   {
+    event: 'brands state request', 
+    callback: request.brands,
+  },
+  {
     event: 'newest state request',
     callback: request.newest,
   },

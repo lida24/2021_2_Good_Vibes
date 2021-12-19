@@ -60,7 +60,6 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   const signOutBtn = self.getElementsByClassName('logout')[0];
   signOutBtn.addEventListener("click", (event) => {
     event.preventDefault();
-
     bus.emit("signOut button click", undefined);
   });
   // ------------------
@@ -87,7 +86,6 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   );
   newestBtn?.addEventListener("click", (event) => {
     event.preventDefault();
-    debugger;
     bus.emit("newest button click", undefined);
   })
 
@@ -95,7 +93,6 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     self.getElementsByClassName('sales')[0]
   );
   salesBtn?.addEventListener("click", (event) => {
-    debugger;
     event.preventDefault();
     bus.emit("sales button click", undefined);
   })

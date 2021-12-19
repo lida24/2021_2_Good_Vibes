@@ -103,6 +103,14 @@ const connections: Connection[] = [
     ],
   },
   {
+    event: 'brands state confirmed',
+    callback: [
+      confirm.saveState,
+      confirm.showBrands,
+      addToHistory,
+    ],
+  },
+  {
     event: 'newest state confirmed',
     callback: [
       confirm.saveState,
@@ -132,6 +140,13 @@ const connections: Connection[] = [
       confirm.handleAjaxFavoriteConfirmed,
       confirm.favorite,
     ],
+  },
+  {
+    event: 'brands ajax confirmed', 
+    callback: [
+      confirm.handleAjaxBrandsConfirmed,
+      confirm.brands,
+    ]
   },
   {
     event: 'newest ajax confirmed',

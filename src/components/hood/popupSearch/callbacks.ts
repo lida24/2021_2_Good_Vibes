@@ -110,7 +110,6 @@ export const cleanInput: Callback = () => {
   // console.warn('ckasdfs');  // console.warn('123123');
   const input = <HTMLInputElement>document.getElementsByClassName('search-input-popup')[0];
 
-  // debugger;
 
   if (input) {
     input.value = '';
@@ -158,7 +157,6 @@ export const changeCategoryLabel: Callback = () => {
 
   label.textContent = `Поиск по результату '${value}'`;
 
-  // debugger;
 };
 
 export const closeInput: Callback = () => {

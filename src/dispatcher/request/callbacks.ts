@@ -58,6 +58,10 @@ export const favorite: Callback = () => {
   bus.emit('favorite ajax request', undefined);
 };
 
+export const brands: Callback = () => {
+  bus.emit('brands ajax request', undefined);
+};
+
 export const newest: Callback = () => {
   bus.emit('newest ajax request', undefined);
 };

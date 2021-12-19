@@ -16,6 +16,7 @@ import Orders from '../../components/myOrder/view';
 import Reviews from '../../components/reviews/view';
 import Newest from '../../components/news/view';
 import Sales from '../../components/sales/view';
+import Brands from '../../components/brands/view';
 /* import Orders from '../view/orders/view'; */
 
 const constructor: { [name: string]: ConstructorInterface } = {
@@ -37,6 +38,7 @@ const constructor: { [name: string]: ConstructorInterface } = {
   reviews: Reviews,
   newest: Newest,
   sales: Sales,
+  brands: Brands,
 };
 
 export default constructor;
