@@ -18,6 +18,10 @@ export const favoriteStateRequest: Callback = () => {
   bus.emit("favorite state request", undefined);
 };
 
+export const newestStateRequest: Callback = () => {
+  bus.emit("newest state request", undefined);
+};
+
 export const ordersStateRequest: Callback = () => {
   bus.emit("orders state request", undefined);
 }

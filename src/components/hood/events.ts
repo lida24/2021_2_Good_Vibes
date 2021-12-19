@@ -82,6 +82,14 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("favorite button click", undefined);
   });
 
+  const newestBtn = <HTMLElement>(
+    self.getElementsByClassName('new')[0]
+  );
+  newestBtn?.addEventListener("click", (event) => {
+    event.preventDefault();
+    debugger;
+    bus.emit("newest button click", undefined);
+  })
   // ---------------------
   const asideBtn = <HTMLElement>self.getElementsByClassName('header__aside')[0];
   asideBtn.addEventListener("click", (event) => {

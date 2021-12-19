@@ -32,6 +32,10 @@ const connections: Connection[] = [
     callback: request.favorite,
   },
   {
+    event: 'newest state request',
+    callback: request.newest,
+  },
+  {
     event: 'category state request',
     callback: [
       // searchParams.setDefault,

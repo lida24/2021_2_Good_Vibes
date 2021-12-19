@@ -521,6 +521,21 @@ export const favorite: Callback = () => {
     );
 };
 
+export const newest: Callback = () => {
+  debugger;
+  console.log("ajax newestProductGet callback");
+  ajax
+    .get({
+      url: `${backendAddress}/product/new/get`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("newest ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("newest ajax denied", response)
+    );
+};
+
 export const addProductFavorite: Callback = (obj: { 'id': number }) => {
   console.log("ajax addProductFavorite callback");
   ajax

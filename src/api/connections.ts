@@ -139,6 +139,12 @@ const ajaxConnections: Connection[] = [
       ajax.favorite,
     ]
   },
+  {
+    event: 'newest ajax request', 
+    callback: [
+      ajax.newest,
+    ]
+  },
 ];
 
 export default ajaxConnections;
