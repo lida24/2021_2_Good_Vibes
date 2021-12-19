@@ -163,7 +163,8 @@ export const changeBtnToAddFavorite: Callback = (obj: {'id': number}) => {
   console.log(addBtnParent);
   favoriteBtnElem.className = 'info-favorite-btn__favorite flagIsFavorite_false'
 
-
+  const productCardOnFavoritePage = <HTMLElement>document.getElementsByName(id.toString())[0];
+  productCardOnFavoritePage?.remove();
   /*  const cartBtnElem = new InfoCardBtn(); */
   addBtnParent.replaceWith(favoriteBtnElem);
   favoriteBtnElem.addEventListener('click', (event) => {
