@@ -51,6 +51,9 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   const signOutBtn = self.getElementsByClassName('logout')[0];
   signOutBtn.addEventListener("click", (event) => {
     event.preventDefault();
+
+    debugger;
+
     bus.emit("signOut button click", undefined);
   });
   // ------------------

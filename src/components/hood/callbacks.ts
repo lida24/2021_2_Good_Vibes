@@ -70,3 +70,7 @@ export const showSearch: Callback = () => {
   const search = document.getElementsByClassName('popup-search')[0];
   search.classList.add('shown');
 };
+
+export const signOutRequest: Callback = () => {
+  bus.emit("signout ajax request", undefined);
+};

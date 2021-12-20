@@ -74,7 +74,11 @@ const connections: Connection[] = [
   {
     event: 'brands button click',
     callback: hood.brandsStateRequest,
-  }
+  },
+  {
+    event: "signOut button click",
+    callback: hood.signOutRequest,
+  },
 ];
 
 export default connections;
