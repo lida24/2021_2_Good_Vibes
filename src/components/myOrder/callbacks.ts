@@ -173,7 +173,7 @@ export const showOrderList: Callback = (obj: Order[]) => {
 
   obj.forEach((order) => {
 
-    debugger;
+    // debugger;
 
 
     const target = viewList[order.order_id];
