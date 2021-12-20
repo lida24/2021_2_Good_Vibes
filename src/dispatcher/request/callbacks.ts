@@ -59,6 +59,13 @@ export const cartState: Callback = () => {
 };
 
 export const favorite: Callback = () => {
+  // bus.emit('favorite ajax request', undefined);
+
+  if (!user.isAutorize()) {
+    bus.emit('signIn state request', undefined);
+    return;
+  };
+
   bus.emit('favorite ajax request', undefined);
 };
 
@@ -133,10 +140,24 @@ export const savedState: Callback = () => {
 };
 
 export const orders: Callback = () => {
+  // bus.emit('orders state confirmed', { state: 'orders', pathname: '/orders' });
+
+  if (!user.isAutorize()) {
+    bus.emit('signIn state request', undefined);
+    return;
+  };
+
   bus.emit('orders state confirmed', { state: 'orders', pathname: '/orders' });
 };
 
 export const reviews: Callback = () => {
+  // bus.emit('reviews state confirmed', { state: 'request', pathname: '/reviews' });
+
+  if (!user.isAutorize()) {
+    bus.emit('signIn state request', undefined);
+    return;
+  };
+
   bus.emit('reviews state confirmed', { state: 'request', pathname: '/reviews' });
 };
 

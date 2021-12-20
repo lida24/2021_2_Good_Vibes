@@ -174,7 +174,9 @@ export const showOrderList: Callback = (obj: Order[]) => {
   });
 
   obj.forEach((order) => {
+
     // debugger;
+
 
     const target = viewList[order.order_id];
     if (target) {
