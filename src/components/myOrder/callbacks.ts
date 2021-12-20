@@ -126,9 +126,16 @@ export const ordersListRequest: Callback = () => {
   bus.emit("orders list request", undefined);
 };
 
+const viewList: { [id: number]: OrdersContainer } = {};
+
 export const cleanOrderContainer: Callback = () => {
   const orderList = <HTMLElement>document.getElementsByClassName('orders-list')[0];
-  orderList.textContent = '';
+  // orderList.textContent = '';
+  orderList.innerHTML = '<h3 class="loading-order-list-text">Загружается список товаров. Пожалуйста, подождите...</h3>';
+
+  Object.keys(viewList).forEach(key => {
+    delete viewList[key];
+  })
 };
 
 export const parseResponse: Callback = (obj: { responseText: string }) => {
@@ -140,12 +147,13 @@ export const parseResponse: Callback = (obj: { responseText: string }) => {
     .catch((err) => console.error(err));
 };
 
-const viewList: { [id: number]: OrdersContainer } = {};
+
 
 export const showOrderList: Callback = (obj: Order[]) => {
   console.log("show order list");
 
   const orderList = <HTMLElement>document.getElementsByClassName('orders-list')[0];
+  orderList.textContent = '';
 
   if (obj.length === 0) {
     const noOrdersLabel = document.createElement('h3');
@@ -162,7 +170,11 @@ export const showOrderList: Callback = (obj: Order[]) => {
     }
   })
 
+
   obj.forEach((order) => {
+
+    debugger;
+
 
     const target = viewList[order.order_id];
     if (target) {
