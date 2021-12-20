@@ -1,31 +1,21 @@
 import * as compiledTemplate from './template.handlebars';
-import bus from '../../../modules/bus/bus';
-import initEvents from './events';
+import bus from '../../../../modules/bus/bus';
+import { Product } from '../../../../types';
+// import initEvents from './events';
 /* import connections from './connections'; */
-import { myOrder, Product } from '../../../types';
-import './ordersContainer.scss';
-import ProductItem from './productItem/view';
+// import { myOrder } from '../../../types';
+import './productItem.scss';
 
-export default class OrdersContainer {
+export default class ProductItem {
   public self: HTMLElement;
 
-  public context: myOrder;
+  public context: Product;
 
   private async renderHTML() {
     /*  const html = compiledTemplate({ ...this.context.address, ...this.context.products }); */
     const html = compiledTemplate(this.context);
     this.self.innerHTML = html;
-    initEvents(this.self);
-
-    const target = this.self.getElementsByClassName('order-item__list')[0];
-
-    console.log(target);
-
-    this.context.products.forEach(product => {
-      const productItem = new ProductItem(product);
-      target.appendChild(productItem.self);
-    });
-    debugger;
+    // initEvents(this.self);
   }
 
   public async render(): Promise<void> {
@@ -33,15 +23,15 @@ export default class OrdersContainer {
     return this.show();
   }
 
-  constructor(context: myOrder) {
+  constructor(context: Product) {
     this.setContext(context);
-    this.self = <HTMLElement>document.createElement('ul');
-    this.self.className = 'orders-container';
+    this.self = <HTMLElement>document.createElement('li');
+    this.self.className = 'order-item__product';
     /* bus.add(connections); */
     this.render();
   }
 
-  public setContext(context: myOrder): void {
+  public setContext(context: Product): void {
     this.context = context;
   }
 

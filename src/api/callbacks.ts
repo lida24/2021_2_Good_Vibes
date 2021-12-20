@@ -124,6 +124,21 @@ export const productInfoByIdForReview: Callback = (obj: Comment) => {
     );
 };
 
+export const productInfoByIdForOrdersList: Callback = ({ id }: { id: number }) => {
+
+  ajax
+    .get({
+      url: `${backendAddress}/product?id=${id}`,
+    })
+    .then(({ responseText }) =>
+      bus.emit("product info by id for orders list request success", { product: JSON.parse(responseText) })
+    )
+    .catch(({ responseText }) =>
+      bus.emit("product request denied", { responseText })
+    );
+};
+
+
 
 export const productArrayRequest: Callback = (array: CartItem[]) => {
   const result = [];

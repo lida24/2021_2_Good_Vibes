@@ -3,13 +3,13 @@ import bus from "../../../modules/bus/bus";
 const initEvents: (self: HTMLElement) => void = (self) => {
   const controlDetails = () => {
     const detailsBtn = <HTMLButtonElement>(
-        self.getElementsByClassName("orders-history__detail")[0]
+      self.getElementsByClassName("orders-history__detail")[0]
     );
     const listOrderTitle = <HTMLElement>(
-        self.getElementsByClassName("order-item__collapse")[0]
+      self.getElementsByClassName("order-item__collapse")[0]
     );
     const listOrder = <HTMLElement>(
-        self.getElementsByClassName("order-item__list")[0]
+      self.getElementsByClassName("order-item__list")[0]
     );
     if (detailsBtn.classList.contains("opened")) {
       detailsBtn.classList.remove("btn__active");
@@ -25,6 +25,8 @@ const initEvents: (self: HTMLElement) => void = (self) => {
       listOrderTitle.classList.add("open");
     }
   };
+
+
   const detailsBtn = <HTMLButtonElement>(
     self.getElementsByClassName("orders-history__detail")[0]
   );
