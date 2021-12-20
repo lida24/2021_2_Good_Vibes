@@ -118,10 +118,24 @@ export const parseResponse: Callback = (obj: { responseText: string }) => {
  */
 
 import bus from "../../modules/bus/bus";
+import user from "../../services/user/user";
 import { Callback, Order } from "../../types";
+import OrdersContainer from './ordersContainer/view';
 
 export const ordersListRequest: Callback = () => {
   bus.emit("orders list request", undefined);
+};
+
+const viewList: { [id: number]: OrdersContainer } = {};
+
+export const cleanOrderContainer: Callback = () => {
+  const orderList = <HTMLElement>document.getElementsByClassName('orders-list')[0];
+  // orderList.textContent = '';
+  orderList.innerHTML = '<h3 class="loading-order-list-text">Загружается список товаров. Пожалуйста, подождите...</h3>';
+
+  Object.keys(viewList).forEach(key => {
+    delete viewList[key];
+  })
 };
 
 export const parseResponse: Callback = (obj: { responseText: string }) => {
@@ -133,41 +147,45 @@ export const parseResponse: Callback = (obj: { responseText: string }) => {
     .catch((err) => console.error(err));
 };
 
+<<<<<<< HEAD
 /* export const showOrderList: Callback = (obj: Order[]) => {
+=======
+
+
+export const showOrderList: Callback = (obj: Order[]) => {
+>>>>>>> 9ca4717de770bbb1e0c7bd428dbe41d1ece6a3d9
   console.log("show order list");
-  const oldTbody = <HTMLTableRowElement>(
-    document.getElementsByClassName("table-body")[0]
-  );
-  if (oldTbody) {
-    oldTbody.remove();
+
+  const orderList = <HTMLElement>document.getElementsByClassName('orders-list')[0];
+  orderList.textContent = '';
+
+  if (obj.length === 0) {
+    const noOrdersLabel = document.createElement('h3');
+    noOrdersLabel.textContent = 'Вы еще не сделали никаких заказов';
+    orderList.appendChild(noOrdersLabel);
+
+    return;
   }
-  const tbody = <HTMLTableSectionElement>document.createElement("tbody");
-  tbody.className = "table-body";
-  obj?.forEach((item) => {
-    const tr = <HTMLTableRowElement>document.createElement("tr");
 
-    const orderIdCell = <HTMLTableCellElement>document.createElement("td");
-    orderIdCell.textContent = item.order_id.toString();
-    tr.appendChild(orderIdCell);
+  const objKeys = obj.map(order => order.order_id);
+  Object.keys(viewList).forEach((key) => {
+    if (!objKeys.includes(+key)) {
+      delete viewList[key];
+    }
+  })
 
-    const costCell = <HTMLTableCellElement>document.createElement("td");
-    costCell.textContent = item.cost.toString();
-    tr.appendChild(costCell);
 
-    /* const payStatusCell = <HTMLTableCellElement>document.createElement('td');
-      payStatusCell.textContent = '[тут пока пусто]';
-      tr.appendChild(payStatusCell); */
+  obj.forEach((order) => {
 
 /*    const deliveryStatusCell = <HTMLTableCellElement>document.createElement('td');
       deliveryStatusCell.textContent = item.status;
       tr.appendChild(deliveryStatusCell); 
 
-    const dateCell = <HTMLTableCellElement>document.createElement("td");
-    const date = new Date(item.date);
-    // console.log(a.toLocaleDateString(), a.toLocaleTimeString());
-    dateCell.textContent = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
 
-    tr.appendChild(dateCell);
+    const target = viewList[order.order_id];
+    if (target) {
+      target.setContext(order);
+      target.render();
 
     /*  const detalesCell = <HTMLTableCellElement>document.createElement('td');
       detalesCell.innerHTML = '<a href="/#/order/"> Детали </a>';

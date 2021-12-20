@@ -3,10 +3,6 @@ import * as profile from "./callbacks";
 
 const connections: Connection[] = [
   {
-    event: "signOut button click",
-    callback: profile.signOutRequest,
-  },
-  {
     event: "profile shown",
     callback: [profile.fieldsFill],
   },

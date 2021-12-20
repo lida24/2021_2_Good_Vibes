@@ -30,7 +30,11 @@ import * as orders from "./callbacks";
 const connections: Connection[] = [
     {
         event: "orders shown",
-        callback: orders.ordersListRequest,
+        callback: [
+            orders.cleanOrderContainer,  // исключительно из-за того, что долго грузится история заказов
+            orders.ordersListRequest,
+            orders.showAvatar,
+        ],
     },
     {
         event: "orders list confirmed",
