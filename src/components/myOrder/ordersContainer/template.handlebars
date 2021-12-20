@@ -1,42 +1,46 @@
-{{!-- <div class="my_account_orders"> --}}
-  <div class="d2f7"><div class="d2s8"><div class="d2s9"><div class="b7v"><div
-            class="d2t"
-          ><span class="d2t1">Заказ от 28 июня</span></div><div class="d2t4"><a
-              href="/my/orderdetails/?order=41741496-0003"
-              class="d2t5"
-            >{{order_id}}</a></div></div><div class="d2t6"><div
-            class="d2t7"
-          ><span class="d2t8">{{cost}}</span><span class="d2t9">, к оплате</span></div></div></div></div>
-    <div class="d2f9"><div class="d1z9"><div class="d2a"><div class="d2a0"><span
-              class="d2a1"
-            >Доставка в пункт выдачи</span>
-            <div><div
-                class="d0s1"
-                style="background-color: rgb(128, 141, 154);"
-              ><span class="c6w0">{{status}}</span></div>
-            </div></div>
-          <div class="d2a2"><div class="d2a3"><!---->
-              <p class="d2a7" style="color: rgb(177, 185, 194);">
+<div class="orders-history__row">
+              <div class="orders-history__col">
                 {{date}}
-              </p>
-            </div>
-          </div></div>
-        <div class="d2b0"><a
-            href="/product/sous-shriracha-huy-fong-foods-ssha-255-g-236773896/"
-            class="d2b3"
-          ><img
-              loading="lazy"
-              src="https://cdn1.ozone.ru/s3/multimedia-h/wc100/6032847497.jpg"
-              srcset="https://cdn1.ozone.ru/s3/multimedia-h/wc200/6032847497.jpg 2x"
-              class="d2b4 ui-p1"
-            /></a><a
-            href="/product/sous-pearl-river-bridge-kimchi-200-ml-168305784/"
-            class="d2b3"
-          ><img
-              loading="lazy"
-              src="https://cdn1.ozone.ru/s3/multimedia-q/wc100/6038542058.jpg"
-              srcset="https://cdn1.ozone.ru/s3/multimedia-q/wc200/6038542058.jpg 2x"
-              class="d2b4 ui-p1"
-            /></a></div></div></div>
-    <!----></div>
-{{!-- </div> --}}
+              </div>
+              <div class="orders-history__col">
+                <div class="order-item"> 
+                    <div class="order-item__title">              
+                      <div class="order-item__info">                                                            
+                        {{!-- <span>15.07.2020</span>       --}}                                      
+                          <span>Покупка товара на сумму</span>
+                          <span>{{cost}} ₽</span>                        
+                      </div>                    
+                    </div>
+                    <div class="order-item__collapse">
+                      <div class="order-item__pay">
+                        <p>Способ оплаты: Картой онлайн </p>
+                        {{!-- <span>2 302 ₽</span> --}}
+                      </div>
+                    </div>
+                  <ul class="order-item__list">
+                    <li class="order-item__product">
+                      <div class="order-item__data">
+                        <div class="order-item__img img-plug">
+                          <img width="75" height="100" src="//images.wbstatic.net/c246x328/new/13030000/13030057-1.jpg" alt="По следам гроссмейстера. Решебник">
+                          </div>
+ <div class="order-item__desc">           
+                  <h2 class="order-item__name">Издательство Врублевская Ольга Анатольевна, По следам гроссмейстера. Решебник</h2>                 
+                   {{!-- <p>Артикул: 13030057</p>        
+                    <div class="order-item__desc-group">            
+                      <p>Цвет: </p>                     
+                    </div>   --}}            
+                </div>                 
+              </div> 
+              <div class="order-item__price">{{ price }} ₽</div>    
+                        </div>
+                      </div>
+                      <div class="orders-history__col">
+                        <button class="orders-history__detail closed">
+                        Детали
+                        </button>
+                      </div>
+                    </li>
+                  </ul>
+                      </li>
+                        </ul>   
+            </div>  

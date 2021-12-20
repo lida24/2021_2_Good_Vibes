@@ -120,7 +120,7 @@ export const parseResponse: Callback = (obj: { responseText: string }) => {
 import bus from "../../modules/bus/bus";
 import user from "../../services/user/user";
 import { Callback, Order } from "../../types";
-import OrdersContainer from './ordersContainer/view';
+import OrdersContainer from "./ordersContainer/view";
 
 export const ordersListRequest: Callback = () => {
   bus.emit("orders list request", undefined);
@@ -129,13 +129,16 @@ export const ordersListRequest: Callback = () => {
 const viewList: { [id: number]: OrdersContainer } = {};
 
 export const cleanOrderContainer: Callback = () => {
-  const orderList = <HTMLElement>document.getElementsByClassName('orders-list')[0];
+  const orderList = <HTMLElement>(
+    document.getElementsByClassName("orders-container")[0]
+  );
   // orderList.textContent = '';
-  orderList.innerHTML = '<h3 class="loading-order-list-text">Загружается список товаров. Пожалуйста, подождите...</h3>';
+  orderList.innerHTML =
+    '<h3 class="loading-order-list-text">Загружается список товаров. Пожалуйста, подождите...</h3>';
 
-  Object.keys(viewList).forEach(key => {
+  Object.keys(viewList).forEach((key) => {
     delete viewList[key];
-  })
+  });
 };
 
 export const parseResponse: Callback = (obj: { responseText: string }) => {
@@ -147,64 +150,50 @@ export const parseResponse: Callback = (obj: { responseText: string }) => {
     .catch((err) => console.error(err));
 };
 
-<<<<<<< HEAD
-/* export const showOrderList: Callback = (obj: Order[]) => {
-=======
-
-
 export const showOrderList: Callback = (obj: Order[]) => {
->>>>>>> 9ca4717de770bbb1e0c7bd428dbe41d1ece6a3d9
   console.log("show order list");
 
-  const orderList = <HTMLElement>document.getElementsByClassName('orders-list')[0];
-  orderList.textContent = '';
+  const orderList = <HTMLElement>(
+    document.getElementsByClassName("orders-container")[0]
+  );
+  orderList.textContent = "";
 
   if (obj.length === 0) {
-    const noOrdersLabel = document.createElement('h3');
-    noOrdersLabel.textContent = 'Вы еще не сделали никаких заказов';
+    const noOrdersLabel = document.createElement("h3");
+    noOrdersLabel.textContent = "Вы еще не сделали никаких заказов";
     orderList.appendChild(noOrdersLabel);
 
     return;
   }
 
-  const objKeys = obj.map(order => order.order_id);
+  const objKeys = obj.map((order) => order.order_id);
   Object.keys(viewList).forEach((key) => {
     if (!objKeys.includes(+key)) {
       delete viewList[key];
     }
-  })
-
+  });
 
   obj.forEach((order) => {
-
-/*    const deliveryStatusCell = <HTMLTableCellElement>document.createElement('td');
-      deliveryStatusCell.textContent = item.status;
-      tr.appendChild(deliveryStatusCell); 
-
+    // debugger;
 
     const target = viewList[order.order_id];
     if (target) {
       target.setContext(order);
       target.render();
 
-    /*  const detalesCell = <HTMLTableCellElement>document.createElement('td');
-      detalesCell.innerHTML = '<a href="/#/order/"> Детали </a>';
-      tr.appendChild(detalesCell);
-    
+      return true;
+    }
 
-    tbody.appendChild(tr);
+    const orderContainer = new OrdersContainer(order);
+    viewList[order.order_id] = orderContainer;
+
+    orderList.appendChild(orderContainer.self);
   });
- 
-  const table = <HTMLTableElement>(
-    document.getElementsByClassName("my_account_orders")[0]
-  );
-  table.appendChild(tbody);
-};*/
-
+};
 
 export const controlDetails: Callback = () => {
   const detailsBtn = <HTMLButtonElement>(
-    document.getElementsByClassName('orders-history__detail')[0]
+    document.getElementsByClassName("orders-history__detail")[0]
   );
   const listOrderTitle = <HTMLElement>(
     document.getElementsByClassName("order-item__collapse")[0]
@@ -213,13 +202,13 @@ export const controlDetails: Callback = () => {
     document.getElementsByClassName("order-item__list")[0]
   );
   if (detailsBtn.classList.contains("opened")) {
-    detailsBtn.classList.remove('btn__active');
+    detailsBtn.classList.remove("btn__active");
     detailsBtn.classList.remove("opened");
     detailsBtn.classList.add("closed");
     listOrder.classList.remove("open");
     listOrderTitle.classList.remove("open");
   } else {
-    detailsBtn.classList.add('btn__active');
+    detailsBtn.classList.add("btn__active");
     detailsBtn.classList.remove("closed");
     detailsBtn.classList.add("opened");
     listOrder.classList.add("open");

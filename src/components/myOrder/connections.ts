@@ -33,17 +33,17 @@ const connections: Connection[] = [
         callback: [
             orders.cleanOrderContainer,  // исключительно из-за того, что долго грузится история заказов
             orders.ordersListRequest,
-            orders.showAvatar,
+            /* orders.showAvatar, */
         ],
     },
     {
         event: "orders list confirmed",
         callback: orders.parseResponse,
     },
-    /* {
+    {
         event: "show orders list",
         callback: orders.showOrderList,
-    }, */
+    }, 
     {
         event: "details button click",
         callback: orders.controlDetails,

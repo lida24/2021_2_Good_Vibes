@@ -27,14 +27,6 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
     bus.emit("favorite button click", undefined);
   });
-
-  const detailsBtn = <HTMLButtonElement>(
-    self.getElementsByClassName("orders-history__detail")[0]
-  );
-  detailsBtn?.addEventListener("click", (event) => {
-    event.preventDefault();
-    bus.emit("details button click", undefined);
-  });
 };
 
 export default initEvents;
