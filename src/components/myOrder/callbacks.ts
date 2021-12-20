@@ -133,7 +133,7 @@ export const parseResponse: Callback = (obj: { responseText: string }) => {
     .catch((err) => console.error(err));
 };
 
-export const showOrderList: Callback = (obj: Order[]) => {
+/* export const showOrderList: Callback = (obj: Order[]) => {
   console.log("show order list");
   const oldTbody = <HTMLTableRowElement>(
     document.getElementsByClassName("table-body")[0]
@@ -158,9 +158,9 @@ export const showOrderList: Callback = (obj: Order[]) => {
       payStatusCell.textContent = '[тут пока пусто]';
       tr.appendChild(payStatusCell); */
 
-    /*    const deliveryStatusCell = <HTMLTableCellElement>document.createElement('td');
+/*    const deliveryStatusCell = <HTMLTableCellElement>document.createElement('td');
       deliveryStatusCell.textContent = item.status;
-      tr.appendChild(deliveryStatusCell); */
+      tr.appendChild(deliveryStatusCell); 
 
     const dateCell = <HTMLTableCellElement>document.createElement("td");
     const date = new Date(item.date);
@@ -172,13 +172,39 @@ export const showOrderList: Callback = (obj: Order[]) => {
     /*  const detalesCell = <HTMLTableCellElement>document.createElement('td');
       detalesCell.innerHTML = '<a href="/#/order/"> Детали </a>';
       tr.appendChild(detalesCell);
-      */
+    
 
     tbody.appendChild(tr);
   });
-
+ 
   const table = <HTMLTableElement>(
     document.getElementsByClassName("my_account_orders")[0]
   );
   table.appendChild(tbody);
+};*/
+
+
+export const controlDetails: Callback = () => {
+  const detailsBtn = <HTMLButtonElement>(
+    document.getElementsByClassName('orders-history__detail')[0]
+  );
+  const listOrderTitle = <HTMLElement>(
+    document.getElementsByClassName("order-item__collapse")[0]
+  );
+  const listOrder = <HTMLElement>(
+    document.getElementsByClassName("order-item__list")[0]
+  );
+  if (detailsBtn.classList.contains("opened")) {
+    detailsBtn.classList.remove('btn__active');
+    detailsBtn.classList.remove("opened");
+    detailsBtn.classList.add("closed");
+    listOrder.classList.remove("open");
+    listOrderTitle.classList.remove("open");
+  } else {
+    detailsBtn.classList.add('btn__active');
+    detailsBtn.classList.remove("closed");
+    detailsBtn.classList.add("opened");
+    listOrder.classList.add("open");
+    listOrderTitle.classList.add("open");
+  }
 };

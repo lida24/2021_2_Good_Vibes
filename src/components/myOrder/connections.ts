@@ -36,9 +36,13 @@ const connections: Connection[] = [
         event: "orders list confirmed",
         callback: orders.parseResponse,
     },
-    {
+    /* {
         event: "show orders list",
         callback: orders.showOrderList,
+    }, */
+    {
+        event: "details button click",
+        callback: orders.controlDetails,
     },
 ];
 
