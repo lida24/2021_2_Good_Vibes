@@ -118,10 +118,17 @@ export const parseResponse: Callback = (obj: { responseText: string }) => {
  */
 
 import bus from "../../modules/bus/bus";
+import user from "../../services/user/user";
 import { Callback, Order } from "../../types";
+import OrdersContainer from './ordersContainer/view';
 
 export const ordersListRequest: Callback = () => {
   bus.emit("orders list request", undefined);
+};
+
+export const cleanOrderContainer: Callback = () => {
+  const orderBox = <HTMLElement>document.getElementsByClassName('orders-list')[0];
+  orderBox.textContent = '';
 };
 
 export const parseResponse: Callback = (obj: { responseText: string }) => {
@@ -133,52 +140,44 @@ export const parseResponse: Callback = (obj: { responseText: string }) => {
     .catch((err) => console.error(err));
 };
 
+const viewList: { [id: number]: OrdersContainer } = {};
+
 export const showOrderList: Callback = (obj: Order[]) => {
   console.log("show order list");
-  const oldTbody = <HTMLTableRowElement>(
-    document.getElementsByClassName("table-body")[0]
+
+  const orderBox = <HTMLElement>document.getElementsByClassName('orders-list')[0];
+  // const orderBox = <HTMLElement>document.getElementsByClassName('orders-box')[0];
+
+  const objKeys = obj.map(order => order.order_id);
+  Object.keys(viewList).forEach((key) => {
+    if (!objKeys.includes(+key)) {
+      delete viewList[key];
+    }
+  })
+
+  obj.forEach((order) => {
+
+    const target = viewList[order.order_id];
+    if (target) {
+      target.setContext(order);
+      target.render();
+
+      return true;
+    }
+
+    const orderContainer = new OrdersContainer(order);
+    viewList[order.order_id] = orderContainer;
+
+    orderBox.appendChild(orderContainer.self);
+  })
+
+  debugger;
+};
+
+
+export const showAvatar: Callback = () => {
+  const photo = <HTMLImageElement>(
+    document.getElementsByClassName("b2m5")[0]
   );
-  if (oldTbody) {
-    oldTbody.remove();
-  }
-  const tbody = <HTMLTableSectionElement>document.createElement("tbody");
-  tbody.className = "table-body";
-  obj?.forEach((item) => {
-    const tr = <HTMLTableRowElement>document.createElement("tr");
-
-    const orderIdCell = <HTMLTableCellElement>document.createElement("td");
-    orderIdCell.textContent = item.order_id.toString();
-    tr.appendChild(orderIdCell);
-
-    const costCell = <HTMLTableCellElement>document.createElement("td");
-    costCell.textContent = item.cost.toString();
-    tr.appendChild(costCell);
-
-    /* const payStatusCell = <HTMLTableCellElement>document.createElement('td');
-      payStatusCell.textContent = '[тут пока пусто]';
-      tr.appendChild(payStatusCell); */
-
-    /*    const deliveryStatusCell = <HTMLTableCellElement>document.createElement('td');
-      deliveryStatusCell.textContent = item.status;
-      tr.appendChild(deliveryStatusCell); */
-
-    const dateCell = <HTMLTableCellElement>document.createElement("td");
-    const date = new Date(item.date);
-    // console.log(a.toLocaleDateString(), a.toLocaleTimeString());
-    dateCell.textContent = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
-
-    tr.appendChild(dateCell);
-
-    /*  const detalesCell = <HTMLTableCellElement>document.createElement('td');
-      detalesCell.innerHTML = '<a href="/#/order/"> Детали </a>';
-      tr.appendChild(detalesCell);
-      */
-
-    tbody.appendChild(tr);
-  });
-
-  const table = <HTMLTableElement>(
-    document.getElementsByClassName("my_account_orders")[0]
-  );
-  table.appendChild(tbody);
+  photo.style.backgroundImage = `url(${user.avatar})`;
 };
