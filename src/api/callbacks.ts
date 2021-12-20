@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import bus from "../modules/bus/bus";
 import ajax from "../modules/rpc/ajax";
 import {
@@ -342,7 +341,7 @@ export const avatarUpload: Callback = (file: File) => {
 };
 
 export const orderList: Callback = () => {
-  // console.log('orderList ajax request');
+  console.log('orderList ajax request');
   ajax
     .get({
       url: `${backendAddress}/profile/orders`,

@@ -107,6 +107,18 @@ export type myReview = {
   product: Product,
 };
 
+export type myOrder = {
+  'address': Address,
+  'cost': number,
+  'date': string,
+  'order_id': number,
+  'products': Product[],
+  'status': string,
+  'email'?: string,
+  'cost_with_promo'?: number,
+  'promocode'?: string;
+};
+
 export type ProductSuggest = {
   'id': number,
   'name': string,

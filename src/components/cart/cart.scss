@@ -276,7 +276,7 @@
   @media screen and (max-width: $breakTablet) {
     font-size: 16px;
   }
-  @media screen and (max-width: $breakTablet) {
+  @media screen and (max-width: $breakMobile) {
     font-size: 10px;
   }
 }
@@ -292,12 +292,7 @@
 .basket__table_cell-row {
   /* align-items: center; */
   display: flex;
-  @media screen and (max-width: 1920px) {
-    align-items: center;
-  }
-  @media screen and (max-width: $breakDesktop) {
-    align-items: center;
-  }
+  align-items: center;
   @media screen and (max-width: $breakTablet) {
     flex-direction: column-reverse;
     align-items: flex-start;
@@ -340,8 +335,12 @@
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   flex-direction: column;
+  @media screen and (max-width: $breakDesktop) {
+    width: min-content;
+  }
   @media screen and (max-width: $breakTablet) {
     margin-bottom: 20px;
+    width: initial;
   }
   @media screen and (max-width: $breakMobile) {
     margin-bottom: 20px;
@@ -883,6 +882,7 @@
 
 .order-form {
   display: block;
+  padding: 15px 0;
   @media screen and (max-width: $breakDesktop) {
     display: block;
   }

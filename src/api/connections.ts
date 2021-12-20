@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import { Connection } from '../types';
 import * as ajax from './callbacks';
 
