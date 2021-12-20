@@ -127,8 +127,8 @@ export const ordersListRequest: Callback = () => {
 };
 
 export const cleanOrderContainer: Callback = () => {
-  const orderBox = <HTMLElement>document.getElementsByClassName('orders-list')[0];
-  orderBox.textContent = '';
+  const orderList = <HTMLElement>document.getElementsByClassName('orders-list')[0];
+  orderList.textContent = '';
 };
 
 export const parseResponse: Callback = (obj: { responseText: string }) => {
@@ -145,8 +145,15 @@ const viewList: { [id: number]: OrdersContainer } = {};
 export const showOrderList: Callback = (obj: Order[]) => {
   console.log("show order list");
 
-  const orderBox = <HTMLElement>document.getElementsByClassName('orders-list')[0];
-  // const orderBox = <HTMLElement>document.getElementsByClassName('orders-box')[0];
+  const orderList = <HTMLElement>document.getElementsByClassName('orders-list')[0];
+
+  if (obj.length === 0) {
+    const noOrdersLabel = document.createElement('h3');
+    noOrdersLabel.textContent = 'Вы еще не сделали никаких заказов';
+    orderList.appendChild(noOrdersLabel);
+
+    return;
+  }
 
   const objKeys = obj.map(order => order.order_id);
   Object.keys(viewList).forEach((key) => {
@@ -168,10 +175,8 @@ export const showOrderList: Callback = (obj: Order[]) => {
     const orderContainer = new OrdersContainer(order);
     viewList[order.order_id] = orderContainer;
 
-    orderBox.appendChild(orderContainer.self);
+    orderList.appendChild(orderContainer.self);
   })
-
-  debugger;
 };
 
 
