@@ -1,4 +1,4 @@
-/* import * as compiledTemplate from './template.handlebars';
+import * as compiledTemplate from './template.handlebars';
 // import bus from '../../../init/bus';
 // import initEvents from './events';
 // import connections from './connections';
@@ -11,7 +11,7 @@ export default class OrdersContainer {
   public context: myOrder;
 
   private async renderHTML() {
-   /*  const html = compiledTemplate({ ...this.context.address, ...this.context.products }); 
+   /*  const html = compiledTemplate({ ...this.context.address, ...this.context.products }); */
    const html = compiledTemplate(this.context);
     this.self.innerHTML = html;
     // initEvents(this.self);
@@ -44,4 +44,3 @@ export default class OrdersContainer {
     this.self.hidden = false;
   }
 }
- */
