@@ -12,7 +12,11 @@ const connections: Connection[] = [
   },
   {
     event: "update button click",
-    callback: [profile.profileUploadRequest, profile.avatarUploadRequest, profile.changeInfoDisabled],
+    callback: [
+      profile.profileUploadRequest,
+      profile.avatarUploadRequest,
+      profile.changeInfoDisabled,
+    ],
   },
   {
     event: "change button click",
