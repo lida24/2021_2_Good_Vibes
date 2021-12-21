@@ -167,6 +167,7 @@ export const changeBtnToAddFavorite: Callback = (obj: { 'id': number }) => {
 
   // console.warn(productCardOnFavoritePage);
   // productCardOnFavoritePage?.remove();
+
   /*  const cartBtnElem = new InfoCardBtn(); */
   addBtnParent.replaceWith(favoriteBtnElem);
   favoriteBtnElem.addEventListener('click', (event) => {
