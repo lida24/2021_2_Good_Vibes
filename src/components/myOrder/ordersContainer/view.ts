@@ -19,13 +19,17 @@ export default class OrdersContainer {
 
     const target = this.self.getElementsByClassName('order-item__list')[0];
 
-    console.log(target);
+    // console.log(target);
 
     this.context.products.forEach(product => {
       const productItem = new ProductItem(product);
+
+      // console.log();
       target.appendChild(productItem.self);
+
+      // debugger;
+
     });
-    debugger;
   }
 
   public async render(): Promise<void> {

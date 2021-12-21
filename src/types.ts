@@ -41,6 +41,7 @@ export type Product = {
   rating: number,
   is_favourite: boolean,
   nameBtn: string,
+  product_id?: number,
 };
 
 export type Brand = {
@@ -149,3 +150,14 @@ export type SearchParamsType = {
   type: 'asc' | 'desc',
   orderType: 'rating' | 'price',
 };
+
+// export type CartProduct = {
+//   description: "Крутые желтые кроссовки"
+//   image: "https://products-bucket-ozon-good-vibes.s3.eu-west-1.amazonaws.com/b2810c77-186e-479d-8962-a885d41164cd"
+//   name: "https://products-bucket-ozon-good-vibes.s3.eu-west-1.amazonaws.com/b2810c77-186e-479d-8962-a885d41164cd"
+//   number: 1
+//   order_id: 280
+//   price: 10000
+//   product_id: 867
+//   rating: 5
+// }
