@@ -9,13 +9,15 @@ import './productItem.scss';
 export default class ProductItem {
   public self: HTMLElement;
 
-  public context: Product;
+  public context: Product
 
   private async renderHTML() {
     /*  const html = compiledTemplate({ ...this.context.address, ...this.context.products }); */
     const html = compiledTemplate(this.context);
     this.self.innerHTML = html;
-    initEvents(this.self);
+    // debugger;
+
+    initEvents(this.self, this.context);
   }
 
   public async render(): Promise<void> {
