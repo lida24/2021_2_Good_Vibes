@@ -63,7 +63,7 @@ export const commentsRequest: Callback = (context: Product) => {
 export const renderCommentContainer: Callback = (comment: Comment) => {
   // console.log('render single comment block', comment);
   const commentContainer = new CommentsContainer(comment);
-  document.getElementsByClassName('board-bottom')[0].appendChild(commentContainer?.self);
+  document.getElementsByClassName('layout-inner')[0].appendChild(commentContainer?.self);
 };
 
 // export const generateCommentsArray: Callback = (array: Comment[]) => {
@@ -177,6 +177,6 @@ export const changeBtnToAddFavorite: Callback = (obj: { 'id': number }) => {
 };
 
 export const setMainImg: Callback = ({ src }: { src: string }) => {
-  const mainImg = <HTMLImageElement>document.getElementsByClassName('slides__picture')[0];
+  const mainImg = <HTMLImageElement>document.getElementsByClassName('slider-preview__picture')[0];
   mainImg.src = src;
 };
