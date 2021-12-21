@@ -162,7 +162,7 @@ export const changeBtnToAddFavorite: Callback = (obj: {'id': number}) => {
   favoriteBtnElem.innerHTML = 'Добавить в избранное'
   console.log(addBtnParent);
   favoriteBtnElem.className = 'info-favorite-btn__favorite flagIsFavorite_false'
-
+  debugger;
   const productCardOnFavoritePage = <HTMLElement>document.getElementsByName(id.toString())[0];
   productCardOnFavoritePage?.remove();
   /*  const cartBtnElem = new InfoCardBtn(); */
