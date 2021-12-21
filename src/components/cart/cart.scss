@@ -405,6 +405,9 @@
   -webkit-box-align: center;
   align-items: center;
   display: flex;
+  @media screen and (max-width: $breakMobile) {
+   transform: translateX(-30px);
+  }
 }
 
 .spinner__action.is-disabled {
@@ -466,6 +469,12 @@
   @media screen and (max-width: $breakMobile) {
     width: 33%;
     flex: 0 0 8%;
+  }
+}
+
+.basket__table_text {
+  @media screen and (max-width: $breakMobile) {
+  transform: translateX(-15px);
   }
 }
 
@@ -829,6 +838,7 @@
   border: 1px solid $twitter-color;
   background-color: transparent;
   border-radius: 5px;
+  outline: none;
   @media screen and (max-width: $breakTablet) {
     width: 70vw;
   }
@@ -1033,3 +1043,82 @@
 .basket-form__item_title {
   font-weight: bold;
 }
+
+.promo-input {
+  line-height: 40px;
+  width: 100%;
+  height: 40px;
+  padding: 0 15px;
+  background-color: #fff !important;
+  border: 1px solid #1da1f2;
+  background-color: transparent;
+  border-radius: 5px;
+  outline: none;
+}
+
+.coupon-row {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin: 50px 50px 0 50px;
+}
+
+.coupon-row__column {
+  display: block;
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.giftd-cart-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.giftd-cart-form__row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.giftd-cart-form__fields {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(	https://kitchen-time.ru/assets/f00fd022/img/gift_bg.jpg) no-repeat;
+  background-size: cover;
+  min-width: 224px;
+  width: 224px;
+  height: 119px;
+}
+
+.giftd-cart-form__fields>.form-group {
+  margin: 0!important;
+}
+
+.giftd-cart-form__fields>.form-group>input {
+  width: 200px;
+  padding: 0 10px;
+}
+
+.giftd-cart-form__actions {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.giftd-cart-form__actions_row {
+  margin-bottom: 10px;
+}
+
+.giftd-cart-form__text {
+  font-size: 13px;
+  line-height: 21.32px;
+}
+
+.giftd-cart-form__row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
