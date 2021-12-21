@@ -133,7 +133,7 @@ export const brandProducts: Callback = ({ id }: { id: number }) => {
   addToHistory({
     // pathname: `/category?name=${obj.name}`,
 
-    pathname: `brand/products`,
+    pathname: `/brand/products`,
 
     searchParams,
 
@@ -142,7 +142,8 @@ export const brandProducts: Callback = ({ id }: { id: number }) => {
   });
 
   // bus.emit('brands products state confirmed', { pathname: '/brand/products' });
-  bus.emit('show view', { name: 'brandsProductPage', pathname: 'brand/products' });
+  // bus.emit('show view', { name: 'brandsProductPage', pathname: 'brand/products' });
+  bus.emit('show view', { name: 'brandsProductPage', pathname: '/brand/products' });
 
 
 
@@ -216,7 +217,7 @@ export const reviews: Callback = () => {
 export const search: Callback = (response: { 'responseText': string, 'pathname': string, 'str': string }) => {
   // bus.emit('show view', { name: 'search' });
 
-  console.warn(response);
+  // console.warn(response);
   addToHistory({
     pathname: response.pathname,
     str: response.str,

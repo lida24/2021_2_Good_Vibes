@@ -35,17 +35,18 @@ export type Product = {
   count_in_stock: number,
   description: string,
   id: number,
-  image: string,
+  image: string | string[],
   name: string,
   price: number,
   rating: number,
   is_favourite: boolean,
   nameBtn: string,
+  product_id?: number,
 };
 
 export type Brand = {
   name: string,
-  image: string,
+  image: string | string[],
   id: number,
 };
 
@@ -107,6 +108,18 @@ export type myReview = {
   product: Product,
 };
 
+export type myOrder = {
+  'address': Address,
+  'cost': number,
+  'date': string,
+  'order_id': number,
+  'products': Product[],
+  'status': string,
+  'email'?: string,
+  'cost_with_promo'?: number,
+  'promocode'?: string;
+};
+
 export type ProductSuggest = {
   'id': number,
   'name': string,
@@ -137,3 +150,14 @@ export type SearchParamsType = {
   type: 'asc' | 'desc',
   orderType: 'rating' | 'price',
 };
+
+// export type CartProduct = {
+//   description: "Крутые желтые кроссовки"
+//   image: "https://products-bucket-ozon-good-vibes.s3.eu-west-1.amazonaws.com/b2810c77-186e-479d-8962-a885d41164cd"
+//   name: "https://products-bucket-ozon-good-vibes.s3.eu-west-1.amazonaws.com/b2810c77-186e-479d-8962-a885d41164cd"
+//   number: 1
+//   order_id: 280
+//   price: 10000
+//   product_id: 867
+//   rating: 5
+// }

@@ -1,26 +1,5 @@
 @import "../../styles/main.scss";
 .layout-inner-profile {
-  /*margin: 0 10vw;
-  margin-top: 10vh;
-  /* min-height: calc(145vh - 44px);  */ /* 100 
-  width: 80%;
-  @media screen and (max-width: $breakTablet) {
-    margin: 0 5vw;
-    width: 80%;
-    margin-top: 15vw;
-  }
-
-  margin: 0 15vw;
-    margin-top: 5vh;
-    /* min-height: calc(145vh - 44px); */
-  /* @include set-size(80%, 100%); */
-  /* @media screen and (max-width: $breakTablet) {
-      margin: 0 5vw;
-      margin-top: 10vh;
-      /* min-height: calc(100vh - 44px); 
-      width: 80%;
-    } */
-
   margin: 0 15vw;
   margin-top: 5vh;
   flex: 1 0 auto;
@@ -43,12 +22,10 @@
 }
 
 .g-page-title {
-  /* margin: 90px 0 30px; */
   font-size: 3vh;
   @media screen and (max-width: $breakMobile) {
     margin: 5vw 5vw;
   }
-  /* margin-bottom: 1vh; */
 }
 
 .middle-container {
@@ -92,19 +69,6 @@
 }
 
 .profile-block {
-  /* height: 410px;
-  margin-right: 180px;
-  margin-left: 20px;
-  background: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 15px 25px #333;
-  @media screen and (max-width: $breakTablet) {
-    margin-left: 0px;
-    margin-right: 0px;
-    box-shadow: 0 15px 25px #fff;
-  } */
-  /* width: 100%; */
   width: 45%;
   height: 100%;
   @media screen and (max-width: $breakDesktop) {
@@ -127,7 +91,6 @@
       margin: 0 0 30px;
       padding: 0;
       color: #333;
-      /* text-align: center; */
       font-size: 35px;
       letter-spacing: 0.4px;
       line-height: 30px;
@@ -165,7 +128,6 @@
   }
 
   &-settings {
-    /* width: 100%; */
     width: 80%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -201,18 +163,6 @@
     margin: 2vh;
   }
 }
-/* h1,
-h2,
-p,
-a,
-span {
-  color: #333;
-} */
-
-/* a {
-  text-decoration: none;
-  font-size: 15px;
-} */
 
 .profile-picture {
   margin: 0 auto;
@@ -241,9 +191,6 @@ span {
   font-size: 23px;
 }
 .profile-description {
-  /* width: 210px;
-  margin: 0 auto;
-  text-align: center; */
   margin-top: 1.5vh;
   margin-left: 1vh;
   width: 100%;
@@ -260,28 +207,10 @@ span {
   }
 }
 
-/* p {
-  font-size: 15px;
-} */
-
 .update-btn {
   display: none;
-  /* @include blue-button(25.2vh, 4vh);
-  @media screen and (max-width: $breakTablet) {
-    width: 15vh;
-  } */
-  /* @include blue-button(20vw, 4vh); */
   @include blue-button(80%, 4vh);
-  /* font-size: 0.7vh; */
-  /* margin-top: 40px; */
-  /*  @media screen and (max-width: $breakTablet) {
-    width: 15vh;
-  }  */
   margin: 1.2vh 0;
-  /* display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; */
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -319,11 +248,6 @@ span {
 
 .logout-btn {
   @include blue-button(80%, 4vh);
-  /* font-size: 0.7vh; */
-  /* margin-top: 40px; */
-  /*  @media screen and (max-width: $breakTablet) {
-    width: 15vh;
-  }  */
   margin: 1.2vh 0;
   display: -webkit-box;
   display: -webkit-flex;
@@ -382,11 +306,8 @@ span {
 }
 
 .auth-box-form-profile {
-  /* margin-bottom: 20px;
-  width: 400px; */
   border: 0;
   border-radius: 1vh;
-  /* @include shadow-block(#fff); */
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -396,7 +317,6 @@ span {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  /* padding: 1vh 2.5vh; */
   height: 100%;
 
   @media screen and (max-width: $breakDesktop) {
@@ -430,27 +350,17 @@ span {
     font-size: 16px;
     color: #333;
     pointer-events: none;
-    transition: 0.5s; /*  */
+    transition: 0.5s;
     &:hover {
       cursor: pointer;
     }
   }
 }
 
-/* .user-box input:focus ~ label {
-  top: -30px;
-  left: 0;
-  color: #1da1f2;
-  font-size: 12px;
-}
- */
-
 .my_account_orders {
   font-size: 16px;
   border-collapse: collapse;
   border-spacing: 0;
-  /* max-width: 600px;
-  width: 100%; */
   width: 20vw;
   @media screen and (max-width: $breakTablet) {
     margin: 5vw 5vw;
@@ -458,19 +368,9 @@ span {
   @media screen and (max-width: $breakMobile) {
     margin: 5vw 15vw;
   }
-  /* margin: 42px 20px; */
   th {
     text-align: left;
   }
-}
-
-tr {
-  border-bottom: 1px solid #ccc;
-}
-
-th,
-td {
-  padding: 6px;
 }
 
 .b2m4 {
@@ -629,7 +529,6 @@ td {
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  /* flex-wrap: wrap; */
   margin-bottom: -24px;
   margin-left: -24px;
   max-width: calc(100% + 24px);
@@ -821,13 +720,8 @@ select:disabled {
     }
   }
 
-  /* &__separator {
-    @include separator-bottom;
-  }
- */
   &-buttons {
     margin-top: 1.5vh;
-    /* margin-left: 1vh; */
 
     width: 100%;
 

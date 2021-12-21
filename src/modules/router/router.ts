@@ -27,13 +27,6 @@ class Router {
   public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType, 'str'?: string, 'id'?: number }): void {
     const { pathname, searchParams, str, id } = obj;
 
-    console.warn(obj);
-    // debugger;
-
-    // if (id) {
-
-    // }
-
     let uri = pathname;
     const reg = pathname.match(/(\/.*)\?/);
     if (reg) {
@@ -55,7 +48,7 @@ class Router {
       path = path.concat(`str=${decodeURI(str)}&`);
     }
 
-    if (str) {
+    if (id) {
       path = path.concat(`id=${id}&`);
     }
 
@@ -85,6 +78,7 @@ class Router {
       return;
     }
 
+    // console.warn(path);
 
     window.history.pushState(
       {
@@ -98,6 +92,8 @@ class Router {
 
   private handlePathname(pathname: string): string {
     const temp = pathname.match(/\/category\/(.+)/);
+
+    // console.warn(this.list, pathname);
 
     if (temp !== null) {
       return 'category';
@@ -114,7 +110,7 @@ class Router {
     const { pathname, search } = window.location;
     const state = this.handlePathname(pathname);
 
-    const idReg = search.match(/.*id=(\d+)/);
+    const idReg = search.match(/.*id=(\d+).*/);
     let id: number;
     if (idReg) {
       id = +idReg[1];
@@ -138,13 +134,27 @@ class Router {
       SearchParams[value] = key;
     });
 
-    // debugger;
+
+
 
     let str = '';
     const strReg = decodeURI(search).match(/.*str=([а-яА-Я|\w|\s]+).*/);
     if (strReg) {
       str = strReg[1];
     }
+
+    // console.warn({
+    //   id, name, pathname, search: false,
+    //   str,
+    //   state
+    //   // str: search
+    // })
+
+    // debugger;
+
+    // export const brandProductStateRequest: Callback = (obj: { 'name': string, id: number }) => {
+    //   bus.emit('brand products ajax request', obj);
+    // };
 
 
     bus.emit(`${state} state request`, {

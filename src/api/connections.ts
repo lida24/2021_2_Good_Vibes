@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import { Connection } from '../types';
 import * as ajax from './callbacks';
 
@@ -57,6 +56,12 @@ const ajaxConnections: Connection[] = [
     event: 'product info by id for reviews',
     callback: ajax.productInfoByIdForReview,
   },
+
+  {
+    event: 'product info by id for orders list request',
+    callback: ajax.productInfoByIdForOrdersList,
+  },
+
   {
     event: 'cart ajax confirmed',
     callback: ajax.cartConfirm,
@@ -144,19 +149,19 @@ const ajaxConnections: Connection[] = [
     ]
   },
   {
-    event: 'brands ajax request', 
+    event: 'brands ajax request',
     callback: [
       ajax.brands,
     ]
   },
   {
-    event: 'newest ajax request', 
+    event: 'newest ajax request',
     callback: [
       ajax.newest,
     ]
   },
   {
-    event: 'sales ajax request', 
+    event: 'sales ajax request',
     callback: [
       ajax.sales,
     ]

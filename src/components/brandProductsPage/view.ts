@@ -3,6 +3,7 @@ import View from '../../modules/vibeView/view';
 import { ViewInterface } from '../../types';
 import connections from './connections';
 import bus from '../../modules/bus/bus';
+import './brandProductPage.scss';
 
 export default class BrandProductPage extends View implements ViewInterface {
 

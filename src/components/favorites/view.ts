@@ -4,6 +4,7 @@ import { ViewInterface } from "../../types";
 import connections from "./connections";
 import bus from "../../modules/bus/bus";
 import initEvents from "./events";
+import './favorite.scss';
 
 export default class Favorites extends View implements ViewInterface {
   private async renderHTML() {

@@ -14,7 +14,7 @@ import Favorites from '../../components/favorites/view';
 import { order } from '../../api/callbacks';
 import Orders from '../../components/myOrder/view';
 import Reviews from '../../components/reviews/view';
-import SearchPage from '../../components/searchPage/view';
+/* import SearchPage from '../../components/searchPage/view'; */
 import Newest from '../../components/news/view';
 import Sales from '../../components/sales/view';
 import Brands from '../../components/brands/view';
@@ -36,7 +36,7 @@ const constructor: { [name: string]: ConstructorInterface } = {
   /* orders: Orders, */
   // search: CategoryPage,
 
-  search: SearchPage,
+ /*  search: SearchPage, */
 
 
   favorite: Favorites,

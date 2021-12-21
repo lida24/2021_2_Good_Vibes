@@ -7,6 +7,7 @@ const connections: Connection[] = [
     event: "reviews shown",
     callback: [
         reviews.reviewsListRequest,
+        reviews.fieldsFill,
         reviews.showAvatar,
     ]
   },

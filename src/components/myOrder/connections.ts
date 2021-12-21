@@ -4,7 +4,12 @@ import * as orders from "./callbacks";
 const connections: Connection[] = [
     {
         event: "orders shown",
-        callback: orders.ordersListRequest,
+        callback: [
+            orders.cleanOrderContainer,
+            orders.ordersListRequest,
+            orders.fieldsFill,
+            orders.showAvatar,
+        ],
     },
     {
         event: "orders list confirmed",
@@ -13,6 +18,10 @@ const connections: Connection[] = [
     {
         event: "show orders list",
         callback: orders.showOrderList,
+    }, 
+    {
+        event: "details button click",
+        callback: orders.controlDetails,
     },
 ];
 

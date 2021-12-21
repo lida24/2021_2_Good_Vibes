@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import bus from "../modules/bus/bus";
 import ajax from "../modules/rpc/ajax";
 import {
@@ -124,6 +123,21 @@ export const productInfoByIdForReview: Callback = (obj: Comment) => {
       bus.emit("product request denied", { responseText })
     );
 };
+
+export const productInfoByIdForOrdersList: Callback = ({ id }: { id: number }) => {
+
+  ajax
+    .get({
+      url: `${backendAddress}/product?id=${id}`,
+    })
+    .then(({ responseText }) =>
+      bus.emit("product info by id for orders list request success", { product: JSON.parse(responseText) })
+    )
+    .catch(({ responseText }) =>
+      bus.emit("product request denied", { responseText })
+    );
+};
+
 
 
 export const productArrayRequest: Callback = (array: CartItem[]) => {
@@ -342,7 +356,7 @@ export const avatarUpload: Callback = (file: File) => {
 };
 
 export const orderList: Callback = () => {
-  // console.log('orderList ajax request');
+  console.log('orderList ajax request');
   ajax
     .get({
       url: `${backendAddress}/profile/orders`,
