@@ -38,11 +38,25 @@ export const fieldsFill: Callback = () => {
 
   userName.textContent = user.username;
   loginInput.value = user.username;
-  emailInput.value = user.email;
-  realNameInput.value = user.real_name;
-  realSurnameInput.value = user.real_surname;
-  sexInput.value = user.sex;
+
+  realNameInput.value = '';
+  realSurnameInput.value = '';
+  sexInput.value = '';
+
+  if (user.real_name) {
+    realNameInput.value = user.real_name;
+  }
+
+  if (user.real_surname) {
+    realSurnameInput.value = user.real_surname;
+  }
+
+  if (user.sex) {
+    sexInput.value = user.sex;
+  }
+
   photo.style.backgroundImage = `url(${user.avatar})`;
+  emailInput.value = user.email;
 };
 
 export const profileUploadRequest: Callback = () => {
