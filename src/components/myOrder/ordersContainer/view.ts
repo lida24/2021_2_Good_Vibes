@@ -36,7 +36,7 @@ export default class OrdersContainer {
   constructor(context: myOrder) {
     this.setContext(context);
     this.self = <HTMLElement>document.createElement('ul');
-    this.self.className = 'orders-container';
+    this.self.className = 'orders-container-ul';
     /* bus.add(connections); */
     this.render();
   }

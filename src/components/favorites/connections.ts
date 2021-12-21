@@ -6,6 +6,7 @@ const connections: Connection[] = [
         event: 'favorite product array parsed',
         callback: [
             favorites.addProductArrayFavorite,
+            favorites.fieldsFill,
             favorites.showAvatar,
         ]
     },

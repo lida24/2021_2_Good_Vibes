@@ -1,20 +1,19 @@
 <div class="orders-history__row">
-  <div class="orders-history__col">
+  <div class="orders-history__col date">
     {{date}}
   </div>
   <div class="orders-history__col">
     <div class="order-item">
       <div class="order-item__title">
         <div class="order-item__info">
-          {{!-- <span>15.07.2020</span> --}}
-          <span>Покупка товара на сумму</span>
+          {{! <span>15.07.2020</span> }}
+          <span class="price-title">Покупка товара на сумму</span>
           <span>{{cost}} ₽</span>
         </div>
       </div>
       <div class="order-item__collapse">
         <div class="order-item__pay">
-          <p>Способ оплаты: Картой онлайн </p>
-          {{!-- <span>2 302 ₽</span> --}}
+          <p>Статус: <span>{{status}}</span></p>
         </div>
       </div>
       <ul class="order-item__list">
@@ -39,8 +38,8 @@
       Детали
     </button>
   </div>
-  {{!-- </li>
+  {{! </li>
   </ul>
   </li>
-  </ul> --}}
+  </ul> }}
 </div>

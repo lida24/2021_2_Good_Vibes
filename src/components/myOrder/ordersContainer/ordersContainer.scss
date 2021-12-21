@@ -113,7 +113,7 @@
   -ms-flex-align: center;
   align-items: center;
   padding: 0 0 20px;
-  width: max-content;
+  width: fit-content;
 }
 
 .orders-history,
@@ -132,6 +132,15 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  @media (max-width: $breakDesktop) {
+    flex-direction: column-reverse;
+  }
+  @media (max-width: $breakTablet) {
+    flex-direction: column-reverse;
+  }
+  @media (max-width: $breakMobile) {
+    flex-direction: column-reverse;
+  }
 }
 
 .orders-history,
@@ -177,7 +186,9 @@ img {
 
 .orders-history,
 .order-item__desc {
-  max-width: calc(100% - 82px);
+  @media (min-width: $breakDesktop) {
+    width: -webkit-fill-available;
+  }
 }
 
 .orders-history,
@@ -236,6 +247,15 @@ img {
   margin-left: 20px;
   padding: 1px 0 0;
   white-space: nowrap;
+  @media (max-width: $breakDesktop) {
+    margin-left: 0;
+  }
+  @media (max-width: $breakTablet) {
+    margin-left: 0;
+  }
+  @media (max-width: $breakMobile) {
+    margin-left: 0;
+  }
 }
 
 .orders-history,
@@ -244,11 +264,22 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  @media (max-width: $breakDesktop) {
+    flex-direction: column-reverse;
+  }
+  @media (max-width: $breakTablet) {
+    flex-direction: column-reverse;
+  }
+  @media (max-width: $breakMobile) {
+    flex-direction: column-reverse;
+  }
 }
 
 .orders-history,
 .order-item__desc {
-  max-width: calc(100% - 82px);
+  @media (min-width: $breakDesktop) {
+    width: -webkit-fill-available;
+  }
 }
 
 .orders-history,
@@ -256,7 +287,6 @@ img {
   position: relative;
   font-size: 0;
   width: 100%;
-  height: 100%;
   border: none;
   float: right;
   background: transparent;
@@ -313,4 +343,45 @@ img {
 
 .btn__active::after {
   transform: rotate(0deg);
+}
+
+.price-title {
+  @media (max-width: $breakTablet) {
+    display: none;
+  }
+  @media (max-width: $breakMobile) {
+    display: none;
+  }
+}
+
+.date {
+  margin-right: 40px;
+  @media (max-width: $breakTablet) {
+    margin-right: 40px;
+  }
+  @media (max-width: $breakMobile) {
+    margin-right: 20px;
+  }
+}
+
+.order-item__title {
+  width: max-content;
+}
+
+.order-item__info {
+  width: max-content;
+}
+
+.orders-container-ul {
+  margin: revert;
+  @media (max-width: $breakTablet) {
+    border: 1px solid #d5d5d5;
+    border-radius: 12px;
+    padding: 10px;
+  }
+  @media (max-width: $breakMobile) {
+    border: 1px solid #d5d5d5;
+    border-radius: 12px;
+    padding: 10px;
+  }
 }

@@ -1,11 +1,14 @@
 <div class="order-item__data">
   <div class="order-item__img img-plug">
-    <img width="75" height="100" src="//images.wbstatic.net/c246x328/new/13030000/13030057-1.jpg"
-      alt="По следам гроссмейстера. Решебник">
+    <a href="/product?id={{product_id}}">
+      <img width="75" height="100" src="{{image}}" />
+    </a>
   </div>
   <div class="order-item__desc">
-    <h2 class="order-item__name">Издательство Врублевская Ольга Анатольевна, По следам гроссмейстера. Решебник
-    </h2>
+    <a class="product-item__href" href="/product?id={{product_id}}"><h2 class="order-item__name">
+        {{description}}
+      </h2>
+    </a>
   </div>
 </div>
-<div class="order-item__price">{{ price }} ₽</div>
+<div class="order-item__price">{{price}} ₽</div>
