@@ -21,9 +21,17 @@ export const fieldsFill: Callback = () => {
   const userName = <HTMLImageElement>(
     document.getElementsByClassName("b2n")[0]
   );
-
+  const realNameInput = <HTMLInputElement>(
+    document.getElementsByClassName("user-box__firstname")[0]
+  );
+  const realSurnameInput = <HTMLInputElement>(
+    document.getElementsByClassName("user-box__secondname")[0]
+  );
   const birthdayInput = <HTMLInputElement>(
     document.getElementsByClassName("user-box__birthday")[0]
+  );
+  const sexInput = <HTMLInputElement>(
+    document.getElementsByClassName("user-box__sex")[0]
   );
 
   birthdayInput.valueAsDate = new Date(user.birth_day);
@@ -31,6 +39,9 @@ export const fieldsFill: Callback = () => {
   userName.textContent = user.username;
   loginInput.value = user.username;
   emailInput.value = user.email;
+  realNameInput.value = user.real_name;
+  realSurnameInput.value = user.real_surname;
+  sexInput.value = user.sex;
   photo.style.backgroundImage = `url(${user.avatar})`;
 };
 
@@ -105,4 +116,18 @@ export const changeInfoDisabled: Callback = () => {
   })
   const updateBtn = <HTMLElement>(document.getElementsByClassName('update-btn')[0]);
   updateBtn.style.display = 'none';
+};
+
+export const handleUpdateConfirmed: Callback = (obj) => {
+  const updateLabel = <HTMLLabelElement>document.getElementsByClassName('profile-update-alert-label')[0];
+
+  updateLabel.textContent = 'Данные обновлены!';
+  updateLabel.style.visibility = 'visible';
+  // console.warn('handleUpdateConfirmed', obj);
+
+};
+
+export const hideAlert: Callback = () => {
+  const updateLabel = <HTMLLabelElement>document.getElementsByClassName('profile-update-alert-label')[0];
+  updateLabel.style.visibility = 'hidden';
 }
