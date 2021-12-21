@@ -176,3 +176,7 @@ export const changeBtnToAddFavorite: Callback = (obj: { 'id': number }) => {
   });
 };
 
+export const setMainImg: Callback = ({ src }: { src: string }) => {
+  const mainImg = <HTMLImageElement>document.getElementsByClassName('slides__picture')[0];
+  mainImg.src = src;
+};

@@ -35,7 +35,7 @@ export type Product = {
   count_in_stock: number,
   description: string,
   id: number,
-  image: string,
+  image: string | string[],
   name: string,
   price: number,
   rating: number,
@@ -46,7 +46,7 @@ export type Product = {
 
 export type Brand = {
   name: string,
-  image: string,
+  image: string | string[],
   id: number,
 };
 

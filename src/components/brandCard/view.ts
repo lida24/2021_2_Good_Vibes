@@ -6,7 +6,7 @@ import connections from './connections';
 import initEvents from './events';
 import './brandCard.scss';
 
-export default class BrandCard extends View implements ViewInterface {
+export default class BrandCard extends View {
   public contextBrand: Brand;
 
   private async renderHTML() {
@@ -22,11 +22,11 @@ export default class BrandCard extends View implements ViewInterface {
 
   constructor(className: string, context: Brand) {
     super();
-    this.contextBrand = context 
+    this.contextBrand = context
     this.self = <HTMLElement>document.createElement('div');
     bus.add(connections);
     this.render();
-  } 
+  }
 
   public setContext(context: Brand): void {
     this.contextBrand = context;

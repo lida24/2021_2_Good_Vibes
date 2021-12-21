@@ -63,6 +63,15 @@ const connections: Connection[] = [
       productPage.handleResponse,
     ],
   },
+
+  // ------------------
+  {
+    event: 'mini img selected',
+    callback: [
+      productPage.setMainImg,
+
+    ],
+  }
 ];
 
 export default connections;

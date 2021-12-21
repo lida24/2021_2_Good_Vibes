@@ -1,7 +1,11 @@
 import bus from '../../modules/bus/bus';
 import { Product, ProductId } from '../../types';
 
-const initEvents: (self: HTMLElement, context: Product) => void = (self, context) => {
+// const initEvents: (self: HTMLElement, context: Product) => void = (self, context) => {
+const initEvents: (self: HTMLElement, { context, img }: { context: Product, img: string[] }) => void = (self, { context, img }) => {
+
+  // debugger;
+
   // ------------------
   const backBtn = <HTMLAnchorElement>self.getElementsByClassName('back-to-result__link')[0];
   backBtn.addEventListener('click', (event) => {
