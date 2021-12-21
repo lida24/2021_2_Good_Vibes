@@ -16,6 +16,10 @@ const connections: Connection[] = [
     event: 'set rating',
     callback: newCommentContainer.initRatings,
   },
+  {
+    event: 'add comment request denied',
+    callback: newCommentContainer.handleError,
+  },
 ];
 
 export default connections;

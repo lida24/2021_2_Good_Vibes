@@ -4,7 +4,10 @@ import * as profile from "./callbacks";
 const connections: Connection[] = [
   {
     event: "profile shown",
-    callback: [profile.fieldsFill],
+    callback: [
+      profile.fieldsFill,
+      profile.hideAlert,
+    ],
   },
   {
     event: "update button click",
@@ -27,6 +30,13 @@ const connections: Connection[] = [
   //   event: 'profile link click',
   //   callback: profile.
   // }
+
+  // ----------------
+  {
+    event: 'profile upload confirmed',
+    callback: profile.handleUpdateConfirmed,
+  },
+
 ];
 
 export default connections;

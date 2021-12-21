@@ -32,7 +32,7 @@ export const savePageYOffset: Callback = () => {
 };
 
 export const scrollToPageYOffset: Callback = () => {
-  document.documentElement.scrollTop = pageYOffset || 0;
+   document.documentElement.scrollTop = pageYOffset || 0;
 };
 /*
 const hideSignInContent: Callback = () => {
