@@ -50,6 +50,11 @@ export default class ProductPage extends View implements ViewInterface {
 
   public async render(): Promise<void> {
     await this.renderHTML();
+
+    // -----------------------
+    this.self.getElementsByClassName('board-bottom')[0].appendChild(newCommentContainer?.self);
+    // ----------------------
+
     return this.show();
   }
 
