@@ -40,7 +40,9 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: | 
+        npm run build 
+        ls
 
       - name: Upload build result
         uses: actions/upload-artifact@v1
@@ -64,6 +66,6 @@ jobs:
           username: ubuntu
           port: 22
           password: ${{ secrets.PASSWORD }}
-          source: "build/*"
+          source: "dist"
           target: "/home/ubuntu/deployFront"
           strip_components: 1
