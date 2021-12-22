@@ -753,6 +753,10 @@
     @include blue-button(50vw, 40px);
     font-size: 16px;
   }
+  @media screen and (max-width: 320px) {
+    @include blue-button(90vw, 40px);
+    font-size: 16px;
+  }
 }
 
 .promo-btn {
@@ -906,7 +910,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(https://kitchen-time.ru/assets/f00fd022/img/gift_bg.jpg)
+  background: url(../../img/gift_bg.jpeg)
     no-repeat;
   background-size: cover;
   min-width: 224px;
