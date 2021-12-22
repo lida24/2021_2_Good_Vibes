@@ -196,7 +196,7 @@ export const promoAlert: Callback = () => {
   // console.warn('promo alert', undefined);
 
   const inputAlertLabel = <HTMLLabelElement>document.getElementsByClassName('promo-alert-label')[0];
-  inputAlertLabel.style.visibility = 'visible';
+  inputAlertLabel.style.visibility = '';
 
   cart.setPromo = '';
 
