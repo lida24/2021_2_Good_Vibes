@@ -196,6 +196,8 @@ export const promoAlert: Callback = () => {
   // console.warn('promo alert', undefined);
 
   const inputAlertLabel = <HTMLLabelElement>document.getElementsByClassName('promo-alert-label')[0];
+  inputAlertLabel.textContent = 'Промокод недействителен';
+  inputAlertLabel.style.color = 'red';
   inputAlertLabel.style.visibility = 'visible';
 
   cart.setPromo = '';
@@ -205,6 +207,11 @@ export const promoAlert: Callback = () => {
 
 export const promoHandle: Callback = (obj: Order) => {
   // console.warn('promo valid', obj)
+
+  const inputAlertLabel = <HTMLLabelElement>document.getElementsByClassName('promo-alert-label')[0];
+  inputAlertLabel.textContent = 'Промокод принят!'
+  inputAlertLabel.style.color = 'green';
+  inputAlertLabel.style.visibility = 'visible';
 
   cart.setPromo = obj.promocode;
 
