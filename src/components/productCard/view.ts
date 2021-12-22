@@ -18,8 +18,10 @@ export default class ProductCard extends View implements ViewInterface {
     if (this.context.sales === true) {
       const sale = <HTMLElement>this.self.getElementsByClassName("gOrdpE")[0];
       const saleContent = <HTMLElement>this.self.getElementsByClassName("kgKATk")[0];
+      const border = <HTMLElement>this.self.getElementsByClassName("cXzms")[0];
       sale.style.display = 'block';
       saleContent.style.display = 'block';
+      border.style.background = 'linear-gradient(to left bottom, #afeeee, rgb(255, 255, 255))';
       return this.show();
     }
   }
