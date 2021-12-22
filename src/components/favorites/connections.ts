@@ -7,9 +7,13 @@ const connections: Connection[] = [
         callback: [
             favorites.addProductArrayFavorite,
             favorites.fieldsFill,
-            favorites.showAvatar,
+
         ]
     },
+    {
+        event: 'favorite shown',
+        callback: favorites.showAvatar,
+    }
 ];
 
 export default connections;

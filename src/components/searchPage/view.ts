@@ -17,10 +17,10 @@ export default class SearchPage extends View implements ViewInterface {
   public async render(): Promise<void> {
     await this.renderHTML();
 
-    // ---------------------------
-    const searchFiltersContainer = new SearchFiltersContainer(undefined);
-    this.self.getElementsByClassName('search-left')[0].prepend(searchFiltersContainer.self);
-    // ---------------------------
+    // // ---------------------------
+    // const searchFiltersContainer = new SearchFiltersContainer(undefined);
+    // this.self.getElementsByClassName('search-left')[0].prepend(searchFiltersContainer.self);
+    // // ---------------------------
 
     initEvents(this.self);
 
