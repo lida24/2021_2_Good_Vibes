@@ -11,7 +11,9 @@ export default class ReviewsContainer {
   public context: myReview;
 
   private async renderHTML() {
-    const html = compiledTemplate({ ...this.context.comment, ...this.context.product });
+    const img = <string[]>this.context.product.image;
+
+    const html = compiledTemplate({ ...this.context.comment, ...this.context.product, ...img });
     this.self.innerHTML = html;
     // initEvents(this.self);
   }
