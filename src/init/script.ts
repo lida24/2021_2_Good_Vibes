@@ -63,7 +63,7 @@ const init: () => void = () => {
 
   document.getElementsByClassName('body')[0].appendChild(navbar.self);
 
-  debugger;
+  // debugger;
 
   const navbarMobile = <HTMLElement>document.getElementsByClassName('navbar-mobile')[0];
   navbarMobile.style.visibility = 'visible';

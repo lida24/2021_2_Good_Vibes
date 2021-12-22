@@ -16,7 +16,7 @@ export const addProductArray: Callback = (array: Product[]) => {
 };
 
 export const addProductArrayRec: Callback = (array: Product[]) => {
-  debugger;
+  // debugger;
 
   const productContainer = document.getElementById('product-table-bodytrends');
   /* productContainer.textContent = '';

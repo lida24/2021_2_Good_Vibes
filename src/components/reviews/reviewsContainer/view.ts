@@ -1,6 +1,6 @@
 import * as compiledTemplate from './template.handlebars';
 // import bus from '../../../init/bus';
-// import initEvents from './events';
+import initEvents from './events';
 // import connections from './connections';
 import { myReview } from '../../../types';
 import './reviewsContainer.scss';
@@ -15,7 +15,7 @@ export default class ReviewsContainer {
 
     const html = compiledTemplate({ ...this.context.comment, ...this.context.product, ...img });
     this.self.innerHTML = html;
-    // initEvents(this.self);
+    initEvents(this.self, this.context.product.id);
   }
 
   public async render(): Promise<void> {
