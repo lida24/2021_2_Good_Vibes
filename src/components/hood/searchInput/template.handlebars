@@ -16,7 +16,18 @@
 
 <div class="search-catalog">
   <form class="search-form">
-    <input type="search" class="search-input" placeholder="Искать товары" style="visibility: hidden;" />
+    <input type="search" class="search-input" placeholder="Искать товары" style="visibility: export const product: Callback = (obj: { id: number; price: number }) => {
+  const { id, price } = obj;
+
+  ajax
+    .get({
+      url: `${backendAddress}/product?id=${id}`,
+    })
+    .then(({ responseText }) =>
+      bus.emit(" product request confirmed", { responseText }) ) .catch(({ responseText })=>
+    bus.emit("product request denied", { responseText })
+    );
+    };hidden;" />
     <ul class="search-suggests">
     </ul>
   </form>
