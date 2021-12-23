@@ -12,7 +12,15 @@ const connections: Connection[] = [
     },
     {
         event: 'favorite shown',
-        callback: favorites.showAvatar,
+        callback: [
+            favorites.showAvatar,
+            () => {
+                // justify-content: flex-start;
+                const a = <HTMLElement>document.getElementsByClassName('product-table-body')[0];
+                a.style.justifyContent = 'flex-start';
+            }
+        ]
+
     }
 ];
 
