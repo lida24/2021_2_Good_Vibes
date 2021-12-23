@@ -241,28 +241,20 @@ export const promoHandle: Callback = (obj: Order) => {
 
         `
         <s>
-          <span class="item-price-${prod.product_id}">${prod.price}</span>
-          <span class="currnecy"> ₽</span>
+          <span class="item-price-${prod.product_id}">${prod.price} ₽</span>
         </s>
-        <div>
-          <span class="item-price-${prod.product_id}">${prod.price_with_promo}</span>
-          <span class="currnecy"> ₽</span>
-        </div>
-
-      `
+        <br>
+        <span class="item-price-${prod.product_id}">${prod.price_with_promo} ₽</span>
+        `
 
       rowPriceSpan.innerHTML =
 
         `
         <s>
-          <span class="raw-item-price-${prod.product_id} raw-total-price-calc">${prod.price * prod.number}</span>
-          <span class="currnecy"> ₽</span>
+          <span class="raw-item-price-${prod.product_id} raw-total-price-calc">${prod.price * prod.number} ₽</span>
         </s>
-        <div>
-          <span class="raw-item-price-${prod.product_id} raw-total-price-calc">${prod.price_with_promo * prod.number}</span>
-          <span class="currnecy"> ₽</span>
-        </div>
-
+        <br>
+        <span class="raw-item-price-${prod.product_id} raw-total-price-calc">${prod.price_with_promo * prod.number} ₽</span>
       `
 
 
@@ -284,51 +276,21 @@ export const promoHandle: Callback = (obj: Order) => {
   if (obj.cost !== obj.cost_with_promo) {
 
     const totalPriceLabel = <HTMLSpanElement>document.getElementsByClassName('basket-order-total__number')[0];
-    totalPriceLabel.innerHTML =
-      //   `
-      //   <s>
-      //     <span class="basket-order-total__number">${obj.cost}</span>
-      //     <span class="currnecy"> ₽</span>
-      //   </s>
-      //   <br>
-      //   <span class="basket-order-total__number">${obj.cost_with_promo}</span>
-      //   <span class="currnecy"> ₽</span>
-      // `;
-
-      `
-        <s>
-      <span class="basket-order-total__number">${obj.cost}</span>
-      <span class="currnecy"> ₽</span>
-        </s>
-        <div>
-    <span class="basket-order-total__number">${obj.cost_with_promo}</span>
-    <span class="currnecy"> ₽</span>
-        </div>
-
-      `
+    totalPriceLabel.innerHTML = `
+    <s>
+      <span class="basket-order-total__number">${obj.cost} ₽</span>
+    </s>
+    <br>
+    <span class="basket-order-total__number">${obj.cost_with_promo} ₽</span>
+  `;
 
     const totalPriceLabelMobile = <HTMLSpanElement>document.getElementsByClassName('basket-order-total__number-mobile')[0];
-    totalPriceLabelMobile.innerHTML =
-      //    `
-      //   <s>
-      //     <span class="basket-order-total__number">${obj.cost}</span>
-      //     <span class="currnecy"> ₽</span>
-      //   </s>
-      //   <br>
-      //   <span class="basket-order-total__number">${obj.cost_with_promo}</span>
-      //   <span class="currnecy"> ₽</span>
-      // `;
-
-      `
-        <s>
-      <span class="basket-order-total__number">${obj.cost}</span>
-      <span class="currnecy"> ₽</span>
-        </s>
-        <div>
-    <span class="basket-order-total__number">${obj.cost_with_promo}</span>
-    <span class="currnecy"> ₽</span>
-        </div>
-
-      `
+    totalPriceLabelMobile.innerHTML = `
+    <s>
+      <span class="basket-order-total__number">${obj.cost} ₽</span>
+    </s>
+    <br>
+    <span class="basket-order-total__number">${obj.cost_with_promo} ₽</span>
+  `;
   }
 };
