@@ -108,6 +108,7 @@
   -webkit-box-flex: 0;
   flex: 0 0 100px;
   width: 100px;
+  // justify-content: space-around;
   /* .basket__table_label {
     @media screen and (max-width: $breakMobile) {
       display: none;
@@ -123,6 +124,7 @@
 
 .basket__table_price--transform {
   transform: translateX(-30px);
+  justify-content: space-around;
 }
 
 .basket__table_cell.basket__table_cell--count {
