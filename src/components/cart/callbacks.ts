@@ -228,7 +228,18 @@ export const promoHandle: Callback = (obj: Order) => {
     const rowPriceSpan = <HTMLSpanElement>target.getElementsByClassName('basket__table_text-bold')[0];
 
     if (prod.price_with_promo !== prod.price) {
-      priceSpan.innerHTML = `
+      priceSpan.innerHTML =
+        //   `
+        //   <s>
+        //     <span class="item-price-${prod.product_id}">${prod.price}</span>
+        //     <span class="currnecy"> ₽</span>
+        //   </s>
+        //   <br>
+        //   <span class="item-price-${prod.product_id}">${prod.price_with_promo}</span>
+        //   <span class="currnecy"> ₽</span>
+        // `
+
+        `
         <s>
           <span class="item-price-${prod.product_id}">${prod.price} ₽</span>
         </s>
@@ -236,13 +247,26 @@ export const promoHandle: Callback = (obj: Order) => {
         <span class="item-price-${prod.product_id}">${prod.price_with_promo} ₽</span>
         `
 
-      rowPriceSpan.innerHTML = `
+      rowPriceSpan.innerHTML =
+
+        `
         <s>
           <span class="raw-item-price-${prod.product_id} raw-total-price-calc">${prod.price * prod.number} ₽</span>
         </s>
         <br>
         <span class="raw-item-price-${prod.product_id} raw-total-price-calc">${prod.price_with_promo * prod.number} ₽</span>
       `
+
+
+      //     `
+      //   <s>
+      //     <span class="raw-item-price-${prod.product_id} raw-total-price-calc">${prod.price * prod.number}</span>
+      //     <span class="currnecy"> ₽</span>
+      //   </s>
+      //   <br>
+      //   <span class="raw-item-price-${prod.product_id} raw-total-price-calc">${prod.price_with_promo * prod.number}</span>
+      //   <span class="currnecy"> ₽</span>
+      // `
     }
 
   })

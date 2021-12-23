@@ -108,6 +108,7 @@
   -webkit-box-flex: 0;
   flex: 0 0 100px;
   width: 100px;
+  // justify-content: space-around;
   /* .basket__table_label {
     @media screen and (max-width: $breakMobile) {
       display: none;
@@ -123,6 +124,7 @@
 
 .basket__table_price--transform {
   transform: translateX(-30px);
+  justify-content: space-around;
 }
 
 .basket__table_cell.basket__table_cell--count {
@@ -405,8 +407,13 @@
 
 .basket__table_text-bold {
   font-family: "clear_sansbold", Arial, sans-serif;
+<<<<<<< HEAD
   /* display: flex; */
   flex-direction: column;
+=======
+  // display: flex;
+  // flex-direction: column;
+>>>>>>> 04b5dcce22d8ddb824260c3bb8db93236ac2c36d
   @media screen and (max-width: $breakTablet) {
     margin-right: 0;
    /*  margin-left: auto; */
@@ -694,10 +701,12 @@
   margin-bottom: 10px;
   /* padding: 20px; */
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 .basket-order-total span {
-  display: block;
+  // display: block;
   width: 20vw;
 }
 
