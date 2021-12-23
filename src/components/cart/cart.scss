@@ -162,7 +162,7 @@
   width: 90px;
   @media screen and (max-width: $breakMobile) {
     width: 33%;
-    flex: 0 0 16%;
+    flex: 0 0 17%;
   }
   /* .basket__table_label {
      @media screen and (max-width: $breakMobile) {
@@ -387,7 +387,7 @@
   width: 90px;
   @media screen and (max-width: $breakMobile) {
     width: 33%;
-    flex: 0 0 8%;
+    flex: 0 0 17%;
   }
 }
 
@@ -405,19 +405,20 @@
 
 .basket__table_text-bold {
   font-family: "clear_sansbold", Arial, sans-serif;
-  display: flex;
+  /* display: flex; */
+  flex-direction: column;
   @media screen and (max-width: $breakTablet) {
     margin-right: 0;
-    margin-left: auto;
+   /*  margin-left: auto; */
   }
   @media screen and (max-width: $breakMobile) {
     margin-right: 0;
-    margin-left: auto;
+    /* margin-left: auto; */
   }
   .raw-total-price-calc {
     @media screen and (max-width: $breakMobile) {
       display: inline-block;
-      margin-right: 2px;
+      /* margin-right: 2px; */
     }
   }
 
