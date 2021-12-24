@@ -15,8 +15,9 @@ const routMap = {
   '/favorite': 'favorite',
   '/reviews': 'reviews',
   '/brands': 'brands',
-
-  '/brand/products': 'brand product'
+  '/new': 'newest',
+  '/sales': 'sales',
+  '/brand/products': 'brand product',
 };
 
 export default routMap;

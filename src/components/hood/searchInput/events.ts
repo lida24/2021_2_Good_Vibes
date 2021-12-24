@@ -13,7 +13,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
     const str = searchInput.value.trim();
 
-    debugger;
+    // debugger;
 
     bus.emit('suggests ajax request', { str });
   });
@@ -42,7 +42,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
     const str = searchInput.value;
 
-    debugger;
+    // debugger;
 
     debouncedBusEmit('suggests ajax request', { str });
   });
@@ -59,7 +59,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
 
     // console.log(targetNode);
-    debugger;
+    // debugger;
 
     if (searchInputNode?.contains(targetNode) || b?.contains(targetNode)) return;
     bus.emit('delete suggests list', undefined);
