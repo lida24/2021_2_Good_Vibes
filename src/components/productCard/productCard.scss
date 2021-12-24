@@ -1,12 +1,14 @@
 @import "../../styles/main.scss";
 
 .product-card {
-  @include set-size(12vw, 20vw);
-  @include product-block;
+  // @include set-size(12vw, 20vw);
+  // @include product-block;
+  width: 100%;
 
   box-shadow: 0 0 1vw rgba(0, 0, 10, 0.08);
+
   position: relative;
-  margin: 0.5vw;
+  // margin: 0.5vw;
   border-radius: 10px;
 
   /* @media screen and (max-width: $breakTablet) {
@@ -16,18 +18,18 @@
   } */
 
   @media screen and (max-width: $breakDesktop) {
-    @include set-size(18vw, 29vw);
-    margin: 0.7vw;
+    // @include set-size(18vw, 29vw);
+    // margin: 0.7vw;
   }
 
   @media screen and (max-width: $breakTablet) {
-    @include set-size(24vw, 39vw);
-    margin: 1vw;
+    // @include set-size(24vw, 39vw);
+    // margin: 1vw;
   }
 
   @media screen and (max-width: $breakMobile) {
-    @include set-size(43vw, 60vw);
-    margin: 1.5vw;
+    // @include set-size(43vw, 60vw);
+    // margin: 1.5vw;
   }
 
   &-inner {
@@ -309,13 +311,13 @@
 .gOrdpE {
   display: none;
   vertical-align: baseline;
-  line-height: 16px;
+  line-height: 19px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 17px;
   letter-spacing: 0.2px;
-  color: rgb(51, 51, 51);
+  color: #333333;
+  text-align: center;
 }
-
 @media screen and (min-width: 768px) {
   .dyeUTf {
     padding-left: 16px;
@@ -379,13 +381,13 @@ p {
   .OccwX.free {
     line-height: 24px;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 .OccwX.free {
   line-height: 24px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 20px;
 }
 .kUzkwc {
   max-width: 100%;
@@ -621,7 +623,7 @@ p {
   .degejw {
     line-height: 24px;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
@@ -629,7 +631,7 @@ p {
   display: block;
   line-height: 24px;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
   color: rgb(51, 51, 51);
 }
 

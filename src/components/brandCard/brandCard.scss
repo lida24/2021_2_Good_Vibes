@@ -1,5 +1,11 @@
 @import "../../styles/main.scss";
 
+.table-only-brads {
+  @media only screen and (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);    
+  }
+}
+
 .a3p5 {
   transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: color;
@@ -22,11 +28,6 @@
   max-height: 100%;
   max-width: 100%;
 } */
-img {
-  border: none;
-  outline: none;
-}
-
 .e4k1 .a6x3.e4k2 {
   left: 24px;
   position: absolute;
@@ -37,7 +38,7 @@ img {
 }
 
 .brand-card {
-  width: 21vw;
-  height: 150px;
+  // width: 21vw;
+  // height: 150px;
   margin-right: 0.5vw;
 }
