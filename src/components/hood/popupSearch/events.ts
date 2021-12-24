@@ -30,18 +30,19 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
 
 
-  // ----------------------
-  document.addEventListener('click', (event) => {
-    // event.preventDefault();
+  // // ----------------------
+  // document.addEventListener('click', (event) => {
+  //   // event.preventDefault();
 
-    const targetNode = <Node>event.target;
-    const searchInputNode = <Node>self.getElementsByTagName('input')[0];
+  //   const targetNode = <Node>event.target;
+  //   const searchInputNode = <Node>self.getElementsByTagName('input')[0];
 
-    // console.log(targetNode);
+  //   // console.log(targetNode);
 
-    if (searchInputNode.contains(targetNode)) return;
-    bus.emit('delete suggests list', undefined);
-  });
+  //   if (searchInputNode.contains(targetNode)) return;
+  //   bus.emit('delete suggests list', undefined);
+  // });
+
 
   // ----------------------
   document.addEventListener('blur', (event) => {

@@ -13,6 +13,8 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
     const str = searchInput.value.trim();
 
+    debugger;
+
     bus.emit('suggests ajax request', { str });
   });
 
@@ -40,6 +42,8 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
     const str = searchInput.value;
 
+    debugger;
+
     debouncedBusEmit('suggests ajax request', { str });
   });
 
@@ -48,11 +52,16 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     // event.preventDefault();
 
     const targetNode = <Node>event.target;
-    const searchInputNode = <Node>self.getElementsByTagName('input')[0];
+    // const searchInputNode = <Node>self.getElementsByTagName('input')[0];
+
+    const searchInputNode = <Node>document.getElementsByClassName('search-input')[0];
+    const b = <Node>document.getElementsByClassName('search-input-popup')[0];
+
 
     // console.log(targetNode);
+    debugger;
 
-    if (searchInputNode.contains(targetNode)) return;
+    if (searchInputNode?.contains(targetNode) || b?.contains(targetNode)) return;
     bus.emit('delete suggests list', undefined);
   });
 

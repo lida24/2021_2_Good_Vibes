@@ -162,11 +162,17 @@ export const changeCategoryLabel: Callback = () => {
 };
 
 export const changeInputStyleOpen: Callback = () => {
+  console.warn('show');
+
   const inputSuggests = document.getElementsByClassName('search-input')[0];
   inputSuggests.classList.add('openSuggests');
 };
 
 export const changeInputStyleDelete: Callback = () => {
+  // debugger;
+
+  console.warn('hide');
+
   const inputSuggests = document.getElementsByClassName('search-input')[0];
   inputSuggests.classList.remove('openSuggests');
 };
