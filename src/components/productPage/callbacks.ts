@@ -27,13 +27,38 @@ export const changeBtn: Callback = (context: Product) => {
 
   const container = <HTMLElement>document.getElementsByClassName('info-card-btn__wrap')[0];
   const numberElement = <HTMLInputElement>document.createElement('input');
+
   numberElement.type = 'number';
+  numberElement.step = '1';
+
+  // numberElement.type = 'text';
+
   numberElement.className = 'product-page-spinner__count count__current-calc g-input count__current ';
+
+  // let b: number = context.number;
+  // numberElement.oninput = event => {
+  //   event.preventDefault();
+
+  //   const a = <HTMLInputElement>event.target;
+  //   const value = a.value;
+
+
+  //   debugger;
+
+  //   // const b = value[value.length - 1];
+  //   if (!a.valueAsNumber) {
+  //     // a.value = value.slice(0, value.length - 1);
+  //     a.valueAsNumber = b;
+  //     return;
+  //   }
+  //   b = a.valueAsNumber;
+  // }
+
 
   const { id } = context;
   const { number } = cart.getItem(context.id);
 
-  debugger;
+  // debugger;
   numberElement.value = number.toString();
 
   numberElement.onchange = event => {
@@ -101,7 +126,7 @@ export const changeBtnMobile: Callback = (context: Product) => {
   const { id } = context;
   const { number } = cart.getItem(context.id);
 
-  debugger;
+  // debugger;
   numberElement.value = number.toString();
 
   numberElement.onchange = event => {

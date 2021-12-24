@@ -347,6 +347,9 @@ export const handleAjaxSalesConfirmed: Callback = (response: AjaxResponse) => {
 
 export const handleAjaxBrandsConfirmed: Callback = (response: AjaxResponse) => {
   const { responseText } = response;
+
+  // debugger;
+
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .then((obj: Brand[]) => bus.emit("brands array parsed", obj))

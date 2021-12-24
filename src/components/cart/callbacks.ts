@@ -75,7 +75,7 @@ export const showCartItems: Callback = (array: Product[]) => {
 
 export const deleteView: Callback = (obj: { 'id': number }) => {
   const { id } = obj;
-  CartItemList.list[id].view.self.remove();
+  CartItemList.list[id]?.view.self.remove();
 
   delete CartItemList.list[id];
 
