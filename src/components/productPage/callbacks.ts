@@ -10,7 +10,7 @@ export const backToCategoryPage: Callback = () => {
   bus.emit('homepage state request', undefined);
 };
 
-export const changeBtn: Callback = () => {
+export const changeBtn: Callback = (context: Product) => {
   const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-btn__cart')[0];
 
   const cartBtnElem = <HTMLButtonElement>document.createElement('button');
@@ -24,9 +24,86 @@ export const changeBtn: Callback = () => {
 
     bus.emit('cart button click', undefined);
   });
+
+  const container = <HTMLElement>document.getElementsByClassName('info-card-btn__wrap')[0];
+  const numberElement = <HTMLInputElement>document.createElement('input');
+
+  numberElement.type = 'number';
+  numberElement.step = '1';
+
+  // numberElement.type = 'text';
+
+  numberElement.className = 'product-page-spinner__count count__current-calc g-input count__current ';
+
+  // let b: number = context.number;
+  // numberElement.oninput = event => {
+  //   event.preventDefault();
+
+  //   const a = <HTMLInputElement>event.target;
+  //   const value = a.value;
+
+
+  //   debugger;
+
+  //   // const b = value[value.length - 1];
+  //   if (!a.valueAsNumber) {
+  //     // a.value = value.slice(0, value.length - 1);
+  //     a.valueAsNumber = b;
+  //     return;
+  //   }
+  //   b = a.valueAsNumber;
+  // }
+
+
+  const { id } = context;
+  const { number } = cart.getItem(context.id);
+
+  // debugger;
+  numberElement.value = number.toString();
+
+  numberElement.onchange = event => {
+    event.preventDefault();
+
+    let value = +numberElement.value;
+    if (value < 0) {
+      value = 0;
+    }
+    if (value > context.count_in_stock) {
+      value = context.count_in_stock;
+    }
+    value = Math.floor(value);
+    if (value === 0) {
+      // change button to add to cart
+      showDefaultAddToCartBtn(context);
+
+      bus.emit('delete product from cart', { id, number });
+      // bus.emit('put product to cart request', { id, number: value });
+      numberElement.remove();
+      return;
+    }
+
+
+    bus.emit('put product to cart request', { id, number: value });
+  }
+
+  container.prepend(numberElement);
 };
 
-export const changeBtnMobile: Callback = () => {
+export const changeBtnMobile: Callback = (context: Product) => {
+  // const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-mobile-btn__cart')[0];
+
+  // const cartBtnElem = <HTMLButtonElement>document.createElement('button');
+  // cartBtnElem.className = 'info-card-btn__add-cart';
+  // cartBtnElem.innerHTML = 'Перейти в корзину';
+
+  // /*  const cartBtnElem = new InfoCardBtn(); */
+  // addBtnParent.replaceWith(cartBtnElem);
+  // cartBtnElem.addEventListener('click', (event) => {
+  //   event.preventDefault();
+
+  //   bus.emit('cart button click', undefined);
+  // });
+
   const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-mobile-btn__cart')[0];
 
   const cartBtnElem = <HTMLButtonElement>document.createElement('button');
@@ -40,16 +117,94 @@ export const changeBtnMobile: Callback = () => {
 
     bus.emit('cart button click', undefined);
   });
+
+  const container = <HTMLElement>document.getElementsByClassName('info-card-mobile-btn__wrap')[0];
+  const numberElement = <HTMLInputElement>document.createElement('input');
+  numberElement.type = 'number';
+  numberElement.className = 'product-page-mobile-spinner__count count__current-calc g-input count__current';
+
+  const { id } = context;
+  const { number } = cart.getItem(context.id);
+
+  // debugger;
+  numberElement.value = number.toString();
+
+  numberElement.onchange = event => {
+    event.preventDefault();
+
+    let value = +numberElement.value;
+    if (value < 0) {
+      value = 0;
+    }
+    if (value > context.count_in_stock) {
+      value = context.count_in_stock;
+    }
+    value = Math.floor(value);
+    if (value === 0) {
+      // change button to add to cart
+      showDefaultAddToCartMobileBtn(context);
+
+      bus.emit('delete product from cart', { id, number });
+      numberElement.remove();
+      return;
+    }
+
+
+    bus.emit('put product to cart request', { id, number: value });
+  }
+
+  container.prepend(numberElement);
 };
 
 export const scrollToTop: Callback = () => {
   document.documentElement.scrollTop = 0;
 };
 
+export const showDefaultAddToCartBtn: Callback = (context: Product) => {
+  const target = <HTMLElement>document.getElementsByClassName('info-card-btn__wrap')[0];
+  target.textContent = '';
+
+  const btn = document.createElement('button');
+  btn.className = 'info-card-btn__cart';
+  btn.textContent = 'Добавить в корзину';
+
+  const { id } = context;
+
+  btn.onclick = event => {
+    event.preventDefault();
+    bus.emit('add product to cart', { id, number: 1 });
+  }
+
+  target.appendChild(btn);
+}
+
+export const showDefaultAddToCartMobileBtn: Callback = (context: Product) => {
+  const target = <HTMLElement>document.getElementsByClassName('info-card-mobile-btn__wrap')[0];
+  target.textContent = '';
+
+  const btn = document.createElement('button');
+  btn.className = 'info-card-mobile-btn__cart';
+  btn.textContent = 'Добавить в корзину';
+
+  const { id } = context;
+
+  btn.onclick = event => {
+    event.preventDefault();
+    bus.emit('add product to cart mobile', { id, number: 1 });
+  }
+
+  target.appendChild(btn);
+}
+
 export const productCheckInCart: Callback = (context: Product) => {
   if (cart.getItem(context.id)) {
-    changeBtn(undefined);
+    changeBtn(context);
+    changeBtnMobile(context);
+    return;
   }
+
+  showDefaultAddToCartMobileBtn(context);
+  showDefaultAddToCartBtn(context);
 };
 
 export const commentsRequest: Callback = (context: Product) => {
