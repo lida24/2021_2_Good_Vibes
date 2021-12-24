@@ -28,7 +28,7 @@ export const changeBtn: Callback = (context: Product) => {
   const container = <HTMLElement>document.getElementsByClassName('info-card-btn__wrap')[0];
   const numberElement = <HTMLInputElement>document.createElement('input');
   numberElement.type = 'number';
-  numberElement.className = 'spinner__count count__current-calc g-input count__current';
+  numberElement.className = 'product-page-spinner__count count__current-calc g-input count__current ';
 
   const { id } = context;
   const { number } = cart.getItem(context.id);
@@ -95,7 +95,7 @@ export const changeBtnMobile: Callback = (context: Product) => {
   const container = <HTMLElement>document.getElementsByClassName('info-card-mobile-btn__wrap')[0];
   const numberElement = <HTMLInputElement>document.createElement('input');
   numberElement.type = 'number';
-  numberElement.className = 'spinner__count count__current-calc g-input count__current';
+  numberElement.className = 'product-page-mobile-spinner__count count__current-calc g-input count__current';
 
   const { id } = context;
   const { number } = cart.getItem(context.id);

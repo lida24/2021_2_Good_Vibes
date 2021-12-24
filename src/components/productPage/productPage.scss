@@ -465,3 +465,35 @@
   margin-top: 2vh;
   background-color: $twitter-color;
 }
+
+.product-page-spinner__count {
+  margin-top: 2vh;
+  height: 4vh;
+  width: 50px;
+  background-color: #fff;
+  border: 1px solid #1da1f2;
+  line-height: 30px;
+  padding: 0;
+  text-align: center;
+  outline: none;
+  border-radius: 5px;
+}
+
+.product-page-mobile-spinner__count {
+    margin-top: 2vh;
+  height: 4vh;
+  width: 50px;
+  background-color: #fff;
+  border: 1px solid #1da1f2;
+  line-height: 30px;
+  padding: 0;
+  text-align: center;
+  outline: none;
+  border-radius: 5px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+
+  opacity: 1;
+}
