@@ -2,6 +2,9 @@ import bus from "../../modules/bus/bus";
 import { AjaxResponse, Callback, Category } from "../../types";
 import categoryList from "../../services/category/list";
 
+import img from '../../img/svg/KEY0.CC-Chevron-Svg-Transparent-Unicode-Chevron.png';
+// import * as img from '../../img/svg/KEY0.CC-Chevron-Svg-Transparent-Unicode-Chevron.png';
+
 // import a from '../../img/svg/'
 
 export const show: Callback = () => {
@@ -187,26 +190,14 @@ export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement =
       const span = <HTMLAnchorElement>document.createElement("span");
       link.appendChild(span);
 
-      // const i = <HTMLElement>document.createElement("i");
-      // i.className = "fa fa-chevron-right";
+      var imgg = new Image();
 
+      imgg.src = img;
 
-      // const i = document.createElementNS('../../img/svg/arrows_bottom_chevron_direction_move_navigation_up_icon_123224.svg', "svg");
+      imgg.style.height = '15px'
+      imgg.className = 'fa fa-chevron-right';
 
-      // const i = document.createElementNS("http://www.w3.org/2000/svg", "svg");;
-      // const i = document.crea
-      // i.className = 'fa fa-chevron-right';
-      // i.className = "fa fa-chevron-right";
-      // i.setAttributeNS(null, 'href', 'http://www.google.com');
-
-      /* i.style.marginRight = "20px"; */
-
-      var img = new Image();
-      img.src = '../../img/svg/KEY0.CC-Chevron-Svg-Transparent-Unicode-Chevron.png';
-      img.style.height = '15px'
-      img.className = 'fa fa-chevron-right';
-
-      span.appendChild(img);
+      span.appendChild(imgg);
     }
 
     parent.appendChild(child);
