@@ -12,7 +12,7 @@ const viewMap: {
   }
 } = {};
 
-let currentView: string;
+export let currentView: string;
 
 const add: (name: string, view: ViewInterface) => void = (name: string, view: ViewInterface) => {
   viewMap[name] = {

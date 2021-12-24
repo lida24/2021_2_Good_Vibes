@@ -52,6 +52,7 @@ export const changeBtn: Callback = (context: Product) => {
       showDefaultAddToCartBtn(context);
 
       bus.emit('delete product from cart', { id, number });
+      // bus.emit('put product to cart request', { id, number: value });
       numberElement.remove();
       return;
     }

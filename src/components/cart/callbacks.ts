@@ -1,4 +1,5 @@
 import bus from '../../modules/bus/bus';
+import { currentView } from '../../rout/viewControl/script';
 import cart from '../../services/cart/cart';
 import orderData from '../../services/orderData/orderData';
 import user from '../../services/user/user';
@@ -77,10 +78,12 @@ export const deleteView: Callback = (obj: { 'id': number }) => {
   CartItemList.list[id].view.self.remove();
 
   delete CartItemList.list[id];
+
+  // emptyCartViewControl();
 };
 
 export const emptyCartViewControl: Callback = () => {
-  if (cart.isEmpty()) {
+  if (cart.isEmpty() && currentView === 'cart') {
     // bus.emit('show view', { name: 'emptyCart' });
     bus.emit('cart state request', undefined);
   }
