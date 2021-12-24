@@ -1,4 +1,5 @@
 import bus from '../../modules/bus/bus';
+import user from '../../services/user/user';
 import { Product, ProductId } from '../../types';
 
 // const initEvents: (self: HTMLElement, context: Product) => void = (self, context) => {
@@ -39,6 +40,14 @@ const initEvents: (self: HTMLElement, { context, img }: { context: Product, img:
 
     const { id } = context;
 
+    // debugger;
+
+    if (!user.isAutorize()) {
+      bus.emit('signIn state request', undefined);
+      // console.warn('asdfa');
+      return;
+    }
+
     bus.emit('add product to favorite', { id });
 
     // bus.emit('add product to favorite local remote', { id });
@@ -49,6 +58,16 @@ const initEvents: (self: HTMLElement, { context, img }: { context: Product, img:
     event.preventDefault();
 
     const { id } = context;
+
+    // debugger;
+
+    if (!user.isAutorize()) {
+      bus.emit('signIn state request', undefined);
+
+      // console.warn('asdfa');
+
+      return;
+    }
 
     bus.emit('del product from favorite', { id });
   });

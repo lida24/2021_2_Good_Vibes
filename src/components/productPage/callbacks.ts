@@ -151,6 +151,13 @@ export const changeBtnOnDelFavorite: Callback = (obj: { 'id': number }) => {
   favoriteBtnElem.addEventListener('click', (event) => {
     event.preventDefault();
 
+    // debugger;
+
+    if (!user.isAutorize()) {
+      bus.emit('signIn state request', undefined);
+      return;
+    }
+
     bus.emit('del product from favorite', { id });
   });
 };
@@ -172,6 +179,14 @@ export const changeBtnToAddFavorite: Callback = (obj: { 'id': number }) => {
   addBtnParent.replaceWith(favoriteBtnElem);
   favoriteBtnElem.addEventListener('click', (event) => {
     event.preventDefault();
+
+    // debugger;
+
+    if (!user.isAutorize()) {
+      bus.emit('signIn state request', undefined);
+      return;
+    }
+
 
     bus.emit('add product to favorite', { id });
 
