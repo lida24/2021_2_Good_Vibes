@@ -607,7 +607,7 @@ export const brandProducts: Callback = (obj: { name: string, id: number }) => {
       url: `${backendAddress}/brand/products?id=${id}`,
     })
     .then((response: AjaxResponse) =>
-      bus.emit("brands product ajax confirmed", { ...response, id })
+      bus.emit("brands product ajax confirmed", { ...response, id, brand: name })
     )
     .catch((response: AjaxResponse) =>
       bus.emit("brands product ajax denied", response)

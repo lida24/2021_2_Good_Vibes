@@ -11,3 +11,7 @@ export const addProductArrayBrand: Callback = (array: Product[]) => {
     productContainer.appendChild(cardView?.self);
   });
 };
+
+export const changeName: Callback = (obj: { 'brand'?: string }) => {
+  console.warn(obj);
+}

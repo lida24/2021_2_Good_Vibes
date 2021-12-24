@@ -128,7 +128,7 @@ export const productStateConfirmed: Callback = (obj: { 'responseText': string })
     .catch((err) => console.error('product page response parse error', err));
 };
 
-export const brandProducts: Callback = ({ id }: { id: number }) => {
+export const brandProducts: Callback = ({ id, brand }: { id: number, brand?: string }) => {
 
   addToHistory({
     // pathname: `/category?name=${obj.name}`,
@@ -143,7 +143,7 @@ export const brandProducts: Callback = ({ id }: { id: number }) => {
 
   // bus.emit('brands products state confirmed', { pathname: '/brand/products' });
   // bus.emit('show view', { name: 'brandsProductPage', pathname: 'brand/products' });
-  bus.emit('show view', { name: 'brandsProductPage', pathname: '/brand/products' });
+  bus.emit('show view', { name: 'brandsProductPage', pathname: '/brand/products', brand });
 
 
 
