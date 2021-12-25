@@ -20,22 +20,11 @@
   }
 
   &-body {
-<<<<<<< HEAD
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    /* justify-content: space-around; */
-
-    @media screen and (max-width: $breakMobile) {
-      margin: 0 4vw;
-    }
-=======
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 2rem;
     width: 100%;
     // margin: 0 1.5rem;
->>>>>>> origin/serg_change
   }
 }
 
