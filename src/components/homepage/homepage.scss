@@ -4,21 +4,23 @@
   width: 100%;
 
   &-inner {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
   }
 
   &__title {
-    font-size: 3vh;
-    margin-bottom: 1vh;
+    font-size: 1.5rem;
+    margin: 0 0 2rem !important;
+    text-align: center;
 
-    @media screen and (max-width: $breakMobile) {
-      margin-left: 4vw;
-      margin-right: 4vw;
-    }
+    // @media screen and (max-width: $breakMobile) {
+    //   margin-left: 4vw;
+    //   margin-right: 4vw;
+    // }
   }
 
   &-body {
+<<<<<<< HEAD
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -27,6 +29,13 @@
     @media screen and (max-width: $breakMobile) {
       margin: 0 4vw;
     }
+=======
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 2rem;
+    width: 100%;
+    // margin: 0 1.5rem;
+>>>>>>> origin/serg_change
   }
 }
 

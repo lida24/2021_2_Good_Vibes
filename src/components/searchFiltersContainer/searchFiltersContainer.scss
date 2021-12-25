@@ -15,7 +15,6 @@
     width: 14vh;
     height: 4vh;
     border: 1px solid;
-    box-sizing: border-box;
     padding-left: 10px;
     font-size: 1.5vh;
     border-radius: 0.5vh 0 0 0.5vh;
@@ -26,7 +25,6 @@
     width: 13vh;
     height: 4vh;
     border: 1px solid;
-    box-sizing: border-box;
     padding-left: 10px;
     font-size: 1.5vh;
     border-radius: 0 0.5vh 0.5vh 0;
@@ -101,19 +99,19 @@
     }
 
     &__title {
-      margin-top: 0;
+      // margin-top: 0;
 
-      @media screen and (max-width: $breakDesktop) {
-        margin-top: revert;
-      }
+      // @media screen and (max-width: $breakDesktop) {
+      //   margin-top: revert;
+      // }
 
-      @media screen and (max-width: $breakTablet) {
-        margin-top: revert;
-      }
+      // @media screen and (max-width: $breakTablet) {
+      //   margin-top: revert;
+      // }
 
-      @media screen and (max-width: $breakMobile) {
-        margin-top: revert;
-      }
+      // @media screen and (max-width: $breakMobile) {
+      //   margin-top: revert;
+      // }
     }
 
     &-elem {

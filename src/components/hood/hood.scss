@@ -12,10 +12,12 @@
 
 #layout {
   flex: 1 0 auto;
+  width: 100%;
+  padding: 0 2rem;
 }
 
 .layout {
-  @include set-size(100%, 100%);
+  // @include set-size(100%, 100%);
   flex: 1 0 auto;
 
   &__main {
@@ -37,8 +39,11 @@
   }
 
   &-inner {
-    margin: 0 15vw;
-    margin-top: 5vh;
+    // margin: 0 15vw;
+    padding-top: 5vh;
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
     flex: 1 0 auto;
     /* min-height: calc(145vh - 44px); */
     /* @include set-size(80%, 100%); */
@@ -48,6 +53,7 @@
       /* min-height: calc(100vh - 44px); 
       width: 80%;
     } */
+<<<<<<< HEAD
     @media screen and (max-width: 1400px) {
       margin: 5vw 10vw;
     }
@@ -73,15 +79,42 @@
       @media screen and (min-width: $breakDesktop) {
         margin: 0vw 14vw;
       }
+=======
+    // @media screen and (max-width: 1400px) {
+    //   margin: 5vw 10vw;
+    // }
+
+    // @media screen and (max-width: $breakDesktop) {
+    //   margin: 5vw 10vw;
+    // }
+
+    // @media screen and (max-width: $breakTablet) {
+    //   margin: 0 5vw;
+    // }
+
+    // @media screen and (max-width: $breakMobile) {
+    //   margin: 5vw 0;
+    // }
+
+    // &-homepage {
+  //     margin: 0 15vw;
+  //     @media screen and (max-width: 1400px) {
+  //       margin: 0vw 10vw;
+  //     }
   
-      @media screen and (max-width: $breakTablet) {
-        margin: 0 5vw;
-      }
+  //     @media screen and (min-width: $breakDesktop) {
+  //       margin: 0vw 10vw;
+  //     }
+>>>>>>> origin/serg_change
   
-      @media screen and (max-width: $breakMobile) {
-        margin: 0;
-      }
-    }
+  //     @media screen and (max-width: $breakTablet) {
+  //       margin: 0 5vw;
+  //     }
+  
+  //     @media screen and (max-width: $breakMobile) {
+  //       margin: 0;
+  //     }
+    // }
   }
 }
 
@@ -102,7 +135,7 @@
 /* Header */
 
 .header {
-  padding: 25px 0 25px;
+  padding: 20px 0 20px;
   /* position: relative; */
   flex: 0 0 auto;
   -webkit-box-flex: 0;
@@ -304,7 +337,7 @@
 .nav__link {
   display: inline-block;
   vertical-align: top;
-  margin: 0 30px;
+  margin: 0 20px;
   position: relative;
 
   color: #fff;
@@ -350,7 +383,7 @@
   position: relative;
   -webkit-box-flex: 1;
   flex-grow: 1;
-  margin: 0 52px 0 20px;
+  margin: 0px 35px 0 0px;
 }
 
 .wiki-viewer-header {
@@ -399,6 +432,7 @@
   padding: 16px 0px 16px 15px;
   margin: 0;
   border-radius: 56px;
+  margin-left: 11px;
   /* background: rgba(255,255,255,0.2); */
   cursor: pointer;
   border: none;

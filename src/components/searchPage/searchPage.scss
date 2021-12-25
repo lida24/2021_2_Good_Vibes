@@ -8,6 +8,7 @@
     flex-direction: column;
   }
 
+<<<<<<< HEAD
   &__title {
     font-size: 3vh;
     margin-bottom: 1vh;
@@ -19,6 +20,12 @@
     flex-wrap: wrap;
     /* justify-content: space-around; */
   }
+=======
+  // &__title {
+  //   font-size: 3vh;
+  //   margin-bottom: 1vh;
+  // }
+>>>>>>> origin/serg_change
 }
 
 .search {
@@ -77,19 +84,19 @@
       margin-bottom: 2vh;
     }
 
-    &__title {
-      margin-top: 0;
-      @media screen and (max-width: $breakDesktop) {
-        margin-top: revert;
-      }
-      @media screen and (max-width: $breakTablet) {
-        margin-top: revert;
-      }
+    // &__title {
+    //   margin-top: 0;
+    //   @media screen and (max-width: $breakDesktop) {
+    //     margin-top: revert;
+    //   }
+    //   @media screen and (max-width: $breakTablet) {
+    //     margin-top: revert;
+    //   }
 
-      @media screen and (max-width: $breakMobile) {
-        margin-top: revert;
-      }
-    }
+    //   @media screen and (max-width: $breakMobile) {
+    //     margin-top: revert;
+    //   }
+    // }
 
     &-elem {
       margin-bottom: 1vh;
@@ -198,26 +205,6 @@
         }
       }
     }
-  }
-}
-
-.sort {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-bottom: 10px;
-  margin: 1vw;
-  span {
-    margin-right: 20px;
-    color: #909090;
-  }
-  @media screen and (max-width: 576px) {
-    margin: 0 6vw;
   }
 }
 
